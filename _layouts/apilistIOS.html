@@ -1,0 +1,27 @@
+---
+layout: page2
+---
+{% assign apis = site.headunit-sdk | where:"type", "api" %}
+{% assign events = site.headunit-sdk | where:"type", "event" %}
+{{ 'now' | date: "%Y-%b-%d:%R:%S" }}
+<h1 id="api">API Reference </h1>
+{% for api in apis %}
+<h2 id="api-{{ api.title | replace: '.', '-' | remove: '()'}}">{{ api.title }} </h2>
+<h4>
+    {% for wave in api.supported %}
+    <span class="badge badge-success">wave {{ wave }}</span>
+    {% endfor %}
+</h4>
+<p>{{ api.content }}</p>
+{% endfor %}
+<h1 id="event">Events Reference </h1>
+{% for event in events %}
+<hr>
+<h2 id="event-{{ event.title | replace: '.', '-' | remove: '()'}}">{{ event.title }}</h2>
+<h4> Supported headunits :
+    {% for wave in event.supported %}
+    <span class="badge badge-success">wave {{ wave }}</span>
+    {% endfor %}
+</h4>
+<p>{{ event.content }}</p>
+{% endfor %}

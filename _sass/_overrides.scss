@@ -1,0 +1,163 @@
+// No overrides so far
+
+.icon-logo {
+    width: 79px;
+    height: 45px;
+    fill: #fff;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+    {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+h2 {
+    font-weight: 800;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1e2336;
+}
+
+.footer {
+    background-color: #1e2336;
+    color: #ffffff
+}
+
+footer a {
+    color: #ffffff;
+}
+
+.content {
+    background-color: #ffffff;
+    padding: 5%;
+}
+
+.bd-lead {
+    background-color: #ffffff;
+}
+
+
+.bd-side,
+.bd-side-background {
+    background-color: #fafafa;
+    position: relative;
+    flex: 0 0 auto;
+    min-width: 15vw;
+}
+
+.bd-side {
+
+    padding: 3rem 0 3rem 1.5rem;
+
+}
+
+.bd-duo {
+    display: flex;
+}
+
+.bd-lead {
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 20vw;
+}
+
+.bd-anchors.is-pinned {
+    position: sticky;
+    top: 0;
+}
+
+.bd-anchors-list a {
+    color: #363636;
+}
+
+.bd-anchors-list li.is-current a, .bd-category-list li.is-current a {
+    color: #3273dc;
+}
+
+.bd-anchors-list li.is-past a, .bd-category-list li.is-past a {
+    color: #b5b5b5;
+}
+
+
+h1.title {
+    font-size: 5rem;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+section nav {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.mainnav {
+    margin-left: 144px;
+}
+
+.navbar-start {
+    margin-left: 5%;
+}
+
+.menu {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.hero_webportal {
+    background-image: url("../../city2.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.hero_main {
+    background-image: url("../../city.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.hero_android {
+    background-image: url("../../android.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.hero_ios {
+    background-image: url("../../ios.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.hero_api {
+    background-image: url("../../cloud.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+#navbarBasicExample {
+    background-color: #36363600;
+    box-shadow: 0 0px 0px rgba(10, 10, 10, 0);
+}
+
+#anchors {
+    flex: 0 0 auto;
+    max-width: 34vw;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.bd-anchors-title {
+    color: #cc5959;
+}
+
+.bd-anchor-link {
+    color: #3273dc00;
+}

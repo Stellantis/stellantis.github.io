@@ -1,0 +1,8 @@
+---
+layout: page2
+---
+{% assign guides = site.webPortal_QuickGuides %}
+{% for guide in guides %}
+<p>{{ guide.content }}</p>
+<hr>
+{% endfor %}
