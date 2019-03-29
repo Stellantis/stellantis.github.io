@@ -4,7 +4,7 @@ name: PSA Documentation
 
 description: PSA documentation website
 baseurl: "" # the subpath of the site, e.g. /blog
-url: "http://developer.groupe-psa.io" # the base hostname & protocol for the site, e.g. http://example.com
+url: "https://developer.groupe-psa.io" # the base hostname & protocol for the site, e.g. http://example.com
 
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
