@@ -14,5 +14,5 @@ Event to send to WebPortal when you wish to send a notification.
 ### Example
 
 ```javascript
-window.parent.postMessage({'type':'WebPortal.onSendNotificationRequest'}, '*');
+window.parent.postMessage(({'type':'WebPortal.onSendNotificationRequest','topic':'/ecodrive','value':'Hello World'}, '*');
 ```

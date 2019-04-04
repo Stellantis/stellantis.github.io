@@ -29,6 +29,6 @@ if ( Device.GetInternetStatus() === False ){
 
 >**Note :** Popups shouldn't be asked more often than once every 20 seconds.
 
->**Note 2 :** Using The WebPortal's API to display popups instead of Device.PopupRequest will let you choose between more and options and manage some events.
+>**Note 2 :** It is recommended to use the WebPortal's API to display popups instead of Device.PopupRequest. This will also let you choose between more options and manage some events.
 
 >**Known issue :** In older versions of the NAC, the OK button is displayed regardless of the value `popupType` value passed.
