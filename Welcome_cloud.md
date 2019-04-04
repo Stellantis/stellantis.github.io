@@ -3,26 +3,25 @@ title: Web Presentation
 layout: pageWebAPI
 ---
 
-# About Web
+# About Cloud
 
-The Web SDK implements all the resources you need for your app to communicate with the car.
+The Web API implements all the resources you need to retrieve information from the vehicle.
 
 ## Important information
 
-
-Using the provided SDK you will be able to :
-- 
-
+The Groupe PSA's API is based on REST and uses JSON for data.
+Using HTTP method GET you will be able to get the information you need.
 
 ## Requirements
 
 Knowledge of :
-- 
+- HTTP requests
+- JSON file format
 
 ## Tutorial
 
-A [Quick Start guide]({{ site.baseurl }}) is provided to help you get started.
+A [Quick Start guide]({{ site.baseurl }}) is provided to help you understand the basics and get started.
 
 ## API Documentation
 
-The complete API Documentation can be found [here]({{ site.baseurl }}).
+The complete API Documentation can be found [here](https://developer-preprod.groupe-psa.com/inc/).

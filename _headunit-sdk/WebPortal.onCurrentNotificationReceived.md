@@ -1,5 +1,5 @@
 ---
-title: WebPortal.onCurrentNotifiationReceived
+title: WebPortal.onCurrentNotificationReceived
 layout: headunit-sdk
 supported:
   - 2

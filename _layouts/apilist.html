@@ -12,21 +12,19 @@ layout: page2
     {% for wave in api.supported %}
     <div class="control">
         <div class="tags has-addons">
-            <span class="tag is-dark">wave</span>
-            <span class="tag is-info">{{ wave }}</span>
+            <a href= "{{ site.baseurl }}/Welcome_webportal/#nac---connected-navigation-system" > <span class="tag is-dark">wave</span><span class="tag is-info">{{ wave }}</span> </a>
         </div>
     </div>
     {% endfor %}
 </div>
 <div class="control">
         <div class="tags has-addons">
-            <span class="tag is-light">min privacy</span>
-            <span class="tag is-success">{% if api.privacy %}
+            <a href= "{{ site.baseurl }}/webportal_QuickGuide/#privacy-mode" ><span class="tag is-light">min privacy</span><span class="tag is-success">{% if api.privacy %}
 			{{ api.privacy }}
 			{% else %}
 			Full
 			{% endif %}
-			</span>
+			</span> </a>
         </div>
     </div>
 <p>{{ api.content }}</p>
@@ -40,8 +38,7 @@ layout: page2
     {% for wave in event.supported %}
     <div class="control">
         <div class="tags has-addons">
-            <span class="tag is-dark">wave</span>
-            <span class="tag is-info">{{ wave }}</span>
+            <a href= "{{ site.baseurl }}/Welcome_webportal/#nac---connected-navigation-system" ><span class="tag is-dark">wave</span><span class="tag is-info">{{ wave }}</span> </a>
         </div>
     </div>
     {% endfor %}
