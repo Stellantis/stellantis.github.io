@@ -18,7 +18,7 @@ privacy: Geoloc
 #### Example
 
 ```javascript
-let VINCode = Car.GetVINCode();
+var VINCode = Car.GetVINCode();
 // VINCode = VF7BSISCT00000001
 ```
 

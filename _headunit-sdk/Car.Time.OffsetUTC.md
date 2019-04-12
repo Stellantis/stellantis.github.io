@@ -20,7 +20,7 @@ type: api
 Car.Time.GetTime()
 
 //Updated time values
-let CurrentOffset = Car.Time.OffsetUTC()
+var CurrentOffset = Car.Time.OffsetUTC()
 ```
 
 #### Remark

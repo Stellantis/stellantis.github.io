@@ -142,7 +142,7 @@ section nav {
     background-position: center center;
 }
 
-#navbarBasicExample {
+#navMenu {
     background-color: #36363600;
     box-shadow: 0 0px 0px rgba(10, 10, 10, 0);
 }
@@ -160,4 +160,30 @@ section nav {
 
 .bd-anchor-link {
     color: #3273dc00;
+}
+
+.navbar-end {
+    padding-top: 0.5rem;
+}
+
+
+#lunrsearchresults {
+    background-color: #fff;
+	padding-left: 3.5rem;
+	padding-right: 3.5rem;
+	padding-top: 2.5rem;
+	margin-top: 1rem;
+}
+
+.lunrsearchresult .title {
+	font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#txtsearchresult {
+    padding-top: 0.5rem;
+	padding-bottom: 1rem;
+	color: #374063;
+	font-size: 2rem;
+    font-weight: 600;
 }

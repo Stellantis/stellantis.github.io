@@ -16,7 +16,7 @@ The WebPortal relies on [REST API](https://restfulapi.net/) and [MQTT protocol](
 
 First of all the standard display window is 800x480 pixels.  
 There's also a home button size 150x30 px located on the bottom left as well as, displayed at the top, an indicator of the current time, the current sound profile...  
-So the effective space available for Apps' content is 800x435.  
+So the effective space available for Apps' content is 800x425.  
 
 When the system starts, a menu appears where the user can choose to access the Connected Apps:
 

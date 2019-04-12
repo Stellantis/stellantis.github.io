@@ -21,11 +21,11 @@ privacy: Public
 if ( Navigation.GetCurrentPosition === false ) {
 	// GPS error, Navigation.CurrentPosition is empty
 } else {
-	let Storedaddress = Navigation.CurrentPosition.address;
-	let StoredTown = Navigation.CurrentPosition.Town;
-	let StoredCity = Navigation.CurrentPosition.City;
-	let StoredProvince = Navigation.CurrentPosition.Province;
-	let StoredCountry = Navigation.CurrentPosition.Country;
+	var Storedaddress = Navigation.CurrentPosition.address;
+	var StoredTown = Navigation.CurrentPosition.Town;
+	var StoredCity = Navigation.CurrentPosition.City;
+	var StoredProvince = Navigation.CurrentPosition.Province;
+	var StoredCountry = Navigation.CurrentPosition.Country;
 }
 ```
 

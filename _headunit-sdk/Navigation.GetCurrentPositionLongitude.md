@@ -18,7 +18,7 @@ privacy: Public
 #### Example
 
 ```javascript
-let CurrentLongitude = Navigation.GetCurrentPositionLongitude();
+var CurrentLongitude = Navigation.GetCurrentPositionLongitude();
 // CurrentLongitude = 2.333333
 ```
 
