@@ -7,7 +7,7 @@ layout: page2
 
 This part will help you better understand the way your application's lifecycle is managed by the WebPortal
 
-## Launching Application
+### Launching Application
 
 When the DOM is loaded and the initialization is finished, the application **must** send a message to the WebPortal.
 In order to know when the DOM is loaded you have to listen to the `DOMContentLoaded` event.
@@ -23,7 +23,7 @@ window.addEventListener("load", function(event) {
 
 >**Note :** If the message is not received during a 10s timeframe, the application will be closed and an error message will be displayed to the user.
 
-## Unloading Application
+### Unloading Application
 
 The portal can kill an application in order to launch another one or to update it.
 When it is unloading an application the portal sends a message `WebPortal.onApplicationUnloaded` to inform the app it has 100ms to save its state.
@@ -47,7 +47,7 @@ The app **must** listen to messages from WebPortal to be able to react.
     });
 ```
 
-## Hiding Application
+### Hiding Application
 
 When the user clicks on the Home button the portal sends a message `WebPortal.onApplicationHide` to inform the app it has 100ms to save its state.
 The Application is then hidden.
@@ -71,7 +71,7 @@ The Application is then hidden.
 ```
 
 
-## Showing Application
+### Showing Application
 
 When the application gains focus after the user clicked on it while it was hidden, the portal sends a `WebPortal.onApplicationShow` to inform the app.
 
@@ -92,3 +92,5 @@ When the application gains focus after the user clicked on it while it was hidde
 		}
     });
 ```
+
+You can now continue to the [Advanced Tutorial]({{ site.baseurl }}/webportal_TutorialAdvanced)

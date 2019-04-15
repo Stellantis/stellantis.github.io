@@ -16,7 +16,7 @@ type: api
 #### Example
 
 ```javascript
-let CarAutonomy = Car.GetAutonomy();
+var CarAutonomy = Car.GetAutonomy();
 // CarAutonomy = 342
 // The max length is 3 characters
 ```

@@ -18,7 +18,7 @@ privacy: Public
 #### Example
 
 ```javascript
-let WaypointETAMinutes = Navigation.GetNextWaypointETAMinutes();
+var WaypointETAMinutes = Navigation.GetNextWaypointETAMinutes();
 ```
 	
 #### Remark

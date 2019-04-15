@@ -21,8 +21,8 @@ privacy: Public
 if ( Navigation.GetJourneyInfo() === false ) {
 	// GPS error, Navigation.JourneyInfo is empty
 } else {
-	let JourneyETaHours = Navigation.JourneyInfo.estimatedTimeOfarrivalH;
-	let JourneyETaMinutes = Navigation.JourneyInfo.estimatedTimeOfarrivalMin;
+	var JourneyETaHours = Navigation.JourneyInfo.estimatedTimeOfarrivalH;
+	var JourneyETaMinutes = Navigation.JourneyInfo.estimatedTimeOfarrivalMin;
 }
 ```
 

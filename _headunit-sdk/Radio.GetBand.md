@@ -18,7 +18,7 @@ type: api
 
 ```javascript
 //Get the Radio Band
-let RadioBand = Radio.GetBand()
+var RadioBand = Radio.GetBand()
 ```
 
 #### Remark

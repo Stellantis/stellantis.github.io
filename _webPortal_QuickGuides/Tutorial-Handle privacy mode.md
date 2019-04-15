@@ -28,7 +28,7 @@ if ((typeof Privacy !== "undefined") && (typeof Privacy.addEventListener !== "un
 
 Some functionnalities will be unavailable in Geoloc or Full privacy mode.
 
-## When Privacy.Mode()=Full
+### When Privacy.Mode()=Full
 
 The following methods return undefined :
 - Car.GetVINCode()
@@ -68,7 +68,7 @@ These methods won't do anything and return false :
 - Navigation.LaunchGuidance()
 - Navigation.LaunchGuidanceWaypoint()
 
-## When Privacy.Mode()=geoloc
+### When Privacy.Mode()=geoloc
 
 The following methods return undefined :
 - Navigation.GetCurrentPositionLatitude()

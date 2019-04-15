@@ -17,7 +17,7 @@ type: api
 #### Example
 
 ```javascript
-let FuelType = Car.GetFuelType;
+var FuelType = Car.GetFuelType;
 // FuelType = 0
 // The car uses Essence
 ```

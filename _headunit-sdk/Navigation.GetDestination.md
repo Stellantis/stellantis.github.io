@@ -21,13 +21,13 @@ privacy: Public
 if ( Navigation.GetDestination() === false ) {
 	// GPS error, Navigation.Destination is empty
 } else {
-	let DestinationLatitude = Navigation.Destination.Latitude;
-	let Destinationlongitude = Navigation.Destination.Longitude;
-	let Destinationaddress = Navigation.Destination.address;
-	let DestinationTown = Navigation.Destination.Town;
-	let Destinationity = Navigation.Destination.City;
-	let DestinationProvince = Navigation.Destination.Province;
-	let DestinationCountry = Navigation.Destination.Country;
+	var DestinationLatitude = Navigation.Destination.Latitude;
+	var Destinationlongitude = Navigation.Destination.Longitude;
+	var Destinationaddress = Navigation.Destination.address;
+	var DestinationTown = Navigation.Destination.Town;
+	var Destinationity = Navigation.Destination.City;
+	var DestinationProvince = Navigation.Destination.Province;
+	var DestinationCountry = Navigation.Destination.Country;
 }
 ```
 

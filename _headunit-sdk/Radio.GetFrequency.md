@@ -18,7 +18,7 @@ type: api
 
 ```javascript
 //Get the Radio Frequency
-let MyFrequency1 = Radio.GetFrequency()
+var MyFrequency1 = Radio.GetFrequency()
 ```
 	
 #### Remark

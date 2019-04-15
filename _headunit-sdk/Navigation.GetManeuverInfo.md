@@ -21,13 +21,13 @@ privacy: Public
 if ( Navigation.GetManeuverInfo() === false ) {
 	// GPS error, Navigation.ManeuverInfo is empty
 } else {
-	let ManeuverLatitude = Navigation.ManeuverInfo.Latitude;
-	let ManeuverLongitude = Navigation.ManeuverInfo.Longitude;
-	let ManeuverNextStreetName = Navigation.ManeuverInfo.nextStreetName;
-	let ManeuverTown = Navigation.ManeuverInfo.Town;
-	let ManeuverCity = Navigation.ManeuverInfo.City;
-	let ManeuverProvince = Navigation.ManeuverInfo.Province;
-	let ManeuverCountry = Navigation.ManeuverInfo.Country;
+	var ManeuverLatitude = Navigation.ManeuverInfo.Latitude;
+	var ManeuverLongitude = Navigation.ManeuverInfo.Longitude;
+	var ManeuverNextStreetName = Navigation.ManeuverInfo.nextStreetName;
+	var ManeuverTown = Navigation.ManeuverInfo.Town;
+	var ManeuverCity = Navigation.ManeuverInfo.City;
+	var ManeuverProvince = Navigation.ManeuverInfo.Province;
+	var ManeuverCountry = Navigation.ManeuverInfo.Country;
 }
 ```
 

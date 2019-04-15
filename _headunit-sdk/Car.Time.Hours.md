@@ -21,7 +21,7 @@ type: api
 Car.Time.GetTime()
 
 //Updated time values
-let CurrentHour = Car.Time.Hours()
+var CurrentHour = Car.Time.Hours()
 ```
 
 #### Remark

@@ -13,7 +13,7 @@ exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "pac
 theme: jekyll-bulma
 
 # Enable or disable the site search
-search_enabled: false
+search_enabled: true
 
 collections:
   - headunit-sdk

@@ -15,7 +15,7 @@ type: api
 #### Example
 
 ```javascript
-let Batteryautonomy = Car.GetBatteryAutonomy();
+var Batteryautonomy = Car.GetBatteryAutonomy();
 // Batteryautonomy = 1000
 ```
 

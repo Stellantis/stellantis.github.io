@@ -22,12 +22,12 @@ Parameter | Type | Description | Required
 #### Example
 
 ```javascript
-let DestinationLongitude = 48.866669
-let DestinationLatitude = 2.33333
-let Waypoint1Lat = 48.77745
-let Waypoint1Lon = 2.22366
-let Waypoint2Lat = 48.111111
-let Waypoint2Lon = 2.11132
+var DestinationLongitude = 48.866669
+var DestinationLatitude = 2.33333
+var Waypoint1Lat = 48.77745
+var Waypoint1Lon = 2.22366
+var Waypoint2Lat = 48.111111
+var Waypoint2Lon = 2.11132
 
 if ( Navigation.LaunchGuidance(DestinationLongitude, DestinationLatitude, [{lat: Waypoint1Lat, lon: Waypoint1Lon}, {lat: Waypoint2Lat, lon: Waypoint2Lon}]) === false ) {
 	// Error, Itinerary not correctly set
@@ -91,14 +91,14 @@ Parameter | Type | Description | Required
 #### Example
 
 ```javascript
-let DestinationLongitude = 48.866669
-let DestinationLatitude = 2.33333
-let Waypoint1Lat = 48.77745
-let Waypoint1Lon = 2.22366
-let Waypoint2Lat = 48.111111
-let Waypoint2Lon = 2.11132
-let Waypoint3Lat = 48.55544
-let Waypoint3Lon = 2.31111
+var DestinationLongitude = 48.866669
+var DestinationLatitude = 2.33333
+var Waypoint1Lat = 48.77745
+var Waypoint1Lon = 2.22366
+var Waypoint2Lat = 48.111111
+var Waypoint2Lon = 2.11132
+var Waypoint3Lat = 48.55544
+var Waypoint3Lon = 2.31111
 
 if ( Navigation.LaunchGuidance(DestinationLongitude, DestinationLatitude, Waypoint1Lat, Waypoint1Lon, Waypoint2Lat, Waypoint2Lon, Waypoint3Lat, Waypoint3Lon) === false ) {
 	// Error, Itinerary not correctly set

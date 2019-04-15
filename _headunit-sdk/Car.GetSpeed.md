@@ -18,7 +18,7 @@ privacy: Geoloc
 #### Example
 
 ```javascript
-let Speed = Car.GetSpeed();
+var Speed = Car.GetSpeed();
 // Speed = 117
 ```
 

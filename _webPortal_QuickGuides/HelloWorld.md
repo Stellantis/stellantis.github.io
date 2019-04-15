@@ -3,11 +3,11 @@ title: Selecting MQTT publishing topic
 layout: page2
 ---
 
-# Information available
+# Information available using the API
 
-The API will allow you to get the following information :
+The API will allow you to do the following :
 
-- `Car` : Get information about the vehicle : VIN code, Fuel type, unit and level, Current speed and unit, Mileage and distance unit, Autonomy, level of battery and fuel, the driving state, the time, 
+- `Car` : Get information about the vehicle : [VIN code](https://fr.wikipedia.org/wiki/Vehicle_Identification_Number), Fuel type, unit and level, Current speed and unit, Mileage and distance unit, Autonomy, level of battery and fuel, the driving state, the time, 
 - `Connectivity` : Detect the connectivity status
 - `Device` : Request a popup, get hardware and software version of the system, 
 - `HMI` : Information on the user, UIN, language, country, 
@@ -19,13 +19,18 @@ The API will allow you to get the following information :
 - `System` : Settings action reserved to administrative use
 - `Webportal` : All the events associated to user interaction or due to server
 
-# Hello World
+# Getting Started
 
-This tutorial will guide you through the creation of your Application.  
-You can start by downloading the base of your application <a href="{{ site.baseurl }}/helloworld.zip" download="">Here</a>.
+You will need to contact [PSA Team](mailto:connectedcar@mpsa.com) in order to become a partner and deploy your apps on the Webportal so you should start by doing so.
+The team will also be able to help you with questions you might have.
 
+This tutorial will guide you through the creation of your Application.
+<br />
+You can also start by downloading the base of your application directly.
 
-## HTML
+<a class="button is-success is-rounded" href="{{ site.baseurl }}/helloworld.zip" download="">Download File</a>
+
+### HTML
 
 The HTML part of your project is conventional, you create your objects and static content.
 
@@ -41,7 +46,7 @@ The HTML part of your project is conventional, you create your objects and stati
 </div>
 ```
 
-## CSS
+### CSS
 
 You can customize your CSS stylesheet, here is simply an example changing the color of the text displayed.
 
@@ -52,7 +57,7 @@ You can customize your CSS stylesheet, here is simply an example changing the co
 }
 ```
 
-## JS
+### JS
 
 Here you have the required JS for your application to function properly. You can add the functions you need to handle other events.
 
