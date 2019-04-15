@@ -9,30 +9,26 @@ WebPortal is based on web technologies however there are some specifities that y
 
 ## General
 
-Your app is sandboxed in an iframe which means no access to the internet and public networks.
+Your app is sandboxed in an iframe meaning no access to the internet or public networks.
 
-You can only communicate to the webportal by using the HTML5 `Window.postMessage`.
+You can't use external ressources which means: 
+- no CDN
+- no `fetch()`
+- your package must be standalone and use only relative urls
+
+The only way to communicate with the webportal is by using HTML5 `Window.postMessage()`. This is also how you can communicate with your server if you need to exchange information.
 You don't need to mind the MQTT on the embedded part, the WebPortal will handle it for you.
 
-You can still communicate with your server to exchange information.
+If your app requires to automatically retry sending a message then you should directly implement it as this functionnality does not exist by default in the WebPortal.
 
-You can't use external ressources, this means: 
-- no CDN,
-- no fetching,
-- your package must be standalone and use only relative urls
+It is best to keep the html to a reasonable size and use assets. This is to reduce the chances of the page not loading properly and thus prevent reloading big files due to the handover. Remember that the handover is even more frequent than for a phone.
+
+The GPU is deactivated for all devices, this means heavy animations should **not** be used.
 
 ## Date and Time
 
 Do not use the methods of the javascript Date class.
-Instead you sould use the [methods from webportal]({{ site.baseurl }}/webportal_list/#api-Car-Time-GetTime) designed to manipulate those values as they correspond to the current time of the user.
-
-## WebKit Animations
-
-The GPU is deactivated for all devices, this means heavy animations should **not** be used.
-
-## HTML
-
-It is best to keep the html to a reasonable size and use assets. This is to reduce the chances of the page not loading properly and thus prevent reloading big files due to the handover. Remember that the handover is even more frequent than for a phone.
+Instead you sould use the [methods from webportal]({{ site.baseurl }}/webportal_list/#api-Car-Time-GetTime) meant to manipulate those values as they correspond to the current time of the user.
 
 ## Loading and using assets
 
@@ -41,8 +37,6 @@ In order to make the App launch smoother, the app should only signal its ready s
 All the assets should be loaded at the launch of the app. Then they can be accessed in the cache of the browser by requesting the same url.
 
 When accessing the assets you delivered with webportal you have to keep in mind the path is not the same relative one as it will be downloaded by the webportal on launch.
-
-## Using Resources
 
 Keep in mind that RAM is limited when you intend to use assets.
 
@@ -63,7 +57,7 @@ The data volummetry should be kept to a minimum.
 
 Also keep in mind that if the user has an ATB, their connection is limited to 3G speeds.
 
-## Using cache
+## Using Cache
 
 To be able to deliver your content faster, you should cache files you will reuse multiple times.
 This cache limit is 20MB.
@@ -82,16 +76,12 @@ What is more, the following apis use a cache:
 - Navigation.ManeuverInfo.*
 - Navigation.JourneyInfo.*
 
-Calls between each cached value should wait at least 50 miliseconds.
+Calls between each cached api should wait at least 50 miliseconds.
 
 All other apis should respect an interval of at least 500 miliseconds between each call.
 
-## Retry message
-
-You should directly implement a method to retry sending a message if your app needs it as this functionnality does not exist by default in the WebPortal.
-
 ## Testing phase
 
-When testing, in order to know the version of the webportal you can check the first digit in the system parameters as it should correspond to the wave of the system.
+When testing your app, in order to know the version of the webportal you can check the first digit in the system parameters as it corresponds to the wave of the system.
 
-To generate logs, you have to send the messages to your backend as the only logs generated on the device are the ones corresponding to the system.
+To generate logs, you have to send the messages to your backend as the logs generated on the device are the ones corresponding to the system.
