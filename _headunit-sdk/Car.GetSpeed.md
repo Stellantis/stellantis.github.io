@@ -11,15 +11,15 @@ privacy: Geoloc
 
 ### `Car.GetSpeed()`
 
-| **Description** | Gets the current Speed of the car in the unit currently used.
-| **Response** | *Number*  Speed in the currently used speed unit.
+| **Description** | Gets the current Speed of the car aways in km/h.
+| **Response** | *Number*  Speed in km/h
 | **Parameter**   | *Void*
 
 #### Example
 
 ```javascript
 var Speed = Car.GetSpeed();
-// Speed = 117
+// Speed = 117 km/h
 ```
 
 #### Remark

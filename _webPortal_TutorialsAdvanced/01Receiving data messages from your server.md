@@ -26,11 +26,11 @@ To retrieve your messages you have to implement the `"message"` event handler an
 **Implementation example :**
 ```javascript
 	window.addEventListener('message', function(messageEvent) {
-	    let webportalMessage = messageEvent.data;
+	    var webportalMessage = messageEvent.data;
 	
 	    if (webportalMessage.type === 'WebPortal.onCurrentNotificationReceived') {
-	        let mqttMessagePayload = webportalMessage.value;
-	        let appServerMessage = mqttMessagePayload.content;
+	        var mqttMessagePayload = webportalMessage.value;
+	        var appServerMessage = mqttMessagePayload.content;
 	
 	        // Use your own application message handler
 	        myHandleServerMessage(appServerMessage);
@@ -67,9 +67,9 @@ WebPortal.getPendingNotifications = function(appId) {};
 const MY_APP_ID = 'some_id';
 
 (function processWebportalPendingNotifications() {
-	let pendingNotifications = WebPortal.getPendingNotifications(MY_APP_ID);
-	for (let i = 0; i < pendingNotifications.length; ++i) {
-		let mqttMessage = pendingNotifications[i];
+	var pendingNotifications = WebPortal.getPendingNotifications(MY_APP_ID);
+	for (var i = 0; i < pendingNotifications.length; ++i) {
+		var mqttMessage = pendingNotifications[i];
 
 		/*
 		mqttMessage = {

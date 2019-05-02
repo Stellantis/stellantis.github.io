@@ -18,6 +18,7 @@ type: api
 
 ```javascript
 var userLanguage = WebPortal.getLanguage()
+// userLanguage = "fr-FR"
 if (userLanguage === "fr-FR") {
 	ContentInFrench()
 }

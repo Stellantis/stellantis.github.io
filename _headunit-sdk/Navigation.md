@@ -20,7 +20,8 @@ Method | Response Type | Description
 [Navigation.GetCurrentPositionLongitude()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetCurrentPositionLongitude) | Number| Gets the current position's longitude in WGS84 Signed Decimal Degrees.
 [Navigation.GetCurrentPosition()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetCurrentPosition) | Boolean | Retrieves the current position and store it inside `Navigation.CurrentPosition`.
 [Navigation.GetDestination()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetDestination) | Boolean | Retrieves the current position and store it inside `Navigation.Destination`.
-[Navigation.LaunchGuidance()]({{ site.baseurl }}/webportal_list/#api-Navigation-LaunchGuidance) | Boolean | Starts the navigation to the specified destination and passing through all the specified waypoints.
+[Navigation.LaunchGuidance()]({{ site.baseurl }}/webportal_list/#api-Navigation-LaunchGuidance) | Boolean | Starts the navigation to the specified destination and passing through all intermediary destinations.
+[Navigation.LaunchGuidanceWaypoints()]({{ site.baseurl }}/webportal_list/#api-Navigation-LaunchGuidanceWaypoints) | Boolean | Starts the navigation to the specified destination and passing through all the specified waypoints.
 [Navigation.GetManeuverInfo()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetManeuverInfo) | Boolean | Retrieves information on the next maneuver and store it inside `Navigation.ManeuverInfo`.
 [Navigation.GetJourneyInfo()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetJourneyInfo) | Boolean | Retrieves information on the estimated time of arrival at destination and store it inside `Navigation.JourneyInfo`.
 [Navigation.GetNextWaypoint.ETAHours()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetNextWaypointETAHours) | Number | Returns the estimated hour of arrival at the next waypoint.

@@ -21,6 +21,7 @@ Car.Time.GetTime()
 
 //Updated time values
 var CurrentOffset = Car.Time.OffsetUTC()
+// CurrentOffset = +1
 ```
 
 #### Remark

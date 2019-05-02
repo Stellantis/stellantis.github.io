@@ -18,4 +18,5 @@ type: api
 
 ```javascript
 var carMileage = Car.GetMileage()
+// carMileage = 125000 km
 ```

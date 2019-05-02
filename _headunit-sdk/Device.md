@@ -18,7 +18,6 @@ Method | Response Type | Description
 -----|----|----
 [Device.GetInternetStatus()]({{ site.baseurl }}/webportal_list/#api-Device-GetInternetStatus) | String | Gets the current internet status.
 [Device.PopupRequest()]({{ site.baseurl }}/webportal_list/#api-Device-PopupRequest) | Boolean | Requests the display of a native popup message.
-[Device.appLevelWebPortalDisp()]({{ site.baseurl }}/webportal_list/#api-Device-appLevelWebPortalDisp) | None | Inform the HMI of the portal level displayed.
 [Device.ClearStorage()]({{ site.baseurl }}/webportal_list/#api-Device-ClearStorage) | Boolean | Clear the browser local storage.
 [Device.GetCarBrand()]({{ site.baseurl }}/webportal_list/#api-Device-GetCarBrand) | Integer | Returns the brand of the vehicle.
 [Device.GetDistanceUnit()]({{ site.baseurl }}/webportal_list/#api-Device-GetDistanceUnit) | String | Gets the currently used distance unit.

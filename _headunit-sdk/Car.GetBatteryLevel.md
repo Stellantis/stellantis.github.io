@@ -16,5 +16,5 @@ type: api
 
 ```javascript
 var BatteryLevel = Car.GetLevel();
-// Batteryautonomy = 5
+// Batteryautonomy = 5 %
 ```

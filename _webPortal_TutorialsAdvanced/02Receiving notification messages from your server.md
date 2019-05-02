@@ -33,11 +33,11 @@ Receiving notification messages is very similar to Receiving data messages, the 
 
 ```javascript
 window.addEventListener('message', function(messageEvent) {
-    let webportalMessage = messageEvent.data;
+    var webportalMessage = messageEvent.data;
 
     if (webportalMessage.type === 'WebPortal.onCurrentNotificationReceived') {
-        let mqttMessagePayload = webportalMessage.value;
-        let appServerMessage = mqttMessagePayload.content;
+        var mqttMessagePayload = webportalMessage.value;
+        var appServerMessage = mqttMessagePayload.content;
 
         // Your application message handler
         handleServerMessage(mqttMessagePayload);

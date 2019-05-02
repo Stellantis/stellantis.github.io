@@ -3,6 +3,10 @@ title: WebPortal Best Practice
 layout: page2
 ---
 
+<a href="https://github.com/GroupePSA/groupepsa.github.io/tree/master/{{ page.path }}" class="button is-link is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
+		<img src="{{ site.baseurl }}/github.png">
+        Edit Page</a>
+
 # Things to keep in mind
 
 WebPortal is based on web technologies however there are some specifities that you need to consider to optimize your app.
@@ -24,6 +28,8 @@ If your app requires to automatically retry sending a message then you should di
 It is best to keep the html to a reasonable size and use assets. This is to reduce the chances of the page not loading properly and thus prevent reloading big files due to the handover. Remember that the handover is even more frequent than for a phone.
 
 The GPU is deactivated for all devices, this means heavy animations should **not** be used.
+
+In a popup, to change line within a string you can use **\n**.
 
 ## Date and Time
 

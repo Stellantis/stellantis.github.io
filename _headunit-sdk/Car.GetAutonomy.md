@@ -9,14 +9,14 @@ type: api
 
 ### `Car.GetAutonomy()`
 
-| **Description** | Gets the total autonomy remaining in the currently used distance unit. | 
-| **Response** | `Number`   Remaining autonomy in currently used distance unit.   | 
+| **Description** | Gets the total autonomy remaining always in km. | 
+| **Response** | `Number`   Remaining autonomy in km.   | 
 | **Parameter**   | *Void* 
 
 #### Example
 
 ```javascript
 var CarAutonomy = Car.GetAutonomy();
-// CarAutonomy = 342
+// CarAutonomy = 342 km
 // The max length is 3 characters
 ```

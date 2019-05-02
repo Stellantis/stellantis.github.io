@@ -19,21 +19,17 @@ type: api
 ```javascript
 //Get the Radio Band
 var RadioBand = Radio.GetBand()
+// RadioBand = "FM"
 ```
 
 #### Remark
 
 The possible values for the radio band are the following strings:
-- FM
-- DaB
-- MW
-
-But all values are:
 - FM HD
-- MW
+- **MW**
 - LW
-- FM
-- DaB
+- **FM**
+- **DaB**
 - DMB
 - SDaRS
 - DaB+

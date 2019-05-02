@@ -52,4 +52,5 @@ Value | Type
 ```javascript
 //Get the name of the media
 var mediaName = Media.GetTypeName()
+// mediaName = 0
 ```

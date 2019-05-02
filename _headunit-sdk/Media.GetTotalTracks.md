@@ -25,6 +25,6 @@ if (Media.GetMediaState() === 2) {
 	var tracknumber = Media.GetCurrentTrack()
 	var totaltracks = Media.GetTotalTracks()
 	
-	var tracksremaining = totaltracks - tracknumber
+	// tracksremaining = totaltracks - tracknumber
 }
 ```

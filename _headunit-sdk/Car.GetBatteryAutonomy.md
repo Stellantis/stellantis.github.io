@@ -8,7 +8,7 @@ type: api
 
 ### `Car.GetBatteryAutonomy()`
 
-| **Description** | Gets the Battery autonomy remaining in the currently used distance unit.
+| **Description** | Gets the Battery autonomy remaining always in km.
 | **Response** | *Number*  Remaining battery autonomy.
 | **Parameter**   | *Void*
 
@@ -16,7 +16,7 @@ type: api
 
 ```javascript
 var Batteryautonomy = Car.GetBatteryAutonomy();
-// Batteryautonomy = 1000
+// Batteryautonomy = 1000 km
 ```
 
 #### Remark

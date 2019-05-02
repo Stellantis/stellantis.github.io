@@ -30,7 +30,7 @@ You have to connect to the environment corresponding to your case by using `MQTT
 		"password": "MY_PASSWORD",
 	}
 	
-	let mqttClient = new MQTTClient(mqttConfig);
+	var mqttClient = new MQTTClient(mqttConfig);
 	mqttClient.connect();
 ```
 

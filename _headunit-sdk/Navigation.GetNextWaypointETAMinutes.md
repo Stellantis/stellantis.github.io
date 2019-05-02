@@ -19,6 +19,7 @@ privacy: Public
 
 ```javascript
 var WaypointETAMinutes = Navigation.GetNextWaypointETAMinutes();
+// WaypointETAMinutes = 27 minutes
 ```
 	
 #### Remark
