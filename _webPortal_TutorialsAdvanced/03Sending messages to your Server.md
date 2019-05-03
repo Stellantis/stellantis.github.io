@@ -18,7 +18,10 @@ The Application generates a message that is encapsulated inside the *content* fi
 To send a message you can do the following:
 
 ```javascript
-window.parent.postMessage({'content':'message to be passed'}, '*');
+window.parent.postMessage({
+    'type' : 'WebPortal.onSendNotificationRequest',
+    value' : yourDataPayload
+}, '*');
 ```
 
 >**Note**: the max size for a MQTT message is 128 Kio
