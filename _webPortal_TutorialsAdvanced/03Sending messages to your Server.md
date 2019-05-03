@@ -20,7 +20,7 @@ To send a message you can do the following:
 ```javascript
 window.parent.postMessage({
     'type' : 'WebPortal.onSendNotificationRequest',
-    value' : yourDataPayload
+    'value' : yourDataPayload
 }, '*');
 ```
 
