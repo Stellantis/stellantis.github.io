@@ -16,7 +16,7 @@ type: api
 #### Example
 
 ```javascript
-If Privacy.Mode() === "Private" | "Geoloc" ) {
+If (Privacy.Mode() === "Private" || Privacy.Mode() === "Geoloc" ) {
 	
 } else {
 	//Privacy.Mode() = "Public"

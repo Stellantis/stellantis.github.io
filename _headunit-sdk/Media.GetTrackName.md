@@ -21,7 +21,6 @@ type: api
 
 if (Media.GetMediaState() === 2) {
 	// Media currently playing
-	
 	var currentTrack = Media.GetTrackName()
 }
 ```

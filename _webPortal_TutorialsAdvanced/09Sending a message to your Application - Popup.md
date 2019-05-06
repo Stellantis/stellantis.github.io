@@ -74,15 +74,15 @@ The action done by the user is transferred to the embedded Application for it to
 #### Handling Popup
 
 ```javascript
-	let targetVin = "0123456789ABCDEFG"; // VIN is an alphanumeric string of 17 characters
-	let mqttPublishTopic = `psa/OVIPPartners-Dev/from/uid/${mqttConfig.username}/opa/${targetVin}`;
-	let payload = {
+	var targetVin = "0123456789ABCDEFG"; // VIN is an alphanumeric string of 17 characters
+	var mqttPublishTopic = `psa/OVIPPartners-Dev/from/uid/${mqttConfig.username}/opa/${targetVin}`;
+	var payload = {
 		"idApp": "MY_APP_ID",
 		"popup": true,
 		"popupText": "You have a new message"
 	};
 	
-	let mqttMessage = new MQTTMessage();
+	var mqttMessage = new MQTTMessage();
 	mqttMessage.payload = JSON.stringify(payload);
 	mqttMessage.qos = 1;
 	

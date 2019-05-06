@@ -19,6 +19,7 @@ privacy: Public
 
 ```javascript
 var WaypointETAHours = Navigation.GetNextWaypointETAHours();
+// WaypointETAHours = 1 Hour
 ```
 
 #### Remark

@@ -21,5 +21,21 @@ Parameter | Type | Description | Required
 #### Example
 
 ```javascript
-Media.audio.configure("MEDIA_DEVICE_BT Streaming", "Inactive")
+// Wait for the browser to fully load
+HMI.WebBrowser.addEventListener("show", activateSource);
+
+// Configure media
+var activateSource = function(){
+Media.Audio.configure("MEDIA_PLAYER_SOURCE", "Active");
+};
+
+// Handle player and events
+var player = document.getElementById('player')[0];
+player.src = './sounds/louvre-les-voyages-de-champollion.mp3';
+document.getElementById('play').onclick = function(){
+player.play();
+};
+document.getElementById('pause').onclick = function(){
+player.pause();
+};
 ```

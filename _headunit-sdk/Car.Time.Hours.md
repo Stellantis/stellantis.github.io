@@ -22,6 +22,7 @@ Car.Time.GetTime()
 
 //Updated time values
 var CurrentHour = Car.Time.Hours()
+// CurrentHour = 13 hours
 ```
 
 #### Remark

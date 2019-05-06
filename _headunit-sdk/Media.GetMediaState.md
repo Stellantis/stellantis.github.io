@@ -18,7 +18,6 @@ type: api
 
 ```javascript
 //Check the state of the media
-
 if (Media.GetMediaState() === 2) {
 	// Media currently playing
 }

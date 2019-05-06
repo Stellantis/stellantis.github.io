@@ -51,9 +51,9 @@ The Applicative message lets you send data to your application.
 #### Handling message
 
 ```javascript
-let targetVin = "0123456789ABCDEFG";
-let mqttPublishTopic = `psa/OVIPPartners-Dev/from/uid/${mqttConfig.username}/opa/${targetVin}`;
-let payload = {
+var targetVin = "0123456789ABCDEFG";
+var mqttPublishTopic = `psa/OVIPPartners-Dev/from/uid/${mqttConfig.username}/opa/${targetVin}`;
+var payload = {
 	"idApp": "MY_APP_ID",
 	"popup": false,
 	"content": {
@@ -68,7 +68,7 @@ let payload = {
 	}
 };
 
-let mqttMessage = new MQTTMessage();
+var mqttMessage = new MQTTMessage();
 mqttMessage.payload = JSON.stringify(payload);
 mqttMessage.qos = 0;
 

@@ -19,6 +19,7 @@ type: api
 ```javascript
 //Get the Radio Frequency
 var MyFrequency1 = Radio.GetFrequency()
+// MyFrequency1 = 89800 kHz
 ```
 	
 #### Remark

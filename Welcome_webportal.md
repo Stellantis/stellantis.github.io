@@ -3,7 +3,13 @@ title: WebPortal Presentation
 layout: page2
 ---
 
+<a href="https://github.com/GroupePSA/groupepsa.github.io/tree/master/{{ page.path }}" class="button is-link is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
+		<img src="{{ site.baseurl }}/github.png">
+        Edit Page</a>
+
 # About WebPortal
+
+![Image of Main Screen]({{ site.baseurl }}/WebPortal_pic.png)
 
 The WebPortal is the browser allowing users to launch authorized Web Applications directly from the media system of their car.
 All the applications function on a subscription basis and their presence on the welcome page is automatically managed by the WebPortal.

@@ -18,4 +18,5 @@ type: api
 
 ```javascript
 var Soft = Device.GetSoftwareRelease()
+// Soft = 31.09.46.60_NAC-r0
 ```

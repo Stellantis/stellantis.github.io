@@ -16,5 +16,6 @@ type: api
 #### Example
 
 ```javascript
-var UIN= Device.GetUIN()
+var UIN = Device.GetUIN()
+// UIN = "0A12345B67C8D9E012FG"
 ```

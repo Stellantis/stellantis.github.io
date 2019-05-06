@@ -19,7 +19,7 @@ privacy: Geoloc
 
 ```javascript
 var VINCode = Car.GetVINCode();
-// VINCode = VF7BSISCT00000001
+// VINCode = VF7AAAAAA00000001
 ```
 
 #### Remark

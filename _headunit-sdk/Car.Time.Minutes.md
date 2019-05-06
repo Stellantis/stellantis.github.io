@@ -22,6 +22,7 @@ Car.Time.GetTime()
 
 //Updated time values
 var CurrentMinutes = Car.Time.Minutes()
+// CurrentMinutes = 17 minutes
 ```
 	
 #### Remark

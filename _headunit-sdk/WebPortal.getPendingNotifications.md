@@ -18,4 +18,5 @@ type: api
 
 ```javascript
 var notificationMessages = WebPortal.getPendingNotifications()
+// notificationMessages = []
 ```

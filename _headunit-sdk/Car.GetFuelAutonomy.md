@@ -10,7 +10,7 @@ type: api
 
 ### `Car.GetFuelAutonomy()`
 
-| **Description** | Gets the Fuel autonomy remaining in the currently used distance unit.
+| **Description** | Gets the Fuel autonomy remaining always in km.
 | **Response** | *Number*  Remaining fuel autonomy.
 | **Parameter**   | *Void*
 
@@ -18,7 +18,7 @@ type: api
 
 ```javascript
 var FuelAutonomy = Car.GetFuelAutonomy();
-// FuelAutonomy = 2000
+// FuelAutonomy = 2000 km
 ```
 
 #### Remark

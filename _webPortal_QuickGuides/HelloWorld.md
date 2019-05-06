@@ -63,7 +63,7 @@ Here you have the required JS for your application to function properly. You can
 
 ```javascript
 //On document ready
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function(event) { 
     
     // Inform the parent window (applications portal) that the application is
     // loaded and ready

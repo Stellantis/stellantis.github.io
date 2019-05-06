@@ -18,5 +18,6 @@ type: api
 
 ```javascript
 var fuelLevel = Car.GetFuelLevel()
+// fuelLevel = 60 %
 alert("You are at" + fuelLevel + "of fuel left")
 ```
