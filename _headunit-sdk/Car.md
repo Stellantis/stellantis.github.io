@@ -24,7 +24,7 @@ Method | Response Type | Description
 [Car.GetBatteryAutonomy()]({{ site.baseurl }}/webportal_list/#api-Car-GetBatteryAutonomy) | Number| Gets the remaining battery autonomy.
 [Car.GetBatteryLevel()]({{ site.baseurl }}/webportal_list/#api-Car-GetBatteryLevel) | Number| Gets the current battery level.
 [Car.GetDrivingState()]({{ site.baseurl }}/webportal_list/#api-Car-GetDrivingState) | Boolean | Gets the current driving state.
-[Car.Time.GetTime()]({{ site.baseurl }}/webportal_list/#api-Car-Time-GetTime) | Boolean | Synchronizes time values.
+[Car.GetTime()]({{ site.baseurl }}/webportal_list/#api-Car-GetTime) | Boolean | Synchronizes time values.
 [Car.Time.Hours()]({{ site.baseurl }}/webportal_list/#api-Car-Time-Hours) | Number | Gets current hour.
 [Car.Time.Minutes()]({{ site.baseurl }}/webportal_list/#api-Car-Time-Minutes) | Number | Gets current minute.
 [Car.Time.OffsetUTC()]({{ site.baseurl }}/webportal_list/#api-Car-Time-OffsetUTC) | Number | Gets current offset.
