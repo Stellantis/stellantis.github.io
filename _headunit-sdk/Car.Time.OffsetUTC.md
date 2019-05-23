@@ -17,7 +17,7 @@ type: api
 
 ```javascript
 //Update the time values
-Car.Time.GetTime()
+Car.GetTime()
 
 //Updated time values
 var CurrentOffset = Car.Time.OffsetUTC()
@@ -26,4 +26,4 @@ var CurrentOffset = Car.Time.OffsetUTC()
 
 #### Remark
 
->**Note :** `Car.Time.GetTime` should always be called before reading time values to make sure all the values are synchronized.
+>**Note :** `Car.GetTime` should always be called before reading time values to make sure all the values are synchronized.

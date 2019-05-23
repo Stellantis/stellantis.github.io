@@ -1,5 +1,5 @@
 ---
-title: Navigation.LaunchGuidance()
+title: Navigation.LaunchGuidanceWaypoints()
 layout: headunit-sdk
 supported:
   - 4
@@ -7,7 +7,7 @@ type: api
 privacy: Public
 ---
 
-### `Navigation.LaunchGuidance(Number destLon, Number destLat, [object{Lat: Number, Lon: Number}] waypoints)`
+### `Navigation.LaunchGuidanceWaypoints(Number destLon, Number destLat, [object{Lat: Number, Lon: Number}] waypoints)`
 
 | **Description** | Starts the navigation to the specified destination and going through all the specified waypoints.
 | **Response** | *Boolean*  `True` if the destination and waypoints were all correctly set, else `False` if the process failed.
@@ -22,14 +22,14 @@ Parameter | Type | Description | Required
 #### Example
 
 ```javascript
-let DestinationLongitude = 48.866669
-let DestinationLatitude = 2.33333
-let Waypoint1Lat = 48.77745
-let Waypoint1Lon = 2.22366
-let Waypoint2Lat = 48.111111
-let Waypoint2Lon = 2.11132
+var DestinationLongitude = 48.866669
+var DestinationLatitude = 2.33333
+var Waypoint1Lat = 48.77745
+var Waypoint1Lon = 2.22366
+var Waypoint2Lat = 48.111111
+var Waypoint2Lon = 2.11132
 
-if ( Navigation.LaunchGuidance(DestinationLongitude, DestinationLatitude, [{lat: Waypoint1Lat, lon: Waypoint1Lon}, {lat: Waypoint2Lat, lon: Waypoint2Lon}]) === false ) {
+if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitude, [{lat: Waypoint1Lat, lon: Waypoint1Lon}, {lat: Waypoint2Lat, lon: Waypoint2Lon}]) === false ) {
 	// Error, Itinerary not correctly set
 } else {
 	// Itinerary started

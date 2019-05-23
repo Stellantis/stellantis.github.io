@@ -2,7 +2,6 @@
 title: Car.Time.Hours()
 layout: headunit-sdk
 supported:
-  - 2
   - 3
   - 4
 type: api
@@ -18,7 +17,7 @@ type: api
 
 ```javascript
 //Update the time values
-Car.Time.GetTime()
+Car.GetTime()
 
 //Updated time values
 var CurrentHour = Car.Time.Hours()
@@ -27,4 +26,4 @@ var CurrentHour = Car.Time.Hours()
 
 #### Remark
 
->**Note :** `Car.Time.GetTime` should always be called before reading time values to make sure all the values are synchronized.
+>**Note :** `Car.GetTime` should always be called before reading time values to make sure all the values are synchronized.

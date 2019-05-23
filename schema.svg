@@ -94,7 +94,7 @@
 <polygon fill="#000000" stroke="#000000" points="748.6855,-145.5 758.6855,-142 748.6855,-138.5 748.6855,-145.5"/>
 <polygon fill="#000000" stroke="#000000" points="560.2812,-138.5 550.2812,-142 560.2812,-145.5 560.2812,-138.5"/>
 <text text-anchor="start" x="587.237" y="-147.2" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="start" x="591.1276" y="-147.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00" fill="#000000">window.postMesage</text>
+<text text-anchor="start" x="591.1276" y="-147.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00" fill="#000000">window.postMessage</text>
 <text text-anchor="start" x="717.9326" y="-147.2" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#000000"> </text>
 </g>
 </g>

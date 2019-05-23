@@ -8,9 +8,7 @@ type: api
 privacy: Public
 ---
 
-### `Navigation.LaunchGuidance(String desc, Number destLon, Number destLat, Number s1Lon, Number s1Lat, Number s2Lon, Number s2Lat, Number s3Lon, Number s3Lat)`
-
-[comment]: ### (In LaunchGuidance the parameter : Number *shifted* also exists and would have to be indicated after *s3Lat*)
+### `Navigation.LaunchGuidance(String desc, Number destLon, Number destLat, Number s1Lon, Number s1Lat, Number s2Lon, Number s2Lat, Number s3Lon, Number s3Lat, Number shifted)`
 
 | **Description** | Starts the navigation to the specified destination.
 | **Response** | *Boolean*  `True` if the final destination and Intermediary destinations were all correctly set, else `False` if the process failed.
@@ -26,23 +24,22 @@ Parameter | Type | Description | Required
 `s2Lat` | *Number* | The second waypoint's latitude, Should be WGS84 Signed Decimal Degrees and have a length < 4 characters. | Optional
 `s3Lon` | *Number* | The third waypoint's longitude, Should be WGS84 Signed Decimal Degrees and have a length < 4 characters. | Optional
 `s3Lat` | *Number* | The third waypoint's latitude, Should be WGS84 Signed Decimal Degrees and have a length < 4 characters. | Optional
-
-[comment]: ### (The parameter `shifted`, *Number* also exists, it is 1 character long, whose value is either 0 or 1, and indicates whether the chinese gps coordinates system should be used or not)
-
+`shifted` | *Number* | The coordinate system to use, Should be either 0 or 1 | Optional
 
 #### Example
 
 ```javascript
-let DestinationLongitude = 48.866669
-let DestinationLatitude = 2.33333
-let Waypoint1Lat = 48.77745
-let Waypoint1Lon = 2.22366
-let Waypoint2Lat = 48.111111
-let Waypoint2Lon = 2.11132
-let Waypoint3Lat = 48.55544
-let Waypoint3Lon = 2.31111
+var DestinationLongitude = 48.866669
+var DestinationLatitude = 2.33333
+var Waypoint1Lat = 0
+var Waypoint1Lon = 0
+var Waypoint2Lat = 0
+var Waypoint2Lon = 0
+var Waypoint3Lat = 0
+var Waypoint3Lon = 0
+var Shifted = 0
 
-if ( Navigation.LaunchGuidance(DestinationLongitude, DestinationLatitude, Waypoint1Lat, Waypoint1Lon, Waypoint2Lat, Waypoint2Lon, Waypoint3Lat, Waypoint3Lon) === false ) {
+if ( Navigation.LaunchGuidance(DestinationLongitude, DestinationLatitude, Waypoint1Lat, Waypoint1Lon, Waypoint2Lat, Waypoint2Lon, Waypoint3Lat, Waypoint3Lon, Shifted) === false ) {
 	// Error, Itinerary not correctly set
 } else {
 	// Itinerary started
@@ -51,7 +48,7 @@ if ( Navigation.LaunchGuidance(DestinationLongitude, DestinationLatitude, Waypoi
 
 #### Remark
 
->**Note :** Only the `destLon` and `destLat` parameters are needed, the others are ignored.
+>**Note :** Only the `destLon` and `destLat` parameters are needed, the others will be ignored so they can be replaced by 0.
 
 >**Note 2:** The old version of the LaunchGuidance will ask for confirmation before overriding the current journey with the one being passed.
 
