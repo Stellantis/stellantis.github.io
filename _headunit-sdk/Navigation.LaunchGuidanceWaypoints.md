@@ -1,5 +1,5 @@
 ---
-title: Navigation.LaunchGuidance()
+title: Navigation.LaunchGuidanceWaypoints()
 layout: headunit-sdk
 supported:
   - 4
@@ -7,7 +7,7 @@ type: api
 privacy: Public
 ---
 
-### `Navigation.LaunchGuidance(Number destLon, Number destLat, [object{Lat: Number, Lon: Number}] waypoints)`
+### `Navigation.LaunchGuidanceWaypoints(Number destLon, Number destLat, [object{Lat: Number, Lon: Number}] waypoints)`
 
 | **Description** | Starts the navigation to the specified destination and going through all the specified waypoints.
 | **Response** | *Boolean*  `True` if the destination and waypoints were all correctly set, else `False` if the process failed.
@@ -29,7 +29,7 @@ let Waypoint1Lon = 2.22366
 let Waypoint2Lat = 48.111111
 let Waypoint2Lon = 2.11132
 
-if ( Navigation.LaunchGuidance(DestinationLongitude, DestinationLatitude, [{lat: Waypoint1Lat, lon: Waypoint1Lon}, {lat: Waypoint2Lat, lon: Waypoint2Lon}]) === false ) {
+if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitude, [{lat: Waypoint1Lat, lon: Waypoint1Lon}, {lat: Waypoint2Lat, lon: Waypoint2Lon}]) === false ) {
 	// Error, Itinerary not correctly set
 } else {
 	// Itinerary started
@@ -43,7 +43,7 @@ if ( Navigation.LaunchGuidance(DestinationLongitude, DestinationLatitude, [{lat:
 >**Note 2:** This new version of the LaunchGuidance will override the current journey with the one being passed.
 
 
->**Important :** In order to verify if you can use the new API `Navigation.LaunchGuidanceWaypoints` or the old one `Navigation.LaunchGuidance`, you can check the existence of one of the following JS events :
+>**Important :** In order to verify if you can use the new API `Navigation.LaunchGuidanceWaypoints` or the old one `Navigation.LaunchGuidanceWaypoints`, you can check the existence of one of the following JS events :
 >- *Navigation.InvalidCoordinates*
 >- *Navigation.RouteCalculationSuccessful*
 >- *Navigation.RouteCalculationCanceled*
