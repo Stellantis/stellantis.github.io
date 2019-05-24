@@ -40,7 +40,7 @@ var Waypoint3Lat = 0
 var Waypoint3Lon = 0
 var Shifted = 0
 
-if ( Navigation.LaunchGuidance(DestinationLongitude, DestinationLatitude, Waypoint1Lat, Waypoint1Lon, Waypoint2Lat, Waypoint2Lon, Waypoint3Lat, Waypoint3Lon, Shifted) === false ) {
+if ( Navigation.LaunchGuidance(Description, DestinationLongitude, DestinationLatitude, Waypoint1Lat, Waypoint1Lon, Waypoint2Lat, Waypoint2Lon, Waypoint3Lat, Waypoint3Lon, Shifted) === false ) {
 	// Error, Itinerary not correctly set
 } else {
 	// Itinerary started
