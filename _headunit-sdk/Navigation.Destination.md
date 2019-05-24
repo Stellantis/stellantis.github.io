@@ -1,5 +1,5 @@
 ---
-title: Car.GetBatteryautonomy()
+title: Car.Destination()
 layout: headunit-sdk
 supported:
   - 2

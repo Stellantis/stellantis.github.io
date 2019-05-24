@@ -42,6 +42,8 @@ if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitud
 
 >**Note 2:** This new version of the LaunchGuidance will override the current journey with the one being passed.
 
+>**Note 3:** The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints`.
+
 
 >**Important :** In order to verify if you can use the new API `Navigation.LaunchGuidanceWaypoints` or the old one `Navigation.LaunchGuidance`, you can check the existence of one of the following JS events :
 >- *Navigation.InvalidCoordinates*
