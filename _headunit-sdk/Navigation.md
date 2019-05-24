@@ -35,3 +35,6 @@ Event | Description
 [Navigation.RouteCalculationSuccessful]({{ site.baseurl }}/webportal_list/#event-Navigation-RouteCalculationSuccessful) | Event triggered when the calculation of itinerary was completed successfully.
 [Navigation.RouteCalculationCancelled]({{ site.baseurl }}/webportal_list/#event-Navigation-RouteCalculationCancelled) | Event triggered when the calculation of itinerary was cancelled abruptly.
 [Navigation.RouteCalculationFailed]({{ site.baseurl }}/webportal_list/#event-Navigation-RouteCalculationFailed) | Event triggered when the calculation of itinerary ended with an error.
+[Navigation.WebDestinationReached]({{ site.baseurl }}/webportal_list/#event-Navigation-WebDestinationReached) | Event triggered when the destination has been reached.
+
+> The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints` and not through the car's Navigation GUI.

@@ -29,6 +29,7 @@ Parameter | Type | Description | Required
 #### Example
 
 ```javascript
+var Description ="Ignored"
 var DestinationLongitude = 48.866669
 var DestinationLatitude = 2.33333
 var Waypoint1Lat = 0
@@ -39,7 +40,7 @@ var Waypoint3Lat = 0
 var Waypoint3Lon = 0
 var Shifted = 0
 
-if ( Navigation.LaunchGuidance(DestinationLongitude, DestinationLatitude, Waypoint1Lat, Waypoint1Lon, Waypoint2Lat, Waypoint2Lon, Waypoint3Lat, Waypoint3Lon, Shifted) === false ) {
+if ( Navigation.LaunchGuidance(Description, DestinationLongitude, DestinationLatitude, Waypoint1Lat, Waypoint1Lon, Waypoint2Lat, Waypoint2Lon, Waypoint3Lat, Waypoint3Lon, Shifted) === false ) {
 	// Error, Itinerary not correctly set
 } else {
 	// Itinerary started
@@ -51,6 +52,8 @@ if ( Navigation.LaunchGuidance(DestinationLongitude, DestinationLatitude, Waypoi
 >**Note :** Only the `destLon` and `destLat` parameters are needed, the others will be ignored so they can be replaced by 0.
 
 >**Note 2:** The old version of the LaunchGuidance will ask for confirmation before overriding the current journey with the one being passed.
+
+>**Note 3:** The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints`.
 
 
 >**Important :** In order to verify if you can use the new API `Navigation.LaunchGuidanceWaypoints` or the old one `Navigation.LaunchGuidance`, you can check the existence of one of the following JS events :

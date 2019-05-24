@@ -20,3 +20,5 @@ try{
 	DealWithNavigationError(e);
 }
 ```
+
+>**Note :** The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints`.

@@ -1,12 +1,12 @@
 ---
-title: Navigation.RouteCalculationFailed
+title: Navigation.WebDestinationReached
 layout: headunit-sdk
 supported:
   - 3
   - 4
 type: event
 ---
-Event triggered when the calculation of the itinerary ended with an error.
+Event triggered when a route launched via `Navigation.LaunchGuidance` or `Navigation.LaunchGuidanceWaypoints` has reached the destination.
 
 ### Example
 
@@ -14,8 +14,7 @@ Event triggered when the calculation of the itinerary ended with an error.
 try{	
 	// Navigation
 	if ((typeof Navigation !== "undefined") && (typeof Navigation.addEventListener !== "undefined")) {
-		Navigation.addEventListener("RouteCalculationFailed", HandleRouteFailure());
-	}
+		Navigation.addEventListener("WebDestinationReached", InformUserDestinationReached()	}
 } catch(e) {
 	DealWithNavigationError(e);
 }
