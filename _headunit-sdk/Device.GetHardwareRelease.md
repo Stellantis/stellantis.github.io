@@ -19,3 +19,5 @@ type: api
 ```javascript
 var Hard = Device.GetHardwareRelease()
 ```
+
+*Appeared in Software version 5.14.11.30*

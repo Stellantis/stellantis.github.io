@@ -4,7 +4,7 @@ layout: page2
 ---
 
 <a href="https://github.com/GroupePSA/groupepsa.github.io/tree/master/{{ page.path }}" class="button is-link is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
-		<img src="{{ site.baseurl }}/github.png">
+		<img src="{{ site.baseurl }}/assets/images/github.png">
         Edit Page</a>
 
 # Things to keep in mind
@@ -15,7 +15,7 @@ WebPortal is based on web technologies however there are some specifities that y
 
 Your app is sandboxed in an iframe meaning no access to the internet or public networks.
 
-You can't use external ressources which means: 
+You can't use external ressources which means:
 - no CDN
 - no `fetch()`
 - your package must be standalone and use only relative urls

@@ -19,3 +19,5 @@ type: api
 ```javascript
 var SupplierID = Device.GetSupplierId()
 ```
+
+*Appeared in Software version 5.14.11.30*

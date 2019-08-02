@@ -38,3 +38,5 @@ Number | Fuel type
 7 | Battery
 8 | Hydrogen
 15 | Undefined
+
+*Appeared in Software version 5.14.11.30*

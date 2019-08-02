@@ -11,7 +11,7 @@ privacy: Public
 
 ### `Navigation.GetDestination()`
 
-| **Description** | Retrieves the current position and stores it inside `Navigation.Destination`.  `Navigation.Destination.Latitude` and `Navigation.Destination.Longitude` are given in WGS84 Signed Decimal Degrees.
+| **Description** | Retrieves the current destination and stores it inside `Navigation.Destination`.  `Navigation.Destination.Latitude` and `Navigation.Destination.Longitude` are given in WGS84 Signed Decimal Degrees.
 | **Response** | *Boolean*  `True` if the value is now correctly stored in `Navigation.Destination`, else `False` if the process failed.
 | **Parameter**   | *Void*
 
@@ -34,3 +34,5 @@ if ( Navigation.GetDestination() === false ) {
 #### Remark
 
 >**Note :** `Navigation.GetDestination` must always be used before accessing the value stored in `Navigation.Destination`.
+
+*Appeared in Software version 40.03.42.30*

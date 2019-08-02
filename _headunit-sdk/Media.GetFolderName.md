@@ -25,3 +25,5 @@ if (Media.GetMediaState() === 2) {
 	var foldername = Media.GetFolderName()
 }
 ```
+
+*Appeared in Software version 30.10.10.00*

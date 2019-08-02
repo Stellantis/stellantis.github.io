@@ -20,3 +20,5 @@ type: api
 var carMileage = Car.GetMileage()
 // carMileage = 125000 km
 ```
+
+*Appeared in Software version 5.14.11.30*

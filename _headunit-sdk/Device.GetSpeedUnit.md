@@ -20,3 +20,5 @@ type: api
 var speedUnit = Device.GetSpeedUnit()
 // speedUnit = "km/h"
 ```
+
+*Appeared in Software version 5.14.11.30*

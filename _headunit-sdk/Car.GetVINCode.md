@@ -25,3 +25,5 @@ var VINCode = Car.GetVINCode();
 #### Remark
 
 >**Note :** a VIN code is always 17 characters long.
+
+*Appeared in Software version 5.14.11.30*

@@ -23,3 +23,5 @@ try{
 	DealWithConnectivityError(e);
 }
 ```
+
+*Appeared in Software version 5.14.06.10*

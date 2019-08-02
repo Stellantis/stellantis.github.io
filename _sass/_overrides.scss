@@ -1,4 +1,36 @@
-// No overrides so far
+
+
+.post{
+  background: #49cc90;
+}
+.get{
+  background: #2d3b56;
+}
+
+.put{
+  background:#fca130
+}
+
+.verbdelete{
+  background: #fa5c4f;
+}
+
+.verb{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding: 10px 15px;
+  line-height: 1.5;
+  font-size: 16px;
+  font-weight: 700;
+  min-width: 80px;
+  text-align: center;
+  border-radius: 3px;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+  font-family: sans-serif;
+  color: #fff;
+}
 
 .icon-logo {
     width: 79px;
@@ -40,6 +72,22 @@ footer a {
     background-color: #ffffff;
     padding: 5%;
 }
+
+.smallimg{
+  width: auto !important;
+  margin-left: 0 !important;
+}
+
+.content img {
+  width: 100%;
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+
 
 .bd-lead {
     background-color: #ffffff;
@@ -113,31 +161,31 @@ section nav {
 }
 
 .hero_webportal {
-    background-image: url("../../city2.jpg");
+    background-image: url("../../assets/images/city2.jpg");
     background-size: cover;
     background-position: center center;
 }
 
 .hero_main {
-    background-image: url("../../city.jpg");
+    background-image: url("../../assets/images/city.jpg");
     background-size: cover;
     background-position: center center;
 }
 
 .hero_android {
-    background-image: url("../../android.jpg");
+    background-image: url("../../assets/images/android.jpg");
     background-size: cover;
     background-position: center center;
 }
 
 .hero_ios {
-    background-image: url("../../ios.jpg");
+    background-image: url("../../assets/images/ios.jpg");
     background-size: cover;
     background-position: center center;
 }
 
 .hero_api {
-    background-image: url("../../cloud.jpg");
+    background-image: url("../../assets/images/cloud.jpg");
     background-size: cover;
     background-position: center center;
 }
@@ -192,3 +240,7 @@ section nav {
     border-color: #6c6c6c;
     color: #333333;
 }
+
+@media screen and (max-width: 600px) {
+  aside{display: none;
+}}

@@ -25,3 +25,5 @@ var CurrentLongitude = Navigation.GetCurrentPositionLongitude();
 #### Remark
 
 >**Note :** The returned longitude's length < 11 characters.
+
+*Appeared in Software version 40.03.42.30*

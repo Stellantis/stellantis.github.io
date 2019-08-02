@@ -32,3 +32,5 @@ if ( Device.GetInternetStatus() === False ){
 >**Note 2 :** It is recommended to use the WebPortal's API to display popups instead of Device.PopupRequest. This will also var you choose between more options and manage some events.
 
 >**Known issue :** In older versions of the NAC, the OK button is displayed regardless of the `popupType` value passed.
+
+*Appeared in Software version 30.11.04.10*

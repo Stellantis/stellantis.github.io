@@ -54,3 +54,5 @@ Value | Type
 var mediaName = Media.GetTypeName()
 // mediaName = 0
 ```
+
+*Appeared in Software version 30.10.10.00*

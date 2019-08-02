@@ -3,6 +3,7 @@ layout: page2
 ---
 {% assign classes = site.headunit-sdk | where:"type", "class" %}
 {% for class in classes %}
+{{ content }}
 <h1 id="{{ class.title }}">{{ class.title }} </h1>
 <p>{{ class.content }}</p>
 <hr>

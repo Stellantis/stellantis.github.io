@@ -21,3 +21,5 @@ var fuelLevel = Car.GetFuelLevel()
 // fuelLevel = 60 %
 alert("You are at" + fuelLevel + "of fuel left")
 ```
+
+*Appeared in Software version 30.04.48.50*

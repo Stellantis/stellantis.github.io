@@ -1,5 +1,5 @@
 ---
-title: Media.audio.configure()
+title: Media.Audio.configure()
 layout: headunit-sdk
 supported:
   - 2
@@ -8,7 +8,7 @@ supported:
 type: api
 ---
 
-### `Media.audio.configure(String Type,String Sound_State)`
+### `Media.Audio.configure(String Type,String Sound_State)`
 
 | **Description** | Configures the sound.
 | **Response** | *None*
@@ -16,7 +16,7 @@ type: api
 Parameter | Type | Description | Required
 ----|----|----|----
 `Type` | *String* | The player to configure, 31 characters max Possible values : - MEDIA_PLAYER_SOURCE, - TEMPORARY_SOURCE | Required
-`Sound_State` | *String* | To activate or deactivate sound, 8 characters max Possible values : - active, - Inactive | Required
+`Sound_State` | *String* | To activate or deactivate sound, 8 characters max Possible values : - Active, - Inactive | Required
 
 #### Example
 
@@ -39,3 +39,5 @@ document.getElementById('pause').onclick = function(){
 player.pause();
 };
 ```
+
+*Appeared in Software version 30.04.48.50*

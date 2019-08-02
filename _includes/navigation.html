@@ -13,14 +13,30 @@
     </div>
     <div id="navMenu" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item menu" href="{{ site.baseurl }}/Welcome_cloud/">WEB API</a>
-            <a class="navbar-item menu" href="{{ site.baseurl }}/Welcome_webportal/">EMBEDDED WEBPORTAL</a>
-            <a class="navbar-item menu" href="{{ site.baseurl }}/Welcome_ios/">IOS</a>
-            <a class="navbar-item menu" href="{{ site.baseurl }}/Welcome_android/">ANDROID</a>
-        </div>
-		
-		<div class="navbar-end">
+
+
+            <div class="navbar-item menu has-dropdown is-hoverable">
+              <a class="navbar-link" href="{{site.baseurl}}/webapi-Welcome">
+                WEB API
+              </a>
+                <div style="background-color: #292929;" class="navbar-dropdown" id="dropdownAPI">
+                  <a class="navbar-item" href="{{site.baseurl}}/cloud-Welcome_B2B">
+                    API B2B - Groupe PSA's Fleet Owner
+                  </a>
+                  <a class="navbar-item" href="{{site.baseurl}}/cloud-Welcome_B2C">
+                    API B2C - Developper for end-users
+                  </a>
+                </div>
+            </div>
+            <a class="navbar-item menu" href="{{ site.baseurl }}/webportal-Welcome/">EMBEDDED WEBPORTAL</a>
+            <a class="navbar-item menu" href="{{ site.baseurl }}/ios-Welcome/">IOS</a>
+            <a class="navbar-item menu" href="{{ site.baseurl }}/android-Welcome/">ANDROID</a>
+
+
+         <div class="navbar-item">
 			{% include search-lunr.html %}
-		</div>
+
+		    </div>
+    </div>
     </div>
 </nav>

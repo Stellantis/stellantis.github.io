@@ -24,3 +24,5 @@ try{
 	DealWithSystemError(e);
 }
 ```
+
+*Appeared in Wave 4.1 - version 21.02.23.40*

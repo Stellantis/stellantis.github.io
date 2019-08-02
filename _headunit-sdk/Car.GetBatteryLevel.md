@@ -18,3 +18,5 @@ type: api
 var BatteryLevel = Car.GetLevel();
 // Batteryautonomy = 5 %
 ```
+
+*Appeared in Software version 40.03.51.50*

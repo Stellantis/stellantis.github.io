@@ -22,3 +22,5 @@ try {
 	DealWithPrivacyError(e);
 }
 ```
+
+*Appeared in Wave 4.1 - version 30.05.14.30*

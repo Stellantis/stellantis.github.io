@@ -4,14 +4,14 @@ layout: headunit-sdk
 supported:
   - 2
   - 3
-type: api
+type:
 ---
 
 ### `Car.GetAutonomy()`
 
-| **Description** | Gets the total autonomy remaining always in km. | 
-| **Response** | `Number`   Remaining autonomy in km.   | 
-| **Parameter**   | *Void* 
+| **Description** | Gets the total autonomy remaining always in km. |
+| **Response** | `Number`   Remaining autonomy in km.   |
+| **Parameter**   | *Void*
 
 #### Example
 
@@ -20,3 +20,5 @@ var CarAutonomy = Car.GetAutonomy();
 // CarAutonomy = 342 km
 // The max length is 3 characters
 ```
+
+*Appeared in Software version 5.14.11.30*

@@ -2,40 +2,31 @@
 {% assign counter = 0 %}
 var documents = [{% for page in site.pages %}{% if page.url contains '.xml' or page.url contains 'assets' %}{% else %}{
     "id": {{ counter }},
-    "url": "{{ site.url }}{{ page.url }}",
+    "url": "{{ site.url }}{{site.baseurl}}{{ page.url }}",
     "title": "{{ page.title }}",
     "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h1>', ': ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endif %}{% endfor %}{% for page in site.without-plugin %}{
-    "id": {{ counter }},
-    "url": "{{ site.url }}{{ page.url }}",
-    "title": "{{ page.title }}",
-    "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h1>', ': ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endfor %}{% for page in site.headunit-sdk %}{
+    }, {% endif %}{% endfor %}{% for page in site.headunit-sdk %}{
     "id": {{ counter }},
 	{% if page.type contains 'class' %}
-    "url": "{{ site.url }}/webportal_apiclass",
+    "url": "{{ site.url }}{{site.baseurl}}/webportal_apiclass",
     "title": "API Class",
 	{% else %}
-	"url": "{{ site.url }}/webportal_list",
+	"url": "{{ site.url }}{{site.baseurl}}/webportal_list",
     "title": "API Reference",
 	{% endif %}
     "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h1>', ': ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
     }, {% endfor %}{% for page in site.webPortal_TutorialsAdvanced %}{
     "id": {{ counter }},
-    "url": "{{ site.url }}/webportal_TutorialAdvanced",
+    "url": "{{ site.url }}{{site.baseurl}}/webPortal_TutorialAdvanced",
     "title": "WebPortal Tutorial (Advanced)",
     "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h1>', ': ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endfor %}{% for page in site.QuickGuides %}{
+    }, {% endfor %}{% for page in site.webPortal_QuickGuides %}{
     "id": {{ counter }},
-    "url": "{{ site.url }}/webportal_QuickGuide/",
+    "url": "{{ site.url }}{{site.baseurl}}/webPortal_QuickGuides/",
     "title": "WebPortal QuickStart",
     "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h1>', ': ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endfor %}{% for page in site.posts %}{
-    "id": {{ counter }},
-    "url": "{{ site.url }}{{ page.url }}",
-    "title": "{{ page.title }}",
-    "body": "{{ page.date | date: "%Y/%m/%d" }} - {{ page.content | markdownify | replace: '.', '. ' | replace: '</h1>', ': ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }{% if forloop.last %}{% else %}, {% endif %}{% endfor %}];
+    }, {% endfor %}
+  ];
 
 var idx = lunr(function () {
     this.ref('id')

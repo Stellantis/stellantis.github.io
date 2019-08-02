@@ -2,7 +2,6 @@
 title: Navigation.WebDestinationReached
 layout: headunit-sdk
 supported:
-  - 3
   - 4
 type: event
 ---
@@ -21,3 +20,5 @@ try{
 ```
 
 >**Note :** The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints`.
+
+*Appeared in Wave 4.1 - version 40.03.49.50*

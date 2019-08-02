@@ -7,12 +7,12 @@ layout: page2
 
 The API will allow you to do the following :
 
-- `Car` : Get information about the vehicle : [VIN code](https://fr.wikipedia.org/wiki/Vehicle_Identification_Number), Fuel type, unit and level, Current speed and unit, Mileage and distance unit, Autonomy, level of battery and fuel, the driving state, the time, 
+- `Car` : Get information about the vehicle : [VIN code](https://fr.wikipedia.org/wiki/Vehicle_Identification_Number), Fuel type, unit and level, Current speed and unit, Mileage and distance unit, Autonomy, level of battery and fuel, the driving state, the time,
 - `Connectivity` : Detect the connectivity status
-- `Device` : Request a popup, get hardware and software version of the system, 
-- `HMI` : Information on the user, UIN, language, country, 
+- `Device` : Request a popup, get hardware and software version of the system,
+- `HMI` : Information on the user, UIN, language, country,
 - `Media` : Information on the media : album name, artist name, current track, state of the media, type of media
-- `Navigation` : Get the current position info, destination info, maneuver info, journey info, waypoint info, start new journey, 
+- `Navigation` : Get the current position info, destination info, maneuver info, journey info, waypoint info, start new journey,
 - `Phone` : Launch phone call,
 - `Privacy` : Manage privacy mode of user
 - `Radio` : Information on the radio : frequency, preset...
@@ -63,8 +63,8 @@ Here you have the required JS for your application to function properly. You can
 
 ```javascript
 //On document ready
-document.addEventListener("DOMContentLoaded", function(event) { 
-    
+document.addEventListener("DOMContentLoaded", function(event) {
+
     // Inform the parent window (applications portal) that the application is
     // loaded and ready
     window.parent.postMessage({
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 ```
 
 ##  Structure to submit Application
-![Application Structure]({{ site.baseurl }}/the_structure.png)
+<img class="smallimg" src="{{ site.baseurl }}/assets/images/the_structure.png">
 
 Once developped you have to submit your application to PSA for us to check its behavior before actually deploying it.
 The structure of the file to submit is mostly free with some requirements:
@@ -82,7 +82,7 @@ The structure of the file to submit is mostly free with some requirements:
 - The files must be sent in a TAR archive compressed via GZIP
 - The *.md5* file is required in order to perform an integrity check
 - An *index.html* file must be present at the root of the project and is the starting point of the application
-- The logo for the application: *icon-100x100.png* (15kB max) and *icon-136x136.png* (21kB max) must be present at the root of the project for the different screen sizes.
+- The logo for the application: *icon-100x100.png* (15kB max) and *icon-136x136.png* (21kB max) must be present at the root of the project for the different screen sizes (respectively for SD devices and WHD devices).
 - JavaScript functions must be executed when the DOM is ready
 - It is required to add a version file in the root directory of the app, named info.json and containing the following information :
 ```json

@@ -33,3 +33,5 @@ The possible values for the radio band are the following strings:
 - DMB
 - SDaRS
 - DaB+
+
+*Appeared in Wave 4.1 - version 30.00.09.00*
