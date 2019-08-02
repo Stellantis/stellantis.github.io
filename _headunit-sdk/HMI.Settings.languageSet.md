@@ -20,3 +20,5 @@ try{// HMI.Settings
 	DealWithHMISettingsError(e);
 }
 ```
+
+*Appeared in Software version 30.11.04.10*

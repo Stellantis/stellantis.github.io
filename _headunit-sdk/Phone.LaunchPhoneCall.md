@@ -36,3 +36,4 @@ if (Phone.LaunchPhoneCall(PhoneNumber) === False) {
 
 > The returned value does not represent the fact that the phone is present nor that the call was actually initiated.Indeed *True* might be returned even though the phone appaired by bluetooth doesn't have a Hands Free Profile.
 
+*Appeared in Wave 4.1 - version 30.10.08.00*

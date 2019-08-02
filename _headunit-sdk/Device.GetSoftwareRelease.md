@@ -20,3 +20,5 @@ type: api
 var Soft = Device.GetSoftwareRelease()
 // Soft = 31.09.46.60_NAC-r0
 ```
+
+*Appeared in Software version 5.14.11.30*

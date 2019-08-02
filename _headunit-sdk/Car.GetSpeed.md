@@ -27,3 +27,5 @@ var Speed = Car.GetSpeed();
 >**Note :** The speed's max length is 3 characters.
 
 >**Note 2:** This information **must not** be passed to your server. If you want to use this value then you have to do it directly on the embedded part of the app.
+
+*Appeared in Software version 5.14.11.30*

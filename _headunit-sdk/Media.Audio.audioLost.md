@@ -39,3 +39,5 @@ try{
 	HandleMediaAudioError(e);
 }
 ```
+
+*Appeared in Software version 31.06.42.30*

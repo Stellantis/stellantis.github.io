@@ -32,3 +32,5 @@ privacy: Public
 >**Note :** `Navigation.GetCurrentPosition` must always be used before accessing the value stored in `Navigation.CurrentPosition`.
 
 >**Note 2:** Some fields like `Province` are not used in some countries so its value will stay empty in such a case.
+
+*Appeared in Software version 40.03.42.30*

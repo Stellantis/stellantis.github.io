@@ -23,3 +23,5 @@ if (Radio.GetPreset() === 0) {
 	// The frequency has been defined as a preset by the user
 }
 ```
+
+*Appeared in Wave 4.1 - version 30.00.09.00*

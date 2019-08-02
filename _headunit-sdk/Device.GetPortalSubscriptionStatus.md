@@ -23,3 +23,5 @@ var SubscriptionState = Device.GetPortalSubscriptionStatus()
 #### Remark
 
 No to use
+
+*Appeared in Software version 5.14.11.30*

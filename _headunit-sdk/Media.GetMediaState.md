@@ -34,3 +34,5 @@ Value | State
 3 | pause
 4 | seek up
 5 | seek down
+
+*Appeared in Software version 30.10.10.00*

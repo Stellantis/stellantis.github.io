@@ -19,3 +19,5 @@ type: api
 ```javascript
 var currentTheme = Device.GetHMITheme()
 ```
+
+*Appeared in Software version 30.11.04.10*

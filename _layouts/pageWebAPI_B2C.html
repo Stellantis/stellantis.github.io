@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<section class="hero is-dark is-medium hero_api">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Web API B2C</h1>
+              <h1> for developpers</h1>
+        </div>
+    </div>
+</section>
+<main class="bd-main">
+    <div class="bd-side-background"></div>
+    <div class="bd-main-container container">
+	<div id="lunrsearchresults">
+		<ul></ul>
+	</div>
+
+
+{% assign version = 'v0.0.2' %}
+
+<div class="container">
+     <div class="bd-duo">
+        <div class="bd-lead ">
+            <div class="tabs">
+                <ul>
+                    {% assign sorted_pages = site.pages %}
+                    {% for p in sorted_pages %}
+                    {% if p.title contains 'Web B2C' %}
+                    <li {% if page.title==p.title %}class="is-active" {% endif %}>
+                        <a href="{{ p.url | relative_url }}">{{ p.title | remove: "Web B2C" }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="bd-content">
+                <div class="content">
+                    <i>{{ version }} - {{ 'now' | date: "%Y-%b-%d:%R:%S" }}</i>
+                    {% include anchor_headings.html html=content anchorClass="bd-anchor-link" anchorBody="#" bodyPrefix='<span class="bd-anchor-name">' bodyAntefix="</span>" %}
+                </div>
+            </div>
+        </div>
+        <aside class="bd-side  is-flex-tablet">
+            <div id="anchorsReference" class="bd-anchors-reference"></div>
+            <nav id="anchors" class="bd-anchors">
+                <p class="bd-anchors-title">
+                    On this page
+                </p>
+				<hr style="background-color: rgb(187, 187, 187);">
+                <ul class="bd-anchors-list">
+
+				</ul>
+            </nav>
+        </aside>
+    </div>
+</div>
+
+</div>
+</main>

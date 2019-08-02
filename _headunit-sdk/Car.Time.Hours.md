@@ -27,3 +27,5 @@ var CurrentHour = Car.Time.Hours()
 #### Remark
 
 >**Note :** `Car.GetTime` should always be called before reading time values to make sure all the values are synchronized.
+
+*Appeared in Software version 30.04.64.40*

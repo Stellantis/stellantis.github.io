@@ -19,3 +19,5 @@ type: api
 var distanceUnit = Device.GetDistanceUnit()
 // distanceUnit = "km"
 ```
+
+*Appeared in Software version 5.14.11.30*

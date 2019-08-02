@@ -24,3 +24,5 @@ privacy: Public
 #### Remark
 
 >**Note :** `Navigation.GetJourneyInfo` must always be used before accessing the value stored in `Navigation.ManeuverInfo`.
+
+*Appeared in Software version 40.03.42.30*

@@ -37,3 +37,5 @@ Car.Time.OffsetUTC()
 >**Note :** `Car.GetTime` should always be called before reading time values to make sure all the values are synchronized.
 
 >**Note 2:** For example a car going from France to England having its time updated based on Navigation satellites  will see the time values displayed changed.
+
+*Appeared in Software version 30.04.64.40*

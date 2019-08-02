@@ -23,3 +23,5 @@ if (Car.GetFuelUnit() === 'l') {
 	var FuelUnit = 'Gallon'
 }
 ```
+
+*Appeared in Software version 5.14.11.30*

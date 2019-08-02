@@ -80,3 +80,5 @@ if ( Navigation.LaunchGuidance(Description, DestinationLongitude, DestinationLat
 >```
 >
 >If newInterface is false then you should use the old one `Navigation.LaunchGuidance`
+
+*Appeared in Software version 40.03.42.30*

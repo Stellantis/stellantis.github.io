@@ -31,3 +31,5 @@ Band | Interval
 FM | [87500 - 108000]
 DaB | [0 -63]
 aM |[144 - 288], [531-1629]
+
+*Appeared in Wave 4.1 - version 30.00.09.00*

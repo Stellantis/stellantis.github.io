@@ -28,3 +28,5 @@ if (Media.GetMediaState() === 2) {
 	// tracksremaining = totaltracks - tracknumber
 }
 ```
+
+Appeared in Software version 30.10.10.00*

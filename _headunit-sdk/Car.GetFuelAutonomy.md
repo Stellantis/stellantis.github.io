@@ -24,3 +24,5 @@ var FuelAutonomy = Car.GetFuelAutonomy();
 #### Remark
 
 >**Note :** The Fuel Autonomy's max length is 4 characters.
+
+*Appeared in Software version 40.03.51.50*

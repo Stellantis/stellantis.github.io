@@ -2,6 +2,7 @@
 title: Navigation.LaunchGuidanceWaypoints()
 layout: headunit-sdk
 supported:
+  - 2
   - 4
 type: api
 privacy: Public
@@ -38,11 +39,9 @@ if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitud
 
 #### Remark
 
->**Note :** Should be compatible with wave 2 in future versions
+>**Note:** This new version of the LaunchGuidance will override the current journey with the one being passed.
 
->**Note 2:** This new version of the LaunchGuidance will override the current journey with the one being passed.
-
->**Note 3:** The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints`.
+>**Note 2:** The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints`.
 
 
 >**Important :** In order to verify if you can use the new API `Navigation.LaunchGuidanceWaypoints` or the old one `Navigation.LaunchGuidance`, you can check the existence of one of the following JS events :
@@ -69,3 +68,7 @@ if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitud
 >```
 >
 >If newInterface is true then you should use the new version of the API (wave 4)
+
+*Appeared in Software version 21.08.15.30*
+
+*Appeared in Software version 40.03.49.50*

@@ -23,3 +23,5 @@ if (Device.GetHMIFocus() === False) {
 	//focus is on portal
 }
 ```
+
+*Appeared in Software version 30.11.04.10*

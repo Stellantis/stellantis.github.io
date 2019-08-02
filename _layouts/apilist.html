@@ -3,7 +3,7 @@ layout: page2
 ---
 {% assign apis = site.headunit-sdk | where:"type", "api" %}
 {% assign events = site.headunit-sdk | where:"type", "event" %}
-
+{{ content }}
 <h1 id="api">API Reference </h1>
 {% for api in apis %}
 <hr>

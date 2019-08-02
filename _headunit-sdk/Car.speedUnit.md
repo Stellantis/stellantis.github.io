@@ -24,3 +24,5 @@ try {
 	DealWithCarError(e);
 }
 ```
+
+*Appeared in Software version 5.14.11.30*
