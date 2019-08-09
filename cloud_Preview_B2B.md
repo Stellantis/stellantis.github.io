@@ -2,7 +2,7 @@
 title: Web B2B Preview
 layout: pageWebAPI_B2B
 ---
-# What it's look like ?
+# What does it's look like ?
 
 Our REST api returns type MIME: **application/hal+json**. GeoJson is for geolocalisation and time format is RFC3339.
 
@@ -11,13 +11,32 @@ Our REST api returns type MIME: **application/hal+json**. GeoJson is for geoloca
 The Groupe PSA's Web APIs are based on **REST** principles. Data resources are accessed via standard **HTTPS requests in UTF-8 format** to an API endpoint. Moreover, the Web API uses appropriate HTTP verbs for each action:
 
 
-| METHOD | ACTION
-|:----:|----
-| <span class="verb get">GET</span> | Retrieve resources
-| <span class="verb post">POST</span> | Create resources
-| <span class="verb put">PUT</span> | Change and/or replace resources or collections
-| <span class="verb verbdelete">DELETE</span> | Delete resources
-
+<table class="largertable">
+  <thead>
+    <tr>
+      <th>METHOD</th>
+      <th>ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="verb get">GET</span></td>
+      <td>Retrieve resources</td>
+    </tr>
+    <tr>
+      <td><span class="verb post">POST</span></td>
+      <td>Create resources</td>
+    </tr>
+    <tr>
+      <td><span class="verb put">PUT</span></td>
+      <td>Change and/or replace resources or collections</td>
+    </tr>
+    <tr>
+      <td><span class="verb verbdelete">DELETE</span></td>
+      <td>Delete resources</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Responses
 
@@ -25,6 +44,7 @@ The Groupe PSA's Web APIs are based on **REST** principles. Data resources are a
 |----|----|
 |200| Request completed without any issues|
 |400| Invalid request (ID, ...) |
+|403|	The user don't have access to this car. Usually an error with the vehicle ID.|
 |404| Data not found. Can be that there is no data for this specific vehicle or a typo on the URL |
 |500| Internal server error. Sounds like there's a problem on the server. Take it easy, we're on it ;)|
 

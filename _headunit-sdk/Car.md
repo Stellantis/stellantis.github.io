@@ -19,8 +19,6 @@ Method | Response Type | Description
 [Car.GetVINCode()]({{ site.baseurl }}/webportal_list/#api-Car-GetVINCode) | String | Gets the VIN code of the vehicle.
 [Car.GetFuelType()]({{ site.baseurl }}/webportal_list/#api-Car-GetFuelType) | Number| Gets the fuel type of the vehicle.
 [Car.GetSpeed()]({{ site.baseurl }}/webportal_list/#api-Car-GetSpeed) | Number| Gets the current speed.
-[Car.GetAutonomy()]({{ site.baseurl }}/webportal_list/#api-Car-GetAutonomy) | Number| Gets the remaining autonomy.
-[Car.GetFuelAutonomy()]({{ site.baseurl }}/webportal_list/#api-Car-GetFuelAutonomy) | Number| Gets the remaining fuel autonomy.
 [Car.GetBatteryAutonomy()]({{ site.baseurl }}/webportal_list/#api-Car-GetBatteryAutonomy) | Number| Gets the remaining battery autonomy.
 [Car.GetBatteryLevel()]({{ site.baseurl }}/webportal_list/#api-Car-GetBatteryLevel) | Number| Gets the current battery level.
 [Car.GetDrivingState()]({{ site.baseurl }}/webportal_list/#api-Car-GetDrivingState) | Boolean | Gets the current driving state.

@@ -24,8 +24,8 @@ Method | Response Type | Description
 [Navigation.LaunchGuidanceWaypoints()]({{ site.baseurl }}/webportal_list/#api-Navigation-LaunchGuidanceWaypoints) | Boolean | Starts the navigation to the specified destination and passing through all the specified waypoints.
 [Navigation.GetManeuverInfo()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetManeuverInfo) | Boolean | Retrieves information on the next maneuver and store it inside `Navigation.ManeuverInfo`.
 [Navigation.GetJourneyInfo()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetJourneyInfo) | Boolean | Retrieves information on the estimated time of arrival at destination and store it inside `Navigation.JourneyInfo`.
-[Navigation.GetNextWaypoint.ETAHours()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetNextWaypointETAHours) | Number | Returns the estimated hour of arrival at the next waypoint.
-[Navigation.GetNextWaypoint.ETAMinutes()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetNextWaypointETAMinutes) | Number | Returns the estimated minute of arrival at the next waypoint.
+[Navigation.GetNextWaypoint.ETAHours()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetNextWaypoint-ETAHours) | Number | Returns the estimated hour of arrival at the next waypoint.
+[Navigation.GetNextWaypoint.ETAMinutes()]({{ site.baseurl }}/webportal_list/#api-Navigation-GetNextWaypoint-ETAMinutes) | Number | Returns the estimated minute of arrival at the next waypoint.
 
 #### Events Summary
 

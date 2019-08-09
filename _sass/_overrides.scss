@@ -1,5 +1,3 @@
-
-
 .post{
   background: #49cc90;
 }
@@ -32,12 +30,24 @@
   color: #fff;
 }
 
+.content .largertable td,.content .largertable th{
+  padding: 0.9rem 0.75rem
+
+}
+
+.textnavbar{
+  text-shadow: 1px 1px 4px #000000;
+}
+
+#dropdownAPI{
+  background-color: #292929;
+}
+
 .icon-logo {
     width: 79px;
     height: 45px;
     fill: #fff;
 }
-
 
 h1,
 h2,
@@ -73,9 +83,9 @@ footer a {
     padding: 5%;
 }
 
-.smallimg{
-  width: auto !important;
-  margin-left: 0 !important;
+.content .smallimg{
+  width: auto;
+  margin-left: 0;
 }
 
 .content img {
@@ -137,6 +147,10 @@ footer a {
 }
 
 
+.hero h2.title {
+
+    text-shadow: 1px 1px 4px #000000;
+}
 h1.title {
     font-size: 5rem;
     text-shadow: 2px 2px 4px #000000;

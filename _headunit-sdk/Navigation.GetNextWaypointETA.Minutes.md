@@ -1,5 +1,5 @@
 ---
-title: Navigation.GetNextWaypointETAMinutes()
+title: Navigation.GetNextWaypoint.ETAMinutes()
 layout: headunit-sdk
 supported:
   - 2
@@ -9,7 +9,7 @@ type: api
 privacy: Public
 ---
 
-### `Navigation.GetNextWaypointETAMinutes()`
+### `Navigation.GetNextWaypoint.ETAMinutes()`
 
 | **Description** | Calculate and return the estimated time of arrival at the next waypoint, precisely the minutes.
 | **Response** | *Number*  Estimated minute of arrival at the next waypoint.
@@ -18,12 +18,12 @@ privacy: Public
 #### Example
 
 ```javascript
-var WaypointETAMinutes = Navigation.GetNextWaypointETAMinutes();
+var WaypointETAMinutes = Navigation.GetNextWaypoint.ETAMinutes();
 // WaypointETAMinutes = 27 minutes
 ```
-	
+
 #### Remark
 
->**Note :** `Navigation.GetNextWaypointETAMinutes` only gives the "Minutes" part of the Estimated Time of arrival. To get the "Hour" part, use `Navigation.GetNextWaypointETAHour`.
+>**Note :** `Navigation.GetNextWaypoint.ETAMinutes` only gives the "Minutes" part of the Estimated Time of arrival. To get the "Hour" part, use `Navigation.GetNextWaypoint.ETAHour`.
 
 *Appeared in Software version 40.03.42.30*
