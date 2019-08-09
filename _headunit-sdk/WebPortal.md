@@ -31,7 +31,7 @@ Message Type | Description
 [WebPortal.onApplicationShow]({{ site.baseurl }}/webportal_list/#event-WebPortal-onApplicationShow) | Triggered when the application gains focus.
 [WebPortal.onApplicationHide]({{ site.baseurl }}/webportal_list/#event-WebPortal-onApplicationHide) | Triggered when the application loses focus.
 [WebPortal.onApplicationUpdated]({{ site.baseurl }}/webportal_list/#event-WebPortal-onApplicationUpdated) | Triggered when the application has been updated.
-[WebPortal.WebPortal.onApplicationLoaded]({{ site.baseurl }}/webportal_list/#event-WebPortal-onApplicationLoaded) | Must be sent by the application when it has fully loaded.
+[WebPortal.onApplicationLoaded]({{ site.baseurl }}/webportal_list/#event-WebPortal-onApplicationLoaded) | Must be sent by the application when it has fully loaded.
 [WebPortal.onSendNotificationRequest]({{ site.baseurl }}/webportal_list/#event-WebPortal-onSendNotificationRequest) | Must be sent by the application to display a notification.
 
 >**Note :** `onApplicationLoaded` **must** be sent, to the portal, by your Application after it has been launched.

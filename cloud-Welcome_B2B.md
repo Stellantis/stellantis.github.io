@@ -8,17 +8,17 @@ layout: pageWebAPI_B2B
 Our REST APIs implements all the resources you need to retrieve from your fleet of vehicles. It's based on open standards: **OpenAPIv3, JSON & HAL**. You will be able to get a lot of data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
 
 
-# How it works ?
+# How does it works ?
 
-Vehicles are using various sensors which aim to improve security and driving experience. They are avaibables for embedded developpment as you can see [in this section]({{ site.baseurl }}/webportal-Welcome).
+Vehicles are using various sensors which aim to improve security and driving experience. They are avaibables for embedded development as you can see [in this section]({{ site.baseurl }}/webportal-Welcome).
 
 Our web APIs grants you access to this data even outside of the car:
 
-![presentationUnified]({{ site.baseurl }}/assets/images/presentationUnified.svg)
+![presentationUnified]({{ site.baseurl }}/assets/images/presentationUnified.png)
 
 
 
-Sensors are collecting datas inside the vehicle and sent them to Groupe PSA via mobile network. Our servers will then **process** these raw data into **unified** and understable infos. Futhermore, cloud storage allow you to access your data at any time eventhough the vehicle is turned-off.
+Sensors are collecting datas inside the vehicle and sent them to Groupe PSA via mobile network. Our servers will then **process** these raw data into **unified** and understable info. Futhermore, cloud storage allow you to access your data at any time eventhough the vehicle is turned-off.
 
 Everything is processed on our side (Groupe PSA) in order to provide you (Partner) the **same kind of datas whatever you own differents types of vehicles** (brand new or older, regular fuel or electric consumption).
 
@@ -27,15 +27,27 @@ Everything is processed on our side (Groupe PSA) in order to provide you (Partne
 
 
 
-By requesting this api you can retrieve all kinds off intersiting infos:
+By requesting this api you can retrieve all kinds off intersiting info:
 
 
-![Features]({{ site.baseurl }}/assets/images/features.png)
+![Features]({{ site.baseurl }}/assets/images/presentationFeatures.png)
 
 |
-![Features]({{ site.baseurl }}/assets/images/history.png) | **History**: trips, telemetrics, notifications and collisions are usefull datas, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history.
-|
+![Features]({{ site.baseurl }}/assets/images/presentationHistory.png) | **History**: trips, telemetrics, notifications and collisions are usefull datas, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history.
 
+
+
+
+|Feature|Descrpition|
+|-|-|
+|General info|Get a user or car general info, like brand, model, fuel type.|
+|Maintenance|Stay tuned on car maintenance, time and mileage before maintenance.|
+|Collision|Be notified of collisions and where it happened.|
+|Trips|Browse into cars trips, departure point, arrival.|
+|Alerts|Get history of in-car alerts (oil, engine, breaks etc).|
+|Telemetrics|Retrieve and track vehicles telemetrics (speed*, location, fuel level, blinking lights etc).|
+|Monitor|Configure car monitoring like notification for car leaving defined area. Click [here]({{site.baseurl}}/cloud_Monitor) to learn more about monitors.|
+|Status|Retrieve car status,like last position, autonomy, open doors.|
 
 - **General info**: Get a user or car general info, like brand, model, fuel type.
 - **Maintenance**: Stay tuned on car maintenance, time and mileage before maintenance.
@@ -76,7 +88,7 @@ Sensors are gathering all types of intersting datas inside cars. First of all, t
 
   > Refresment rates improves with vehicles bought since 2019.
 
-![presentationFrequency]({{ site.baseurl }}/assets/images/presentationFrequency.svg)
+![presentationFrequency]({{ site.baseurl }}/assets/images/presentationFrequency.png)
 
 # See Also
 

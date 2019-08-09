@@ -9,7 +9,7 @@ Monitor are an easy way to design events tracking patterns for one or multpile v
 
 **Examples of monitors:**
 
-![monitorsFeatures]({{site.baseurl}}/assets/images/monitorsFeatures.svg)
+![monitorsFeatures]({{site.baseurl}}/assets/images/monitorsFeatures.png)
 
 
 **Avaibable monitors:**
@@ -20,17 +20,17 @@ Monitor are an easy way to design events tracking patterns for one or multpile v
 
 # How it works ?
 
-![monitorSystem]({{site.baseurl}}/assets/images/monitorSystem.svg)
+![monitorSystem]({{site.baseurl}}/assets/images/monitorSystem.png)
 
 Once you have created a monitor, our **event engine** will continously check for your patern.
 When our server are receiving data from your car our **event engine** will check if it’s needed to send notification or not. If  our event engine reconize a pattern it will send a callback to your endpoint located in your system.
 If your service is unavailable you can ask us to retry a specific number of time with a specific frequency. All theses parameters are configurable.
 
 # Configuration
-![monitorSequence]({{site.baseurl}}/assets/images/monitorSequence.svg)
+![monitorSequence]({{site.baseurl}}/assets/images/monitorSequence.png)
 
 ## Configuring Monitors
-First of all you (Partner) have to create a new monitor using our [dedicated endpoint]({{site.baseurl}}/cloud_list_B2B/#/Monitors/createFleetVehicleMonitor) in the api.
+You have to create a new monitor using our [dedicated endpoint]({{site.baseurl}}/cloud_list_B2B/#/Monitors/createFleetVehicleMonitor) in the api.
 To configure this monitor your request need to be constructed with the following parameters:
 - **retryPolicy**: none or always, maxRetryNumer, retryDelay
 - **suscribe**: your URL endPoint
