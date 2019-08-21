@@ -23,7 +23,9 @@ Monitor are an easy way to design events tracking patterns for one or multpile v
 ![monitorSystem]({{site.baseurl}}/assets/images/monitorSystem.png)
 
 Once you have created a monitor, our **event engine** will continously check for your patern.
+
 When our server are receiving data from your car our **event engine** will check if it’s needed to send notification or not. If  our event engine reconize a pattern it will send a callback to your endpoint located in your system.
+
 If your service is unavailable you can ask us to retry a specific number of time with a specific frequency. All theses parameters are configurable.
 
 # Configuration

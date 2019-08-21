@@ -31,10 +31,10 @@ They then reach the main menu containing the applications they are subscribed to
 ## Screen size
 Usually in-board screen is located on the dashboard of the car between driver and passenger.
 
-There is 3 differents screen resolutions depending on car model and generation.
+There are 3 differents screen resolutions depending on car model and generation.
 
 The screen is divided in 3 areas: one is for your app while two others areas are dedicated to car system infos.
-Here is actual avaibable screen size:
+Here is actual available screen size:
 - SD = 800 x 363 px
 - HD = 1280 x 582 px
 - WHD = 1280 x 720 px

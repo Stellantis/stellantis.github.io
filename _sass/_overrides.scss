@@ -30,6 +30,11 @@
   color: #fff;
 }
 
+.content blockquote {
+  padding:0.6rem 1.75rem;
+  margin: 0.6rem 1.5rem 1.3rem;
+}
+
 .content .largertable td,.content .largertable th{
   padding: 0.9rem 0.75rem
 
@@ -48,6 +53,7 @@
     height: 45px;
     fill: #fff;
 }
+
 
 h1,
 h2,

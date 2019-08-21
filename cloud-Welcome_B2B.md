@@ -29,8 +29,10 @@ Everything is processed on our side (Groupe PSA) in order to provide you (Partne
 
 By requesting this api you can retrieve all kinds off intersiting info:
 
-
+<h3 align="center" class="title"> API Features </h3>
 ![Features]({{ site.baseurl }}/assets/images/presentationFeatures.png)
+
+
 
 |
 ![Features]({{ site.baseurl }}/assets/images/presentationHistory.png) | **History**: trips, telemetrics, notifications and collisions are usefull datas, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history.
@@ -48,15 +50,6 @@ By requesting this api you can retrieve all kinds off intersiting info:
 |Telemetrics|Retrieve and track vehicles telemetrics (speed*, location, fuel level, blinking lights etc).|
 |Monitor|Configure car monitoring like notification for car leaving defined area. Click [here]({{site.baseurl}}/cloud_Monitor) to learn more about monitors.|
 |Status|Retrieve car status,like last position, autonomy, open doors.|
-
-- **General info**: Get a user or car general info, like brand, model, fuel type.
-- **Maintenance**: Stay tuned on car maintenance, time and mileage before maintenance.
-- **Collision**: Be notified of collisions and where it happened.
-- **Trips**: Browse into cars trips, departure point, arrival.
-- **Alerts**: Get history of in-car alerts (oil, engine, breaks etc).
-- **Telemetrics**: Retrieve and track vehicles telemetrics (speed*, location, fuel level, blinking lights etc).
-- **Monitor**: Configure car monitoring like notification for car leaving defined area. Click [here]({{site.baseurl}}/cloud_Monitor) to learn more about monitors.
-- **Status**: Retrieve car status,like last position, autonomy, open doors.
 
 *speed: according to country's legislation.
 
