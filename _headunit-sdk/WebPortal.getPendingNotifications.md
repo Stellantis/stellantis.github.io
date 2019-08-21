@@ -10,7 +10,7 @@ type: api
 
 ### `WebPortal.getPendingNotifications()`
 
-| **Description** | Gets the notifications currently pending.
+| **Description** | Gets the notifications currently pending. Look at [Tutorial(Advanced)]({{site.baseurl}}webportal_TutorialAdvanced/#receiving-data-messages-from-your-server) for an integration example.
 | **Response** | The Notifications as `Array` (either empty or containing Strings) or `Unrecognised Error` if the application is not fully launched.
 | **Parameter**   | Void
 

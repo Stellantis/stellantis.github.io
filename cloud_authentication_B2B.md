@@ -42,9 +42,9 @@ In order to ensure your identity we have to perform signing process of your publ
 Producing encryptation keys and CSR have to be done with a dedicated software. Here is **examples** with two of them:
 
 ### 2.1 OpenSSL
-**OpenSSL** is an open-source software library for encryption purpose. It is widely used in internet security. You can download and install Open SSL using this [link](https://slproweb.com/products/Win32OpenSSL.html) for windows. With OpenSLL producing key and creating CSR can be performed in one step:
+**OpenSSL** is an open-source software library for encryption purpose. It is widely used in internet security. You can download and install Open SSL using this [link](https://slproweb.com/products/Win32OpenSSL.html) for windows.
 
-Create a directory with text configuration file named like 'CSRConfig.conf' and copy/past this text into it:
+With OpenSLL producing key and creating CSR can be performed in one step. Create a directory with text configuration file named like 'CSRConfig.conf' and copy/past this text into it:
 
 ```
 [ req ]

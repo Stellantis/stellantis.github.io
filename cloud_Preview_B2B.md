@@ -48,7 +48,7 @@ The Groupe PSA's Web APIs are based on **REST** principles. Data resources are a
 |404| Data not found. Can be that there is no data for this specific vehicle or a typo on the URL |
 |500| Internal server error. Sounds like there's a problem on the server. Take it easy, we're on it ;)|
 
-## Single object
+### Single object
 
 When you call a ressource with an id you will retrieve a single object. Every ressource wich respond with a single object respect the following generic schema:
 
@@ -78,7 +78,7 @@ When you call a ressource with an id you will retrieve a single object. Every re
 |updatedAt|	date| Last update date|
 |_embedded|	object|	This property contains commonly related objects to the current object. It can be empty.|
 
-## Collection
+### Collection
 
 When you call an api with a plural noun you will receive an array of objects. Every ressource which responds with a list of object respect the following generic schema.
 
@@ -108,9 +108,22 @@ When you call an api with a plural noun you will receive an array of objects. Ev
 }
 ```
 
+
+#### Pagination with HAL
+Every collections in the API are browsable. Links provided in the response will let you naviguate in the API endpoints like in a website.
+
+First of all, collections comes with a **pagination system**. In your request you can add optional parameters:
+- `indexRange`: specify where the collection begin and where it finish.
+> example: *"indexRange=0-9"* will retriev only results 0 to 9.
+
+- `pageSize`: is the maximum of resultats you want to return per page.
+> example: *"pageSize=15"* will retieve only 15 results per page.
+
+As you can see in the previous example there is a `_links` object at the top of the response body. These links let you browse between pages in a collection.  Look at this table for more info about this `_links` object:
+
 |Property|	Type|	Description|
 |----|----|----|
-|_links|	object|	This property contain _links related to the current object. You can use these _links in your application to store.|
+|_links|	object|	This property contain _links related to the current object. You can use these _links in your application to store: |
 |_links.self.href|	string|	URL of the current position in the array|
 |_links.first.href|	string|	URL for the first page of the array. *Optional*|
 |_links.next.href|	string|	URL for the next page of the array. *Optional*|
@@ -118,6 +131,57 @@ When you call an api with a plural noun you will receive an array of objects. Ev
 |_links.last.href|	string|	URL for the last page of the array. *Optional*|
 |total|	integer|	Total number of elements in the array. Depends on the filters applied to the search.|
 |_embedded|	object| This property contains commonly related objects to the current object. |
+
+#### Discover Ressources with HAL
+
+**Example:** request GET /fleet/status return the status of all vehicles the Fleet owns.
+```json
+{
+    "_links": {(...)}
+    },
+    "total": 32,
+    "_embedded": {
+        "Status": [
+            {
+              "lastPosition": {(...)},
+              "preconditionning": {(...)},
+              "energy": [(...)],
+              "createdAt": "Mon Jun 03 08:35:36 GMT 2019",
+              "autonomy": 290,
+              "ignition": {(...)},
+              "doorsState": {(...)},
+              "vin":  (...),
+              "privacy": {(...)},
+              "battery": {(...)},
+              "kinetic": {(...)},
+              "_links": {
+                  "fleet": {
+                      "href": "https://.../fleet"
+                  },
+                  "self": {
+                      "href": "https://.../fleet/status?indexRange=0-&pageSize=1&locale=fr-FR"
+                  },
+                  "vehicles": {
+                      "href": "https://.../fleet/vehicles/400027CB668774704AABECB2888A58018"
+                    }
+                }
+            }
+        ]
+    },
+  "currentPage": 1,
+  "totalPage": 32
+}
+```
+
+Ressources in the API are using HAL for **HATEOAS integration**. It allow interaction inside the api ressources. The purpose is to access and discover the API like you browse a website: navigating from one page to another. Links are nammed with the idea that you can understand easily what they are about.
+
+Let's say your are browsing your entire **fleet status (example above).**
+Look at the object status, inside each status object you can retrieve info about the vehicle it concerns, it include last position, precondictionning, battery etc.
+
+Furthermore there is a `_links` object embedded in the statu object. These links are relative to the object that they describe. They let you discover and browse the API. In the example below you can retrieve 3 links:
+- `"fleet"` : direct link to the fleet of this statu.
+- `"self"` : pointing to the actual ressource.
+- `"vehicles"` :  pointing to the vehicle this statu is about.
 
 
 # See Also

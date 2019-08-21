@@ -22,14 +22,14 @@ info:
     PSA Connected Car B2B PIs uses the [HTTPS Authentication](https://tools.ietf.org/html/rfc7235) (PSA SSL Certificate) to access to fleet vehicles data.
 
     # Paging:
-      Pagination in REST does not really have a well-defined standard. In order to facilitate this necessary function in the case of a list of results. APIs use a page token(computed and interpreted by the server).
+      Pagination in REST does not really have a well-defined standard. In order to make this necessary feature easy to use when retreiving a collection of results. This API uses a  token(computed and interpreted by the server only) as a context that contains all necessary informations allowing the navigation throught pages.
         Token acts as an ```HTTP COOKIE``` on the client side, so the server does not keep any cache or session settings to continue paging and keep all request stateless.
 
 
     # Errors:
       Error codes returned by all REST APIs comply with the standard. Nevertheless, PSA Services (callers) need to have more complete data structures (even when the answer is not Http-OK) to better detail the type of error by providing application code, message and a debugging code(for investigation purposes). The http code of the response is managed by the protocol itself (in the header).
 
-      **Errors must be returned by  the generic error response:**
+      **Errors are  returned as a generic error response:**
        * ErrorCodeDefaultResponse
 
     ---
@@ -207,7 +207,7 @@ paths:
     get:
       tags:
         - Fleet
-      description: Returns the latest vehicles status for a given fleet.
+      description: Returns the latest vehicles status for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle.
       summary: Fleet Vehicles status.
       operationId: getFleetStatusList
       parameters:
@@ -225,7 +225,7 @@ paths:
     get:
       tags:
         - Fleet
-      description: Returns the latest vehicles maintenance list for a given fleet
+      description: Returns the latest vehicles maintenance list for a given fleet? HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle.
       summary: Fleet Vehicles maintenances.
       operationId: getFleetMantenanceList
       parameters:
@@ -243,7 +243,7 @@ paths:
     get:
       tags:
         - Fleet
-      description: Returns the vehicles alerts list for a given fleet
+      description: Returns the vehicles alerts list for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle.
       summary: Fleet Vehicles alerts.
       operationId: getFleetAlertList
       parameters:
@@ -262,7 +262,7 @@ paths:
   '/fleet/telemetries':
     get:
       tags:
-        - Vehicles
+        - Fleet
       summary: Telemetry list of the fleet.
       description: >-
         Returns the latest Telemetry messages that occurred during a selective
@@ -272,6 +272,7 @@ paths:
         - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/telemetryType'
+        - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
@@ -487,30 +488,34 @@ paths:
           application/json:
             schema:
                   type: string
-                  enum: [Running, Paused, Failed]
+                  enum: [Running, Paused]
                 #DataMonitorParm
       responses: #MonitorId
         200:
           $ref: '#/components/responses/MonitorsuccessPostResponse'
         default:
           $ref: '#/components/responses/MonitorFailedResponse'
-  '/fleet/trips/{tid}/collisions':
-     $ref: '#/x-fragment/Trip_id_Collisions_getter'
-
-  '/fleet/trips':
-    $ref: '#/x-fragment/Fleet_Trips_getter'
-
-  '/fleet/trips/{tid}':
-    $ref: '#/x-fragment/Fleet_Trip_id_getter'
-
-  '/fleet/trips/{tid}/wayPoints':
-    $ref: '#/x-fragment/Fleet_Trip_id_wayPoints_getter'
 
   '/fleet/vehicles/{id}/trips':
     $ref: '#/x-fragment/Vehicle_id_Trips'
 
+  '/fleet/trips':
+    $ref: '#/x-fragment/Fleet_Trips_getter'
+
+  '/fleet/trips/{tid}/collisions':
+     $ref: '#/x-fragment/Trip_id_Collisions_getter'
+
+  '/fleet/collisions':
+    $ref: '#/x-fragment/Fleet_Collisions_getter'
+
+  '/fleet/trips/{tid}':
+    $ref: '#/x-fragment/Fleet_Trip_id_getter'
+
   '/fleet/vehicles/{id}/trips/{tid}':
     $ref: '#/x-fragment/Vehicle_id_Trip_id'
+
+  '/fleet/trips/{tid}/alerts':
+    $ref: '#/x-fragment/Fleet_Trip_id_alerts'
 
   '/fleet/vehicles/{id}/trips/{tid}/alerts':
     $ref: '#/x-fragment/Vehicle_id_Trip_id_alerts'
@@ -518,11 +523,11 @@ paths:
   '/fleet/vehicles/{id}/trips/{tid}/alerts/{aid}':
     $ref: '#/x-fragment/Vehicle_id_Trip_id_alerts_id'
 
-  '/fleet/trips/{tid}/alerts':
-    $ref: '#/x-fragment/Fleet_Trip_id_alerts'
-
   '/fleet/trips/{tid}/alerts/{aid}':
     $ref: '#/x-fragment/Fleet_Trip_id_alert_Id'
+
+  '/fleet/trips/{tid}/wayPoints':
+    $ref: '#/x-fragment/Fleet_Trip_id_wayPoints_getter'
 
   '/fleet/vehicles/{id}/trips/{tid}/wayPoints':
     $ref: '#/x-fragment/Vehicle_id_Trip_id_wayPoints_getter'
@@ -532,10 +537,6 @@ paths:
 
   '/fleet/vehicles/{id}/trips/{tid}/telemetry':
     $ref: '#/x-fragment/Vehicle_id_Trip_id_Telemetry_getter'
-
-
-    #Vehicle_id_Trip_id_alerts
-
 
 components:
   securitySchemes:
@@ -776,7 +777,7 @@ components:
         properties:
           type:
               type: string
-              enum: [Stop, Contact, Start, Free]
+              enum: [Stop, StartUp, Start, Free]
           createdAt:
               type: string
               format: dateTime
@@ -980,8 +981,34 @@ components:
                   description: Residual electric energy (KWh)
                   type: number
                   format: float
+
+            battery:
+              type: object
+              description: Battery capacity and heath for electric energy type.
+              properties:
+                capacity:
+                  description: Electric battery total capacity (expressed in Wh).
+                  type: number
+                  format: float
+
+                health:
+                  type: object
+                  properties:
+                    capacity:
+                      description:  Health related to battery capacity (expressed in persentage)
+                      type: number
+                      format: int
+
+                    resistance:
+                      description:  Health related to battery resistance (expressed in persentage)
+                      type: number
+                      format: int
+
+
+
             charging:
                   type: object
+                  description: Charging state is set for electric energy type only.
                   properties:
                     plugged:
                       type: boolean
@@ -1256,163 +1283,135 @@ components:
 
         _embedded:
           type: object
+    CollectionResult:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/Tab_Links'
+        total:
+          type: integer
+        totalPage:
+          type: integer
+        currentPage:
+          type: integer
+        _embedded:
+          type: object
+      required: [total, totalPage, currentPage, _embedded]
+
     Alerts:
-      title: Alerts Array
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Tab_Links'
-        total:
-          type: integer
-        totalPage:
-          type: integer
-        currentPage:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            alerts:
-              type: array
-              items:
-                $ref: '#/components/schemas/Alert'
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - properties:
+            _embedded:
+              type: object
+              properties:
+                alerts:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Alert'
     Monitors:
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Tab_Links'
-        total:
-          type: integer
-        totalPage:
-          type: integer
-        currentPage:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            monitors:
-              type: array
-              items:
-                $ref: '#/components/schemas/Monitor'
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - properties:
+            _embedded:
+              type: object
+              properties:
+                monitors:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Monitor'
     Collisions:
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Tab_Links'
-        total:
-          type: integer
-        totalPage:
-          type: integer
-        currentPage:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            Collisions:
-              type: array
-              items:
-                $ref: '#/components/schemas/Collision'
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - properties:
+            _embedded:
+              type: object
+              properties:
+                Collisions:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Collision'
 
     WayPoints:
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Tab_Links'
-        total:
-          type: integer
-        totalPage:
-          type: integer
-        currentPage:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            positions:
-              type: array
-              items:
-                $ref: '#/components/schemas/Position'
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - properties:
+            _embedded:
+              type: object
+              properties:
+                reduced:
+                  description: >
+                      Determines whether this result set (page) has been reduced due to path simplifying (by providing a tolerance factor).
+                       ### Note:
+                       The number of results may be lower than the specified page 'size' due to the applying of the path simplifying after resolving the page resultset.
+                  type: boolean
+                positions:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Position'
+              required:
+                  - positions
+
     Trips:
-      title: Trips
-      description: List of a Trips response
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Tab_Links'
-        total:
-          type: integer
-        totalPage:
-          type: integer
-        currentPage:
-          type: integer
-        _embedded:
-          type: object
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - description: List of a Trips response
           properties:
-            trips:
-              type: array
-              items:
-                $ref: '#/components/schemas/Trip'
+            _links:
+              $ref: '#/components/schemas/Tab_Links'
+            total:
+              type: integer
+            totalPage:
+              type: integer
+            currentPage:
+              type: integer
+            _embedded:
+              type: object
+              properties:
+                trips:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Trip'
 
 
     MaintenanceList:
-      title: MaintenanceList
-      description: List of a Maintenance response
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Tab_Links'
-        total:
-          type: integer
-        totalPage:
-          type: integer
-        currentPage:
-          type: integer
-        _embedded:
-          type: object
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - description: List of a Maintenance response
           properties:
-            maintenances:
-              type: array
-              items:
-                $ref: '#/components/schemas/Maintenance'
+            _embedded:
+              type: object
+              properties:
+                maintenances:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Maintenance'
 
     StatusList:
-      title: Status
-      description: List of a Status response
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Tab_Links'
-        total:
-          type: integer
-        totalPage:
-          type: integer
-        currentPage:
-          type: integer
-        _embedded:
-          type: object
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - description: List of a Status response
           properties:
-            status:
-              type: array
-              items:
-                $ref: '#/components/schemas/Status'
+            _embedded:
+              type: object
+              properties:
+                status:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Status'
 
     Vehicles:
-      title: Vehicle Information
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Tab_Links'
-        total:
-          type: integer
-        totalPage:
-          type: integer
-        currentPage:
-          type: integer
-        _embedded:
-          type: object
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - title: Vehicle List
           properties:
-            vehicles:
-              type: array
-              items:
-                $ref: '#/components/schemas/Vehicle'
+            _embedded:
+              type: object
+              properties:
+                vehicles:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Vehicle'
 
     MonitorWebhook:
       title: Webhook
@@ -1636,7 +1635,32 @@ components:
       description: A monitor for triggering the vehicle data change event.
       properties:
         data:
-          description: The left operand of the trigger function.
+          description: |
+            The left operand of the trigger function. The following Table details for each operand data its type, the supported operator and the possibly retruned value:
+            |**Data**|**Type**|**Op**|**Value**|
+            |---|---| ---:| ---:|
+            | Vehicle.alert | List of value | OnChange (All allert code or One)/IncludedIn/EqualTo | Value (ObjetAlert) |
+            | Vehicle.odometer | Integer | equalTo/ greaterThan/ lowerThan/ | Value |
+            | vehicle.moving (boolean) ( speed (satellites)  | Boolean | OnChange/equalTo | Value (True/false) |
+            | vehicle.engine.running (boolean) | Boolean | OnChange / equalTo | Value (True/false) |
+            | vehicle.engine.oil.temp | Integer | equalTo/ greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.electric.level | Number | equalTo / greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.fuel.level | Number | equalTo / greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.fuel.autonomy | Number | equalTo / greaterThan/ lowerThan/ | Value |
+
+            | vehicle.energy.autonomy (global) | Number | equalTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.charging.status | Boolean | OnChange/equalTo | Value |
+            | vehicle.energy.charging.plugged | Boolean | OnChange/equalTo | Value |
+            | vehicle.doorsState.lockedState | Boolean | OnChange/ equalTo | Value |
+            | vehicle.doorsState.opening | Boolean | OnChange/ equalTo | Value |
+            | vehicle.kinetics.speed | Number | equalTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.trip (ID) | Literal | OnChange| Value(IDTRIP) |
+            | passenger.seatbelt.unbuckled | Boolean | OnChange/equalTo/ | Value |
+            | environment.air.temp | Number | equalTo/greaterThan/ lowerThan/ | Value |
+            | privacy | Enum(Privacy) | equalTo / OnChange/IncludedIN | Value |
+            | vehicle.maintenance.daysBeforeMaintenance, | Number | OnChange/equalTo/ greaterThan/ lowerThan/ | Value |
+            | vehicle.maintenance.mileageBeforeMaintenance| Number | OnChange/equalTo/ greaterThan/ lowerThan/ | Value |
+
           type: string
           enum:
             - vehicle.alert
@@ -1646,20 +1670,21 @@ components:
             - vehicle.engine.oil.temp
             - vehicle.energy.electric.level
             - vehicle.energy.fuel.level
+            - vehicle.energy.fuel.autonomy
             - vehicle.energy.autonomy
             - vehicle.energy.charging.status
             - vehicle.energy.charging.plugged
             - vehicle.doorsState.lockedState
             - vehicle.doorsState.opening
             - vehicle.kinetics.speed
-            - vehicle.trip.new
-            - vehicle.maintenance.daysBeforeMaintenace
+            - vehicle.trip
+            - vehicle.maintenance.daysBeforeMaintenance
             - vehicle.maintenance.mileageBeforeMaintenance
             - passenger.seatbelt.unbuckled
             - environment.air.temp
             - privacy
         op:
-            description: the operator of the trigger function.
+            description: The operator of the trigger function.
             type: string
             enum: [equalsTo, greaterThan, lowerThan, includedIn, onChange]
         value:
@@ -1746,91 +1771,97 @@ components:
       enum:
         - alertOilPressure
         - alertCollantTemp
+        - chargingSystemFault
         - alertBrakeFluid
         - steeringFault
         - alertCollantLevel
+        - laneDepartureWarningSystemFault
         - alertOilLevel
-        - parkingBrakeUnset
         - frontLeftDoorOpenHighSpeed
         - frontRightDoorOpenHighSpeed
         - rearLeftDoorOpenHighSpeed
         - rearRightDoorOpenHighSpeed
-        - fuelTankOpenHighSpeed
+        - fuelTankOpen
         - trunkOpenHighSpeed
-        - trunkWindowOpenHighSpeed
+        - trunkWindowOpen
         - espFault
         - batteryLevelFault
         - waterInGasoil
         - padWearFault
         - fuelLevelAlarm
         - airbagOrSeatbeltFault
-        - antipollutionFault
+        - engineFault
         - absFault
-        - fapCycleFault
-        - fapFault
-        - automaticGearboxFault
-        - suspensionSystemFault
-        - accFault
-        - alarmFault
+        - riskOfParticleFilterBlockage
+        - particleFilterAdditiveTooLow
+        - suspensionFault
+        - preaheatingDeactivatedBatteryTooLow
+        - preaheatingDeactivatedFuelLevelTooLow
+        - checkTheBrakeLamp
+        - retractableRoofMechanismFault
+        - alertSteeringLock
+        - electronicImmobiliserFault
+        - alertOilLevel
+        - roofOperationImpossibleTemperatureTooHigh
+        - roofOperationImpossibleStartEngine
+        - roofOperationImpossibleApplyParkingBreak
+        - hybridSystemFault
         - automaticHeadlampFault
+        - hybridSystemFaultRepairedTheVehicle
         - washerLevelAlarm
         - batteryKeyAlarm
-        - lightSensorFault
+        - controlledAirInTakeFault
+        - preaheatingDeactivatedSetTheClock
+        - trailerConnectionFault
+        - underInflationTyreFault
+        - limitedVisibilityAidsCamera
+        - electricModeNotAvailable
         - wheelPressureFault
-        - frontLeftFlatTireAlarm
-        - frontRightFlatTireAlarm
-        - rearLeftFlatTireAlarm
-        - rearRightFlatTireAlarm
-        - frontLeftSidelightFault
-        - frontRightSidelightFault
-        - rearLeftSidelightFault
-        - rearRightSidelightFault
-        - leftHeadlightFault
-        - rightHeadlightFault
-        - leftHighbeamFault
-        - rightHighbeamFault
-        - leftStoplightFault
-        - rightStoplightFault
+        - checkSideLamps
+        - checkDippedBeamHeadlamps
+        - checkMainBeamHeadlamps
+        - checkRightBrakeLamp
+        - checkLeftBrakeLamp
         - frontFoglightFault
         - rearFoglightFault
-        - frontLeftTurnFault
-        - frontRightTurnFault
-        - rearLeftTurnFault
-        - rearRightTurnFault
-        - rightReversingLightFault
-        - leftReversingLightFault
-        - activeHoodFault
-        - proximityObstacleDetectorFault
-        - placeMeasurementFault
-        - frontRightTirePressureAlarm
-        - frontLeftTirePressureAlarm
-        - rearRightTirePressureAlarm
-        - rearLeftTirePressureAlarm
-        - activeHoodAlert
-        - frontRightSeatbeltAlarm
-        - frontLeftSeatbeltAlarm
-        - rearRightSeatbeltAlarm
-        - rearCenterSeatbeltAlarm
-        - rearLeftSeatbeltAlarm
-        - automaticGearboxParkingModeAlarm
-        - iceRiskAlarm
-        - frontLeftDoorOpen
+        - checkDirectionIndicator
+        - checkReversingLamp
+        - parkingAssistanceFault
+        - adjustTyrePressure
+        - antipollutionFault
+        - placeGearBoxToP
+        - riskOfIce
         - frontRightDoorOpen
-        - rearLeftDoorOpen
+        - frontLeftDoorOpen
         - rearRightDoorOpen
+        - rearLeftDoorOpen
         - trunkOpen
-        - hoodOpen
-        - trunkWindowOpen
+        - bootOpen
+        - rearScreenOpen
         - fuelTankOpen
-        - secoundaryElectricHandbrakeFault
-        - movableDeflectorFault
-        - hoodOpenHighSpeed
-        - auxilliaryLightFault
-        - handsFreeStartUpFault
-        - handsFreeStartingFault
-        - extendedStartUp
-        - handsFreeRemoteDeviceNotDetected
-        - passAssistFault
+        - parkingBreakFault
+        - activeSpoilerFault
+        - automaticBreakingSystemFault
+        - directionalHeadlampsFault
+        - automaticGearboxFault
+        - engineFault
+        - suspensionFaultLimitTo90km
+        - suspensionFaultLimitTo55mph
+        - frontLeftTyreNotMonitored
+        - frontRightTyreNotMonitored
+        - rearRightTyreNotMonitored
+        - rearLeftTyreNotMonitored
+        - suspensionFault
+        - powerSteeringFault
+        - engineFault
+        - laneDepartureFault
+        - tyreUnderInflation
+        - tyreUnderInflated
+        - spareWheelFittedDrivingAidsDeactivated
+        - automaticBreakingDeactived
+        - topUpAdBlue
+        - longPushToUnlockTankFault
+        - tankFault
     BoundedProgram:
       allOf:
         -  $ref: '#/components/schemas/Program'
@@ -2009,23 +2040,16 @@ components:
                $ref: '#/components/schemas/Extension'
 
     Telemetries:
-      type: object
-      properties:
-        _links:
-          $ref: '#/components/schemas/Tab_Links'
-        total:
-          type: integer
-        totalPage:
-          type: integer
-        currentPage:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            telemetries:
-              type: array
-              items:
-                $ref: '#/components/schemas/Telemetry'
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - properties:
+            _embedded:
+              type: object
+              properties:
+                telemetries:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Telemetry'
 
     ExtensionType:
       type: array
@@ -2055,6 +2079,9 @@ components:
     Kinetic:
         allOf:
             - $ref: '#/components/schemas/TimeStamped'
+            - description: |
+                          Everything related to the movement of the vehicle. Speed, acceleration..
+                            * _Disclaimer_:  ```speed``` and ```acceleration``` (fileds) will never be returned at the same time as the odometer (even if compounded with another data object)
             - properties:
                 acceleration:
                   type: number
@@ -2243,8 +2270,7 @@ components:
           - vehicle.energy.charging
           - vehicle.transmission.gearbox.mode
           - vehicle.transmission.gearbox.gear
-          - vehicle.lightingSystem.signal
-          - vehicle.lightingSystem.foglight
+          - vehicle.lighting
           - vehicle.adas.parkAssist.front
           - vehicle.adas.parkAssist.rear
           - vehicle.adas.aebs
@@ -2358,12 +2384,10 @@ components:
         type: integer
         default: 60
         minimum: 1
-        maximum: 60
       required: false
       description: >-
         The maximum number of results (for a collection results response) to
         return per page. When not set, at most 60 results will be returned.
-        Acceptable values are 1 to 60, inclusive.
     pageToken:
       name: pageToken
       in: query
@@ -2545,14 +2569,14 @@ components:
 x-fragment:
 
   Fleet_Trip_id_wayPoints_getter:
+    get:
       tags:
         - Trips
       description: Gives the wayPoints for a specified Flett Trip.
-      operationId: getPathForTrip
+      operationId: getPathForATrip
       parameters:
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/indexRange'
-
         - $ref: '#/components/parameters/fleetId'
       responses:
         200:
@@ -2589,13 +2613,12 @@ x-fragment:
         default:
           description: wayPoints not found
 
-
   Fleet_Trip_id_getter:
     get:
       tags:
         - Trips
       description: >-
-        This method returns the Trip that matches the Trip id (tid).
+        Gives the Trip that matches the Trip id (tid).
       operationId: getFleetTripsById
       parameters:
         - $ref: '#/components/parameters/tokenAuth'
@@ -2733,11 +2756,11 @@ x-fragment:
           $ref: '#/components/responses/TripFailedResponse'
   Fleet_Trips_getter:
     get:
-      summary: Trips of all vehicles of the fleet
+      summary: Trips of all vehicles of the fleet.
       tags:
         - Fleet
       description: >-
-        This method returns a list of all Trips.
+        This method returns a list of all Trips. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle.
       operationId: getFleetTrips
       parameters:
         - $ref: '#/components/parameters/tokenAuth'
@@ -2793,6 +2816,20 @@ x-fragment:
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
 
+  Fleet_Collisions_getter:
+     get:
+      tags:
+        - Fleet
+      description: >-
+        Returns the set of Collisions of a Fleet of vehicules. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle.
+      operationId: getTripCollisions
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'
 
 
 
