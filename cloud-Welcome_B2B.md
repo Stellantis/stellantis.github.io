@@ -14,9 +14,8 @@ Vehicles are using various sensors which aim to improve security and driving exp
 
 Our web APIs grants you access to this data even outside of the car:
 
+
 ![presentationUnified]({{ site.baseurl }}/assets/images/presentationUnified.png)
-
-
 
 Sensors are collecting datas inside the vehicle and sent them to Groupe PSA via mobile network. Our servers will then **process** these raw data into **unified** and understable info. Futhermore, cloud storage allow you to access your data at any time eventhough the vehicle is turned-off.
 
@@ -27,17 +26,11 @@ Everything is processed on our side (Groupe PSA) in order to provide you (Partne
 
 
 
-By requesting this api you can retrieve all kinds off intersiting info:
+By requesting this api you can retrieve all kinds off intersiting **features**:
 
-<h3 align="center" class="title"> API Features </h3>
 ![Features]({{ site.baseurl }}/assets/images/presentationFeatures.png)
 
-
-
-|
-![Features]({{ site.baseurl }}/assets/images/presentationHistory.png) | **History**: trips, telemetrics, notifications and collisions are usefull datas, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history.
-
-
+|![Features]({{ site.baseurl }}/assets/images/presentationHistory.png) | **History**: trips, telemetrics, notifications and collisions are usefull datas, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history. |
 
 
 |Feature|Descrpition|
@@ -67,9 +60,9 @@ Our API allow you two ways to access your vehicles data. You can either browse h
 
 We think that accessing easily and efficiently to your datas is important, that's why  we choose to design our APIs with up-to-date **open standards**.
 
-Groupe PSA's web APIs are based on [**REST**](https://en.wikipedia.org/wiki/Representational_state_transfer) principles,  data resources are accessed via standard **HTTPS requests in UTF-8 format**. We use **OpenAPI v3** for specification, **JSON** in order to exchange data between you and your cars and [**HAL**](https://en.wikipedia.org/wiki/Hypertext_Application_Language) for naviguation.
+Groupe PSA's web APIs are based on [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles,  data resources are accessed via standard **HTTPS requests in UTF-8 format**. We use **OpenAPI v3** for specification, **JSON** in order to exchange data between you and your cars and [HAL](https://en.wikipedia.org/wiki/Hypertext_Application_Language) for naviguation.
 
-Also we use standards for formating: **[GeoJson](https://en.wikipedia.org/wiki/GeoJSON)** for geolocalisation data and **[RFC3339](https://www.ietf.org/rfc/rfc3339.txt)** for time format.
+Also we use standards for formating: [GeoJson](https://en.wikipedia.org/wiki/GeoJSON) for geolocalisation data and [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) for time format.
 
 Click [here]({{ site.baseurl }}/cloud_Preview_B2B) and find a preview!
 
@@ -81,14 +74,16 @@ Sensors are gathering all types of intersting datas inside cars. First of all, t
 
   > Refresment rates improves with vehicles bought since 2019.
 
+
 ![presentationFrequency]({{ site.baseurl }}/assets/images/presentationFrequency.png)
 
 # See Also
 
-**Preview**
+##### Preview
+
 
 Want to see what it's look like ? Browse our [Preview]({{site.baseurl}}/cloud_preview_B2B).
 
-**Testing the API**
+##### Try out!
 
 To test the API you can check the [API List]({{ site.baseurl }}/cloud_list_B2B) directly.

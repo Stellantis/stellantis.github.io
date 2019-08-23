@@ -41,13 +41,13 @@ To configure this monitor your request need to be constructed with the following
     > Be carefull: one monitor is for one fleet and one rule. Indeed you can creat multpile monitors.
 
 ## On your side
-What we offer is a simple way to process a large amount of data. Althought you have to develop **on your side** a dedicated endpoint on your server able to receive our alerts.
+What we offer is a simple way to process a large amount of data. Althought you have to develop on your side a **dedicated endpoint** on your server able to receive our alerts.
 This web server need to be configurated to read & process our alerts in order to inform you about what's happening to your vehicles in real time.
 
-**Preview**
+##### Preview
 
 Want to see what it's look like ? Browse our [Preview]({{site.baseurl}}/cloud_preview_B2B).
 
-**Authentication**
+##### Authentication
 
 The Web API utilizes certificate authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/cloud_authentication_B2B) and obtain your own certificate.

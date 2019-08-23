@@ -161,10 +161,10 @@ print(data.decode("utf-8"))
 
 # See Also
 
-**Testing the API**
+##### Try out!
 
 To test the API you can check the [API List]({{ site.baseurl }}/cloud_list) directly.
 
-**Authentication**
+##### Authentication
 
 The Web API utilizes certificate authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/cloud_authentication_B2B) and obtain your own certificate.

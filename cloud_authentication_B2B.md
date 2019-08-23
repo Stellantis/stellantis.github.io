@@ -16,11 +16,11 @@ Our APIs let you access sensibles datas about your fleet of vehicles, that's why
 
 <img src="{{site.baseurl}}/assets/images/certificateProcess.png" alt="certificateProcess" style="max-width: 580px">
 
-## Step 1: Get partner login
+## 1. Partner login
 
 First of all, you'll need a Groupe PSA login (ex: MZP123456). If you already have one, you can go to step 2. If you don't, send us an email with info about the partnership at <connectedcar@mpsa.com> and we will create one for you.
 
-## Step 2: Generate encryption keys & CSR
+## 2. Encryption keys & CSR
 
 Once you have received MZP login, next step is to produce SSL keys and CSR. These keys will allow encrypted communication between you and Groupe PSA:
 - **Public key** will be used by Groupe PSA to encrypt messages.
@@ -118,15 +118,15 @@ $ keytool
   - `KeyStoreName.jks` is the name of your keystore
   - `CSRName.csr` will be the name of the CSR
 
-## Step 3: Submit CSR
+## 3. Submit CSR
 Once you have created your brand-new CSR file, send it to us via this email: <connectedcar@mpsa.com>.
 At this point we will begin our internal process to sign your certificate.
 
-## Step 4: Download your Cerficate & Client ID
+## 4. Cerficate & Client ID
 If everything is ok, our certification authority will accept your Certificate Signing Request. Then you'll receive an email at the adress you specified. This email contains : **link to download your certificate** + **Client ID** (= application id).
 Download your signed certificate and keep carefully your client ID.
 
-## Step 5: HTTPS Authentication
+## 5. HTTPS Authentication
 Finnaly, you get what you need for authentication! You can try your to send your first request to Groupe PSA's API.
 
 Here is an example with curl:
@@ -140,11 +140,11 @@ And [here]({{site.baseurl}}/cloud_QuickGuide_B2B/#connect) you can find an exemp
 
 # See Also
 
-**Tutorial**
+##### Tutorial
 
 A [Quick Start guide]({{ site.baseurl }}/cloud_QuickGuide_B2B) is provided to help you understand the basics and get started.
 
 
-**Testing the API**
+##### Testing the API
 
 To test the API you can check the [API List]({{ site.baseurl }}/cloud_list_B2B) directly.

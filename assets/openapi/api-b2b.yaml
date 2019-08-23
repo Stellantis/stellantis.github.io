@@ -1639,50 +1639,49 @@ components:
             The left operand of the trigger function. The following Table details for each operand data its type, the supported operator and the possibly retruned value:
             |**Data**|**Type**|**Op**|**Value**|
             |---|---| ---:| ---:|
-            | Vehicle.alert | List of value | OnChange (All allert code or One)/IncludedIn/EqualTo | Value (ObjetAlert) |
-            | Vehicle.odometer | Integer | equalTo/ greaterThan/ lowerThan/ | Value |
-            | vehicle.moving (boolean) ( speed (satellites)  | Boolean | OnChange/equalTo | Value (True/false) |
-            | vehicle.engine.running (boolean) | Boolean | OnChange / equalTo | Value (True/false) |
-            | vehicle.engine.oil.temp | Integer | equalTo/ greaterThan/ lowerThan/ | Value |
-            | vehicle.energy.electric.level | Number | equalTo / greaterThan/ lowerThan/ | Value |
-            | vehicle.energy.fuel.level | Number | equalTo / greaterThan/ lowerThan/ | Value |
-            | vehicle.energy.fuel.autonomy | Number | equalTo / greaterThan/ lowerThan/ | Value |
-
-            | vehicle.energy.autonomy (global) | Number | equalTo/greaterThan/ lowerThan/ | Value |
+            | Vehicle.alert | List of value | OnChange (at least one)/IncludedIn/EqualTo | Value (ObjetAlert) |
+            | Vehicle.odometer | Integer | equalTo/greaterThan/lowerThan/ | Value |
+            | vehicle.engines.running (boolean) | Boolean | OnChange/equalTo | Value (true/false) |
+            | vehicle.engines.thermic.oil.temp | Integer | equalTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.electric.level | Number | equalTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.fuel.level | Number | equalTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.fuel.autonomy | Number | equalTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.autonomy (global) | Number | equalTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.charging.status | Boolean | OnChange/equalTo | Value |
             | vehicle.energy.charging.plugged | Boolean | OnChange/equalTo | Value |
-            | vehicle.doorsState.lockedState | Boolean | OnChange/ equalTo | Value |
+            | vehicle.doorsState.lockedState | Boolean | OnChange/equalTo | Value |
             | vehicle.doorsState.opening | Boolean | OnChange/ equalTo | Value |
-            | vehicle.kinetics.speed | Number | equalTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.trip (ID) | Literal | OnChange| Value(IDTRIP) |
-            | passenger.seatbelt.unbuckled | Boolean | OnChange/equalTo/ | Value |
-            | environment.air.temp | Number | equalTo/greaterThan/ lowerThan/ | Value |
-            | privacy | Enum(Privacy) | equalTo / OnChange/IncludedIN | Value |
+            | vehicle.kinetic.moving| Boolean | OnChange/equalTo | Value (true/false) |
+            | vehicle.kinetic.speed | Number | equalTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.trip| Literal | OnChange| Value(IDTRIP) |
             | vehicle.maintenance.daysBeforeMaintenance, | Number | OnChange/equalTo/ greaterThan/ lowerThan/ | Value |
             | vehicle.maintenance.mileageBeforeMaintenance| Number | OnChange/equalTo/ greaterThan/ lowerThan/ | Value |
+            | vehicle.safety.beltWarning | Enum(beltWarning) | OnChange/equalTo | Value |
+            | environment.air.temp | Number | equalTo/greaterThan/lowerThan/ | Value |
+            | privacy.status | Enum(Privacy) | equalTo / OnChange/IncludedIN | Value |
 
           type: string
           enum:
             - vehicle.alert
             - vehicle.odometer
-            - vehicle.moving
-            - vehicle.engine.running
-            - vehicle.engine.oil.temp
+            - vehicle.engines.running
+            - vehicle.engines.thermic.oil.temp
             - vehicle.energy.electric.level
             - vehicle.energy.fuel.level
             - vehicle.energy.fuel.autonomy
-            - vehicle.energy.autonomy
+            - vehicle.autonomy
             - vehicle.energy.charging.status
             - vehicle.energy.charging.plugged
             - vehicle.doorsState.lockedState
             - vehicle.doorsState.opening
-            - vehicle.kinetics.speed
+            - vehicle.kinetic.moving
+            - vehicle.kinetic.speed
             - vehicle.trip
             - vehicle.maintenance.daysBeforeMaintenance
             - vehicle.maintenance.mileageBeforeMaintenance
-            - passenger.seatbelt.unbuckled
+            - vehicle.safety.beltWarning
             - environment.air.temp
-            - privacy
+            - privacy.status
         op:
             description: The operator of the trigger function.
             type: string
