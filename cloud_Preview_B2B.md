@@ -186,10 +186,10 @@ Furthermore there is a `_links` object embedded in the statu object. These links
 
 # See Also
 
-**Authentication**
+##### Authentication
 
 The Web API utilizes certificate authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/cloud_authentication_B2B) and obtain your own certificate.
 
-**Monitors**
+##### Monitors
 
 Unlike common APIs, Groupe PSA offer you Big Data features ! Check at our [Monitors]([authentication]({{ site.baseurl }}/cloud_Monitor))
