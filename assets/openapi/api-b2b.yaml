@@ -1649,8 +1649,8 @@ components:
             | vehicle.autonomy (global) | Number | equalTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.charging.status | Boolean | OnChange/equalTo | Value |
             | vehicle.energy.charging.plugged | Boolean | OnChange/equalTo | Value |
-            | vehicle.doorsState.lockedState | Boolean | OnChange/equalTo | Value |
-            | vehicle.doorsState.opening | Boolean | OnChange/ equalTo | Value |
+            | vehicle.doorsState.lockedState | N/A | OnChange | Value |
+            | vehicle.doorsState.opening | N/A | OnChange| Value |
             | vehicle.kinetic.moving| Boolean | OnChange/equalTo | Value (true/false) |
             | vehicle.kinetic.speed | Number | equalTo/greaterThan/ lowerThan/ | Value |
             | vehicle.trip| Literal | OnChange| Value(IDTRIP) |
@@ -2019,7 +2019,7 @@ components:
                   beltWarning:
                     type: string
                     enum: [Normal, Omission]
-                  eCallTiggeringRequest:
+                  eCallTriggeringRequest:
                     type: string
                     enum: [AirbagUnabled, NoRequest, Requested]
 
@@ -2306,7 +2306,7 @@ components:
         type: string
     fleetId:
       name: fleet-id
-      description: The client ID related to the API Fleet account.
+      description: The Fleet ID.
       in: header
       required: true
       schema:
