@@ -1,3 +1,10 @@
+strong {
+    font-weight: 500;
+}
+
+th {
+    font-weight: 500;
+}
 .post{
   background: #49cc90;
 }
@@ -12,6 +19,7 @@
 .verbdelete{
   background: #fa5c4f;
 }
+
 
 .verb{
   margin-left: auto;
@@ -28,6 +36,24 @@
   text-shadow: 0 1px 0 rgba(0,0,0,.1);
   font-family: sans-serif;
   color: #fff;
+}
+
+//section title 
+#section-title {
+    line-height: 1.450;
+    margin-bottom: 0;
+    font-size: 5rem;
+}
+
+//fixing higlhith bottom margin
+
+.highlight  pre  {
+    margin-bottom: 0rem;
+}
+
+#content-select-section {
+    padding-top:0% ;
+    padding-bottom:3%
 }
 
 .content blockquote {
@@ -55,12 +81,7 @@
 }
 
 
-h1,
-h2,
-h3,
-h4,
-h5,
-    {
+h1,h2,h3,h4,h5 {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: bold;
@@ -86,7 +107,7 @@ footer a {
 
 .content {
     background-color: #ffffff;
-    padding: 5%;
+    padding: 2% 5%;
 }
 
 .content .smallimg{
@@ -103,16 +124,7 @@ footer a {
   margin-right: auto;
   margin-top: 6%;
   margin-bottom: 6%;
-
 }
-
-
-
-
-.bd-lead {
-    background-color: #ffffff;
-}
-
 
 .bd-side,
 .bd-side-background {
@@ -124,7 +136,7 @@ footer a {
 
 .bd-side {
 
-    padding: 3rem 0 3rem 1.5rem;
+    padding: 4rem 1rem 3rem 1.5rem;
 
 }
 
@@ -133,10 +145,12 @@ footer a {
 }
 
 .bd-lead {
+    background-color: #ffffff;
     overflow: hidden;
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 20vw;
+    padding-top: 1.4rem;
 }
 
 .bd-anchors.is-pinned {
@@ -174,9 +188,7 @@ section nav {
     margin-left: 144px;
 }
 
-.navbar-start {
-    margin-left: 5%;
-}
+
 
 .menu {
     font-family: 'Montserrat', sans-serif;
@@ -213,6 +225,11 @@ section nav {
     background-size: cover;
     background-position: center center;
 }
+.no_hero{
+    background-color: #1e2336;
+    background-size: cover;
+    background-position: center center;
+}
 
 #navMenu {
     background-color: #36363600;
@@ -239,12 +256,15 @@ section nav {
 }
 
 
+#lunrsearch{
+    width: 9rem;
+}
+
 #lunrsearchresults {
     background-color: #fff;
 	padding-left: 3.5rem;
 	padding-right: 3.5rem;
-	padding-top: 2.5rem;
-	margin-top: 1rem;
+	margin-top: 0rem;
 }
 
 .lunrsearchresult .title {
@@ -253,7 +273,7 @@ section nav {
 }
 
 #txtsearchresult {
-    padding-top: 0.5rem;
+    padding-top: 2.5rem;
 	padding-bottom: 1rem;
 	color: #374063;
 	font-size: 2rem;
@@ -265,6 +285,75 @@ section nav {
     color: #333333;
 }
 
+
+#discover{
+    color: #1e2336;
+}
+
+.is-psablue{
+    background-color: #1e2336;
+    color: white;
+    margin-top: 1rem; 
+    border: none;
+}
+
+.is-psablue:hover{
+    background-color: white;
+    color: #1e2336;
+    margin-top: 1rem; 
+    border: 1px solid #1e2336;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
 @media screen and (max-width: 600px) {
   aside{display: none;
 }}
+
+@media screen and (max-height: 700px) {
+    #section-title{
+        font-size: 4rem ;
+    }
+}
+
+@media screen and (max-width: 698px) {
+    #section-title{
+        font-size: 4rem ;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #section-title{
+        font-size: 3rem ;
+    }
+}
+
+
+@media screen and (max-width: 1400px) {
+    #navbarpsa {
+        margin-right: 2.5%;
+        margin-left: 2.5%;
+    }
+   
+}
+@media screen and (max-width: 1250px) {
+    
+    .textnavbar {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    
+    .textnavbar {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 765px) {
+    .homepagepic{
+        display: none;
+    }
+}

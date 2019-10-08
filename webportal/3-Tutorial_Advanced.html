@@ -1,0 +1,16 @@
+---
+layout: doc-article
+permalink: /webportal/tutorial-advanced/
+section: webportal
+title: Tutorial (Advanced)
+---
+{% assign guides = site.webportal-tutorials-advanced %}
+{% for guide in guides %}
+<a href="https://github.com/GroupePSA/groupepsa.github.io/tree/master/_webPortal_TutorialsAdvanced"
+    class="button is-link is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
+    <i style="font-size: 1.6rem" class="fab fa-2x fa-github  is-white"></i>
+    &nbsp; Edit Page
+</a>
+<p>{{ guide.content | markdownify }}</p>
+<hr>
+{% endfor %}

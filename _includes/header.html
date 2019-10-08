@@ -1,0 +1,140 @@
+{% if  page.section == "home" %}
+<section class="hero is-dark is-fullheight hero_main">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 id="section-title" class="title">Build</h1>
+            <h1 id="section-title" class="title">The future</h1>
+            <h1 id="section-title" class="title">Of </h1>
+            <h1 id="section-title" class="title">Connected Cars </h1>
+        </div>
+    </div>
+    <div class="hero-foot">
+        <div class="has-text-centered" style="padding-bottom: 1.5rem;">
+            <span class="icon is-large is-white" style="font-size: 12vh">
+                <a href="#discover">
+                    <i class="fas fa-sort-down" style="text-shadow: 2px 2px 4px #000000;"></i>
+                </a>
+            </span>
+        </div>
+    </div>
+</section>
+{% elsif page.section == "webportal" %}
+<section class="hero is-dark is-medium hero_webportal">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 id="section-title" class="title">Embedded webportal</h1>
+        </div>
+    </div>
+</section>
+{% elsif  page.section == "mobile" %}
+<section class="hero is-dark is-small hero_ios">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 id="section-title" class="title">Mobile SDK </h1>
+
+        </div>
+    </div>
+</section>
+{% elsif  page.section == "android" %}
+<section class="hero is-dark is-medium hero_android">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 id="section-title" class="title">Android SDK </h1>
+
+        </div>
+    </div>
+</section>
+{% elsif  page.section == "ios" %}
+<section class="hero is-dark is-medium hero_ios">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 id="section-title" class="title">iOS SDK </h1>
+
+        </div>
+    </div>
+</section>
+{% elsif page.section == "webapi" %}
+<section class="hero is-dark is-small hero_api">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 id="section-title" class="title">Web API</h1>
+        </div>
+    </div>
+</section>
+{% elsif  page.section == "webapib2b" %}
+<section class="hero is-dark is-medium hero_api">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 id="section-title" class="title">Web API</h1>
+            <h2 class="title">for fleet owner</h2>
+        </div>
+    </div>
+</section>
+{% elsif  page.section == "webapib2c" %}
+<section class="hero is-dark is-medium hero_api">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 id="section-title" class="title">Web API</h1>
+            <h2 class="title"> for end-users</h2>
+        </div>
+    </div>
+</section>
+{% elsif  page.section == "community" %}
+<section class="hero is-dark is-small hero_api">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 id="section-title" class="title">Community</h1>
+            <h2 class="title">{{channelName}}</h2>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="hero is-dark is-medium hero_api">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">Build the future</h1>
+            <h1 class="title">of Connected Cars </h1>
+        </div>
+    </div>
+</section>
+{% endif %}

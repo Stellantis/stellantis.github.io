@@ -16,14 +16,17 @@ theme: jekyll-bulma
 search_enabled: true
 
 collections:
-  - headunit-sdk
-  - webPortal_QuickGuides
-collections:
-  headunit-sdk:
+  webportal-quick-start:
     output: true
-  webPortal_QuickGuides:
+  webportal-tutorials-advanced:
     output: true
-  webPortal_TutorialsAdvanced:
+  webportal-private-reference:
+    output: true
+  webportal-public-reference:
+    output: true
+  mobile-sdk-android-reference:
+    output: true
+  mobile-sdk-ios-reference:
     output: true
 
 links:
@@ -42,3 +45,4 @@ analytics:
 
 # Build settings
 markdown: kramdown
+highlighter: rouge

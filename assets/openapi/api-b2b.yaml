@@ -7,9 +7,9 @@ info:
   description: >
     *This description of the next release of the Groupe
     PSA B2B API.*
-
-
-
+    
+    
+ 
     # Introduction
 
     This is the description of the *Groupe PSA Connected Car V2 B2B API*. The
@@ -20,21 +20,21 @@ info:
     # Authentication
 
     PSA Connected Car B2B PIs uses the [HTTPS Authentication](https://tools.ietf.org/html/rfc7235) (PSA SSL Certificate) to access to fleet vehicles data.
-
+    
     # Paging:
-      Pagination in REST does not really have a well-defined standard. In order to make this necessary feature easy to use when retreiving a collection of results. This API uses a  token(computed and interpreted by the server only) as a context that contains all necessary informations allowing the navigation throught pages.
+      Pagination in REST does not really have a well-defined standard. In order to make this necessary feature easy to use when retreiving a collection of results. This API uses a  token(computed and interpreted by the server only) as a context that contains all necessary informations allowing the navigation throught pages. 
         Token acts as an ```HTTP COOKIE``` on the client side, so the server does not keep any cache or session settings to continue paging and keep all request stateless.
-
-
+          
+          
     # Errors:
       Error codes returned by all REST APIs comply with the standard. Nevertheless, PSA Services (callers) need to have more complete data structures (even when the answer is not Http-OK) to better detail the type of error by providing application code, message and a debugging code(for investigation purposes). The http code of the response is managed by the protocol itself (in the header).
-
+      
       **Errors are  returned as a generic error response:**
-       * ErrorCodeDefaultResponse
-
+       * ErrorCodeDefaultResponse  
+       
     ---
-
-
+    
+    
   license:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'
@@ -50,29 +50,44 @@ tags:
 
 
 paths:
-  /fleet:
+
+  /fleets:
+    get:
+      tags:
+        - Fleet
+      summary: Fleets owned by a partner
+      description: Returns all Fleets owned by a partener. 
+      operationId: getFleets
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        200:
+           $ref: '#/components/responses/FleetsSuccessResponse'
+        default:
+          description: Fleet not found
+          $ref: '#/x-fragment/general_error_fragment'
+  /fleets/{fid}:
     get:
       tags:
         - Fleet
       summary: Fleet's information
-      description: Returns the Fleet's information.
+      description: Returns the Fleet's information. 
       operationId: getFleet
       parameters:
         - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
       responses:
         200:
-          description: OK
-          content:
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/Fleet'
+          $ref: '#/components/responses/FleetSuccessResponse'
         default:
           description: Fleet not found
           $ref: '#/x-fragment/general_error_fragment'
 
-
-  /fleet/vehicles:
+   
+  /fleets/{fid}/vehicles:
     get:
       tags:
         - Vehicles
@@ -97,10 +112,10 @@ paths:
         default:
           description: Vehicle not found
           $ref: '#/x-fragment/general_error_fragment'
-
-
-
-  '/fleet/vehicles/{id}':
+          
+    
+          
+  '/fleets/{fid}/vehicles/{id}':
     get:
       tags:
         - Vehicles
@@ -111,7 +126,7 @@ paths:
         - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
-
+   
       responses:
         200:
           description: OK
@@ -122,8 +137,8 @@ paths:
         default:
           description: Vehicle not found
           $ref: '#/x-fragment/general_error_fragment'
-
-  '/fleet/vehicles/{id}/lastPosition':
+  
+  '/fleets/{fid}/vehicles/{id}/lastPosition':
     get:
       tags:
         - Vehicles
@@ -144,7 +159,7 @@ paths:
         default:
           description: Vehicle not found
           $ref: '#/x-fragment/general_error_fragment'
-  '/fleet/vehicles/{id}/collisions':
+  '/fleets/{fid}/vehicles/{id}/collisions':
     get:
       tags:
         - Vehicles
@@ -160,13 +175,13 @@ paths:
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
-
+     
       responses:
         200:
           $ref: '#/components/responses/CollisionsSuccessResponse'
         default:
           $ref: '#/components/responses/CollisionFailedResponse'
-  '/fleet/vehicles/{id}/collisions/{cid}':
+  '/fleets/{fid}/vehicles/{id}/collisions/{cid}':
     get:
       tags:
         - Vehicles
@@ -177,13 +192,13 @@ paths:
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/collisionId'
-
+    
       responses:
         200:
           $ref: '#/components/responses/CollisionsuccessResponse'
         default:
           $ref: '#/components/responses/CollisionFailedResponse'
-  '/fleet/vehicles/{id}/maintenance':
+  '/fleets/{fid}/vehicles/{id}/maintenance':
     get:
       tags:
         - Vehicles
@@ -200,14 +215,14 @@ paths:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/Maintenance'
-        default:
+        default: 
           $ref: '#/x-fragment/general_error_fragment'
-#MaintenanceSuccessResponses
-  '/fleet/status':
+#MaintenanceSuccessResponses          
+  '/fleets/{fid}/status':
     get:
       tags:
         - Fleet
-      description: Returns the latest vehicles status for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle.
+      description: Returns the latest vehicles status for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
       summary: Fleet Vehicles status.
       operationId: getFleetStatusList
       parameters:
@@ -220,12 +235,12 @@ paths:
         200:
           $ref: '#/components/responses/StatusSuccessResponses'
         default:
-          $ref: '#/x-fragment/general_error_fragment'
-  '/fleet/maintenances':
+          $ref: '#/x-fragment/general_error_fragment'  
+  '/fleets/{fid}/maintenances':
     get:
       tags:
         - Fleet
-      description: Returns the latest vehicles maintenance list for a given fleet? HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle.
+      description: Returns the latest vehicles maintenance list for a given fleet? HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
       summary: Fleet Vehicles maintenances.
       operationId: getFleetMantenanceList
       parameters:
@@ -238,12 +253,12 @@ paths:
         200:
           $ref: '#/components/responses/MaintenanceSuccessResponses'
         default:
-          $ref: '#/x-fragment/general_error_fragment'
-  '/fleet/alerts':
+          $ref: '#/x-fragment/general_error_fragment'  
+  '/fleets/{fid}/alerts':
     get:
       tags:
         - Fleet
-      description: Returns the vehicles alerts list for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle.
+      description: Returns the vehicles alerts list for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
       summary: Fleet Vehicles alerts.
       operationId: getFleetAlertList
       parameters:
@@ -257,9 +272,9 @@ paths:
         200:
           $ref: '#/components/responses/AlertsuccessResponses'
         default:
-          $ref: '#/x-fragment/general_error_fragment'
+          $ref: '#/x-fragment/general_error_fragment'   
 
-  '/fleet/telemetries':
+  '/fleets/{fid}/telemetries':
     get:
       tags:
         - Fleet
@@ -282,13 +297,13 @@ paths:
           $ref: '#/components/responses/TelemetrySuccessResponse'
         default:
           $ref: '#/components/responses/TelemetryFailedResponse'
-
-
-  #'/fleet/alerts/{aid}':
+   
+          
+  #'/fleets/{fid}/alerts/{aid}':
   #  get:
   #    tags:
   #      - Fleet
-  ##    description: Returns the vehicles alert message
+  ##    description: Returns the vehicles alert message 
   #    summary: Fleet Vehicles alert.
   #    operationId: getFleetAlerById
   #    parameters:
@@ -298,10 +313,10 @@ paths:
   #      200:
   #        $ref: '#/components/responses/AlertsuccessResponses'
   #      default:
-  #        $ref: '#/x-fragment/general_error_fragment'
-
-
-  '/fleet/vehicles/{id}/status':
+  #        $ref: '#/x-fragment/general_error_fragment'          
+ 
+          
+  '/fleets/{fid}/vehicles/{id}/status':
     get:
       tags:
         - Vehicles
@@ -312,7 +327,7 @@ paths:
         - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
-
+    
       responses:
         200:
           description: Status response
@@ -321,9 +336,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Status'
         default:
-          $ref: '#/x-fragment/general_error_fragment'
-
-  '/fleet/vehicles/{id}/alerts':
+          $ref: '#/x-fragment/general_error_fragment'          
+          
+  '/fleets/{fid}/vehicles/{id}/alerts':
     get:
       tags:
         - Vehicles
@@ -351,7 +366,7 @@ paths:
           $ref: '#/components/responses/AlertsuccessResponses'
         default:
           $ref: '#/components/responses/AlertFailedResponse'
-  '/fleet/vehicles/{id}/alerts/{aid}':
+  '/fleets/{fid}/vehicles/{id}/alerts/{aid}':
     get:
       tags:
         - Vehicles
@@ -369,8 +384,8 @@ paths:
           $ref: '#/components/responses/AlertsuccessResponse'
         default:
           $ref: '#/components/responses/AlertFailedResponse'
-
-  '/fleet/vehicles/{id}/telemetry':
+          
+  '/fleets/{fid}/vehicles/{id}/telemetry':
     get:
       tags:
         - Vehicles
@@ -394,7 +409,7 @@ paths:
           $ref: '#/components/responses/TelemetrySuccessResponse'
         default:
           $ref: '#/components/responses/TelemetryFailedResponse'
-  '/fleet/monitors':
+  '/fleets/{fid}/monitors':
     get:
       tags:
         - Monitors
@@ -407,7 +422,7 @@ paths:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/fleetId'
-
+          
       responses:
         200:
           $ref: '#/components/responses/MonitorsuccessResponses'
@@ -418,8 +433,8 @@ paths:
         - Monitors
       summary: Create a new Monitor.
       description: |
-                    >Create a Monitor for all Vehicles of the fleet. This is a kind of vehicle monitor that generates an event following the transition state of one of the (monitored) data  of the vehicles. As for example the fuel level, the moving out of a defined geographical area.
-
+                    >Create a Monitor for all Vehicles of the fleet. This is a kind of vehicle monitor that generates an event following the transition state of one of the (monitored) data  of the vehicles. As for example the fuel level, the moving out of a defined geographical area. 
+                    
                     >When the the trigger occurs, the built event expressed as a JSON object will be sent over the callbacl.
       operationId: createFleetVehicleMonitor
       parameters:
@@ -436,7 +451,7 @@ paths:
           $ref: '#/components/responses/MonitorsuccessPostResponse'
         default:
           $ref: '#/components/responses/MonitorFailedResponse'
-  '/fleet/monitors/{mid}':
+  '/fleets/{fid}/monitors/{mid}':
     get:
       tags:
         - Monitors
@@ -470,14 +485,14 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Monitor not found
-
-  '/fleet/monitors/{mid}/status':
+ 
+  '/fleets/{fid}/monitors/{mid}/status': 
     put:
       tags:
         - Monitors
       summary: Set a new monitor status.
       description: |
-                   Set monitor status.
+                   Set monitor status. 
       operationId: setFleetVehicleMonitorStatus
       parameters:
         - $ref: '#/components/parameters/tokenAuth'
@@ -495,57 +510,57 @@ paths:
           $ref: '#/components/responses/MonitorsuccessPostResponse'
         default:
           $ref: '#/components/responses/MonitorFailedResponse'
-
-  '/fleet/vehicles/{id}/trips':
+  
+  '/fleets/{fid}/vehicles/{id}/trips':
     $ref: '#/x-fragment/Vehicle_id_Trips'
 
-  '/fleet/trips':
+  '/fleets/{fid}/trips':
     $ref: '#/x-fragment/Fleet_Trips_getter'
-
-  '/fleet/trips/{tid}/collisions':
+  
+  '/fleets/{fid}/trips/{tid}/collisions':
      $ref: '#/x-fragment/Trip_id_Collisions_getter'
-
-  '/fleet/collisions':
+  
+  '/fleets/{fid}/collisions':
     $ref: '#/x-fragment/Fleet_Collisions_getter'
 
-  '/fleet/trips/{tid}':
+  '/fleets/{fid}/trips/{tid}':
     $ref: '#/x-fragment/Fleet_Trip_id_getter'
 
-  '/fleet/vehicles/{id}/trips/{tid}':
+  '/fleets/{fid}/vehicles/{id}/trips/{tid}':
     $ref: '#/x-fragment/Vehicle_id_Trip_id'
-
-  '/fleet/trips/{tid}/alerts':
+  
+  '/fleets/{fid}/trips/{tid}/alerts':
     $ref: '#/x-fragment/Fleet_Trip_id_alerts'
 
-  '/fleet/vehicles/{id}/trips/{tid}/alerts':
+  '/fleets/{fid}/vehicles/{id}/trips/{tid}/alerts':
     $ref: '#/x-fragment/Vehicle_id_Trip_id_alerts'
 
-  '/fleet/vehicles/{id}/trips/{tid}/alerts/{aid}':
-    $ref: '#/x-fragment/Vehicle_id_Trip_id_alerts_id'
-
-  '/fleet/trips/{tid}/alerts/{aid}':
-    $ref: '#/x-fragment/Fleet_Trip_id_alert_Id'
-
-  '/fleet/trips/{tid}/wayPoints':
+  '/fleets/{fid}/vehicles/{id}/trips/{tid}/alerts/{aid}':
+    $ref: '#/x-fragment/Vehicle_id_Trip_id_alerts_id'    
+    
+  '/fleets/{fid}/trips/{tid}/alerts/{aid}':
+    $ref: '#/x-fragment/Fleet_Trip_id_alert_Id' 
+    
+  '/fleets/{fid}/trips/{tid}/wayPoints':
     $ref: '#/x-fragment/Fleet_Trip_id_wayPoints_getter'
-
-  '/fleet/vehicles/{id}/trips/{tid}/wayPoints':
+  
+  '/fleets/{fid}/vehicles/{id}/trips/{tid}/wayPoints':
     $ref: '#/x-fragment/Vehicle_id_Trip_id_wayPoints_getter'
-
-  '/fleet/trips/{tid}/telemetry':
+    
+  '/fleets/{fid}/trips/{tid}/telemetry':
     $ref: '#/x-fragment/Fleet_Trip_id_Telemetry_getter'
-
-  '/fleet/vehicles/{id}/trips/{tid}/telemetry':
+  
+  '/fleets/{fid}/vehicles/{id}/trips/{tid}/telemetry':
     $ref: '#/x-fragment/Vehicle_id_Trip_id_Telemetry_getter'
-
+ 
 components:
   securitySchemes:
     basicAuth:     # <-- arbitrary name for the security scheme
       type: http
       scheme: basic
   schemas:
-    Vin:
-          description: Vehicle identifier number of a vehicle. **Used with resource retrieved in batch mode**.
+    Vin:  
+          description: Vehicle identifier number of a vehicle. **Used with resource retrieved in batch mode**.   
           type: string
     TimeStamped:
       properties:
@@ -576,7 +591,7 @@ components:
             tid:
               type: string
               description: Identifier of a trip related to this alert.
-
+           
             active:
               type: boolean
             type:
@@ -597,15 +612,15 @@ components:
             endPosition::
               allOf:
                 - $ref: '#/components/schemas/Position'
-                - description: The position (last hvehicle known one) where the alert occurs.
-
-
-
-
+                - description: The position (last hvehicle known one) where the alert occurs. 
+        
+          
+   
+          
     MonitorStatus:
       type: string
       enum: [Running, Paused, Failed]
-
+      
     Monitor:
       title: Monitor
       description: Monitor state object
@@ -620,17 +635,19 @@ components:
               $ref: '#/components/schemas/Link'
         id:
           $ref: '#/components/schemas/MonitorId'
+        monitor:
+          $ref: '#/components/schemas/MonitorParameter'
         status:
           $ref: '#/components/schemas/MonitorStatus'
-
-      required: [status,id]
+      required: [status,id,monitor]
+      
     CollisionObj:
      allOf:
         - $ref: '#/components/schemas/TimeStamped'
         - title: Collision
           type: object
           properties:
-
+            
             id:
               type: string
             rollOver:
@@ -677,7 +694,7 @@ components:
               type: string
               format: dateTime
             _embedded:
-              type: object
+              type: object  
     Collision:
      allOf:
         - $ref: '#/components/schemas/TimeStamped'
@@ -694,7 +711,7 @@ components:
                   $ref: '#/components/schemas/Link'
                 trip:
                   $ref: '#/components/schemas/Link'
-
+           
     ECoaching:
       type: object
       properties:
@@ -707,7 +724,7 @@ components:
               $ref: '#/components/schemas/Link'
             trip:
               $ref: '#/components/schemas/Link'
-
+       
         scores:
           type: array
           items:
@@ -721,14 +738,14 @@ components:
                   type: number
                   minimum: 0
                   maximum: 10
-
+       
         _embedded:
           type: object
-
+  
     MonitorId:
       type: string
       description: Uniq monitor ID returned when the monitor was created succefuly.
-
+  
     MaintenanceObj:
      allOf:
         - $ref: '#/components/schemas/TimeStamped'
@@ -738,7 +755,7 @@ components:
           type: object
           title: Maintenance
           properties:
-
+          
             daysBeforeMaintenace:
               type: integer
             mileageBeforeMaintenance:
@@ -751,7 +768,7 @@ components:
               properties:
                 odometer:
                   type: number
-
+        
     Maintenance:
       allOf:
           - $ref: '#/components/schemas/MaintenanceObj'
@@ -766,12 +783,12 @@ components:
                     $ref: '#/components/schemas/Link'
                   alerts:
                     $ref: '#/components/schemas/Link'
-
-
+              
+              
             required:
               - _links
-
-
+    
+     
     Ignition:
         type: object
         properties:
@@ -808,13 +825,13 @@ components:
                 type: object
                 description: Opening state per door.
                 properties :
-                  identifier:
+                  identifier: 
                     type: string
                     enum: [Driver, Passenger, RearLeft, RearRight, Trunk, RearWindow]
                   state:
                     type: string
                     enum: [Open, Close]
-
+          
     Status:
       allOf:
         - $ref: '#/components/schemas/TimeStamped'
@@ -831,7 +848,7 @@ components:
                   $ref: '#/components/schemas/Link'
                 fleet:
                   $ref: '#/components/schemas/Link'
-
+            
             vin:
                  $ref: '#/components/schemas/Vin'
             odometer:
@@ -851,7 +868,7 @@ components:
             energy:
                 description: Describe vehicle energy supply for thermic, low emission vehicle or both.
                 type: array
-                items:
+                items: 
                     $ref: '#/components/schemas/Energy'
             doorsState:
                   $ref: '#/components/schemas/DoorsState'
@@ -859,10 +876,10 @@ components:
                   $ref: '#/components/schemas/Privacy'
             battery:
                   $ref: '#/components/schemas/Battery'
-
+           
           required:
             - _links
-
+        
     Privacy:
                   type: object
                   properties:
@@ -880,7 +897,7 @@ components:
         [rfc7946](https://tools.ietf.org/html/rfc7946#section-3.1). It is also
         the root of the Geometry objects (Point, cicle, poygon)
       properties:
-
+       
         coordinates:
           title: Coordinates
           description: Geometry coordinates
@@ -890,7 +907,7 @@ components:
         - coordinates
         - type
 
-
+        
     Point:
       allOf:
         - $ref: '#/components/schemas/Geometry'
@@ -899,6 +916,7 @@ components:
             This object expresses the Geometry as specified by
             [rfc7946](https://tools.ietf.org/html/rfc7946#section-3.1). It is also
             the root of the Geometry objects (Point, cicle, poygon)
+          required: [type,coordinates]
           properties:
             type:
               type: string
@@ -913,13 +931,13 @@ components:
               items:
                 type: number
                 minItems: 2
-
+                  
     Position:
       allOf:
-        - $ref: '#/components/schemas/TimeStamped'
         - required:
-            - Geometry
+            - geometry
             - properties
+            - type
           type: object
           title: Position
           properties:
@@ -946,7 +964,7 @@ components:
                   format: float
                   minimum: 0
                   maximum: 360
-
+                  
                 signalQuality:
                     type: number
                     format: int
@@ -981,16 +999,16 @@ components:
                   description: Residual electric energy (KWh)
                   type: number
                   format: float
-
+            
             battery:
               type: object
               description: Battery capacity and heath for electric energy type.
               properties:
                 capacity:
-                  description: Electric battery total capacity (expressed in Wh).
+                  description: Electric battery total capacity (expressed in Wh). 
                   type: number
                   format: float
-
+                  
                 health:
                   type: object
                   properties:
@@ -998,14 +1016,14 @@ components:
                       description:  Health related to battery capacity (expressed in persentage)
                       type: number
                       format: int
-
+                            
                     resistance:
                       description:  Health related to battery resistance (expressed in persentage)
                       type: number
                       format: int
-
-
-
+                  
+                
+          
             charging:
                   type: object
                   description: Charging state is set for electric energy type only.
@@ -1036,11 +1054,11 @@ components:
       description: Describe recurring action.
       properties:
         recurrence:
-            description: |
-
-                      Determines the recurrence of the program.
-                      * None: means no recurrence.
-                      * Daily: repeated over the week.
+            description: | 
+                      
+                      Determines the recurrence of the program. 
+                      * None: means no recurrence. 
+                      * Daily: repeated over the week. 
                       * Weekly: repeated over the weeks of the year from w1 to w52 specified in an array unitary or grouped by ranges (w1, w2,w34-w46, w52).
             type: string
             enum: [None, Daily, Weekly]
@@ -1049,9 +1067,9 @@ components:
             type: string
             description: |
                           The program start time formatted using the duration format based on [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) with the schema: P[n]Y[n]M[n]DT[n]H[n]M[n]S
-
-                          _example_:
-
+                      
+                          _example_: 
+                        
                           * PT14H30M :  14H30min
         occurence:
                 type: object
@@ -1063,13 +1081,13 @@ components:
                         items:
                           type: string
                           enum: [Mon, Tue, Wed, Thu, Fri, Sat, Sun]
-                    week:
+                    week:  
                         type: array
                         items:
                         #week of year : w1, w2 ... w34-w46 ..
                           type: string
                           format: w[1-5]([0-9])*(-w[1-5]([0-9])*)?
-
+                                  
                 required: [day]
       required: [start, recurrence, occurence]
 
@@ -1080,20 +1098,20 @@ components:
         - properties:
             enabled:
                 type: boolean
-                description: >
+                description: > 
                           Determines whether this program is enabled or not.
         - required: [enabled]
-
+        
     Preconditioning:
       type: object
       description: Preconditionning the vehicle for driver and passenger.
       properties:
         airConditioning:
           type : object
-
+          
           properties:
             status:
-              description: >
+              description: > 
                 The status of the preconditionning feature.
               type: string
               enum: [Enabled, Disabled, Finished, Failure]
@@ -1105,17 +1123,17 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/PreconditioningProgram'
+                    
 
-
-
-
-
+            
+            
+            
              #*  *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
-
-          #  *  *R5/2018-01-03T12:00:00Z/P6H* repeate duration 6H interval for 5 times starting at 2018-01-03T12:00:00Z.
-
+            
+          #  *  *R5/2018-01-03T12:00:00Z/P6H* repeate duration 6H interval for 5 times starting at 2018-01-03T12:00:00Z.  
+        
     Trip:
-      title: Trip
+      title: Trip 
       type: object
       properties:
         _links:
@@ -1132,7 +1150,7 @@ components:
         id:
           type: string
           description: Identifier of a trip
-
+        
         vin:
           $ref: '#/components/schemas/Vin'
         startedAt:
@@ -1154,7 +1172,7 @@ components:
           type: number
           format: float
           description: Part of trip distance with zero gaz emission of the trip expressed in percent (0-100%).
-
+        
         odometer:
           type: number
           description: The mileage of the vehicle at the end of a trip
@@ -1162,7 +1180,7 @@ components:
           type : array
           items:
             type: object
-            description: >
+            description: > 
                         Average energy consumption expressed in L/100Km for fuel consumtion and kWh/100km for the electric one.
             properties:
               type:
@@ -1190,14 +1208,28 @@ components:
           properties:
             self:
               $ref: '#/components/schemas/Link'
-            Vehicles:
+            vehicles:
               $ref: '#/components/schemas/Link'
-        email:
-          description: Mail of the Fleet
+            status:
+              $ref: '#/components/schemas/Link'
+            maintenances:
+              $ref: '#/components/schemas/Link'
+            alerts:
+              $ref: '#/components/schemas/Link'
+            trips:
+              $ref: '#/components/schemas/Link'
+            collisions:
+              $ref: '#/components/schemas/Link'
+            telemetries:
+              $ref: '#/components/schemas/Link'
+            monitors:
+              $ref: '#/components/schemas/Link'  
+        name:
+          description: Name of the Fleet
           type: string
-        businessName:
-          description: Business name of the Fleet
-          type: string
+        id:
+          description: The id of the Fleet
+          type: string  
         description:
           description: The description of the Fleet
           type: string
@@ -1209,10 +1241,10 @@ components:
           description: Date when the fleet has been updated
           type: string
           format: dateTime
-
-
-
-
+       
+   
+   
+   
     Vehicle:
       title: Vehicle Information
       type: object
@@ -1223,7 +1255,7 @@ components:
             self:
               $ref: '#/components/schemas/Link'
             fleet:
-              $ref: '#/components/schemas/Link'
+              $ref: '#/components/schemas/Link'  
             lastPosition:
               $ref: '#/components/schemas/Link'
             trips:
@@ -1241,7 +1273,7 @@ components:
           type: string
         brand:
           description: Brand of a vehicle
-        engine:
+        engine:  
           description: Engine of a vehicle
           type: array
           items:
@@ -1253,7 +1285,7 @@ components:
                 enum:
                   - Thermic
                   - Electric
-
+                
               energy:
                 description: Type of energy of a vehicle (Not available for Electric class)
                 type: string
@@ -1266,12 +1298,12 @@ components:
           description: Version of a vehicle
           type: string
         pictures:
-          description: With the links it's possible to see the pictures of the vehicle
+          description: With the links it's possible to see the pictures of the vehicle 
           type: array
           minItems: 1
           maxItems: 12
           items:
-            $ref: '#/components/schemas/Url'
+            $ref: '#/components/schemas/Url' 
         createdAt:
           description: Date when the vehicle has been created
           type: string
@@ -1280,7 +1312,7 @@ components:
           description: Date when the vehicle has been updated
           type: string
           format: dateTime
-
+      
         _embedded:
           type: object
     CollectionResult:
@@ -1297,7 +1329,18 @@ components:
         _embedded:
           type: object
       required: [total, totalPage, currentPage, _embedded]
-
+        
+    Fleets:
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - properties:
+            _embedded:
+              type: object
+              properties:
+                fleets:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Fleet'
     Alerts:
       allOf:
         - $ref: '#/components/schemas/CollectionResult'
@@ -1331,7 +1374,7 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/Collision'
-
+    
     WayPoints:
       allOf:
         - $ref: '#/components/schemas/CollectionResult'
@@ -1341,8 +1384,8 @@ components:
               properties:
                 reduced:
                   description: >
-                      Determines whether this result set (page) has been reduced due to path simplifying (by providing a tolerance factor).
-                       ### Note:
+                      Determines whether this result set (page) has been reduced due to path simplifying (by providing a tolerance factor). 
+                       ### Note: 
                        The number of results may be lower than the specified page 'size' due to the applying of the path simplifying after resolving the page resultset.
                   type: boolean
                 positions:
@@ -1351,7 +1394,7 @@ components:
                     $ref: '#/components/schemas/Position'
               required:
                   - positions
-
+                        
     Trips:
       allOf:
         - $ref: '#/components/schemas/CollectionResult'
@@ -1372,8 +1415,8 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/Trip'
-
-
+                
+    
     MaintenanceList:
       allOf:
         - $ref: '#/components/schemas/CollectionResult'
@@ -1385,8 +1428,8 @@ components:
                 maintenances:
                   type: array
                   items:
-                    $ref: '#/components/schemas/Maintenance'
-
+                    $ref: '#/components/schemas/Maintenance' 
+                
     StatusList:
       allOf:
         - $ref: '#/components/schemas/CollectionResult'
@@ -1399,7 +1442,7 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/Status'
-
+                
     Vehicles:
       allOf:
         - $ref: '#/components/schemas/CollectionResult'
@@ -1412,7 +1455,7 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/Vehicle'
-
+                
     MonitorWebhook:
       title: Webhook
       description: Defines the webhook monitor notification object.(See  MonitorEvent object model that defines de schema of event)
@@ -1440,7 +1483,7 @@ components:
                   |Header|-Will be add as http header extension "x-######:"|
                   |Body|-Will be simply add to event body map attribute (see monitor event definition in template document)|
                   |Query|-Will set as http query parameter when invoking the Webhook|
-
+                  
               key:
                 type: string
               value:
@@ -1449,8 +1492,8 @@ components:
                   - type: string
                     enum: ['vin','monitorID','fleetID']
                     description: |
-                      Set of variables that will be contextually valued and used as attribute value. To reference the variable, prefix its name with the dollar sign ($)
-
+                      Set of variables that will be contextually valued and used as attribute value. To reference the variable, prefix its name with the dollar sign ($)  
+                      
                       * Disclaimer: if the var "vin" is used as a query parameter, the batch-notify will be no more possible and each event will be sent through a separated request!.
                       * example: Having a vin=VIN123456, the following attribute set:
                               ```"attributes": [
@@ -1460,17 +1503,17 @@ components:
                                     "value":"$vin"
                                   }
                                 ]```
-                        will be valued as http header extension (prefixed x-):
-
+                        will be valued as http header extension (prefixed x-): 
+                                
                         *"x-vehicle-id: VIN123456"*
             required:
               - key
-              - value
+              - value  
               - type
       required:
         - target
         - name
-
+   
     MonitorSubscribe:
       description: monitor  parameter object
       type: object
@@ -1478,11 +1521,12 @@ components:
         retryPolicy:
           type: object
           description: The retry policy to apply when notification failed.
+          required: [policy]
           properties:
-            retryPolicy:
+            policy:
               type: string
               description: |
-                          Defines the retry rules following a WebHook notification failure (ie the return code is not HTTP 2XX). '_None_' means with a single try, '_Bounded_' with a limited number of tries and '_Always_'  with an infinite number of tries.
+                          Defines the retry rules following a WebHook notification failure (ie the return code is not HTTP 2XX). '_None_' means with a single try, '_Bounded_' with a limited number of tries and '_Always_'  with an infinite number of tries. 
               enum: [None, Bounded, Always]
             maxRetryNumber:
                 description: Maximum number of attempts (to be used with retryPolicy set to Bounded).
@@ -1493,9 +1537,10 @@ components:
                 description: Time to wait (expressed in seconds) befor retrying to push a notification.
                 type: integer
                 default: 10
-                minimum: 1
+                minimum: 1 
         batchNotify:
-                description: Notification batch of events defined by a time window and/or batch size. If this field is not set, the call-bak will post only one event by call.
+                description: Notification batch of events defined by a time wiretryPolicyndow and/or batch size. If this field is not set, the call-bak will post only one event by call.
+                  **At least one of the two parameters must be provided**
                 type: object
                 properties:
                   size:
@@ -1513,25 +1558,29 @@ components:
                 minimum: 60
         callback:
             $ref: '#/components/schemas/MonitorWebhook'
+      required: [callback]
+                 
 
-
-
-
+            
+              
     MonitorParameter:
       title: MonitorParameter
       description: MonitorParameter
       properties:
+            label:
+              type: string
+              description: Monitor lablel (usually its name). 
             subscribeParam:
               $ref: '#/components/schemas/MonitorSubscribe'
             extendedEventParam:
               type: array
               items:
                  enum: [door.state, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, alerts]
-              description: |
+              description: | 
                             Allow to set extra vehicle data (defined in data model) to add to the monitor event
                             when publishing. The possible values are
-
-
+                            
+                            
                             |value|description|Related model |
                             |----------|:-------------|------:|
                             |vehicle.doorsState|Latest know door state (timestamped)|DoorState|
@@ -1540,22 +1589,22 @@ components:
                             |vehicle.position|Last vehicle position (timestamped)|Position|
                             |vehicle.alerts|List of active alerts|Alert|
                             |vehicle.telemetry${.TelemetryEnum}|Latest known telemetry (timestamped). |Telemetry
-
-                            * For telemetry extension:
+                            
+                            * For telemetry extension:  
                               * The suffix ```${.TelemetryEnum}``` can be selected to refine with telemetry type (from the TelemetryEnum list). This value (with suffix) can be selected **_several times_** to included suitable telemetry messages with the extention.
-                              * Using ```vehicle.telemetry``` without suffix means to include all available telemetrie.
-
-
+                              * Using ```vehicle.telemetry``` without suffix means to include all available telemetrie. 
             triggerParam:
+              description: Predicates part of the monitor. At least one of the two parameters must be provided.
               properties:
-                          timeZoneTriggers:
+                          timeZoneTriggers: 
                              $ref: '#/components/schemas/TimeZoneTrigger'
                           dataTriggers:
                             description: Compound data triggers (will be evaluated with an AND relationship)
                             type: array
                             items:
                                 $ref: '#/components/schemas/DataTrigger'
-    MonitorRef:
+      required: [subscribeParam,triggerParam,label]
+    MonitorRef: 
       type: object
       description: Monitor creation reference returned when posting a new monitor.
       properties:
@@ -1570,8 +1619,8 @@ components:
                     $ref: '#/components/schemas/Link'
             monitorId:
               $ref: '#/components/schemas/MonitorId'
-
-
+            
+                 
     ZoneTrigger:
       title: ZoneTrigger
       description: Zone Alert parameter object
@@ -1602,41 +1651,44 @@ components:
                           latitude:
                             type: number
                             format: double
-      example:
+                        required: [longitude, latitude]
+      required: [place, transition]
+      example: 
                         transition: Out
                         circle:
                           radius: 20
                           center:
                             longitude: 2.333333
                             latitude:  48.866667
-
+    
     TimeTrigger:
       title: TimeTrigger
       description: Temporal monitor for triggering vehicle moving event within a time interval.
       properties:
-
+            
             times:
               type: array
               items:
                 $ref: '#/components/schemas/BoundedProgram'
+      required: [times]
     TimeZoneTrigger:
       title: TimeZoneTrigger
-      description: Zone & temporal monitor.
+      description: Zone & temporal monitor. At least one of the two parameters must be provided.
       properties:
             zoneTrigger:
                 $ref: '#/components/schemas/ZoneTrigger'
             timeTrigger:
               $ref: '#/components/schemas/TimeTrigger'
-
-
-
+            
+           
+    
     DataTrigger:
       title: DataTrigger
       description: A monitor for triggering the vehicle data change event.
       properties:
         data:
-          description: |
-            The left operand of the trigger function. The following Table details for each operand data its type, the supported operator and the possibly retruned value:
+          description: | 
+            The left operand of the trigger function. The following Table details for each operand data its type, the supported operator and the possibly retruned value: 
             |**Data**|**Type**|**Op**|**Value**|
             |---|---| ---:| ---:|
             | Vehicle.alert | List of value | OnChange (at least one)/IncludedIn/EqualTo | Value (ObjetAlert) |
@@ -1644,6 +1696,7 @@ components:
             | vehicle.engines.running (boolean) | Boolean | OnChange/equalTo | Value (true/false) |
             | vehicle.engines.thermic.oil.temp | Integer | equalTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.electric.level | Number | equalTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.electric.autonomy | Number | equalTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.fuel.level | Number | equalTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.fuel.autonomy | Number | equalTo/greaterThan/ lowerThan/ | Value |
             | vehicle.autonomy (global) | Number | equalTo/greaterThan/ lowerThan/ | Value |
@@ -1658,15 +1711,16 @@ components:
             | vehicle.maintenance.mileageBeforeMaintenance| Number | OnChange/equalTo/ greaterThan/ lowerThan/ | Value |
             | vehicle.safety.beltWarning | Enum(beltWarning) | OnChange/equalTo | Value |
             | environment.air.temp | Number | equalTo/greaterThan/lowerThan/ | Value |
-            | privacy.status | Enum(Privacy) | equalTo / OnChange/IncludedIN | Value |
+            | privacy.state | Enum(Privacy) | equalTo / OnChange/IncludedIN | Value |
 
           type: string
-          enum:
+          enum::
             - vehicle.alert
             - vehicle.odometer
             - vehicle.engines.running
             - vehicle.engines.thermic.oil.temp
             - vehicle.energy.electric.level
+            - vehicle.energy.electric.autonomy
             - vehicle.energy.fuel.level
             - vehicle.energy.fuel.autonomy
             - vehicle.autonomy
@@ -1681,9 +1735,9 @@ components:
             - vehicle.maintenance.mileageBeforeMaintenance
             - vehicle.safety.beltWarning
             - environment.air.temp
-            - privacy.status
+            - privacy.state
         op:
-            description: The operator of the trigger function.
+            description: The operator of the trigger function.                          
             type: string
             enum: [equalsTo, greaterThan, lowerThan, includedIn, onChange]
         value:
@@ -1693,10 +1747,10 @@ components:
             type: array
             items:
               type: string
-
-
+                
+           
       required: [data,op]
-
+    
     Url:
       type: string
       description: >-
@@ -1766,7 +1820,7 @@ components:
         last:
           $ref: '#/components/schemas/Link'
     AlertMsgEnum:
-      type: string
+      type: string    
       enum:
         - alertOilPressure
         - alertCollantTemp
@@ -1870,9 +1924,9 @@ components:
               description: Duration of the monitor action expressed using  [ISO-8601 Duration spec](https://en.wikipedia.org/wiki/ISO_8601#Durations)
               type: string
           required: [start, duration, occurence]
-
-
-
+              
+              
+      
     TimeRange:
       type: string
       pattern: \w?/\w?
@@ -1880,7 +1934,7 @@ components:
         Times range is the time intervening between two times. The range can be
         expressed by two times Points (start and end *Timestamp*s), by a start
         *Timestamp* Point and a *Duration* or as a repeating interval. All of
-        them  should be expressed using the
+        them  should be expressed using the 
         [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) and the interval format
         is based on
         [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals)
@@ -1896,17 +1950,17 @@ components:
 
           * '/T' startless range, known end date but no start date. No lower limit
             will be used to retrieve results.
-
+            
           * Rn/T/D  repeat the interval of D **n** times starting at T.
-
+          
           * R/T/D unbounded number of repetitions starting at T.
 
 
             *T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).*
 
 
-            Example:
-
+            Example: 
+              
 
             *  *2018-01-01T09:00:00+01:00/2018-01-01T12:00:00+01:00* known low and hight
               limits.
@@ -1914,9 +1968,9 @@ components:
             *  *2018-01-03T12:00:00+01:00/P3Y6M4DT12H30M5S*  known low limit, hight limit = start + duration.
 
             *  *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
-
+            
             *  *R5/2018-01-03T12:00:00Z/P6H* repeate duration 6H interval for 5 times starting at 2018-01-03T12:00:00Z.
-
+              
     indexRange:
       type: string
       pattern: \d+-\d*
@@ -1948,8 +2002,8 @@ components:
         code: 1001
         debug: CMP_001234
         message: No data availble for such context.
-
-
+        
+        
     Telemetry:
       type: object
       properties:
@@ -1994,7 +2048,7 @@ components:
                         type: number
                   speed:
                     type: number
-            energy:
+            energy:  
                 $ref: '#/components/schemas/Energy'
             brakingSystem:
               $ref: '#/components/schemas/BrakingSystem'
@@ -2010,10 +2064,10 @@ components:
             kinetic:
                $ref: '#/components/schemas/Kinetic'
             doorsState:
-              $ref: '#/components/schemas/DoorsState'
+              $ref: '#/components/schemas/DoorsState'  
             battery:
               $ref: '#/components/schemas/Battery'
-            safety:
+            safety:  
                 type: object
                 properties:
                   beltWarning:
@@ -2022,10 +2076,10 @@ components:
                   eCallTriggeringRequest:
                     type: string
                     enum: [AirbagUnabled, NoRequest, Requested]
-
+        
         environment:
           $ref: '#/components/schemas/Environment'
-
+         
         createdAt:
           type: string
           format: dateTime
@@ -2037,7 +2091,7 @@ components:
           properties:
             extension:
                $ref: '#/components/schemas/Extension'
-
+    
     Telemetries:
       allOf:
         - $ref: '#/components/schemas/CollectionResult'
@@ -2049,7 +2103,7 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/Telemetry'
-
+                
     ExtensionType:
       type: array
       items:
@@ -2059,7 +2113,7 @@ components:
           - alerts
           - collision
           - maintenance
-
+          
     Extension:
       type: object
       description: Additional data set.
@@ -2073,8 +2127,8 @@ components:
         collision:
                $ref: '#/components/schemas/Collision'
         maintenance:
-               $ref: '#/components/schemas/MaintenanceObj'
-
+               $ref: '#/components/schemas/MaintenanceObj'       
+          
     Kinetic:
         allOf:
             - $ref: '#/components/schemas/TimeStamped'
@@ -2092,8 +2146,8 @@ components:
                   type: number
                   format: float
                 moving:
-                  type: boolean
-
+                  type: boolean          
+         
     BrakingSystem:
               type: object
               properties:
@@ -2124,8 +2178,8 @@ components:
                           type: boolean
                         snow:
                           type: boolean
-
-    Adas:
+    
+    Adas:  
                 type: object
                 properties:
                   parkAssist:
@@ -2140,7 +2194,7 @@ components:
                             - DriverInhibition
                             - Active
                             - Wait
-                            - OutOfService
+                            - OutOfService 
                       rear:
                         type: array
                         items:
@@ -2150,7 +2204,7 @@ components:
                             - DriverInhibition
                             - Active
                             - Wait
-                            - OutOfService
+                            - OutOfService 
                   accr:
                     description: Adaptive Cruise Control Regulation
                     type: string
@@ -2221,8 +2275,8 @@ components:
                     description: Lane Keeping Assist left
                     type: string
                     enum: [Authorized, CorrectionInProgress, NotAuthorized, NotSelected]
-
-    Lighting:
+         
+    Lighting:  
                 type: object
                 properties:
                   turn:
@@ -2261,13 +2315,13 @@ components:
           - vehicle.brakingSystem.parking
           - vehicle.energy.type
           - vehicle.energy.level
-          - vehicle.energy.consumption
+          - vehicle.energy.consumption  
           - vehicle.energy.autonomy
           - vehicle.ignition
           - vehicle.doorsState.lockedState
           - vehicle.doorsState.opening
           - vehicle.energy.charging
-          - vehicle.transmission.gearbox.mode
+          - vehicle.transmission.gearbox.mode 
           - vehicle.transmission.gearbox.gear
           - vehicle.lighting
           - vehicle.adas.parkAssist.front
@@ -2287,7 +2341,7 @@ components:
           - passenger.seatbelt
           - environment.air
           - environment.luminosity
-############################ PARAMETERS ################################
+############################ PARAMETERS ################################        
   parameters:
     tokenAuth:
       name: authorization
@@ -2305,6 +2359,13 @@ components:
       schema:
         type: string
     fleetId:
+      name: fid
+      in: path
+      description: Results will be related to this fleet **id** only.
+      required: true
+      schema:
+        type: string
+    fleetId2:
       name: fleet-id
       description: The Fleet ID.
       in: header
@@ -2345,8 +2406,8 @@ components:
       in: query
       description: Allows filtering on VINs that start with the same prefix.
       schema:
-        type: string
-
+        type: string    
+     
     tripId:
       name: tid
       in: path
@@ -2386,7 +2447,7 @@ components:
       required: false
       description: >-
         The maximum number of results (for a collection results response) to
-        return per page. When not set, at most 60 results will be returned.
+        return per page. When not set, at most 60 results will be returned. 
     pageToken:
       name: pageToken
       in: query
@@ -2404,7 +2465,7 @@ components:
       description: >-
         Results indexes will be included in this range (see **indexRange**
         model).
-
+          
           default: 0-
 
           example: 0-, 0-5
@@ -2416,8 +2477,8 @@ components:
       schema:
         type: number
         format: float
-
-
+      
+      
     telemetryType:
       name: type
       in: query
@@ -2427,21 +2488,21 @@ components:
       required: false
       schema:
         $ref: '#/components/schemas/TelemetryEnum'
-
+    
     extension:
       name: extension
       in: query
       description: >-
-        Additional data set that will be included in embedded field
-
+        Additional data set that will be included in embedded field 
+        
          * _Disclaimer_:  **Enabling ```maintenance``` extension will automatically disable ```Kinetic``` telemetry message**
       required: false
       schema:
-        $ref: '#/components/schemas/ExtensionType'
-
-
-
-#
+        $ref: '#/components/schemas/ExtensionType'    
+    
+    
+    
+# 
   responses:
     CollisionsuccessResponse:
       description: Collision response
@@ -2464,6 +2525,19 @@ components:
         application/hal+json:
           schema:
             $ref: '#/components/schemas/Alert'
+            
+    FleetSuccessResponse:
+      description: Fleet response
+      content:
+        application/hal+json:
+          schema:
+            $ref: '#/components/schemas/Fleet'
+    FleetsSuccessResponse:
+      description: Fleet list response
+      content:
+        application/hal+json:
+          schema:
+            $ref: '#/components/schemas/Fleets'        
     AlertsuccessResponses:
       description: A list of alert
       content:
@@ -2473,7 +2547,7 @@ components:
     AlertFailedResponse:
       description: Alert request error
       $ref: '#/x-fragment/general_error_fragment'
-    #MonitorId
+    #MonitorId  
     MonitorsuccessResponse:
       description: Monitor response
       content:
@@ -2493,18 +2567,18 @@ components:
                   self:
                     $ref: '#/components/schemas/Link'
                   fleet:
-                    $ref: '#/components/schemas/Link'
+                    $ref: '#/components/schemas/Link'  
                   monitor:
                     $ref: '#/components/schemas/Link'
-
+                 
               status:
-                $ref: '#/components/schemas/MonitorStatus'
+                $ref: '#/components/schemas/MonitorStatus'        
     MonitorsuccessPostResponse:
       description: Monitor post success response
       content:
         application/hal+json:
           schema:
-            $ref: '#/components/schemas/MonitorRef'
+            $ref: '#/components/schemas/MonitorRef'        
     MonitorsuccessResponses:
       description: A list of Monitors
       content:
@@ -2520,30 +2594,30 @@ components:
         application/hal+json:
           schema:
             $ref: '#/components/schemas/Trip'
-
-
+    
+    
     TripsSuccessResponses:
       description: A list of Trip
       content:
         application/hal+json:
           schema:
             $ref: '#/components/schemas/Trips'
-
+            
 
     StatusSuccessResponses:
       description: A list of Status
       content:
         application/hal+json:
           schema:
-            $ref: '#/components/schemas/StatusList'
-
+            $ref: '#/components/schemas/StatusList' 
+            
     MaintenanceSuccessResponses:
       description: A list of vehicle maintenance
       content:
         application/hal+json:
           schema:
-            $ref: '#/components/schemas/MaintenanceList'
-
+            $ref: '#/components/schemas/MaintenanceList'             
+            
     TripFailedResponse:
       description: Trip request error
       $ref: '#/x-fragment/general_error_fragment'
@@ -2556,7 +2630,7 @@ components:
     ECoachingFailedResponse:
       description: ECoaching request error
       $ref: '#/x-fragment/general_error_fragment'
-
+    
     TelemetrySuccessResponse:
       description: Telemetry response
       content:
@@ -2566,7 +2640,7 @@ components:
     TelemetryFailedResponse:
        $ref: '#/x-fragment/general_error_fragment'
 x-fragment:
-
+ 
   Fleet_Trip_id_wayPoints_getter:
     get:
       tags:
@@ -2574,9 +2648,12 @@ x-fragment:
       description: Gives the wayPoints for a specified Flett Trip.
       operationId: getPathForATrip
       parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/tolerence'
       responses:
         200:
           description: Path response
@@ -2601,7 +2678,7 @@ x-fragment:
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/tolerence'
-
+        
       responses:
         200:
           description: Path response
@@ -2611,7 +2688,7 @@ x-fragment:
                 $ref: '#/components/schemas/WayPoints'
         default:
           description: wayPoints not found
-
+  
   Fleet_Trip_id_getter:
     get:
       tags:
@@ -2646,7 +2723,7 @@ x-fragment:
           $ref: '#/components/responses/TripsuccessResponse'
         default:
           $ref: '#/components/responses/TripFailedResponse'
-
+          
   Vehicle_id_Trip_id_alerts:
     get:
       tags:
@@ -2668,7 +2745,7 @@ x-fragment:
           $ref: '#/components/responses/AlertsuccessResponses'
         default:
           $ref: '#/components/responses/AlertFailedResponse'
-
+  
   Vehicle_id_Trip_id_alerts_id:
     get:
       tags:
@@ -2688,9 +2765,9 @@ x-fragment:
         200:
           $ref: '#/components/responses/AlertsuccessResponse'
         default:
-          $ref: '#/components/responses/AlertFailedResponse'
+          $ref: '#/components/responses/AlertFailedResponse'        
 #
-
+          
   Fleet_Trip_id_alerts:
     get:
       tags:
@@ -2712,7 +2789,7 @@ x-fragment:
         200:
           $ref: '#/components/responses/AlertsuccessResponses'
         default:
-          $ref: '#/components/responses/AlertFailedResponse'
+          $ref: '#/components/responses/AlertFailedResponse'  
   Fleet_Trip_id_alert_Id:
     get:
       tags:
@@ -2731,7 +2808,7 @@ x-fragment:
         200:
           $ref: '#/components/responses/AlertsuccessResponse'
         default:
-          $ref: '#/components/responses/AlertFailedResponse'
+          $ref: '#/components/responses/AlertFailedResponse'          
   Vehicle_id_Trips:
     get:
       tags:
@@ -2755,11 +2832,11 @@ x-fragment:
           $ref: '#/components/responses/TripFailedResponse'
   Fleet_Trips_getter:
     get:
-      summary: Trips of all vehicles of the fleet.
+      summary: Trips of all vehicles of the fleet. 
       tags:
         - Fleet
       description: >-
-        This method returns a list of all Trips. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle.
+        This method returns a list of all Trips. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
       operationId: getFleetTrips
       parameters:
         - $ref: '#/components/parameters/tokenAuth'
@@ -2773,7 +2850,7 @@ x-fragment:
           $ref: '#/components/responses/TripsSuccessResponses'
         default:
           $ref: '#/components/responses/TripFailedResponse'
-
+  
   Fleet_Trip_id_Telemetry_getter:
     get:
       summary: Telemetries for of a trip
@@ -2814,13 +2891,13 @@ x-fragment:
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
-
+  
   Fleet_Collisions_getter:
      get:
       tags:
         - Fleet
       description: >-
-        Returns the set of Collisions of a Fleet of vehicules. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle.
+        Returns the set of Collisions of a Fleet of vehicules. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
       operationId: getTripCollisions
       parameters:
         - $ref: '#/components/parameters/tokenAuth'
@@ -2828,16 +2905,16 @@ x-fragment:
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-
-
-
+        - $ref: '#/components/parameters/pageSize'      
+        
+        
+     
       responses:
         '200':
           $ref: '#/components/responses/CollisionsSuccessResponse'
         default:
           $ref: '#/components/responses/CollisionFailedResponse'
-
+          
   Vehicle_id_Trip_id_Telemetry_getter:
     get:
       summary: Telemetry for vehicle and trip
@@ -2864,8 +2941,8 @@ x-fragment:
           $ref: '#/components/responses/TelemetrySuccessResponse'
         default:
           $ref: '#/components/responses/TelemetryFailedResponse'
-
-
+          
+          
   general_error_fragment:
     content:
       application/json:
