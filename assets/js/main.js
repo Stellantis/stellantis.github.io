@@ -41,72 +41,73 @@ document.addEventListener('DOMContentLoaded', function () {
 
     anchor_links_el.forEach(function (el, index) {
       var level = el.parentElement.nodeName;
-      if (level == 'H1' || level == 'H2' ){
-      var link_target = el.getAttribute('href');
-      var link_text = el.previousElementSibling.innerText;
+      if (level == 'H1' || level == 'H2') {
+        var link_target = el.getAttribute('href');
+        var link_text = el.previousElementSibling.innerText;
 
-      if (link_text != '') {
-        var item_el = createAnchorLink(link_text, link_target);
-		
-		if (link_text.indexOf('API Reference') !== -1) {
-			item_el.style.paddingBottom = '10px';
-		}
-		
-		if (link_text.indexOf('Events Reference') !== -1) {
-			item_el.style.paddingBottom = '10px';
-			var hr = document.createElement('hr');
-			hr.style.backgroundColor = '#bbbbbb';
-			anchors_el_list.append(hr);
-		}
-		
-		if (link_text.indexOf('Managing Eligibility') !== -1) {
-			item_el.style.paddingBottom = '10px';
-			var hr = document.createElement('hr');
-			hr.style.backgroundColor = '#bbbbbb';
-			anchors_el_list.append(hr);
-		}
-		
-		if (link_text.indexOf('Managing Backend') !== -1) {
-			item_el.style.paddingBottom = '10px';
-			var hr = document.createElement('hr');
-			hr.style.backgroundColor = '#bbbbbb';
-			anchors_el_list.append(hr);
-		}
-		
-		if (link_text.indexOf('Managing Embedded') !== -1) {
-			item_el.style.paddingBottom = '10px';
-		}
-		
-		if (link_text.indexOf('WebPortal Partner Support (WPS)') !== -1) {
-			item_el.style.paddingBottom = '10px';
-			var hr = document.createElement('hr');
-			hr.style.backgroundColor = '#bbbbbb';
-			anchors_el_list.append(hr);
-		}
-		
-        anchors_el_list.appendChild(item_el);
+        if (link_text != '') {
+          var item_el = createAnchorLink(link_text, link_target);
 
-        var anchor_key = link_target.substring(1); // #target -> target
-        anchors_by_id[anchor_key] = {
-          id: anchor_key,
-          index: index,
-          target: link_target,
-          text: link_text,
-          nav_el: item_el
-        };
-		
-        anchors_order.push(anchor_key);
-        anchor_nav_els.push(item_el);}
+          if (link_text.indexOf('API Reference') !== -1) {
+            item_el.style.paddingBottom = '10px';
+          }
+
+          if (link_text.indexOf('Events Reference') !== -1) {
+            item_el.style.paddingBottom = '10px';
+            var hr = document.createElement('hr');
+            hr.style.backgroundColor = '#bbbbbb';
+            anchors_el_list.append(hr);
+          }
+
+          if (link_text.indexOf('Managing Eligibility') !== -1) {
+            item_el.style.paddingBottom = '10px';
+            var hr = document.createElement('hr');
+            hr.style.backgroundColor = '#bbbbbb';
+            anchors_el_list.append(hr);
+          }
+
+          if (link_text.indexOf('Managing Backend') !== -1) {
+            item_el.style.paddingBottom = '10px';
+            var hr = document.createElement('hr');
+            hr.style.backgroundColor = '#bbbbbb';
+            anchors_el_list.append(hr);
+          }
+
+          if (link_text.indexOf('Managing Embedded') !== -1) {
+            item_el.style.paddingBottom = '10px';
+          }
+
+          if (link_text.indexOf('WebPortal Partner Support (WPS)') !== -1) {
+            item_el.style.paddingBottom = '10px';
+            var hr = document.createElement('hr');
+            hr.style.backgroundColor = '#bbbbbb';
+            anchors_el_list.append(hr);
+          }
+
+          anchors_el_list.appendChild(item_el);
+
+          var anchor_key = link_target.substring(1); // #target -> target
+          anchors_by_id[anchor_key] = {
+            id: anchor_key,
+            index: index,
+            target: link_target,
+            text: link_text,
+            nav_el: item_el
+          };
+
+          anchors_order.push(anchor_key);
+          anchor_nav_els.push(item_el);
+        }
       }
     });
 
-	var hr = document.createElement('hr');
-	hr.style.backgroundColor = '#bbbbbb';
-	anchors_el_list.append(hr);
-	
+    var hr = document.createElement('hr');
+    hr.style.backgroundColor = '#bbbbbb';
+    anchors_el_list.append(hr);
+
     var back_to_top_el = createAnchorLink('Back to top', '');
     back_to_top_el.onclick = scrollToTop;
-	back_to_top_el.style.paddingBottom = '10px';
+    back_to_top_el.style.paddingBottom = '10px';
 
     anchors_el_list.appendChild(back_to_top_el);
   }
@@ -116,10 +117,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function createAnchorLink(text, target) {
-	var item_el = document.createElement('li');
+    var item_el = document.createElement('li');
     var link_el = document.createElement('a');
     var text_node = document.createTextNode(text);
-	
+
     if (target) {
       link_el.setAttribute('href', target);
     }
@@ -314,22 +315,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
       anchor_links_el.some(function (el) {
 
-                    var level = el.parentElement.nodeName;
-      if (level == 'H1' || level == 'H2' ){
+        var level = el.parentElement.nodeName;
+        if (level == 'H1' || level == 'H2') {
 
-        var bounds = el.getBoundingClientRect();
-        var href = el.getAttribute('href');
-        var key = href.substring(1); // #target -> target
+          var bounds = el.getBoundingClientRect();
+          var href = el.getAttribute('href');
+          var key = href.substring(1); // #target -> target
 
-        if (bounds.top < 1 + trigger_offset && past_anchors.indexOf(key) == -1) {
-          past_anchors.push(key);
-          highlightAnchor();
-          return;
-        } else if (bounds.top > 0 + trigger_offset && past_anchors.indexOf(key) != -1) {
-          removeFromArray(past_anchors, key);
-          highlightAnchor();
-          return;
-        }}
+          if (bounds.top < 1 + trigger_offset && past_anchors.indexOf(key) == -1) {
+            past_anchors.push(key);
+            highlightAnchor();
+            return;
+          } else if (bounds.top > 0 + trigger_offset && past_anchors.indexOf(key) != -1) {
+            removeFromArray(past_anchors, key);
+            highlightAnchor();
+            return;
+          }
+        }
       });
     }
   }
@@ -468,3 +470,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   };
 });
+
+
+//togglere yammer fullscreen
+function yammerFullscreen() {
+  document.getElementById('embedded-feed').style.height = "100vh";
+}

@@ -1,0 +1,59 @@
+---
+layout: doc-article
+permalink: /webportal/reference/
+section: webportal
+title: API Reference
+---
+{% assign apis = site.webportal-public-reference | where:"type", "api" %}
+{% assign events = site.webportal-public-reference | where:"type", "event" %}
+<a href="https://github.com/GroupePSA/groupepsa.github.io/tree/master/_headunit-sdk"
+    class="button is-link is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
+    <i style="font-size: 1.6rem" class="fab fa-2x fa-github  is-white"></i>
+    &nbsp; Edit Page
+</a>
+
+<h1 id="api">API Reference </h1>
+
+{% for api in apis %}
+<hr>
+<h2 id="api-{{ api.title | replace: '.', '-' | remove: '()'}}">{{ api.title}} </h2>
+<div class="field is-grouped is-grouped-multiline">
+    {% for wave in api.supported %}
+    <div class="control">
+        <div class="tags has-addons">
+            <a href="{{ site.baseurl }}/webportal/#nac---connected-navigation-system"> <span
+                    class="tag is-dark">wave</span><span class="tag is-info">{{ wave }}</span> </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="control">
+    <div class="tags has-addons">
+        <a href="{{ site.baseurl }}/webportal/quick-start/#privacy-mode"><span class="tag is-light">min
+                privacy</span><span class="tag is-success">{% if api.privacy %}
+                {{ api.privacy }}
+                {% else %}
+                Full
+                {% endif %}
+            </span> </a>
+    </div>
+</div>
+<p>{{ api.content | markdownify  }}</p>
+{% endfor %}
+<hr>
+<h1 id="event">Events Reference </h1>
+{% for event in events %}
+<hr>
+<h2 id="event-{{ event.title | replace: '.', '-' | remove: '()'}}">{{ event.title  }}</h2>
+<div class="field is-grouped is-grouped-multiline">
+    {% for wave in event.supported %}
+    <div class="control">
+        <div class="tags has-addons">
+            <a href="{{ site.baseurl }}/webportal/#nac---connected-navigation-system"><span
+                    class="tag is-dark">wave</span><span class="tag is-info">{{ wave}}</span> </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<p>{{ event.content }}</p>
+{% endfor %}
