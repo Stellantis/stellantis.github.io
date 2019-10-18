@@ -8,25 +8,21 @@ supported:
 type: event
 ---
 
-Event triggered when the *Cancel* popup button is clicked.
+Event triggered when the *Cancel* popup [MQTT popup]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) button is clicked.
+
+> **Be carefull**: To retrieve this event you have to use [WebPortal.getPendingNotifications()]({{site.baseurl}}/webportal/tutorial-advanced/#receiving-data-messages-from-your-server) method.
 
 ```javascript
-window.addEventListener("message", function(event){
-	
-	if (typeof event.data !== 'undefined' && typeof event.data.type !== 'undefined' ){
+//Retrieve pending notification
+var getPendingNotifications = function(){
+	var notificationsList = WebPortal.getPendingNotifications('app_id');
+	notificationsList.map(processNotification);
+};
 
-	    var data = event.data;
-	    var type = event.data.type;
-
-	    switch(type){
-
-		//When the application is put in foreground
-	    case "WebPortal.cancelBtnPopupRequestClicked":
-		console.log("Popup cancel button clicked!");
+//Process retrieved notification
+var processNotification = function(notification) {
+	if (notification.popupAction === 'WebPortal.cancelBtnPopupRequestClicked') {
 		alert("Popup cancel button clicked!");
-		break;
-	    
-	    }
 	}
- });
+}; 
 ```

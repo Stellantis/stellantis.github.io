@@ -37,18 +37,33 @@ Usually in-board screen is located on the dashboard of the car between driver an
 There are 3 differents screen resolutions depending on car model and generation.
 
 The screen is divided in 3 areas: one is for your app while two others areas are dedicated to car system infos.
-Here is actual available screen size:
-- SD = 800 x 363 px
-- HD = 1280 x 582 px
-- WHD = 1280 x 720 px
+Here is actual available screen size: **SD** = 800 x 363 px ; **HD** = 1280 x 582 px ; **WHD** = 1280 x 620 px.
 
-![screen-res]({{ site.baseurl }}/assets/images/webportal-screen-res.png)
+**Legend**
 
+<span class="verb get" style="background-color: grey">&nbsp;Grey&nbsp;</span> : Total screen size.
+
+
+<span class="verb get" style>&nbsp;Blue&nbsp;</span> : Part of the screen dedicated to the infotainment sytem.
+
+
+<span class="verb post" style="background-color:#92D050">Green</span> : Part of the screen avaible for your app.
+
+**Standard-Definition**
+![screen-res-sd]({{site.baseurl }}/assets/images/webportalPresentationScreenSD.png)
+
+**High-Definition**
+![screen-res-hd]({{site.baseurl }}/assets/images/webportalPresentationScreenHD.png)
+
+**Wide High-Definition**
+![screen-res-whd]({{site.baseurl }}/assets/images/webportalPresentationScreenWHD.png)
 
 ## Important information
 
 The WebPortal will manage resources for your application to have access to data regarding the Car or the media.
 To start deploying your Application, you have to create the html, css and js files and send them to PSA for validation first.
+
+>**Be carefull**: your app is a single page application. It mean that you must have only one html file ('index.html') in your project.
 
 Using the provided WebPortal API your App will be able to get informations about :
 - Radio : the current channel, the text displayed...
@@ -77,35 +92,44 @@ based on WebKit from July 2013 (r153112).
 **NAC wave 3** - using [QtWebKit 5.5.0](http://download.qt.io/archive/qt/5.5/5.5.0/submodules/qtwebkit-opensource-src-5.5.0.tar.gz)  
 based on the upstream trunk subversion revision 153112.
 
-**NAC wave 4**
+**NAC wave 4**- using [QtWebKit 5.5.0](http://download.qt.io/archive/qt/5.5/5.5.0/submodules/qtwebkit-opensource-src-5.5.0.tar.gz)  
+based on the upstream trunk subversion revision 153112.
 
 ## List of commercialised Software versions
 
 ### Wave 2
 
-| Version | Release Date|
-|----|----|
-|5.15.45.32||
-|21.07.16.32||
-|21.07.67.32| 05/03/2019|
-
+SW version	| Percentage of vehicles| Trend
+-|-|-
+21.07.16.32_NAC-r0	|38,24%|	-
+10:90:42	|12,45%|	-
+10:47:34	|11,60%|	-
+21.07.67.32_NAC-r0|	8,30%|	+
+10:82:12	|6,37%	|-
+10:68:24	|5,05%	|-
+10:62:54	|2,38%	|-
+10:48:22	|0,72%	|-
+10:78:22	|0,69%	|-
+10:62:52	|0,04%	|-
+10:65:32	|0,01%	|=
 
 ### Wave 3
 
-| Version | Status|
-|----|----|
-|30.05.50.42||
-|31.08.05.86||
-|31.09.46.62||
+SW version	| Percentage of vehicles| Trend
+-|-|-
+31.08.05.86_NAC-r0|	3,48%|	-
+10:50:42|	1,14%	|-
+31.08.05.84_NAC-r0	0,02%	|-
+31.09.43.12_NAC-r0|	0,02%|	=
+10:41:52|	0,01%	|
 
 
 ### Wave 4
 
-| Version | Status|
-|----|----|
-|40.03.34.52| 18/09/2018|
-|40.03.44.52||
-|40.04.04.24| 07/02/2019|
+SW version	| Percentage of vehicles| Trend
+-|-|-
+42.01.21.42_NAC-r0 |	0,05%	|
+40.04.12.42_NAC-r0	| 0,01%	|
 
 
 ## Tutorial

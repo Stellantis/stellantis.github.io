@@ -2,7 +2,7 @@
 layout: doc-item
 permalink: /mobile-sdk/
 section: mobile
-title: Presentation
+title: Nothing Here
 ---
 
 <div class="bd-lead">

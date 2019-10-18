@@ -33,6 +33,8 @@ The GPU is deactivated for all devices, this means heavy animations should **not
 
 In a popup, to change line within a string you can use **\n**.
 
+Your app is a single page application. It mean that you must have only one html file ('index.html') in your project.
+
 ## Date and Time
 
 Do not use the methods of the javascript Date class.

@@ -1,17 +1,16 @@
 ---
 layout: page
 ---
-<div class="container">
-    <div class="bd-duo">
-        <div class="bd-lead">
-            {% include tabs.html %}
-            <div class="bd-content">
-                <div class="content">
-                    {% if page.section == "webapib2b" %}
-                    {% include disclaimer_APIB2B.html %}
-                    {% endif %}
-                    {{ content }}
-                </div>
+
+<div class="bd-duo">
+    <div class="bd-lead">
+        {% include tabs.html %}
+        <div class="bd-content">
+            <div class="content">
+                {% if page.section == "webapib2b" %}
+                {% include disclaimer_APIB2B.html %}
+                {% endif %}
+                {{ content }}
             </div>
         </div>
     </div>

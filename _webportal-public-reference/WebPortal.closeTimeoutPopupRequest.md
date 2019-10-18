@@ -8,7 +8,7 @@ supported:
 type: event
 ---
 
-Event triggered when the popup timeout occurs (10 seconds by default).
+Event triggered when the popup [MQTT popup]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) timeout occurs (10 seconds by default).
 
 ### Example
 
@@ -20,7 +20,7 @@ window.addEventListener("message", function(event){
 	    var data = event.data;
 	    var type = event.data.type;
 
-	    switch(type){
+	    switch(data.value.popupAction){
 
 		//When the application is put in foreground
 	    case "WebPortal.closeTimeoutPopupRequest":

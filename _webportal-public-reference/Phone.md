@@ -15,4 +15,4 @@ Provides the methods to manage the phone connected through Hands-Free profile.
 
 Method | Response Type | Description
 -----|----|----
-[Phone.LaunchPhoneCall()]({{ site.baseurl }}/webportal_list/#api-Phone-LaunchPhoneCall) | boolean | Initiates a phone call.
+[Phone.LaunchPhoneCall()]({{ site.baseurl }}/webportal/reference/#api-Phone-LaunchPhoneCall) | boolean | Initiates a phone call.

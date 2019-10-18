@@ -8,7 +8,7 @@ supported:
 type: event
 ---
 
-Event triggered when the *OK* button of the popup is clicked.
+Event triggered when the *OK* button of the [MQTT popup]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) is clicked.
 
 ### Example
 
@@ -20,7 +20,7 @@ window.addEventListener("message", function(event){
 	    var data = event.data;
 	    var type = event.data.type;
 
-	    switch(type){
+	    switch(data.value.popupAction){
 
 		//When the application is put in foreground
 	    case "WebPortal.okBtnPopupRequestClicked":

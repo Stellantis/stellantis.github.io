@@ -1,0 +1,127 @@
+<html>
+<head>
+    <title>Popup test page</title>
+    <style type="text/css">
+        body {
+            background-color: white;
+            font: 20px sans-serif;
+        }
+
+        nav > button {
+            font-size: 20px;
+            margin-bottom: 1em;
+        }
+
+        #logContainer {
+            font-family: monospace;
+            border: solid 1px black;
+            margin: 0;
+            padding: 0;
+        }
+        #logContainer > * {
+            border-bottom: solid 1px #ccc;
+            margin: 0;
+            padding: 0.5em;
+        }
+        #logContainer > *:last-child {
+            border-bottom: none;
+        }
+    </style>
+
+    <script type="text/javascript">
+        //
+        // WebPortal "SDK"
+        //
+        (function(w) {
+            var WebPortal = {
+                MESSAGE_NATIVE_POPUP_OPEN: 'WebPortal.nativePopup.open',
+                MESSAGE_NATIVE_POPUP_EVT_OPENED : 'WebPortal.nativePopup.evt.opened',
+                MESSAGE_NATIVE_POPUP_EVT_OK     : 'WebPortal.nativePopup.evt.ok',
+                MESSAGE_NATIVE_POPUP_EVT_CANCEL : 'WebPortal.nativePopup.evt.cancel',
+                MESSAGE_NATIVE_POPUP_EVT_TIMEOUT: 'WebPortal.nativePopup.evt.timeout',
+            };
+            var _messageListenerInitialized = false;
+
+            w.openNativePopup = function openNativePopup(text, okCallback, cancelCallback, timeoutCallback) {
+                var popupMessageHandler = function(e) {
+                    var eventMap = {};
+                    eventMap[WebPortal.MESSAGE_NATIVE_POPUP_EVT_OK] = okCallback;
+                    eventMap[WebPortal.MESSAGE_NATIVE_POPUP_EVT_CANCEL] = cancelCallback;
+                    eventMap[WebPortal.MESSAGE_NATIVE_POPUP_EVT_TIMEOUT] = timeoutCallback;
+
+                    var msg = e.data;
+                    log("[test-app][openNativePopup] message:");
+                    log(msg);
+                    // Ignore unknown message type
+                    if (!msg || !msg.type || !eventMap[msg.type])
+                        return;
+
+                    _messageListenerInitialized = false;
+                    log("[test-app][openNativePopup] calling callback for msg.type: " + msg.type);
+                    eventMap[msg.type]();
+
+                    log("[test-app][openNativePopup] removing web message handler");
+                    this.removeEventListener('message', popupMessageHandler);
+                };
+
+                // Init web message event listener
+                if (!_messageListenerInitialized) {
+                    _messageListenerInitialized = true;
+                    log("[test-app][openNativePopup] adding web message listener");
+                    this.addEventListener('message', popupMessageHandler);
+                }
+
+                log("[test-app][openNativePopup] request to open native popup");
+                var msg = {
+                    type: WebPortal.MESSAGE_NATIVE_POPUP_OPEN,
+                    text: text
+                };
+                log("[test-app][openNativePopup] msg: ");
+                log(msg);
+                parent.postMessage(msg, '*');
+            };
+        })(self);
+    </script>
+
+    <script>
+        // DOM logger
+        var log = function(msg) {
+            console.log(msg);
+
+            var logEntry = document.createElement('pre');
+            logEntry.innerHTML = typeof msg === 'string' ? msg : JSON.stringify(msg);
+            var logContainer = document.getElementById('logContainer');
+            logContainer.insertBefore(logEntry, logContainer.firstChild);
+        };
+
+        // Web message listener
+        window.addEventListener('message', function(e) {
+            var msg = {origin: e.origin, data: e.data};
+            log("[test-app] MessageEvent received: " + JSON.stringify(msg));
+        });
+
+        // Popup button handler
+        function openPopupBtnHandler() {
+            openNativePopup(
+                "popup from app",
+                function() { log("[test-app] OK callback called") },
+                function() { log("[test-app] Cancel callback called") },
+                function() { log("[test-app] Timeout callback called") }
+            )
+        };
+    </script>
+</head>
+<body>
+    <nav>
+        <button onclick="openPopupBtnHandler()">Open Popup</button>
+        <button onclick="location.reload()">Reload</button>
+    </nav>
+    <div id="logContainer"></div>
+
+    <script type="text/javascript">
+        parent.postMessage({
+            type: "WebPortal.onApplicationLoaded"
+        }, '*')
+    </script>
+</body>
+</html>

@@ -39,11 +39,11 @@ In order to ensure your identity we have to perform signing process of your publ
 Producing encryptation keys and CSR have to be done with a dedicated software. Here is **examples** with two of them:
 
 ### 2.1 OpenSSL
-**OpenSSL** is an open-source software library for encryption purpose. It is widely used in internet security. You can download and install Open SSL using this [link](https://slproweb.com/products/Win32OpenSSL.html) for windows.
+**OpenSSL** is an open-source software library for encryption purpose. It is widely used in internet security. You can download and install Open SSL using this [link](https://slproweb.com/products/Win32OpenSSL.html) (Windows).
 
 With OpenSLL producing key and creating CSR can be performed in one step. Create a directory with text configuration file named like 'CSRConfig.conf' and copy/past this text into it:
 
-```
+```conf
 [ req ]
 default_bits = 2048
 distinguished_name = req_distinguished_name
@@ -61,17 +61,17 @@ emailAddress = EMAIL ADDRESS will be used in order to download and renew your ce
 
 Browse this place with your terminal and execute this command:
 
+```shell
+$ openssl req \
+  -new \
+  -keyout KeyName.pem \
+  -out CSRName.csr \
+  -config CSRConfig.conf
 ```
-openssl req
-    -new  
-    -keyout KeyName.pem
-    -out CSRName.csr
-    -config CSRConfig.conf
-  ```
 
-  - `KeyName.pem` will be your keyfile name
-  - `CSRName.csr` will be your CSR name
-  - `CSRConfig.conf` is configuration file's name
+- `KeyName.pem` will be your keyfile name
+- `CSRName.csr` will be your CSR name
+- `CSRConfig.conf` is configuration file's name
 
 You will be requested for info incorporated in your CSR. Once you fill it you will get your CSR and Keyfile in your directory.
 
@@ -80,14 +80,13 @@ Keytool comes with Java Devlopment Kit. Like OpenSSL it can be used to produce k
 
 Produce your keys using this command:
 
-```
-$ keytool
-    -genkey
-    -alias KeyName
-    -keyalg RSA
-    -keysize 2048
-    -dname "CN=MZPXXXX,OU=Programs Partner,O=PatrnerName,
-            L=<Paris,C=FR,email=it@partner.com"
+```shell
+$ keytool \
+    -genkey \
+    -alias KeyName \
+    -keyalg RSA \
+    -keysize 2048 \
+    -dname "CN=MZPXXXX,OU=Programs Partner,O=PatrnerName,L=<Paris,C=FR,email=it@partner.com" \
     -keystore KeyStoreName.jks
 ```
 
@@ -102,11 +101,11 @@ $ keytool
 
 Generate your CSR:
 
-```
-$ keytool
-    -certreq
-    -alias Keyname
-    -keystore KeyStoreName.jks
+```shell
+$ keytool \
+    -certreq \
+    -alias Keyname \
+    -keystore KeyStoreName.jks \
     -file CSRName.csr
 ```
 
@@ -128,9 +127,9 @@ Finnaly, you get what you need for authentication! You can try your to send your
 
 Here is an example with curl:
 
-```
-$ curl
+```shell
+$ curl \
     -E mycertificate.cert  https://www.wikipedia.com
 ```
 
-And [here]({{site.baseurl}}/webportal/quick-start/#connect) you can find an exemple of SSL connexion with python.
+And [here]({{site.baseurl}}/webapi/b2b/quick-start/#connect) you can find an exemple of SSL connexion with python.

@@ -28,7 +28,7 @@ This tutorial will guide you through the creation of your Application.
 <br />
 You can also start by downloading the base of your application directly.
 
-<a class="button is-success is-rounded" href="/assets/downloads/helloworld.zip" download="">Download File</a>
+<a class="button is-success is-rounded" href="{{site.baseurl}}/assets/downloads/helloworld.zip" download="">Download File</a>
 
 ### HTML
 
@@ -45,6 +45,7 @@ The HTML part of your project is conventional, you create your objects and stati
     Hello World!
 </div>
 ```
+>**Be carefull**: your app is a single page application. It mean that you must have only one html file ('index.html') in your project.
 
 ### CSS
 
