@@ -19,12 +19,15 @@ This notification will be displayed regardless of the current active module (Nav
 
 The user is able to:
 
-- Press the *OK* button
-- Press the Return arrow to the top left (Cancelation)
-- Not do anything, in which case the window will close automatically after 15 seconds (Also considered a cancelation)
+- Press the *OK* button. [See okBtn event]({{site.baseurl}}/webportal/reference/#event-WebPortal-okBtnPopupRequestClicked).
+- Press the Return arrow to the top left. [See cancelBtn event]({{site.baseurl}}/webportal/reference/#event-WebPortal-cancelBtnPopupRequestClicked).
+- Not do anything, in which case the window will close automatically after 15 seconds. [See closeTimeout event]({{site.baseurl}}/webportal/reference/#event-WebPortal-closeTimeoutPopupRequest).
 
 The action done by the user is transferred to the embedded Application for it to react accordingly.
 
+#### Important
+
+>**Caution :** Popups (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) must not be asked more often than once every 20 seconds.
 
 #### Structure of MQTT Message
 ```javascript

@@ -45,6 +45,11 @@ th {
     font-size: 5rem;
 }
 
+.highlight{
+    max-height: 50vh;
+}
+
+
 //fixing higlhith bottom margin
 
 .highlight  pre  {
@@ -136,12 +141,20 @@ footer a {
 
 .bd-side {
 
-    padding: 4rem 1rem 3rem 1.5rem;
+    padding: 1.5rem;
 
 }
 
 .bd-duo {
     display: flex;
+}
+
+.tabs{
+    background: white
+}
+
+.tabs a{
+    padding: 1.2rem 1rem 0.85rem 1rem;
 }
 
 .bd-lead {
@@ -150,7 +163,6 @@ footer a {
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 20vw;
-    padding-top: 1.4rem;
 }
 
 .bd-anchors.is-pinned {
@@ -290,6 +302,11 @@ section nav {
     color: #1e2336;
 }
 
+.is-psabluestatic{
+    background-color: #1e2336;
+    color: white;
+}
+
 .is-psablue{
     background-color: #1e2336;
     color: white;
@@ -355,6 +372,15 @@ html{
 @media screen and (max-width: 765px) {
     .homepagepic{
         display: none;
+    }
+}
+
+@media screen and (max-width: 1087px) {
+    .hero-head{
+        background: #292929;
+    }
+    #lunrsearch{
+        width: none;
     }
 }
 
