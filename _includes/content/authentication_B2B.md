@@ -121,15 +121,3 @@ At this point we will begin our internal process to sign your certificate.
 ## 4. Cerficate & Client ID
 If everything is ok, our certification authority will accept your Certificate Signing Request. Then you'll receive an email at the adress you specified. This email contains : **link to download your certificate** + **Client ID** (= application id).
 Download your signed certificate and keep carefully your client ID.
-
-## 5. HTTPS Authentication
-Finnaly, you get what you need for authentication! You can try your to send your first request to Groupe PSA's API.
-
-Here is an example with curl:
-
-```shell
-$ curl \
-    -E mycertificate.cert  https://www.wikipedia.com
-```
-
-And [here]({{site.baseurl}}/webapi/b2b/quick-start/#connect) you can find an exemple of SSL connexion with python.

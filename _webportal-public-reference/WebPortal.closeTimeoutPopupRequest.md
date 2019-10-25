@@ -8,7 +8,7 @@ supported:
 type: event
 ---
 
-Event triggered when the popup [MQTT popup]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) timeout occurs (10 seconds by default).
+Event triggered when the popup [MQTT popup]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) timeout occurs (15 seconds by default).
 
 ### Example
 

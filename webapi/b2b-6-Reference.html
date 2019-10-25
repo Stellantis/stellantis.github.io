@@ -4,7 +4,12 @@ permalink: /webapi/b2b/reference/
 section: webapib2b
 title: API Reference
 ---
-
+<br><br>
+<div class="tags has-addons">
+    <span class="tag is-large is-info"> API Endpoint</span>
+    <span class="tag is-large"
+        style="background: #1e2336;color: white;">https://api-preprod.groupe-psa.com/connectedcar/v3/</span>
+</div>
 <div id="swagger-ui"></div>
 <script src="{{ '/assets/js/swagger-ui-bundle.js' | prepend: site.baseurl | prepend: site.url }}"> </script>
 <script src="{{ '/assets/js/swagger-ui-standalone-preset.js' | prepend: site.baseurl | prepend: site.url }}"> </script>
@@ -22,9 +27,15 @@ title: API Reference
             plugins: [
                 SwaggerUIBundle.plugins.DownloadUrl
             ],
-            layout: "StandaloneLayout"
+            layout: "StandaloneLayout",
+            onComplete: hideInfoSwagger,
         })
         // End Swagger UI call region
         window.ui = ui
+
+        //hide description
+        function hideInfoSwagger() {
+            document.getElementsByClassName('info')[0].style.display = "none";
+        }
     }
 </script>

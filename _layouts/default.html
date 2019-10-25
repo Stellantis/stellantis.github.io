@@ -27,7 +27,7 @@
     {% if page.url == "/" %}
     <!-- CSS HOMEPAGE-->
     <link href="assets/css/index.css" rel='stylesheet' type='text/css'>
-    {% elsif page.title == "API Reference" and page.section == "webapib2b" %}
+    {% elsif page.title == "API Reference" or page.title == "Monitor" and page.section == "webapib2b" %}
     <!-- ASSESTS FOR SWAGGER UI PAGES-->
     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/swagger-ui.css' | prepend: site.baseurl }}">
     <link href="{{ '/assets/css/swagger-ui-overrides.css' | prepend: site.baseurl }}" rel='stylesheet' type='text/css'>

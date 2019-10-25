@@ -16,7 +16,7 @@ privacy: Full
 
 ### See Also
 
-- [Full implementation example]({{site.baseurl}}/webportal/reference/#open-native-popup-from-app)
+- Full implementation [example]({{site.baseurl}}/webportal/reference/#open-native-popup-from-app)
 - Event: [OK button](#event-WebPortal-nativePopup-evt-ok)
 - Event: [Cancel Button](#event-WebPortal-nativePopup-evt-cancel)
 - Event: [Display timeout](#event-WebPortal-nativePopup-evt-timeout)
@@ -30,6 +30,6 @@ privacy: Full
 WebPortal.openNativePopup("Do you wish to continue?")
 ```
 
-#### Remark
+#### Important
 
->**Note :** Popups shouldn't be asked more often than once every 20 seconds.
+>**Caution :** Popups (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) must not be asked more often than once every 20 seconds.
