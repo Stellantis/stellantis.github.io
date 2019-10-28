@@ -41,9 +41,9 @@ If you want to create a new monitor you have to use our this dedicated api:
 
 
 <div class="tags has-addons">
-    <span class="tag is-large is-info"> API Endpoint</span>
-    <span class="tag is-large is-fullheight"
-        style="background: #1e2336;color: white;">https://api-preprod.groupe-psa.com/connectedcar/v3/</span>
+    <span class="tag_endpoint_large tag is-info"> API BaseURL</span>
+    <span class="tag_endpoint_large tag_api_endpoint tag"
+        >https://api-preprod.groupe-psa.com/connectedcar/v3/</span>
 </div>
 
 
@@ -154,10 +154,10 @@ This request ask to **create** an "IDF MPH Zone monitor With Data Triggering:[ve
 - The callback will be **send once** 10 callback's responses are ready to be send or 300s after triggering. 
 - The callback will be **send to** your "http://my.dn/monitors/cb1" webhook with the vin of the vehicle as a query path param and your Basic authentication in HTTP header.
 - In the **JSON response**, you will find the alerts and status of the corresponding vehicle.
-- This monitor is **triggered** if the vehicle's charging is lower than 80% and if it goes out of an 50.5km radius circle of the center of Paris, France.
+- This monitor is **triggered** if the vehicle's electric autonomy is lower than 80% and if it goes out of an 50.5km radius circle of the center of Paris, France.
 
 
-**An other possible monitor to detect heatwave :**
+**An other example monitor to detect heatwave :**
 
 ```json
 {
@@ -220,7 +220,7 @@ This request ask to **create** an "IDF MPH Zone monitor With Data Triggering:[ve
 ```
 
 This request ask to **create** an heatwave monitor.
-- It's **triggered** inside the city of Paris, if the temperature is more than 30°C.
+- It's **triggered** inside the city of Paris, if the temperature is greater than 30°C.
 
 ## Response
 
@@ -231,7 +231,7 @@ This request ask to **create** an heatwave monitor.
 } 
 ```
 
-The monitor have been **created** with id=c8eeaafdf0ab9675d5a1b8d51572014706540m0021.
+The monitor have been **created** with id=c7eeaafdf0ab9683d5a1b8d51572014996540m0021.
 
 ## Webhook template
 
@@ -240,6 +240,8 @@ What we offer with monitor is a simple way to process large amount of vehicle da
 This web server need to be configurated to read & process our alerts in order to inform you about what's happening to your vehicles in real time.
 
 Here is the webhook template specification, it describes the HTTP callback you will receive on your webhook:
+
+The Endpoint of your webhook must be the same as the one specified in when you created the monitor.
 
 <div id="swagger-ui"></div>
 <script src="{{ '/assets/js/swagger-ui-bundle.js' | prepend: site.baseurl | prepend: site.url }}"> </script>

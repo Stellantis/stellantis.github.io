@@ -1,3 +1,7 @@
+p {
+    overflow-wrap: break-word;
+}
+
 strong {
     font-weight: 500;
 }
@@ -20,6 +24,19 @@ th {
   background: #fa5c4f;
 }
 
+//tag api url
+.tag_api_endpoint{
+    color: white!important;
+    background: #1e2336 !important
+}
+
+.tag_endpoint_large{
+    white-space: normal !important; // counteract white-space: nowrap;
+    word-wrap: anywhere!important; // only required if you want to break one long word anywhere
+    height: auto!important; // counteract fixed height: 2em;
+    padding: 0.43rem!important;
+    font-size: 1.25rem!important;
+}
 
 .verb{
   margin-left: auto;

@@ -3,7 +3,7 @@ This an explanation about **getting your B2B authentication** in PSA network. Th
 
 This page is dedicated to Groupe PSA's commercial partners. End-user authentication procedure is different, check this [page]({{site.baseurl}}/webapi/b2c/).
 
-Our APIs let you access sensibles datas about your fleet of vehicles, that's why we have to perform authentification between your network  and our network. We use signed certificate + authentication process. In order to sign your certificate we need you to produce a **Certificate Signing Request (CSR)**. At the end of this process you will have everything you need to perform your authentication.
+Our APIs let you access sensible data about your fleet of vehicles, that's why we have to perform authentification between your network  and our network. We use signed certificate + authentication process. In order to sign your certificate we need you to produce a **Certificate Signing Request (CSR)**. At the end of this process you will have everything you need to perform your authentication.
 
 **Login info**:
 - **MZP**: partner login in Groupe PSA network.
@@ -36,9 +36,9 @@ In order to ensure your identity we have to perform signing process of your publ
 | EMAIL ADDRESS | Email adress, will be used in order to download and renew your certificate |
 
 
-Producing encryptation keys and CSR have to be done with a dedicated software. Here is **examples** with two of them:
+Producing encryptation keys and CSR have to be done with a dedicated software. Here is **examples with two of them**:
 
-### 2.1 OpenSSL
+### 2.1 With OpenSSL
 **OpenSSL** is an open-source software library for encryption purpose. It is widely used in internet security. You can download and install Open SSL using this [link](https://slproweb.com/products/Win32OpenSSL.html) (Windows).
 
 With OpenSLL producing key and creating CSR can be performed in one step. Create a directory with text configuration file named like 'CSRConfig.conf' and copy/past this text into it:
@@ -75,44 +75,43 @@ $ openssl req \
 
 You will be requested for info incorporated in your CSR. Once you fill it you will get your CSR and Keyfile in your directory.
 
-### 2.2 Keytool
+### 2.2 With Keytool
 Keytool comes with Java Devlopment Kit. Like OpenSSL it can be used to produce keys (in a file name keystore) and CSR.
 
 Produce your keys using this command:
 
 ```shell
 $ keytool \
-    -genkey \
-    -alias KeyName \
-    -keyalg RSA \
-    -keysize 2048 \
-    -dname "CN=MZPXXXX,OU=Programs Partner,O=PatrnerName,L=<Paris,C=FR,email=it@partner.com" \
-    -keystore KeyStoreName.jks
+  -genkey \
+  -alias KeyName \
+  -keyalg RSA \
+  -keysize 2048 \
+  -dname "CN=MZPXXXX,OU=Programs Partner,O=PatrnerName,L=<Paris,C=FR,email=it@partner.com" \
+  -keystore KeyStoreName.jks
 ```
 
-  - `CN` Common Name (ex MZP128745)
-  - `OU` Do not replace Programs Partners is right
-  - `O` Organisation Name (ex Free2Move)
-  - `L` Locality Name (ex Paris)
-  - `C` Country Name two letters (ex: FR)
-  - `email` will be used in order to download and renew your certificate
-  - `Keyname` will be the name of the keys in the keystore
-  - `KeyStoreName.jks` will be the name of your keystore
+- `CN` Common Name (ex MZP128745)
+- `OU` Do not replace Programs Partners is right
+- `O` Organisation Name (ex Free2Move)
+- `L` Locality Name (ex Paris)
+- `C` Country Name two letters (ex: FR)
+- `email` will be used in order to download and renew your certificate
+- `Keyname` will be the name of the keys in the keystore
+- `KeyStoreName.jks` will be the name of your keystore
 
 Generate your CSR:
 
 ```shell
 $ keytool \
-    -certreq \
-    -alias Keyname \
-    -keystore KeyStoreName.jks \
-    -file CSRName.csr
+  -certreq \
+  -alias Keyname \
+  -keystore KeyStoreName.jks \
+  -file CSRName.csr
 ```
 
-
-  - `Keyname` is the name of the keys in the keystore
-  - `KeyStoreName.jks` is the name of your keystore
-  - `CSRName.csr` will be the name of the CSR
+- `Keyname` is the name of the keys in the keystore
+- `KeyStoreName.jks` is the name of your keystore
+- `CSRName.csr` will be the name of the CSR
 
 ## 3. Submit CSR
 Once you have created your brand-new CSR file, send it to us via this email: <connectedcar@mpsa.com>.
