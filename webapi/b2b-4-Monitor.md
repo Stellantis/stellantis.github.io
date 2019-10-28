@@ -41,7 +41,7 @@ If you want to create a new monitor you have to use our this dedicated api:
 
 
 <div class="tags has-addons">
-    <span class="tag_endpoint_large tag is-info"> API BaseURL</span>
+    <span class="tag_endpoint_large tag is-info"> API BaseURI</span>
     <span class="tag_endpoint_large tag_api_endpoint tag"
         >https://api-preprod.groupe-psa.com/connectedcar/v3/</span>
 </div>
