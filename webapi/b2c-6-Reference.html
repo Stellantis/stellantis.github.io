@@ -1,13 +1,13 @@
 ---
 layout: doc-item
-permalink: /webapi/b2b/reference/
-section: webapib2b
+permalink: /webapi/b2c/reference/
+section: webapib2c
 title: API Reference
 ---
-<br><br>
+
 <div class="tags has-addons">
     <span class="tag_endpoint_large tag is-info"> API BaseURL</span>
-    <span class="tag_endpoint_large tag_api_endpoint tag">https://api-cert-preprod.groupe-psa.com/connectedcar/v3</span>
+    <span class="tag_endpoint_large tag_api_endpoint tag">https://api-preprod.groupe-psa.com/connectedcar/v4/</span>
 </div>
 <div id="swagger-ui"></div>
 <script src="{{ '/assets/js/swagger-ui-bundle.js' | prepend: site.baseurl | prepend: site.url }}"> </script>
@@ -16,7 +16,7 @@ title: API Reference
     window.onload = function () {
         // Begin Swagger UI call region
         const ui = SwaggerUIBundle({
-            url: "{{ site.url }}{{site.baseurl}}/assets/openapi/api-b2b.yaml",
+            url: "{{ site.url }}{{site.baseurl}}/assets/openapi/psacc.yaml",
             dom_id: '#swagger-ui',
             deepLinking: true,
             presets: [

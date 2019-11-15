@@ -4,7 +4,6 @@ permalink: /webapi/b2b/authentication/
 section: webapib2b
 title: Authentication
 ---
-
 {% include content/authentication_B2B.md %}
 
 # Test you Authentication
@@ -16,10 +15,17 @@ Here is an example with curl:
 $ curl\
   --url 'https://api-preprod.groupe-psa.com/connectedcar/v3/fleets?client_id=<REPLACE_THIS_KEY>' \
   --header 'content-type': "application/json' \
-  --header 'accept': "application/json' \
+  --header 'accept': 'application/json' \
   --header 'authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' \
   --cert 'C:\mycert[:mypassword]>'
 ```
+
+Type|Name|Description|Required
+-|-|-|-
+Path param|client_id|Your `client_id` allow you to access this API product. | Yes
+Header Field|Basic Authentication| This Basic Auth is `account:password` given by PSA encoded in Base64. | Yes
+File |Certificate|Your certificate for mutual authentification with PSA.| Yes
+
 
 And [here]({{site.baseurl}}/webapi/b2b/quick-start/#connect) you can find an exemple of SSL connexion with python.
 
