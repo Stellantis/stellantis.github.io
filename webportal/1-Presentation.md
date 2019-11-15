@@ -98,35 +98,38 @@ based on the upstream trunk subversion revision 153112.
 ## List of commercialised Software versions
 
 ### Wave 2
+{% assign arrowUp='<span class="icon has-text-success"><i class="fas fa-arrow-up"></i></span>'%}
+{% assign arrowDown='<span class="icon has-text-danger"><i class="fas fa-arrow-down"></i></span>'%}
+{% assign equals='<span class="icon "><i class="fas fa-equals"></i></span>'%}
 
-SW version	| Percentage of vehicles| Trend
+SW version	| Percentage of vehicles| Trend of use
 -|-|-
-21.07.16.32_NAC-r0	|38,24%|	-
-10:90:42	|12,45%|	-
-10:47:34	|11,60%|	-
-21.07.67.32_NAC-r0|	8,30%|	+
-10:82:12	|6,37%	|-
-10:68:24	|5,05%	|-
-10:62:54	|2,38%	|-
-10:48:22	|0,72%	|-
-10:78:22	|0,69%	|-
-10:62:52	|0,04%	|-
-10:65:32	|0,01%	|=
+21.07.16.32_NAC-r0	|38,24%|	{{arrowDown}}
+10:90:42	|12,45%|	 {{arrowDown}}
+10:47:34	|11,60%|	 {{arrowDown}}
+21.07.67.32_NAC-r0|	8,30%|	{{arrowUp}}
+10:82:12	|6,37%	| {{arrowDown}}
+10:68:24	|5,05%	| {{arrowDown}}
+10:62:54	|2,38%	| {{arrowDown}}
+10:48:22	|0,72%	| {{arrowDown}}
+10:78:22	|0,69%	| {{arrowDown}}
+10:62:52	|0,04%	| {{arrowDown}}
+10:65:32	|0,01%	| {{equals}}
 
 ### Wave 3
 
-SW version	| Percentage of vehicles| Trend
+SW version	| Percentage of vehicles | Trend of use
 -|-|-
-31.08.05.86_NAC-r0|	3,48%|	-
-10:50:42|	1,14%	|-
-31.08.05.84_NAC-r0	0,02%	|-
-31.09.43.12_NAC-r0|	0,02%|	=
+31.08.05.86_NAC-r0|	3,48%|	 {{arrowDown}}
+10:50:42|	1,14%	| {{arrowDown}}
+31.08.05.84_NAC-r0	| 0,02%	| {{arrowDown}}
+31.09.43.12_NAC-r0|	0,02% |	{{equals}}
 10:41:52|	0,01%	|
 
 
 ### Wave 4
 
-SW version	| Percentage of vehicles| Trend
+SW version	| Percentage of vehicles| Trend of use
 -|-|-
 42.01.21.42_NAC-r0 |	0,05%	|
 40.04.12.42_NAC-r0	| 0,01%	|

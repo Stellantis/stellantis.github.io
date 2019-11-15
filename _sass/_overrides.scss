@@ -116,6 +116,7 @@ h2 {
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #1e2336;
+    min-height: 100vh;
 }
 
 .footer {
@@ -129,7 +130,7 @@ footer a {
 
 .content {
     background-color: #ffffff;
-    padding: 2% 5%;
+    padding: 2.6rem 5%;
 }
 
 .content .smallimg{
@@ -386,11 +387,11 @@ html{
     }
 }
 
-@media screen and (max-width: 765px) {
-    .homepagepic{
-        display: none;
-    }
-}
+// @media screen and (max-width: 765px) {
+//     .homepagepic{
+//         display: none;
+//     }
+// }
 
 @media screen and (max-width: 1087px) {
     .hero-head{

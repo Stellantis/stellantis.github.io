@@ -1,7 +1,8 @@
 ---
 layout: doc-article
-permalink: /webapi/b2b/
-section: webapib2b
+permalink: /webapi/b2c/
+section: webapib2c
 title: Presentation
 ---
+
 {% include_relative webapi-Presentation.md %}

@@ -4,10 +4,7 @@ permalink: /webapi/b2b/quick-start/
 section: webapib2b
 title: Quick Start
 ---
-
-## Connect
-
-If you are using self-signed certificates then yes you can load the certs from the local hard drive. You will need to have the private key included in the certificate file or specified as the key file. You will also want to do host verification if it is at all possible in your environment. See the verify_mode and check_hostname options.
+# Connect
 
 ```python
 import http.client
@@ -37,7 +34,6 @@ conn.close()
 ```
 
 
-
 # Examples
 
 Below is an example to create a monitor for a fleet and another one to get the trip of a vehicle using Python.
@@ -50,10 +46,24 @@ import http.client
 
 conn = http.client.HTTPSConnection("api-preprod.groupe-psa.com")
 
-payload = SeePayload
+payload = "{"subscribe":
+              {"retryPolicy":
+                {"retryPolicy":"none",
+                  "maxRetryNumber":1,
+                  "retryDelay":10
+                },
+                "subscribe":{
+                  "id":7192522216439808
+                }
+              },
+              "trigger":{
+                "id":971050487644160
+              }
+            }";
 
 headers = {
   "username": "password"
+
   'content-type': "application/json",
   'accept': "application/json"
     }
@@ -66,23 +76,6 @@ data = res.read()
 print(data.decode("utf-8"))
 ```
 
-Where payload =
-```json
-{"subscribe":
-  {"retryPolicy":
-    {"retryPolicy":"none",
-      "maxRetryNumber":1,
-      "retryDelay":10
-    },
-    "subscribe":{
-      "id":7192522216439808
-    }
-  },
-  "trigger":{
-    "id":971050487644160
-  }
-}
-```
 ## Trip
 
 ```python
