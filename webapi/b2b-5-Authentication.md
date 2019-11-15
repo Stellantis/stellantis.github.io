@@ -13,7 +13,7 @@ Here is an example with curl:
 
 ```shell
 $ curl\
-  --url 'https://api-preprod.groupe-psa.com/connectedcar/v3/fleets?client_id=<REPLACE_THIS_KEY>' \
+  --url 'https://api-cert-preprod.groupe-psa.com/connectedcar/v3/fleets?client_id=<REPLACE_THIS_KEY>' \
   --header 'content-type': "application/json' \
   --header 'accept': 'application/json' \
   --header 'authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' \
