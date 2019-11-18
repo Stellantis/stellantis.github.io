@@ -16,25 +16,39 @@ The process to connect to the API require that you get an access token in exchan
 <div class="tags has-addons">
     <span class="tag_endpoint_large tag is-info"> API URL</span>
     <span class="tag_endpoint_large tag_api_endpoint tag"
-        >https://api-preprod.groupe-psa.com/applications/cvs/v1/oauth2/token</span>
+        >https://idpcvs-preprod.{brand.tld}/am/oauth2/access_token</span>
 </div>
+
+**{brand.tld}** depend on the vehicle brand:
+- Peugeot: `peugeot.com`
+- Citroen: `citroen.com`
+- DS: `driveds.com`
+- Opel: `opel.com`
+- Vauxhall: `vauxhall.co.uk` 
 
 Type|Name|Value|Description|Required
 -|-|-|-|-
 Path param |`grant_type`|`password`| Use OAuth2 password method. |Yes
+Header | `realm`|`<Brand Realm>`| Realm of the brand.
 Path param |`password`|`<client_secret>`| Client secret of your application. |Yes
 Path param |`username`|`<client_id>`| Client id of your application. |Yes
 Path param |`scope`|`profile%20openid`| Scope is profile openID. |Yes
 Header|`authorization`|`Basic <BASIC_AUTH> `|Indicate that authentication is Basic Auth and *&lt;BASIC_AUTH&gt;* is *client_id:client_secret* of your application encoded Base64.  |Yes
 Header|`content-type`|`application/x-www-form-urlencoded`| Indicate content-type of your submited ressource. |Yes
 
+**Realm** depend on the vehicle brand:
+- Peugeot: `clientsB2CPeugeot`
+- Citroen: `clientsB2CCitroen`
+- DS: `clientsB2CDS`
+- Opel: `clientsB2COpel`
+- Vauxhall: `clientsB2CVauxhall`
 
 ```shell
 curl -X POST \
-  --url 'https://idpcvs-preprod.citroen.com/am/oauth2/access_token?realm=clientsB2CCitroen' \
+  --url 'https://idpcvs-preprod.citroen.com/am/oauth2/access_token' \
   -H 'Authorization: Basic YjkxODhhNjgtMjI5NC00OGY4LWFkZjQtMWRjMzg1ZmVjN2FmOkQzckk0dVUzZEUzc003d1UwblY0dE0zdksxd0cxcEcwZEsxcFc3clU1a0sydEYwdEox' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
-  -d 'grant_type=password&password=<password>&username=<username>scope=profile%20openid'
+  -d 'realm=clientsB2CCitroen&grant_type=password&password=<password>&username=<username>scope=profile%20openid'
 ```
 
 ## Response
@@ -85,18 +99,19 @@ Path parameter | `client_id`|`<App_ID>`|Id of the application.|Yes
 Header | `Authorization: `|`Bearer <token>`| Granted token allowing to consume the API.
 Header | `x-introspect-realm:`|`<Brand Realm>`| Realm of the brand.
 
-*Avaiable realms:*
-- `clientsB2CPeugeot`
-- `clientsB2CCitroen`
-- `clientsB2CDS`
-- `clientsB2COpel`
-- `clientsB2CVauxhall`
+**Realm** depend on the vehicle brand:
+- Peugeot: `clientsB2CPeugeot`
+- Citroen: `clientsB2CCitroen`
+- DS: `clientsB2CDS`
+- Opel: `clientsB2COpel`
+- Vauxhall: `clientsB2CVauxhall`
 
 ```shell
 curl -X GET \
-  'https://api-preprod.groupe-psa.com/connectedcar/v4/user/vehicles?client_id=<client_id>' \
+  'https://api-preprod.groupe-psa.com/connectedcar/v4/user/vehicles' \
   -H 'Authorization: Bearer <uuid>' \
   -H 'x-introspect-realm: clientsB2CCitroen'
+  -d 'client_id=<client_id>'
 ```
 
 ## Response
