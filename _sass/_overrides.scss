@@ -31,8 +31,10 @@ th {
 }
 
 .tag_endpoint_large{
-    white-space: normal !important; // counteract white-space: nowrap;
-    word-wrap: anywhere!important; // only required if you want to break one long word anywhere
+    // white-space: normal !important; // counteract white-space: nowrap;
+    // word-wrap: anywhere!important; // only required if you want to break one long word anywhere
+    word-break: break-all!important;
+    white-space: normal!important;
     height: auto!important; // counteract fixed height: 2em;
     padding: 0.43rem!important;
     font-size: 1.25rem!important;
@@ -387,11 +389,13 @@ html{
     }
 }
 
-// @media screen and (max-width: 765px) {
-//     .homepagepic{
-//         display: none;
-//     }
-// }
+@media screen and (max-width: 765px) {
+    .homepagepic{
+        display: none;
+    }
+}
+
+//menu mobile
 
 @media screen and (max-width: 1087px) {
     .hero-head{
@@ -400,7 +404,31 @@ html{
     #lunrsearch{
         width: none;
     }
+    .textnavbar {
+        font-size: 0.965rem;
+        padding-left: 0; 
+        padding-bottom: 0;  
+        padding-top: 0;  
+    }
+    .navbar-dropdown{
+        padding-bottom: 0;
+        padding-top: 0;
+        padding-left: 1.5rem;
+        font-size: 0.8rem;
+    }
+    #lunrsearch {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    #lunrsearch::placeholder, #lunrsearch::placeholder {
+            color: black
+    }
+     
 }
+
+
+
 
 @media (prefers-reduced-motion: reduce) {
     html {

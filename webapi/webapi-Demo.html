@@ -134,9 +134,8 @@ color: white
     overflow: auto;
     max-height: 65vh;
     height: 65vh;
-    word-wrap: anywhere;
-    break-after: always;
-    white-space: break-spaces;
+    word-break: break-all;
+    white-space: pre-wrap;
     margin: 0.5rem;
   }
 
@@ -202,37 +201,35 @@ color: white
   <div class="bd-lead">
     <div class="bd-content container">
       <div class="content" style="margin-top: 1.5rem;">
-        <h1 class="subtitle is-1" id="demo">Demo</h1>
-
+        <h1 class="subtitle is-1" id="demo">Try it out!</h1>
 
         <!-- status api BUTTON COLOR-->
-        <a href="#demo" class="colortags tags has-addons " onclick="fetchStatus()" id="buttonStatusColor">
+        <a class="colortags tags has-addons " onclick="fetchStatus()" id="buttonStatusColor">
           <span class="tag_endpoint_large tag is-white">
-            <span class="verb get">GET
-              /fleets/vehicles/{id}/status</span>https://api.groupe-psa.com/connectedcar/v3/fleet/vehicles/XA143Z2/status
+            <span class="verb get">GET /fleets/vehicles/{id}/status
+            </span>https://api.groupe-psa.com/connectedcar/v3/fleet/vehicles/XA143Z2/status
           </span>
         </a>
         <!-- status api BUTTON GREY-->
         <div class="greytags tags has-addons" id="buttonStatusGrey" style="display: none">
           <span class="greyUrl tag_endpoint_large tag">
-            <span class="verb get greyGet">GET
-              /fleets/vehicles/{id}/status</span>https://api.groupe-psa.com/connectedcar/v3/fleet/vehicles/XA143Z2/status
+            <span class="verb get greyGet">GET /fleets/vehicles/{id}/status
+            </span>https://api.groupe-psa.com/connectedcar/v3/fleet/vehicles/XA143Z2/status
           </span>
         </div>
 
         <!-- vehicle api BUTTON COLOR -->
-        <a href="#demo" id="buttonVehicleColor" class="colortags tags has-addons" onclick="fetchVehicle()"
-          style="display: none">
+        <a id="buttonVehicleColor" class="colortags tags has-addons" onclick="fetchVehicle()" style="display: none">
           <span class="tag_endpoint_large tag is-white">
-            <span class="verb get">GET
-              /fleets/vehicles/{id}</span>https://api.groupe-psa.com/connectedcar/v3/fleet/vehicles/XA143Z2
+            <span class="verb get">GET /fleets/vehicles/{id}
+            </span>https://api.groupe-psa.com/connectedcar/v3/fleet/vehicles/XA143Z2
           </span>
         </a>
         <!-- vehicle api BUTTON GREY-->
         <div class="greytags tags has-addons" id="buttonVehicleGrey">
           <span class="greyUrl tag_endpoint_large tag ">
-            <span class="verb get greyGet">GET
-              /fleets/vehicles/{id}</span>https://api.groupe-psa.com/connectedcar/v3/fleet/vehicles/XA143Z2
+            <span class="verb get greyGet">GET /fleets/vehicles/{id}
+            </span>https://api.groupe-psa.com/connectedcar/v3/fleet/vehicles/XA143Z2
           </span>
         </div>
 
@@ -291,8 +288,9 @@ color: white
           <div class="column box" id="map">
           </div>
         </div><!-- columns -->
+        <p> <a href="{{site.baseurl}}/webapi/" class="is-psablue button is-rounded is-large is-fullwidth">Read the
+            doc</a></p>
 
-        <a href="{{site.baseurl}}/webapi/" class="is-psablue button is-rounded is-large is-fullwidth">Read the doc</a>
       </div>
     </div>
   </div>

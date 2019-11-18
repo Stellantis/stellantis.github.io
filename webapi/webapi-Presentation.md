@@ -2,6 +2,10 @@
 
 Our REST APIs implements all the resources you need to retrieve data from Groupe PSA's vehicles. It's based on open standards: **OpenAPIv3, JSON & HAL**. You will be able to get a lot of data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
 
+<a href="{{site.baseurl}}/webapi/demo" class="button is-primary is-rounded is-medium ">
+<span class="icon is-large is-white">
+<i class="fas fa-code"></i>
+</span>&nbsp; &nbsp; &nbsp;Discover demo</a>
 
 # How does it works ?
 
@@ -15,6 +19,8 @@ Our web APIs grants you access to this data even outside of the car:
 Sensors are collecting datas inside the vehicle and send them to Groupe PSA via mobile network. Our servers will then **process** these raw data into **unified** and understable info. Futhermore, cloud storage allow you to access your data at any time eventhough the vehicle is turned-off.
 
 Everything is processed on our side (Groupe PSA) in order to provide you {% if page.section == 'webapib2b' %}(Partner){% elsif page.section == "webapib2c" %}(Developer){% endif %} the **same kind of datas whatever the type of vehicles** (brand new or older, regular fuel or electric consumption).
+
+
 
 
 # What can you do ?
