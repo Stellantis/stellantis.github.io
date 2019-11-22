@@ -148,12 +148,14 @@ components:
                         type: object
                         properties:
                         
-                          stringValue:
+                          literalValue:
                             type: string
-                            description: a string representation of the primitive data value. The client application should be aware of that and should convert it regarding the trigger data type.  
-                          objectValue:
-                            type: object
-                            description: For this object schema definition (based on the type of field), refere to the API Spec definition.
+                            description: A literal representation of the primitive data value. The client application should be aware of that and should convert it regarding the trigger data type.  
+                          objectValues:
+                            type: array 
+                            items:
+                              type: object
+                              description: For this object schema definition (based on the type of field), refere to the API Spec definition.
                     
         extensions:
           description: Defines the extra vehicle data as specified in the monitor extended eventparam file (see Monitor paramaeter objecrt definition in the API Spec)

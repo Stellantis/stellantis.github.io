@@ -80,32 +80,82 @@ When you call an api with a plural noun you will receive an array of objects. Ev
 
 ```json
 {
-  "_links": {
-    "self": {
-      "href": "/connectedcar/v2/trips"
+    "_links": {
+        "self": {
+            "href": (...)
+        }
     },
-    "first": {
-      "href": "/connectedcar/v2/trips/?offset=0"
+    "total": 2,
+    "_embedded": {
+        "vehicles": [
+            {
+                "id": ,
+                "vin": ,
+                "brand": ,
+                "pictures": [(...)],
+                "_links": {
+                    "alerts": {
+                        "href": "(...)/user/vehicles/{id}/alerts"
+                    },
+                    "trips": {
+                        "href": "(...)/user/vehicles/{id}/trips"
+                    },
+                    "self": {
+                        "href": "(...)/user/vehicles/{id}?locale=fr-FR"
+                    },
+                    "lastPosition": {
+                        "href": "(...)/user/vehicles/{id}/lastPosition"
+                    },
+                    "telemetry": {
+                        "href": "(...)/user/vehicles/{id}/telemetry"
+                    },
+                    "maintenance": {
+                        "href": "(...)/user/vehicles/{id}/maintenance"
+                    },
+                    "status": {
+                        "href": "(...)/user/vehicles/{id}/status"
+                    }
+                }
+            },
+                        {
+                "id":,
+                "vin": ,
+                "brand": "Peugeot",
+                "pictures": [(...)],
+                "_links": {
+                    "alerts": {
+                        "href": "(...)/user/vehicles/{id}/alerts"
+                    },
+                    "trips": {
+                        "href": "(...)/user/vehicles/{id}/trips"
+                    },
+                    "self": {
+                        "href": "(...)/user/vehicles/{id}?locale=fr-FR"
+                    },
+                    "lastPosition": {
+                        "href": "(...)/user/vehicles/{id}/lastPosition"
+                    },
+                    "telemetry": {
+                        "href": "(...)/user/vehicles/{id}/telemetry"
+                    },
+                    "maintenance": {
+                        "href": "(...)/user/vehicles/{id}/maintenance"
+                    },
+                    "status": {
+                        "href": "(...)/user/vehicles/{id}/status"
+                    }
+                }
+            }
+        ]
     },
-    "next": {
-      "href": "/connectedcar/v2/trips/?offset=10&limit=10"
-    },
-    "prev": {
-      "href": "/connectedcar/v2/trips/?offset=0"
-    },
-    "last": {
-      "href": "/connectedcar/v2/trips/?offset=90&limit=10"
-    }
-  },
-  "total": 100,
-  "_embedded": {
-    "objects": [{...}]
-  }
+    "currentPage": 1,
+    "totalPage": 1
 }
 ```
 
 
-#### Pagination with HAL
+
+#### Pagination
 Every collections in the API are browsable. Links provided in the response will let you naviguate in the API endpoints like in a website.
 
 First of all, collections comes with a **pagination system**. In your request you can add optional parameters:
@@ -130,6 +180,8 @@ As you can see in the previous example there is a `_links` object at the top of 
 
 #### Discover Ressources with HAL
 
+Ressources in the API are using HAL for **HATEOAS integration**. It allow interaction inside the api ressources. The purpose is to access and discover the API like you browse a website: navigating from one page to another. Links are nammed with the idea that you can understand easily what they are about.
+
 **Example:** 
 <div class="tags has-addons">
     <span class="tag is-large is-info" style=" background: #2d3b56;"> GET </span>
@@ -141,7 +193,6 @@ As you can see in the previous example there is a `_links` object at the top of 
         <a href="{{site.baseurl}}/webapi/b2c/reference/#/Vehicles/getVehicleStatus">/user/vehicles/{id}/status</a>
         {% endif %}
         </span>
-        
 </div>
 
 ```json
@@ -160,13 +211,13 @@ As you can see in the previous example there is a `_links` object at the top of 
               "ignition": {(...)},
               "_links": {
 {% if page.section == 'webapib2b' %}                  "fleet": {
-                      "href": "https://.../fleet"{% endif %}
+                      "href": "(...)/fleets"{% endif %}
                   },
                   "self": {
-                      "href": "https://.../fleet/status?indexRange=0-&pageSize=1&locale=fr-FR"
+                      "href": "(...)status?indexRange=0-&pageSize=1&locale=fr-FR"
                   },
                   "vehicles": {
-                      "href": "https://.../fleet/vehicles/400027CB668774704AABECB2888A58018"
+                      "href": "(...)/vehicles/{id}"
                     }
                 }
             }
@@ -176,9 +227,6 @@ As you can see in the previous example there is a `_links` object at the top of 
   "totalPage": 32
 }
 ```
-
-
-Ressources in the API are using HAL for **HATEOAS integration**. It allow interaction inside the api ressources. The purpose is to access and discover the API like you browse a website: navigating from one page to another. Links are nammed with the idea that you can understand easily what they are about.
 
 Let's say your are browsing all the vehicles (example above).
 Look at the object status, inside each status object you can retrieve info about the vehicle it concerns, it include last position, precondictionning, battery etc.
@@ -193,9 +241,16 @@ Furthermore there is a `_links` object embedded in the status object. These link
 
 # See Also
 
+{% if page.section == 'webapib2b' %}
 ##### Authentication
 
-The Web API utilizes certificate authentication. Follow this step-by-step {% if page.section == 'webapib2b' %}[tutorial]({{site.baseurl}}/webapi/b2b/authentication/){% elsif page.section == "webapib2c" %}[tutorial]({{site.baseurl}}/webapi/b2c/authentication/){% endif %} and obtain your own certificate.
+Groupe PSA's web API for fleet owner utilizes mutual authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/webapi/b2b/authentication/) and obtain your own certificate.
+{% elsif page.section == "webapib2c" %}
+
+##### Connect
+
+Groupe PSA's web API for end-users utilizes OAuth2 connection, follow this [link]({{site.baseurl}}/webapi/b2c/connect/) for connection tutorial. {% endif %}
+
 
 ##### Monitors
 

@@ -2,7 +2,7 @@
 
 Our REST APIs implements all the resources you need to retrieve data from Groupe PSA's vehicles. It's based on open standards: **OpenAPIv3, JSON & HAL**. You will be able to get a lot of data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
 
-<a href="{{site.baseurl}}/webapi/demo" class="button is-primary is-rounded is-medium ">
+<a href="{{site.baseurl}}{% if page.section == 'webapib2b' %}/webapi/b2b/demo {% elsif page.section == "webapib2c" %}/webapi/b2c/demo{% endif %}" class="button is-primary is-rounded is-medium ">
 <span class="icon is-large is-white">
 <i class="fas fa-code"></i>
 </span>&nbsp; &nbsp; &nbsp;Discover demo</a>
@@ -86,4 +86,4 @@ Want to see what it's look like ? Browse our {% if page.section == 'webapib2b' %
 
 ##### Try out!
 
-Retrieve all reference of the API, go to the {% if page.section == 'webapib2b' %}[API List]({{ site.baseurl }}/webapi/b2b/preview/){% elsif page.section == "webapib2c" %}[API List]({{ site.baseurl }}/webapi/b2c/preview/){% endif %}.
+Retrieve all reference of the API, go to the {% if page.section == 'webapib2b' %}[API List]({{ site.baseurl }}/webapi/b2b/reference/){% elsif page.section == "webapib2c" %}[API List]({{ site.baseurl }}/webapi/b2c/reference/){% endif %}.

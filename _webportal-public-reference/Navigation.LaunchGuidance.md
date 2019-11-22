@@ -13,6 +13,11 @@ privacy: Public
 | **Description** | Starts the navigation to the specified destination.
 | **Response** | *Boolean*  `True` if the final destination and Intermediary destinations were all correctly set, else `False` if the process failed.
 
+
+#### Important
+
+> **Caution:** Guidance can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that {{page.title}} return is `True`.
+
 Parameter | Type | Description | Required
 ----|----|----|----
 `desc` | *String* | The destination's description, Should have a length < 60 characters. | Required

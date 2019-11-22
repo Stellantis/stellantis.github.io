@@ -9,6 +9,16 @@ url: "https://developer.groupe-psa.io" # the base hostname & protocol for the si
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
 
+# WEB API BaseURI
+webapiB2CProd: 
+webapiB2CPreProd: "https://api-preprod.groupe-psa.com/connectedcar/v4"
+webapiB2BProd: 
+webapiB2BPreProd: "https://api-cert-preprod.groupe-psa.com/connectedcar/v3"
+cvsOAuth2Prod: 
+cvsOAuth2PreProd: "https://idpcvs-preprod.{brand.tld}/am/oauth2/access_token"
+virtualKeyTokenProd: 
+virtualKeyTokenPreProd: "https://api-preprod.groupe-psa.com/connectedcar/v3"
+#End BaseURi
 
 theme: jekyll-bulma
 

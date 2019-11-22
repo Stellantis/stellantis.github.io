@@ -28,21 +28,6 @@ If your service is unavailable you can ask us to retry a specific number of time
 ![monitorSequence]({{site.baseurl}}/assets/images/monitorSequence.png)
 
 # Create Monitor
-If you want to create a new monitor you have to use our this dedicated api: 
-
-<div class="tags has-addons">
-    <span class="tag_endpoint_large tag is-info"> API BaseURL</span>
-    <span class="tag_endpoint_large tag_api_endpoint tag"
-        >https://api-cert-preprod.groupe-psa.com/connectedcar/v3</span>
-</div>
-
-
-<div class="tags has-addons">
-    <span class="tag is-large is-info" style=" background: #49cc90;"> POST </span>
-    <span class="tag is-large is-fullheight is-light"
-        ><a href="{{site.baseurl}}/webapi/b2b/reference/#/Monitors/createFleetVehicleMonitor"> /fleets/{fid}/monitors</a></span>
-</div>
-
 
 ## Request
 
@@ -60,25 +45,30 @@ First of all, you have to choose and configure the triggering policy:
 Then it's important to configure the HTTP callback to your webhook.
 Pay particular attention to the description of the models, they explain how to configure the callback:
 
-- **[MonitorParameter]({{site.baseurl}}/webapi/b2b/reference/#/model-MonitorParameter)>MonitorSuscribe>Webhook**: this is the object you will send to configure the callback. You have to pass the URL of your webhook and you can customize the HTTP request (example: for authentication purpose).
-- **[MonitorRef]({{site.baseurl}}/webapi/b2b/reference/#/model-MonitorRef)**: this object is a description of how your callback have been configurated.
+- **{% if page.section == 'webapib2b' %}[MonitorParameter]({{site.baseurl}}/webapi/b2b/reference/#/model-MonitorParameter){% elsif page.section == "webapib2c" %}[MonitorParameter]({{site.baseurl}}/webapi/b2c/reference/#/model-MonitorParameter){% endif %}>MonitorSuscribe>Webhook**: this is the object you will send to configure the callback. You have to pass the URL of your webhook and you can customize the HTTP request (example: for authentication purpose).
+- **{% if page.section == 'webapib2b' %}[MonitorRef]({{site.baseurl}}/webapi/b2b/reference/#/model-MonitorRef){% elsif page.section == "webapib2c" %}[MonitorRef]({{site.baseurl}}/webapi/b2c/reference/#/model-MonitorRef){% endif %}**: this object is a description of how your callback have been configurated.
 
-## Example
 
-```shell
-$ curl --request POST \
-  --url 'https://api-cert-preprod.groupe-psa.com/connectedcar/v3/fleets​/{fid}​/monitors?client_id=<KEY>&fid=<FLEET_ID>' \
-  --header 'content-type': "application/json' \
-  --header 'accept': "application/json' \
-  --header 'authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' \
-  --data Payload
-  --cert 'C:\mycert[:mypassword]>'
-```
+<div class="tags has-addons">
+    <span class="tag_endpoint_large tag is-info"> API BaseURL</span>
+    <span class="tag_endpoint_large tag_api_endpoint tag"
+        >{% if page.section == 'webapib2b' %}{{site.webapiB2BPreProd}}{% elsif page.section == "webapib2c" %}{{site.webapiB2CPreProd}}{% endif %}</span>
+</div>
 
-**Where Payload is:**
+{% if page.section == 'webapib2b' %}
 
-```json
-{
+{% assign apiEndpoint='/fleets/{fid}/monitors'%}
+{% assign referenceURLResssource ='/#/Vehicles/setVehicleMonitor' %}
+
+{% elsif page.section == "webapib2c" %}
+
+{% assign apiEndpoint='/user/vehicles/{id}/monitors'%}
+{% assign referenceURLResssource ='/#/Monitors/createFleetVehicleMonitor' %}
+
+{% endif %}
+
+{% assign httpVerb='POST'%}
+{% assign httpBody='{
    "label":"IDF MPH Zone monitor With Data Triggering:[vehicle.energy.electric.level]",
    "subscribeParam":{
       "refreshEvent":600,
@@ -135,8 +125,9 @@ $ curl --request POST \
          }
       }
    }
-}
-```
+}'%}
+{% include content/cUrl.md %}
+
 
 This request ask to **create** an "IDF MPH Zone monitor With Data Triggering:[vehicle.energy.electric.level]" monitor with the following parameters:
 - It will be **refreshed** every 600s if the event is still triggered. 
@@ -240,7 +231,7 @@ The Endpoint of your webhook must be the same as the one specified in when you c
     window.onload = function () {
         // Begin Swagger UI call region
         const ui = SwaggerUIBundle({
-            url: "{{ site.url }}{{site.baseurl}}/assets/openapi/api-b2b-webhook-template.yaml",
+            url: "{{ site.url }}{{site.baseurl}}/assets/openapi/{% if page.section == 'webapib2b' %}api-b2b-webhook-template.yaml{% elsif page.section == "webapib2c" %}api-b2c-webhook-template.yaml{% endif %}",
             dom_id: '#swagger-ui',
             deepLinking: true,
             presets: [
@@ -264,8 +255,14 @@ The Endpoint of your webhook must be the same as the one specified in when you c
 
 ##### Preview
 
-Want to see what it's look like ? Browse our [Preview]({{site.baseurl}}/webapi/b2b/preview/).
+Want to see what it's look like ? Browse our {% if page.section == 'webapib2b' %}[Preview]({{site.baseurl}}/webapi/b2b/preview/){% elsif page.section == "webapib2c" %}[Preview]({{site.baseurl}}/webapi/b2c/preview/){% endif %}.
+
+{% if page.section == 'webapib2b' %}
 
 ##### Authentication
 
-The Web API utilizes certificate authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/webapi/b2b/authentication/) and obtain your own certificate.
+Groupe PSA's web API for fleet owner utilizes mutual authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/webapi/b2b/authentication/) and obtain your own certificate.
+{% elsif page.section == "webapib2c" %}
+##### Connect
+
+Groupe PSA's web API for end-users utilizes OAuth2 connection, follow this [link]({{site.baseurl}}/webapi/b2c/connect/) for connection tutorial. {% endif %}

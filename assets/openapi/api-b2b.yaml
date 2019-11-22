@@ -353,14 +353,7 @@ paths:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/locale'
-        - name: locale
-          in: query
-          description: >-
-            Locale is used for rendering text, correctly displaying regional
-            monetary values, time and date formats.
-          required: false
-          schema:
-            type: string
+       
       responses:
         200:
           $ref: '#/components/responses/AlertsuccessResponses'
@@ -446,12 +439,33 @@ paths:
             schema:
                 $ref: '#/components/schemas/MonitorParameter'
                 #DataMonitorParm
-      responses: #MonitorId
+      responses: 
         201:
           $ref: '#/components/responses/MonitorsuccessPostResponse'
         default:
           $ref: '#/components/responses/MonitorFailedResponse'
+          
   '/fleets/{fid}/monitors/{mid}':
+    put:
+      tags:
+        - Monitors
+      summary: Update and existing Monitor.
+      description: |
+                    Update an existing ```Monitor``` that has been posted (and accepted previously) for this fleet. The monitor object (body) provided should be complete because the aggregation is not supported for the update of the ```monitor```. you can retrieve this object using the ```GET /monitor/{mid}``` API then modify it and finally publish it (via this ```PUT API```) 
+      operationId: updateFleetVehicleMonitor
+      parameters:
+        - $ref: '#/components/parameters/monitorId'
+        - $ref: '#/components/parameters/fleetId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/MonitorParameter'
+      responses: 
+        201:
+          $ref: '#/components/responses/MonitorsuccessPostResponse'
+        default:
+          $ref: '#/components/responses/MonitorFailedResponse'
     get:
       tags:
         - Monitors
@@ -566,7 +580,7 @@ components:
       properties:
         createdAt:
               type: string
-              format: dateTime
+              format: date-time
     Alert:
       allOf:
         - $ref: '#/components/schemas/TimeStamped'
@@ -584,6 +598,9 @@ components:
                   $ref: '#/components/schemas/Link'
                 trip:
                   $ref: '#/components/schemas/Link'
+            label: 
+              type: string
+              description: The label that describes what happened to raise this alert.
             id:
               type: string
             vin:
@@ -598,18 +615,18 @@ components:
               $ref: '#/components/schemas/AlertMsgEnum'
             updatedAt:
               type: string
-              format: dateTime
+              format: date-time
             startdAt:
               type: string
-              format: dateTime
+              format: date-time
             endAt:
               type: string
-              format: dateTime
+              format: date-time
             startPosition:
               allOf:
                 - $ref: '#/components/schemas/Position'
                 - description: The position (last hvehicle known one) where the alert disappear.
-            endPosition::
+            endPosition:
               allOf:
                 - $ref: '#/components/schemas/Position'
                 - description: The position (last hvehicle known one) where the alert occurs. 
@@ -650,6 +667,7 @@ components:
             
             id:
               type: string
+            
             rollOver:
               type: boolean
             rear:
@@ -692,7 +710,7 @@ components:
               type: boolean
             updatedAt:
               type: string
-              format: dateTime
+              format: date-time
             _embedded:
               type: object  
     Collision:
@@ -762,7 +780,7 @@ components:
               type: integer
             updatedAt:
               type: string
-              format: dateTime
+              format: date-time
             _embedded:
               type: object
               properties:
@@ -797,7 +815,17 @@ components:
               enum: [Stop, StartUp, Start, Free]
           createdAt:
               type: string
-              format: dateTime
+              format: date-time
+   
+    VehicleOdometer:
+        type: object
+        properties:
+          mileage:
+                description: Vehicle mileage expressed in KM.
+                type: number
+          createdAt:
+              type: string
+              format: date-time
     Battery:
               description: Describe the car (with combustion engine)  battery status.
               type: object
@@ -810,7 +838,28 @@ components:
                   format: float
                 createdAt:
                   type: string
-                  format: dateTime
+                  format: date-time
+              
+    Safety:  
+                type: object
+                properties:
+                  beltWarning:
+                    type: string
+                    enum: [Normal, Omission]
+                  eCallTriggeringRequest:
+                    type: string
+                    enum: [AirbagUnabled, NoRequest, Requested]              
+    
+    ServiceType:
+                type: object
+                properties:
+                  updatedAt:
+                    type: string
+                    format: date-time
+                  type:
+                    type: string
+                    enum: [Electric, Hybrid, Unknown]
+    
     DoorsState:
         allOf:
         - $ref: '#/components/schemas/TimeStamped'
@@ -818,7 +867,7 @@ components:
           properties:
             lockedState:
               type: string
-              enum: [Unlocked, Locked, SuperLocked, DriverDoorUnlocked, CabinDoorsUnlocked, CargoDoorsUnlocked]
+              enum: [Unlocked, Locked, SuperLocked, DriverDoorUnlocked, CabinDoorsUnlocked, CargoDoorsLocked, CargoDoorsUnlocked, RearDoorsUnlocked, RearDoorsLocked]
             opening:
               type: array
               items:
@@ -827,10 +876,10 @@ components:
                 properties :
                   identifier: 
                     type: string
-                    enum: [Driver, Passenger, RearLeft, RearRight, Trunk, RearWindow]
+                    enum: [Driver, Passenger, RearLeft, RearRight, Trunk, RearWindow, RoofWindow]
                   state:
                     type: string
-                    enum: [Open, Close]
+                    enum: [Open, Closed]
           
     Status:
       allOf:
@@ -848,17 +897,10 @@ components:
                   $ref: '#/components/schemas/Link'
                 fleet:
                   $ref: '#/components/schemas/Link'
-            
             vin:
                  $ref: '#/components/schemas/Vin'
-            odometer:
-                description: Measurment the distance travelled by a vehicle.
-                type: number
-            autonomy:
-                description: Vehicle energy autonomy expressed in KM.
-                type: number
-            kinetic:
-                  $ref: '#/components/schemas/Kinetic'
+            odemeter:
+                 $ref: '#/components/schemas/VehicleOdometer'
             ignition:
                   $ref: '#/components/schemas/Ignition'
             lastPosition:
@@ -870,12 +912,18 @@ components:
                 type: array
                 items: 
                     $ref: '#/components/schemas/Energy'
+            kinetic:
+                  $ref: '#/components/schemas/Kinetic'
             doorsState:
                   $ref: '#/components/schemas/DoorsState'
             privacy:
                   $ref: '#/components/schemas/Privacy'
             battery:
                   $ref: '#/components/schemas/Battery'
+            service:
+                  $ref: '#/components/schemas/ServiceType'
+            safety:  
+                  $ref: '#/components/schemas/Safety'
            
           required:
             - _links
@@ -885,7 +933,7 @@ components:
                   properties:
                     createdAt:
                       type: string
-                      format: dateTime
+                      format: date-time
                     state:
                       type: string
                       enum: [None, Geolocation, Full]
@@ -955,10 +1003,10 @@ components:
                   $ref: '#/components/schemas/Vin'
                 updatedAt:
                   type: string
-                  format: dateTime
+                  format: date-time
                 createdAt:
                   type: string
-                  format: dateTime
+                  format: date-time
                 heading:
                   type: number
                   format: float
@@ -981,7 +1029,7 @@ components:
           properties :
             updatedAt:
               type: string
-              format: dateTime
+              format: date-time
             type:
               type: string
               enum: [Fuel, Electric]
@@ -1031,9 +1079,7 @@ components:
                     plugged:
                       type: boolean
                     status:
-                      description: status of charging system.
-                      type: string
-                      enum: [ Disconnected, InProgress, Failure, Stopped, Finished ]
+                      $ref: '#/components/schemas/ChargingStatusEnum'
                     remainingTime:
                       description: remaning time before the battery is fully charged. This duraction is expressed using [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) format.
                       type: string
@@ -1155,11 +1201,11 @@ components:
           $ref: '#/components/schemas/Vin'
         startedAt:
           type: string
-          format: dateTime
+          format: date-time
           description: Date & Time when the trip started
         stoppedAt:
           type: string
-          format: dateTime
+          format: date-time
           description: Date & Time when the trip stopped
         duration:
           type: string
@@ -1191,14 +1237,23 @@ components:
                 format: float
         createdAt:
           type: string
-          format: dateTime
+          format: date-time
         updatedAt:
           type: string
-          format: dateTime
+          format: date-time
         startPosition:
           $ref: '#/components/schemas/Position'
         stopPosition:
           $ref: '#/components/schemas/Position'
+        done:
+          description: Determines whether this trip is finished or not.
+          type: boolean
+        faults:
+          description: The faults of this finished or in progress trip. This means that we lacked data from the vehicle to complete the trip description during one of its step (starting, progressing, or finishing).
+          type: array
+          items:
+            type: string
+            enum: [Unstarted, DataLacking, Unfinished]
     Fleet:
       title: Fleet Information
       type: object
@@ -1236,11 +1291,11 @@ components:
         createdAt:
           description: Date when the fleet has been created
           type: string
-          format: dateTime
+          format: date-time
         updatedAt:
           description: Date when the fleet has been updated
           type: string
-          format: dateTime
+          format: date-time
        
    
    
@@ -1307,11 +1362,11 @@ components:
         createdAt:
           description: Date when the vehicle has been created
           type: string
-          format: dateTime
+          format: date-time
         updatedAt:
           description: Date when the vehicle has been updated
           type: string
-          format: dateTime
+          format: date-time
       
         _embedded:
           type: object
@@ -1570,6 +1625,11 @@ components:
             label:
               type: string
               description: Monitor lablel (usually its name). 
+            locale:
+              type: string
+              pattern: \w(-\w)?
+              description: |
+                Locale is used for rendering text according to language and country for. It should match the  REGEX ```\w(-\w)?```. For more details about possible standard values, please refer to [locals list](https://en.wikipedia.org/wiki/Language_localisation).
             subscribeParam:
               $ref: '#/components/schemas/MonitorSubscribe'
             extendedEventParam:
@@ -1592,7 +1652,7 @@ components:
                             
                             * For telemetry extension:  
                               * The suffix ```${.TelemetryEnum}``` can be selected to refine with telemetry type (from the TelemetryEnum list). This value (with suffix) can be selected **_several times_** to included suitable telemetry messages with the extention.
-                              * Using ```vehicle.telemetry``` without suffix means to include all available telemetrie. 
+                              * Using ```vehicle.telemetry``` without suffix means to include all available telemetries. 
             triggerParam:
               description: Predicates part of the monitor. At least one of the two parameters must be provided.
               properties:
@@ -1665,12 +1725,16 @@ components:
       title: TimeTrigger
       description: Temporal monitor for triggering vehicle moving event within a time interval.
       properties:
-            
             times:
               type: array
               items:
                 $ref: '#/components/schemas/BoundedProgram'
-      required: [times]
+            time.zone: 
+              type: string
+              pattern: \w?/\w?
+              default: Europe/Paris
+              description: The standard time [zone code](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of the region where to apply this time trigger monitor. 
+                  This allows to adapt this trigger to the time change according to local (region/country) criteria/rules.
     TimeZoneTrigger:
       title: TimeZoneTrigger
       description: Zone & temporal monitor. At least one of the two parameters must be provided.
@@ -1700,10 +1764,10 @@ components:
             | vehicle.energy.fuel.level | Number | equalTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.fuel.autonomy | Number | equalTo/greaterThan/ lowerThan/ | Value |
             | vehicle.autonomy (global) | Number | equalTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.energy.charging.status | Boolean | OnChange/equalTo | Value |
+            | vehicle.energy.charging.status | Enum(ChargingStatusEnum) | OnChange/equalTo | Value |
             | vehicle.energy.charging.plugged | Boolean | OnChange/equalTo | Value |
             | vehicle.doorsState.lockedState | N/A | OnChange | Value |
-            | vehicle.doorsState.opening | N/A | OnChange| Value |
+            | vehicle.doorsState.opening | N/A | OnChange | Value |
             | vehicle.kinetic.moving| Boolean | OnChange/equalTo | Value (true/false) |
             | vehicle.kinetic.speed | Number | equalTo/greaterThan/ lowerThan/ | Value |
             | vehicle.trip| Literal | OnChange| Value(IDTRIP) |
@@ -1714,7 +1778,7 @@ components:
             | privacy.state | Enum(Privacy) | equalTo / OnChange/IncludedIN | Value |
 
           type: string
-          enum::
+          enum:
             - vehicle.alert
             - vehicle.odometer
             - vehicle.engines.running
@@ -1819,22 +1883,26 @@ components:
           $ref: '#/components/schemas/Link'
         last:
           $ref: '#/components/schemas/Link'
+          
+    ChargingStatusEnum:
+      description: status of charging system.
+      type: string
+      enum:  [Disconnected, InProgress, Failure, Stopped, Finished]
+      
     AlertMsgEnum:
       type: string    
       enum:
         - alertOilPressure
-        - alertCollantTemp
+        - alertCoolantTemp
         - chargingSystemFault
         - alertBrakeFluid
         - steeringFault
-        - alertCollantLevel
+        - alertCoolantLevel
         - laneDepartureWarningSystemFault
-        - alertOilLevel
         - frontLeftDoorOpenHighSpeed
         - frontRightDoorOpenHighSpeed
         - rearLeftDoorOpenHighSpeed
         - rearRightDoorOpenHighSpeed
-        - fuelTankOpen
         - trunkOpenHighSpeed
         - trunkWindowOpen
         - espFault
@@ -1854,7 +1922,6 @@ components:
         - retractableRoofMechanismFault
         - alertSteeringLock
         - electronicImmobiliserFault
-        - alertOilLevel
         - roofOperationImpossibleTemperatureTooHigh
         - roofOperationImpossibleStartEngine
         - roofOperationImpossibleApplyParkingBreak
@@ -1863,7 +1930,6 @@ components:
         - hybridSystemFaultRepairedTheVehicle
         - washerLevelAlarm
         - batteryKeyAlarm
-        - controlledAirInTakeFault
         - preaheatingDeactivatedSetTheClock
         - trailerConnectionFault
         - underInflationTyreFault
@@ -1871,8 +1937,6 @@ components:
         - electricModeNotAvailable
         - wheelPressureFault
         - checkSideLamps
-        - checkDippedBeamHeadlamps
-        - checkMainBeamHeadlamps
         - checkRightBrakeLamp
         - checkLeftBrakeLamp
         - frontFoglightFault
@@ -1891,7 +1955,6 @@ components:
         - trunkOpen
         - bootOpen
         - rearScreenOpen
-        - fuelTankOpen
         - parkingBreakFault
         - activeSpoilerFault
         - automaticBreakingSystemFault
@@ -1899,22 +1962,21 @@ components:
         - automaticGearboxFault
         - engineFault
         - suspensionFaultLimitTo90km
-        - suspensionFaultLimitTo55mph
         - frontLeftTyreNotMonitored
         - frontRightTyreNotMonitored
         - rearRightTyreNotMonitored
         - rearLeftTyreNotMonitored
         - suspensionFault
+        - suspensionFault
         - powerSteeringFault
         - engineFault
         - laneDepartureFault
         - tyreUnderInflation
-        - tyreUnderInflated
         - spareWheelFittedDrivingAidsDeactivated
         - automaticBreakingDeactived
-        - topUpAdBlue
+        - tupUpAdBlue
         - longPushToUnlockTankFault
-        - tankFault
+        
     BoundedProgram:
       allOf:
         -  $ref: '#/components/schemas/Program'
@@ -2082,10 +2144,10 @@ components:
          
         createdAt:
           type: string
-          format: dateTime
+          format: date-time
         updatedAt:
           type: string
-          format: dateTime
+          format: date-time
         _embedded:
           type: object
           properties:
@@ -2419,8 +2481,7 @@ components:
       name: locale
       in: query
       description: >-
-        Locale is used for rendering text, correctly displaying regional
-        monetary values, time and date formats. Respect REGEX \w(-\w)?
+       Locale is used for rendering text according to language and country for. It should match the  REGEX \w(-\w)?. For more details about possible standard values, please refer to [locals list](https://en.wikipedia.org/wiki/Language_localisation).
       required: false
       schema:
         type: string
@@ -2429,7 +2490,7 @@ components:
       in: query
       description: >-
         Array of **"timestamp"** ranges. Results will contain results whose
-        timestamps are included in those datetime ranges (see **timestamp**
+        timestamps are included in those date-time ranges (see **timestamp**
         data  model).**"timestamp"** items should be expressed as in
         '[RFC3339](https://www.ietf.org/rfc/rfc3339.txt)'.
       required: false
@@ -2499,10 +2560,6 @@ components:
       required: false
       schema:
         $ref: '#/components/schemas/ExtensionType'    
-    
-    
-    
-# 
   responses:
     CollisionsuccessResponse:
       description: Collision response
@@ -2640,7 +2697,6 @@ components:
     TelemetryFailedResponse:
        $ref: '#/x-fragment/general_error_fragment'
 x-fragment:
- 
   Fleet_Trip_id_wayPoints_getter:
     get:
       tags:
@@ -2663,7 +2719,6 @@ x-fragment:
                 $ref: '#/components/schemas/WayPoints'
         default:
           description: wayPoints not found
-
   Vehicle_id_Trip_id_wayPoints_getter:
     get:
       tags:
@@ -2688,7 +2743,6 @@ x-fragment:
                 $ref: '#/components/schemas/WayPoints'
         default:
           description: wayPoints not found
-  
   Fleet_Trip_id_getter:
     get:
       tags:
@@ -2723,7 +2777,6 @@ x-fragment:
           $ref: '#/components/responses/TripsuccessResponse'
         default:
           $ref: '#/components/responses/TripFailedResponse'
-          
   Vehicle_id_Trip_id_alerts:
     get:
       tags:
@@ -2766,8 +2819,6 @@ x-fragment:
           $ref: '#/components/responses/AlertsuccessResponse'
         default:
           $ref: '#/components/responses/AlertFailedResponse'        
-#
-          
   Fleet_Trip_id_alerts:
     get:
       tags:
