@@ -5,20 +5,15 @@ info:
   version: '2.0'
   title: Groupe PSA Connected Car API
   description: >
-    *This description is the DRAFT version for the next release of the Groupe
-    PSA
-
-    API. Comments welcome ;)*
+    *PSA B2C Connected Car API*
     
-    
-    # **Note** : "LEV branch "
    
     # Introduction
 
     This is the description of the *Groupe PSA Connected Car V2 API*. The
     speccification is  is based on **OpenAPI Specification version 3** and can be displayed via [ReDoc](https://github.com/Rebilly/ReDoc)a or
     [Swagger](http://swagger.io).
-      The REST API allows  applications to fetch data from the connected Vehicles data  platform.
+      This API allows applications to fetch data from the connected Vehicles data platform.
     # Authentication
 
     PSA Connected Car APIs uses the [OAuth
@@ -1441,14 +1436,16 @@ components:
                     deprecated: true
                     description: Vehicle energy autonomy expressed in KM.
                     type: number
+            vehicleOdometer:
+                  $ref: '#/components/schemas/VehicleOdometer'
             timed.odometer:
-                 $ref: '#/components/schemas/VehicleOdometer'        
-            overall.autonomy:
-              $ref: '#/components/schemas/OverallAutonomy'
+              allOf:  
+                - $ref: '#/components/schemas/VehicleOdometer'  
+                - deprecated: true        
             ignition:
-              $ref: '#/components/schemas/Ignition'
+                  $ref: '#/components/schemas/Ignition'
             lastPosition:
-              $ref: '#/components/schemas/Position'
+                  $ref: '#/components/schemas/Position'
             preconditionning:
                   $ref: '#/components/schemas/Preconditioning'
             energy:
@@ -1457,17 +1454,19 @@ components:
                     items: 
                         $ref: '#/components/schemas/Energy'
             kinetic:
-                $ref: '#/components/schemas/Kinetic'
+                  $ref: '#/components/schemas/Kinetic'
             doorsState:
                   $ref: '#/components/schemas/DoorsState'
             privacy:
-                   $ref: '#/components/schemas/Privacy'
+                  $ref: '#/components/schemas/Privacy'
             battery:
-                   $ref: '#/components/schemas/Battery'
+                  $ref: '#/components/schemas/Battery'
             service:
                   $ref: '#/components/schemas/ServiceType'
             safety:  
                   $ref: '#/components/schemas/Safety'
+            environment: 
+                  $ref: '#/components/schemas/Environment'
           required:
             - _links
         
@@ -1725,10 +1724,27 @@ components:
             enabled:
                 type: boolean
                 description: > 
+            
                           Determines whether this program is enabled or not.
+            
+            slot:
+              description: >
+                 The preconditionning program number.
+              type: number
+              format: int
+              
         - required: [enabled]
         
-       
+    BoundedProgram:
+      allOf:
+        -  $ref: '#/components/schemas/Program'
+        - description: the extended program that specifies the duration of the action. The relative start time (relative to midnight) must be expressed in UTC.
+          properties:
+            duration:
+              description: Duration of the monitor action expressed using  [ISO-8601 Duration spec](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+              type: string
+          required: [start, duration, occurence]
+          
     Preconditioning:
       type: object
       description: Preconditionning the vehicle for driver and passenger.
@@ -1836,6 +1852,9 @@ components:
             lighting:
               $ref: '#/components/schemas/Lighting'
         environment: 
+              $ref: '#/components/schemas/Environment'
+          
+    Environment: 
           allOf:
             - $ref: '#/components/schemas/UpdatedField'
             - $ref: '#/components/schemas/CreatedAtField'
@@ -1851,13 +1870,6 @@ components:
                     properties:
                       temp:
                         type: number
-            
-                  _embedded:
-                    type: object
-                    properties:
-                      extension:
-                         $ref: '#/components/schemas/Extension'
-    
     Trip: 
       allOf:
             - $ref: '#/components/schemas/UpdatedField'
@@ -2369,18 +2381,7 @@ components:
         - automaticBreakingDeactived
         - tupUpAdBlue
         - longPushToUnlockTankFault
-    BoundedProgram:
-      allOf:
-        -  $ref: '#/components/schemas/Program'
-        - description: the extended program that specifies the duration of the action. The relative start time (relative to midnight) must be expressed in UTC.
-          properties:
-            duration:
-              description: Duration of the monitor action expressed using  [ISO-8601 Duration spec](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-              type: string
-          required: [start, duration, occurence]
-              
-              
-      
+    
     TelemetryEnum:
       type: array
       items:
@@ -2543,9 +2544,9 @@ components:
       schema:
         type: string
     apiClientId:
-      name: client-id
+      name: client_id
       description: The client ID related to the API User account.
-      in: header
+      in: query
       required: true
       schema:
         type: string

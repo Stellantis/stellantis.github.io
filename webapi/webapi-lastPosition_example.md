@@ -1,31 +1,26 @@
----
-layout: default
-permalink: /connectedcar/v4/fleets/vehicles/XA143Z2/lastPosition
----
-
 <style>
 body {
-  background: rgb(35, 35, 39);
+  background: rgb(35, 35, 39)!important;
 }
 
 .p {
-  color: rgb(117, 191, 255);
+  color: rgb(117, 191, 255)!important;
 }
 
 .mi {
-color: rgb(134, 222, 116);
-}z
+color: rgb(134, 222, 116)!important;
+}
 
 .mf {
-  color: rgb(134, 222, 116);
+  color: rgb(134, 222, 116)!important;
 }
 
 .s2 {
-  color: rgb(255, 125, 233);
+  color: rgb(255, 125, 233)!important;
 }
 
-.highlighter-rouge .highligh{
-  background: rgb(35, 35, 39);
+.highlighter-rouge .highlight{
+  background: rgb(35, 35, 39) !important;
 }
 
 </style>

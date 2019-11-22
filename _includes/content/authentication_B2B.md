@@ -1,7 +1,7 @@
 # Authentication B2B
 This an explanation about **getting your B2B authentication** in PSA network. This authentication is required in order to consume Groupe PSA's APIs.
 
-This page is dedicated to Groupe PSA's commercial partners. End-user authentication procedure is different, check this [page]({{site.baseurl}}/webapi/b2c/).
+This page is dedicated to Groupe PSA's commercial partners. End-user authentication procedure is different, check this [page]({{site.baseurl}}/webapi/b2c/connect).
 
 Our APIs let you access sensible data about your fleet of vehicles, that's why we have to perform authentification between your network  and our network. We use signed certificate + authentication process. In order to sign your certificate we need you to produce a **Certificate Signing Request (CSR)**. At the end of this process you will have everything you need to perform your authentication.
 

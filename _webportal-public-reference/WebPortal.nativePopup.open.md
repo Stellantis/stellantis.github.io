@@ -33,3 +33,5 @@ WebPortal.openNativePopup("Do you wish to continue?")
 #### Important
 
 >**Caution :** Popups (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) must not be asked more often than once every 20 seconds.
+
+> **Caution 2:** [Navigation.LaunchGuidance()]({{site.baseurl}}//webportal/reference/#api-Navigation-LaunchGuidance) and [Navigation.LaunchGuidanceWaypoints()]({{site.baseurl}}/webportal/reference/#api-Navigation-LaunchGuidanceWaypoints) can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that LaunchGuidance function return is `True`.

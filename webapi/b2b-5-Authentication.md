@@ -11,19 +11,17 @@ Finnaly, you get what you need for authentication! You can try your to send your
 
 Here is an example with curl:
 
-```shell
-$ curl\
-  --url 'https://api-cert-preprod.groupe-psa.com/connectedcar/v3/fleets?client_id=<REPLACE_THIS_KEY>' \
-  --header 'content-type': "application/json' \
-  --header 'accept': 'application/json' \
-  --header 'authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' \
-  --cert 'C:\mycert[:mypassword]>'
-```
+{% assign apiEndpoint='/fleets'%}
+{% assign referenceURLResssource='/#/Fleet/getFleets' %}
+{% assign httpVerb='GET'%}
+
+{% include content/cUrl.md %}
+
 
 Type|Name|Description|Required
 -|-|-|-
-Path param|client_id|Your `client_id` allow you to access this API product. | Yes
-Header Field|Basic Authentication| This Basic Auth is `account:password` given by PSA encoded in Base64. | Yes
+Query param|client_id|Your `client_id` allow you to access this API product. | Yes
+Header|Basic Authentication| This Basic Auth is `account:password` given by PSA encoded in Base64. | Yes
 File |Certificate|Your certificate for mutual authentification with PSA.| Yes
 
 

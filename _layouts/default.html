@@ -7,15 +7,8 @@
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <!-- ICONS -->
-    <link rel="icon" type="image/png" sizes="192x192"
-        href="https://www.groupe-psa.com/content/themes/psa/dist/images/favicons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="https://www.groupe-psa.com/content/themes/psa/dist/images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96"
-        href="https://www.groupe-psa.com/content/themes/psa/dist/images/favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="https://www.groupe-psa.com/content/themes/psa/dist/images/favicons/favicon-16x16.png">
-    <!-- FONTS -->
+    <link rel="icon" href="{{site.baseurl}}/favicon.ico">
+     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Roboto:400,500"
         rel="stylesheet">
     <link href="{{ '/assets/fonts/ubuntu/ubuntu-v11-latin-ext_latin-regular.woff' | prepend:site.baseurl }}"
@@ -27,11 +20,11 @@
     {% if page.url == "/" %}
     <!-- CSS HOMEPAGE-->
     <link href="assets/css/index.css" rel='stylesheet' type='text/css'>
-    {% elsif page.title == "API Reference" or page.title == "Monitor" and page.section == "webapib2b" %}
+    {% elsif page.title == "API Reference" or page.title == "Monitor" %}
     <!-- ASSESTS FOR SWAGGER UI PAGES-->
     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/swagger-ui.css' | prepend: site.baseurl }}">
     <link href="{{ '/assets/css/swagger-ui-overrides.css' | prepend: site.baseurl }}" rel='stylesheet' type='text/css'>
-    {% elsif page.url == "/webapi/demo/" %}
+    {% elsif page.url contains "/demo/" %}
     <!-- DEMO LEAFLET-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="

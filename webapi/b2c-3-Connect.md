@@ -6,7 +6,7 @@ title: Connect
 ---
 
 
-# 1. Get access token
+# 1. Access token
 
 Groupe PSA's WEB API for end-users use authentication based on OAuth2. 
 The process to connect to the API require that you get an access token in exchange of you login and password.
@@ -16,7 +16,7 @@ The process to connect to the API require that you get an access token in exchan
 <div class="tags has-addons">
     <span class="tag_endpoint_large tag is-info"> API URL</span>
     <span class="tag_endpoint_large tag_api_endpoint tag"
-        >https://idpcvs-preprod.{brand.tld}/am/oauth2/access_token</span>
+        >{{site.cvsOAuth2PreProd}}</span>
 </div>
 
 **{brand.tld}** depend on the vehicle brand:
@@ -26,56 +26,60 @@ The process to connect to the API require that you get an access token in exchan
 - Opel: `opel.com`
 - Vauxhall: `vauxhall.co.uk` 
 
+```shell
+$ curl \
+  --request POST \
+  --url '{{site.cvsOAuth2PreProd}}' \
+  --header 'Authorization: Basic <(user:password)base64>' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data 'realm=<realm>&grant_type=password&password=<password>&username=<username>scope=profile%20openid'
+```
+
 Type|Name|Value|Description|Required
 -|-|-|-|-
-Path param |`grant_type`|`password`| Use OAuth2 password method. |Yes
-Header | `realm`|`<Brand Realm>`| Realm of the brand.
-Path param |`password`|`<password>`| Client secret of your application. |Yes
-Path param |`username`|`<username>`| Client id of your application. |Yes
-Path param |`scope`|`profile%20openid`| Scope is profile openID. |Yes
+Query param |`grant_type`|`password`| Use OAuth2 password method. |Yes
+Query param |`password`|`<password>`| Client secret of your application. |Yes
+Query param |`username`|`<username>`| Client id of your application. |Yes
+Query param |`scope`|`profile%20openid`| Scope is profile openID. |Yes
+Path param |{brand.tld}|`<brand.tld>`|Depend on the vehicle brand.|Yes
+Header | `realm`|`<realm>`| Realm of the brand.
 Header|`authorization`|`Basic <client_id:client_secret> `|Indicate that authentication is Basic Auth and *&lt;BASIC_AUTH&gt;* is *client_id:client_secret* of your application encoded Base64.  |Yes
 Header|`content-type`|`application/x-www-form-urlencoded`| Indicate content-type of your submited ressource. |Yes
 
-**Realm** depend on the vehicle brand:
+**&lt;realm&gt;** depend on the vehicle brand:
 - Peugeot: `clientsB2CPeugeot`
 - Citroen: `clientsB2CCitroen`
 - DS: `clientsB2CDS`
 - Opel: `clientsB2COpel`
 - Vauxhall: `clientsB2CVauxhall`
 
-```shell
-curl -X POST \
-  --url 'https://idpcvs-preprod.citroen.com/am/oauth2/access_token' \
-  -H 'Authorization: Basic YjkzOYhhNjgtMjI5NC00OGY4LWFkZjQtMWRjMzg1FmVjN2FmOkQzckk0dVUzZEUzc003d1UvblY3dE0zdksxd0cxcEcwYPsxcFc3clU1a0sydEYwdEox' \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  -d 'realm=<realm>&grant_type=password&password=<password>&username=<username>scope=profile%20openid'
-```
-
 ## Response
 
 Here is the description of the JSON response:
 
 Name|Value|Description
+-|-|-
 `scope`|`list of scopes`| Scope list.
 `expires_in`|`<seconds>`| Period of validity in seconds. Default is 24 hours.
 `token_type`|`Bearer`| Token type is always Bearer.
-`refresh_token`|`uuid`| Refresh token can be used to replace `user:password` as described in Oauth2 spec.
+`refresh_token`|`<uuid>`| Refresh token can be used to replace `user:password` as described in Oauth2 spec.
 `id_token`|`openID`| OpenID token.
 `access_token`|`<uuid>`| This is the access token you have to use to consume the API.
 
 
 ```json
 {
-    "scope": "openid profile",
-    "expires_in": 3599,
-    "token_type": "Bearer",
-    "refresh_token": "4f5f3749-0738-40ed-973c-0572b5ec2048",
-    "id_token": "eyAidHlwIjogIkpXVCIsICJhbGciOiAiUlMyNMZiLCAia2lkIjogIlN5bExDNk5qdDFLR1FrdEQ5TXQrMHpjZVFTVT0iIH0.eyAidG9rZW5OYW1lIjogImlkX3Rva2VuIiwgImF6cCI6ICJiOTE4OGE2OC0yMjk0LTQ4ZjgtYWRmNC0xZGMzODVmZWM3YWYiLCAic3ViIjogIkFDLUFDTlQyMDAwMDAyNDA2NDkiLCAiYXRfaGFzaCI6ICJrQVd5WFNPWjRwRTVnRU5xdVk3MDJnIiwgImlzcyI6ICJodHRwczovL2lkcGN2cy1wcmVwcm9kLmNpdHJvZW4uY29tOjQ0My9hbS9vYXV0aDIiLCAib3JnLmZvcmdlcm9jay5vcGVuaWRjb25uZWN0Lm9wcyI6ICI5OTkwYzc3OC02YTJiLTRiYTMtYjgwMy04YmZjYWVmOTg0YjgiLCAiZ2l2ZW5fbmRzZSI6ICJSb215IiwgImlhdCI6IDE1NzM4Mjc1ODEsICJhdXRoX3WpbWUiOiAxNTczODI3NTgxLCAiZXhwIjogMTU3MzgyODE4MSwgInRva2VuVHlwZSI6ICJKV1RUb2tlbiIsICJ1cGRhdGVkX2F0IjogIjAiLCAicmVhbG0iOiAiL2NsaWVudHNCMkNDaXRyb2VuIiwgImF1ZCI6IFsgImI5MTg4YTY4LTIyOTQtNDhmOC1hZGY0LTFkYzM4NWZlYzdhZiIgXSwgImZhbWlseV9uYW1lIjogIkNoZW4gTWluIFRhbyIgfQ.YiGL6b6PYQg2gOg72iMybUrKXquXjXGz7vZQ2IaYZS-2MuWyU39Kor3pgBbLYa8PShqAl18S4WFLT3d3KMO2tlW9kiBnY5RepbEXGCqRYpA_1eKgPnUEH8aCpuH9WLKMlmT_R1-gg1HYXAyRGaBl7J5-RIYC7nCL85dBYxwjswg",
-    "access_token": "4213cf9e-f9a6-4ec8-be9e-568d715e3029"
+    "scope": "openid profile",
+    "expires_in": 3599,
+    "token_type": "Bearer",
+    "refresh_token": "4f5f3749-0738-40ed-973c-0572b5ec2048",
+    "id_token":
+"eyAidHlwIjogIkpXVCIsICJhbGciOiAiUlMyNMZiLCAia2lkIjogIlN5bExDNk5qdDFLR1FrdEQ5TXQrMHpjZVFTVT0iIH0eyAidG9rZW5OYW1lIjogImlkX3Rva2VuIiwgImF6cCI6ICJiOTE4OGE2OC0yMjk0LTQ4ZjgtYWRmNC0xZGMzODVmZWM3YWYiLCAic3ViIjogIkFDLUFDTlQyMDAwMDAyNDA2NDkiLCAiYXRfaGFzaCI6ICJrQVd5WFNPWjRwRTVnRU5xdVk3MDJnIiwgImlzcyI6ICJodHRwczovL2lkcGN2cy1wcmVwcm9kLmNpdHJvZW4uY29tOjQ0My9hbS9vYXV0aDIiLCAib3JnLmZvcmdlcm9jay5vcGVuaWRjb25uZWN0Lm9wcyI6ICI5OTkwYzc3OC02YTJiLTRiYTMtYjgwMy04YmZjYWVmOTg0YjgiLCAiZ2l2ZW5fbmRzZSI6ICJSb215IiwgImlhdCI6IDE1NzM4Mjc1ODEsICJhdXRoX3WpbWUiOiAxNTczODI3NTgxLCAiZXhwIjogMTU3MzgyODE4MSwgInRva2VuVHlwZSI6ICJKV1RUb2tlbiIsICJ1cGRhdGVkX2F0IjogIjAiLCAicmVhbG0iOiAiL2NsaWVudHNCMkNDaXRyb2VuIiwgImF1ZCI6IFsgImI5MTg4YTY4LTIyOTQtNDhmOC1hZGY0LTFkYzM4NWZlYzdhZiIgXSwgImZhbWlseV9uYW1lIjogIkNoZW4gTWluIFRhbyIgfQYiGL6b6PYQg2gOg72iMybUrKXquXjXGz7vZQ2IaYZS-2MuWyU39Kor3pgBbLYa8PShqAl18S4WFLT3d3KMO2tlW9kiBnY5RepbEXGCqRYpA_1eKgPnUEH8aCpuH9WLKMlmT_R1-gg1HYXAyRGaBl7J5-RIYC7nCL85dBYxwjswg",
+    "access_token": "4213cf9e-f9a6-4ec8-be9e-568d715e3029"
 } 
 ```
 
-# 2. Use your token
+# 2. Connection example
 
 Once you get your token, you can request the API with it.
 
@@ -87,31 +91,23 @@ Once you get your token, you can request the API with it.
         >https://api-preprod.groupe-psa.com/connectedcar/v4/</span>
 </div>
 
-<div class="tags has-addons">
-    <span class="tag is-large is-info" style=" background: #49cc90;"> GET </span>
-    <span class="tag is-large is-fullheight is-light"
-        >/user/vehicles</span>
-</div>
+{% assign apiEndpoint='/user/vehicles'%}
+{% assign httpVerb='GET'%}
+{% assign referenceURLResssource= '/#/Vehicles/getVehiclesByDevice' %}
+{% include content/cUrl.md %}
 
 Type|Name|Value|Description|Required
 -|-|-|-|-
-Path parameter | `client_id`|`<App_ID>`|Id of the application.|Yes
+Query parameter | `client_id`|`<App_ID>`|Id of the application.|Yes
 Header | `Authorization: `|`Bearer <access_token>`| Granted token allowing to consume the API.
 Header | `x-introspect-realm:`|`<realm>`| Realm of the brand.
 
-**Realm** depend on the vehicle brand:
+**&lt;realm&gt;** depend on the vehicle brand:
 - Peugeot: `clientsB2CPeugeot`
 - Citroen: `clientsB2CCitroen`
 - DS: `clientsB2CDS`
 - Opel: `clientsB2COpel`
 - Vauxhall: `clientsB2CVauxhall`
-
-```shell
-curl -X GET \
-  'https://api-preprod.groupe-psa.com/connectedcar/v4/user/vehicles?client_id=<client_id>' \
-  -H 'Authorization: Bearer <access_token>' \
-  -H 'x-introspect-realm: <realm>' 
-```
 
 ## Response
 

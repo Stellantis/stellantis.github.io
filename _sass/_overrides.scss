@@ -13,7 +13,7 @@ th {
   background: #49cc90;
 }
 .get{
-  background: #2d3b56;
+  background: #61affe;
 }
 
 .put{
@@ -24,6 +24,9 @@ th {
   background: #fa5c4f;
 }
 
+.highlighter-rouge {
+margin-bottom: 1.5rem;
+}
 //tag api url
 .tag_api_endpoint{
     color: white!important;
@@ -33,7 +36,7 @@ th {
 .tag_endpoint_large{
     // white-space: normal !important; // counteract white-space: nowrap;
     // word-wrap: anywhere!important; // only required if you want to break one long word anywhere
-    word-break: break-all!important;
+    word-break: break-word!important;
     white-space: normal!important;
     height: auto!important; // counteract fixed height: 2em;
     padding: 0.43rem!important;
@@ -66,13 +69,18 @@ th {
 
 .highlight{
     max-height: 50vh;
+    border-radius: 6px;
 }
+
+
 
 
 //fixing higlhith bottom margin
 
 .highlight  pre  {
     margin-bottom: 0rem;
+    word-break: break-word;
+    white-space: pre-wrap;  
 }
 
 #content-select-section {
@@ -89,6 +97,7 @@ th {
   padding: 0.9rem 0.75rem
 
 }
+
 
 .textnavbar{
   text-shadow: 1px 1px 4px #000000;
@@ -345,6 +354,16 @@ html{
     scroll-behavior: smooth;
 }
 
+#lunrsearch::placeholder, #lunrsearch::placeholder {
+    color: black
+}
+
+
+.level-left, .level-center {
+    padding: 1rem;
+}
+
+
 @media screen and (max-width: 600px) {
   aside{display: none;
 }}
@@ -421,9 +440,7 @@ html{
         padding: 0.5rem;
     }
 
-    #lunrsearch::placeholder, #lunrsearch::placeholder {
-            color: black
-    }
+    
      
 }
 
