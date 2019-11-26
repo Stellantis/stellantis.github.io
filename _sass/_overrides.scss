@@ -67,12 +67,19 @@ margin-bottom: 1.5rem;
     font-size: 5rem;
 }
 
+code {
+    font-family: Inconsolata,Consolas,"Courier New",Courier,"Liberation Mono",monospace;
+}
+
 .highlight{
     max-height: 50vh;
     border-radius: 6px;
 }
 
-
+.content table td, .content table th{
+    border: 1px solid darkgray;
+    border-width: 0 0 1px;
+}
 
 
 //fixing higlhith bottom margin
