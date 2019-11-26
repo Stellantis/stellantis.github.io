@@ -4,7 +4,7 @@ permalink: /webapi/b2b/authentication/
 section: webapib2b
 title: Authentication
 ---
-{% include content/authentication_B2B.md %}
+{% include  content/authentication_B2B.md %}
 
 # Test you Authentication
 Finnaly, you get what you need for authentication! You can try your to send your first request to Groupe PSA's API.

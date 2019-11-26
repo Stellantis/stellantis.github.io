@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>Constructeur automobile français | Groupe PSA</title>
+    <title>French car manufacturer | Groupe PSA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <!-- ICONS -->
     <link rel="icon" href="{{site.baseurl}}/favicon.ico">
-     <!-- FONTS -->
+    <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Roboto:400,500"
         rel="stylesheet">
     <link href="{{ '/assets/fonts/ubuntu/ubuntu-v11-latin-ext_latin-regular.woff' | prepend:site.baseurl }}"
@@ -17,10 +17,8 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
-    {% if page.url == "/" %}
-    <!-- CSS HOMEPAGE-->
-    <link href="assets/css/index.css" rel='stylesheet' type='text/css'>
-    {% elsif page.title == "API Reference" or page.title == "Monitor" %}
+
+    {% if page.title == "API Reference" or page.title == "Monitor" %}
     <!-- ASSESTS FOR SWAGGER UI PAGES-->
     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/swagger-ui.css' | prepend: site.baseurl }}">
     <link href="{{ '/assets/css/swagger-ui-overrides.css' | prepend: site.baseurl }}" rel='stylesheet' type='text/css'>
@@ -36,6 +34,7 @@
     <script src="{{ '/assets/js/lunr.js' | prepend: site.baseurl | prepend: site.url }}"></script>
 </head>
 {% if page.color == "white" %}
+<!-- NO PSABLUE BORDERS-->
 
 <body style="background:#fff">
     {% else%}

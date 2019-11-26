@@ -4,4 +4,4 @@ permalink: /webapi/b2b/monitor/
 section: webapib2b
 title: Monitor
 ---
-{% include_relative webapi-Monitor.md %}
+{% include content/webapi-Monitor.md %}

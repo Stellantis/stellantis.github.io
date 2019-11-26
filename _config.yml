@@ -27,17 +27,17 @@ search_enabled: true
 
 collections:
   webportal-quick-start:
-    output: true
+    output: false
   webportal-tutorials-advanced:
-    output: true
+    output: false
   webportal-private-reference:
-    output: true
+    output: false
   webportal-public-reference:
-    output: true
+    output: false
   mobile-sdk-android-reference:
-    output: true
+    output: false
   mobile-sdk-ios-reference:
-    output: true
+    output: false
 
 links:
     header:
