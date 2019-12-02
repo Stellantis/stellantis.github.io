@@ -4,25 +4,26 @@ permalink: /webapi/b2b/authentication/
 section: webapib2b
 title: Authentication
 ---
-{% include  content/authentication_B2B.md %}
+{% include  content/get-your-certificate.md %}
 
 # Test you Authentication
 Finnaly, you get what you need for authentication! You can try your to send your first request to Groupe PSA's API.
 
 Here is an example with curl:
 
-{% assign apiEndpoint='/fleets'%}
-{% assign referenceURLResssource='/#/Fleet/getFleets' %}
-{% assign httpVerb='GET'%}
-
-{% include content/cUrl.md %}
 
 
-Type|Name|Description|Required
--|-|-|-
-Query param|client_id|Your `client_id` allow you to access this API product. | Yes
-Header|Basic Authentication| This Basic Auth is `account:password` given by PSA encoded in Base64. | Yes
-File |Certificate|Your certificate for mutual authentification with PSA.| Yes
+{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets' referenceURLResssource='/#/Fleet/getFleets' httpVerb='GET' %}
+
+
+Type|Name|Value|Description|Required
+-|-|-|-|-
+Query Parameter|`client_id`|`<App_ID>`|Id of the application.|Yes
+File|Client Certificate|`path/to/client_certificate.pem`|Your [SSL certificate](#authentication-b2b) for authentication in groupe PSA network.|Yes
+File|Private Key|`path/to/key.pem`|Your Private Key file.|Yes
+File|CA Certificate|`path/to/ca_certificate.pem`|PSA CA Cert for peer verification.|Yes
+Header|`accept`|`application/json`| Advertises that you accept JSON content type. |Yes
+Header|`authorization`|`Basic <BASIC_AUTH> `|Indicate that authentication is Basic Auth and *&lt;BASIC_AUTH&gt;* is *user:password* in Base64.  |Yes
 
 
 And [here]({{site.baseurl}}/webapi/b2b/quick-start/#connect) you can find an exemple of SSL connexion with python.

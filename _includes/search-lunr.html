@@ -93,7 +93,13 @@
 
 
 <form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <p><input type="text" class="input" id="lunrsearch" name="q" maxlength="255" value=""
-            placeholder="Search the doc" />
-    </p>
+            <div class="field">
+                <p class="control has-icons-left">
+                        <input type="text" class="input" id="lunrsearch" name="q" maxlength="255" value=""
+                        placeholder="Search" />
+                  <span class="icon is-small is-left">
+                        <i class="fas fa-search" style="color: darkgrey;"></i>
+                  </span>
+                </p>
+              </div>
 </form>

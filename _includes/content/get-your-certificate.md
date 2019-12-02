@@ -3,13 +3,15 @@ This an explanation about **getting your B2B authentication** in PSA network. Th
 
 This page is dedicated to Groupe PSA's commercial partners. End-user authentication procedure is different, check this [page]({{site.baseurl}}/webapi/b2c/connect).
 
-Our APIs let you access sensible data about your fleet of vehicles, that's why we have to perform authentification between your network  and our network. We use signed certificate + authentication process. In order to sign your certificate we need you to produce a **Certificate Signing Request (CSR)**. At the end of this process you will have everything you need to perform your authentication.
+Our APIs let you access sensible data about your fleet of vehicles, that's why we have to perform authentification between your network  and our network. That's why we use mutual authentication process. In order to sign your certificate we need you to produce a **Certificate Signing Request (CSR)**. At the end of this process you will have everything you need to perform your authentication.
 
 **Login info**:
 - **MZP**: partner login in Groupe PSA network.
 - **Password**: partner password in Groupe PSA network.
 - **Client ID**: application ID (maybe you will have more than one application).
-- **Certificate**: trusted SSL certificate signed by dedicated groupe PSA's authority.
+- **Client Certificate**: trusted SSL certificate signed by dedicated groupe PSA's authority.
+- **Private Key**: Your Private Key file.
+- **CA Certificate**: PSA CA Cert for peer verification.
 
 <img src="{{site.baseurl}}/assets/images/certificateProcess.png" alt="certificateProcess" style="max-width: 580px">
 
@@ -118,5 +120,5 @@ Once you have created your brand-new CSR file, send it to us via this email: <co
 At this point we will begin our internal process to sign your certificate.
 
 ## 4. Cerficate & Client ID
-If everything is ok, our certification authority will accept your Certificate Signing Request. Then you'll receive an email at the adress you specified. This email contains : **link to download your certificate** + **Client ID** (= application id).
+If everything is ok, our certification authority will accept your Certificate Signing Request. Then you'll receive an email at the adress you specified. This email contains : **link to download your certificate & PSA CA certificate** + **Client ID** (= application id).
 Download your signed certificate and keep carefully your client ID.

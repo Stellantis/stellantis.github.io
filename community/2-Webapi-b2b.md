@@ -7,4 +7,4 @@ color: white
 ---
 {% assign channelName='Web API for partners'%}
 {% assign feedId='9850478592'%}
-{% include content/community.html %}
+{% include_relative community.html %}

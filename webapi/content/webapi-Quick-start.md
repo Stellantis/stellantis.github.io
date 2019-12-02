@@ -10,42 +10,29 @@ Web API base enpoint{% if page.section == 'webapib2b' %}'/fleets'{% elsif page.s
 
 {% if page.section == 'webapib2b' %}
 
-{% assign apiEndpoint='/fleets'%}
-{% assign referenceURLResssource='/#/Fleet/getFleets' %}
+{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets' referenceURLResssource='/#/Fleet/getFleets' httpVerb='GET' %}
 
 {% elsif page.section == "webapib2c" %}
 
-{% assign apiEndpoint='/user'%}
-{% assign referenceURLResssource='/#/User/getUser' %}
-
+{% include_relative content/webapi-cUrl.md  apiEndpoint='/user' referenceURLResssource='/#/User/getUser' httpVerb='GET' %}
 
 {% endif %}
-
-{% assign httpVerb='GET'%}
-
-{% include content/cUrl.md %}
 
 ## GET a list of vehicles 
 
 The {% if page.section == 'webapib2b' %}'/fleets/{fid}/vehicles'{% elsif page.section == "webapib2c" %}'/user/vehicles'{% endif %} endpoint allow you to retrieve a list of your vehicles. See {% if page.section == 'webapib2b' %}[preview]({{site.basurl}}/webapi/b2b/preview#pagination){% elsif page.section == "webapib2c" %}[preview]({{site.basurl}}/webapi/b2c/preview#pagination){% endif %} for explanation about `indexRange` and `pageSize`.
 
+
 {% if page.section == 'webapib2b' %}
 
-{% assign apiEndpoint='/fleets/{fid}/vehicles'%}
-{% assign referenceURLResssource='/#/Vehicles/getVehiclesByDevice' %}
+{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets/{fid}/vehicles' referenceURLResssource='/#/Vehicles/getVehiclesByDevice' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' %}
 
 {% elsif page.section == "webapib2c" %}
 
-
-{% assign apiEndpoint='/user/vehicles'%}
-{% assign referenceURLResssource='/#/Vehicles/getVehiclesByDevice' %}
-
+{% include_relative content/webapi-cUrl.md  apiEndpoint='/user/vehicles' referenceURLResssource='/#/Vehicles/getVehiclesByDevice' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' %}
 
 {% endif %}
 
-{% assign queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>'%}
-{% assign httpVerb='GET'%}
-{% include content/cUrl.md %}
 
 ## GET alerts of a vehicle
 
@@ -53,23 +40,16 @@ The {% if page.section == 'webapib2b' %}'/fleets/{fid}/vehicles/{id}/alerts'{% e
 - Path parameter **{id}** is the unique identifier of one of your vehicles. 
 - Query parameter `locale` wiil change the language of the alert message.
 
+
 {% if page.section == 'webapib2b' %}
 
-{% assign apiEndpoint='/fleets/{fid}/vehicles/{id}/alerts'%}
-{% assign referenceURLResssource='/#/Vehicles/getVehicleAlerts' %}
+{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets/{fid}/vehicles/{id}/alerts' referenceURLResssource='/#/Vehicles/getVehicleAlerts' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
 
 {% elsif page.section == "webapib2c" %}
 
-
-{% assign apiEndpoint='/user/vehicles/{id}/alerts'%}
-{% assign referenceURLResssource='/#/Vehicles/getVehicleAlerts' %}
-
+{% include_relative content/webapi-cUrl.md  apiEndpoint='/user/vehicles/{id}/alerts' referenceURLResssource='/#/Vehicles/getVehicleAlerts' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
 
 {% endif %}
-
-{% assign queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>'%}
-{% assign httpVerb='GET'%}
-{% include content/cUrl.md %}
 
 ## POST create a monitor
 
@@ -78,18 +58,7 @@ The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors'{% elsif page.se
 
 {% if page.section == 'webapib2b' %}
 
-{% assign apiEndpoint='/fleets/{fid}/monitors'%}
-{% assign referenceURLResssource ='/#/Vehicles/setVehicleMonitor' %}
-
-{% elsif page.section == "webapib2c" %}
-
-{% assign apiEndpoint='/user/vehicles/{id}/monitors'%}
-{% assign referenceURLResssource ='/#/Monitors/createFleetVehicleMonitor' %}
-
-{% endif %}
-
-{% assign httpVerb='POST'%}
-{% assign httpBody='{
+{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets/{fid}/monitors' referenceURLResssource ='/#/Vehicles/setVehicleMonitor' httpVerb='POST' httpBody='{
    "label":"IDF MPH Zone monitor With Data Triggering:[vehicle.energy.electric.level]",
    "subscribeParam":{
       "refreshEvent":600,
@@ -146,8 +115,71 @@ The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors'{% elsif page.se
          }
       }
    }
-}'%}
-{% include content/cUrl.md %}
+}' %}
+
+{% elsif page.section == "webapib2c" %}
+
+{% include_relative content/webapi-cUrl.md  apiEndpoint='/user/vehicles/{id}/monitors' referenceURLResssource ='/#/Monitors/createFleetVehicleMonitor' httpVerb='POST' httpBody='{
+   "label":"IDF MPH Zone monitor With Data Triggering:[vehicle.energy.electric.level]",
+   "subscribeParam":{
+      "refreshEvent":600,
+      "retryPolicy":{
+         "policy":"Always",
+         "maxRetryNumber":3,
+         "retryDelay":120
+      },
+      "batchNotify":{
+         "size":10,
+         "timeWindow":300
+      },
+      "callback":{
+         "target":"http://my.dn/monitors/cb1",
+         "name":"HTTP_CB",
+         "attributes":[
+            {
+               "type":"Query",
+               "key":"vin",
+               "value":"$vin"
+            },
+            {
+               "type":"Header",
+               "key":"Authorization",
+               "value":"Basic VTUzRRkyMjp2MjdQc99wNQ=="
+            }
+         ]
+      }
+   },
+   "extendedEventParam":[
+      "vehicle.alerts",
+      "vehicle.status"
+   ],
+   "triggerParam":{
+      "dataTriggers":[
+         {
+            "data":"vehicle.energy.electric.level",
+            "op":"lowerThan",
+            "value":[
+               "80"
+            ]
+         }
+      ],
+      "timeZoneTriggers":{
+         "zoneTrigger":{
+            "transition":"Out",
+            "place":{
+               "radius":50.5,
+               "center":{
+                  "longitude":2.3329639434814453,
+                  "latitude":48.87073474480463
+               }
+            }
+         }
+      }
+   }
+}' %}
+
+{% endif %}
+
 
 {% comment %} 
 ## PUT edit a monitor
@@ -171,8 +203,8 @@ The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors/{mid}/status'{% 
 {% assign httpBody='{
 
 }'%}
-{% include content/cUrl.md %}
-
+{% include_relative content/webapi-cUrl.md %}
+{% endcomment %}
 
 ## DELETE a monitor
 
@@ -180,25 +212,16 @@ The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors/{mid}'{% elsif p
 - Path parameter **{id}** is the unique identifier of one of your vehicles. 
 - Query parameter `locale` wiil change the language of the alert message.
 
+
 {% if page.section == 'webapib2b' %}
 
-{% assign apiEndpoint='/fleets/{fid}/monitors/{mid}'%}
-{% assign referenceURLResssource='/#/Monitors/deleteFleetMonitor' %}
+{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets/{fid}/monitors/{mid}' referenceURLResssource='/#/Monitors/deleteFleetMonitor' httpVerb='DELETE' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
 
-{% elsif page.section m"éémmmmmmmmùzém"ùùùùùùùùùùùùùùùùùùùùùùùùùù                             éé"jjjjuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuujjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjnnnnnnnnnnnnnnnnnnnnnnnnn== "webapib2c" %}
+{% elsif page.section == "webapib2c" %}
 
-
-{% assign apiEndpoint='/user/vehicles/{id}/monitors/{mid}'%}
-{% assign referenceURLResssource='/#/Vehicles/deleteMonitordd' %}
-
+{% include_relative content/webapi-cUrl.md  apiEndpoint='/user/vehicles/{id}/monitors/{mid}' referenceURLResssource='/#/Vehicles/deleteMonitordd' httpVerb='DELETE' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
 
 {% endif %}
-
-{% assign queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>'%}
-{% assign httpVerb='DELETE'%}
-{% include content/cUrl.md %}
-{% endcomment %}
-
 
 # See Also
 
