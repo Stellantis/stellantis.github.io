@@ -5,7 +5,6 @@ section: webapib2c
 title: Connect
 ---
 
-
 # 1. Access token
 
 Groupe PSA's WEB API for end-users use authentication based on OAuth2. 
@@ -91,10 +90,7 @@ Once you get your token, you can request the API with it.
         >https://api-preprod.groupe-psa.com/connectedcar/v4/</span>
 </div>
 
-{% assign apiEndpoint='/user/vehicles'%}
-{% assign httpVerb='GET'%}
-{% assign referenceURLResssource= '/#/Vehicles/getVehiclesByDevice' %}
-{% include content/cUrl.md %}
+{% include_relative content/webapi-cUrl.md  apiEndpoint='/user/vehicles' referenceURLResssource='/#/Vehicles/getVehiclesByDevice' httpVerb='GET' %}
 
 Type|Name|Value|Description|Required
 -|-|-|-|-

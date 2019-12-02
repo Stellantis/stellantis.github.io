@@ -6,4 +6,4 @@ title: All Networks
 color: white
 channelName: all Networks
 ---
-{% include content/community.html %}
+{% include_relative community.html %}

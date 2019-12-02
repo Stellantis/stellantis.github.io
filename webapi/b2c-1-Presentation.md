@@ -5,4 +5,4 @@ section: webapib2c
 title: Presentation
 ---
 
-{% include content/webapi-Presentation.md %}
+{% include_relative content/webapi-Presentation.md %}

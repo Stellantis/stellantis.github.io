@@ -14,7 +14,7 @@ Monitor are an easy way to design events tracking patterns for one or multpile v
 - **Time+Zone Trigger**: Time AND zone condition (ex: leaving Paris during night time).
 - **Data Trigger**: Various data could also be tracked like autonomy left or engine oil temperature increasing too much.
 
-# How it works ?
+# How it work?
 
 ![monitorSystem]({{site.baseurl}}/assets/images/monitorSystem.png)
 
@@ -57,18 +57,7 @@ Pay particular attention to the description of the models, they explain how to c
 
 {% if page.section == 'webapib2b' %}
 
-{% assign apiEndpoint='/fleets/{fid}/monitors'%}
-{% assign referenceURLResssource ='/#/Vehicles/setVehicleMonitor' %}
-
-{% elsif page.section == "webapib2c" %}
-
-{% assign apiEndpoint='/user/vehicles/{id}/monitors'%}
-{% assign referenceURLResssource ='/#/Monitors/createFleetVehicleMonitor' %}
-
-{% endif %}
-
-{% assign httpVerb='POST'%}
-{% assign httpBody='{
+{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets/{fid}/monitors' referenceURLResssource ='/#/Vehicles/setVehicleMonitor' httpVerb='POST' httpBody='{
    "label":"IDF MPH Zone monitor With Data Triggering:[vehicle.energy.electric.level]",
    "subscribeParam":{
       "refreshEvent":600,
@@ -125,8 +114,70 @@ Pay particular attention to the description of the models, they explain how to c
          }
       }
    }
-}'%}
-{% include content/cUrl.md %}
+}' %}
+
+{% elsif page.section == "webapib2c" %}
+
+{% include_relative content/webapi-cUrl.md  apiEndpoint='/user/vehicles/{id}/monitors' referenceURLResssource ='/#/Monitors/createFleetVehicleMonitor' httpVerb='POST' httpBody='{
+   "label":"IDF MPH Zone monitor With Data Triggering:[vehicle.energy.electric.level]",
+   "subscribeParam":{
+      "refreshEvent":600,
+      "retryPolicy":{
+         "policy":"Always",
+         "maxRetryNumber":3,
+         "retryDelay":120
+      },
+      "batchNotify":{
+         "size":10,
+         "timeWindow":300
+      },
+      "callback":{
+         "target":"http://my.dn/monitors/cb1",
+         "name":"HTTP_CB",
+         "attributes":[
+            {
+               "type":"Query",
+               "key":"vin",
+               "value":"$vin"
+            },
+            {
+               "type":"Header",
+               "key":"Authorization",
+               "value":"Basic VTUzRRkyMjp2MjdQc99wNQ=="
+            }
+         ]
+      }
+   },
+   "extendedEventParam":[
+      "vehicle.alerts",
+      "vehicle.status"
+   ],
+   "triggerParam":{
+      "dataTriggers":[
+         {
+            "data":"vehicle.energy.electric.level",
+            "op":"lowerThan",
+            "value":[
+               "80"
+            ]
+         }
+      ],
+      "timeZoneTriggers":{
+         "zoneTrigger":{
+            "transition":"Out",
+            "place":{
+               "radius":50.5,
+               "center":{
+                  "longitude":2.3329639434814453,
+                  "latitude":48.87073474480463
+               }
+            }
+         }
+      }
+   }
+}' %}
+
+{% endif %}
 
 
 This request ask to **create** an "IDF MPH Zone monitor With Data Triggering:[vehicle.energy.electric.level]" monitor with the following parameters:
@@ -138,7 +189,7 @@ This request ask to **create** an "IDF MPH Zone monitor With Data Triggering:[ve
 - This monitor is **triggered** if the vehicle's electric autonomy is lower than 80% and if it goes out of an 50.5km radius circle of the center of Paris, France.
 
 
-**An other example monitor to detect heatwave :**
+**An other example monitor to detect heatwave:**
 
 ```json
 {

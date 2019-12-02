@@ -184,7 +184,7 @@ Ressources in the API are using HAL for **HATEOAS integration**. It allow intera
 
 **Example:** 
 <div class="tags has-addons">
-    <span class="tag is-large is-info" style=" background: #2d3b56;"> GET </span>
+    <span class="tag is-large get"> GET </span>
     <span class="tag is-large is-fullheight is-light"
         >
         {% if page.section == 'webapib2b' %}

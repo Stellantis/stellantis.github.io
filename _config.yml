@@ -7,7 +7,6 @@ baseurl: "" # the subpath of the site, e.g. /blog
 url: "https://developer.groupe-psa.io" # the base hostname & protocol for the site, e.g. http://example.com
 
 permalink: pretty
-exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
 
 # WEB API BaseURI
 webapiB2CProd: 
@@ -38,6 +37,23 @@ collections:
     output: false
   mobile-sdk-ios-reference:
     output: false
+
+exclude:
+ - webapi/content/
+ - mobile-sdk/content/
+ - "node_modules/"
+ - "*.gemspec"
+ - "*.gem"
+ - "Gemfile"
+ - "Gemfile.lock"
+ - "package.json"
+ - "package-lock.json"
+ - "script/"
+ - "LICENSE.txt"
+ - "lib/"
+ - "bin/"
+ - "README.md"
+ - "Rakefile"
 
 links:
     header:
