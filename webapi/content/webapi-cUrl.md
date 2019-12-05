@@ -39,7 +39,7 @@ $ curl \
   --key 'path/to/key.pem'
   --cacert 'path/to/ca_cert.pem'
   --header 'authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' \
-  --header 'accept: application/json' \
+  --header 'accept: application/hal+json' \
 {% if include.httpVerb == 'POST','PUT' %}  --header 'content-type: application/json' \
   --data '<http_body>' \
 ```
@@ -63,7 +63,7 @@ $ curl \
   --url '{{site.webapiB2CPreProd}}{{include.apiEndpoint}}?client_id=<client_id>{{include.queryParam}}' \
   --header 'Authorization: Bearer <access_token>' \
   --header 'x-introspect-realm: <realm>' 
-  --header 'accept: application/json' \
+  --header 'accept: application/hal+json' \
 {% if include.httpVerb == 'POST','PUT' %}  --header 'content-type: application/json' \
   --data '<http_body>' \
 ```
