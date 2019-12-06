@@ -2,7 +2,7 @@
 type: tutorial advanced
 ---
 
-# Using Resources
+# USING RESOURCES
 
 Your Application has at its disposition multiple resources given by the WebPortal or it can even use its own resources.  
 You can access these different resources with a simple `XMLHttpRequest`.

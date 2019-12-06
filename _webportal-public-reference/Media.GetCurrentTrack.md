@@ -14,7 +14,7 @@ type: api
 | **Response** | *Number*  Current Track number if there is one, else returns error state.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 //Check the state of the media

@@ -2,16 +2,16 @@
 type: tutorial advanced
 ---
 
-# Connecting to the MQTT Broker
+# CONNECTING TO THE MQTT BROKER
 
-### What you need before beginning
+### WHAT YOU NEED BEFORE BEGINNING
 
 - Your SSL client certificate to secure the connexion
 - Your credentials : login (UID) and MQTT password
 
 They will be created by PSA and given to you.
 
-### What you need to do
+### WHAT YOU NEED TO DO
 
 You have to connect to the environment corresponding to your case by using `MQTTClient.connect()`.
 
@@ -20,7 +20,7 @@ You have to connect to the environment corresponding to your case by using `MQTT
 - Preprod : *iot-partners-preprod.mpsa.com:8886*
 - Production : *iot-partners-mpsa.com:8886*
 
-### Example
+### EXAMPLE
 ```javascript
 const mqttConfig = {
 	"uri": "iot-partners-preprod.mpsa.com:8886",

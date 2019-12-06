@@ -1,4 +1,4 @@
-# Authentication B2B
+# AUTHENTICATION B2B
 This an explanation about **getting your B2B authentication** in PSA network. This authentication is required in order to consume Groupe PSA's APIs.
 
 This page is dedicated to Groupe PSA's commercial partners. End-user authentication procedure is different, check this [page]({{site.baseurl}}/webapi/b2c/connect).
@@ -15,11 +15,11 @@ Our APIs let you access sensible data about your fleet of vehicles, that's why w
 
 <img src="{{site.baseurl}}/assets/images/certificateProcess.png" alt="certificateProcess" style="max-width: 580px">
 
-## 1. Partner login
+## 1. PARTNER LOGIN
 
 First of all, you'll need a Groupe PSA login (ex: MZP123456). If you already have one, you can go to step 2. If you don't, send us an email with info about the partnership at <connectedcar@mpsa.com> and we will create one for you.
 
-## 2. Encryption keys & CSR
+## 2. ENCRYPTION KEYS & CSR
 
 Once you have received MZP login, next step is to produce SSL keys and CSR. These keys will allow encrypted communication between you and Groupe PSA:
 - **Public key** will be used by Groupe PSA to encrypt messages.
@@ -40,7 +40,7 @@ In order to ensure your identity we have to perform signing process of your publ
 
 Producing encryptation keys and CSR have to be done with a dedicated software. Here is **examples with two of them**:
 
-### 2.1 With OpenSSL
+### 2.1 WITH OPENSSL
 **OpenSSL** is an open-source software library for encryption purpose. It is widely used in internet security. You can download and install Open SSL using this [link](https://slproweb.com/products/Win32OpenSSL.html) (Windows).
 
 With OpenSLL producing key and creating CSR can be performed in one step. Create a directory with text configuration file named like 'CSRConfig.conf' and copy/past this text into it:
@@ -77,7 +77,7 @@ $ openssl req \
 
 You will be requested for info incorporated in your CSR. Once you fill it you will get your CSR and Keyfile in your directory.
 
-### 2.2 With Keytool
+### 2.2 WITH KEYTOOL
 Keytool comes with Java Devlopment Kit. Like OpenSSL it can be used to produce keys (in a file name keystore) and CSR.
 
 Produce your keys using this command:
@@ -115,10 +115,10 @@ $ keytool \
 - `KeyStoreName.jks` is the name of your keystore
 - `CSRName.csr` will be the name of the CSR
 
-## 3. Submit CSR
+## 3. SUBMIT CSR
 Once you have created your brand-new CSR file, send it to us via this email: <connectedcar@mpsa.com>.
 At this point we will begin our internal process to sign your certificate.
 
-## 4. Cerficate & Client ID
+## 4. CERFICATE & CLIENT ID
 If everything is ok, our certification authority will accept your Certificate Signing Request. Then you'll receive an email at the adress you specified. This email contains : **link to download your certificate & PSA CA certificate** + **Client ID** (= application id).
 Download your signed certificate and keep carefully your client ID.

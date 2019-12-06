@@ -11,7 +11,7 @@ Event triggered when the distraction status is changed to OFF (hide driver distr
 
 >**Note :** This event is triggered when the speed exceeds 5km/h.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try {

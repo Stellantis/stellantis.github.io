@@ -11,7 +11,7 @@ Event triggered when the distraction status is changed to ON (display driver dis
 
 >**Note :** This event is triggered when the speed goes below 5km/h.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try {

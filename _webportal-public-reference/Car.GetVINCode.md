@@ -15,14 +15,14 @@ privacy: Geoloc
 | **Response** | *String*  The VIN code.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var VINCode = Car.GetVINCode();
 // VINCode = VF7AAAAAA00000001
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** a VIN code is always 17 characters long.
 

@@ -1,4 +1,4 @@
-# What is Groupe PSA's {% if page.section == 'webapib2b' %}B2B {% elsif page.section == "webapib2c" %}B2C{% endif %} APIs ?
+# PSA GROUPE's {% if page.section == 'webapib2b' %}B2B {% elsif page.section == "webapib2c" %}B2C{% endif %} WEB API
 
 Our REST APIs implements all the resources you need to retrieve data from Groupe PSA's vehicles. It's based on open standards: **OpenAPIv3, JSON & HAL**. You will be able to get a lot of data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
 
@@ -7,7 +7,7 @@ Our REST APIs implements all the resources you need to retrieve data from Groupe
 <i class="fas fa-code"></i>
 </span>&nbsp; &nbsp; &nbsp;Discover demo</a>
 
-# How does it works ?
+# HOW DOES IT WORK?
 
 Vehicles are using various sensors which aim to improve security and driving experience. They are avaibables for embedded development as you can see [in this section]({{ site.baseurl }}/webportal/).
 
@@ -20,7 +20,7 @@ Sensors are collecting datas inside the vehicle and send them to Groupe PSA via 
 
 Everything is processed on our side (Groupe PSA) in order to provide you {% if page.section == 'webapib2b' %}(Partner){% elsif page.section == "webapib2c" %}(Developer){% endif %} the **same kind of datas whatever the type of vehicles** (brand new or older, regular fuel or electric consumption).
 
-# What can you do ?
+# FEATURES
 
 By requesting this api you can retrieve all kinds off intersiting **features**:
 
@@ -41,7 +41,7 @@ By requesting this api you can retrieve all kinds off intersiting **features**:
 
 *speed: according to country's legislation.
 
-# Browsing and alerts
+# BROWSING AND ALERTS
 
 
 Our API allow you two ways to access vehicles data. You can either browse history or monitor data and receive alerts.
@@ -50,7 +50,7 @@ Our API allow you two ways to access vehicles data. You can either browse histor
 - **Monitoring**: create your own dedicated monitors using our APIs. You will get notified every time a parameter changed as you specified (example: vehicle leaving a defined area). Find out more about how to use and configure monitors on this {% if page.section == 'webapib2b' %}[page]({{site.baseurl}}/webapi/b2b/monitor/){% elsif page.section == "webapib2c" %}[page]({{site.baseurl}}/webapi/b2c/monitor/){% endif %}.
 
 
-# Technicals Standards
+# STANDARDS
 
 
 We think that accessing easily and efficiently to vehicle's data is important, that's why  we choose to design our APIs with up-to-date **open standards**.
@@ -61,7 +61,7 @@ Also we use standards for formating: [GeoJson](https://en.wikipedia.org/wiki/Geo
 
 Click {% if page.section == 'webapib2b' %}[here]({{ site.baseurl }}/webapi/b2b/preview/){% elsif page.section == "webapib2c" %}[here]({{ site.baseurl }}/webapi/b2c/preview/){% endif %} and find a preview!
 
-# Data Refreshment
+# DATA REFRESHMENT
 
 Sensors are gathering all types of intersting datas inside cars. First of all, these datas are collected in a dedicated embedded hardware in the vehicle. Then datas are sent to Groupe PSA's cloud via mobile network:
 - **Regular refresment**:  datas are refreshed on a regular basis depending on sensor class and vehicle manufacturing date.
@@ -72,13 +72,13 @@ Sensors are gathering all types of intersting datas inside cars. First of all, t
 
 ![presentationFrequency]({{ site.baseurl }}/assets/images/presentationFrequency.png)
 
-# See Also
+# SEE ALSO
 
-##### Preview
+##### PREVIEW
 
 
 Want to see what it's look like ? Browse our {% if page.section == 'webapib2b' %}[Preview]({{ site.baseurl }}/webapi/b2b/preview/){% elsif page.section == "webapib2c" %}[Preview]({{ site.baseurl }}/webapi/b2c/preview/){% endif %}.
 
-##### Try out!
+##### TRY OUT!
 
 Retrieve all reference of the API, go to the {% if page.section == 'webapib2b' %}[API List]({{ site.baseurl }}/webapi/b2b/reference/){% elsif page.section == "webapib2c" %}[API List]({{ site.baseurl }}/webapi/b2c/reference/){% endif %}.

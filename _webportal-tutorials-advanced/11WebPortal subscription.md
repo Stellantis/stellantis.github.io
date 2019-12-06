@@ -2,13 +2,13 @@
 type: tutorial advanced
 ---
 
-# Managing Eligibility
+# MANAGING ELIGIBILITY
 
-## Checking eligibility of a VIN to the WebPortal
+## CHECKING ELIGIBILITY OF A VIN TO THE WEBPORTAL
 
 ### `GET baseURL/eligibility?vin={vin}`
 
-#### Example: 
+#### EXAMPLE: 
 
 ```
 (GET) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/eligibility?client_id=12ab345c-6789-01d2-e345-6f78ghijk901&vin=VF000000000000001 
@@ -32,7 +32,7 @@ HTTP 401 | Not authorized
 }
 ```
 
-## Adding subscribers to existing services
+## ADDING SUBSCRIBERS TO EXISTING SERVICES
 
 This service enables to add a list of VIN as subcribers to the given service(s). In return, the response will give the list of successful requests.
 
@@ -81,7 +81,7 @@ This service enables to add a list of VIN as subcribers to the given service(s).
 ]
 ```
 
-#### Example
+#### EXAMPLE
 
 ```
 (POST) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=12ab345c-6789-01d2-e345-6f78ghijk901
@@ -114,7 +114,7 @@ HTTP 202 | Request Successful, but no subscription added (services do not exist)
 HTTP 400 | Bad Request, VIN is not syntactically correct (17 chars with letters and numbers is the correct syntax) if there was only one VIN requested or global syntax is not correct
 HTTP 401 | Not authorized
 
-## Removing subscriptions
+## REMOVING SUBSCRIPTIONS
 
 ### `DELETE baseURL/subscriptions {"Content-Type":"application/json"}`
 
@@ -139,7 +139,7 @@ HTTP 401 | Not authorized
 ]
 ```
 
-#### Example 
+#### EXAMPLE 
 
 ```
 (DELETE) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=12ab345c-6789-01d2-e345-6f78ghijk901
@@ -167,11 +167,11 @@ HTTP 200 | Request Successful
 HTTP 400 | Bad Request, VIN is not syntactically correct (17 chars with letters and numbers is the correct syntax) if there was only one VIN requested or global syntax is not correct
 HTTP 401 | Not authorized
 
-## Listing a service subscribers
+## LISTING A SERVICE SUBSCRIBERS
 
 ### `GET baseURL/subscriptions?service={serviceCode}`
 
-#### Example 
+#### EXAMPLE 
 
 ```
 (GET) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=12ab345c-6789-01d2-e345-6f78ghijk901&service=SERVICE_TEST

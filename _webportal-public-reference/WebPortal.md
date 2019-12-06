@@ -1,5 +1,5 @@
 ---
-title: WebPortal
+title: WEBPORTAL
 supported:
   - 2
   - 3
@@ -7,7 +7,7 @@ supported:
 type: class
 ---
 
-#### Overview
+#### OVERVIEW
 
 Provides messages corresponding to events useful for managing your app.
 
@@ -18,7 +18,7 @@ Method | Return Type | Description
 [WebPortal.getPendingNotifications()]({{ site.baseurl }}/webportal/reference/#api-WebPortal-getPendingNotifications) | *Array* | Gets the notifications currently pending.
 [WebPortal.openNativePopup()]({{ site.baseurl }}/webportal/reference/#api-WebPortal-nativePopup-open) | *None* | Request from your application to display a disruptive popup.
 
-#### Messages Summary
+#### MESSAGES SUMMARY
 
 Message Type | Description
 ----|----

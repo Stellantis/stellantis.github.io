@@ -14,7 +14,7 @@ type: api
 | **Response** | *boolean* `True` if focus is on portal, else `False`
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 if (Device.GetHMIFocus() === False) {

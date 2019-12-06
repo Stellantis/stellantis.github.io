@@ -14,7 +14,7 @@ type: api
 | **Response** | *Number* The number corresponding to the theme
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var currentTheme = Device.GetHMITheme()

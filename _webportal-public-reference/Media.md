@@ -1,5 +1,5 @@
 ---
-title: Media
+title: MEDIA
 supported:
   - 2
   - 3
@@ -7,11 +7,11 @@ supported:
 type: class
 ---
 
-#### Overview
+#### OVERVIEW
 
 Provides the methods to interact with the Media player.
 
-#### Methods Summary
+#### METHODS SUMMARY
 
 Method | Response Type | Description
 -----|----|----
@@ -25,7 +25,7 @@ Method | Response Type | Description
 [Media.GetTypeName()]({{ site.baseurl }}/webportal/reference/#api-Media-GetTypeName) | Number | Returns the current media's type.
 [Media.audio.configure()]({{ site.baseurl }}/webportal/reference/#api-Media-Audio-configure) | None | Connects or disconnects an audio source.
 
-#### Events Summary
+#### EVENTS SUMMARY
 
 Event | Description
 ----|----

@@ -68,7 +68,7 @@ margin-bottom: 1.5rem!important;
 #section-title {
     line-height: 1.450;
     margin-bottom: 0;
-    font-size: 5rem;
+    font-size:6rem;
 }
 
 code {
@@ -139,6 +139,10 @@ h1,h2,h3,h4,h5 {
     font-weight: bold;
 }
 
+.bd-lead h1, .bd-lead h2, .bd-lead h3, .bd-lead h4, .bd-lead h5 { 
+    font-weight: 700;
+}
+
 h2 {
     font-weight: 800;
 }
@@ -185,28 +189,45 @@ footer a {
 
 .bd-side,
 .bd-side-background {
-    background-color: #fafafa;
     position: relative;
     flex: 0 0 auto;
     min-width: 15vw;
 }
 
 .bd-side {
-
-    padding: 1.5rem;
-
+    padding-left: 2rem;
+    padding-top: 0;
 }
 
 .bd-duo {
     display: flex;
 }
 
+#pageTitle {
+    color: white;
+    font-size: 3rem;
+    line-height: 2.25rem;
+    text-transform: uppercase;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    
+}
+
 .tabs{
-    background: white
+    background: white;
+}
+
+.bd-anchor-link {
+    color: white !important;
 }
 
 .tabs a{
-    padding: 1.2rem 1rem 0.85rem 1rem;
+    padding: 1.4rem 1rem 1.1rem 1rem;
+    font-weight: 500;
+    color:rgb(54, 54, 54);
+    text-transform: uppercase;
 }
 
 .bd-lead {
@@ -222,8 +243,17 @@ footer a {
     top: 0;
 }
 
+#anchors hr {
+    background-color: #4e4553;
+    border: none;
+    display: block;
+    height: 1px;
+    margin: 1.15rem 0;
+}
+
 .bd-anchors-list a {
-    color: #363636;
+    color: white;
+    font-size: 0.9rem;
 }
 
 .bd-anchors-list li.is-current a, .bd-category-list li.is-current a {
@@ -234,6 +264,27 @@ footer a {
     color: #b5b5b5;
 }
 
+
+#anchors {
+    flex: 0 0 auto;
+    max-width: 34vw;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.bd-anchors-title {
+    margin-top:1.09rem;
+    color: white;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+.bd-anchor-link {
+    color: #4a4a4a;
+}
 
 .hero h2.title {
 
@@ -304,20 +355,7 @@ section nav {
     box-shadow: 0 0px 0px rgba(10, 10, 10, 0);
 }
 
-#anchors {
-    flex: 0 0 auto;
-    max-width: 34vw;
-    max-height: 100vh;
-    overflow-y: auto;
-}
 
-.bd-anchors-title {
-    color: #cc5959;
-}
-
-.bd-anchor-link {
-    color: #3273dc00;
-}
 
 
 .navbar-brand{
@@ -390,6 +428,19 @@ html{
     padding: 1rem;
 }
 
+.psaScroler {
+        overflow-y: scroll;
+        overflow-x: scroll;
+        scrollbar-color: #b5b5b5 #1e2336;
+        scrollbar-width: thin;
+        
+}
+
+.level{
+    border-top: 1px solid rgb(187, 187, 187);
+    padding-top: 1.3rem;
+    margin-top: 4rem;
+}
 
 @media screen and (max-width: 600px) {
   aside{display: none;
@@ -401,11 +452,6 @@ html{
     }
 }
 
-@media screen and (max-width: 698px) {
-    #section-title{
-        font-size: 4rem ;
-    }
-}
 
 @media screen and (max-width: 576px) {
     #section-title{
@@ -465,6 +511,13 @@ html{
     #lunrsearch {
         width: 100%;
         padding: 0.5rem;
+    }
+    #pageTitle{
+        margin-left: 0.7rem; 
+        font-size: 2rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+
     }
 
     

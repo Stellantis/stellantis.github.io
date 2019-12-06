@@ -7,7 +7,7 @@ type: event
 ---
 Event triggered when a route launched via `Navigation.LaunchGuidance` or `Navigation.LaunchGuidanceWaypoints` has reached the destination.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try{	

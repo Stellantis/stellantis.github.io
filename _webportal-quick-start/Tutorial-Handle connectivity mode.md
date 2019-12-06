@@ -2,7 +2,7 @@
 type: quick start
 ---
 
-# Connectivity mode
+# CONNECTIVITY MODE
 
 It is important to handle changes in the connectivity mode in order to inform the user of any connectivity issue or even to change the behaviour of your application.
 

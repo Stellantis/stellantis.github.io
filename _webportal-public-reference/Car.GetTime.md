@@ -13,7 +13,7 @@ type: api
 | **Response** | *Boolean*  `True` if the time values were synchronized correctly, else `False`.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 //If the user goes from one time zone to another the Time.GetTime function will update all time values
@@ -32,7 +32,7 @@ Car.Time.Minutes()
 Car.Time.OffsetUTC()
 ```
 	
-#### Remark
+#### REMARK
 
 >**Note :** `Car.GetTime` should always be called before reading time values to make sure all the values are synchronized.
 

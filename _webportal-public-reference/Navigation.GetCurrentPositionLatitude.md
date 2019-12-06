@@ -15,14 +15,14 @@ privacy: Public
 | **Response** | *Number*  Current position's latitude as WGS Signed Decimal Degrees.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var CurrentLatitude = Navigation.GetCurrentPositionLatitude();
 // CurrentLatitude = 48.866669
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** The returned latitude's length < 11 characters.
 

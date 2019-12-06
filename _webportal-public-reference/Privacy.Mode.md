@@ -13,7 +13,7 @@ type: api
 | **Response** | *String*  Current privacy mode.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 If (Privacy.Mode() === "Private" || Privacy.Mode() === "Geoloc" ) {
@@ -24,7 +24,7 @@ If (Privacy.Mode() === "Private" || Privacy.Mode() === "Geoloc" ) {
 }
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** 3 values are possible :
 

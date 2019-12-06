@@ -14,7 +14,7 @@ type: api
 | **Response** | *Boolean*  `True` if the speed is higher than 5km/h (default value), else `False`.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 if (Car.GetDrivingState() == false) {
@@ -24,7 +24,7 @@ if (Car.GetDrivingState() == false) {
 }
 ```
 	
-#### Remark
+#### REMARK
 
 >**Note :** The 5km/h limit to delimit the driving states can be changed by diagnostic.
 

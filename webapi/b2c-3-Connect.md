@@ -5,12 +5,12 @@ section: webapib2c
 title: Connect
 ---
 
-# 1. Access token
+# 1. ACCESS TOKEN
 
 Groupe PSA's WEB API for end-users use authentication based on OAuth2. 
 The process to connect to the API require that you get an access token in exchange of you login and password.
 
-## Request
+## REQUEST
 
 <div class="tags has-addons">
     <span class="tag_endpoint_large tag is-info"> API URL</span>
@@ -36,11 +36,11 @@ $ curl \
 
 Type|Name|Value|Description|Required
 -|-|-|-|-
+Path param |`{brand.tld}`|`<brand.tld>`|Depend on the vehicle brand.|Yes
 Query param |`grant_type`|`password`| Use OAuth2 password method. |Yes
 Query param |`password`|`<password>`| Client secret of your application. |Yes
 Query param |`username`|`<username>`| Client id of your application. |Yes
 Query param |`scope`|`profile%20openid`| Scope is profile openID. |Yes
-Path param |{brand.tld}|`<brand.tld>`|Depend on the vehicle brand.|Yes
 Header | `realm`|`<realm>`| Realm of the brand.
 Header|`authorization`|`Basic <client_id:client_secret> `|Indicate that authentication is Basic Auth and *&lt;BASIC_AUTH&gt;* is *client_id:client_secret* of your application encoded Base64.  |Yes
 Header|`content-type`|`application/x-www-form-urlencoded`| Indicate content-type of your submited ressource. |Yes
@@ -52,7 +52,7 @@ Header|`content-type`|`application/x-www-form-urlencoded`| Indicate content-type
 - Opel: `clientsB2COpel`
 - Vauxhall: `clientsB2CVauxhall`
 
-## Response
+## RESPONSE
 
 Here is the description of the JSON response:
 
@@ -78,11 +78,11 @@ Name|Value|Description
 } 
 ```
 
-# 2. Connection example
+# 2. CONNECTION EXAMPLE
 
 Once you get your token, you can request the API with it.
 
-## Request
+## REQUEST
 
 <div class="tags has-addons">
     <span class="tag_endpoint_large tag is-info"> API BaseURL</span>
@@ -105,7 +105,7 @@ Header | `x-introspect-realm:`|`<realm>`| Realm of the brand.
 - Opel: `clientsB2COpel`
 - Vauxhall: `clientsB2CVauxhall`
 
-## Response
+## RESPONSE
 
 ```json
 {

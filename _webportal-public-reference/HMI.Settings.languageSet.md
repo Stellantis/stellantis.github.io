@@ -8,7 +8,7 @@ type: event
 ---
 Event triggered when the user changes the language in the settings.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try{// HMI.Settings

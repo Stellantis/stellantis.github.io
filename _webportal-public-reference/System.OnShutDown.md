@@ -11,7 +11,7 @@ Event triggered when the system is being shut down.
 
 >**Note :** This event is triggered 2 seconds before the system is completely shut down.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try{

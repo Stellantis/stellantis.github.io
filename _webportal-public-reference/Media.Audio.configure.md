@@ -18,7 +18,7 @@ Parameter | Type | Description | Required
 `Type` | *String* | The player to configure, 31 characters max Possible values : - MEDIA_PLAYER_SOURCE, - TEMPORARY_SOURCE | Required
 `Sound_State` | *String* | To activate or deactivate sound, 8 characters max Possible values : - Active, - Inactive | Required
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 // Wait for the browser to fully load

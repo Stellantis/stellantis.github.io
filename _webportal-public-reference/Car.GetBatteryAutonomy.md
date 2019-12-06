@@ -12,14 +12,14 @@ type: api
 | **Response** | *Number*  Remaining battery autonomy.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var Batteryautonomy = Car.GetBatteryAutonomy();
 // Batteryautonomy = 1000 km
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** The Battery autonomy's max length is 4 characters.
 

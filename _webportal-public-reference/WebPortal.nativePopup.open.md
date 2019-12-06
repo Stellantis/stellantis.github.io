@@ -14,7 +14,7 @@ privacy: Full
 |**Type**| `postMessage` command. See [implementation tutorial]({{site.baseur}}/webportal/quick-start/#listening-to-webportal-messages) |
 | **Parameter** | *None* |
 
-### See Also
+### SEE ALSO
 
 - Full implementation [example]({{site.baseurl}}/webportal/reference/#open-native-popup-from-app)
 - Event: [OK button](#event-WebPortal-nativePopup-evt-ok)
@@ -24,13 +24,13 @@ privacy: Full
 <a class="button is-success is-rounded" href="{{site.baseurl}}/assets/downloads/nativePopup-example.html" download="">Download Implementation Example</a>
 
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 WebPortal.openNativePopup("Do you wish to continue?")
 ```
 
-#### Important
+#### IMPORTANT
 
 >**Caution :** Popups (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) must not be asked more often than once every 20 seconds.
 

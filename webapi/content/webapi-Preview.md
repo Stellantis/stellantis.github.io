@@ -1,8 +1,8 @@
-# What does it's look like ?
+# WHAT DOES IT'S LOOK LIKE?
 
 Our REST api returns type MIME: **application/hal+json**. GeoJson is for geolocalisation and time format is RFC3339.
 
-## Requests
+## REQUEST
 
 The Groupe PSA's Web APIs are based on **REST** principles. Data resources are accessed via standard **HTTPS requests in UTF-8 format** to an API endpoint. Moreover, the Web API uses appropriate HTTP verbs for each action:
 
@@ -34,7 +34,7 @@ The Groupe PSA's Web APIs are based on **REST** principles. Data resources are a
   </tbody>
 </table>
 
-## Responses
+## RESPONSE
 
 |Response Code| Meaning|
 |----|----|
@@ -44,7 +44,7 @@ The Groupe PSA's Web APIs are based on **REST** principles. Data resources are a
 |`404`| Data not found. Can be that there is no data for this specific vehicle or a typo on the URL |
 |`500`| Internal server error. Sounds like there's a problem on the server. Take it easy, we're on it ;)|
 
-### Single object
+## SINGLE OBJECT
 
 When you call a ressource with an id you will retrieve a single object. Every ressource wich respond with a single object respect the following generic schema:
 
@@ -74,7 +74,7 @@ When you call a ressource with an id you will retrieve a single object. Every re
 |`updatedAt`|	date| Last update date|
 |`_embedded`|	object|	This property contains commonly related objects to the current object. It can be empty.|
 
-### Collection
+## COLLECTION
 
 When you call an api with a plural noun you will receive an array of objects. Every ressource which responds with a list of object respect the following generic schema.
 
@@ -155,7 +155,7 @@ When you call an api with a plural noun you will receive an array of objects. Ev
 
 
 
-#### Pagination
+## PAGINATION
 Every collections in the API are browsable. Links provided in the response will let you naviguate in the API endpoints like in a website.
 
 First of all, collections comes with a **pagination system**. In your request you can add optional parameters:
@@ -178,7 +178,7 @@ As you can see in the previous example there is a `_links` object at the top of 
 |`total`|	integer|	Total number of elements in the array. Depends on the filters applied to the search.|
 |`_embedded`|	object| This property contains commonly related objects to the current object. |
 
-#### Discover Ressources with HAL
+## DISCOVERING RESSOURCES
 
 Ressources in the API are using HAL for **HATEOAS integration**. It allow interaction inside the api ressources. The purpose is to access and discover the API like you browse a website: navigating from one page to another. Links are nammed with the idea that you can understand easily what they are about.
 
@@ -239,19 +239,19 @@ Furthermore there is a `_links` object embedded in the status object. These link
 - `"vehicles"` :  pointing to the vehicle this status is about.
 
 
-# See Also
+# SEE ALSO
 
 {% if page.section == 'webapib2b' %}
-##### Authentication
+##### AUTHENTICATION
 
 Groupe PSA's web API for fleet owner utilizes mutual authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/webapi/b2b/authentication/) and obtain your own certificate.
 {% elsif page.section == "webapib2c" %}
 
-##### Connect
+##### CONNECT
 
 Groupe PSA's web API for end-users utilizes OAuth2 connection, follow this [link]({{site.baseurl}}/webapi/b2c/connect/) for connection tutorial. {% endif %}
 
 
-##### Monitors
+##### MONITORS
 
 Groupe PSA's web api offer you Big Data features ! Look at {% if page.section == 'webapib2b' %}[Monitors]({{ site.baseurl }}/webapi/b2b/monitor/){% elsif page.section == "webapib2c" %}[Monitors]({{ site.baseurl }}/webapi/b2c/monitor/){% endif %}.

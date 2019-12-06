@@ -10,7 +10,7 @@ type: event
 
 Event triggered when the *timeout* of the [native popup](#api-WebPortal-nativePopup-open) is finish.
 
-### Example
+### EXAMPLE
 
 ```javascript
 window.addEventListener("message", function(event){

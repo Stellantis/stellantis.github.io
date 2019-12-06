@@ -10,7 +10,7 @@ type: event
 
 Event triggered when the *OK* button of the [MQTT popup]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) is clicked.
 
-### Example
+### EXAMPLE
 
 ```javascript
 window.addEventListener("message", function(event){

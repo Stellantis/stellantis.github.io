@@ -9,11 +9,11 @@ title: Best Practice
     &nbsp; Edit Page
 </a>
 
-# Things to keep in mind
+# THINGS TO KEEP IN MIND
 
 WebPortal is based on web technologies however there are some specifities that you need to consider to optimize your app.
 
-## General
+## GENERAL
 
 Your app is sandboxed in an iframe meaning no access to the internet or public networks.
 
@@ -35,12 +35,12 @@ In a popup, to change line within a string you can use **\n**.
 
 Your app is a single page application. It mean that you must have only one html file ('index.html') in your project.
 
-## Date and Time
+## DATE AND TIME
 
 Do not use the methods of the javascript Date class.
 Instead you sould use the [methods from webportal]({{ site.baseurl }}/webportal/reference/#api-Car-Time-GetTime) meant to manipulate those values as they correspond to the current time of the user.
 
-## Loading and using assets
+## LOADING AND USING ASSETS
 
 In order to make the App launch smoother, the app should only signal its ready state, and thus be displayed, when all the assets have already been loaded.
 
@@ -50,7 +50,7 @@ When accessing the assets you delivered with webportal you have to keep in mind 
 
 Keep in mind that RAM is limited when you intend to use assets.
 
-## Using fonts
+## USING FONTS
 
 If no font is specified, the NAC browser will use a font with serif, e.g. Times New Roman.
 
@@ -61,13 +61,13 @@ What is more there are brand-specific fonts:
 - Peugeot (for AP/AC/DS)
 - Peugeot Light (similar to Peugeot but thinner)
 
-## Connection limitation
+## CONNECTION LIMITATION
 
 The data volummetry should be kept to a minimum.
 
 Also keep in mind that if the user has an ATB, their connection is limited to 3G speeds.
 
-## Using Cache
+## USING CACHE
 
 To be able to deliver your content faster, you should cache files you will reuse multiple times.
 This cache limit is 20MB.
@@ -90,7 +90,7 @@ Calls between each cached api should wait at least 50 miliseconds.
 
 All other apis should respect an interval of at least 500 miliseconds between each call.
 
-## Testing phase
+## TESTING PHASE
 
 When testing your app, in order to know the version of the webportal you can check the first digit in the system parameters as it corresponds to the wave of the system.
 

@@ -1,5 +1,5 @@
 ---
-title: Connectivity
+title: CONNECTIVITY
 
 supported:
   - 2
@@ -8,11 +8,11 @@ supported:
 type: class
 ---
 
-#### Overview
+#### OVERVIEW
 
 Provides the methods to manage connectivity events.
 
-#### Events Summary
+#### EVENTS SUMMARY
 
 Event | Description
 ----|----

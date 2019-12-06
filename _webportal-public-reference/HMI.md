@@ -8,11 +8,11 @@ type: class
 ---
 
 
-#### Overview
+#### OVERVIEW
 
 Provides the methods to manage the HMI.
 
-#### Events Summary
+#### EVENTS SUMMARY
 
 Event | Description
 ----|----

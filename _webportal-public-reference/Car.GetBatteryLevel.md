@@ -12,7 +12,7 @@ type: api
 | **Response** | *Number*  Remaining battery percentage.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var BatteryLevel = Car.GetLevel();

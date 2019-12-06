@@ -2,11 +2,11 @@
 type: quick start
 ---
 
-# Listening to WebPortal messages
+# LISTENING TO WEBPORTAL MESSAGES
 
 The WebPortal will forward events to your application in order to be informed about the current state of both the App and the Portal.
 
-### Structure of a WebPortal message
+### STRUCTURE OF A WEBPORTAL MESSAGE
 ```javascript
 {
 	/**
@@ -22,7 +22,7 @@ The WebPortal will forward events to your application in order to be informed ab
 }
 ```
 
-### Handling the event messages
+### HANDLING THE EVENT MESSAGES
 
 To deal with these events you will need to implement *event listeners* and call the functions you need in each case.
 Below is an example on how to manage them.

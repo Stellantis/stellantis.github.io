@@ -38,9 +38,10 @@ $ curl \
   --cert 'path/to/client_cert.pem[:<cert_password>]'
   --key 'path/to/key.pem'
   --cacert 'path/to/ca_cert.pem'
-  --header 'authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' \
-  --header 'accept: application/hal+json' \
-{% if include.httpVerb == 'POST','PUT' %}  --header 'content-type: application/json' \
+  --header 'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' \
+{% if include.apiEndpoint contains 'lastPosition' %}  --header 'Accept: application/vnd.geo+json' \
+{% else %}  --header 'Accept: application/hal+json' \ {% endif %}
+{% if include.httpVerb == 'POST','PUT' %}  --header 'Content-type: application/json' \
   --data '<http_body>' \
 ```
 
@@ -54,7 +55,6 @@ Where **&lt;http_body&gt;** is:
 {% else %}```
 {% endif %}
 
-
 {% elsif page.section == "webapib2c" %}
     
 ```shell
@@ -63,8 +63,9 @@ $ curl \
   --url '{{site.webapiB2CPreProd}}{{include.apiEndpoint}}?client_id=<client_id>{{include.queryParam}}' \
   --header 'Authorization: Bearer <access_token>' \
   --header 'x-introspect-realm: <realm>' 
-  --header 'accept: application/hal+json' \
-{% if include.httpVerb == 'POST','PUT' %}  --header 'content-type: application/json' \
+{% if include.apiEndpoint contains 'lastPosition' %}  --header 'Accept: application/vnd.geo+json' \
+{% else %}  --header 'Accept: application/hal+json' \ {% endif %}
+{% if include.httpVerb == 'POST','PUT' %}  --header 'Content-type: application/json' \
   --data '<http_body>' \
 ```
 

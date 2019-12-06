@@ -1,51 +1,58 @@
 <p>
-  <div class="bd-content">
-    <div class="notification">
-      <strong>PSA 4 developers community&nbsp;{{channelName}}</strong>
-      <br>This community is a place for anyone who use or create {% if channelName %}{{channelName}}{% else %}Groupe
-      PSA{% endif %} tools for
-      developers. Here you can get in touch with peoples who develop & design this API! This channel is the
-      right place for everything about
-      {{channelName}} like asking for support, share your knowledge, report bugs...
-      <br> <br> If you already have a Yammer account, click "connexion" button.
-      <br> If you don't, click the "sign up" button, we will invite you to the community.
-      <br>Link to full community website: <a href="https://www.yammer.com/pg4dscommunity/">
-        yammer.com/pg4dscommunity/</a>.
+    <div class="bd-content">
+        <div class="notification">
+            <strong>PSA 4 developers community&nbsp;{{channelName}}</strong>
+            <br>This community is a place for anyone who use or create
+            {% if channelName %}
+                {{channelName}}{% else %}Groupe
+                      PSA
+            {% endif %}
+            tools for
+                  developers. Here you can get in touch with peoples who develop & design this API! This channel is the
+                  right place for everything about
+            {{channelName}}
+            like asking for support, share your knowledge, report bugs...
+            <br>
+            <br>
+            If you already have a Yammer account, click "connexion" button.
+            <br>
+            If you don't, click the "sign up" button, we will invite you to the community.
+            <br>Link to full community website:
+            <a href="https://www.yammer.com/pg4dscommunity/">
+                yammer.com/pg4dscommunity/</a>.
+        </div>
     </div>
-  </div>
 </p>
 <p>
-  <a href="https://www.yammer.com/pg4dscommunity/" class="tag is-dark is-medium" target="_blank"
-    style="background: green"><span class="icon is-large  is-white">
-      <i class="fas fa-user-plus">
-      </i></span>
-    Sign Up
-  </a>
+    <a class="tag is-dark is-medium" href="https://www.yammer.com/pg4dscommunity/" style="background: green" target="_blank">
+        <span class="icon is-large  is-white">
+            <i class="fas fa-user-plus"></i>
+        </span>
+        Sign Up
+    </a>
 
-  <a href="#embedded-feed" class="tag is-dark is-medium is-pulled-right" onclick="yammerFullscreen()"
-    style="background: #1e2336">
-    <span class="icon is-large  is-white">
-      <i class="fas fa-external-link-square-alt"></i>
-    </span>
-    Fullscreen
-  </a>
+    <a class="tag is-dark is-medium is-pulled-right" href="#embedded-feed" onclick="yammerFullscreen()" style="background: #1e2336">
+        <span class="icon is-large  is-white">
+            <i class="fas fa-external-link-square-alt"></i>
+        </span>
+        Fullscreen
+    </a>
 </p>
 
 <div id="embedded-feed" style="height:85vh"></div>
-<script type="text/javascript" src="https://s0-azure.assets-yammer.com/assets/platform_embed.js"></script>
+<script src="https://s0-azure.assets-yammer.com/assets/platform_embed.js" type="text/javascript"></script>
 <script type="text/javascript">
-  yam.connect.embedFeed({
-    "config": {
-      "use_sso": false,
-      "footer": false,
-      "showOpenGraphPreview": false,
-      "defaultToCanonical": false,
-      "hideNetworkName": false,
-      "theme": "dark"
-    },
-    container: "#embedded-feed",
-    network: "pg4dscommunity",
-    feedType: "group",
-    feedId: "{{feedId}}"
-  });
+    yam.connect.embedFeed({
+        "config": {
+            "use_sso": false,
+            "footer": false,
+            "showOpenGraphPreview": false,
+            "defaultToCanonical": false,
+            "hideNetworkName": false
+        },
+        container: "#embedded-feed",
+        network: "pg4dscommunity",
+        feedType: "group",
+        feedId: "{{ feedId }}"
+    });
 </script>

@@ -14,7 +14,7 @@ type: api
 | **Response** | *String*  The currently used radio band.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 //Get the Radio Band
@@ -22,7 +22,7 @@ var RadioBand = Radio.GetBand()
 // RadioBand = "FM"
 ```
 
-#### Remark
+#### REMARK
 
 The possible values for the radio band are the following strings:
 - FM HD

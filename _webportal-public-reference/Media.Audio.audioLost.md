@@ -9,7 +9,7 @@ type: event
 ---
 Event triggered when the audio source is disconnected.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try{

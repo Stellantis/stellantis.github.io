@@ -1,5 +1,5 @@
 ---
-title: Car
+title: CAR
 supported:
   - 2
   - 3
@@ -7,11 +7,11 @@ supported:
 type: class
 ---
 
-#### Overview
+#### OVERVIEW
 
 Provides the methods to manage informations about the vehicle.
 
-#### Methods Summary
+#### METHODS SUMMARY
 
 Method | Response Type | Description
 -----|----|----
@@ -30,7 +30,7 @@ Method | Response Type | Description
 [Car.GetMileage()]({{ site.baseurl }}/webportal/reference/#api-Car-GetMileage) | Number | Gets current mileage.
 [Car.GetDayNightStatus()]({{ site.baseurl }}/webportal/reference/#api-Car-GetDayNightStatus) | Integer | Returns if the portal should use the day or night theme.
 
-#### Events Summary
+#### EVENTS SUMMARY
 
 Event | Description
 ----|----

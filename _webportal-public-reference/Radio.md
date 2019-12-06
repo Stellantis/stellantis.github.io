@@ -1,5 +1,5 @@
 ---
-title: Radio
+title: RADIO
 supported:
   - 2
   - 3
@@ -7,11 +7,11 @@ supported:
 type: class
 ---
 
-#### Overview
+#### OVERVIEW
 
 Provides the methods to manage the Radio system.
 
-#### Methods Summary
+#### METHODS SUMMARY
 
 Method | Response Type | Description
 -----|----|----

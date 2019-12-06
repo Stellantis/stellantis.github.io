@@ -8,7 +8,7 @@ type: event
 ---
 Event triggered when the Geolocalisation privacy mode is selected.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try {

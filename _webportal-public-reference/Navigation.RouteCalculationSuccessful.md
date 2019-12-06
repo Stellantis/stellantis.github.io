@@ -8,7 +8,7 @@ type: event
 ---
 Event triggered when the calculation of the itinerary ended without any error.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try{	

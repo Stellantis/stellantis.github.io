@@ -2,7 +2,7 @@
 type: tutorial advanced
 ---
 
-# Receiving notification messages from your server
+# RECEIVING NOTIFICATION MESSAGES FROM YOUR SERVER
 
 Receiving notification messages is very similar to Receiving data messages, the only difference being the presence of the property `popupAction` that indicates the action type corresponding to the notification message.
 
@@ -28,7 +28,7 @@ Receiving notification messages is very similar to Receiving data messages, the 
 
 ```
 
-#### Handling messages
+#### HANDLING MESSAGES
 
 ```javascript
 window.addEventListener('message', function(messageEvent) {
@@ -54,7 +54,7 @@ function handleServerMessage(mqttMessagePayload) {
 }
 ```
 
-#### Possible values for *popupAction*
+#### POSSIBLE VALUES FOR *popupAction*
 
 Type | Triggered by
 ----|----

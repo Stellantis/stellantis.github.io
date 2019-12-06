@@ -3,7 +3,7 @@ type: quick start
 ---
 
 
-# Information available using the API
+# INFORMATION AVAILABLE USING THE API
 
 The API will allow you to do the following :
 
@@ -19,7 +19,7 @@ The API will allow you to do the following :
 - `System` : Settings action reserved to administrative use
 - `Webportal` : All the events associated to user interaction or due to server
 
-# Getting Started
+# GETTING STARTED
 
 You will need to contact [PSA Team](mailto:connectedcar@mpsa.com) in order to become a partner and deploy your apps on the Webportal so you should start by doing so.
 The team will also be able to help you with questions you might have.
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 ```
 
-##  Structure to submit Application
+## STRUCTURE TO SUBMIT APPLICATION
 
 <img src="{{site.baseurl}}/assets/images/the_structure.png" class="smallimg" />
 

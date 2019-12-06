@@ -13,7 +13,7 @@ type: api
 | **Response** | *String* Radio text.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 // Get the Radio text

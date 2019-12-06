@@ -17,7 +17,7 @@ Parameter | Type | Description | Required
 ----|----|----|----
 `phoneNumber` | String | The phone number to be called, Should be comprised of only Digits and have a length < 16 characters. | Required
 
-#### Example
+#### EXAMPLE
 
 The following example tries to call a phone number and then reacts acordingly to the outcome.
 
@@ -32,7 +32,7 @@ if (Phone.LaunchPhoneCall(PhoneNumber) === False) {
 }
 ```
 
-#### Known issues
+#### KNOWN ISSUES
 
 > The returned value does not represent the fact that the phone is present nor that the call was actually initiated.Indeed *True* might be returned even though the phone appaired by bluetooth doesn't have a Hands Free Profile.
 

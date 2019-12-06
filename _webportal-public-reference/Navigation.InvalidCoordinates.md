@@ -8,7 +8,7 @@ type: event
 ---
 Event triggered when at least one of the coordinates used with `Navigation.LaunchGuidance` is invalid, due to : Type, size...
 
-### Example
+### EXAMPLE
 
 ```javascript
 try{	

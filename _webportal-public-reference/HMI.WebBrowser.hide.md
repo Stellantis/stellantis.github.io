@@ -8,7 +8,7 @@ type: event
 ---
 Event triggered when focus is not on WebPortal.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try {

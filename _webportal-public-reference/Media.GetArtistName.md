@@ -14,7 +14,7 @@ type: api
 | **Response** | *String*  The current artist's name < 255 characters.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 //Check the state of the media

@@ -14,7 +14,7 @@ type: api
 | **Response** | *String*  The fuel unit, Possible values are : - l, - gal
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 if (Car.GetFuelUnit() === 'l') {

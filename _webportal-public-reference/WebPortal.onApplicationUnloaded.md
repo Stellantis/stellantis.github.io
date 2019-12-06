@@ -10,7 +10,7 @@ type: event
 
 Event triggered when the application is unloaded.
 
-### Example
+### EXAMPLE
 
 ```javascript
 window.addEventListener("message", function(event){

@@ -9,7 +9,7 @@ type: event
 ---
 Event triggered when the audio source is connected.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try{

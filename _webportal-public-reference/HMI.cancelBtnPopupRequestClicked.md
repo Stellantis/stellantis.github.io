@@ -9,7 +9,7 @@ type: event
 ---
 Event triggered when the *Cancel* button is clicked on the HMI popup request.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try {

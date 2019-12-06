@@ -14,7 +14,7 @@ type: api
 | **Response** | `String`  The language in the following format : "en-GB".
 | **Parameter**   | Void 
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var userLanguage = WebPortal.getLanguage()

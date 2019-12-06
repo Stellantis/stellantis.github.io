@@ -1,5 +1,5 @@
 ---
-title: Phone
+title: PHONE
 supported:
   - 2
   - 3
@@ -7,11 +7,11 @@ supported:
 type: class
 ---
 
-#### Overview
+#### OVERVIEW
 
 Provides the methods to manage the phone connected through Hands-Free profile.
 
-#### Methods Summary
+#### METHODS SUMMARY
 
 Method | Response Type | Description
 -----|----|----

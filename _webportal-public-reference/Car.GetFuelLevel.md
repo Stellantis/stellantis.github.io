@@ -14,7 +14,7 @@ type: api
 | **Response** | *Number*  The fuel level of the car in percentage.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var fuelLevel = Car.GetFuelLevel()

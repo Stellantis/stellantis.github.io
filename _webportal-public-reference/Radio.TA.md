@@ -13,7 +13,7 @@ type: api
 | **Response** | *boolean*  Traffic announcement.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 // Get the Radio TA

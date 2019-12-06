@@ -14,7 +14,7 @@ type: api
 | **Response** | *Boolean*  `True` if the connection is up, else `False`.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var Myvar = setInterval(MyFunction,  30000);

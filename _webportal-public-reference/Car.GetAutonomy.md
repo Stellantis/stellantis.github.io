@@ -13,7 +13,7 @@ type:
 | **Response** | `Number`   Remaining autonomy in km.   |
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var CarAutonomy = Car.GetAutonomy();

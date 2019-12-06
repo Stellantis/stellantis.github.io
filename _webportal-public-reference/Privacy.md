@@ -1,22 +1,22 @@
 ---
-title: Privacy
+title: PRIVACY
 supported:
   - 3
   - 4
 type: class
 ---
 
-#### Overview
+#### EXAMPLE
 
 Provides the methods to manage information about the privacy settings.
 
-#### Methods Summary
+#### METHODS SUMMARY
 
 Method | Response Type | Description
 -----|----|----
 [Privacy.Mode()]({{ site.baseurl }}/webportal/reference/#api-Privacy-Mode) | String | Get the privacy mode
 
-#### Messages Summary
+#### MESSAGE SUMMARY
 
 Message Type | Description
 ----|----

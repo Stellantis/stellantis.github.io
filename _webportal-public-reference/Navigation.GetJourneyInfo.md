@@ -15,7 +15,7 @@ privacy: Public
 | **Response** | *Boolean*  `True` if the value is now correctly stored in `Navigation.JourneyInfo`, else `False` if the process failed.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 if ( Navigation.GetJourneyInfo() === false ) {
@@ -26,7 +26,7 @@ if ( Navigation.GetJourneyInfo() === false ) {
 }
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** `Navigation.GetJourneyInfo` must always be used before accessing the value stored in `Navigation.ManeuverInfo`.
 

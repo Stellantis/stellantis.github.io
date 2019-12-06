@@ -102,6 +102,9 @@
   .tags .tag {
     margin-bottom: 0rem;
   }
+  .tag:not(body).is-white {
+    color: rgb(74, 74, 74);
+  }
 
   .colortags {
     border-radius: 4px;
@@ -199,19 +202,19 @@
   }
 
   @keyframes payAttention {
-  50% {
+  20% {
     transform: initial
   }
-  53% {
+  23% {
     transform: scale(1.05)
   }
-  56% {
+  26% {
     transform: scale(.94)
   }
-  59% {
+  29% {
     transform: scale(1.05)
   }
-  62% {
+  32% {
     transform: initial
   }
 }
@@ -224,8 +227,8 @@
 <div class="container">
   <div class="bd-lead">
     <div class="bd-content container">
-      <div class="content" style="margin-top: 1.5rem;">
-        <h1 class="subtitle is-1" id="demo">Try it out!</h1>
+      <div class="content">
+        <p style="font-size: 1.6rem;">Click on the APIs buttons and retrieve related infos 👇 </p>
 
         <!-- status api BUTTON COLOR-->
         <a class="colortags tags has-addons " onclick="fetchStatus()" id="buttonStatusColor">
@@ -312,7 +315,7 @@
           <div class="column box" id="map">
           </div>
         </div><!-- columns -->
-         <a id="readDocButton" href="{{site.baseurl}}/webapi/" class="is-psablue button is-rounded is-large is-fullwidth">        <span class="icon is-large is-white">
+         <a id="readDocButton" href="{{site.baseurl}}/webapi/"  class="is-psablue button is-rounded is-large is-fullwidth">        <span class="icon is-large is-white">
             <i class="fas fa-book"></i>
         </span>&nbsp; &nbsp; &nbsp;Read the doc</a>
           </a>

@@ -11,7 +11,7 @@ type: api
 | **Response** | *Integer*  0 for day, 1 for night.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 // It's noon

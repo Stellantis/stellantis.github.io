@@ -1,6 +1,6 @@
 <nav aria-label="main navigation" class="navbar is-dark container" id="navbarpsa" role="navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="{{ '#discover' | relative_url }}">
+        <a class="navbar-item" href="{{site.baseurl}}">
             <img id="logoPG4D" src="{{site.baseurl}}/assets/images/logo-PG4D.png"></img>
       </a>
       <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
@@ -36,13 +36,12 @@
         </a>
         <!-- MOBILE -->
 
-        <a class="textnavbar navbar-item menu" href="{{site.baseurl}}/mobile-sdk/">
+        <a class="textnavbar navbar-item menu" href="{{ site.baseurl }}/mobile-sdk/">
             <span class="icon is-large  is-white">
                     <i class="fas fa-mobile"></i>
             </span>
             MOBILE SDK
         </a>
-
         <!-- HELP -->
         <div class="navbar-item menu has-dropdown is-hoverable">
             <a href="{{site.baseurl}}/community/" class="textnavbar navbar-link">
@@ -66,6 +65,9 @@
         <div class="navbar-end" style="color: darkgrey; text-shadow: none">
 
                 <div class="textnavbar navbar-item menu" href="{{ site.baseurl }}/webportal/" style="text-shadow: none">
+                  <!-- <span class="icon is-large  is-white">
+                    <i class="fas fa-search"></i>
+                </span>   -->
                 {% include search-lunr.html %}
               </div>
 
