@@ -1,5 +1,5 @@
 ---
-title: System
+title: SYSTEM
 supported:
   - 2
   - 3
@@ -7,11 +7,11 @@ supported:
 type: class
 ---
 
-#### Overview
+#### OVERVIEW
 
 Provides the methods to manage system events.
 
-#### Events Summary
+#### EVENTS SUMMARY
 
 Event | Description
 ----|----

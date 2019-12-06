@@ -9,7 +9,7 @@ type: event
 
 Event triggered when the distance unit is changed.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try {

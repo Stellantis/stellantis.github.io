@@ -1,4 +1,4 @@
-# Monitor
+# MONITOR
 Throught Groupe PSA's B2B APIs you can access and browse data about your fleet of vehicle.
 But moreover APIs allow you to set-up your own **events** about your fleet.
 Monitor are an easy way to design events tracking patterns for one or multpile vehicles.
@@ -14,7 +14,7 @@ Monitor are an easy way to design events tracking patterns for one or multpile v
 - **Time+Zone Trigger**: Time AND zone condition (ex: leaving Paris during night time).
 - **Data Trigger**: Various data could also be tracked like autonomy left or engine oil temperature increasing too much.
 
-# How it work?
+# HOW DOES IT WORK?
 
 ![monitorSystem]({{site.baseurl}}/assets/images/monitorSystem.png)
 
@@ -27,11 +27,11 @@ If your service is unavailable you can ask us to retry a specific number of time
 
 ![monitorSequence]({{site.baseurl}}/assets/images/monitorSequence.png)
 
-# Create Monitor
+# CREATE MONITOR
 
-## Request
+## REQUEST
 
-### Event triggering
+### EVENT TRIGGERRING
 First of all, you have to choose and configure the triggering policy:
 
 - **Zone Triggering**: The monitor will be trigered with an area condition, it could be leaving or entering somewhere.
@@ -41,7 +41,7 @@ First of all, you have to choose and configure the triggering policy:
 
 > Be carefull: one monitor is for one fleet and one rule. Indeed you can creat multpile monitors.
 
-### Callback configuration
+### CALLBACK CONFIG
 Then it's important to configure the HTTP callback to your webhook.
 Pay particular attention to the description of the models, they explain how to configure the callback:
 
@@ -254,7 +254,7 @@ This request ask to **create** an "IDF MPH Zone monitor With Data Triggering:[ve
 This request ask to **create** an heatwave monitor.
 - It's **triggered** inside the city of Paris, if the temperature is greater than 30°C.
 
-## Response
+## RESPONSE
 
 ```json 
 {
@@ -265,7 +265,7 @@ This request ask to **create** an heatwave monitor.
 
 The monitor have been **created** with id=c7eeaafdf0ab9683d5a1b8d51572014996540m0021.
 
-## Webhook template
+## WEBHOOK TEMPLATE
 
 What we offer with monitor is a simple way to process large amount of vehicle data. Althought you have to develop on your side a **dedicated webhook** able to receive our alerts.
 
@@ -304,16 +304,16 @@ The Endpoint of your webhook must be the same as the one specified in when you c
     }
 </script>
 
-##### Preview
+##### PREVIEW
 
 Want to see what it's look like ? Browse our {% if page.section == 'webapib2b' %}[Preview]({{site.baseurl}}/webapi/b2b/preview/){% elsif page.section == "webapib2c" %}[Preview]({{site.baseurl}}/webapi/b2c/preview/){% endif %}.
 
 {% if page.section == 'webapib2b' %}
 
-##### Authentication
+##### AUTHENTICATION
 
 Groupe PSA's web API for fleet owner utilizes mutual authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/webapi/b2b/authentication/) and obtain your own certificate.
 {% elsif page.section == "webapib2c" %}
-##### Connect
+##### CONNECT
 
 Groupe PSA's web API for end-users utilizes OAuth2 connection, follow this [link]({{site.baseurl}}/webapi/b2c/connect/) for connection tutorial. {% endif %}

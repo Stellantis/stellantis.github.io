@@ -15,7 +15,7 @@ privacy: Public
 
 `Navigation.Destination` is the object where are stored the informations about the destination after a successful call to `Navigation.GetDestination`.
 
-#### Fields
+#### FIELDS
 
 - `Navigation.Destination.Latitude`, *Number* in WGS84 Signed Decimal Degrees
 
@@ -31,7 +31,7 @@ privacy: Public
 
 - `Navigation.Destination.Country`, *String*
 
-#### Remark
+#### REMARK
 
 >**Note :** `Navigation.GetDestination` must always be used before accessing the value stored in `Navigation.Destination`.
 

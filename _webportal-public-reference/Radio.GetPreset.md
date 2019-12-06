@@ -14,7 +14,7 @@ type: api
 | **Response** | *Number*  If the current frequency matches a saved preset returns the number < 6 corresponding to it, else returns 0.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 if (Radio.GetPreset() === 0) {

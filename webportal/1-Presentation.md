@@ -10,7 +10,7 @@ title: Presentation
     &nbsp; Edit Page
 </a>
 
-# About WebPortal
+# ABOUT WEBPORTAL
 
 ![Image of Main Screen]({{ site.baseurl }}/assets/images/WebPortal_pic.png)
 
@@ -21,7 +21,7 @@ The WebPortal relies on [REST API](https://restfulapi.net/) and [MQTT protocol](
 
 ![WebPortal Schema]({{ site.baseurl }}/assets/images/schema.svg)
 
-# Homescreen
+# HOMESCREEN
 When the system starts, a menu appears where the user can choose to access the Connected Apps:
 
 ![Image of Main Screen]({{ site.baseurl }}/assets/images/Mainscreen_portal.png)
@@ -31,7 +31,7 @@ They then reach the main menu containing the applications they are subscribed to
 ![App Wall]({{ site.baseurl }}/assets/images/AppWall.png)
 
 
-## Screen size
+## SCREEN SIZE
 Usually in-board screen is located on the dashboard of the car between driver and passenger.
 
 There are 3 differents screen resolutions depending on car model and generation.
@@ -58,7 +58,7 @@ Here is actual available screen size: **SD** = 800 x 363 px ; **HD** = 1280 x 58
 **Wide High-Definition**
 ![screen-res-whd]({{site.baseurl }}/assets/images/webportalPresentationScreenWHD.png)
 
-## Important information
+## IMPORTANT INFORMATION
 
 The WebPortal will manage resources for your application to have access to data regarding the Car or the media.
 To start deploying your Application, you have to create the html, css and js files and send them to PSA for validation first.
@@ -73,14 +73,14 @@ Using the provided WebPortal API your App will be able to get informations about
 
 >Some of the functionnalities are restricted and so may require special permission from PSA in order to be used in your application.
 
-## Requirements
+## REQUIREMENTS
 
 Knowledge of :
 - MQTT protocol
 - HTML5 window.postMessage APIs
 - JSON Serialization format
 
-## NAC - Connected Navigation System
+## CONNECTED NAVIGATION SYSTEM
 
 The NAC, from the french "NAvigation Connectée" - Connected Navigation, is the system on which the WebPortal is running.  
 
@@ -95,9 +95,9 @@ based on the upstream trunk subversion revision 153112.
 **NAC wave 4**- using [QtWebKit 5.5.0](http://download.qt.io/archive/qt/5.5/5.5.0/submodules/qtwebkit-opensource-src-5.5.0.tar.gz)  
 based on the upstream trunk subversion revision 153112.
 
-## List of commercialised Software versions
+## SOFTWARE VERSIONS
 
-### Wave 2
+### WAVE 2
 {% assign arrowUp='<span class="icon has-text-success"><i class="fas fa-arrow-up"></i></span>'%}
 {% assign arrowDown='<span class="icon has-text-danger"><i class="fas fa-arrow-down"></i></span>'%}
 {% assign equals='<span class="icon "><i class="fas fa-equals"></i></span>'%}
@@ -116,7 +116,7 @@ SW version	| Percentage of vehicles| Trend of use
 10:62:52	|0,04%	| {{arrowDown}}
 10:65:32	|0,01%	| {{equals}}
 
-### Wave 3
+### WAVE 3
 
 SW version	| Percentage of vehicles | Trend of use
 -|-|-
@@ -127,7 +127,7 @@ SW version	| Percentage of vehicles | Trend of use
 10:41:52|	0,01%	|
 
 
-### Wave 4
+### WAVE 4
 
 SW version	| Percentage of vehicles| Trend of use
 -|-|-
@@ -135,10 +135,10 @@ SW version	| Percentage of vehicles| Trend of use
 40.04.12.42_NAC-r0	| 0,01%	|
 
 
-## Tutorial
+## TUTORIAL
 
 A [Quick Start guide]({{ site.baseurl }}/webportal/quick-start/) is provided to help you get started.
 
-## API Documentation
+## API DOCUMENTATION
 
 The complete API Documentation can be found [here]({{ site.baseurl }}/webportal/reference/).

@@ -14,7 +14,7 @@ type: api
 | **Response** | *String*  The speed unit, Possible values are : - km/h, - mph
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var speedUnit = Device.GetSpeedUnit()

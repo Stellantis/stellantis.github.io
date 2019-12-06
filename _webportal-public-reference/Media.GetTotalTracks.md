@@ -14,7 +14,7 @@ type: api
 | **Response** | *Number*  The total number of tracks < 9999.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 //Check the state of the media

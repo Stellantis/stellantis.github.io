@@ -8,7 +8,7 @@ type: event
 ---
 Event triggered when the calculation of the itinerary was ended abruptly.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try{	

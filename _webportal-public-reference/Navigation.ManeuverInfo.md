@@ -15,7 +15,7 @@ privacy: Public
 
 `Navigation.ManeuverInfo` is the object where are stored the informations about the next maneuver to be done after a successful call to `Navigation.GetManeuverInfo`.
 
-#### Fields
+#### FIELDS
 
 - `Navigation.ManeuverInfo.Latitude`, *Number* in WGS84 Signed Decimal Degrees
 
@@ -31,7 +31,7 @@ privacy: Public
 
 - `Navigation.ManeuverInfo.Country`, *String*
 
-#### Remark
+#### REMARK
 
 >**Note :** `Navigation.GetManeuverInfo` must always be used before accessing the value stored in `Navigation.ManeuverInfo`.
 

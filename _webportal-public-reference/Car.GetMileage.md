@@ -14,7 +14,7 @@ type: api
 | **Response** | *Number*  The mileage of the car in kilometers, length is 9 characters max.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var carMileage = Car.GetMileage()

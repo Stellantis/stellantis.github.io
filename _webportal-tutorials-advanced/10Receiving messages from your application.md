@@ -2,19 +2,19 @@
 type: tutorial advanced
 ---
 
-# Receiving a message from your Application
+# RECEIVING A MESSAGE FROM YOUR APPLICATION
 
-#### What you need
+#### WHAT YOU NEED
 
 - [Being connected to the MQTT Broker]({{ site.baseurl }}/webportal/tutorial-advanced/#connecting-to-the-mqtt-broker)
 
 - Your [MQTT Subscription Topic]({{ site.baseurl }}/webportal/tutorial-advanced/#selecting-your-mqtt-publishing-topic) looking as follows : `psa/OVIPPartners-Dev/to/uid/{UID}/opa/{VIN|#}/` 
 
-### Receiving an Applicative Message
+### RECEIVING AN APPLICATIVE MESSAGE
 
 The Application generates a message that is encapsulated inside the *content* field then sent to the Applicaton server through the PSA Messaging System.
 
-#### Structure of MQTT Message
+#### STRUCTURE OF MQTT MESSAGE
 ```javascript
 {
 	/**
@@ -34,7 +34,7 @@ The Application generates a message that is encapsulated inside the *content* fi
 }
 ```
 
-#### Handling messages
+#### HANDLING MESSAGES
 
 ```javascript
 const mqttSubscribeTopic = `psa/OVIPPartners-Dev/to/uid/${mqttConfig.username}/opa/#`;

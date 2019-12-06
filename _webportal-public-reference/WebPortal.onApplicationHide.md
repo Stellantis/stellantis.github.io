@@ -10,7 +10,7 @@ type: event
 
 Event triggered when the applicaton loses focus.
 
-### Example
+### EXAMPLE
 
 ```javascript
 window.addEventListener("message", function(event){

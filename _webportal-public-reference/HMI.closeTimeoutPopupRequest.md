@@ -9,7 +9,7 @@ type: event
 ---
 Event triggered when no button is clicked on the HMI popup request and the timeout expires.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try {

@@ -9,7 +9,7 @@ type: event
 ---
 Event triggered when the Internet connectivity status changes to `True`.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try{

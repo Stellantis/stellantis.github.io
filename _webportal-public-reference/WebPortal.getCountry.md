@@ -14,7 +14,7 @@ type: api
 | **Response** | `String`  The country's name.
 | **Parameter**   | Void 
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var userCountry = WebPortal.getCountry()

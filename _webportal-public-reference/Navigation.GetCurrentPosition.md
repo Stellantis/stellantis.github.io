@@ -15,7 +15,7 @@ privacy: Public
 | **Response** | *Boolean*  `True` If the value is now correctly stored in `Navigation.CurrentPosition`, else `False` if the process failed.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 if ( Navigation.GetCurrentPosition === false ) {
@@ -29,7 +29,7 @@ if ( Navigation.GetCurrentPosition === false ) {
 }
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** `Navigation.GetCurrentPosition` must always be used before accessing the value stored in `Navigation.CurrentPosition`.
 

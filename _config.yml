@@ -12,12 +12,13 @@ permalink: pretty
 webapiB2CProd: 
 webapiB2CPreProd: "https://api-preprod.groupe-psa.com/connectedcar/v4"
 webapiB2BProd: 
-webapiB2BPreProd: "https://api-cert-preprod.groupe-psa.com/connectedcar/v3"
+webapiB2BPreProd: "https://api-cert-preprod.groupe-psa.com/connectedcar/{version}"
 cvsOAuth2Prod: 
 cvsOAuth2PreProd: "https://idpcvs-preprod.{brand.tld}/am/oauth2/access_token"
 virtualKeyTokenProd: 
 virtualKeyTokenPreProd: "https://api-preprod.groupe-psa.com/connectedcar/v3"
 #End BaseURi
+
 
 theme: jekyll-bulma
 

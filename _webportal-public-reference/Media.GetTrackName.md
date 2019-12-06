@@ -14,7 +14,7 @@ type: api
 | **Response** | *String*  The name of the current track, 32 characters long max.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 //Check the state of the media

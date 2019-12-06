@@ -2,9 +2,9 @@
 type: tutorial advanced
 ---
 
-# Managing Backend
+# MANAGING BACKEND
 
-# Selecting your MQTT Publishing Topic
+# SELECTING YOUR MQTT PUBLISHING TOPIC
 
 To communicate with your application you need to indicate whom to publish your message to.
 

@@ -14,7 +14,7 @@ type: api
 | **Response** | *Number*  Fuel type of the car.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var FuelType = Car.GetFuelType;
@@ -22,7 +22,7 @@ var FuelType = Car.GetFuelType;
 // The car uses Essence
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** The fuel type's length is 2 characters max.
 

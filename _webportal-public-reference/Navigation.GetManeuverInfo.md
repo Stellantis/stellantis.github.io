@@ -15,7 +15,7 @@ privacy: Public
 | **Response** | *Boolean*  `True` if the value is now correctly stored in `Navigation.ManeuverInfo`, else `False` if the process failed.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 if ( Navigation.GetManeuverInfo() === false ) {
@@ -31,7 +31,7 @@ if ( Navigation.GetManeuverInfo() === false ) {
 }
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** `Navigation.GetManeuverInfo` must always be used before accessing the value stored in `Navigation.ManeuverInfo`.
 

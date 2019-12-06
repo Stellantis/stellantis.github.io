@@ -15,14 +15,14 @@ privacy: Geoloc
 | **Response** | *Number*  Speed in km/h
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var Speed = Car.GetSpeed();
 // Speed = 117 km/h
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** The speed's max length is 3 characters.
 

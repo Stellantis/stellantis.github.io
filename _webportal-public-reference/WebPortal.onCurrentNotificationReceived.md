@@ -9,7 +9,7 @@ type: event
 ---
 Event triggered when a notification is received.
 
-### Example
+### EXAMPLE
 
 ```javascript
 window.addEventListener("message", function(event){

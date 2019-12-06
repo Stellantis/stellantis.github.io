@@ -9,7 +9,7 @@ type: event
 ---
 Event triggered when focus is on the WebPortal browser.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try {

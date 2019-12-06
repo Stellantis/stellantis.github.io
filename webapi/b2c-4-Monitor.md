@@ -4,4 +4,4 @@ permalink: /webapi/b2c/monitor/
 section: webapib2c
 title: Monitor
 ---
-# This category will be available soon
+# THIS CATEGORY WILL BE AVAILABLE SOON

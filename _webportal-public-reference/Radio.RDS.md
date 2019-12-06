@@ -12,7 +12,7 @@ type: api
 | **Response** | *boolean*  RDS support.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 // Get the Radio RDS 

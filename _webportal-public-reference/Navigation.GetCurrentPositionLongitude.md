@@ -15,14 +15,14 @@ privacy: Public
 | **Response** | *Number*  Current position's longitude as WGS84 Signed Decimal Degrees.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var CurrentLongitude = Navigation.GetCurrentPositionLongitude();
 // CurrentLongitude = 2.333333
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** The returned longitude's length < 11 characters.
 

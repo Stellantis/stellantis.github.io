@@ -2,9 +2,9 @@
 type: tutorial advanced
 ---
 
-# Managing Embedded
+# MANAGING EMBEDDED
 
-# Receiving data messages from your server
+# RECEIVING DATA MESSAGES FROM YOUR SERVER
 
 When receiving data from your server, if :
 
@@ -15,7 +15,7 @@ Then we are in the **Foreground** case.
 
 If at least one of those 2 conditions is not fulfilled then we are in the **Background** case.
 
-#### Foreground
+#### FOREGROUND
 
 When both WebPortal and your application are running, your messages are transmitted directly by WebPortal using the HTML5 API `window.postMessage()`
 
@@ -37,7 +37,7 @@ window.addEventListener('message', function(messageEvent) {
 });
 ```
 
-#### Background
+#### BACKGROUND
 
 When WebPortal is in background or your application isn't running, WebPortal keeps in cache memory the last 10 data messages sent to your application.
 

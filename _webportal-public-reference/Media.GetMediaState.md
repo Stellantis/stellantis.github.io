@@ -14,7 +14,7 @@ type: api
 | **Response** | *Number*  State of the media.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 //Check the state of the media
@@ -23,7 +23,7 @@ if (Media.GetMediaState() === 2) {
 }
 ```
 	
-#### Remark
+#### REMARK
 
 The possible values returned are the following :
 

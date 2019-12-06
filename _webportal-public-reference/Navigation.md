@@ -1,5 +1,5 @@
 ---
-title: Navigation
+title: NAVIGATION
 supported:
   - 2
   - 3
@@ -7,11 +7,11 @@ supported:
 type: class
 ---
 
-#### Overview
+#### OVERVIEW
 
 Provides the methods to manage the Navigation system.
 
-#### Methods Summary
+#### METHODS SUMMARY
 
 Method | Response Type | Description
 -----|----|----
@@ -26,7 +26,7 @@ Method | Response Type | Description
 [Navigation.GetNextWaypoint.ETAHours()]({{ site.baseurl }}/webportal/reference/#api-Navigation-GetNextWaypoint-ETAHours) | Number | Returns the estimated hour of arrival at the next waypoint.
 [Navigation.GetNextWaypoint.ETAMinutes()]({{ site.baseurl }}/webportal/reference/#api-Navigation-GetNextWaypoint-ETAMinutes) | Number | Returns the estimated minute of arrival at the next waypoint.
 
-#### Events Summary
+#### EVENTS SUMMARY
 
 Event | Description
 ----|----

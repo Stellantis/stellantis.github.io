@@ -14,7 +14,7 @@ type: api
 | **Response** | The Notifications as `Array` (either empty or containing Strings) or `Unrecognised Error` if the application is not fully launched.
 | **Parameter**   | *String* The application ID (AppID).
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var notificationMessages = WebPortal.getPendingNotifications()

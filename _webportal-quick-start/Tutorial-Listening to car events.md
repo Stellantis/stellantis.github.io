@@ -2,7 +2,7 @@
 type: quick start
 ---
 
-# Driving mode
+# DRIVING MODE
 
 When indicating the configuration of your app you will have to specify the behavior in the case of the driving mode :
 - The App supports driving mode : The application has to have a specific display mode for driving mode.  

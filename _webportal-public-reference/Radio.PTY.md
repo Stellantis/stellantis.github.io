@@ -12,7 +12,7 @@ type: api
 | **Response** | *boolean*  Program type.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 // Get the Radio PTY

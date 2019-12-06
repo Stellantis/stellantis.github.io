@@ -13,7 +13,7 @@ type: api
 | **Response** | *String* UIN
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var UIN = Device.GetUIN()

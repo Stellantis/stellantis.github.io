@@ -14,7 +14,7 @@ type: api
 | **Response** | *String*  Software release.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var Soft = Device.GetSoftwareRelease()

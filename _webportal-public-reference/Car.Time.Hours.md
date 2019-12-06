@@ -13,7 +13,7 @@ type: api
 | **Response** | *Number*  Hour part of the car time.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 //Update the time values
@@ -24,7 +24,7 @@ var CurrentHour = Car.Time.Hours()
 // CurrentHour = 13 hours
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** `Car.GetTime` should always be called before reading time values to make sure all the values are synchronized.
 

@@ -3,7 +3,6 @@ layout: doc-item
 permalink: /community/webportal/
 section: community
 title: WebPortal
-color: white
 ---
 
 {% assign channelName='Embedded WebPortal'%}

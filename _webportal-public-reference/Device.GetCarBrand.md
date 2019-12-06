@@ -21,7 +21,7 @@ type: api
 
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var carBrand = Device.GetCarBrand()

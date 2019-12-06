@@ -10,7 +10,7 @@ type: event
 
 Event triggered when the *Cancel* button of the [native popup](#api-WebPortal-nativePopup-open) is clicked.
 
-### Example
+### EXAMPLE
 
 ```javascript
 window.addEventListener("message", function(event){

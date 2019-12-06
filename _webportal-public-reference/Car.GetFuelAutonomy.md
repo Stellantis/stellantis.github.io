@@ -14,14 +14,14 @@ type: api
 | **Response** | *Number*  Remaining fuel autonomy.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var FuelAutonomy = Car.GetFuelAutonomy();
 // FuelAutonomy = 2000 km
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** The Fuel Autonomy's max length is 4 characters.
 

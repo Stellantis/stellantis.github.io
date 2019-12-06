@@ -14,7 +14,7 @@ type: api
 | **Response** | *Number*  Frequency currently selected.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 //Get the Radio Frequency
@@ -22,7 +22,7 @@ var MyFrequency1 = Radio.GetFrequency()
 // MyFrequency1 = 89800 kHz
 ```
 	
-#### Remark
+#### REMARK
 
 >**Note :** The interval of values returned depends on the band that is being used.
 

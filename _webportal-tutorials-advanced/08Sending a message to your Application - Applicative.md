@@ -2,20 +2,20 @@
 type: tutorial advanced
 ---
 
-# Sending a message (data) to your Application
+# SENDING A MESSAGE (DATA) TO YOUR APPLICATION
 
-#### What you need
+#### WHAT YOU NEED
 
 - [Being connected to the MQTT Broker]({{ site.baseurl }}/webportal/tutorial-advanced/#connecting-to-the-mqtt-broker)
 
 - Your [MQTT Publishing Topic]({{ site.baseurl }}/webportal/tutorial-advanced/#selecting-your-mqtt-publishing-topic) looking as follows :
 	`psa/OVIPPartners-Dev/from/uid/{UID}/opa/{VIN}/`
 
-#### Sending an Applicative Message
+#### SENDING AN APPLICATIVE MESSAGE
 
 The Applicative message lets you send data to your application.
 
-#### Structure of MQTT Message
+#### STRUCTURE OF MQTT MESSAGE
 ```javascript
 {
 	/**
@@ -47,7 +47,7 @@ The Applicative message lets you send data to your application.
 }
 ```
 
-#### Handling message
+#### HANDLING MESSAGE
 
 ```javascript
 var targetVin = "0123456789ABCDEFG";

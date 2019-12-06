@@ -14,7 +14,7 @@ privacy: Public
 | **Response** | *Boolean*  `True` if the final destination and Intermediary destinations were all correctly set, else `False` if the process failed.
 
 
-#### Important
+#### IMPORTANT
 
 > **Caution:** Guidance can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that {{page.title}} return is `True`.
 
@@ -31,7 +31,7 @@ Parameter | Type | Description | Required
 `s3Lat` | *Number* | The third waypoint's latitude, Should be WGS84 Signed Decimal Degrees and have a length < 4 characters. | Optional
 `shifted` | *Number* | The coordinate system to use, Should be either 0 or 1 | Optional
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var Description ="Ignored"
@@ -52,7 +52,7 @@ if ( Navigation.LaunchGuidance(Description, DestinationLongitude, DestinationLat
 }
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** Only the `destLon` and `destLat` parameters are needed, the others will be ignored so they can be replaced by 0.
 

@@ -47,7 +47,7 @@ Value | Type
 28 | Ext. Voice Recognition by DIPO
 29 | Webbrowser Voice Recognition
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 //Get the name of the media

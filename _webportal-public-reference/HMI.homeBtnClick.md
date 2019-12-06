@@ -9,7 +9,7 @@ type: event
 ---
 Event triggered whenever the *Home* button is pressed.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try {

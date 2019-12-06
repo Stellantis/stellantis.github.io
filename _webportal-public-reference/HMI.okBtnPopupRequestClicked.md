@@ -8,7 +8,7 @@ type: event
 ---
 Event triggered when the *Ok* button is clicked on the HMI popup request.
 
-### Example
+### EXAMPLE
 
 ```javascript
 try {

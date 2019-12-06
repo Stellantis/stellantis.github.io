@@ -15,7 +15,7 @@ privacy: Public
 | **Response** | *Boolean*  `True` if the value is now correctly stored in `Navigation.Destination`, else `False` if the process failed.
 | **Parameter**   | *Void*
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 if ( Navigation.GetDestination() === false ) {
@@ -31,7 +31,7 @@ if ( Navigation.GetDestination() === false ) {
 }
 ```
 
-#### Remark
+#### REMARK
 
 >**Note :** `Navigation.GetDestination` must always be used before accessing the value stored in `Navigation.Destination`.
 

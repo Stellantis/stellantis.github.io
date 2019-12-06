@@ -19,11 +19,11 @@ Parameter | Type | Description | Required
 `destLat` | *Number* | The destination's latitude, Should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
 `waypoints` | *array[object(Lat: Number, Lon: Number)]* | The waypoints to go through before the final destination (9 waypoints max), Each waypoint should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
 
-#### Important
+#### IMPORTANT
 
 > **Caution:** Guidance can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that {{page.title}} return is `True`.
 
-#### Example
+#### EXAMPLE
 
 ```javascript
 var DestinationLongitude = 48.866669
@@ -40,7 +40,7 @@ if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitud
 }
 ```
 
-#### Remark
+#### REMARK
 
 >**Note:** This new version of the LaunchGuidance will override the current journey with the one being passed.
 

@@ -15,7 +15,7 @@ privacy: Public
 
 `Navigation.CurrentPosition` is the object where are stored the informations about the current position after a successful call to `Navigation.GetCurrentPosition`.
 
-#### Fields
+#### FIELDS
 
 - `Navigation.CurrentPosition.address`, *String*
 
@@ -27,7 +27,7 @@ privacy: Public
 
 - `Navigation.CurrentPosition.Country`, *String*
 
-#### Remark
+#### REMARK
 
 >**Note :** `Navigation.GetCurrentPosition` must always be used before accessing the value stored in `Navigation.CurrentPosition`.
 
