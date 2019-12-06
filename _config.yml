@@ -50,6 +50,7 @@ exclude:
  - "package.json"
  - "package-lock.json"
  - "script/"
+ - "schema/"
  - "LICENSE.txt"
  - "lib/"
  - "bin/"
