@@ -33,7 +33,7 @@ Query Parameter|`client_id`|`<App_ID>`|Id of the application.|Yes
 File|Client Certificate|`path/to/client_certificate.pem`|Your [SSL certificate](#authentication-b2b) for authentication in groupe PSA network.|Yes
 File|Private Key|`path/to/key.pem`|Your Private Key file.|Yes
 File|CA Certificate|`path/to/ca_certificate.pem`|PSA CA Cert for peer verification.|Yes
-Header|`accept`|`application/json`| Advertises that you accept JSON content type. |Yes
+Header|`accept`|`application/hal+json`| Advertises that you accept JSON content type. |Yes
 Header|`authorization`|`Basic <BASIC_AUTH> `|Indicate that authentication is Basic Auth and *&lt;BASIC_AUTH&gt;* is *user:password* in Base64.  |Yes
 
 {% include  content/get-your-certificate.md %}
