@@ -355,6 +355,16 @@ section nav {
     box-shadow: 0 0px 0px rgba(10, 10, 10, 0);
 }
 
+.navbar-item{
+    border-radius: 4px;
+
+}
+
+.navbar-link{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
 
 
 
@@ -509,8 +519,8 @@ html{
         font-size: 0.8rem;
     }
     #lunrsearch {
-        width: 100%;
-        padding: 0.5rem;
+        width: 100%;        
+        padding: 0.5rem 0.5rem 0.5rem 2.25rem;
     }
     #pageTitle{
         margin-left: 0.7rem; 
