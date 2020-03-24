@@ -115,26 +115,27 @@ components:
               data:
                   type: string
                   enum:
-                    - vehicle.alert
-                    - vehicle.odometer
-                    - vehicle.engines.running
-                    - vehicle.engines.thermic.oil.temp
-                    - vehicle.energy.electric.level
-                    - vehicle.energy.fuel.level
-                    - vehicle.energy.fuel.autonomy
-                    - vehicle.autonomy
-                    - vehicle.energy.charging.status
-                    - vehicle.energy.charging.plugged
-                    - vehicle.doorsState.lockedState
-                    - vehicle.doorsState.opening
-                    - vehicle.kinetic.moving
-                    - vehicle.kinetic.speed
-                    - vehicle.trip
-                    - vehicle.maintenance.daysBeforeMaintenance
-                    - vehicle.maintenance.mileageBeforeMaintenance
-                    - vehicle.safety.beltWarning
-                    - environment.air.temp
-                    - privacy.status
+                  - vehicle.alert
+                  - vehicle.odometer
+                  - vehicle.engines.running
+                  - vehicle.engines.thermic.oil.temp
+                  - vehicle.energy.electric.level
+                  - vehicle.energy.electric.autonomy
+                  - vehicle.energy.fuel.level
+                  - vehicle.energy.fuel.autonomy
+                  - vehicle.autonomy
+                  - vehicle.energy.charging.status
+                  - vehicle.energy.charging.plugged
+                  - vehicle.doorsState.lockedState
+                  - vehicle.doorsState.opening
+                  - vehicle.kinetic.moving
+                  - vehicle.kinetic.speed
+                  - vehicle.trip
+                  - vehicle.maintenance.daysBeforeMaintenance
+                  - vehicle.maintenance.mileageBeforeMaintenance
+                  - vehicle.safety.beltWarning
+                  - environment.air.temp
+                  - privacy.state
                 
                   description: The monitored data (operand of a trigger).
               value: 
@@ -184,8 +185,10 @@ components:
                       type: object  
                     telemetry:
                       type: object
-                    alert:
-                        type: object
+                    alerts:
+                      type: array
+                      items:  
+                         type: object 
                   
         
         refresh:

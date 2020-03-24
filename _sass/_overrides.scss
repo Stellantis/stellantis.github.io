@@ -163,8 +163,12 @@ footer a {
 }
 
 .content {
-    background-color: #ffffff;
-    padding: 2.6rem 5%;
+    padding: 0rem 5%;
+}
+
+.bd-content .content {
+    padding-top: 2.6rem;
+    padding-bottom: 2.6rem;
 }
 
 .bd-main-container .container {
@@ -366,8 +370,6 @@ section nav {
 }
 
 
-
-
 .navbar-brand{
     padding-right: 1rem;
 }
@@ -425,6 +427,118 @@ section nav {
     border: 1px solid #1e2336;
 }
 
+//------- SELECTION/WELCOME PAGE ------//
+
+
+.notif-welcome-text {
+    padding: 3rem;
+    font-size: 1.2rem;
+}
+
+.homepagepic #is-fleet_owner-pic{
+    background-image: url("../../assets/images/business.png");
+    filter: brightness(120%);
+    background-size: cover;
+    background-position: center center;
+}
+
+.homepagepic #is-end_user-pic{
+    background-image: url("../../assets/images/developer.png");
+    background-size: cover;
+    background-position: center center;
+}
+
+.homepagepic #is-ios-pic{
+    background-image: url("../../assets/images/iphone.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.homepagepic #is-android-pic{
+    background-image: url("../../assets/images/androidphone.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.homepagepic #is-webapi-pic{
+    background-image: url("../../assets/images/cloud0.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.homepagepic #is-webportal-pic{
+    background-image: url("../../assets/images/WebPortal_pic.png");
+    background-size: cover;
+    background-position: center center;
+}
+
+.homepagepic #is-sdk-pic{
+    background-image: url("../../assets/images/iphone.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+@media screen and (max-width: 768px) {
+    .homepagepic{
+        display: none;
+    }
+    .notification .title {
+        color: whitesmoke;
+        text-shadow: 2px 2px 4px #000000;
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+    }
+    .notification p{
+        color: whitesmoke;
+        text-shadow: 0.75px 0 0 black, 0 0.75px 0 black, 0 -0.75px 0 black, -0.75px 0 0 black, 0.75px 0.75px 0 black, 0.75px -0.75px 0 black, -0.75px 0.75px 0 black, -0.75px -0.75px 0 black;    
+        font-weight: bold;
+    }
+
+    #is-fleet_owner {
+        background-image: url("../../assets/images/business.png");
+        background-size: cover;
+        background-position: center center;
+    }
+
+    #is-end_user {
+        background-image: url("../../assets/images/developer.png");
+        background-size: cover;
+        background-position: center center;
+    }
+    #is-ios{
+        background-image: url("../../assets/images/iphone.jpg");
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    #is-android{
+        background-image: url("../../assets/images/androidphone.jpg");
+        background-size: cover;
+        background-position: center center;
+    }
+
+    #is-webapi {
+        background-image: url("../../assets/images/cloud0.jpg");
+        background-size: cover;
+        background-position: center center;
+    }
+    #is-webportal{
+        background-image: url("../../assets/images/WebPortal_pic.png");
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    #is-sdk {
+        background-image: url("../../assets/images/iphone.jpg");
+        background-size: cover;
+        background-position: center center;
+    }
+
+}
+
+//-------- END of SELECTION/WELCOME PAGE -------//
+
+
 html{
     scroll-behavior: smooth;
 }
@@ -456,19 +570,24 @@ html{
   aside{display: none;
 }}
 
-@media screen and (max-height: 700px) {
+@media screen and (max-width: 600px) {
     #section-title{
         font-size: 4rem ;
     }
 }
 
 
-@media screen and (max-width: 576px) {
+@media screen and (max-height: 700px) {
     #section-title{
         font-size: 3rem ;
     }
 }
 
+@media screen and (max-width: 576px) {
+    #section-title{
+        font-size: 3rem ;
+    }
+}
 
 @media screen and (max-width: 1400px) {
     #navbarpsa {
@@ -488,12 +607,6 @@ html{
     
     .textnavbar {
         font-size: 0.7rem;
-    }
-}
-
-@media screen and (max-width: 765px) {
-    .homepagepic{
-        display: none;
     }
 }
 
@@ -519,7 +632,7 @@ html{
         font-size: 0.8rem;
     }
     #lunrsearch {
-        width: 100%;        
+        width: 100%;
         padding: 0.5rem 0.5rem 0.5rem 2.25rem;
     }
     #pageTitle{
@@ -527,25 +640,15 @@ html{
         font-size: 2rem;
         margin-top: 3rem;
         margin-bottom: 1rem;
-
-    }
-
-    
-     
+    } 
 }
 
 
 @media screen and (max-width: 1088px) {
     #navbarpsa{
-
         padding-top: 0rem;
-    
-    }
-    
+    } 
 }
-
-
-
 
 @media (prefers-reduced-motion: reduce) {
     html {

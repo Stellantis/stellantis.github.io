@@ -40,7 +40,9 @@ title: API Reference
             </a>
         </div>
     </div>
-    <p>{{ api.content | markdownify  }}</p>
+    <p>
+        {{ api.content | markdownify  }}
+    </p>
 {% endfor %}
 <hr>
 <h1 id="event">EVENTS REFERENCE
@@ -59,5 +61,7 @@ title: API Reference
             </div>
         {% endfor %}
     </div>
-    <p>{{ event.content }}</p>
+    <p>
+        {{ event.content }}
+    </p>
 {% endfor %}

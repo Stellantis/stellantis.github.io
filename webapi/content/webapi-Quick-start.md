@@ -2,7 +2,7 @@
 
 This Quick Start contains examples of curl requests to Groupe PSA's web api for {% if page.section == 'webapib2b' %}Fleet Owners{% elsif page.section == "webapib2c" %}End-Users{% endif %}. 
 
-To retrieve {% if page.section == 'webapib2b' %} authentication informations refer to [this section]({{site.basurl}}/webapi/b2b/authentication).{% elsif page.section == 'webapib2c' %} connection informations refer to [this section]({{site.basurl}}/webapi/b2c/connect).{% endif %}
+To retrieve {% if page.section == 'webapib2b' %} authentication informations refer to [this section]({{site.baseurl}}/webapi/b2b/authentication).{% elsif page.section == 'webapib2c' %} connection informations refer to [this section]({{site.baseurl}}/webapi/b2c/connect).{% endif %}
 
 ## GET YOUR INFO 
 
@@ -18,9 +18,9 @@ Web API base enpoint{% if page.section == 'webapib2b' %}'/fleets'{% elsif page.s
 
 {% endif %}
 
-## GET A LIST OF VEHICLES 
+## GET A LIST OF VEHICLES
 
-The {% if page.section == 'webapib2b' %}'/fleets/{fid}/vehicles'{% elsif page.section == "webapib2c" %}'/user/vehicles'{% endif %} endpoint allow you to retrieve a list of your vehicles. See {% if page.section == 'webapib2b' %}[preview]({{site.basurl}}/webapi/b2b/preview#pagination){% elsif page.section == "webapib2c" %}[preview]({{site.basurl}}/webapi/b2c/preview#pagination){% endif %} for explanation about `indexRange` and `pageSize`.
+The {% if page.section == 'webapib2b' %}'/fleets/{fid}/vehicles'{% elsif page.section == "webapib2c" %}'/user/vehicles'{% endif %} endpoint allow you to retrieve a list of your vehicles. See {% if page.section == 'webapib2b' %}[preview]({{site.baseurl}}/webapi/b2b/preview#pagination){% elsif page.section == "webapib2c" %}[preview]({{site.baseurl}}/webapi/b2c/preview#pagination){% endif %} for explanation about `indexRange` and `pageSize`.
 
 
 {% if page.section == 'webapib2b' %}
@@ -199,7 +199,7 @@ The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors'{% elsif page.se
 {% comment %} 
 ## PUT EDIT A MONITOR
 
-The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors/{mid}/status'{% elsif page.section == "webapib2c" %}'/user/vehicles/{id}/status'{% endif %} endpoint allow you to create a new monitor. Have a look to the {% if page.section == 'webapib2b' %}[monitor section]({{site.baseurl}}/webapi/b2b/monitor){% elsif page.section == "webapib2c" %}[monitor section]({{site.baseurl}}/webapi/b2c/monitor){% endif %}
+The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors/{mid}/status'{% elsif page.section == "webapib2c" %}'/user/vehicles/{id}/status'{% endif %} endpoint allow you to create a new monitor. Have a look to the {% if page.section == 'webapib2b' %}[monitor section]({{site.baseurl}}/webapi/b2b/monitor){% elsif page.section == "webapib2c" %}[monitor section]({{site.baseurl}}/webapi/b2c/monitor){% endif %}.
 - Path parameter **{id}** is the unique identifier of one of your vehicles. 
 
 {% if page.section == 'webapib2b' %}

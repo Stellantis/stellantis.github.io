@@ -1,28 +1,27 @@
 # PSA GROUPE's {% if page.section == 'webapib2b' %}B2B {% elsif page.section == "webapib2c" %}B2C{% endif %} WEB API
 
-Our REST APIs implements all the resources you need to retrieve data from Groupe PSA's vehicles. It's based on open standards: **OpenAPIv3, JSON & HAL**. You will be able to get a lot of data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
+Our REST APIs implements various endpoints to retrieve resources from your Groupe PSA's vehicles. Under certain circumstances you will also be able to remote controle some features of your vehicles, like opening the doors or turning AC on! Groupe PSA's APIS are based on open standards: **OpenAPIv3, JSON, GeoJson & HAL**. Using this You will be able to acces a lot of your vehicle data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
 
-<a href="{{site.baseurl}}{% if page.section == 'webapib2b' %}/webapi/b2b/demo {% elsif page.section == "webapib2c" %}/webapi/b2c/demo{% endif %}" class="button is-warning is-rounded is-medium ">
+<a href="{{site.baseurl}}{% if page.section == 'webapib2b' %}/webapi/b2b/demo/ {% elsif page.section == "webapib2c" %}/webapi/b2c/demo/{% endif %}" class="button is-warning is-rounded is-medium ">
 <span class="icon is-large is-white">
 <i class="fas fa-code"></i>
 </span>&nbsp; &nbsp; &nbsp;Discover demo</a>
 
 # HOW DOES IT WORK?
 
-Vehicles are using various sensors which aim to improve security and driving experience. They are avaibables for embedded development as you can see [in this section]({{ site.baseurl }}/webportal/).
+Vehicles are using various sensors which aim to improve security and driving experience. Thoses sensors are avaibables for embedded applications development for the inboard car computer, as you can see [in this section]({{ site.baseurl }}/webportal/) of this documentation website.
 
 Our web APIs grants you access to this data even outside of the car:
-
 
 ![presentationUnified]({{ site.baseurl }}/assets/images/presentationUnified.png)
 
 Sensors are collecting datas inside the vehicle and send them to Groupe PSA via mobile network. Our servers will then **process** these raw data into **unified** and understable info. Futhermore, cloud storage allow you to access your data at any time eventhough the vehicle is turned-off.
 
-Everything is processed on our side (Groupe PSA) in order to provide you {% if page.section == 'webapib2b' %}(Partner){% elsif page.section == "webapib2c" %}(Developer){% endif %} the **same kind of datas whatever the type of vehicles** (brand new or older, regular fuel or electric consumption).
+Everything is processed on our side **(Groupe PSA)** in order to provide you {% if page.section == 'webapib2b' %}**(Partner)**{% elsif page.section == "webapib2c" %}**(Developer)**{% endif %} the **same standard data, whatever the type of vehicles** (brand new or older, regular fuel or electric consumption).
 
 # FEATURES
 
-By requesting this api you can retrieve all kinds off intersiting **features**:
+By requesting this api you will have access to various **features**:
 
 ![Features]({{ site.baseurl }}/assets/images/presentationFeatures.png)
 
@@ -30,14 +29,14 @@ By requesting this api you can retrieve all kinds off intersiting **features**:
 
 |Feature|Descrpition|
 |-|-|
-|General info|Get a user or car general info, like brand, model, fuel type.|
-|Maintenance|Stay tuned on car maintenance, time and mileage before maintenance.|
-|Collision|Be notified of collisions and where it happened.|
-|Trips|Browse into cars trips, departure point, arrival.|
-|Alerts|Get history of in-car alerts (oil, engine, breaks etc).|
-|Telemetrics|Retrieve and track vehicles telemetrics (speed*, location, fuel level, blinking lights etc).|
-|Monitor|Configure car monitoring like notification for car leaving defined area. Click {% if page.section == 'webapib2b' %}[here]({{site.baseurl}}/webapi/b2b/monitor/){% elsif page.section == "webapib2c" %}[here]({{site.baseurl}}/webapi/b2c/monitor/){% endif %} to learn more about monitors.|
-|Status|Retrieve car status like last position, autonomy, open doors.|
+|**General info**|Get a user or car general info, like brand, model, fuel type.|
+|**Maintenance**|Stay tuned on car maintenance, time and mileage before maintenance.|
+|**Collision**|Be notified of collisions and where it happened.|
+|**Trips**|Browse into cars trips, departure point, arrival.|
+|**Alerts**|Get history of in-car alerts (oil, engine, breaks etc).|
+|**Telemetrics**|Retrieve and track vehicles telemetrics (speed*, location, fuel level, blinking lights etc).|
+|**Monitor**|Configure car monitoring like notification for car leaving defined area. Click {% if page.section == 'webapib2b' %}[here]({{site.baseurl}}/webapi/b2b/monitor/){% elsif page.section == "webapib2c" %}[here]({{site.baseurl}}/webapi/b2c/monitor/){% endif %} to learn more about monitors.|
+|**Status**|Retrieve car status like last position, autonomy, open doors.|
 
 *speed: according to country's legislation.
 

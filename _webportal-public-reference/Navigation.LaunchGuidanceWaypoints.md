@@ -8,7 +8,7 @@ type: api
 privacy: Public
 ---
 
-### `Navigation.LaunchGuidanceWaypoints(Number destLon, Number destLat, [object{Lat: Number, Lon: Number}] waypoints)`
+### `Navigation.LaunchGuidanceWaypoints(Number destLon, Number destLat, [object{lat: Number, lon: Number}] waypoints)`
 
 | **Description** | Starts the navigation to the specified destination and going through all the specified waypoints.
 | **Response** | *Boolean*  `True` if the destination and waypoints were all correctly set, else `False` if the process failed.
@@ -17,7 +17,7 @@ Parameter | Type | Description | Required
 ----|----|----|----
 `destLon` | *Number* | The destination's longitude, Should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
 `destLat` | *Number* | The destination's latitude, Should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
-`waypoints` | *array[object(Lat: Number, Lon: Number)]* | The waypoints to go through before the final destination (9 waypoints max), Each waypoint should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
+`waypoints` | *array[object(lat: Number, lon: Number)]* | The waypoints to go through before the final destination (9 waypoints max), Each waypoint should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
 
 #### IMPORTANT
 

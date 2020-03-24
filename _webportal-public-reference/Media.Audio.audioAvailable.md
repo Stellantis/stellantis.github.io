@@ -1,5 +1,5 @@
 ---
-title: Media.Audio.audioavailable
+title: Media.Audio.audioAvailable
 
 supported:
   - 2

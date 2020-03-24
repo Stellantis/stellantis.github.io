@@ -104,35 +104,30 @@ based on the upstream trunk subversion revision 153112.
 
 SW version	| Percentage of vehicles| Trend of use
 -|-|-
-21.07.16.32_NAC-r0	|38,24%|	{{arrowDown}}
-10:90:42	|12,45%|	 {{arrowDown}}
-10:47:34	|11,60%|	 {{arrowDown}}
-21.07.67.32_NAC-r0|	8,30%|	{{arrowUp}}
-10:82:12	|6,37%	| {{arrowDown}}
-10:68:24	|5,05%	| {{arrowDown}}
-10:62:54	|2,38%	| {{arrowDown}}
-10:48:22	|0,72%	| {{arrowDown}}
-10:78:22	|0,69%	| {{arrowDown}}
-10:62:52	|0,04%	| {{arrowDown}}
-10:65:32	|0,01%	| {{equals}}
+21.07.16.32_NAC-r0 | 26%  | {{arrowUp}}
+21.07.67.32_NAC-r0 | 17%  | {{arrowUp}}
+10:90:42 | 12%  | {{arrowDown}}
+10:47:34 | 11%  | {{arrowDown}}
+10:82:12 | 6%  | {{arrowDown}}
+10:68:24 | 4%  | {{arrowDown}}
 
 ### WAVE 3
 
 SW version	| Percentage of vehicles | Trend of use
 -|-|-
-31.08.05.86_NAC-r0|	3,48%|	 {{arrowDown}}
-10:50:42|	1,14%	| {{arrowDown}}
-31.08.05.84_NAC-r0	| 0,02%	| {{arrowDown}}
-31.09.43.12_NAC-r0|	0,02% |	{{equals}}
-10:41:52|	0,01%	|
+31.09.46.62_NAC-r0 | 14%  | {{arrowUp}}
+31.08.05.86_NAC-r0 | 3%  | {{arrowDown}}
+10:50:42 | 1%  | {{arrowDown}}
 
 
 ### WAVE 4
 
 SW version	| Percentage of vehicles| Trend of use
 -|-|-
-42.01.21.42_NAC-r0 |	0,05%	|
-40.04.12.42_NAC-r0	| 0,01%	|
+42.01.21.42_NAC-r0 | 2%  | {{arrowUp}}
+40.04.20.22_NAC-r0 | 1%  | {{arrowUp}}
+42.01.37.32_NAC-r0 | 1%  | {{arrowUp}}
+40.04.33.12_NAC-r0 | 0%  | {{arrowUp}}
 
 
 ## TUTORIAL

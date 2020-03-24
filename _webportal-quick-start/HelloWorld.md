@@ -105,3 +105,17 @@ The structure of the file to submit is mostly free with some requirements:
 + **Device scope** The partner must provide the list of devices and configurations where the app can be activated for customers. Today NACw2.1, NACw3.1 and NACw4 are available.
 + **App identifier** To be given by PSA, this App Id is mandatory as it enables us to identify the app in MQTT exchanges and in the process of display in the vehicles.
 + **MQTT partner account**
+
+
+## VIRTUAL KEYBOARD
+
+A virtual keyboard is available on the NAC. It is displayed on the full size of the NAC touchscreen.
+
+You just have to create an HTML **input text**, once the user set the **focus** on this text field the virtual keyboard is displayed.
+
+```html
+<input type="text" />
+<!-- Focus the field and the keyboard is diplayed -->
+```
+
+> **Note:** When the keyboard is being displayed, you cannot receive events.
