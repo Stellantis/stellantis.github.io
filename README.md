@@ -23,7 +23,7 @@ You can ["Propose File Change"](https://help.github.com/en/github/managing-files
 # Structure
 - **includes**: Files that can be included in a page of the website.
 - **layout**: Files that construct the base layout of a page.
-- **sections**: Webapi (b2b/b2c) / webportal. At the moment, mobile-sdk is not realeased on external.
+- **sections**: Webapi (b2b/b2c) / webportal. At the moment, mobile-sdk is not realeased.
 - **collections**: Those folders begining with `underscore` are used as lists of files used to create content (like list of functions for sdk)
 - **sass**: The `overide.sass` file is used to update CSS of the framework.
 - **config**: in this config file is also stored the URL of the APIs as variables.
@@ -38,4 +38,4 @@ You can ["Propose File Change"](https://help.github.com/en/github/managing-files
 - [Bulma](https://bulma.io/)
 - [Liquid](https://shopify.github.io/liquid/)
 - [Redoc](https://github.com/Redocly/redoc)
-- [Lunr with jekyll](https://jekyllcodex.org/without-plugin/search-lunr/).
+- [Lunr with jekyll](https://jekyllcodex.org/without-plugin/search-lunr/)
