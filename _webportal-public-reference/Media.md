@@ -16,7 +16,7 @@ Provides the methods to interact with the Media player.
 Method | Response Type | Description
 -----|----|----
 [Media.GetAlbumName()]({{ site.baseurl }}/webportal/reference/#api-Media-GetAlbumName) |  String | Gets the album name.
-[Media.GetArtistName()]({{ site.baseurl }}/rence/#api-Media-GetArtistName) | String | Gets the artist name.
+[Media.GetArtistName()]({{ site.baseurl }}/webportal/reference/#api-Media-GetArtistName) | String | Gets the artist name.
 [Media.GetCurrentTrack()]({{ site.baseurl }}/webportal/reference/#api-Media-GetCurrentTrack) | Number | Gets the current track number.
 [Media.GetFolderName()]({{ site.baseurl }}/webportal/reference/#api-Media-GetFolderName) | String | Returns the folder where the current media is located.
 [Media.GetMediaState()]({{ site.baseurl }}/webportal/reference/#api-Media-GetMediaState) | Number | Gets the current state of the media.

@@ -1,6 +1,5 @@
 ---
 title: System.OnShutDown
-
 supported:
   - 2
   - 3
@@ -9,7 +8,7 @@ type: event
 ---
 Event triggered when the system is being shut down.
 
->**Note :** This event is triggered 2 seconds before the system is completely shut down.
+>**Note:** This event is triggered 2 seconds before the system is completely shut down.
 
 ### EXAMPLE
 

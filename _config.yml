@@ -1,29 +1,24 @@
 # name of the software
 name: PSA Documentation
-
-
 description: PSA documentation website
 baseurl: "" # the subpath of the site, e.g. /blog
 url: "https://developer.groupe-psa.io" # the base hostname & protocol for the site, e.g. http://example.com
 
-permalink: pretty
+# github links
+gitHubURL: "https://github.com/GroupePSA/groupepsa.github.io/tree/master/"
+gitHubSpecB2B: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/assets/openapi/api-b2b-webhook-template.yaml"
+gitHubSpecB2C: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/assets/openapi/psacc.yaml"
 
-# WEB API BaseURI
-webapiB2CProd: 
-webapiB2CPreProd: "https://api-preprod.groupe-psa.com/connectedcar/v4"
-webapiB2BProd: 
-webapiB2BPreProd: "https://api-cert-preprod.groupe-psa.com/connectedcar/{version}"
-cvsOAuth2Prod: 
-cvsOAuth2PreProd: "https://idpcvs-preprod.{brand.tld}/am/oauth2/access_token"
-virtualKeyTokenProd: 
-virtualKeyTokenPreProd: "https://api-preprod.groupe-psa.com/connectedcar/v3"
-#End BaseURi
+# doc versionning
+versionWebportal: "1.5.3"
+versionWebAPI: "1.7.1"
+versionMobileSDK: "0.0.0"
 
-
-theme: jekyll-bulma
-
-# Enable or disable the site search
-search_enabled: true
+# WEB API BaseURI - theses var have to be renamed without prod/preprod (because we display only one at once)
+webapiB2CPreProd: "https://api.groupe-psa.com/connectedcar/v4"
+webapiB2BPreProd: "https://api-cert.groupe-psa.com/connectedcar/{version}"
+cvsOAuth2PreProd: "https://idpcvs.{brand.tld}/am/oauth2/access_token"
+virtualKeyTokenPreProd: "https://api.groupe-psa.com/connectedcar/v3"
 
 collections:
   webportal-quick-start:
@@ -50,6 +45,7 @@ exclude:
  - "package.json"
  - "package-lock.json"
  - "script/"
+ - "schema/"
  - "LICENSE.txt"
  - "lib/"
  - "bin/"
@@ -67,9 +63,15 @@ ui:
 
 social:
 
-
 analytics:
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
+
+permalink: pretty
+
+theme: jekyll-bulma
+
+# Enable or disable the site search
+search_enabled: true

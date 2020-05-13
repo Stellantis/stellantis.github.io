@@ -1,6 +1,5 @@
 ---
 title: WebPortal.onApplicationUpdated
-
 supported:
   - 2
   - 3

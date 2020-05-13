@@ -1,6 +1,5 @@
 ---
 title: Device.GetDistanceUnit()
-
 supported:
   - 2
   - 3
@@ -11,7 +10,7 @@ type: api
 ### `Device.GetDistanceUnit()`
 
 | **Description** | Gets the currently used distance unit.
-| **Response** | *String*  The distance unit, Possible values are : - km, - miles
+| **Response** | *String*  The distance unit, Possible values are: - km, - miles
 
 #### EXAMPLE
 

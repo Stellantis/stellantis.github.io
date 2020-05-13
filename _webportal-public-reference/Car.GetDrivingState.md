@@ -1,6 +1,5 @@
 ---
 title: Car.GetDrivingState()
-
 supported:
   - 2
   - 3
@@ -26,6 +25,6 @@ if (Car.GetDrivingState() == false) {
 	
 #### REMARK
 
->**Note :** The 5km/h limit to delimit the driving states can be changed by diagnostic.
+>**Note:** The 5km/h limit to delimit the driving states can be changed by diagnostic.
 
 *Appeared in Software version 5.14.11.30*

@@ -1,5 +1,5 @@
 <style>
-body {
+html {
   background: rgb(35, 35, 39)!important;
 }
 
@@ -21,6 +21,11 @@ color: rgb(134, 222, 116)!important;
 
 .highlighter-rouge .highlight{
   background: rgb(35, 35, 39) !important;
+  margin:0;
+}
+
+.highlight {
+max-height: 100vh;
 }
 
 </style>

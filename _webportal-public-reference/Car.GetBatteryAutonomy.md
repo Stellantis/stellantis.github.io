@@ -1,6 +1,5 @@
 ---
 title: Car.GetBatteryAutonomy()
-
 supported:
   - 4
 type: api
@@ -21,6 +20,6 @@ var Batteryautonomy = Car.GetBatteryAutonomy();
 
 #### REMARK
 
->**Note :** The Battery autonomy's max length is 4 characters.
+>**Note:** The Battery autonomy's max length is 4 characters.
 
 *Appeared in Software version 40.03.51.50*

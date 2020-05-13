@@ -1,6 +1,5 @@
 ---
 title: WebPortal.onCurrentNotificationReceived
-
 supported:
   - 2
   - 3
@@ -26,9 +25,9 @@ window.addEventListener("message", function(event){
 		if (typeof data.value !== 'undefined'){
 		    console.log("Notification received",data.value);
 		    if (typeof data.value === 'object'){
-			alert("Notification received : "+JSON.stringify(data.value));
+			alert("Notification received: "+JSON.stringify(data.value));
 		    } else {
-			alert("Notification received : "+data.value);
+			alert("Notification received: "+data.value);
 		    }
 		}
 		break;

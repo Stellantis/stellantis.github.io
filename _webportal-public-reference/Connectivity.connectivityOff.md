@@ -1,6 +1,5 @@
 ---
 title: Connectivity.connectivityOff
-
 supported:
   - 2
   - 3

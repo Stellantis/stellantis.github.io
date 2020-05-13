@@ -2,7 +2,7 @@
 type: tutorial advanced
 ---
 
-# RECEIVING NOTIFICATION MESSAGES FROM YOUR SERVER
+## RECEIVING NOTIFICATION
 
 Receiving notification messages is very similar to Receiving data messages, the only difference being the presence of the property `popupAction` that indicates the action type corresponding to the notification message.
 

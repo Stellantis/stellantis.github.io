@@ -2,22 +2,13 @@
 layout: page
 ---
 
-<div class="bd-duo">
-    <div class="bd-lead ">
-        <div class="bd-content">
-            <div>
-                {% include tabs.html %}
-            </div>
-
-            <div class="content">
-                {% if page.section == "webapib2b" %}
-                    {% include content/webapi-b2b-Disclaimer.html %}
-                {% endif %}
+                {% include content-header.html %}
                 {% include anchor_headings.html html=content anchorClass="bd-anchor-link" anchorBody="#" bodyPrefix='<span class="bd-anchor-name">' bodyAntefix="</span>" %}
+
             </div>
         </div>
     </div>
-    <aside class="bd-side  is-flex-tablet">
+    <aside class="bd-side is-flex-tablet is-hidden-mobile">
         <div class="bd-anchors-reference" id="anchorsReference"></div>
         <nav class="bd-anchors" id="anchors">
             <p class="bd-anchors-title">

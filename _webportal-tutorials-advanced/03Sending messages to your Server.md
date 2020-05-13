@@ -2,13 +2,13 @@
 type: tutorial advanced
 ---
 
-# SENDING A MESSAGE TO YOUR SERVER
+## SEND MESSAGE TO SERVER
 
 #### WHAT YOU NEED
 
-- [Being connected to the MQTT Broker]({{ site.baseurl }}/webportal/tutorial-advanced/#connecting-to-the-mqtt-broker)
+- [Being connected to the MQTT Broker]({{site.baseurl}}/webportal/tutorial-advanced/#mqtt-connection)
 
-- Your [MQTT Subscription Topic]({{ site.baseurl }}/webportal/tutorial-advanced/#selecting-your-mqtt-publishing-topic) looking as follows : `psa/OVIPPartners-Dev/to/uid/{UID}/opa/{VIN|#}/` 
+- Your [MQTT Subscription Topic]({{site.baseurl}}/webportal/tutorial-advanced/#mqtt-topic) looking as follows : `psa/OVIPPartners-Dev/to/uid/{UID}/opa/{VIN|#}/` 
 
 ### SENDING A MESSAGE
 

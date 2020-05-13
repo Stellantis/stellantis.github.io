@@ -1,6 +1,5 @@
 ---
 title: HMI.WebBrowser.show
-
 supported:
   - 2
   - 3

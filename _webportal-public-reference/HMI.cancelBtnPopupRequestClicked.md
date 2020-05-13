@@ -1,6 +1,5 @@
 ---
 title: HMI.cancelBtnPopupRequestClicked
-
 supported:
   - 2
   - 3

@@ -1,6 +1,5 @@
 ---
 title: Navigation.LaunchGuidance()
-
 supported:
   - 2
   - 3
@@ -16,7 +15,7 @@ privacy: Public
 
 #### IMPORTANT
 
-> **Caution:** Guidance can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that {{page.title}} return is `True`.
+> **Caution:** Guidance can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-popup) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that {{page.title}} return is `True`.
 
 Parameter | Type | Description | Required
 ----|----|----|----
@@ -54,14 +53,14 @@ if ( Navigation.LaunchGuidance(Description, DestinationLongitude, DestinationLat
 
 #### REMARK
 
->**Note :** Only the `destLon` and `destLat` parameters are needed, the others will be ignored so they can be replaced by 0.
+>**Note:** Only the `destLon` and `destLat` parameters are needed, the others will be ignored, so they can be replaced by 0.
 
 >**Note 2:** The old version of the LaunchGuidance will ask for confirmation before overriding the current journey with the one being passed.
 
 >**Note 3:** The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints`.
 
 
->**Important :** In order to verify if you can use the new API `Navigation.LaunchGuidanceWaypoints` or the old one `Navigation.LaunchGuidance`, you can check the existence of one of the following JS events :
+>**Important:** In order to verify if you can use the new API `Navigation.LaunchGuidanceWaypoints` or the old one `Navigation.LaunchGuidance`, you can check the existence of one of the following JS events:
 >- *Navigation.InvalidCoordinates*
 >- *Navigation.RouteCalculationSuccessful*
 >- *Navigation.RouteCalculationCanceled*

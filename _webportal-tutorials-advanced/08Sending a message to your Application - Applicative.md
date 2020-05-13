@@ -2,13 +2,13 @@
 type: tutorial advanced
 ---
 
-# SENDING A MESSAGE (DATA) TO YOUR APPLICATION
+## SEND MESSAGE TO APP
 
 #### WHAT YOU NEED
 
 - [Being connected to the MQTT Broker]({{ site.baseurl }}/webportal/tutorial-advanced/#connecting-to-the-mqtt-broker)
 
-- Your [MQTT Publishing Topic]({{ site.baseurl }}/webportal/tutorial-advanced/#selecting-your-mqtt-publishing-topic) looking as follows :
+- Your [MQTT Publishing Topic]({{ site.baseurl }}/webportal/tutorial-advanced/#selecting-your-mqtt-publishing-topic) looking as follows:
 	`psa/OVIPPartners-Dev/from/uid/{UID}/opa/{VIN}/`
 
 #### SENDING AN APPLICATIVE MESSAGE
@@ -75,6 +75,6 @@ mqttClient.publish(mqttPublishTopic, mqttMessage);
 ```
 
 >**Note**:
-> The QOS 0, QOS 1 and QOS 2 connections will all be downgraded to QOS 0. This means that if acknowledgement of a message is needed then this functionnality must be implemented directly by the application.
+> The QOS 0, QOS 1 and QOS 2 connections will all be downgraded to QOS 0. This means that if acknowledgment of a message is needed then this functionality must be implemented directly by the application.
 
 >**Note**: the max size for a MQTT message is 128 Kio

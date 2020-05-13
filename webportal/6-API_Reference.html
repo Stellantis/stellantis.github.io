@@ -3,14 +3,11 @@ layout: doc-article
 permalink: /webportal/reference/
 section: webportal
 title: API Reference
+gitHubPath: _webportal-public-reference/
 ---
+
 {% assign apis = site.webportal-public-reference | where:"type", "api" %}
 {% assign events = site.webportal-public-reference | where:"type", "event" %}
-<a class="button is-link is-outlined is-pulled-right" href="https://github.com/GroupePSA/groupepsa.github.io/tree/master/_webportal-public-reference/" target="_blank" title="Edit this page on GitHub">
-    <i class="fab fa-2x fa-github  is-white" style="font-size: 1.6rem"></i>
-    &nbsp; Edit Page
-</a>
-
 <h1 id="api">API REFERENCE
 </h1>
 
@@ -27,17 +24,17 @@ title: API Reference
                 </div>
             </div>
         {% endfor %}
-    </div>
-    <div class="control">
-        <div class="tags has-addons">
-           <a href="{{ site.baseurl }}/webportal/quick-start/#privacy-mode"><span class="tag is-light">min
-                privacy</span><span class="tag is-success">{% if api.privacy %}
-                        {{ api.privacy }}
-                    {% else %}
-                        Full
-                    {% endif %}
-                </span>
-            </a>
+        <div class="control">
+            <div class="tags has-addons">
+                <a href="{{ site.baseurl }}/webportal/quick-start/#privacy-mode"><span class="tag is-light">min
+                    privacy</span><span class="tag is-success">{% if api.privacy %}
+                            {{ api.privacy }}
+                        {% else %}
+                            Full
+                        {% endif %}
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
     <p>

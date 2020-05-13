@@ -1,6 +1,5 @@
 ---
 title: Media.GetFolderName()
-
 supported:
   - 2
   - 3

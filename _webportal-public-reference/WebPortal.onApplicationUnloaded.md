@@ -1,6 +1,5 @@
 ---
 title: WebPortal.onApplicationUnloaded
-
 supported:
   - 2
   - 3

@@ -1,6 +1,5 @@
 ---
 title: Car.GetMileage()
-
 supported:
   - 2
   - 3

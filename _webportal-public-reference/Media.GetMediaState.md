@@ -1,6 +1,5 @@
 ---
 title: Media.GetMediaState()
-
 supported:
   - 2
   - 3
@@ -25,7 +24,7 @@ if (Media.GetMediaState() === 2) {
 	
 #### REMARK
 
-The possible values returned are the following :
+The possible values returned are the following:
 
 Value | State
 ----|----

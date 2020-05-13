@@ -2,14 +2,7 @@
 layout: page
 ---
 
-<div class="bd-duo">
-    <div class="bd-lead">
-        {% include tabs.html %}
-        <div class="bd-content">
-            <div class="content">
-                {% if page.section == "webapib2b" %}
-                    {% include content/webapi-b2b-Disclaimer.html %}
-                {% endif %}
+            {% include content-header.html %}
                 {{ content }}
             </div>
         </div>

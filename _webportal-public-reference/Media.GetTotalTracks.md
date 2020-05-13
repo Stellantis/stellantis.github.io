@@ -1,6 +1,5 @@
 ---
 title: Media.GetTotalTracks()
-
 supported:
   - 2
   - 3

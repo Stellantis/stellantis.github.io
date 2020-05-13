@@ -35,4 +35,4 @@ Message Type | Description
 [WebPortal.nativePopup.evt.cancel]({{ site.baseurl }}/webportal/reference/#event-WebPortal-nativePopup-evt-cancel) | Event triggered when the Cancel button of the native popup is clicked.
 [WebPortal.nativePopup.evt.timeout]({{ site.baseurl }}/webportal/reference/#event-WebPortal-nativePopup-evt-timeout) | Event triggered when the timeout of the native popup is finish.
 
->**Note :** `onApplicationLoaded` **must** be sent, to the portal, by your Application after it has been launched.
+>**Note:** `onApplicationLoaded` **must** be sent, to the portal, by your Application after it has been launched.

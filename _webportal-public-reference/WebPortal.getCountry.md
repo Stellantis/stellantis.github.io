@@ -1,6 +1,5 @@
 ---
 title: WebPortal.getCountry()
-
 supported:
   - 2
   - 3

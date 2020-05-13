@@ -1,6 +1,5 @@
 ---
 title: Device.GetSoftwareRelease()
-
 supported:
   - 2
   - 3

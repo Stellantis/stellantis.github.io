@@ -17,7 +17,7 @@ try {
 	// Car
 	if ((typeof Car !== "undefined") && (typeof Car.addEventListener !== "undefined")) {
 		Car.addEventListener("distanceUnit", function(){
-			alert("The distance unit is now :" + Car.GetDistanceUnit() );
+			alert("The distance unit is now:" + Car.GetDistanceUnit() );
 		});
 	}
 }catch(e) {

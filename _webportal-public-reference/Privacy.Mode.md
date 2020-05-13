@@ -1,6 +1,5 @@
 ---
 title: Privacy.Mode()
-
 supported:
   - 3
   - 4
@@ -26,12 +25,9 @@ If (Privacy.Mode() === "Private" || Privacy.Mode() === "Geoloc" ) {
 
 #### REMARK
 
->**Note :** 3 values are possible :
-
-Value | Description
-----|----
-Public | all informations are available (Geolocalisation and internet connectivity are authorized)
-Geoloc | Geolocalisation is authorized
-Private | No Data sharing is authorized (No internet and no Geolocalisation)
+>**Note:** 3 values are available
+- `Public`: All informations are available (Geolocalisation and internet connectivity are authorized)
+- `Geoloc`: Geolocalisation is authorized
+- `Private`: No Data sharing is authorized (No internet and no Geolocalisation) 
 
 *Appeared in Wave 4.1 - version 30.05.14.30*

@@ -1,6 +1,5 @@
 ---
 title: WebPortal.nativePopup.evt.cancel
-
 supported:
   - 2
   - 3

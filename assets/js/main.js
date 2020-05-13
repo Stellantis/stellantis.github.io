@@ -469,10 +469,5 @@ document.addEventListener('DOMContentLoaded', function () {
       return a.indexOf(i) < 0;
     });
   };
+
 });
-
-
-//togglere yammer fullscreen
-function yammerFullscreen() {
-  document.getElementById('embedded-feed').style.height = "100vh";
-}

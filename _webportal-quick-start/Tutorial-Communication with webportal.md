@@ -2,7 +2,7 @@
 type: quick start
 ---
 
-# LISTENING TO WEBPORTAL MESSAGES
+# WEBPORTAL EVENTS
 
 The WebPortal will forward events to your application in order to be informed about the current state of both the App and the Portal.
 
@@ -47,9 +47,9 @@ window.addEventListener("message", function(event){
 	if (typeof data.value !== 'undefined'){
 		console.log("Notification received",data.value);
 		if (typeof data.value === 'object'){
-		alert("Notification received : "+JSON.stringify(data.value));
+		alert("Notification received: "+JSON.stringify(data.value));
 		} else {
-		alert("Notification received : "+data.value);
+		alert("Notification received: "+data.value);
 		}
 	}
 	break;

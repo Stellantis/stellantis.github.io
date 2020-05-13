@@ -8,8 +8,7 @@
             <div class="container">
                 <h1 class="title" id="section-title">Build</h1>
                 <h1 class="title" id="section-title">The future</h1>
-                <h1 class="title" id="section-title">Of
-                </h1>
+                <h1 class="title" id="section-title">Of</h1>
                 <h1 class="title" id="section-title">Connected Cars
                 </h1>
             </div>
@@ -17,7 +16,7 @@
         <div class="hero-foot">
             <div class="has-text-centered" style="padding-bottom: 1.5rem;">
                 <span class="icon is-large is-white" style="font-size: 12vh">
-                    <a href="#discover">
+                    <a href="#pageTitle">
                         <i class="fas fa-sort-down" style="text-shadow: 2px 2px 4px #000000;"></i>
                     </a>
                 </span>
@@ -29,6 +28,7 @@
         <!-- Hero head: will stick at the top -->
         <div class="hero-head">
             {% include navigation.html %}
+            {% include fixed-navbar.html %}
         </div>
         <div class="hero-body">
             <div class="container">
@@ -46,7 +46,7 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title" id="section-title">Mobile SDK</h1>
-                <h2 class="title">iOs or android</h2>
+                <h2 class="title">iOS or Android</h2>
             </div>
         </div>
     </section>
@@ -55,6 +55,7 @@
         <!-- Hero head: will stick at the top -->
         <div class="hero-head">
             {% include navigation.html %}
+            {% include fixed-navbar.html %}
         </div>
         <div class="hero-body">
             <div class="container">
@@ -68,11 +69,12 @@
         <!-- Hero head: will stick at the top -->
         <div class="hero-head">
             {% include navigation.html %}
+            {% include fixed-navbar.html %}
         </div>
         <div class="hero-body">
             <div class="container">
                 <h1 class="title" id="section-title">Mobile SDK</h1>
-                <h2 class="title">for iOs</h2>
+                <h2 class="title">for iOS</h2>
             </div>
         </div>
     </section>
@@ -94,6 +96,9 @@
         <!-- Hero head: will stick at the top -->
         <div class="hero-head">
             {% include navigation.html %}
+            {% if page.section == "webapib2b" %}
+                {% include fixed-navbar.html %}
+            {% endif %}
         </div>
         <div class="hero-body">
             <div class="container">
@@ -106,8 +111,11 @@
     <section class="hero is-dark is-medium hero_api">
         <!-- Hero head: will stick at the top -->
         <div class="hero-head">
+            {% if page.section == "webapib2c" %}
+                {% include fixed-navbar.html %}
+            {% endif %}
             {% include navigation.html %}
-        </div>
+            </div>
         <div class="hero-body">
             <div class="container">
                 <h1 class="title" id="section-title">WEB API</h1>

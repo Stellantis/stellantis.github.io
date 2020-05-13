@@ -1,6 +1,5 @@
 ---
 title: Privacy.ModePublic
-
 supported:
   - 3
   - 4

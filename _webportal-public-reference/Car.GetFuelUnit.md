@@ -1,6 +1,5 @@
 ---
 title: Car.GetFuelUnit()
-
 supported:
   - 2
   - 3
@@ -11,7 +10,7 @@ type: api
 ### `Car.GetFuelUnit()`
 
 | **Description** | Gets the currently used fuel unit.
-| **Response** | *String*  The fuel unit, Possible values are : - l, - gal
+| **Response** | *String*  The fuel unit, Possible values are: - l, - gal
 | **Parameter**   | *Void*
 
 #### EXAMPLE

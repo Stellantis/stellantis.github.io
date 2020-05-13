@@ -1,6 +1,5 @@
 ---
 title: WebPortal.okBtnPopupRequestClicked
-
 supported:
   - 2
   - 3
@@ -8,7 +7,7 @@ supported:
 type: event
 ---
 
-Event triggered when the *OK* button of the [MQTT popup]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) is clicked.
+Event triggered when the *OK* button of the [MQTT popup]({{site.baseurl}}/webportal/tutorial-advanced/#sending-popup) is clicked.
 
 ### EXAMPLE
 

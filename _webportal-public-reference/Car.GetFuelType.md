@@ -1,6 +1,5 @@
 ---
 title: Car.GetFuelType()
-
 supported:
   - 2
   - 3
@@ -24,7 +23,7 @@ var FuelType = Car.GetFuelType;
 
 #### REMARK
 
->**Note :** The fuel type's length is 2 characters max.
+>**Note:** The fuel type's length is 2 characters max.
 
 Number | Fuel type
 -----|----

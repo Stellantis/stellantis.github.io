@@ -1,6 +1,5 @@
 ---
 title: Car.driverDistractionOn
-
 supported:
   - 2
   - 3
@@ -9,7 +8,7 @@ type: event
 ---
 Event triggered when the distraction status is changed to ON (display driver distraction popup).
 
->**Note :** This event is triggered when the speed goes below 5km/h.
+>**Note:** This event is triggered when the speed goes below 5km/h.
 
 ### EXAMPLE
 

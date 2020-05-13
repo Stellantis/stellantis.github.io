@@ -1,6 +1,5 @@
 ---
 title: Media.Audio.audioAvailable
-
 supported:
   - 2
   - 3

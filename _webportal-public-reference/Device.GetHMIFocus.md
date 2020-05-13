@@ -1,6 +1,5 @@
 ---
 title: Device.GetHMIFocus()
-
 supported:
   - 2
   - 3

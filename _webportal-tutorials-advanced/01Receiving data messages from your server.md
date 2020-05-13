@@ -4,9 +4,9 @@ type: tutorial advanced
 
 # MANAGING EMBEDDED
 
-# RECEIVING DATA MESSAGES FROM YOUR SERVER
+## RECEIVING MESSAGES
 
-When receiving data from your server, if :
+When receiving data from your server, if:
 
 - The NAC module is active
 - Your application is launched (not in background)
@@ -22,7 +22,7 @@ When both WebPortal and your application are running, your messages are transmit
 To retrieve your messages you have to implement the `"message"` event handler and filter on the type `WebPortal.onCurrentNotificationReceived`
 
 
-**Implementation example :**
+**Implementation example:**
 ```javascript
 window.addEventListener('message', function(messageEvent) {
 	var webportalMessage = messageEvent.data;
@@ -43,15 +43,15 @@ When WebPortal is in background or your application isn't running, WebPortal kee
 
 To retrieve those pending messages you have to use the `WebPortal.getPendingNotifications()` method that is directly injected in your application's `window` object and so can be called directly.
 
-In order to retrieve the messages over time, you can call this method :
+In order to retrieve the messages over time, you can call this method:
 
 - at fixed interval, using `setTimeout` or `setInterval`
-- when detecting the following WebPortal events being triggered :
+- when detecting the following WebPortal events being triggered:
 	+ `WebPortal.onApplicationShow`  
 	+ `WebPortal.onApplicationHide`
 
 
-**Implementation example :**
+**Implementation example:**
 
 ```javascript
 /**

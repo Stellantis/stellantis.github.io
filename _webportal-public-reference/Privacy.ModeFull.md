@@ -1,6 +1,5 @@
 ---
 title: Privacy.ModeFull
-
 supported:
   - 2
   - 3

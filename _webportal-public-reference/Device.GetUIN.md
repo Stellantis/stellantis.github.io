@@ -1,6 +1,5 @@
 ---
 title: Device.GetUIN()
-
 supported:
   - 3
   - 4

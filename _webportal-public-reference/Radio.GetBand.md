@@ -1,6 +1,5 @@
 ---
 title: Radio.GetBand()
-
 supported:
   - 2
   - 3

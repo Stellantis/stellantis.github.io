@@ -1,6 +1,5 @@
 ---
 title: Car.JourneyInfo()
-
 supported:
   - 2
   - 3
@@ -23,6 +22,6 @@ privacy: Public
 
 #### REMARK
 
->**Note :** `Navigation.GetJourneyInfo` must always be used before accessing the value stored in `Navigation.ManeuverInfo`.
+>**Note:** `Navigation.GetJourneyInfo` must always be used before accessing the value stored in `Navigation.ManeuverInfo`.
 
 *Appeared in Software version 40.03.42.30*

@@ -1,6 +1,5 @@
 ---
 title: Navigation.GetDestination()
-
 supported:
   - 2
   - 3
@@ -33,6 +32,6 @@ if ( Navigation.GetDestination() === false ) {
 
 #### REMARK
 
->**Note :** `Navigation.GetDestination` must always be used before accessing the value stored in `Navigation.Destination`.
+>**Note:** `Navigation.GetDestination` must always be used before accessing the value stored in `Navigation.Destination`.
 
 *Appeared in Software version 40.03.42.30*

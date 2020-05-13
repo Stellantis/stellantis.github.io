@@ -1,6 +1,5 @@
 ---
 title: Device.GetInternetStatus()
-
 supported:
   - 2
   - 3
