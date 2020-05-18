@@ -1,6 +1,5 @@
 ---
 title: Car.driverDistractionOff
-section: public reference
 supported:
   - 2
   - 3
@@ -9,7 +8,7 @@ type: event
 ---
 Event triggered when the distraction status is changed to OFF (hide driver distraction popup).
 
->**Note :** This event is triggered when the speed exceeds 5km/h.
+>**Note:** This event is triggered when the speed exceeds 5km/h.
 
 ### EXAMPLE
 

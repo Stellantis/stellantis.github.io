@@ -1,6 +1,6 @@
-# WHAT DOES IT'S LOOK LIKE?
+# WHAT DOES ITS LOOK LIKE?
 
-Our REST api returns type MIME: **application/hal+json**. GeoJson is for geolocalisation and time format is RFC3339.
+Our REST api returns type MIME: **application/hal+json**. GeoJson is for geolocation and time format is RFC3339.
 
 ## REQUEST
 
@@ -46,7 +46,7 @@ The Groupe PSA's Web APIs are based on **REST** principles. Data resources are a
 
 ## SINGLE OBJECT
 
-When you call a ressource with an id you will retrieve a single object. Every ressource wich respond with a single object respect the following generic schema:
+When you call for a resource with an id you will retrieve a single object. Every resource which respond with a single object respect the following generic schema:
 
 ```json
 {
@@ -68,7 +68,7 @@ When you call a ressource with an id you will retrieve a single object. Every re
 
 |Property|	Type|	Description|
 |----|----|----||
-|`_links`|	object|	This property contain _links related to the current object. It can be _links to store the current object or _links related to this objectss.|
+|`_links`|	object|	This property contain _links related to the current object. It can be _links to inside the current object or _links related to this object.|
 |`_links.self.href`|	string|	URL of the current object|
 |`createdAt`|	date| Creation date: when the data was collected (UTC).|
 |`updatedAt`|	date| Last update date|
@@ -76,7 +76,7 @@ When you call a ressource with an id you will retrieve a single object. Every re
 
 ## COLLECTION
 
-When you call an api with a plural noun you will receive an array of objects. Every ressource which responds with a list of object respect the following generic schema.
+When you call an api with a plural noun you will receive an array of objects. Every resource which responds with a list of object respect the following generic schema.
 
 ```json
 {
@@ -156,14 +156,14 @@ When you call an api with a plural noun you will receive an array of objects. Ev
 
 
 ## PAGINATION
-Every collections in the API are browsable. Links provided in the response will let you naviguate in the API endpoints like in a website.
+Every collection in the API are browsable. Links provided in the response will let you navigate in the API endpoints like in a website.
 
-First of all, collections comes with a **pagination system**. In your request you can add optional parameters:
-- `indexRange`: specify where the collection begin and where it finish.
-> example: *"indexRange=0-9"* will retriev only results 0 to 9.
+First, collections comes with a **pagination system**. In your request you can add optional parameters:
+- `indexRange`: specify where the collection begin and where it finishes.
+> example: *"indexRange=0-9"* will retrieve only results 0 to 9.
 
-- `pageSize`: is the maximum of resultats you want to return per page.
-> example: *"pageSize=15"* will retieve only 15 results per page.
+- `pageSize`: is the maximum of results you want to return per page.
+> example: *"pageSize=15"* will retrieve only 15 results per page.
 
 As you can see in the previous example there is a `_links` object at the top of the response body. These links let you browse between pages in a collection.  Look at this table for more info about this `_links` object:
 
@@ -178,9 +178,9 @@ As you can see in the previous example there is a `_links` object at the top of 
 |`total`|	integer|	Total number of elements in the array. Depends on the filters applied to the search.|
 |`_embedded`|	object| This property contains commonly related objects to the current object. |
 
-## DISCOVERING RESSOURCES
+## DISCOVERING RESOURCES
 
-Ressources in the API are using HAL for **HATEOAS integration**. It allow interaction inside the api ressources. The purpose is to access and discover the API like you browse a website: navigating from one page to another. Links are nammed with the idea that you can understand easily what they are about.
+Resources in the API are using HAL for **HATEOAS integration**. It allows interaction inside the api resources. The purpose is to access and discover the API like you browse a website: navigating from one page to another. Links are named with the idea that you can understand easily what they are about.
 
 **Example:** 
 <div class="tags has-addons">
@@ -197,8 +197,7 @@ Ressources in the API are using HAL for **HATEOAS integration**. It allow intera
 
 ```json
 {
-    "_links": {(...)}
-    },
+    "_links": { },
     "total": 32,
     "_embedded": {
         "Status": [
@@ -228,15 +227,65 @@ Ressources in the API are using HAL for **HATEOAS integration**. It allow intera
 }
 ```
 
-Let's say your are browsing all the vehicles (example above).
-Look at the object status, inside each status object you can retrieve info about the vehicle it concerns, it include last position, precondictionning, battery etc.
+Let's say you are browsing all the vehicles (example above).
+Look at the object status, inside each status object you can retrieve info about the vehicle it concerns, it includes last position, preconditioning, battery etc.
 
-Furthermore there is a `_links` object embedded in the status object. These links are relative to the object that they describe. They let you discover and browse the API. In the example below you can retrieve 3 links:
+Furthermore, there is a `_links` object embedded in the status object. These links are relative to the object that they describe. They let you discover and browse the API. In the example below you can retrieve 3 links:
 {% if page.section == 'webapib2b' %}
-- `"fleet"` : direct link to the fleet of this status.
+- `"fleet"`: direct link to the fleet of this status.
 {% endif %}
-- `"self"` : pointing to the actual ressource.
-- `"vehicles"` :  pointing to the vehicle this status is about.
+- `"self"`: pointing to the actual resource.
+- `"vehicles"`:  pointing to the vehicle this status is about.
+
+## EXPECTED JSON DATA
+
+**Be careful**, this API is very likely to have updates in the future, that's why your application have to support evolution regarding the schema of exposed data.
+
+In order to ensure the API **backward compatibility** with previous versions, we pledge to keep the same unit for each field in a JSON response body.
+
+However, it's possible that we choose to **add a new field** in a JSON response body. Your application should then handle dealing with unknown properties.
+
+Furthermore, regarding the nature of this API, it could append that some **fields are missing** in the JSON response body. In this case, your application should be able to manage with the absence of the field and not cause an error.
+
+#### EXAMPLE
+
+This is an example of an exposed resource data schema:
+
+```yaml
+data:
+type: object
+description: Data model
+properties:
+    field1:
+    type: string
+    field2:
+    type: number
+```
+
+And then here is a list of JSON data that your application should be able to handle:
+
+**1. All fields:**
+```json
+{
+    "field1":"value1",
+    "field2": 1
+}
+```
+
+**2. Missing fields:**
+```json
+{
+    "field1":"value1"
+}
+```
+
+**3. Unknown fields:**
+```json
+{
+    "field1":"value1",
+    "field3": 2.5
+}
+```
 
 
 # SEE ALSO
@@ -250,7 +299,6 @@ Groupe PSA's web API for fleet owner utilizes mutual authentication. Follow this
 ##### CONNECT
 
 Groupe PSA's web API for end-users utilizes OAuth2 connection, follow this [link]({{site.baseurl}}/webapi/b2c/connect/) for connection tutorial. {% endif %}
-
 
 ##### MONITORS
 

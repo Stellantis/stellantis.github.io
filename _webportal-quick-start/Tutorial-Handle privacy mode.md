@@ -6,7 +6,7 @@ type: quick start
 
 For every app it is also mandatory to handle the privacy mode of the user.
 
-The user can select one of 3 modes :
+The user can select one of 3 modes:
 - Public, you can access both the internet and the geolocation of the user
 - Geoloc, you can only access the internet as the geolocation is locked
 - Full, you can access neither the internet nor the geolocation
@@ -29,7 +29,7 @@ Some functionnalities will be unavailable in Geoloc or Full privacy mode.
 
 ### WHEN Privacy.Mode()=Full
 
-The following methods return undefined :
+The following methods return undefined:
 - Car.GetVINCode()
 - Car.GetSpeed()
 - Navigation.GetCurrentPositionLatitude()
@@ -63,13 +63,13 @@ The following methods return undefined :
 - Navigation.GetNextWaypoint.ETAHours()
 - Navigation.GetNextWaypoint.ETAMinutes()
 	
-These methods won't do anything and return false :
+These methods won't do anything and return false:
 - Navigation.LaunchGuidance()
 - Navigation.LaunchGuidanceWaypoint()
 
 ### WHEN Privacy.Mode()=geoloc
 
-The following methods return undefined :
+The following methods return undefined:
 - Navigation.GetCurrentPositionLatitude()
 - Navigation.GetCurrentPositionLongitude()
 - Navigation.CurrentPosition.Altitude
@@ -101,6 +101,6 @@ The following methods return undefined :
 - Navigation.GetNextWaypoint.ETAHours()
 - Navigation.GetNextWaypoint.ETAMinutes()
 	
-These methods won't do anything and return false :
+These methods won't do anything and return false:
 - Navigation.LaunchGuidance()
 - Navigation.LaunchGuidanceWaypoint()

@@ -1,6 +1,5 @@
 ---
 title: HMI.homeBtnClick
-
 supported:
   - 2
   - 3

@@ -1,7 +1,8 @@
 ---
-layout: doc-item
+layout: doc-article
 permalink: /webapi/b2c/monitor/
 section: webapib2c
+require: swagger
 title: Monitor
 ---
-# THIS CATEGORY WILL BE AVAILABLE SOON
+{% include_relative content/webapi-Monitor.md %}

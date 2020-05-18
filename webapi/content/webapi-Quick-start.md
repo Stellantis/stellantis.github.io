@@ -1,80 +1,53 @@
 # EXAMPLES
 
-This Quick Start contains examples of curl requests to Groupe PSA's web api for {% if page.section == 'webapib2b' %}Fleet Owners{% elsif page.section == "webapib2c" %}End-Users{% endif %}. 
+This Quick Start contains examples of curl requests to Groupe PSA's web api for {% if page.section == 'webapib2b' %}Fleet Owners{% elsif page.section == "webapib2c" %}End-Users{% endif %}. These examples will show you how to deal with single objects, collections, geo-json objects and an example of POST and DELETE HTTP request.
 
-To retrieve {% if page.section == 'webapib2b' %} authentication informations refer to [this section]({{site.basurl}}/webapi/b2b/authentication).{% elsif page.section == 'webapib2c' %} connection informations refer to [this section]({{site.basurl}}/webapi/b2c/connect).{% endif %}
+To retrieve {% if page.section == 'webapib2b' %} authentication information refer to [this section]({{site.baseurl}}/webapi/b2b/authentication).{% elsif page.section == 'webapib2c' %} connection information refer to [this section]({{site.baseurl}}/webapi/b2c/connect).{% endif %}
 
-## GET YOUR INFO 
+## GET YOUR INFO
 
-Web API base enpoint{% if page.section == 'webapib2b' %}'/fleets'{% elsif page.section == "webapib2c" %}'/user'{% endif %} allow you to retrieve infos about your account in Groupe PSA's Network.
+Web API base endpoint {% if page.section == 'webapib2b' %}'/fleets'{% elsif page.section == "webapib2c" %}'/user'{% endif %} allow you to retrieve info about your account in Groupe PSA's Network.
 
-{% if page.section == 'webapib2b' %}
+{% include_relative content/webapi-cUrl.md apiEndpointB2B='/fleets' apiEndpointB2C='/user' referenceURLResssourceB2C='/#/User/getUser' referenceURLResssourceB2B='/#/Fleet/getFleets' httpVerb='GET' displayApiURL=true %}
 
-{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets' referenceURLResssource='/#/Fleet/getFleets' httpVerb='GET' %}
-
-{% elsif page.section == "webapib2c" %}
-
-{% include_relative content/webapi-cUrl.md  apiEndpoint='/user' referenceURLResssource='/#/User/getUser' httpVerb='GET' %}
-
+{% if page.section == 'webapib2b' %} 
+**{version}** depends on your subscription:
+- v2: *delegation publique*
+- v3: *connected fleet* / *TMTS* / *UBI*
 {% endif %}
 
-## GET A LIST OF VEHICLES 
+## GET A LIST OF VEHICLES
 
-The {% if page.section == 'webapib2b' %}'/fleets/{fid}/vehicles'{% elsif page.section == "webapib2c" %}'/user/vehicles'{% endif %} endpoint allow you to retrieve a list of your vehicles. See {% if page.section == 'webapib2b' %}[preview]({{site.basurl}}/webapi/b2b/preview#pagination){% elsif page.section == "webapib2c" %}[preview]({{site.basurl}}/webapi/b2c/preview#pagination){% endif %} for explanation about `indexRange` and `pageSize`.
+The {% if page.section == 'webapib2b' %}'/fleets/{fid}/vehicles'{% elsif page.section == "webapib2c" %}'/user/vehicles'{% endif %} endpoint allow you to retrieve a list of your vehicles. 
 
+See {% if page.section == 'webapib2b' %}[preview]({{site.baseurl}}/webapi/b2b/preview#pagination){% elsif page.section == "webapib2c" %}[preview]({{site.baseurl}}/webapi/b2c/preview#pagination){% endif %} for explanation about `indexRange` and `pageSize`.
 
-{% if page.section == 'webapib2b' %}
-
-{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets/{fid}/vehicles' referenceURLResssource='/#/Vehicles/getVehiclesByDevice' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' %}
-
-{% elsif page.section == "webapib2c" %}
-
-{% include_relative content/webapi-cUrl.md  apiEndpoint='/user/vehicles' referenceURLResssource='/#/Vehicles/getVehiclesByDevice' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' %}
-
-{% endif %}
+{% include_relative content/webapi-cUrl.md apiEndpointB2B='/fleets/{fid}/vehicles'  referenceURLResssourceB2B='/#/Vehicles/getVehiclesByDevice' apiEndpointB2C='/user/vehicles' referenceURLResssourceB2C='/#/Vehicles/getVehiclesByDevice' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' %}
 
 ## GET A VEHICLE POSITION
 
 The {% if page.section == 'webapib2b' %}'/fleets/{fid}/vehicles/{id}/lastPosition'{% elsif page.section == "webapib2c" %}'/user/vehicles/{id}/lastPosition'{% endif %} endpoint allow you to retrieve the last known position for a vehicle.
 
+Note that the 'Accept' header is not `--header 'Accept: application/hal+json'` but `Accept: application/vnd.geo+json`.
 
-{% if page.section == 'webapib2b' %}
-
-{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets/{fid}/vehicles/{id}/lastPosition' referenceURLResssource='/#/Vehicles/getCarLastPosition' httpVerb='GET' %}
-
-{% elsif page.section == "webapib2c" %}
-
-{% include_relative content/webapi-cUrl.md  apiEndpoint='/user/vehicles/{id}/lastPosition' referenceURLResssource='/#/Vehicles/getCarLastPosition' httpVerb='GET' %}
-
-{% endif %}
-
+{% include_relative content/webapi-cUrl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/lastPosition' apiEndpointB2C='/user/vehicles/{id}/lastPosition' referenceURLResssourceB2B='/#/Vehicles/getCarLastPosition' referenceURLResssourceB2C='/#/Vehicles/getCarLastPosition' httpVerb='GET' %}
 
 ## GET ALERTS OF A VEHICLE
 
-The {% if page.section == 'webapib2b' %}'/fleets/{fid}/vehicles/{id}/alerts'{% elsif page.section == "webapib2c" %}'/user/vehicles/{id}/alerts'{% endif %} endpoint allow you to retrieve a list of alerts for a vheicle.
+The {% if page.section == 'webapib2b' %}'/fleets/{fid}/vehicles/{id}/alerts'{% elsif page.section == "webapib2c" %}'/user/vehicles/{id}/alerts'{% endif %} endpoint allow you to retrieve a list of alerts for a vehicle.
 - Path parameter **{id}** is the unique identifier of one of your vehicles. 
-- Query parameter `locale` wiil change the language of the alert message.
+- Query parameter `locale` will change the language of the alert message.
 
+{% include_relative content/webapi-cUrl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/alerts' apiEndpointB2C='/user/vehicles/{id}/alerts' referenceURLResssourceB2B='/#/Vehicles/getVehicleAlerts' referenceURLResssourceB2C='/#/Vehicles/getVehicleAlerts' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
 
-{% if page.section == 'webapib2b' %}
+## POST NEW MONITOR
 
-{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets/{fid}/vehicles/{id}/alerts' referenceURLResssource='/#/Vehicles/getVehicleAlerts' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
+The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors'{% elsif page.section == "webapib2c" %}'/user/vehicles/{id}/monitors'{% endif %} endpoint allow you to create a new monitor. Have a look to the {% if page.section == 'webapib2b' %}[monitor section]({{site.baseurl}}/webapi/b2b/monitor){% elsif page.section == "webapib2c" %}[monitor section]({{site.baseurl}}/webapi/b2c/monitor).
+- Path parameter **{id}** is the unique identifier of one of your vehicles.
+{% endif %} 
 
-{% elsif page.section == "webapib2c" %}
-
-{% include_relative content/webapi-cUrl.md  apiEndpoint='/user/vehicles/{id}/alerts' referenceURLResssource='/#/Vehicles/getVehicleAlerts' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
-
-{% endif %}
-
-## POST CREATE A MONITOR
-
-The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors'{% elsif page.section == "webapib2c" %}'/user/vehicles/{id}/monitors'{% endif %} endpoint allow you to create a new monitor. Have a look to the {% if page.section == 'webapib2b' %}[monitor section]({{site.baseurl}}/webapi/b2b/monitor){% elsif page.section == "webapib2c" %}[monitor section]({{site.baseurl}}/webapi/b2c/monitor){% endif %}
-- Path parameter **{id}** is the unique identifier of one of your vehicles. 
-
-{% if page.section == 'webapib2b' %}
-
-{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets/{fid}/monitors' referenceURLResssource ='/#/Vehicles/setVehicleMonitor' httpVerb='POST' httpBody='{
-   "label":"IDF MPH Zone monitor With Data Triggering:[vehicle.energy.electric.level]",
+{% include_relative content/webapi-cUrl.md apiEndpointB2B='/fleets/{fid}/monitors' apiEndpointB2C='/user/vehicles/{id}/monitors' httpVerb='POST' referenceURLResssourceB2B ='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2B='#/Vehicles/setVehicleMonitor' httpBody='{
+   "label":"IDF Zone monitor With Data Triggering:[vehicle.energy.electric.level] OR on Mondays",
    "subscribeParam":{
       "refreshEvent":600,
       "retryPolicy":{
@@ -98,7 +71,7 @@ The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors'{% elsif page.se
             {
                "type":"Header",
                "key":"Authorization",
-               "value":"Basic VTUzRRkyMjp2MjdQc99wNQ=="
+               "value":"Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="
             }
          ]
       }
@@ -108,98 +81,53 @@ The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors'{% elsif page.se
       "vehicle.status"
    ],
    "triggerParam":{
-      "dataTriggers":[
-         {
-            "data":"vehicle.energy.electric.level",
-            "op":"lowerThan",
-            "value":[
-               "80"
-            ]
-         }
-      ],
-      "timeZoneTriggers":{
-         "zoneTrigger":{
-            "transition":"Out",
-            "place":{
-               "radius":50.5,
-               "center":{
-                  "longitude":2.3329639434814453,
-                  "latitude":48.87073474480463
+      "triggers": [
+      {
+         "name": "outOfParis",
+         "zone": {
+            "transition": "Out",
+            "circle": {
+               "radius": 20,
+               "center": {
+               "longitude": 2.333333,
+               "latitude": 48.866667
                }
             }
-         }
-      }
-   }
-}' %}
-
-{% elsif page.section == "webapib2c" %}
-
-{% include_relative content/webapi-cUrl.md  apiEndpoint='/user/vehicles/{id}/monitors' referenceURLResssource ='/#/Monitors/createFleetVehicleMonitor' httpVerb='POST' httpBody='{
-   "label":"IDF MPH Zone monitor With Data Triggering:[vehicle.energy.electric.level]",
-   "subscribeParam":{
-      "refreshEvent":600,
-      "retryPolicy":{
-         "policy":"Always",
-         "maxRetryNumber":3,
-         "retryDelay":120
-      },
-      "batchNotify":{
-         "size":10,
-         "timeWindow":300
-      },
-      "callback":{
-         "target":"http://my.dn/monitors/cb1",
-         "name":"HTTP_CB",
-         "attributes":[
-            {
-               "type":"Query",
-               "key":"vin",
-               "value":"$vin"
-            },
-            {
-               "type":"Header",
-               "key":"Authorization",
-               "value":"Basic VTUzRRkyMjp2MjdQc99wNQ=="
-            }
-         ]
-      }
-   },
-   "extendedEventParam":[
-      "vehicle.alerts",
-      "vehicle.status"
-   ],
-   "triggerParam":{
-      "dataTriggers":[
-         {
-            "data":"vehicle.energy.electric.level",
-            "op":"lowerThan",
-            "value":[
-               "80"
+         },
+         "name": "onMonday",
+         "time": {
+            "times": [
+               {
+               "recurrence": "Daily",
+               "start": "PT14H30M",
+               "occurence": {
+                  "day": [
+                     "Mon"
+                  ]
+               },
+               "duration": "PT04H30M"
+             }
+            ],
+            "time.zone": "Europe/Paris"
+         },
+         "name": "batteryIsLow",
+         "data": {
+          "data": "vehicle.energy.electric.level",
+          "op": "lowerThan",
+          "value": [
+            "50"
             ]
-         }
-      ],
-      "timeZoneTriggers":{
-         "zoneTrigger":{
-            "transition":"Out",
-            "place":{
-               "radius":50.5,
-               "center":{
-                  "longitude":2.3329639434814453,
-                  "latitude":48.87073474480463
-               }
-            }
-         }
+        }
       }
-   }
+    ],
+    "bool.exp": "((outOfParis & (batteryIsLow | onMonday)"
+  }
 }' %}
-
-{% endif %}
-
 
 {% comment %} 
 ## PUT EDIT A MONITOR
 
-The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors/{mid}/status'{% elsif page.section == "webapib2c" %}'/user/vehicles/{id}/status'{% endif %} endpoint allow you to create a new monitor. Have a look to the {% if page.section == 'webapib2b' %}[monitor section]({{site.baseurl}}/webapi/b2b/monitor){% elsif page.section == "webapib2c" %}[monitor section]({{site.baseurl}}/webapi/b2c/monitor){% endif %}
+The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors/{mid}/status'{% elsif page.section == "webapib2c" %}'/user/vehicles/{id}/status'{% endif %} endpoint allow you to create a new monitor. Have a look to the {% if page.section == 'webapib2b' %}[monitor section]({{site.baseurl}}/webapi/b2b/monitor){% elsif page.section == "webapib2c" %}[monitor section]({{site.baseurl}}/webapi/b2c/monitor){% endif %}.
 - Path parameter **{id}** is the unique identifier of one of your vehicles. 
 
 {% if page.section == 'webapib2b' %}
@@ -223,26 +151,17 @@ The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors/{mid}/status'{% 
 
 ## DELETE A MONITOR
 
-The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors/{mid}'{% elsif page.section == "webapib2c" %}'/user/vehicles/{id}/monitors/{mid}'{% endif %} endpoint allow you to retrieve a list of alerts for a vheicle.
+The {% if page.section == 'webapib2b' %}'/fleets/{fid}/monitors/{mid}'{% elsif page.section == "webapib2c" %}'/user/vehicles/{id}/monitors/{mid}'{% endif %} endpoint allow you to retrieve a list of alerts for a vehicle.
 - Path parameter **{id}** is the unique identifier of one of your vehicles. 
-- Query parameter `locale` wiil change the language of the alert message.
+- Query parameter `locale` will change the language of the alert message.
 
-
-{% if page.section == 'webapib2b' %}
-
-{% include_relative content/webapi-cUrl.md apiEndpoint='/fleets/{fid}/monitors/{mid}' referenceURLResssource='/#/Monitors/deleteFleetMonitor' httpVerb='DELETE' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
-
-{% elsif page.section == "webapib2c" %}
-
-{% include_relative content/webapi-cUrl.md  apiEndpoint='/user/vehicles/{id}/monitors/{mid}' referenceURLResssource='/#/Vehicles/deleteMonitordd' httpVerb='DELETE' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
-
-{% endif %}
+{% include_relative content/webapi-cUrl.md apiEndpointB2B='/fleets/{fid}/monitors/{mid}' apiEndpointB2C='/user/vehicles/{id}/monitors/{mid}' referenceURLResssourceB2B='/#/Monitors/deleteFleetMonitor' referenceURLResssourceB2C='/#/Vehicles/deleteMonitordd' httpVerb='DELETE' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
 
 # SEE ALSO
 
 ##### TRY OUT!
 
-To test the API you can check the [API List]({{ site.baseurl }}/webapi/b2b/reference/) directly.
+Retrieve all reference of this API, go to the {% if page.section == 'webapib2b' %}[API List]({{ site.baseurl }}/webapi/b2b/reference/){% elsif page.section == "webapib2c" %}[API List]({{ site.baseurl }}/webapi/b2c/reference/){% endif %}.
 
 {% if page.section == 'webapib2b' %}
 ##### AUTHENTICATION

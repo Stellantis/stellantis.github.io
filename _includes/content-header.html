@@ -1,0 +1,44 @@
+<div class="bd-duo">
+    <div class="bd-lead ">
+        <div class="bd-content">
+            {% comment %}---TABS---{% endcomment %}
+            {% if page.section %}
+            <div id="tabs" class="tabs is-centered">
+                <ul> {% for p in site.pages %} {% if p.section contains page.section %}
+                    <li {% if page.title==p.title %}class="is-active" {% endif %}>
+                        <a href="{{ p.url | relative_url }}#pageTitle">{{ p.title" }}</a>
+                    </li> {% endif %} {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% comment %}---END TABS---{% endcomment %}
+            {% comment %}---B2B DISCLAIMER---{% endcomment %}
+            {% if page.section == "webapib2b" and page.title=="Presentation" or page.title=="Preview" %}
+                <div class="content notif">
+                    {% include content/webapi-b2b-Disclaimer.html %}
+                </div>
+                {% endif %}
+            {% comment %}---END B2B DISCLAIMER---{% endcomment %}
+
+ 
+            {% comment %}---EDIT WITH GITHUB---{% endcomment %}
+            <div class="content">
+                {% unless page.title == "API Reference" and page.section == "webapib2b" or page.title == "API Reference" and page.section == "webapib2c" %}
+                <div id="content-header" >
+                    {% if page.gitHubPath %}
+                    <a href="{{site.gitHubURL}}{{page.gitHubPath}}"
+                    {% elsif page.title == "API Reference" and page.section == "webapib2b" %}
+                    <a href="{{site.gitHubSpecB2B}}"
+                    {% elsif page.title == "API Reference" and page.section == "webapib2c" %}
+                    <a href="{{site.gitHubSpecB2C}}"
+                    {% else %}
+                    <a href="{{site.gitHubURL}}{{ page.path }}"
+                    {% endif %} style="color: #4a4a4a" class="button  is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
+                    <span class="icon">
+                        <i  class="far fa-edit"></i> 
+                      </span>
+                    &nbsp; Edit this Page
+                    </a>
+                </div>
+                {% endunless %}
+            {% comment %}---END EDIT WITH GITHUB---{% endcomment %}

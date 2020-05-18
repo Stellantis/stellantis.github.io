@@ -1,6 +1,5 @@
 ---
 title: WebPortal.nativePopup.evt.ok
-
 supported:
   - 2
   - 3

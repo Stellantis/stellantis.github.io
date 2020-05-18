@@ -1,6 +1,5 @@
 ---
 title: Car.GetFuelAutonomy()
-
 supported:
   - 2
   - 3
@@ -23,6 +22,6 @@ var FuelAutonomy = Car.GetFuelAutonomy();
 
 #### REMARK
 
->**Note :** The Fuel Autonomy's max length is 4 characters.
+>**Note:** The Fuel Autonomy's max length is 4 characters.
 
 *Appeared in Software version 40.03.51.50*

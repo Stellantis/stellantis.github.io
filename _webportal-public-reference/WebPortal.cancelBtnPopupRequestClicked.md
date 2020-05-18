@@ -1,6 +1,5 @@
 ---
 title: WebPortal.cancelBtnPopupRequestClicked
-
 supported:
   - 2
   - 3
@@ -10,7 +9,7 @@ type: event
 
 Event triggered when the *Cancel* popup [MQTT popup]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) button is clicked.
 
-> **Be carefull**: To retrieve this event you have to use [WebPortal.getPendingNotifications()]({{site.baseurl}}/webportal/tutorial-advanced/#receiving-data-messages-from-your-server) method.
+> **Be carefull**: To retrieve this event you have to use [WebPortal.getPendingNotifications()]({{site.baseurl}}/webportal/tutorial-advanced/#receiving-messages) method.
 
 ```javascript
 //Retrieve pending notification

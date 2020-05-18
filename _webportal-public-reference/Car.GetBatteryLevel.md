@@ -1,6 +1,5 @@
 ---
 title: Car.GetBatteryLevel()
-
 supported:
   - 4
 type: api

@@ -1,6 +1,5 @@
 ---
 title: Navigation.GetCurrentPosition()
-
 supported:
   - 2
   - 3
@@ -31,6 +30,6 @@ if ( Navigation.GetCurrentPosition === false ) {
 
 #### REMARK
 
->**Note :** `Navigation.GetCurrentPosition` must always be used before accessing the value stored in `Navigation.CurrentPosition`.
+>**Note:** `Navigation.GetCurrentPosition` must always be used before accessing the value stored in `Navigation.CurrentPosition`.
 
 *Appeared in Software version 40.03.42.30*

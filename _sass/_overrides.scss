@@ -1,3 +1,31 @@
+// --------------------------------- HTML ELEMENTS ------------------------------
+//   _   _ _____ __  __ _       _____ _     _____ __  __ _____ _   _ _____ ____  
+//  | | | |_   _|  \/  | |     | ____| |   | ____|  \/  | ____| \ | |_   _/ ___| 
+//  | |_| | | | | |\/| | |     |  _| | |   |  _| | |\/| |  _| |  \| | | | \___ \ 
+//  |  _  | | | | |  | | |___  | |___| |___| |___| |  | | |___| |\  | | |  ___) |
+//  |_| |_| |_| |_|  |_|_____| |_____|_____|_____|_|  |_|_____|_| \_| |_| |____/ 
+//                                                                                  
+// -------------------------------------------------------------------------------
+
+html {
+    background-color: #1e2336;
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    font-weight: 300;
+    color: black;
+    font-size: 17px;
+}
+
 p {
     overflow-wrap: break-word;
 }
@@ -9,6 +37,119 @@ strong {
 th {
     font-weight: 500;
 }
+
+h1,h2,h3,h4,h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 8rem;
+    margin-top: -7rem;
+}
+
+//   ----------------- CONTENT -------------- 
+//    ____ ___  _   _ _____ _____ _   _ _____ 
+//   / ___/ _ \| \ | |_   _| ____| \ | |_   _|
+//  | |  | | | |  \| | | | |  _| |  \| | | |  
+//  | |__| |_| | |\  | | | | |___| |\  | | |  
+//   \____\___/|_| \_| |_| |_____|_| \_| |_|  
+//                                            
+// -----------------------------------------  
+
+.bd-lead h1, .bd-lead h2, .bd-lead h3, .bd-lead h4, .bd-lead h5 { 
+    font-weight: 700;
+    color: black;
+}
+
+.content h1:not(:first-child), .content h2:not(:first-child), .content h3:not(:first-child), .content h4, .content h5 {
+    padding-top: 8rem;
+    margin-top: -7rem;
+}
+
+.content .largertable td,.content .largertable th{
+    padding: 0.9rem 0.75rem  
+}
+
+.content table td, .content table th{
+    border: 1px solid darkgray;
+    border-width: 0 0 1px;
+}
+
+.content {
+    padding: 0rem 5%;
+}
+
+.bd-content .content {
+    padding-bottom: 2.6rem;
+}
+
+.content #content-header{
+    padding-top: 10rem;
+    margin-top: -10rem;
+}
+
+#content-header a {
+    margin-left: 1.5rem;
+}
+
+.bd-content .notif {
+    padding-bottom: 0rem;
+}
+
+.bd-main-container .container {
+    padding-top: 1.2rem;
+}
+
+.bd-lead {
+    background-color: #ffffff;
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 20vw;
+    border-radius: 1px;
+}
+
+#pageTitle {
+    color: white;
+    font-size: 3rem;
+    line-height: 3.5rem;
+    text-transform: uppercase;
+    padding-bottom: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.07rem;
+    padding-top: 8rem;
+    margin-top: 0rem;
+}
+
+.psaScroler {
+    overflow-y: scroll;
+    overflow-x: scroll;
+    scrollbar-color: #b5b5b5 #1e2336;
+    scrollbar-width: thin;
+    
+}
+
+//  -------------  BUTTONS & TAGS ------------
+//   ____  _   _ _____ _____ ___  _   _ ____  
+//  | __ )| | | |_   _|_   _/ _ \| \ | / ___| 
+//  |  _ \| | | | | |   | || | | |  \| \___ \ 
+//  | |_) | |_| | | |   | || |_| | |\  |___) |
+//  |____/ \___/  |_|   |_| \___/|_| \_|____/ 
+//                                            
+// -------------------------------------------
+
+.button, .tag, .tag:not(body), .input {
+    border-radius: 2px;
+}
+
+.input {
+    border-radius: 3px;
+}
+
+.field.is-centered {
+    justify-content: center;
+}
+
 .post{
   background: #49cc90 !important;
   color: #fff!important;
@@ -28,9 +169,30 @@ th {
   color: #fff!important;
 }
 
-.highlighter-rouge {
-margin-bottom: 1.5rem!important;
+.button.is-link.is-outlined {
+    border-color: #6c6c6c;
+    color: #333333;
 }
+
+.is-psabluestatic{
+    background-color: #1e2336;
+    color: white;
+}
+
+.is-psablue{
+    background-color: #1e2336;
+    color: white;
+    margin-top: 1rem; 
+    border: none;
+}
+
+.is-psablue:hover{
+    background-color: white;
+    color: #1e2336;
+    margin-top: 1rem; 
+    border: 1px solid #1e2336;
+}
+
 //tag api url
 .tag_api_endpoint{
     color: white!important;
@@ -38,13 +200,10 @@ margin-bottom: 1.5rem!important;
 }
 
 .tag_endpoint_large{
-    // white-space: normal !important; // counteract white-space: nowrap;
-    // word-wrap: anywhere!important; // only required if you want to break one long word anywhere
     word-break: break-word!important;
     white-space: normal!important;
     height: auto!important; // counteract fixed height: 2em;
-    padding: 0.43rem!important;
-    font-size: 1.25rem!important;
+    font-size: 1.1rem!important;
 }
 
 .verb{
@@ -58,258 +217,64 @@ margin-bottom: 1.5rem!important;
   font-weight: 700;
   min-width: 80px;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 2px;
   text-shadow: 0 1px 0 rgba(0,0,0,.1);
-  font-family: sans-serif;
-
 }
 
-//section title 
-#section-title {
-    line-height: 1.450;
-    margin-bottom: 0;
-    font-size:6rem;
+//  -----------------------    HIGHLIGHTER     -------------------
+//   _   _ ___ ____ _   _ _     ___ ____ _   _ _____ _____ ____  
+//  | | | |_ _/ ___| | | | |   |_ _/ ___| | | |_   _| ____|  _ \ 
+//  | |_| || | |  _| |_| | |    | | |  _| |_| | | | |  _| | |_) |
+//  |  _  || | |_| |  _  | |___ | | |_| |  _  | | | | |___|  _ < 
+//  |_| |_|___\____|_| |_|_____|___\____|_| |_| |_| |_____|_| \_\
+//                                                               
+// ---------------------------------------------------------------
+
+.highlighter-rouge {
+margin: 1.5rem 0;
 }
 
 code {
-    font-family: Inconsolata,Consolas,"Courier New",Courier,"Liberation Mono",monospace;
+    font-family: 'Inconsolata', monospace;
 }
 
 .highlight{
     max-height: 50vh;
-    border-radius: 4px;
+    border-radius: 2px;
 }
-
-.content table td, .content table th{
-    border: 1px solid darkgray;
-    border-width: 0 0 1px;
-}
-
 
 //fixing higlhith bottom margin
-
 .highlight  pre  {
     margin-bottom: 0rem;
     word-break: break-word;
     white-space: pre-wrap;  
 }
 
-#content-select-section {
-    padding-top:0% ;
-    padding-bottom:3%
-}
-
-.content blockquote {
-  padding:0.6rem 1.75rem;
-  margin: 0.6rem 1.5rem 1.3rem;
-}
-
-.content .largertable td,.content .largertable th{
-  padding: 0.9rem 0.75rem
-
-}
-
-#logoPG4D{
-    max-height: 3.15rem;
-    filter: drop-shadow(4px 4px 4px #000);
-}
-
-#navbarpsa {
-    padding-top: 0.65rem; 
-}
-
-.textnavbar{
-  text-shadow: 1px 1px 4px #000000;
-}
-
-#dropdownAPI{
-  background-color: #292929;
-}
-
-.icon-logo {
-    width: 79px;
-    height: 45px;
-    fill: #fff;
-}
-
-
-h1,h2,h3,h4,h5 {
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-}
-
-.bd-lead h1, .bd-lead h2, .bd-lead h3, .bd-lead h4, .bd-lead h5 { 
-    font-weight: 700;
-}
-
-h2 {
-    font-weight: 800;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #1e2336;
-    min-height: 100vh;
-}
-
-.footer {
-    background-color: #1e2336;
-    color: #ffffff
-}
-
-footer a {
-    color: #ffffff;
-}
-
-.content {
-    background-color: #ffffff;
-    padding: 2.6rem 5%;
-}
-
-.bd-main-container .container {
-    padding-top: 1.2rem;
-}
-
-.content .smallimg{
-  width: auto;
-  margin-left: 0;
-  margin-top: 1%;
-  margin-bottom: 1%;
-}
-
-.content img {
-  width: 100%;
-   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 6%;
-  margin-bottom: 6%;
-}
-
-.bd-side,
-.bd-side-background {
-    position: relative;
-    flex: 0 0 auto;
-    min-width: 15vw;
-}
-
-.bd-side {
-    padding-left: 2rem;
-    padding-top: 0;
-}
-
-.bd-duo {
-    display: flex;
-}
-
-#pageTitle {
-    color: white;
-    font-size: 3rem;
-    line-height: 2.25rem;
-    text-transform: uppercase;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
-    font-style: normal;
-    font-weight: 700;
-    
-}
-
-.tabs{
-    background: white;
-}
-
-.bd-anchor-link {
-    color: white !important;
-}
-
-.tabs a{
-    padding: 1.4rem 1rem 1.1rem 1rem;
-    font-weight: 500;
-    color:rgb(54, 54, 54);
-    text-transform: uppercase;
-}
-
-.bd-lead {
-    background-color: #ffffff;
-    overflow: hidden;
-    flex-grow: 1;
-    flex-shrink: 1;
-    min-width: 20vw;
-}
-
-.bd-anchors.is-pinned {
-    position: sticky;
-    top: 0;
-}
-
-#anchors hr {
-    background-color: #4e4553;
-    border: none;
-    display: block;
-    height: 1px;
-    margin: 1.15rem 0;
-}
-
-.bd-anchors-list a {
-    color: white;
-    font-size: 0.9rem;
-}
-
-.bd-anchors-list li.is-current a, .bd-category-list li.is-current a {
-    color: #3273dc;
-}
-
-.bd-anchors-list li.is-past a, .bd-category-list li.is-past a {
-    color: #b5b5b5;
-}
-
-
-#anchors {
-    flex: 0 0 auto;
-    max-width: 34vw;
+// ---------- HERO  ----------
+//   _   _ _____ ____   ___  
+//  | | | | ____|  _ \ / _ \ 
+//  | |_| |  _| | |_) | | | |
+//  |  _  | |___|  _ <| |_| |
+//  |_| |_|_____|_| \_\\___/ 
+//                           
+//   -------------------------
+.hero.is-fullheight{
     max-height: 100vh;
-    overflow-y: auto;
 }
 
-.bd-anchors-title {
-    margin-top:1.09rem;
-    color: white;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    text-transform: uppercase;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-}
-
-.bd-anchor-link {
-    color: #4a4a4a;
+.hero h1.title {
+    font-size: 5rem;
+    text-shadow: 2px 2px 4px #000000;
+    padding-top: inherit;
+    margin-top: inherit;
 }
 
 .hero h2.title {
-
     text-shadow: 1px 1px 4px #000000;
-}
-h1.title {
-    font-size: 5rem;
-    text-shadow: 2px 2px 4px #000000;
+    padding-top: inherit;
+    margin-top: inherit;
 }
 
-section nav {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.mainnav {
-    margin-left: 144px;
-}
-
-
-
-.menu {
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-}
 
 .hero_webportal {
     background-image: url("../../assets/images/city2.jpg");
@@ -346,41 +311,307 @@ section nav {
     background-position: center center;
 }
 
-.navbar-burger {
-    margin-top: 0.5rem;
+@media screen and (max-width: 1087px) {
+    .hero-head{
+        background: #292929;
+    }
 }
+//  -------------------- FIX NAVBAR ----------------------
+//   _____ _____  __  _   _    ___     ______    _    ____  
+//  |  ___|_ _\ \/ / | \ | |  / \ \   / | __ )  / \  |  _ \ 
+//  | |_   | | \  /  |  \| | / _ \ \ / /|  _ \ / _ \ | |_) |
+//  |  _|  | | /  \  | |\  |/ ___ \ V / | |_) / ___ \|  _ < 
+//  |_|   |___/_/\_\ |_| \_/_/   \_\_/  |____/_/   \_|_| \_\
+// 
+//  -------------------------------------------------------
+
+.navbar.is-fixed-top{
+    background: #1e2336;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+    top: -108px; /* Hide the navbar 50 px outside of the top view */
+    transition: top 0.6s; /* Transition effect when sliding down (and up) */
+}
+
+.navbar.is-fixed-top .container{
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid darkgrey;
+    align-content: center;
+}
+
+.navbar.is-fixed-top .navbar-menu{
+    display: block;
+    margin-left: 4rem;
+}
+
+.navbar.is-fixed-top .navbar-start{
+    letter-spacing: -0.03rem;
+}
+
+.navbar.is-fixed-top .submenu {
+    background: inherit;
+    display: flex;    
+}
+
+.navbar.is-fixed-top .submenu a {
+    padding: 0rem 0rem 0.25rem;
+    color: #9d9d9d !important;
+    font-size: 13px;
+    margin: 0.4rem 0 0.2rem 0.75rem;
+    font-weight: 400;
+}
+
+.navbar.is-fixed-top .navbar-start .icon{
+    padding-left: 1rem;
+    font-size: 0.8rem;
+}
+
+#android-submenu, #ios-submenu, #webportal-submenu, #webapib2c-submenu, #webapib2b-submenu{
+    display: none;
+}
+
+.navbar.is-fixed-top .navbar-brand img {
+    max-height: 3rem;
+    filter: drop-shadow(4px 4px 4px #000);
+
+}
+
+.navbar.is-fixed-top .navbar-brand .navbar-item {
+    margin-top: 1.2rem;
+}
+
+.navbar.is-fixed-top .navbar-item:hover, .navbar.is-fixed-top .navbar-item.is-active {
+    background: inherit !important;
+}
+
+.navbar.is-fixed-top a.navbar-item  {
+    font-weight: 500;
+    margin: 0.75rem 0.75rem 0.4rem; 
+    padding: 0 0 0.25rem;
+}
+
+.navbar.is-fixed-top a.navbar-item.is-active {
+    border-bottom: 1px solid #ff4238;
+    border-radius: 0;
+}
+
+.navbar.is-fixed-top .submenu  a.is-active {
+    color: whitesmoke !important;
+}
+
+.navbar.is-fixed-top .submenu a:hover {
+    color: whitesmoke !important;
+}
+
+.navbar.is-fixed-top .navbar-start:hover a.navbar-item  {
+    color: grey !important;
+}
+
+.navbar.is-fixed-top .navbar-start a.navbar-item:hover  {
+    color: whitesmoke !important;
+}
+
+@media screen and (max-width: 1280px) {
+    .navbar.is-fixed-top .navbar-menu {
+        margin-left: 0rem;
+    }
+}
+
+
+//  ----------------------- TOP NAVBAR ------------------------
+//   _____ ___  ____    _   _    ___     ______    _    ____  
+//  |_   _/ _ \|  _ \  | \ | |  / \ \   / | __ )  / \  |  _ \ 
+//    | || | | | |_) | |  \| | / _ \ \ / /|  _ \ / _ \ | |_) |
+//    | || |_| |  __/  | |\  |/ ___ \ V / | |_) / ___ \|  _ < 
+//    |_| \___/|_|     |_| \_/_/   \_\_/  |____/_/   \_|_| \_\
+//                                                            
+//  ------------------------------------------------------------
+
+
+#navbarpsa section nav {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#navbarpsa #dropdownAPI{
+    color: #4b4b4b;
+    padding: 1.3rem 1.3rem;
+}  
 
 #navMenu {
     background-color: #36363600;
     box-shadow: 0 0px 0px rgba(10, 10, 10, 0);
 }
 
-.navbar-item{
-    border-radius: 4px;
-
+.menu {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+}
+   
+#navbarpsa #logoPG4D{
+    max-height: 3.15rem;
+    filter: drop-shadow(4px 4px 4px #000);
 }
 
-.navbar-link{
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+#navbarpsa {
+    border-bottom: 1px solid #626262fa;
+}
+
+#navbarpsa .textnavbar{
+  text-shadow: 1px 1px 4px #000000;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.03rem;
+}
+
+#navbarpsa .navbar-end .navbar-item {
+    width: 9rem;
+}
+
+#navbarpsa .navbar-end .navbar-item input::placeholder {
+    color:lightgrey;
 }
 
 
+#navbarpsa .navbar-burger {
+    margin-top: 0.5rem;
+}
 
+#navbarpsa .navbar-item{
+    border-radius: 2px;
 
-.navbar-brand{
+}
+#navbarpsa .fa-search {
+    text-shadow: none;
+}
+
+#navbarpsa .navbar-link{
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    padding: 1.5rem 0.7rem 1.5rem 0;
+    margin: 0 0.8rem 0.1rem;
+}
+
+#navbarpsa .navbar-brand{
     padding-right: 1rem;
 }
 
-#lunrsearch{
-    width: 7rem;
+@media screen and (max-width: 1280px) {
+    #navbarpsa .navbar-link {
+        margin: 0.1rem 0.8rem 0;
+    }
 }
+
+@media screen and (min-width: 1088px) {
+    #navbarpsa .navbar-dropdown  {
+    border-radius: 1px;
+    border: 0;
+    }
+    .navbar-dropdown .navbar-item{
+        padding: 0.2rem 1rem;
+    }
+}
+
+#navbarpsa .hero.is-dark a.navbar-item:hover, #navbarpsa .hero.is-dark a.navbar-item.is-active, #navbarpsa .hero.is-dark .navbar-link:hover, #navbarpsa .hero.is-dark .navbar-link.is-active {
+    background-color: inherit;
+}
+
+@media screen and (min-width: 1088px) {
+    #navbarpsa .navbar-item.has-dropdown:hover .navbar-link, #navbarpsa .navbar-item.has-dropdown.is-active .navbar-link {
+        background-color: inherit;
+    }
+}
+
+#navbarpsa a.navbar-item:hover, #navbarpsa a.navbar-item.is-active, #navbarpsa .navbar-link:hover, #navbarpsa .navbar-link.is-active {
+background-color: inherit;
+}
+
+#navbarpsa .navbar-start .navbar-item > .textnavbar.is-active  {
+    border-bottom: 1px solid #ff4238;
+    border-radius: 0;
+}
+
+#navbarpsa .navbar-start .navbar-item > .textnavbar:hover  {
+    color: whitesmoke !important
+}
+
+#navbarpsa .select:not(.is-multiple):not(.is-loading)::after, .navbar-link::after {
+    border: 0;
+}
+
+#navbarpsa .navbar-start:hover a.textnavbar {
+    color: grey;
+}
+
+#navbarpsa #dropdownAPI:hover a.navbar-item {
+    color: darkgrey;
+}
+#navbarpsa #dropdownAPI a.navbar-item:hover {
+    color: #4b4b4b;
+}
+
+#navbarpsa #dropdownAPI  a.navbar-item.is-active {
+    color: #ff4238;;
+    // border-bottom: 1px solid #ff4238;
+    border-radius: 0;
+}
+
+#navbarpsa .navbar-start a.textnavbar {
+    color: whitesmoke;
+}
+
+.navbar-dropdown a.navbar-item {
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0 rem;
+    padding-top: 0.4rem;
+    margin-right: 3rem;
+    margin-left: 1rem;
+}
+
+@media screen and (max-width: 1087px) {
+
+    #navbarpsa{
+        padding-top: 0rem;
+    } 
+    #navbarpsa .textnavbar {
+        font-size: 0.965rem;
+        padding-left: 0; 
+        padding-bottom: 0;  
+        padding-top: 0;  
+    }
+    #navbarpsa .navbar-dropdown{
+        padding-bottom: 0;
+        padding-top: 0;
+        padding-left: 1.5rem;
+        font-size: 0.8rem;
+    }
+    #navbarpsa {
+        border : 0;
+    }
+    #navbarpsa .navbar-start .navbar-item > .textnavbar.is-active {
+        border-bottom: 0 !important;
+    }
+    #dropdownAPI {
+        display: none;
+    }
+}
+
+//    ------------------------ LUNR SEARCH -------------------------
+//   _    _   _ _   _ ____    ____  _____    _    ____   ____ _   _ 
+//  | |  | | | | \ | |  _ \  / ___|| ____|  / \  |  _ \ / ___| | | |
+//  | |  | | | |  \| | |_) | \___ \|  _|   / _ \ | |_) | |   | |_| |
+//  | |__| |_| | |\  |  _ <   ___) | |___ / ___ \|  _ <| |___|  _  |
+//  |_____\___/|_| \_|_| \_\ |____/|_____/_/   \_|_| \_\\____|_| |_|
+//                                                                  
+//   ---------------------------------------------------------------
 
 #lunrsearchresults {
     background-color: #fff;
 	padding-left: 3.5rem;
 	padding-right: 3.5rem;
-	margin-top: 0rem;
+    margin-top: 0rem;
+    border-radius: 1px;
 }
 
 .lunrsearchresult .title {
@@ -396,54 +627,134 @@ section nav {
     font-weight: 600;
 }
 
-.button.is-link.is-outlined {
-    border-color: #6c6c6c;
-    color: #333333;
+@media screen and (min-width: 1088px) {
+    #lunr {
+        margin-top: -103px;
+        padding-top: 103px;
+    }
 }
 
+//  -------------- SELECTION / WELCOME PAGE -------------
+//   ____  _____ _     _____ ____ _____ ___ ___  _   _ 
+//  / ___|| ____| |   | ____/ ___|_   _|_ _/ _ \| \ | |
+//  \___ \|  _| | |   |  _|| |     | |  | | | | |  \| |
+//   ___) | |___| |___| |__| |___  | |  | | |_| | |\  |
+//  |____/|_____|_____|_____\____| |_| |___\___/|_| \_|
+//                                                     
+//   --------------------------------------------------
 
-#discover{
-    color: #1e2336;
+//section title 
+#section-title {
+    line-height: 1.450;
+    margin-bottom: 0;
+    font-size:6rem;
 }
 
-.is-psabluestatic{
-    background-color: #1e2336;
+#content-select-section {
+    padding-top:0% ;
+    padding-bottom:3%
+}
+
+.selection-paragraph{
     color: white;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 3rem !important;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: justify;
 }
 
-.is-psablue{
-    background-color: #1e2336;
+.selection-paragraph strong {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
     color: white;
-    margin-top: 1rem; 
-    border: none;
+    line-height: 30px;
+    font-size: 16px;    
 }
 
-.is-psablue:hover{
-    background-color: white;
-    color: #1e2336;
-    margin-top: 1rem; 
-    border: 1px solid #1e2336;
+.notif-welcome-text {
+    padding: 3rem;
+    font-size: 1.2rem;
+    border-radius: 0;
 }
 
-html{
-    scroll-behavior: smooth;
+ #is-fleet_owner-pic{
+    background-image: url("../../assets/images/business.png");
+    filter: brightness(120%);
+    background-size: cover;
+    background-position: center center;
 }
 
-#lunrsearch::placeholder, #lunrsearch::placeholder {
-    color: black
+ #is-end_user-pic{
+    background-image: url("../../assets/images/developer.png");
+    background-size: cover;
+    background-position: center center;
 }
 
-
-.level-left, .level-center {
-    padding: 1rem;
+ #is-ios-pic{
+    background-image: url("../../assets/images/iphone.jpg");
+    background-size: cover;
+    background-position: center center;
 }
 
-.psaScroler {
-        overflow-y: scroll;
-        overflow-x: scroll;
-        scrollbar-color: #b5b5b5 #1e2336;
-        scrollbar-width: thin;
-        
+ #is-android-pic{
+    background-image: url("../../assets/images/androidphone.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+ #is-webapi-pic{
+    background-image: url("../../assets/images/cloud0.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+ #is-webportal-pic{
+    background-image: url("../../assets/images/WebPortal_pic.png");
+    background-size: cover;
+    background-position: center center;
+}
+
+ #is-sdk-pic{
+    background-image: url("../../assets/images/iphone.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+@media screen and (max-width: 600px) {
+    #section-title{
+        font-size: 4rem ;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    #section-title{
+        font-size: 3rem ;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #section-title{
+        font-size: 3rem ;
+    }
+}
+
+//  ---------------- FOOTER ----------
+//   _____ ___   ___ _____ _____ ____  
+//  |  ___/ _ \ / _ |_   _| ____|  _ \ 
+//  | |_ | | | | | | || | |  _| | |_) |
+//  |  _|| |_| | |_| || | | |___|  _ < 
+//  |_|   \___/ \___/ |_| |_____|_| \_\
+//                          
+//   ----------------------------------
+
+.footer {
+    background-color: #1e2336;
+    color: #ffffff
+}
+
+footer a {
+    color: #ffffff;
 }
 
 .level{
@@ -452,103 +763,181 @@ html{
     margin-top: 4rem;
 }
 
-@media screen and (max-width: 600px) {
-  aside{display: none;
-}}
-
-@media screen and (max-height: 700px) {
-    #section-title{
-        font-size: 4rem ;
-    }
+.level-left, .level-center {
+    padding: 1rem;
 }
 
+//  ------------- IMAGE ------------
+//   ___ __  __    _    ____ _____ 
+//  |_ _|  \/  |  / \  / ___| ____|
+//   | || |\/| | / _ \| |  _|  _|  
+//   | || |  | |/ ___ | |_| | |___ 
+//  |___|_|  |_/_/   \_\____|_____|
+//                                 
+// ----------------------------------
 
-@media screen and (max-width: 576px) {
-    #section-title{
-        font-size: 3rem ;
-    }
+.tableimg {
+margin-right: auto;
+padding: 0 !important;
+max-width: 270px;
+margin-right: 0 !important;}
+
+.content .smallimg{
+  width: auto;
+  margin-left: 0;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
-
-@media screen and (max-width: 1400px) {
-    #navbarpsa {
-        margin-right: 2.5%;
-        margin-left: 2.5%;
-    }
-   
-}
-@media screen and (max-width: 1250px) {
-    
-    .textnavbar {
-        font-size: 0.9rem;
-    }
+.content img {
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
-@media screen and (max-width: 1200px) {
-    
-    .textnavbar {
-        font-size: 0.7rem;
-    }
+//   -----------------------  ON THIS PAGE ----------------------
+//    ___  _   _   _____ _   _ ___ ____    ____   _    ____ _____ 
+//   / _ \| \ | | |_   _| | | |_ _/ ___|  |  _ \ / \  / ___| ____|
+//  | | | |  \| |   | | | |_| || |\___ \  | |_) / _ \| |  _|  _|  
+//  | |_| | |\  |   | | |  _  || | ___) | |  __/ ___ | |_| | |___ 
+//   \___/|_| \_|   |_| |_| |_|___|____/  |_| /_/   \_\____|_____|
+//  
+//  --------------------------------------------------------------
+
+.bd-side,
+.bd-side-background {
+    position: relative;
+    flex: 0 0 auto;
+    min-width: 15vw;
 }
 
-@media screen and (max-width: 765px) {
-    .homepagepic{
-        display: none;
-    }
+.bd-side {
+    padding-left: 2rem;
+    padding-top: 0;
 }
 
-//menu mobile
+.bd-duo {
+    display: flex;
+}
+
+.bd-anchor-link {
+    color: white !important;
+}
+
+.bd-anchors.is-pinned {
+    position: sticky;
+    top: 130px;
+}
+
+#anchors hr {
+    background-color: #4e4553;
+    border: none;
+    display: block;
+    height: 1px;
+    margin: 1.15rem 0;
+}
+
+.bd-anchors-list a {
+    color: whitesmoke;
+    font-size: 0.9rem;
+    font-weight: 400;
+
+}
+
+.bd-anchors-list li.is-current a, .bd-category-list li.is-current a {
+    color: #3273dc;
+}
+
+.bd-anchors-list li.is-past a, .bd-category-list li.is-past a {
+    color: #b5b5b5;
+}
+
+#anchors {
+    flex: 0 0 auto;
+    max-width: 34vw;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.bd-anchors-title {
+    margin-top:1.09rem;
+    color: white;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+.bd-anchor-link {
+    color: #4a4a4a;
+}
+
+//  -------- MOBILE -------
+//   _____  _    ____ ____  
+//  |_   _|/ \  | __ / ___| 
+//    | | / _ \ |  _ \___ \ 
+//    | |/ ___ \| |_) ___) |
+//    |_/_/   \_|____|____/ 
+//                          
+//  ------------------------
+
+.tabs{
+    background: white;
+    margin-bottom: 3rem !important;
+}
+
+.tabs a{
+    padding-top: 1.4rem;
+    padding-bottom: 1.1rem;
+    font-weight: 500;
+    color:rgb(54, 54, 54);
+    text-transform: uppercase;
+}
+
+.tabs li.is-active a {
+	border-bottom-color: #ff4238;
+	color: inherit;
+}
+
+#tabs ul {
+    display:none;
+}
+
+//  ------------- MOBILE -------------
+//   __  __  ___  ____ ___ _     _____ 
+//  |  \/  |/ _ \| __ |_ _| |   | ____|
+//  | |\/| | | | |  _ \| || |   |  _|  
+//  | |  | | |_| | |_) | || |___| |___ 
+//  |_|  |_|\___/|____|___|_____|_____|
+//                                     
+//   ----------------------------------
 
 @media screen and (max-width: 1087px) {
-    .hero-head{
-        background: #292929;
-    }
-    #lunrsearch{
-        width: none;
-    }
-    .textnavbar {
-        font-size: 0.965rem;
-        padding-left: 0; 
-        padding-bottom: 0;  
-        padding-top: 0;  
-    }
-    .navbar-dropdown{
-        padding-bottom: 0;
-        padding-top: 0;
-        padding-left: 1.5rem;
-        font-size: 0.8rem;
-    }
-    #lunrsearch {
-        width: 100%;        
-        padding: 0.5rem 0.5rem 0.5rem 2.25rem;
+    #navbarpsa .navbar-end .navbar-item{
+        width: 100%;
+        padding: 0.5rem 1rem;
     }
     #pageTitle{
         margin-left: 0.7rem; 
         font-size: 2rem;
-        margin-top: 3rem;
-        margin-bottom: 1rem;
+        line-height: 2.25rem;
+    } 
+    .content img {
+        padding-right: 0rem;
+        padding-left: 0rem;
+      }
 
+    #tabs ul {
+        display: flex;
     }
 
-    
-     
+    .bd-anchors.is-pinned {
+        top: 0;
+    }
 }
-
-
-@media screen and (max-width: 1088px) {
-    #navbarpsa{
-
-        padding-top: 0rem;
-    
-    }
-    
-}
-
-
-
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-  }

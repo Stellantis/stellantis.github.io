@@ -1,6 +1,5 @@
 ---
 title: Navigation.GetManeuverInfo()
-
 supported:
   - 2
   - 3
@@ -33,6 +32,6 @@ if ( Navigation.GetManeuverInfo() === false ) {
 
 #### REMARK
 
->**Note :** `Navigation.GetManeuverInfo` must always be used before accessing the value stored in `Navigation.ManeuverInfo`.
+>**Note:** `Navigation.GetManeuverInfo` must always be used before accessing the value stored in `Navigation.ManeuverInfo`.
 
 *Appeared in Software version 40.03.42.30*

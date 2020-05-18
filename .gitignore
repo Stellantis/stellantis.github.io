@@ -2,7 +2,8 @@
 .bundle
 .idea
 .sass-cache
+.jekyll-metadata
 _site
 Gemfile.lock
-before-building-script
 .jekyll-cache
+script

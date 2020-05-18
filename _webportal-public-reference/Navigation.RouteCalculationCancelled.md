@@ -1,6 +1,5 @@
 ---
 title: Navigation.RouteCalculationCancelled
-
 supported:
   - 2
   - 4
@@ -21,6 +20,6 @@ try{
 }
 ```
 
->**Note :** The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints`.
+>**Note:** The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints`.
 
 *Appeared in Software version 40.03.49.50*

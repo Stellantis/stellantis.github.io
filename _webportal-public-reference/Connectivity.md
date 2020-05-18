@@ -1,6 +1,5 @@
 ---
 title: CONNECTIVITY
-
 supported:
   - 2
   - 3

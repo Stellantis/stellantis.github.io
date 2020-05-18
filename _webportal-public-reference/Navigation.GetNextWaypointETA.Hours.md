@@ -1,6 +1,5 @@
 ---
 title: Navigation.GetNextWaypoint.ETAHours()
-
 supported:
   - 2
   - 3
@@ -24,6 +23,6 @@ var WaypointETAHours = Navigation.GetNextWaypoint.ETAHours();
 
 #### REMARK
 
->**Note :** `Navigation.GetNextWaypoint.ETAHours` only gives the "Hour" part of the Estimated Time of arrival. To get the "Minutes" part, use `Navigation.GetNextWaypoint.ETAMinutes`.
+>**Note:** `Navigation.GetNextWaypoint.ETAHours` only gives the "Hour" part of the Estimated Time of arrival. To get the "Minutes" part, use `Navigation.GetNextWaypoint.ETAMinutes`.
 
 *Appeared in Software version 40.03.42.30*

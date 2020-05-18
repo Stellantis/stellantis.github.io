@@ -1,6 +1,5 @@
 ---
 title: Car.GetFuelLevel()
-
 supported:
   - 2
   - 3

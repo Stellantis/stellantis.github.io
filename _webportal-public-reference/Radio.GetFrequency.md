@@ -1,6 +1,5 @@
 ---
 title: Radio.GetFrequency()
-
 supported:
   - 2
   - 3
@@ -24,7 +23,7 @@ var MyFrequency1 = Radio.GetFrequency()
 	
 #### REMARK
 
->**Note :** The interval of values returned depends on the band that is being used.
+>**Note:** The interval of values returned depends on the band that is being used.
 
 Band | Interval
 ----|----

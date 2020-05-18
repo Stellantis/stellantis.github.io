@@ -1,6 +1,5 @@
 ---
 title: Car.Time.Minutes()
-
 supported:
   - 3
   - 4
@@ -26,6 +25,6 @@ var CurrentMinutes = Car.Time.Minutes()
 	
 #### REMARK
 
->**Note :** `Car.GetTime` should always be called before reading time values to make sure all the values are synchronized.
+>**Note:** `Car.GetTime` should always be called before reading time values to make sure all the values are synchronized.
 
 *Appeared in Software version 30.04.64.40*

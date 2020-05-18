@@ -1,32 +1,21 @@
 <script>
-    {% assign counter = 0 %}
-    var documents = [{% for page in site.pages %}{% if page.url contains '.xml' or page.url contains 'assets' %} {% else %} {
-        "id": {{ counter }},
-        "url": "{{ site.url }}{{site.baseurl}}{{ page.url }}",
-            "title": "{{ page.title }}",
-                "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h1>', ': ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endif %} {% endfor %} {% for page in site.headunit - sdk %} {
-        "id": {{ counter }},
-        {% if page.type contains 'class' %}
-        "url": "{{ site.url }}{{site.baseurl}}/webportal_apiclass",
-            "title": "API Class",
-                {% else %}
-    "url": "{{ site.url }}{{site.baseurl}}/webportal_list",
-        "title": "API Reference",
-            {% endif %}
-    "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h1>', ': ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endfor %} {% for page in site.webPortal_TutorialsAdvanced %} {
-        "id": {{ counter }},
-        "url": "{{ site.url }}{{site.baseurl}}/webPortal_TutorialAdvanced",
-            "title": "WebPortal Tutorial (Advanced)",
-                "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h1>', ': ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endfor %} {% for page in site.webPortal_QuickGuides %} {
-        "id": {{ counter }},
-        "url": "{{ site.url }}{{site.baseurl}}/webPortal_QuickGuides/",
-            "title": "WebPortal QuickStart",
-                "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h1>', ': ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endfor %}
-  ];
+{% assign counter = 0 %}
+var documents = [{% for page in site.pages %}{% if page.url contains '.xml' or page.url contains 'assets' %}{% else %}{
+    "id": {{ counter }},
+    "url": "{{ site.url }}{{site.baseurl}}{{ page.url }}#pageTitle",
+    "title": "{{ page.title }}",
+    "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
+    }, {% endif %}{% endfor %}{% for page in site.without-plugin %}{
+    "id": {{ counter }},
+    "url": "{{ site.url }}{{site.baseurl}}{{ page.url }}",
+    "title": "{{ page.title }}",
+    "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
+    }, {% endfor %}{% for page in site.posts %}{
+    "id": {{ counter }},
+    "url": "{{ site.url }}{{site.baseurl}}{{ page.url }}",
+    "title": "{{ page.title }}",
+    "body": "{{ page.date | date: "%Y/%m/%d" }} - {{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
+    }{% if forloop.last %}{% else %}, {% endif %}{% endfor %}];
 
     var idx = lunr(function () {
         this.ref('id')
@@ -40,7 +29,7 @@
     function lunr_search(term) {
         document.getElementById('lunrsearchresults').innerHTML = '<ul></ul>';
         
-        document.location.href = "#lunrsearchresults";
+        document.location.href = "#lunr";
         if (term) {
             document.getElementById('lunrsearchresults').innerHTML = "<p id='txtsearchresult'>Search results for '" + term + "'</p>" + document.getElementById('lunrsearchresults').innerHTML;
             //put results on the screen.
@@ -69,7 +58,7 @@
 </script>
 <style>
     .lunrsearchresult .title {
-        color: #23d160;
+        color: #2689b5;
     }
 
     .lunrsearchresult .url {
@@ -93,13 +82,12 @@
 
 
 <form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-            <div class="field">
-                <p class="control has-icons-left">
-                        <input type="text" class="input" id="lunrsearch" name="q" maxlength="255" value=""
-                        placeholder="Search" />
-                  <span class="icon is-small is-left">
-                        <i class="fas fa-search" style="color: darkgrey;"></i>
-                  </span>
-                </p>
-              </div>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input type="text" class="input" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search" />
+            <span class="icon is-small is-left">
+                <i class="fas fa-search" style="color: darkgrey;"></i>
+            </span>
+        </p>
+    </div>
 </form>

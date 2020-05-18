@@ -1,6 +1,5 @@
 ---
 title: Media.Audio.configure()
-
 supported:
   - 2
   - 3
@@ -15,8 +14,8 @@ type: api
 
 Parameter | Type | Description | Required
 ----|----|----|----
-`Type` | *String* | The player to configure, 31 characters max Possible values : - MEDIA_PLAYER_SOURCE, - TEMPORARY_SOURCE | Required
-`Sound_State` | *String* | To activate or deactivate sound, 8 characters max Possible values : - Active, - Inactive | Required
+`Type` | *String* | The player to configure, 31 characters max Possible values: - MEDIA_PLAYER_SOURCE, - TEMPORARY_SOURCE | Required
+`Sound_State` | *String* | To activate or deactivate sound, 8 characters max Possible values: - Active, - Inactive | Required
 
 #### EXAMPLE
 

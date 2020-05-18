@@ -1,6 +1,5 @@
 ---
 title: WebPortal.onApplicationShow
-
 supported:
   - 2
   - 3

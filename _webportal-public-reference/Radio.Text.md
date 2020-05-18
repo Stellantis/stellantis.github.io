@@ -1,7 +1,6 @@
 ---
 title: Radio.Text()
 supported:
-
   - 3
   - 4
 type: api

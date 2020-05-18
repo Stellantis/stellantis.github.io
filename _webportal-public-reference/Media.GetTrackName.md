@@ -1,6 +1,5 @@
 ---
 title: Media.GetTrackName()
-
 supported:
   - 2
   - 3

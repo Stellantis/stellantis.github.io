@@ -1,6 +1,5 @@
 ---
 title: Car.speedUnit
-
 supported:
   - 2
   - 3

@@ -1,6 +1,5 @@
 ---
 title: Car.ManeuverInfo()
-
 supported:
   - 2
   - 3
@@ -33,7 +32,7 @@ privacy: Public
 
 #### REMARK
 
->**Note :** `Navigation.GetManeuverInfo` must always be used before accessing the value stored in `Navigation.ManeuverInfo`.
+>**Note:** `Navigation.GetManeuverInfo` must always be used before accessing the value stored in `Navigation.ManeuverInfo`.
 
 >**Note 2:** Some fields like `Province` are not used in some countries so its value will stay empty in such a case.
 

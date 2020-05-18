@@ -1,6 +1,5 @@
 ---
 title: Car.fuelUnit
-
 supported:
   - 2
   - 3

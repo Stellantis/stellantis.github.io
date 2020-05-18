@@ -15,7 +15,7 @@
     //openstreetmap maps adress
     L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
       //set credit to OSM
-      attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+      attribution: 'data © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - <a href="//openstreetmap.fr">OSM France</a>',
       minZoom: 1,
       maxZoom: 20,
     }).addTo(map);
@@ -24,9 +24,9 @@
 
   function fetchStatus() {
 
-    //insert Status example in payload block
-    var payload = document.querySelector('#payload');
-    payload.innerHTML = '<code><span class="p">GET ' + '{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/status{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/status{% endif %}' + '</span>\r\n \r\n<span class="p">{</span><span class="w">\r\n  </span><span class="s2">"lastPosition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"geometry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span><span class="w">\r\n      </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">\r\n        </span><span class="mf">2.2221432</span><span class="p">,</span><span class="w">\r\n        </span><span class="mf">48.772476</span><span class="p">,</span><span class="w">\r\n        </span><span class="mi">172</span><span class="w">\r\n      </span><span class="p">]</span><span class="w">\r\n    </span><span class="p">},</span><span class="w">\r\n    </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 16:16:20 GMT 2019"</span><span class="p">,</span><span class="w">\r\n      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aquire"</span><span class="p">,</span><span class="w">\r\n      </span><span class="s2">"signalQuality"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">\r\n    </span><span class="p">}</span><span class="w">\r\n  </span><span class="p">},</span><span class="w">\r\n  </span><span class="s2">"preconditionning"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n    </span><span class="s2">"airConditioning"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 16:15:37 GMT 2019"</span><span class="p">,</span><span class="w">\r\n      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disabled"</span><span class="p">,</span><span class="w">\r\n      </span><span class="s2">"programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">\r\n        </span><span class="p">{</span><span class="w">\r\n          </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">\r\n          </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily"</span><span class="p">,</span><span class="w">\r\n          </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT0S"</span><span class="w">\r\n        </span><span class="p">},</span><span class="w">\r\n        </span><span class="p">{</span><span class="w">\r\n          </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">\r\n          </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily"</span><span class="p">,</span><span class="w">\r\n          </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT0S"</span><span class="w">\r\n        </span><span class="p">},</span><span class="w">\r\n        </span><span class="p">{</span><span class="w">\r\n          </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">\r\n          </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily"</span><span class="p">,</span><span class="w">\r\n          </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT0S"</span><span class="w">\r\n        </span><span class="p">},</span><span class="w">\r\n        </span><span class="p">{</span><span class="w">\r\n          </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">\r\n          </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily"</span><span class="p">,</span><span class="w">\r\n          </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT0S"</span><span class="w">\r\n        </span><span class="p">}</span><span class="w">\r\n      </span><span class="p">]</span><span class="w">\r\n    </span><span class="p">}</span><span class="w">\r\n  </span><span class="p">},</span><span class="w">\r\n  </span><span class="s2">"energy"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">\r\n    </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Electric"</span><span class="p">,</span><span class="w">\r\n      </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">\r\n      </span><span class="s2">"autonomy"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">\r\n      </span><span class="s2">"residual"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">\r\n    </span><span class="p">},</span><span class="w">\r\n    </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fuel"</span><span class="p">,</span><span class="w">\r\n      </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">\r\n      </span><span class="s2">"residual"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">\r\n    </span><span class="p">}</span><span class="w">\r\n  </span><span class="p">],</span><span class="w">\r\n  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 15:40:46 GMT 2019"</span><span class="p">,</span><span class="w">\r\n  </span><span class="s2">"autonomy"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">\r\n  </span><span class="s2">"ignition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 15:40:46 GMT 2019"</span><span class="w">\r\n  </span><span class="p">},</span><span class="w">\r\n  </span><span class="s2">"vin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VF3JD56Z37K628697"</span><span class="p">,</span><span class="w">\r\n  </span><span class="s2">"privacy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 15:40:46 GMT 2019"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="w">\r\n  </span><span class="p">},</span><span class="w">\r\n  </span><span class="s2">"battery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n    </span><span class="s2">"voltage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"current"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 15:40:46 GMT 2019"</span><span class="w">\r\n  </span><span class="p">},</span><span class="w">\r\n  </span><span class="s2">"kinetic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 15:40:46 GMT 2019"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"acceleration"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"speed"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"pace"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"moving"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">\r\n  </span><span class="p">},</span><span class="w">\r\n  </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n    ' + '{% if page.section == "b2b" %}</span><span class="s2">"fleet"</span><span class="p">:</span><span class="w"></span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{site.webapiB2BPreProd}}/{fid}"</span><span class="w">\r\n    </span><span class="p">},</span><span class="w">\r\n    {% endif %}' + '  </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"' + '{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/status{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/status{% endif %}' + '"</span><span class="w">\r\n    </span><span class="p">},</span><span class="w">\r\n    </span><span class="s2">"vehicles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"' + '{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}{% endif %}' + '"</span><span class="w">\r\n    </span><span class="p">}</span><span class="w">\r\n  </span><span class="p">}</span><span class="w">\r\n</span><span class="p">}</span><span class="w"></span></code>\r\n'
+    // Status example json block
+    document.querySelector("#emptyPayload").style.display = 'none';
+    document.querySelector("#statusPayload").style.display = '';
 
     //add marker on map
     vehicle = L.marker([48.772476, 2.2221432]).addTo(map);
@@ -39,13 +39,16 @@
 
     document.querySelector("#buttonVehicleGrey").style.display = 'none';
     document.querySelector("#buttonVehicleColor").style.display = '';
+    
+    // bring you to fetch vehicle
+    window.location.href = "#buttonVehicleColor";
   }
 
   function fetchVehicle() {
 
-    //insert Vehicle example in payload block
-    var payload = document.querySelector('#payload');
-    payload.innerHTML = '<code><span class="p">GET ' + '{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}{% endif %}' + '</span>\r\n \r\n<span class="p">{</span><span class="w">\r\n  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XA143Z2"</span><span class="p">,</span><span class="w">\r\n  </span><span class="s2">"vin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VR3ATTENTJY186916"</span><span class="p">,</span><span class="w">\r\n  </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peugeot"</span><span class="p">,</span><span class="w">\r\n  </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"406 1.9 TD90 SL Clim"</span><span class="p">,</span><span class="w">\r\n  </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=001"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=002"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=003"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=004"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=005"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=006"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=007"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=008"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=009"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=010"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=011"</span><span class="p">,</span><span class="w">\r\n    </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=012"</span><span class="w">\r\n  </span><span class="p">],</span><span class="w">\r\n  </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n    </span><span class="s2">"alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">' + '"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/alerts"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/alerts"{% endif %}' + '</span><span class="w">\r\n    </span><span class="p">},</span><span class="w">\r\n    </span><span class="s2">"trips"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">' + '"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/trips"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/trips"{% endif %}' + '</span><span class="w">\r\n    </span><span class="p">},</span><span class="w">\r\n    </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">' + '"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}?locale=fr-FR"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}?locale=fr-FR"{% endif %}' + '</span><span class="w">\r\n    </span><span class="p">},</span><span class="w">\r\n    </span><span class="s2">"lastPosition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">' + '"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/lastPosition"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/lastPosition"{% endif %}' + '</span><span class="w">\r\n    </span><span class="p">},</span><span class="w">\r\n    </span><span class="s2">"telemetry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">' + '"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/telemetry"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/telemetry"{% endif %}' + '</span><span class="w">\r\n    </span><span class="p">},</span><span class="w">\r\n    </span><span class="s2">"maintenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">' + '"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/maintenance"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/maintenance"{% endif %}' + '</span><span class="w">\r\n    </span><span class="p">},</span><span class="w">\r\n    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">\r\n      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">' + '"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/status"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/status"{% endif %}' + '</span><span class="w">\r\n    </span><span class="p">}</span><span class="w">\r\n  </span><span class="p">}</span><span class="w">\r\n</span><span class="p">}</span><span class="w">\r\n</span>';
+    // Vehicle example json block
+    document.querySelector("#statusPayload").style.display = 'none';
+    document.querySelector("#vehicleIdPayload").style.display = '';
 
     //add popup to marker with vehicle info
     vehicle.bindPopup('<img class="image" src="http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=001" alt="No Image Available"><p><b>Id: </b>XA143Z2<br><b> Vin: </b>VF3JD56Z37K628697<br><b>Brand: </b>Peugeot<br><b>Label: </b>508 II BlueHDi 130ch Allure<br> <b> LastPosition:</b> <a href="{{site.baseurl}}{% if page.section == "b2b" %}/connectedcar/v3/fleets/{fid}/vehicles/{id}/lastPosition{% elsif page.section == "b2c" %}/connectedcar/v4/user/vehicles/{id}/lastPosition{% endif %}">href</a></p>').openPopup();
@@ -59,146 +62,35 @@
     document.querySelector("#buttonReloadGrey").style.display = 'none';
     document.querySelector("#buttonReloadColor").style.display = '';
 
+    // bring you to reload
+    window.location.href = "#buttonReloadColor";
   }
 
   function reload() {
-    window.location.reload(false);
+    window.location.href = "#demoTitle";
+    window.location.reload(true);
   }
 
 </script>
 
 <!-- STYLE DEMO -->
 <style>
-  /* custom highlighter */
-  .kc {
-    color: dodgerblue !important;
+
+  #map{
+    border-radius: 2px;
   }
 
-  .mf {
-    color: limegreen !important;
+  #map, pre .highlight {
+    box-sizing: content-box;
+    height: 50vh;
   }
 
-  .mi {
-    color: limegreen !important;
+  .highlighter-rouge {
+    margin: 0;
   }
 
-  .s2 {
-    color: #FF7F50 !important;
-  }
-
-  .p {
-    color: white !important;
-    font-weight: 500;
-    font-family: "Roboto", sans-serif;
-    word-break: break-word;
-  }
-
-
-  #readDocButton {
-    margin-top: 2.5rem;;
-    margin-bottom: 1rem;
-  }
-
-  .tags .tag {
-    margin-bottom: 0rem;
-  }
-  .tag:not(body).is-white {
-    color: rgb(74, 74, 74);
-  }
-
-  .colortags {
-    border-radius: 4px;
-    border: 1px solid black;
-  }
-
-  .greytags {
-    background: whitesmoke;
-    border-radius: 4px;
-  }
-
-  #buttonReloadGrey span {
-    margin: auto;
-  }
-
-  #buttonReloadColor span {
-    margin: auto;
-  }
-
-.tags {
-  margin: none;
-}
-
-  #payload {
-    background: #1e2336;
-    overflow: auto;
-    max-height: 65vh;
-    height: 65vh;
-    word-break: break-all;
-    white-space: pre-wrap;
-    margin: 0.5rem;
-  }
-
-  #map {
-    height: 65vh;
-    margin: 0.5rem;
-  }
-
-  .fetchApi {
-    display: flex;
-    justify-content: center;
-  }
-
-  .tag_endpoint_large {
-    padding: 0.8rem !important;
-  }
-
-  .verb {
-    margin-right: 1rem;
-    margin-left: auto;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    padding: 10px 15px;
-    line-height: 1.5;
-    font-size: 16px;
-    font-weight: 700;
-    min-width: 80px;
-    text-align: center;
-    border-radius: 3px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
-    font-family: sans-serif;
-    color: #fff;
-  }
-
-  @media screen and (max-width: 768px) {
-    #payload {
-      max-height: 40vh;
-      height: 40vh;
-      margin-top: 1.5rem;
-    }
-
-    .content {
-      padding: 11%
-    }
-
-    #map {
-      height: 40vh;
-    }
-
-    .tag_endpoint_large{
-      font-size: 0.75rem !important;
-    }
-    .verb {
-      font-size: 0.6rem;
-    } 
-  }
-
-  .greyUrl {
-    color: darkgray !important;
-  }
-
-  .greyGet {
-    color: darkgray !important;
-    background: white !important;
+  .content img {
+  padding: 0;
   }
 
   @keyframes payAttention {
@@ -223,12 +115,64 @@
   animation: payAttention 5s infinite;
 }
 
+#demoTitle {
+    padding: 2rem 0rem 1.3rem;
+    padding-top: 10rem;
+    margin-top: -8rem;
+}
+
+.tags .tag {
+    margin-bottom: 0rem;
+  }
+.tag:not(body).is-white {
+  color: rgb(74, 74, 74);
+}
+
+.colortags {
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.greytags {
+  background: whitesmoke;
+  border-radius: 4px;
+}
+
+#buttonReloadGrey span {
+  margin: auto;
+}
+
+#buttonReloadColor span {
+  margin: auto;
+}
+
+.tags {
+  margin: none;
+}
+
+.tag_endpoint_large {
+  padding: 0.8rem !important;
+}
+
+.verb {
+  margin-right: 1rem;
+}
+
+.greyGet {
+  color: darkgray !important;
+  background: white !important;
+}
+
 </style>
 <div class="container">
   <div class="bd-lead">
     <div class="bd-content container">
       <div class="content">
-        <p style="font-size: 1.6rem;">Click on the APIs buttons and retrieve related infos 👇 </p>
+        <h1 id="demoTitle">
+          <span>
+            Click on the APIs buttons and retrieve related info 👇                     
+          </span>          
+        </h1>
 
         <!-- status api BUTTON COLOR-->
         <a class="colortags tags has-addons " onclick="fetchStatus()" id="buttonStatusColor">
@@ -270,19 +214,19 @@
           <span class="tag_endpoint_large tag is-info">&nbsp;&nbsp;&nbsp; <span class=" icon is-small is-white"> <i
                 class="fas fa-redo-alt"></i></span>&nbsp;&nbsp; Reload! </span>
         </a>
-
-
-        <!-- COLUMNS -->
-        <div class="columns" id="columnsBlocks">
-          <pre class="column box highlight" id="payload">
-              <code><span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
+        <!--Tiles -->
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+              <article id="map" class="tile is-child">
+              </article>
+          </div>
+          <div class="tile is-parent">
+              <article class="tile is-child">
+                <div class="language-shell highlighter-rouge">
+                  <div class="highlight">
+                    <!-- empty payload -->
+                    <pre class="highlight" id="emptyPayload"><code><span class="p">&nbsp;</span>
 <span class="p">{</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
 <span class="p">&nbsp;</span>
 <span class="p">&nbsp;</span>
 <span class="p">&nbsp;</span>
@@ -296,33 +240,179 @@
 <span class="p">}</span>
 <span class="p">&nbsp;</span>
 <span class="p">&nbsp;</span>
-                                                                                                                                                      <span class="p">&nbsp;</span>
 <span class="p">&nbsp;</span>
 <span class="p">&nbsp;</span>
 <span class="p">&nbsp;</span>
 <span class="p">&nbsp;</span>
 <span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-<span class="p">&nbsp;</span>
-</code></pre>
-          <div class="column box" id="map">
+                </code></pre>
+              <!-- / empty payload --> 
+              <!-- status payload -->
+<pre class="highlight" id="statusPayload" style="display: none;"><code><span class="p">{% if page.section == "b2b"  %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/status{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/status{% endif %}</span>
+  
+  <span class="p">{</span><span class="w">
+    </span><span class="s2">"lastPosition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"geometry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="mf">2.2221432</span><span class="p">,</span><span class="w">
+          </span><span class="mf">48.772476</span><span class="p">,</span><span class="w">
+          </span><span class="mi">172</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 16:16:20 GMT 2019"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aquire"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"signalQuality"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"preconditionning"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"airConditioning"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 16:15:37 GMT 2019"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disabled"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"programs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT0S"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT0S"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT0S"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recurrence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daily"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PT0S"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"energy"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Electric"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"autonomy"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"residual"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fuel"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"residual"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 15:40:46 GMT 2019"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"autonomy"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ignition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 15:40:46 GMT 2019"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"vin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VF3JD56Z37K628697"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"privacy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 15:40:46 GMT 2019"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"battery"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"voltage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"current"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 15:40:46 GMT 2019"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"kinetic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed Sep 25 15:40:46 GMT 2019"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"acceleration"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"speed"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pace"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"moving"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">{% if page.section == "b2b" %}
+      </span><span class="s2">"fleet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{site.webapiB2BPreProd}}/{fid}"</span><span class="w">
+      </span><span class="p">},</span><span class="w">{% endif %}
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.section == "b2b"%}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/status{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/status{% endif %}"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"vehicles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}{% endif %}"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w"></span></code>
+</pre>
+<!-- vehicleId payload -->
+<pre class="highlight" id="vehicleIdPayload" style="display: none;"><code><span class="p">GET {% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}{% elsif page.section  == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}{% endif %}</span>
+ 
+  <span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XA143Z2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"vin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VR3ATTENTJY186916"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peugeot"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"406 1.9 TD90 SL Clim"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=002"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=003"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=004"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=005"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=006"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=007"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=008"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=009"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=010"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=011"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://visuel3d.peugeot.com/V3DImage.ashx?client=miseco&amp;format=png&amp;back=0&amp;version=1PR8A5VNKAB0A0B0&amp;color=0MM00N9V&amp;trim=0P750RFH&amp;OPT1=DAB1&amp;OPT2=DD50&amp;OPT3=DN10&amp;OPT4=DWAB&amp;OPT5=DWLG&amp;OPT6=DZV6&amp;view=012"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/trips"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/trips"{% endif %}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"trips"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}?locale=fr-FR"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}?locale=fr-FR"{% endif %}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/lastPosition"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/lastPosition"{% endif %}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"lastPosition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/telemetry"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/telemetry"{% endif %}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"telemetry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/maintenance"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/maintenance"{% endif %}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"maintenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.section == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/status"{% elsif page.section == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/status"{% endif %}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w"></span></code>
+</pre>
+<!-- /vehicleId payload -->
+                  </div>
+                </div>
+              </article>
           </div>
-        </div><!-- columns -->
-         <a id="readDocButton" href="{{site.baseurl}}/webapi/"  class="is-psablue button is-rounded is-large is-fullwidth">        <span class="icon is-large is-white">
-            <i class="fas fa-book"></i>
-        </span>&nbsp; &nbsp; &nbsp;Read the doc</a>
-          </a>
+        </div>
+        <!-- read the doc -->
+        <div class="field is-centered is-grouped">
+          <p class="control">
+            {% if page.section == 'b2b' %}
+            <a href="{{site.baseurl}}/webapi/b2b/" class="button is-psablue is-large">
+            {% elsif page.section == "b2c" %}
+            <a href="{{site.baseurl}}/webapi/b2c/" class="button is-psablue is-large">
+              {% endif %}
+                  <span class="icon is-large is-white is-hidden-mobile">
+                      <i class="fas fa-book"></i>
+                  </span>
+                  <span>
+                      Read the doc
+                  </span></a>
+          </p>
+        </div>
+        <!-- /read the doc -->
       </div>
     </div>
   </div>
-  <!-- SCRIPT LEAFLET-->
-  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-    crossorigin=""></script>

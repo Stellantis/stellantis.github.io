@@ -2,9 +2,9 @@
 type: tutorial advanced
 ---
 
-# GUIDELINES
+## GUIDELINES
 
-Here are the main criteria your app has to meet before deploying it on the WebPortal :
+Here are the main criteria your app has to meet before deploying it on the WebPortal:
 
 
 <table>

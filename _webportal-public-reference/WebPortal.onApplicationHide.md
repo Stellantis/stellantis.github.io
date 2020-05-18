@@ -1,6 +1,5 @@
 ---
 title: WebPortal.onApplicationHide
-
 supported:
   - 2
   - 3
@@ -8,7 +7,7 @@ supported:
 type: event
 ---
 
-Event triggered when the applicaton loses focus.
+Event triggered when the application loses focus.
 
 ### EXAMPLE
 

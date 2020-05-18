@@ -1,6 +1,5 @@
 ---
 title: HMI.closeTimeoutPopupRequest
-
 supported:
   - 2
   - 3

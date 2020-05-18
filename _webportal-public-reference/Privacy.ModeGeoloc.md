@@ -1,6 +1,5 @@
 ---
 title: Privacy.ModeGeoloc
-
 supported:
   - 3
   - 4

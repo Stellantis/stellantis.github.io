@@ -9,7 +9,7 @@ type: class
 
 #### OVERVIEW
 
-Provides the methods to manage informations about the vehicle.
+Provides the methods to manage information about the vehicle.
 
 #### METHODS SUMMARY
 

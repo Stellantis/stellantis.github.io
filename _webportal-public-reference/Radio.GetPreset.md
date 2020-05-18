@@ -1,6 +1,5 @@
 ---
 title: Radio.GetPreset()
-
 supported:
   - 2
   - 3

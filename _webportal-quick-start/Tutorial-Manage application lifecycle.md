@@ -2,7 +2,7 @@
 type: quick start
 ---
 
-# MANAGING APPLICATION LIFECYCLE
+# APP LIFECYCLE
 
 This part will help you better understand the way your application's lifecycle is managed by the WebPortal
 
@@ -12,7 +12,7 @@ When the DOM is loaded and the initialization is finished, the application **mus
 In order to know when the DOM is loaded you have to listen to the `DOMContentLoaded` event.
 You can then send the message of type `WebPortal.onApplicationLoaded` to WebPortal.
 
-For example it can be sent like this :
+For example, it can be sent like this:
 
 ```javascript
 window.addEventListener("load", function(event) {
@@ -20,7 +20,7 @@ window.addEventListener("load", function(event) {
 });
 ```
 
->**Note :** If the message is not received during a 10s timeframe, the application will be closed and an error message will be displayed to the user.
+>**Note:** If the message is not received during a 10s timeframe, the application will be closed and an error message will be displayed to the user.
 
 ### UNLOADING APPLICATION
 

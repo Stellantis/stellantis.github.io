@@ -1,6 +1,5 @@
 ---
 title: Phone.LaunchPhoneCall()
-
 supported:
   - 2
   - 3

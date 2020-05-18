@@ -1,6 +1,5 @@
 ---
 title: Device.GetCarBrand()
-
 supported:
   - 2
   - 3

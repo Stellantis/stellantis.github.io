@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>French car manufacturer | Groupe PSA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,39 +8,33 @@
     <!-- ICONS -->
     <link rel="icon" href="{{site.baseurl}}/favicon.ico">
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Roboto:400,500"
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Roboto:300,400,500|Inconsolata:400,700"
         rel="stylesheet">
-    <link href="{{ '/assets/fonts/ubuntu/ubuntu-v11-latin-ext_latin-regular.woff' | prepend:site.baseurl }}"
-        rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
-
-    {% if page.title == "API Reference" or page.title == "Monitor" %}
+    {% if page.require contains "swagger" %}
     <!-- ASSESTS FOR SWAGGER UI PAGES-->
     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/swagger-ui.css' | prepend: site.baseurl }}">
     <link href="{{ '/assets/css/swagger-ui-overrides.css' | prepend: site.baseurl }}" rel='stylesheet' type='text/css'>
-    {% elsif page.url contains "/demo/" %}
-    <!-- DEMO LEAFLET-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin="" />
+    {% endif %}
+    {% if page.require contains "leaflet" %}
+    <!--LEAFLET-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <!-- SCRIPT LEAFLET-->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
     {% endif %}
     <!-- SCRIPTS-->
     <script src="{{ '/assets/js/dropdown.js' | prepend: site.baseurl | prepend: site.url }}"></script>
     <script src="{{ '/assets/js/main.js' | prepend: site.baseurl | prepend: site.url }}"></script>
     <script src="{{ '/assets/js/lunr.js' | prepend: site.baseurl | prepend: site.url }}"></script>
 </head>
-{% if page.color == "white" %}
-<!-- NO PSABLUE BORDERS-->
-
-<body style="background:#fff">
-    {% else%}
-
     <body>
-        {% endif %}
         {{content}}
     </body>
-
 </html>

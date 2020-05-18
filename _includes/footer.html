@@ -1,10 +1,17 @@
 <footer class="bd-footer-support footer">
-
     <div class="level container">
         <div class="level-left">
             <div class="level-item" id="typo">
                 <div>
-                    <p>© Groupe PSA 2019</p>
+                    <p>© Groupe PSA {{ 'now' | date: "%Y" }}</p>
+                    {% if page.section == "webportal" %}
+                        <p>Doc webportal - v{{site.versionWebportal}}
+                        {% elsif page.section == "webapi" or page.section =="webapib2b" or page.section =="webapib2c" %}
+                        <p>Doc web api - v{{site.versionWebAPI}}
+                        {% elsif page.section == "ios" or page.section == "android" or page.section == "mobile" %}
+                        <p>Doc mobile sdk - v{{site.versionMobileSDK}}
+                        {% else %}
+                        {% endif %}
                 </div>
             </div>
         </div>

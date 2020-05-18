@@ -1,6 +1,5 @@
 ---
 title: Media.GetTypeName()
-
 supported:
   - 2
   - 3

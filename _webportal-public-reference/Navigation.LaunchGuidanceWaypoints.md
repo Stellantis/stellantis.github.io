@@ -1,6 +1,5 @@
 ---
 title: Navigation.LaunchGuidanceWaypoints()
-
 supported:
   - 2
   - 4
@@ -8,7 +7,7 @@ type: api
 privacy: Public
 ---
 
-### `Navigation.LaunchGuidanceWaypoints(Number destLon, Number destLat, [object{Lat: Number, Lon: Number}] waypoints)`
+### `Navigation.LaunchGuidanceWaypoints(Number destLon, Number destLat, [object{lat: Number, lon: Number}] waypoints)`
 
 | **Description** | Starts the navigation to the specified destination and going through all the specified waypoints.
 | **Response** | *Boolean*  `True` if the destination and waypoints were all correctly set, else `False` if the process failed.
@@ -17,11 +16,12 @@ Parameter | Type | Description | Required
 ----|----|----|----
 `destLon` | *Number* | The destination's longitude, Should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
 `destLat` | *Number* | The destination's latitude, Should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
-`waypoints` | *array[object(Lat: Number, Lon: Number)]* | The waypoints to go through before the final destination (9 waypoints max), Each waypoint should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
+`waypoints` | *array[object(lat: Number, lon: Number)]* | The waypoints to go through before the final destination (9 waypoints max), Each waypoint should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
+`cus- tomerConfirmation`| *Boolean* | Available since *42.02.64.50*, if set to true, a pop-up will ask the user to confirm the new guidance request. | Optional, default: *false*. 
 
 #### IMPORTANT
 
-> **Caution:** Guidance can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that {{page.title}} return is `True`.
+> **Caution:** Guidance can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-popup) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that {{page.title}} return is `True`.
 
 #### EXAMPLE
 
@@ -47,7 +47,7 @@ if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitud
 >**Note 2:** The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints`.
 
 
->**Important :** In order to verify if you can use the new API `Navigation.LaunchGuidanceWaypoints` or the old one `Navigation.LaunchGuidance`, you can check the existence of one of the following JS events :
+>**Important:** In order to verify if you can use the new API `Navigation.LaunchGuidanceWaypoints` or the old one `Navigation.LaunchGuidance`, you can check the existence of one of the following JS events:
 >- *Navigation.InvalidCoordinates*
 >- *Navigation.RouteCalculationSuccessful*
 >- *Navigation.RouteCalculationCanceled*

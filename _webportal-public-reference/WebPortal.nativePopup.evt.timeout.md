@@ -1,6 +1,5 @@
 ---
 title: WebPortal.nativePopup.evt.timeout
-
 supported:
   - 2
   - 3

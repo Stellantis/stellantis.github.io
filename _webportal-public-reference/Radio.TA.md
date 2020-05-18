@@ -1,7 +1,6 @@
 ---
 title: Radio.TA()
 supported:
-
   - 3
   - 4
 type: api

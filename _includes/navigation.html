@@ -1,4 +1,4 @@
-<nav aria-label="main navigation" class="navbar is-dark container" id="navbarpsa" role="navigation">
+<nav aria-label="main navigation" class="navbar container" id="navbarpsa" role="navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="{{site.baseurl}}/">
             <img id="logoPG4D" src="{{site.baseurl}}/assets/images/logo-PG4D.png">
@@ -8,50 +8,73 @@
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
       </a>
-  </div>
-<div class="navbar-menu" id="navMenu">
-    <div class="navbar-start">
-        <!-- WEB API -->
-        <div class="navbar-item menu has-dropdown is-hoverable">
-            <a class="textnavbar navbar-link" href="{{site.baseurl}}/webapi/">
-                <span class="icon is-large  is-white">
-                    <i class="fas fa-cloud"></i>
-                </span>WEB API
-            </a>
-            <div class="navbar-dropdown" id="dropdownAPI">
-                <a class="navbar-item" href="{{site.baseurl}}/webapi/b2b/">
-                    Fleet Owner
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+
+            <!-- WEB API -->
+            <div class="navbar-item menu has-dropdown is-hoverable">
+                <a class="textnavbar navbar-link {% if page.section == "webapi" or page.section == "webapib2b" or page.section == "b2b" or page.section == "webapib2c" or page.section == "b2c" %}is-active{% endif %}" href="{{site.baseurl}}/webapi/">
+                    <span class="icon is-large  is-white">
+                        <i class="fas fa-cloud"></i>
+                    </span>
+                    WEB API
                 </a>
-                <a class="navbar-item" href="{{site.baseurl}}/webapi/b2c/">
-                    End-users
+                <div class="navbar-dropdown" id="dropdownAPI">
+                    {% for p in site.pages %}
+                        {% if p.section == "webapib2b" or p.section == "b2b" %}
+                        <a class="navbar-item {% if p.title == page.title and p.section == page.section %}is-active{% endif %}" href="{{ p.url | relative_url }}#pageTitle">
+                        B2B - {{p.title}}
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                        <hr class="navbar-divider">
+                    {% for p in site.pages %}
+                        {% if p.section == "webapib2c" or p.section == "b2c" %}
+                        <a class="navbar-item {% if p.title == page.title and p.section == page.section %}is-active{% endif %}" href="{{ p.url | relative_url }}#pageTitle">
+                        B2C - {{p.title}}
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- WEBPORTAL -->
+            <div class="navbar-item menu has-dropdown is-hoverable">
+                <a class="textnavbar navbar-link {% if page.section == "webportal" %}is-active{% endif %}" href="{{site.baseurl}}/webportal/">
+                    <span class="icon is-large  is-white">
+                        <i class="fas fa-car-side"></i>
+                    </span>
+                    EMBEDDED WEBPORTAL
+                </a>
+                <div class="navbar-dropdown" id="dropdownAPI">
+                    {% for p in site.pages %}
+                        {% if p.section == "webportal"%}
+                        <a class="navbar-item {% if p.title == page.title and p.section == page.section %}is-active{% endif %}" href="{{ p.url | relative_url }}#pageTitle">
+                        {{p.title}}
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- MOBILE -->
+            <div class="navbar-item menu has-dropdown is-hoverable">
+                <a class="textnavbar navbar-link {% if page.section == "mobile-sdk" or page.section == "ios" or page.section == "android" %}is-active{% endif %}" href="{{site.baseurl}}/mobile-sdk/">
+                    <span class="icon is-large  is-white">
+                        <i class="fas fa-mobile"></i>
+                    </span>
+                    MOBILE SDK
                 </a>
             </div>
+
+            <!-- SEARCH -->
+            
         </div>
-        <!-- WEBPORTAL -->
-        <a class="textnavbar navbar-item menu" href="{{ site.baseurl }}/webportal/">
-            <span class="icon is-large  is-white">
-                <i class="fas fa-car-side"></i>
-            </span>
-            EMBEDDED WEBPORTAL
-        </a>
-        <!-- MOBILE -->
-        <a class="textnavbar navbar-item menu" href="{{ site.baseurl }}/mobile-sdk/">
-            <span class="icon is-large  is-white">
-                    <i class="fas fa-mobile"></i>
-            </span>
-            MOBILE SDK
-        </a>
-        <!-- SEARCH -->
-      </div>
-
-        <div class="navbar-end" style="color: darkgrey; text-shadow: none">
-
-                <div class="textnavbar navbar-item menu" href="{{ site.baseurl }}/webportal/" style="text-shadow: none">
- 
-                    {% include search-lunr.html %}
-              </div>
- 
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                {% include search-lunr.html %}
             </div>
- 
         </div>
+    </div>
 </nav>

@@ -2,13 +2,13 @@
 type: tutorial advanced
 ---
 
-# SENDING A POPUP TO YOUR APPLICATION
+## SENDING POPUP
 
 #### WHAT YOU NEED
 
-- [Being connected to the MQTT Broker]({{ site.baseurl }}/webportal/tutorial-advanced/#connecting-to-the-mqtt-broker)
+- [Being connected to the MQTT Broker]({{site.baseurl}}/webportal/tutorial-advanced/#mqtt-connection)
 
-- Your [MQTT Publishing Topic]({{ site.baseurl }}/webportal/tutorial-advanced/#selecting-your-mqtt-publishing-topic) looking as follows :
+- Your [MQTT Publishing Topic]({{site.baseurl}}/webportal/tutorial-advanced/#mqtt-topic) looking as follows:
 	`psa/OVIPPartners-Dev/from/uid/{UID}/opa/{VIN}/`
 
 #### SENDING NOTIFICATIONS (POPUP)
@@ -27,9 +27,9 @@ The action done by the user is transferred to the embedded Application for it to
 
 #### IMPORTANT
 
->**Caution :** Popups (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) must not be asked more often than once every 20 seconds.
+>**Caution:** Popups (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-popup) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) must not be asked more often than once every 20 seconds.
 
-> **Caution 2:** [Navigation.LaunchGuidance()]({{site.baseurl}}//webportal/reference/#api-Navigation-LaunchGuidance) and [Navigation.LaunchGuidanceWaypoints()]({{site.baseurl}}/webportal/reference/#api-Navigation-LaunchGuidanceWaypoints) can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-a-popup-to-your-application) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that LaunchGuidance function return is `True`.
+> **Caution 2:** [Navigation.LaunchGuidance()]({{site.baseurl}}//webportal/reference/#api-Navigation-LaunchGuidance) and [Navigation.LaunchGuidanceWaypoints()]({{site.baseurl}}/webportal/reference/#api-Navigation-LaunchGuidanceWaypoints) can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/tutorial-advanced/#sending-popup) or [nativePopup]({{site.baseurl}}/webportal/reference/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that LaunchGuidance function return is `True`.
 
 #### STRUCTURE OF MQTT MESSAGE
 ```javascript

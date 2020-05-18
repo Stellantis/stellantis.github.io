@@ -1,6 +1,5 @@
 ---
 title: Media.GetArtistName()
-
 supported:
   - 2
   - 3

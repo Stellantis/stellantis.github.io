@@ -1,6 +1,5 @@
 ---
 title: Media.GetAlbumName()
-
 supported:
   - 2
   - 3

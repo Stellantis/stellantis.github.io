@@ -1,6 +1,5 @@
 ---
 title: Car.GetAutonomy()
-
 supported:
   - 2
   - 3

@@ -1,6 +1,5 @@
 ---
 title: Media.GetCurrentTrack()
-
 supported:
   - 2
   - 3
