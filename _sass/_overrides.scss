@@ -85,14 +85,27 @@ h1,h2,h3,h4,h5 {
 .content #content-header{
     padding-top: 10rem;
     margin-top: -10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
-#content-header a {
-    margin-left: 1.5rem;
+.content #content-header li+ li {
+    margin-top: 0;
 }
 
-.bd-content .notif {
-    padding-bottom: 0rem;
+.content #content-header ul {
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.content #content-header .breadcrumb {
+    font-size:inherit;
+    font-weight:400;
+}
+
+.content .notification.notif-webapib2b {
+    margin-top: 1.5rem;
 }
 
 .bd-main-container .container {
@@ -305,6 +318,13 @@ code {
     background-size: cover;
     background-position: center center;
 }
+
+.hero_404 {
+    background-image: url("../../assets/images/404.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
 .no_hero{
     background-color: #1e2336;
     background-size: cover;
@@ -328,7 +348,6 @@ code {
 .navbar.is-fixed-top{
     background: #1e2336;
     padding-bottom: 1rem;
-    text-transform: uppercase;
     top: -108px; /* Hide the navbar 50 px outside of the top view */
     transition: top 0.6s; /* Transition effect when sliding down (and up) */
 }
@@ -350,7 +369,7 @@ code {
 
 .navbar.is-fixed-top .submenu {
     background: inherit;
-    display: flex;    
+    display: flex;
 }
 
 .navbar.is-fixed-top .submenu a {
@@ -364,10 +383,6 @@ code {
 .navbar.is-fixed-top .navbar-start .icon{
     padding-left: 1rem;
     font-size: 0.8rem;
-}
-
-#android-submenu, #ios-submenu, #webportal-submenu, #webapib2c-submenu, #webapib2b-submenu{
-    display: none;
 }
 
 .navbar.is-fixed-top .navbar-brand img {
@@ -492,9 +507,7 @@ code {
     margin: 0 0.8rem 0.1rem;
 }
 
-#navbarpsa .navbar-brand{
-    padding-right: 1rem;
-}
+
 
 @media screen and (max-width: 1280px) {
     #navbarpsa .navbar-link {
@@ -524,6 +537,11 @@ code {
 
 #navbarpsa a.navbar-item:hover, #navbarpsa a.navbar-item.is-active, #navbarpsa .navbar-link:hover, #navbarpsa .navbar-link.is-active {
 background-color: inherit;
+}
+
+#navbarpsa .navbar-start{
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 #navbarpsa .navbar-start .navbar-item > .textnavbar.is-active  {
@@ -644,7 +662,7 @@ background-color: inherit;
 //   --------------------------------------------------
 
 //section title 
-#section-title {
+.hero h1.title.section-title {
     line-height: 1.450;
     margin-bottom: 0;
     font-size:6rem;
@@ -686,7 +704,7 @@ background-color: inherit;
 }
 
  #is-end_user-pic{
-    background-image: url("../../assets/images/developer.png");
+    background-image: url("../../assets/images/developer.jpg");
     background-size: cover;
     background-position: center center;
 }
@@ -710,7 +728,7 @@ background-color: inherit;
 }
 
  #is-webportal-pic{
-    background-image: url("../../assets/images/WebPortal_pic.png");
+    background-image: url("../../assets/images/WebPortal_pic.jpg");
     background-size: cover;
     background-position: center center;
 }
@@ -722,19 +740,19 @@ background-color: inherit;
 }
 
 @media screen and (max-width: 600px) {
-    #section-title{
+    .hero h1.title.section-title{
         font-size: 4rem ;
     }
 }
 
 @media screen and (max-height: 700px) {
-    #section-title{
+    .hero h1.title.section-title{
         font-size: 3rem ;
     }
 }
 
 @media screen and (max-width: 576px) {
-    #section-title{
+    .hero h1.title.section-title{
         font-size: 3rem ;
     }
 }
@@ -940,4 +958,12 @@ margin-right: 0 !important;}
     .bd-anchors.is-pinned {
         top: 0;
     }
+  
+    .hero_404 h1.title {
+        font-size: 3rem;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
 }
+

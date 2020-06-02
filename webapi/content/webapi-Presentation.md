@@ -29,7 +29,7 @@ By requesting this api you will have access to various **features**:
 ![Features]({{ site.baseurl }}/assets/images/presentationFeatures.png)
 
 
-| <img class="is-paddingless is-marginless" src="{{ site.baseurl }}/assets/images/presentationHistory.png"> | **History**: trips, telemetrics, notifications and collisions are useful data, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history. |
+| <img alt="icon-history" class="is-paddingless is-marginless" src="{{ site.baseurl }}/assets/images/presentationHistory.png"> | **History**: trips, telemetrics, notifications and collisions are useful data, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history. |
 
 |Feature|Description|
 |-|-|

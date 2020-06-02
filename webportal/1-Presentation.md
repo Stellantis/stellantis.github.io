@@ -3,6 +3,7 @@ layout: doc-article
 permalink: /webportal/
 section: webportal
 title: Presentation
+description: "WebPortal is the browser allowing users to launch authorized Web Applications directly from the media system of their car."
 ---
 
 # ABOUT WEBPORTAL
@@ -10,7 +11,7 @@ title: Presentation
 The WebPortal is the browser allowing users to launch authorized Web Applications directly from the media system of their car.
 All the applications function on a subscription basis and their presence on the welcome page is automatically managed by the WebPortal.
 
-![Image of Main Screen]({{ site.baseurl }}/assets/images/WebPortal_pic.png)
+![Image of Main Screen]({{ site.baseurl }}/assets/images/WebPortal_pic.jpg)
 
 The WebPortal relies on [REST API](https://restfulapi.net/) and [MQTT protocol](http://mosquitto.org/man/mqtt-7.html).
 
@@ -94,33 +95,32 @@ based on the upstream trunk subversion revision 153112.
 {% assign arrowDown='<span class="icon has-text-danger"><i class="fas fa-arrow-down"></i></span>'%}
 {% assign equals='<span class="icon "><i class="fas fa-equals"></i></span>'%}
 
-SW version	| Percentage of vehicles| Trend of use
+SW version	| Percentage of vehicles|Build date| Trend of use
 -|-|-
-21.07.16.32_NAC-r0 | 26%  | {{arrowUp}}
-21.07.67.32_NAC-r0 | 17%  | {{arrowUp}}
-10:90:42 | 12%  | {{arrowDown}}
-10:47:34 | 11%  | {{arrowDown}}
-10:82:12 | 6%  | {{arrowDown}}
-10:68:24 | 4%  | {{arrowDown}}
+21.07.16.32_NAC-r0 | 26%  |01/04/2018| {{arrowUp}}
+21.07.67.32_NAC-r0 | 17%  |19/06/2019| {{arrowUp}}
+10:90:42 | 12%  |07/09/2017| {{arrowDown}}
+10:47:34 | 11%  |08/03/2018| {{arrowDown}}
+10:82:12 | 6%  || {{arrowDown}}
+10:68:24 | 4%  || {{arrowDown}}
 
 ### WAVE 3
 
-SW version	| Percentage of vehicles | Trend of use
+SW version	| Percentage of vehicles |Build date | Trend of use
 -|-|-
-31.09.46.62_NAC-r0 | 14%  | {{arrowUp}}
-31.08.05.86_NAC-r0 | 3%  | {{arrowDown}}
-10:50:42 | 1%  | {{arrowDown}}
+31.09.46.62_NAC-r0   | 14%  |19/11/2018| {{arrowUp}}
+31.08.05.86_NAC-r0 |3% |15/05/2018  | {{arrowDown}}
+10:50:42 | 1%  | | {{arrowDown}}
 
 
 ### WAVE 4
 
-SW version	| Percentage of vehicles| Trend of use
+SW version	| Percentage of vehicles|Build date| Trend of use
 -|-|-
-42.01.21.42_NAC-r0 | 2%  | {{arrowUp}}
-40.04.20.22_NAC-r0 | 1%  | {{arrowUp}}
-42.01.37.32_NAC-r0 | 1%  | {{arrowUp}}
-40.04.33.12_NAC-r0 | 0%  | {{arrowUp}}
-
+42.01.21.42_NAC-r0 | 2% |01/02/2020 | {{arrowUp}}
+40.04.20.22_NAC-r0 | 1%  | | {{arrowUp}}
+42.01.37.32_NAC-r0 | 1% |18/09/2019 | {{arrowUp}}
+40.04.33.12_NAC-r0 | 0%  | | {{arrowUp}}
 
 ## TUTORIAL
 

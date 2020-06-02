@@ -1,6 +1,7 @@
 # name of the software
-name: PSA Documentation
-description: PSA documentation website
+title: PSA Groupe for developers
+name: PSA Groupe for developers
+description: Groupe PSA for Developers is the dedicated platform for application developers working with Groupe PSA's connected vehicles APIs and SDKs.
 baseurl: "" # the subpath of the site, e.g. /blog
 url: "https://developer.groupe-psa.io" # the base hostname & protocol for the site, e.g. http://example.com
 
@@ -70,8 +71,6 @@ markdown: kramdown
 highlighter: rouge
 
 permalink: pretty
-
-theme: jekyll-bulma
 
 # Enable or disable the site search
 search_enabled: true

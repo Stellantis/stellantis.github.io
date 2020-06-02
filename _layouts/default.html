@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>French car manufacturer | Groupe PSA</title>
+    <title>{% if page.permalink == "/" %}
+    {{site.title}}  
+    {% elsif page.permalink == "/webapi/" %}
+    Web APIs | {{site.title}}
+    {% elsif page.permalink == "/mobile-sdk/" %}
+    Mobile SDKs | {{site.title}}
+    {% else %}{% if page.title %}{% if page.section %}{% for section in site.data.sections %}{% if page.section == section.tag %}{% assign sectionName = section.name %}{% else %}{% endif %}{% endfor %}
+    {{ page.title }} | {{sectionName}} | {{site.title}}
+    {% else %}
+    {{ page.title }} | {{site.title}}  
+    {% endif %}{% else %}
+    {{ site.title }}
+    {% endif %}{% endif %}</title>
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{%if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.url }}{{site.baseurl}}/assets/images/logoGroupePSA.png" />
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="{%if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="twitter:card" content="summary">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{site.baseurl}}/assets/images/favicons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{site.baseurl}}/assets/images/favicons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{site.baseurl}}/assets/images/favicons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{site.baseurl}}/assets/images/favicons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{site.baseurl}}/assets/images/favicons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{site.baseurl}}/assets/images/favicons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{site.baseurl}}/assets/images/favicons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{site.baseurl}}/assets/images/favicons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="{{site.baseurl}}/assets/images/favicons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="{{site.baseurl}}/assets/images/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="{{site.baseurl}}/assets/images/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{site.baseurl}}/assets/images/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="{{site.baseurl}}/assets/images/favicons/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="PSA Groupe for Developers"/>
+    <meta name="msapplication-TileColor" content="#1e2336" />
+    <meta name="msapplication-TileImage" content="{{site.baseurl}}/assets/images/favicons/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="{{site.baseurl}}/assets/images/favicons/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="{{site.baseurl}}/assets/images/favicons/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="{{site.baseurl}}/assets/images/favicons/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="{{site.baseurl}}/assets/images/favicons/mstile-310x310.png" />
+    <!-- end icons -->
+    <meta itemprop="description" name="description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ site.description | truncate: 160  }}{% endif %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    <!-- ICONS -->
-    <link rel="icon" href="{{site.baseurl}}/favicon.ico">
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900|Roboto:300,400,500|Inconsolata:400,700"
         rel="stylesheet">

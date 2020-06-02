@@ -6,11 +6,10 @@
         </div>
         <div class="hero-body">
             <div class="container">
-                <h1 class="title" id="section-title">Build</h1>
-                <h1 class="title" id="section-title">The future</h1>
-                <h1 class="title" id="section-title">Of</h1>
-                <h1 class="title" id="section-title">Connected Cars
-                </h1>
+                <h1 class="title section-title">Build</h1>
+                <h1 class="title section-title">The future</h1>
+                <h1 class="title section-title">Of</h1>
+                <h1 class="title section-title">Connected Cars</h1>
             </div>
         </div>
     </section>
@@ -112,6 +111,33 @@
                 <h1 class="title" id="section-title">WEB API</h1>
                 <h2 class="title">
                     for end-users</h2>
+            </div>
+        </div>
+    </section>
+{% elsif  page.title == "404"  %}
+    <section class="hero is-dark is-fullheight hero_404">
+        <!-- Hero head: will stick at the top -->
+        <div class="hero-head">
+            {% include navigation.html %}
+        </div>
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                  <div class="column">
+                    <h1 class="title" id="section-title">404</h1>
+                    <h1 class="title" id="section-title">Page not</h1>
+                    <h1 class="title" id="section-title">Found</h1>
+                  </div>
+                  <div class="column" style="display: flex; flex-direction: column; justify-content: space-evenly;">
+                    <p class="hero-para is-size-4" style="text-shadow: 2px 2px 4px #000000">It seems that we are unable to find this page. <br> We apologise for the inconvenience.
+                    </p>
+                    <a href="{{site.baseurl}}/" class="button is-psablue is-medium">
+                        <span>
+                            BACK TO HOMEPAGE
+                        </span>                
+                    </a>
+                  </div>
+                </div>
             </div>
         </div>
     </section>

@@ -12,19 +12,49 @@
             </div>
             {% endif %}
             {% comment %}---END TABS---{% endcomment %}
-            {% comment %}---B2B DISCLAIMER---{% endcomment %}
-            {% if page.section == "webapib2b" and page.title=="Presentation" or page.title=="Preview" %}
-                <div class="content notif">
-                    {% include content/webapi-b2b-Disclaimer.html %}
-                </div>
-                {% endif %}
-            {% comment %}---END B2B DISCLAIMER---{% endcomment %}
-
- 
-            {% comment %}---EDIT WITH GITHUB---{% endcomment %}
+            
+            
+            
             <div class="content">
                 {% unless page.title == "API Reference" and page.section == "webapib2b" or page.title == "API Reference" and page.section == "webapib2c" %}
                 <div id="content-header" >
+                    {% comment %}---BREADCRUMB---{% endcomment %}
+                    
+                    <nav class="breadcrumb" aria-label="breadcrumbs">
+                        <ul>
+                            <li><a href="{{site.baseurl}}/">{{site.title}}</a></li>
+                            {% for section in site.data.sections %}
+                                {% if page.section == section.tag %}
+                                    {% if section.tag == "webapib2b" or section.tag == "webapib2c" %}
+                            <li>
+                                <a href="{{site.baseurl}}/webapi/#pageTitle">Web API</a>
+                            </li>
+                            <li>
+                                <a href="{{site.baseurl}}{{section.path}}#pageTitle">{{section.name}}</a>
+                            </li>
+                                    {% elsif section.tag == "ios" or section.tag == "android" %}
+                            <li>
+                                <a href="{{site.baseurl}}/mobile-sdk/#pageTitle">Mobile SDK</a>
+                            </li>
+                            <li>
+                                <a href="{{site.baseurl}}{{section.path}}#pageTitle">{{section.name}}</a>
+                            </li>
+                                    {% else %}
+                            <li>
+                                <a href="{{site.baseurl}}{{section.path}}#pageTitle">{{section.name}}</a>
+                            </li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            <li class="is-active">
+                                <a href="#" aria-current="page">{{page.title}}</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    {% comment %}---END BREADCRUMB---{% endcomment %}
+                    
+                    {% comment %}---EDIT WITH GITHUB---{% endcomment %}
                     {% if page.gitHubPath %}
                     <a href="{{site.gitHubURL}}{{page.gitHubPath}}"
                     {% elsif page.title == "API Reference" and page.section == "webapib2b" %}
@@ -36,9 +66,15 @@
                     {% endif %} style="color: #4a4a4a" class="button  is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
                     <span class="icon">
                         <i  class="far fa-edit"></i> 
-                      </span>
+                    </span>
                     &nbsp; Edit this Page
-                    </a>
-                </div>
-                {% endunless %}
+                </a>
+            </div>
+            {% endunless %}
             {% comment %}---END EDIT WITH GITHUB---{% endcomment %}
+            
+            {% comment %}---B2B DISCLAIMER---{% endcomment %}
+            {% if page.section == "webapib2b" and page.title != "API Reference" %}
+                    {% include content/webapi-b2b-Disclaimer.html %}
+            {% endif %}
+            {% comment %}---END B2B DISCLAIMER---{% endcomment %}
