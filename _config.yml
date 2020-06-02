@@ -2,7 +2,7 @@
 name: PSA Documentation
 description: PSA documentation website
 baseurl: "" # the subpath of the site, e.g. /blog
-url: "https://developer.groupe-psa.io" # the base hostname & protocol for the site, e.g. http://example.com
+url: "https://etiennerobaglia.github.io/groupepsa.github.io/" # the base hostname & protocol for the site, e.g. http://example.com
 
 # github links
 gitHubURL: "https://github.com/GroupePSA/groupepsa.github.io/tree/master/"
