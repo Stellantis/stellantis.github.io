@@ -50,6 +50,7 @@
     <meta name="msapplication-square310x310logo" content="{{site.baseurl}}/assets/images/favicons/mstile-310x310.png" />
     <!-- end icons -->
     <meta itemprop="description" name="description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ site.description | truncate: 160  }}{% endif %}" />
+    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
