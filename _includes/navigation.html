@@ -1,4 +1,4 @@
-<nav aria-label="main navigation" class="navbar container" id="navbarpsa" role="navigation">
+<nav aria-label="main navigation" class="navbar" id="navbarpsa" role="navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="{{site.baseurl}}/">
             <img alt="site-logo" id="logoPG4D" src="{{site.baseurl}}/assets/images/logo-PG4D.png">
@@ -12,13 +12,33 @@
     <div class="navbar-menu" id="navMenu">
         <div class="navbar-start">
 
+            <!-- CONNECTED VEHICLES-->
+            <div class="navbar-item menu has-dropdown is-hoverable">
+                <a class="textnavbar navbar-link {% if page.section == "connected-vehicles" %}is-active{% endif %}" href="{{site.baseurl}}/connected-vehicles/">
+                    <span class="icon is-large  is-white">
+                        <i class="fas fa-wifi"></i>
+                    </span>
+                    <span>CONNECTED&nbsp;<br class="is-hidden-touch">VEHICLES</span>
+
+                </a>
+                <div class="navbar-dropdown" id="dropdownAPI">
+                    {% for p in site.pages %}
+                        {% if p.section == "connected-vehicles" %}
+                        <a class="navbar-item {% if p.title == page.title and p.section == page.section %}is-active{% endif %}" href="{{ p.url | relative_url }}#pageTitle">
+                        {{p.title}}
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
             <!-- WEB API -->
             <div class="navbar-item menu has-dropdown is-hoverable">
                 <a class="textnavbar navbar-link {% if page.section == "webapi" or page.section == "webapib2b" or page.section == "b2b" or page.section == "webapib2c" or page.section == "b2c" %}is-active{% endif %}" href="{{site.baseurl}}/webapi/">
                     <span class="icon is-large  is-white">
                         <i class="fas fa-cloud"></i>
                     </span>
-                    WEB API
+                    <span>WEB&nbsp;<br class="is-hidden-touch">API</span>
                 </a>
                 <div class="navbar-dropdown" id="dropdownAPI">
                     {% for p in site.pages %}
@@ -45,7 +65,7 @@
                     <span class="icon is-large  is-white">
                         <i class="fas fa-car-side"></i>
                     </span>
-                    EMBEDDED WEBPORTAL
+                    <span>EMBEDDED&nbsp;<br class="is-hidden-touch">WEBPORTAL</span>
                 </a>
                 <div class="navbar-dropdown" id="dropdownAPI">
                     {% for p in site.pages %}
@@ -59,13 +79,14 @@
             </div>
 
             <!-- MOBILE -->
-            <div class="navbar-item menu has-dropdown is-hoverable">
+            <div class="navbar-item menu" style="padding: 0;">
                 <a class="textnavbar navbar-link {% if page.section == "mobile-sdk" or page.section == "ios" or page.section == "android" %}is-active{% endif %}" href="{{site.baseurl}}/mobile-sdk/">
                     <span class="icon is-large  is-white">
                         <i class="fas fa-mobile"></i>
                     </span>
-                    MOBILE SDK
+                    <span>MOBILE&nbsp;<br class="is-hidden-touch">SDK</span>
                 </a>
+            
             </div>
 
             <!-- SEARCH -->

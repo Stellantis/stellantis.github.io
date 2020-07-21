@@ -86,8 +86,7 @@ function sectionClick(newSectionDiv, newSubMenu){
 // Display navbar is-fixed-top navbar
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
-var tabHeight = document.getElementById("navbarpsa").getBoundingClientRect().x;
-  if (document.body.scrollTop > tabHeight || document.documentElement.scrollTop > tabHeight) {
+  if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
     document.getElementById("navbar").style.top = "0";
   } else {
     document.getElementById("navbar").style.top = "-108px";

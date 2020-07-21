@@ -129,7 +129,7 @@ This is an example of debug console that you can display inside your app:
 
 ```js
 try {
-  document.getElementById(kk);
+    // code you want to debug
 } 
 catch (error) {
   var debugConsole = document.getElementById('debug-console'); 
@@ -157,7 +157,7 @@ You just have to create an HTML **input text**, once the user set the **focus** 
 
 ```html
 <input type="text" />
-<!-- Focus the field and the keyboard is diplayed -->
+<!-- Focus the field will make the keyboard to show-up -->
 ```
 
 > **Note:** When the keyboard is being displayed, you cannot receive events.

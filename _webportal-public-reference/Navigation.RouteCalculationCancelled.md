@@ -5,7 +5,7 @@ supported:
   - 4
 type: event
 ---
-Event triggered when the calculation of the itinerary was ended abruptly.
+Event triggered when the calculation of the itinerary was ended abruptly *eg:* if the user perform SW update during route calculation.
 
 ### EXAMPLE
 

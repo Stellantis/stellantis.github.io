@@ -1,4 +1,4 @@
-# FEATURE
+# FEATURES
 Through Groupe PSA's {% if page.section == 'webapib2b' %}B2B{% elsif page.section == "webapib2c" %}B2C{% endif %} APIs you can access and browse data about your vehicles.
 But moreover our APIs allow you to set-up **events** that we will track for you.
 Monitors are a way to design events tracking patterns for vehicles.

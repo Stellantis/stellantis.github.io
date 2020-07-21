@@ -44,6 +44,26 @@ The Groupe PSA's Web APIs are based on **REST** principles. Data resources are a
 |`404`| Data not found. Can be that there is no data for this specific vehicle or a typo on the URL |
 |`500`| Internal server error. Sounds like there's a problem on the server. Take it easy, we're on it ;)|
 
+## ERROR
+
+Error codes are returned by all APIs when the answer is not HTTP-OK. It's displayed in {% if page.section == 'webapib2b' %}[Reference]({{ site.baseurl }}/webapi/b2b/reference/){% elsif page.section == "webapib2c" %}[Reference]({{ site.baseurl }}/webapi/b2c/reference/){% endif %} page as **Default** button on the right panel.
+
+The structure of the error message will always be the same as you can decode it:
+
+```json
+{
+    "code": 40499,
+    "uuid": "494f61d1-472a-4696-ac3c-2961496c3aaf",
+    "message": "No data availble for such context.",
+    "timestamp": "2020-01-01T00:00:00.000Z"
+}
+```
+
+- `code` is an enhanced HTTP error code (the first 3 digits are HTTP standard error and the 2 last digits are dedicated error code for PSA API).
+- `uuid` is the unique identifier of this message. It can be used to get in touch with support and help to understand why this error happened.
+- `message` is a text explaining the nature of the error.
+- `timestamp` is the date and time when the error happened.
+
 ## SINGLE OBJECT
 
 When you call for a resource with an id you will retrieve a single object. Every resource which respond with a single object respect the following generic schema:

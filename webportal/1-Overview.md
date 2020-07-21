@@ -2,7 +2,7 @@
 layout: doc-article
 permalink: /webportal/
 section: webportal
-title: Presentation
+title: Overview
 description: "WebPortal is the browser allowing users to launch authorized Web Applications directly from the media system of their car."
 ---
 
@@ -34,13 +34,30 @@ There are 3 different screen resolutions depending on car model and generation.
 The screen is divided in 3 areas: one is for your app while two others areas are dedicated to car system info.
 Here is actual available screen size: **SD** = 800 x 363 px ; **HD** = 1280 x 582 px ; **WHD** = 1280 x 620 px.
 
-**Legend**
 
-<span class="verb" style="background-color: grey; color: white">&nbsp;Grey&nbsp;</span>: Total screen size.
+<table class="largertable">
+  <thead>
+    <tr>
+      <th>COLOR</th>
+      <th>LEGEND</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="verb" style="background-color: #A6A6A6 !important; color: white">&nbsp;Grey&nbsp;</span></td>
+      <td>Total screen size.</td>
+    </tr>
+    <tr>
+      <td><span class="verb get" style="background-color:#1E2335 !important">&nbsp;Blue&nbsp;</span></td>
+      <td>Area of the screen dedicated to the infotainment system.</td>
+    </tr>
+    <tr>
+      <td><span class="verb post" style="background-color:#94CE58 !important">Green</span></td>
+      <td>Area of the screen available for your app</td>
+    </tr>
+  </tbody>
+</table>
 
-<span class="verb get" style>&nbsp;Blue&nbsp;</span>: Part of the screen dedicated to the infotainment system.
-
-<span class="verb post" style="background-color:#92D050">Green</span>: Part of the screen available for your app.
 
 **Standard-Definition**
 ![screen-res-sd]({{site.baseurl }}/assets/images/webportalPresentationScreenSD.png)

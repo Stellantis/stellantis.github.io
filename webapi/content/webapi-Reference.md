@@ -40,7 +40,12 @@ h1, h2, h3, h4, h5 {
     margin-top: inherit;
 }
 
-redoc .api-content { 
+#redoc-container h3 {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+#redoc-container .api-content { 
     word-wrap: anywhere;
 }
 
@@ -49,7 +54,7 @@ redoc .api-content {
     padding: 1.5rem 3rem;
 }
 
-redoc .number {
+#redoc-container .number {
     align-items: inherit;
     background-color: inherit;
     border-radius: inherit;
@@ -64,13 +69,10 @@ redoc .number {
     vertical-align: inherit;
 }
 
-redoc code { 
-    background-color: inherit;
-    color: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    padding: inherit;
-}
+#redoc-container code { 
+background: inherit;
+font-size: inherit;
+} 
 
 
 @media screen and (min-width: 1088px) {
@@ -93,10 +95,6 @@ redoc code {
         background: white;
         padding: 2rem;
     }
-    redoc .menu-content{
-        top: 0 !important;
-    	height: calc(100vh) !important;
-    }
 }
 
 @media screen and (max-width: 800px) {
@@ -107,9 +105,107 @@ redoc code {
 
 </style>
 
-<redoc spec-url='{{ urlReference | prepend: site.baseurl }}' disable-search hide-hostname no-auto-auth scroll-y-offset="103" expand-responses="200,201,202"></redoc>
+<div id="redoc-container">
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+<script>
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+if (mq.matches) {
+     Redoc.init('{{ urlReference | prepend: site.baseurl }}', {
+        "unstable_ignoreMimeParameters": true,
+        disableSearch: true,
+        hideHostname: true,
+        noAutoAuth: true,
+        expandResponses: "200,201,202",
+        theme: {
+            colors: {
+                primary: {
+                    main: '#1e2336',
+                }
+            },
+            "typography": {
+                fontSize: '14px',
+                "fontFamily": "'Roboto', sans-serif;",
+                headings: {
+                    fontFamily: "'Roboto', sans-serif",
+                    fontWeight: '400',
+                    lineHeight: '1.6em',
+                },
+                code: {
+                    fontSize: '13px',
+                    fontFamily: 'Inconsolata, monospace',
+                    wrap: false,
+                },
+            },
+            codeBlock: {
+                backgroundColor: "#2A3A51"
+            },
+            "sidebar": {
+                "level1Items": {
+                    "textTransform": "uppercase"
+                },
+                "arrow": {
+                "size": "18px"
+                }
+            },
+            "rightPanel": {
+                "backgroundColor": "#1e2336",
+                "textColor": "white"
+            },
+        }
+    }, document.getElementById('redoc-container'))
+}
+else {
+     Redoc.init('{{ urlReference | prepend: site.baseurl }}', {
+        scrollYOffset: 102,
+        "unstable_ignoreMimeParameters": true,
+        disableSearch: true,
+        hideHostname: true,
+        noAutoAuth: true,
+        expandResponses: "200,201,202",
+        theme: {
+            colors: {
+                primary: {
+                    main: '#1e2336',
+                }
+            },
+            "typography": {
+                fontSize: '14px',
+                "fontFamily": "'Roboto', sans-serif;",
+                headings: {
+                    fontFamily: "'Roboto', sans-serif",
+                    fontWeight: '400',
+                    lineHeight: '1.6em',
+                },
+                code: {
+                    fontSize: '13px',
+                    fontFamily: 'Inconsolata, monospace',
+                    wrap: false,
+                },
+            },
+            codeBlock: {
+                backgroundColor: "#2A3A51"
+            },
+            "sidebar": {
+                "level1Items": {
+                    "textTransform": "uppercase"
+                },
+                "arrow": {
+                "size": "18px"
+                }
+            },
+            "rightPanel": {
+                "backgroundColor": "#1e2336",
+                "textColor": "white"
+            },
+        }
+    }, document.getElementById('redoc-container'))
+}
+
+   
+</script>
 
 <main class="bd-main">
 <div class="bd-main-container container">

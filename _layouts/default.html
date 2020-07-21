@@ -38,7 +38,6 @@
     <meta name="msapplication-square310x310logo" content="{{site.baseurl}}/assets/images/favicons/mstile-310x310.png" />
     <!-- end icons -->
     <meta itemprop="description" name="description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ site.description | truncate: 160  }}{% endif %}" />
-    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
@@ -63,12 +62,21 @@
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
     {% endif %}
+    {% if page.require contains "aos" %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    {% endif %}
+    {% if page.require contains "typed" %}
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    {% endif %}
+    {% if page.require contains "aos" %}
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    {% endif %}
     <!-- SCRIPTS-->
     <script src="{{ '/assets/js/dropdown.js' | prepend: site.baseurl | prepend: site.url }}"></script>
     <script src="{{ '/assets/js/main.js' | prepend: site.baseurl | prepend: site.url }}"></script>
     <script src="{{ '/assets/js/lunr.js' | prepend: site.baseurl | prepend: site.url }}"></script>
 </head>
     <body>
-        {{content}}
+    {{content}}
     </body>
 </html>
