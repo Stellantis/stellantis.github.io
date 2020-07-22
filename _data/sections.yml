@@ -1,9 +1,12 @@
+- tag: connected-vehicles
+  path: /connected-vehicles/
+  name: Connected Vehicles
 - tag: webapib2b
-  path: /webapi/b2b/ 
+  path: /webapi/b2b/
   name: API Fleet Owner
 - tag: webapib2c
   path: /webapi/b2c/
   name: API End Users
 - tag: webportal
   path: /webportal/
-  name: Emmbedded Webportal
+  name: Embedded Webportal

@@ -1,0 +1,73 @@
+- tag: my-opel
+  img-url: my-opel-ios.jpg
+  long-name: MyOpel Mobile
+  section: 
+    - sdk
+    - web api
+  link:
+    ios: https://apps.apple.com/gb/app/myopel/id1439342035
+    android: https://play.google.com/store/apps/details?id=com.psa.mym.myopel
+- tag: my-vauxhall
+  img-url: my-vauxhall-android.jpg
+  long-name: MyVauxhall Mobile
+  section: 
+    - sdk
+    - web api
+  link:
+    ios: https://apps.apple.com/gb/app/myvauxhall/id1439341466
+    android: https://play.google.com/store/apps/details?id=com.psa.mym.myvauxhall
+- tag: my-ds
+  img-url: my-ds-android.jpg
+  long-name: MyDS Mobile
+  section: 
+    - sdk
+    - web api
+  link:
+    ios: https://apps.apple.com/gb/app/myds-app/id1021590964
+    android: https://play.google.com/store/apps/details?id=com.psa.mym.myds
+- tag: my-citroen
+  img-url: my-citroen-android.jpg
+  long-name: MyCitroen Mobile
+  section: 
+    - sdk
+    - web api
+  link:
+    ios: https://apps.apple.com/gb/app/my-citro%C3%ABn/id1019563307
+    android: https://play.google.com/store/apps/details?id=com.psa.mym.mycitroen
+- tag: my-peugeot
+  img-url: my-peugeot-ios.jpg
+  long-name: MyPeugeot Mobile
+  section: 
+    - sdk
+    - web api
+  link:
+    ios: https://apps.apple.com/gb/app/mypeugeot-app/id1021587274
+    android: https://play.google.com/store/apps/details?id=com.psa.mym.mypeugeot
+- tag: f2m-services
+  img-url: f2m-ios.jpg
+  long-name: Free 2 Move Services
+  section: 
+    - web api
+  link:
+    ios: https://apps.apple.com/gb/app/free2move-services/id1221956513
+    android: https://play.google.com/store/apps/details?id=services.free2move.smse
+- tag: f2m
+  img-url: f2m-onboard.jpg
+  long-name: Free 2 Move
+  section: 
+    - webportal
+- tag: my-peugeot-onboard
+  img-url: my-peugeot-onboard.jpg
+  long-name: MyPeugeot Onboard
+  section: 
+    - webportal
+- tag: my-citroen-onboard
+  img-url: my-citroen-onboard.jpg
+  long-name: MyCitroen Onboard
+  section: 
+    - webportal
+- tag: my-ds-onboard
+  img-url: my-ds-onboard.jpg
+  long-name: MyDS Onboard
+  section: 
+    - webportal

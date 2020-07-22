@@ -4,6 +4,7 @@ permalink: /webportal/class/
 section: webportal
 title: API Class
 gitHubPath: _webportal-public-reference/
+description: "Groupe PSA Webportal API Class: summary of this API available features."
 ---
 
 {% assign classes = site.webportal-public-reference | where:"type", "class" %}

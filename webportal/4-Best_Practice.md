@@ -3,6 +3,7 @@ layout: doc-article
 permalink: /webportal/best-pratice/
 section: webportal
 title: Best Practice
+description: "WebPortal is based on web technologies however, there are some specificities that you need to consider in order to optimize your app."
 ---
 
 # THINGS TO KEEP IN MIND
@@ -81,9 +82,9 @@ ID|Theme Name| Screenshot/Description |
 0|Blue Theme <br/> Mainstream PEUGEOT| ![ambiencePeugeot0]({{site.baseurl}}/assets/images/ambiencePeugeot0.png){:class="tableimg"} |
 1| Copper Theme <br/>  Onyx| ![ambiencePeugeot1]({{site.baseurl}}/assets/images/ambiencePeugeot1.png){:class="tableimg"} |
 2|Red Theme <br/> GTI| ![ambiencePeugeot2]({{site.baseurl}}/assets/images/ambiencePeugeot2.png){:class="tableimg"} |
-3|Green Theme <br/> QUARTZ| |
-4|Dichroique Theme <br/> PHEV/BEV|Blue as main color with flashy green lines|
-5|Krypto Theme <br/> PHEV/Performance|Silver as main color with flashy yellow-ish lines|
+3|Green Theme <br/> QUARTZ| ![ambiencePeugeot3]({{site.baseurl}}/assets/images/ambiencePeugeot3.png){:class="tableimg"} |
+4|Dichroique Theme <br/> PHEV/BEV|![Blue as main color with flashy green lines]({{site.baseurl}}/assets/images/ambiencePeugeot4.png){:class="tableimg"} |
+5|Krypto Theme <br/> PHEV/Performance| ![Silver as main color with flashy yellow-ish lines]({{site.baseurl}}/assets/images/ambiencePeugeot5.png){:class="tableimg"} |
 8|Red Theme <br/> Multidrive 1 <br/> BOOST||
 9|Sable/Zen Theme <br/> Multidrive 2 <br/> RELAX| ![ambiencePeugeot9]({{site.baseurl}}/assets/images/ambiencePeugeot9.png){:class="tableimg"} |
 
@@ -95,7 +96,7 @@ ID|Theme Name| Screenshot/Description |
 1| Mainstream <br/> Red Theme <br/> Checkerboard Background| ![ambienceCitroen1]({{site.baseurl}}/assets/images/ambienceCitroen1.png){:class="tableimg"} |
 2|Blue Theme <br/> Checkerboard background <br/> Luminous headband | ![ambienceCitroen2]({{site.baseurl}}/assets/images/ambienceCitroen2.png){:class="tableimg"} |
 3|Brown Theme <br/> Checkerboard Background | ![ambienceCitroen7]({{site.baseurl}}/assets/images/ambienceCitroen3.png){:class="tableimg"} |
-4|Battery Electric Vehicle / Plug<br/>in Hybrid Electric Vehicle | ![ambienceCitroen7]({{site.baseurl}}/assets/images/ambienceCitroen4.png){:class="tableimg"} |
+4|Battery Electric Vehicle / Plug<br/>in Hybrid Electric Vehicle | ![ambienceCitroen4]({{site.baseurl}}/assets/images/ambienceCitroen4.png){:class="tableimg"} |
 5|Theme Red <br/> Change plain background |![ambienceCitroen7]({{site.baseurl}}/assets/images/ambienceCitroen5.png){:class="tableimg"} |
 6|Theme Blue <br/> Change plain background<br/> Change Headband | ![ambienceCitroen7]({{site.baseurl}}/assets/images/ambienceCitroen6.png){:class="tableimg"} |
 7|Brown Theme <br/> Change plain background<br/> Change Headband | ![ambienceCitroen7]({{site.baseurl}}/assets/images/ambienceCitroen7.png){:class="tableimg"} |
@@ -104,19 +105,19 @@ ID|Theme Name| Screenshot/Description |
 
 ID|Theme Name| Screenshot/Description |
 -|-:|--:|
-0|Gold Theme <br/> Champagn | Black/gray |
-1| Red Theme <br/> Champagn Perfo Line | Black with red edges/angles |
-2| Blue Theme <br/>  Ruby| Red main color |
-3| Sapphire Theme <br/>  Battery Electric Vehicle <br/> Plug-in Hybrid Electric Vehicle | Blue / white glow |
-8|Red Theme <br/>  Titanium <br/> (same as ambiance 3)||
+0|Gold Theme <br/> Champagn |  ![Black/gray]({{site.baseurl}}/assets/images/ambienceDs0.png){:class="tableimg"}|
+1| Red Theme <br/> Champagn Perfo Line |  ![Black with red edges/angles]({{site.baseurl}}/assets/images/ambienceDs1.png){:class="tableimg"}|
+2| Blue Theme <br/>  Ruby | ![Red main color]({{site.baseurl}}/assets/images/ambienceDs2.png){:class="tableimg"} |
+3| Sapphire Theme <br/>  Battery Electric Vehicle <br/> Plug-in Hybrid Electric Vehicle |  ![Blue / white glow]({{site.baseurl}}/assets/images/ambienceDs3.png){:class="tableimg"} |
+8|Red Theme <br/>  Titanium <br/> (same as ambiance 3)| |
 9| Violet Theme <br/>  Cachemire| |
 
 #### Opel/Vauxhall
 
 ID|Theme Name| Screenshot/Description |
 -|-:|--:|
-0|Red & grey Theme <br/> GM| 
-1|Battery Electric Vehicle <br/> Plug-in Hybrid Electric Vehicle| |
+0|Red & grey Theme <br/> GM| ![ambienceOpel0]({{site.baseurl}}/assets/images/ambienceOpel0.png){:class="tableimg"} |
+1|Battery Electric Vehicle <br/> Plug-in Hybrid Electric Vehicle| ![ambienceOpel1]({{site.baseurl}}/assets/images/ambienceOpel1.png){:class="tableimg"}|
 
 ## CONNECTION LIMITATION
 

@@ -3,7 +3,7 @@
 Our REST APIs implements various endpoints to retrieve resources from your Groupe PSA's vehicles. Under certain circumstances you will also be able to remote control some features of your vehicles, like opening the doors or turning AC on! Groupe PSA's APIs are based on open standards: **OpenAPIv3, JSON, GeoJson & HAL**. Using this You will be able to access a lot of your vehicle data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
 
 <div class="buttons is-centered">
-  <a href="{{site.baseurl}}{% if page.section == 'webapib2b' %}/webapi/b2b/demo/ {% elsif page.section == "webapib2c" %}/webapi/b2c/demo/{% endif %}" class="button is-psablue is-medium">
+  <a href="{{site.baseurl}}{% if page.section == 'webapib2b' %}/webapi/b2b/demo#pageTitle {% elsif page.section == "webapib2c" %}/webapi/b2c/demo#pageTitle{% endif %}" class="button is-psablue is-medium">
     <span class="icon is-large is-white">
     <i class="fas fa-code"></i>
     </span>&nbsp; &nbsp; &nbsp;Discover demo
@@ -26,10 +26,9 @@ Everything is processed on our side **(Groupe PSA)** in order to provide you {% 
 
 By requesting this api you will have access to various **features**:
 
-![Features]({{ site.baseurl }}/assets/images/presentationFeatures.png)
+<img src="{{ site.baseurl }}/assets/images/presentationFeatures.png" alt="presentationFeatures" style="max-width: 580px">
 
-
-| <img class="is-paddingless is-marginless" src="{{ site.baseurl }}/assets/images/presentationHistory.png"> | **History**: trips, telemetrics, notifications and collisions are useful data, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history. |
+| <img alt="icon-history" class="is-paddingless is-marginless" src="{{ site.baseurl }}/assets/images/presentationHistory.png"> | **History**: trips, telemetrics, notifications and collisions are useful data, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history. |
 
 |Feature|Description|
 |-|-|
@@ -39,6 +38,7 @@ By requesting this api you will have access to various **features**:
 |**Trips**|Browse into cars trips, departure point, arrival.|
 |**Alerts**|Get history of in-car alerts (oil, engine, breaks etc).|
 |**Telemetrics**|Retrieve and track vehicles telemetrics (speed*, location, fuel level, blinking lights etc).|
+|**Remote control**|Send remote actions to your vehicle (preconditionning, honk, lights, doors...)|
 |**Monitor**|Configure car monitoring like notification for car leaving defined area. Click {% if page.section == 'webapib2b' %}[here]({{site.baseurl}}/webapi/b2b/monitor/){% elsif page.section == "webapib2c" %}[here]({{site.baseurl}}/webapi/b2c/monitor/){% endif %} to learn more about monitors.|
 |**Status**|Retrieve car status like last position, autonomy, open doors.|
 

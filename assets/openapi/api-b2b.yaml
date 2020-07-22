@@ -1,10 +1,10 @@
 openapi: 3.0.0
 servers:
-  - url: 'https://api.mpsa.com/api/connectedcar/v2'
+  - url: 'https://api-cert.groupe-psa.com/connectedcar/version'
 info:
   version: '2.0'
   title: Groupe PSA Connected Car B2B API
-  description: >
+  description: |
     *Business Partner Connected Fleet API*  
     
  
@@ -32,7 +32,22 @@ info:
     ---
         
     # Errors:
-      Error codes returned by all APIs comply with the standard. Nevertheless, PSA Services (callers) need to have more complete data structures (even when the answer is not Http-OK) to better detail the type of error by providing application code, message and a debugging code(for investigation purposes). The http code of the response is managed by the protocol itself (in the header).
+      Error codes returned by all APIs comply with the standard. Nevertheless, PSA Services (callers) need to have more detailed data structures (even when the answer is not Http-OK) to better categorize the type of error by providing application code, message and debugging code(for investigation purposes). The HTTP code of the response is managed by the protocol itself (in the header).
+
+    ### These APIS are likely to report the following HTTP code:
+    
+    | <b>Code</b>  | <b>Description</b>  |  <b>Case</b> |  
+    |---|---|---|
+    | 200  |<i>The request has succeeded and the resource data has been sent.</i>|GET APIs.  |
+    | 202  |<i>The request has been accepted for processing, but not yet acted upon. An id of processing is returned.</i>|POST/PUT requests:<br>-Create monitor<br>-Create Remote callbak.| 
+    | 204  |<i>The request has been accepted and there is no additional content</i>|DELTE APIs:<br>-Delete monitor.<br>-Delete remote callback.|
+    |400|<i>Request cannot be processed due to invalid query parameter value of body content (for POST/PUT verbs)</i>|ALL APIs.|
+    |401|<i>Unauthorized request due to lack of valid authentication credentials.</i>|All APIs.|
+    |403|<i>Unauthorized request due to insufficient credentials to grant access.</i>|All APIs.|
+    |404|<i>Target resource not found.|All APIs. Even POST, PUT or DELETE if the resource id is uncknown.</i>|
+    |500|<i>Unexpected condition that prevented from fulfilling the reques.</i>|All APIs.|
+
+
       
       **Errors are  returned as a generic error response:**
        * See ```ErrorCodeDefaultResponse``` model.
@@ -582,8 +597,8 @@ paths:
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/monitorId'
       responses:
-        200:
-          description: Monitor deleted
+        204:
+          description: Monitor deleted (the response does not include an entity).
         '400':
           description: Invalid ID supplied
         '404':
@@ -614,52 +629,349 @@ paths:
           $ref: '#/components/responses/MonitorFailedResponse'
   
   '/fleets/{fid}/vehicles/{vid}/trips':
-    $ref: '#/x-fragment/Vehicle_id_Trips'
+    get:
+      tags:
+        - Trips
+      description: >-
+        This method returns a list of all Trips that a given Vehicle has taken.
+        This will NOT include Trips that have not yet been completed.
+      operationId: getTripsByVehicle
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/profile'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        200:
+          $ref: '#/components/responses/TripsSuccessResponses'
+        default:
+          $ref: '#/components/responses/TripFailedResponse'
 
   '/fleets/{fid}/trips':
-    $ref: '#/x-fragment/Fleet_Trips_getter'
+    get:
+      summary: Trips of all vehicles of the fleet. 
+      tags:
+        - Fleet
+      description: >-
+        This method returns a list of all Trips. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
+      operationId: getFleetTrips
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/profile'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        200:
+          $ref: '#/components/responses/TripsSuccessResponses'
+        default:
+          $ref: '#/components/responses/TripFailedResponse'
   
   '/fleets/{fid}/trips/{tid}/collisions':
-     $ref: '#/x-fragment/Trip_id_Collisions_getter'
+    get:
+      tags:
+        - Trips
+      summary: Trips of fleet. 
+      description: >-
+        Returns the set of Collisions that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
+      operationId: getTripCollisionsByTrip
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/profile'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'
+      responses:
+        '200':
+          $ref: '#/components/responses/CollisionsSuccessResponse'
+        default:
+          $ref: '#/components/responses/CollisionFailedResponse'
   
   '/fleets/{fid}/collisions':
-    $ref: '#/x-fragment/Fleet_Collisions_getter'
+    get:
+      tags:
+        - Fleet
+      summary: Collisions of all vehicles ofthe fleet.
+      description: >-
+        Returns the set of Collisions of a Fleet of vehicles. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
+      operationId: getFleetTripCollisions
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/profile'
+        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'      
+      responses:
+        '200':
+          $ref: '#/components/responses/CollisionsSuccessResponse'
+        default:
+          $ref: '#/components/responses/CollisionFailedResponse'
   
   '/fleets/{fid}/collisions/{cid}':    
-    $ref: '#/x-fragment/Fleet_Collisions_id_getter'
+    get:
+      tags:
+        - Fleet
+      summary: A single collision f the fleet.
+      description: >-
+        Returns the Collision that matches the fleet id and the Collision cid. 
+      operationId: getCollisionsById
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/profile'
+        - $ref: '#/components/parameters/collisionId'      
+      responses:
+        '200':
+          $ref: '#/components/responses/CollisionsSuccessResponse'
+        default:
+          $ref: '#/components/responses/CollisionFailedResponse' 
 
   '/fleets/{fid}/trips/{tid}':
-    $ref: '#/x-fragment/Fleet_Trip_id_getter'
+    get:
+      tags:
+        - Trips
+      description: >-
+        Gives the Trip that matches the Trip id (tid).
+      operationId: getFleetTripsById
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/profile'
+      responses:
+        200:
+          $ref: '#/components/responses/TripsuccessResponse'
+        default:
+          $ref: '#/components/responses/TripFailedResponse'
 
   '/fleets/{fid}/vehicles/{vid}/trips/{tid}':
-    $ref: '#/x-fragment/Vehicle_id_Trip_id'
-  
+    get:
+      tags:
+        - Trips
+      description: >-
+        This method returns the Trip that matches the Trip id (tid) a given
+        Vehicle (id) has taken.
+      operationId: getFleetTripByVehicle
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/profile'
+      responses:
+        200:
+          $ref: '#/components/responses/TripsuccessResponse'
+        default:
+          $ref: '#/components/responses/TripFailedResponse'
+
   '/fleets/{fid}/trips/{tid}/alerts':
-    $ref: '#/x-fragment/Fleet_Trip_id_alerts'
+    get:
+      tags:
+        - Trips
+      description: >-
+        Returns the alert message list for a given trip.
+      operationId: getFleetTripAlerts
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/locale'
+        - $ref: '#/components/parameters/profile'
+
+      responses:
+        200:
+          $ref: '#/components/responses/AlertsuccessResponses'
+        default:
+          $ref: '#/components/responses/AlertFailedResponse'  
 
   '/fleets/{fid}/vehicles/{vid}/trips/{tid}/alerts':
-    $ref: '#/x-fragment/Vehicle_id_Trip_id_alerts'
+    get:
+      tags:
+        - Trips
+      description: >-
+        Returns the alert message list for a given vehicle.
+      operationId: getFleetTripAlertByVehicle
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/locale'
+        - $ref: '#/components/parameters/profile'
+
+      responses:
+        200:
+          $ref: '#/components/responses/AlertsuccessResponses'
+        default:
+          $ref: '#/components/responses/AlertFailedResponse'
+  
 
   '/fleets/{fid}/vehicles/{vid}/trips/{tid}/alerts/{aid}':
-    $ref: '#/x-fragment/Vehicle_id_Trip_id_alerts_id'    
+    get:
+      tags:
+        - Trips
+      description: >-
+        Returns the alert message list for a given vehicle that occure during a trip.
+      operationId: getFleetTripAlertByVehicleById
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/alertId'
+        - $ref: '#/components/parameters/locale'
+        - $ref: '#/components/parameters/profile'
+
+      responses:
+        200:
+          $ref: '#/components/responses/AlertsuccessResponse'
+        default:
+          $ref: '#/components/responses/AlertFailedResponse'  
     
   '/fleets/{fid}/trips/{tid}/alerts/{aid}':
-    $ref: '#/x-fragment/Fleet_Trip_id_alert_Id' 
+    get:
+      tags:
+        - Trips
+      description: >-
+        Returns the alert message for a given trip.
+      operationId: getFleetTripAlertById
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/alertId'
+        - $ref: '#/components/parameters/locale'
+        - $ref: '#/components/parameters/profile'
+
+      responses:
+        200:
+          $ref: '#/components/responses/AlertsuccessResponse'
+        default:
+          $ref: '#/components/responses/AlertFailedResponse'   
     
   '/fleets/{fid}/trips/{tid}/wayPoints':
-    $ref: '#/x-fragment/Fleet_Trip_id_wayPoints_getter'
+    get:
+      tags:
+        - Trips
+      description: Gives the wayPoints for a specified Fleet Trip.
+      operationId: getPathForATrip
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/tolerence'
+        - $ref: '#/components/parameters/profile'
+      responses:
+        200:
+          description: Path response
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/WayPoints'
+        default:
+          description: wayPoints not found
   
   '/fleets/{fid}/vehicles/{vid}/trips/{tid}/wayPoints':
-    $ref: '#/x-fragment/Vehicle_id_Trip_id_wayPoints_getter'
-    
+    get:
+      tags:
+        - Trips
+      description: Gives the Vehicle's wayPoints for a specified Trip.
+      operationId: getPathForTrip
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/tolerence'
+        - $ref: '#/components/parameters/profile'
+        
+      responses:
+        200:
+          description: Path response
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/WayPoints'
+        default:
+          description: wayPoints not found
+
   '/fleets/{fid}/trips/{tid}/telemetry':
-    $ref: '#/x-fragment/Fleet_Trip_id_Telemetry_getter'
+    get:
+      summary: Telemetries for of a trip
+      tags:
+        - Trips
+      description: >-
+        Returns the set of Telemetry values that occurred for a  speific Trip (tid) during the timestamp ranges and bounded by
+        an index range.
+      operationId: getFleetTelemetryForTrip
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/profile'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/locale'
+        - $ref: '#/components/parameters/telemetryType'
+        - $ref: '#/components/parameters/telemetryExtension'
+      responses:
+        200:
+          $ref: '#/components/responses/TelemetrySuccessResponse'
+        default:
+          $ref: '#/components/responses/TelemetryFailedResponse' 
   
   '/fleets/{fid}/vehicles/{vid}/trips/{tid}/telemetry':
-    $ref: '#/x-fragment/Vehicle_id_Trip_id_Telemetry_getter'
-    ### REMOTE 
-    ### CREATE CALLBACK // FLEET
-    ### ==> wheremove callback --> STOP ALL REMOTE ????
+    get:
+      summary: Telemetry for vehicle and trip
+      tags:
+        - Trips
+      description: >-
+        Returns the set of Telemetry values that occurred for a given vehicle
+        (id) and a speific Trip (tid) during the timestamp ranges and bounded by
+        an index range.
+      operationId: getTelemetryForTripByVehicle
+      parameters:
+        - $ref: '#/components/parameters/tokenAuth'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/profile'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/telemetryType'
+        - $ref: '#/components/parameters/telemetryExtension'
+      responses:
+        200:
+          $ref: '#/components/responses/TelemetrySuccessResponse'
+        default:
+          $ref: '#/components/responses/TelemetryFailedResponse'
   
   '/fleets/{fid}/remote/callbacks':  
     get:
@@ -755,8 +1067,8 @@ paths:
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/callbackId'
       responses:
-        200:
-          description: Callback deleted
+        204:
+          description: Callback deleted (the response does not include an entity)
         '400':
           description: Invalid ID supplied
         '404':
@@ -1143,24 +1455,27 @@ components:
     
     DoorsState:
         allOf:
-        - $ref: '#/components/schemas/TimeStamped'
-        - type: object
-          properties:
-            lockedState:
-              type: string
-              enum: [Unlocked, Locked, SuperLocked, DriverDoorUnlocked, CabinDoorsUnlocked, CargoDoorsLocked, CargoDoorsUnlocked, RearDoorsUnlocked, RearDoorsLocked]
-            opening:
-              type: array
-              items:
-                type: object
-                description: Opening state per door.
-                properties :
-                  identifier: 
+          - properties:
+              createdAt:
                     type: string
-                    enum: [Driver, Passenger, RearLeft, RearRight, Trunk, RearWindow, RoofWindow]
-                  state:
-                    type: string
-                    enum: [Open, Closed]
+                    format: date-time        
+          - type: object
+            properties:
+                lockedState:
+                  type: string
+                  enum: [Unlocked, Locked, SuperLocked, DriverDoorUnlocked, CabinDoorsUnlocked, CargoDoorsLocked, CargoDoorsUnlocked, RearDoorsUnlocked, RearDoorsLocked]
+                opening:
+                  type: array
+                  items:
+                    type: object
+                    description: Opening state per door.
+                    properties :
+                      identifier: 
+                        type: string
+                        enum: [Driver, Passenger, RearLeft, RearRight, Trunk, RearWindow, RoofWindow]
+                      state:
+                        type: string
+                        enum: [Open, Closed]
           
     Status:
       allOf:
@@ -1188,6 +1503,10 @@ components:
                   $ref: '#/components/schemas/Preconditioning'
             energy:
                 $ref: '#/components/schemas/Energy'
+            engines:
+              type: array
+              items:
+                $ref: '#/components/schemas/Engine'
             doorsState:
                   $ref: '#/components/schemas/DoorsState'
             privacy:
@@ -1974,6 +2293,7 @@ components:
           properties: 
             webhook:
               $ref: '#/components/schemas/Webhook'
+          required: [webhook]
       required: [callback]
       
     MonitorCallbackSubscribe:
@@ -2844,12 +3164,24 @@ components:
           type: string
         message:
           type: string
+        timestamp:
+          type: string
       example:
         code: 40499
         uuid: 494f61d1-472a-4696-ac3c-2961496c3aaf
         message: No data availble for such context.
-    
-    TelemetryVehicleEngine:
+        timestamp: '2020-01-01T00:00:00.000Z'
+        
+    EngineLiquid:
+                              type: object
+                              properties:
+                                level:
+                                  description: Engine liquid level expressed in persent.
+                                  type: number
+                                temp:
+                                  description: Engine liquid temperature expressed in Celsius degrees.
+                                  type: number
+    Engine:
           type: object
           properties:
                   type:
@@ -2875,13 +3207,19 @@ components:
                     properties:
                         thermic:
                           type: object
-                          properties: 
+                          properties:
+                            coolant:
+                              allOf:
+                                - description: Engine coolant liquid properties.
+                                - $ref: '#/components/schemas/EngineLiquid'
                             oil:
-                              type: object
-                              properties:
-                                temp:
-                                  description: Thermic engine oil temperature expressed in Celsius degrees.
-                                  type: number
+                              allOf:
+                                - description: Engine oil properties.
+                                - $ref: '#/components/schemas/EngineLiquid'
+                            scr:
+                                description: Selective catalytic reduction (SCR) system warning level.
+                                type: string
+                                enum: [ Off, Blinked, On]    
                  
     Telemetry:
       type: object
@@ -2907,7 +3245,7 @@ components:
             engines:
               type: array
               items:
-                $ref: '#/components/schemas/TelemetryVehicleEngine'
+                $ref: '#/components/schemas/Engine'
                 
                   
                             #groupe motopropulseur
@@ -3170,6 +3508,7 @@ components:
                       - Active
                       - Inactive
                       - Disabled
+                      - Fault
                   esp:
                     description: Electronic Stability Programme
                     type: boolean
@@ -3463,10 +3802,10 @@ components:
         $ref: '#/components/schemas/TelemetryExtensionType'    
     
     remoteType:
-      name: type
+      name: types
       in: query
       description: >-
-        Results will contain only the Remote-Callbacks of these types. _Keep empty or not specified to retrieve the whole callbacks_.
+        Results will contain only the Remote-Callbacks of these types. _If not specified then the whole callbacks are retrieved_.
       required: false
       schema:
         $ref: '#/components/schemas/RemoteTypes'
@@ -3703,344 +4042,6 @@ components:
        $ref: '#/x-fragment/general_error_fragment'
 
 x-fragment:
-  Fleet_Trip_id_wayPoints_getter:
-    get:
-      tags:
-        - Trips
-      description: Gives the wayPoints for a specified Fleet Trip.
-      operationId: getPathForATrip
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/tolerence'
-        - $ref: '#/components/parameters/profile'
-      responses:
-        200:
-          description: Path response
-          content:
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/WayPoints'
-        default:
-          description: wayPoints not found
-  
-  Vehicle_id_Trip_id_wayPoints_getter:
-    get:
-      tags:
-        - Trips
-      description: Gives the Vehicle's wayPoints for a specified Trip.
-      operationId: getPathForTrip
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/tolerence'
-        - $ref: '#/components/parameters/profile'
-        
-      responses:
-        200:
-          description: Path response
-          content:
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/WayPoints'
-        default:
-          description: wayPoints not found
-  
-  Fleet_Trip_id_getter:
-    get:
-      tags:
-        - Trips
-      description: >-
-        Gives the Trip that matches the Trip id (tid).
-      operationId: getFleetTripsById
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/profile'
-      responses:
-        200:
-          $ref: '#/components/responses/TripsuccessResponse'
-        default:
-          $ref: '#/components/responses/TripFailedResponse'
-  
-  Vehicle_id_Trip_id:
-    get:
-      tags:
-        - Trips
-      description: >-
-        This method returns the Trip that matches the Trip id (tid) a given
-        Vehicle (id) has taken.
-      operationId: getFleetTripByVehicle
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
-      responses:
-        200:
-          $ref: '#/components/responses/TripsuccessResponse'
-        default:
-          $ref: '#/components/responses/TripFailedResponse'
-  
-  Vehicle_id_Trip_id_alerts:
-    get:
-      tags:
-        - Trips
-      description: >-
-        Returns the alert message list for a given vehicle.
-      operationId: getFleetTripAlertByVehicle
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/profile'
-
-      responses:
-        200:
-          $ref: '#/components/responses/AlertsuccessResponses'
-        default:
-          $ref: '#/components/responses/AlertFailedResponse'
-  
-  Vehicle_id_Trip_id_alerts_id:
-    get:
-      tags:
-        - Trips
-      description: >-
-        Returns the alert message list for a given vehicle that occure during a trip.
-      operationId: getFleetTripAlertByVehicle
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/alertId'
-        - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/profile'
-
-      responses:
-        200:
-          $ref: '#/components/responses/AlertsuccessResponse'
-        default:
-          $ref: '#/components/responses/AlertFailedResponse'        
-  
-  Fleet_Trip_id_alerts:
-    get:
-      tags:
-        - Trips
-      description: >-
-        Returns the alert message list for a given trip.
-      operationId: getFleetTripAlert
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/profile'
-
-      responses:
-        200:
-          $ref: '#/components/responses/AlertsuccessResponses'
-        default:
-          $ref: '#/components/responses/AlertFailedResponse'  
-  
-  Fleet_Trip_id_alert_Id:
-    get:
-      tags:
-        - Trips
-      description: >-
-        Returns the alert message for a given trip.
-      operationId: getFleetTripAlert
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/alertId'
-        - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/profile'
-
-      responses:
-        200:
-          $ref: '#/components/responses/AlertsuccessResponse'
-        default:
-          $ref: '#/components/responses/AlertFailedResponse'          
-  
-  Vehicle_id_Trips:
-    get:
-      tags:
-        - Trips
-      description: >-
-        This method returns a list of all Trips that a given Vehicle has taken.
-        This will NOT include Trips that have not yet been completed.
-      operationId: getTripsByVehicle
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
-      responses:
-        200:
-          $ref: '#/components/responses/TripsSuccessResponses'
-        default:
-          $ref: '#/components/responses/TripFailedResponse'
-  
-  Fleet_Trips_getter:
-    get:
-      summary: Trips of all vehicles of the fleet. 
-      tags:
-        - Fleet
-      description: >-
-        This method returns a list of all Trips. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
-      operationId: getFleetTrips
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
-      responses:
-        200:
-          $ref: '#/components/responses/TripsSuccessResponses'
-        default:
-          $ref: '#/components/responses/TripFailedResponse'
-  
-  Fleet_Trip_id_Telemetry_getter:
-    get:
-      summary: Telemetries for of a trip
-      tags:
-        - Trips
-      description: >-
-        Returns the set of Telemetry values that occurred for a  speific Trip (tid) during the timestamp ranges and bounded by
-        an index range.
-      operationId: getTelemetryForTrip
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/telemetryType'
-        - $ref: '#/components/parameters/telemetryExtension'
-      responses:
-        200:
-          $ref: '#/components/responses/TelemetrySuccessResponse'
-        default:
-          $ref: '#/components/responses/TelemetryFailedResponse'
-
-  Trip_id_Collisions_getter:
-     get:
-      tags:
-        - Trips
-      summary: Trips of fleet. 
-      description: >-
-        Returns the set of Collisions that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
-      operationId: getTripCollisions
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-  
-  Fleet_Collisions_getter:
-     get:
-      tags:
-        - Fleet
-      summary: Collisions of all vehicles ofthe fleet.
-      description: >-
-        Returns the set of Collisions of a Fleet of vehicles. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
-      operationId: getTripCollisions
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'      
-      responses:
-        '200':
-          $ref: '#/components/responses/CollisionsSuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse'
-  Fleet_Collisions_id_getter:
-     get:
-      tags:
-        - Fleet
-      summary: A single collision f the fleet.
-      description: >-
-        Returns the Collision that matches the fleet id and the Collision cid. 
-      operationId: getTripCollisions
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/collisionId'      
-      responses:
-        '200':
-          $ref: '#/components/responses/CollisionsSuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse'        
-          
-  Vehicle_id_Trip_id_Telemetry_getter:
-    get:
-      summary: Telemetry for vehicle and trip
-      tags:
-        - Trips
-      description: >-
-        Returns the set of Telemetry values that occurred for a given vehicle
-        (id) and a speific Trip (tid) during the timestamp ranges and bounded by
-        an index range.
-      operationId: getTelemetryForTrip
-      parameters:
-        - $ref: '#/components/parameters/tokenAuth'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/telemetryType'
-        - $ref: '#/components/parameters/telemetryExtension'
-      responses:
-        200:
-          $ref: '#/components/responses/TelemetrySuccessResponse'
-        default:
-          $ref: '#/components/responses/TelemetryFailedResponse'
-               
   general_error_fragment:
     content:
       application/json:

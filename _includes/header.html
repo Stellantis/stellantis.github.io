@@ -1,17 +1,28 @@
-{% if  page.section == "home" %}
+{% if  page.permalink == "/" %}
     <section class="hero is-dark is-fullheight hero_main">
         <!-- Hero head: will stick at the top -->
         <div class="hero-head">
             {% include navigation.html %}
+            {% include fixed-navbar.html %}
         </div>
         <div class="hero-body">
             <div class="container">
-                <h1 class="title" id="section-title">Build</h1>
-                <h1 class="title" id="section-title">The future</h1>
-                <h1 class="title" id="section-title">Of</h1>
-                <h1 class="title" id="section-title">Connected Cars
-                </h1>
-            </div>
+                <div class="landing-title">
+                    <h1 id="typed-header-1" class="title section-title"></h1>
+                    <h1 class="title section-title">&nbsp;</h1>
+                </div>
+                <div class="landing-title">
+                    <h1 id="typed-header-2" class="title section-title"></h1>
+                    <h1 class="title section-title">&nbsp;</h1>
+                </div>
+                <div class="landing-title">
+                    <h1 id="typed-header-3" class="title section-title"></h1>
+                    <h1 class="title section-title">&nbsp;</h1>
+                </div>
+                <div class="landing-title">
+                    <h1 id="typed-header-4" class="title section-title"></h1>
+                    <h1 class="title section-title">&nbsp;</h1>
+                </div>
         </div>
     </section>
 {% elsif page.section == "webportal" %}
@@ -23,7 +34,7 @@
         </div>
         <div class="hero-body">
             <div class="container">
-                <h1 class="title" id="section-title">Webportal</h1>
+                <h1 class="title section-title section-title">Webportal</h1>
                 <h2 class="title">emmbedded apps</h2>
             </div>
         </div>
@@ -36,7 +47,7 @@
         </div>
         <div class="hero-body">
             <div class="container">
-                <h1 class="title" id="section-title">Mobile SDK</h1>
+                <h1 class="title section-title">Mobile SDK</h1>
                 <h2 class="title">iOS or Android</h2>
             </div>
         </div>
@@ -50,7 +61,7 @@
         </div>
         <div class="hero-body">
             <div class="container">
-                <h1 class="title" id="section-title">Mobile SDK</h1>
+                <h1 class="title section-title">Mobile SDK</h1>
                 <h2 class="title">for android</h2>
             </div>
         </div>
@@ -64,7 +75,7 @@
         </div>
         <div class="hero-body">
             <div class="container">
-                <h1 class="title" id="section-title">Mobile SDK</h1>
+                <h1 class="title section-title">Mobile SDK</h1>
                 <h2 class="title">for iOS</h2>
             </div>
         </div>
@@ -77,7 +88,7 @@
         </div>
         <div class="hero-body">
             <div class="container">
-                <h1 class="title" id="section-title">WEB API</h1>
+                <h1 class="title section-title">WEB API</h1>
                 <h2 class="title">fleet-owner or end-user</h2>
             </div>
         </div>
@@ -93,7 +104,7 @@
         </div>
         <div class="hero-body">
             <div class="container">
-                <h1 class="title" id="section-title">WEB API</h1>
+                <h1 class="title section-title">WEB API</h1>
                 <h2 class="title">for fleet owner</h2>
             </div>
         </div>
@@ -109,9 +120,49 @@
             </div>
         <div class="hero-body">
             <div class="container">
-                <h1 class="title" id="section-title">WEB API</h1>
+                <h1 class="title section-title">WEB API</h1>
                 <h2 class="title">
                     for end-users</h2>
+            </div>
+        </div>
+    </section>
+{% elsif  page.section == "connected-vehicles" %}
+    <section class="hero is-dark is-medium hero_main">
+        <!-- Hero head: will stick at the top -->
+        <div class="hero-head">
+            {% include fixed-navbar.html %}
+            {% include navigation.html %}
+            </div>
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title section-title">Connected Vehicles</h1>
+            </div>
+        </div>
+    </section>
+{% elsif  page.title == "404"  %}
+    <section class="hero is-dark is-fullheight hero_404">
+        <!-- Hero head: will stick at the top -->
+        <div class="hero-head">
+            {% include navigation.html %}
+        </div>
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                  <div class="column">
+                    <h1 class="title section-title">404</h1>
+                    <h1 class="title section-title">Page not</h1>
+                    <h1 class="title section-title">Found</h1>
+                  </div>
+                  <div class="column" style="display: flex; flex-direction: column; justify-content: space-evenly;">
+                    <p class="hero-para is-size-4" style="text-shadow: 2px 2px 4px #000000">It seems that we are unable to find this page. <br> We apologise for the inconvenience.
+                    </p>
+                    <a href="{{site.baseurl}}/" class="button is-psablue is-medium">
+                        <span>
+                            BACK TO HOMEPAGE
+                        </span>                
+                    </a>
+                  </div>
+                </div>
             </div>
         </div>
     </section>
@@ -123,8 +174,8 @@
         </div>
         <div class="hero-body">
             <div class="container">
-                <h1 class="title">Build the future</h1>
-                <h1 class="title">of Connected Cars
+                <h1 class="title section-title">Build the future</h1>
+                <h1 class="title section-title">of Connected Cars
                 </h1>
             </div>
         </div>

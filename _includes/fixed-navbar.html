@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="{{site.baseurl}}/">
-              <img src="{{site.baseurl}}/assets/images/logo-PG4D.png"  >
+              <img alt="site-logo" src="{{site.baseurl}}/assets/images/logo-PG4D.png"  >
             </a>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false">
               <span aria-hidden="true"></span>
@@ -15,7 +15,11 @@
             {% for section in site.data.sections %}
                 <div id="{{section.tag}}-section">
                     <a class="navbar-item {% if page.section == {{section.tag}} %}is-active{% endif %}" onclick="sectionClick(document.querySelector('#{{section.tag}}-section'), document.querySelector('#{{section.tag}}-submenu'))">
-                        {{section.name}}
+                      {% if section.tag != "ios" %}
+                        {{section.name | upcase}}
+                      {% else %}
+                        {{ section.name }}
+                      {% endif %}
                         <span class="icon is-white is-small">
                             <i id="{{section.tag}}-arrow-right" class="fas fa-angle-right"></i>
                             <i id="{{section.tag}}-arrow-down" class="fas fa-angle-down" style="display: none"></i>
@@ -26,10 +30,10 @@
           </div>
 
     {% for section in site.data.sections %}
-        <div id="{{section.tag}}-submenu" class="submenu {% if page.section == {{section.tag}} %}is-default{% endif %}">
+        <div id="{{section.tag}}-submenu" class="submenu {% if page.section == {{section.tag}} %}is-default{% endif %}" style="display:none">
           {% for p in site.pages %}
                 {% if p.section == {{section.tag}} %}
-                    <a href="{{ p.url | relative_url }}#pageTitle" class="{% if p.title == page.title and p.section == page.section %}is-active{% endif %}">{{p.title}}</a>
+                    <a href="{{ p.url | relative_url }}#pageTitle" class="{% if p.title == page.title and p.section == page.section %}is-active{% endif %}">{{p.title|upcase}}</a>
                 {% endif %}
             {% endfor %}
         </div>
@@ -82,8 +86,7 @@ function sectionClick(newSectionDiv, newSubMenu){
 // Display navbar is-fixed-top navbar
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
-var tabHeight = document.getElementById("navbarpsa").getBoundingClientRect().x;
-  if (document.body.scrollTop > tabHeight || document.documentElement.scrollTop > tabHeight) {
+  if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
     document.getElementById("navbar").style.top = "0";
   } else {
     document.getElementById("navbar").style.top = "-108px";

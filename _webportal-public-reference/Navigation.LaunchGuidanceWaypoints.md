@@ -14,10 +14,11 @@ privacy: Public
 
 Parameter | Type | Description | Required
 ----|----|----|----
-`destLon` | *Number* | The destination's longitude, Should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
-`destLat` | *Number* | The destination's latitude, Should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
+`destLon` | *Number* | The destination's longitude, should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
+`destLat` | *Number* | The destination's latitude, should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
 `waypoints` | *array[object(lat: Number, lon: Number)]* | The waypoints to go through before the final destination (9 waypoints max), Each waypoint should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
-`cus- tomerConfirmation`| *Boolean* | Available since *42.02.64.50*, if set to true, a pop-up will ask the user to confirm the new guidance request. | Optional, default: *false*. 
+`cus- tomerConfirmation`| *Boolean* | Available since *42.02.64.50*, if set to true, a pop-up will ask the user to confirm the new guidance request. | Optional, default: *false*.
+`CustomerConfirmation`| *Boolean* | If set to true, a pop-up will be displayed which will ask the user to confirm the new guidance request. | Optional, default: *false*.
 
 #### IMPORTANT
 
