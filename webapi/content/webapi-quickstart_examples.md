@@ -38,7 +38,7 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/vehicles/{id}/lastPosition'{
 
 Note that the 'Accept' header is not `--header 'Accept: application/hal+json'` but `Accept: application/vnd.geo+json`.
 
-{% include_relative content/webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/lastPosition' apiEndpointB2C='/user/vehicles/{id}/lastPosition' referenceURLResssourceB2B='/#/Vehicles/getCarLastPosition' referenceURLResssourceB2C='/#/Vehicles/getCarLastPosition' httpVerb='GET' %}
+{% include_relative content/webapi-cUrl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/lastPosition' apiEndpointB2C='/user/vehicles/{id}/lastPosition' referenceURLResssourceB2B='/#/Vehicles/getCarLastPosition' referenceURLResssourceB2C='/#/Vehicles/getCarLastPosition' httpVerb='GET' %}
 
 
 ## GET ALERTS OF A VEHICLE
@@ -48,7 +48,7 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/vehicles/{id}/alerts'{% elsi
 - Path parameter **{id}** is the unique identifier of one of your vehicles. 
 - Query parameter `locale` will change the language of the alert message.
 
-{% include_relative content/webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/alerts' apiEndpointB2C='/user/vehicles/{id}/alerts' referenceURLResssourceB2B='/#/Vehicles/getVehicleAlerts' referenceURLResssourceB2C='/#/Vehicles/getVehicleAlerts' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
+{% include_relative content/webapi-cUrl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/alerts' apiEndpointB2C='/user/vehicles/{id}/alerts' referenceURLResssourceB2B='/#/Vehicles/getVehicleAlerts' referenceURLResssourceB2C='/#/Vehicles/getVehicleAlerts' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
 
 
 ## POST NEW MONITOR
@@ -58,7 +58,7 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/monitors'{% elsif page.subse
 - Path parameter **{id}** is the unique identifier of one of your vehicles.
 {% endif %} 
 
-{% include_relative content/webapi-curl.md apiEndpointB2B='/fleets/{fid}/monitors' apiEndpointB2C='/user/vehicles/{id}/monitors' httpVerb='POST' referenceURLResssourceB2B ='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2B='#/Vehicles/setVehicleMonitor' httpBody='{
+{% include_relative content/webapi-cUrl.md apiEndpointB2B='/fleets/{fid}/monitors' apiEndpointB2C='/user/vehicles/{id}/monitors' httpVerb='POST' referenceURLResssourceB2B ='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2B='#/Vehicles/setVehicleMonitor' httpBody='{
    "label":"IDF Zone monitor With Data Triggering:[vehicle.energy.electric.level] OR on Mondays",
    "subscribeParam":{
       "refreshEvent":600,
@@ -158,7 +158,7 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/monitors/{mid}/status'{% els
 {% assign httpBody='{
 
 }'%}
-{% include_relative content/webapi-curl.md %}
+{% include_relative content/webapi-cUrl.md %}
 {% endcomment %}
 
 
