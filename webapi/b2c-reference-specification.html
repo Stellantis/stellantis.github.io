@@ -1,0 +1,28 @@
+---
+layout: empty-content
+permalink: /webapi/b2c/reference/specification/
+redirect_from: 
+    - /webapi/b2c/reference/
+section: webapi
+subsection: b2c
+categorie: API Reference
+title: Specification
+description: "Groupe PSA Web API Reference: list of endpoints of our REST API for End Users."
+---
+
+{% assign urlReference = "/assets/openapi/psacc.yaml" %}
+
+        <div class="content">
+            {% include content-header.html %}
+    </div>
+    <div class="is-spec-content">
+
+        <div class="buttons has-addons">
+            <a class="tag_endpoint_large button is-info"> API BaseURL</a>
+            <a class="tag_endpoint_large tag_api_endpoint button is-info is-border">
+                {{site.webapiB2CPreProd}}
+            </a>
+        </div>
+    </div>
+
+    {% include_relative content/webapi-reference-specification.md %}

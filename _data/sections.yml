@@ -1,12 +1,168 @@
 - tag: connected-vehicles
   path: /connected-vehicles/
   name: Connected Vehicles
-- tag: webapib2b
-  path: /webapi/b2b/
-  name: API Fleet Owner
-- tag: webapib2c
-  path: /webapi/b2c/
-  name: API End Users
+  icon: fas fa-wifi
+  subsections:
+    - tag: home
+      path: 
+      name: Home
+      categories:
+        - name: 
+          path: 
+          pages: 
+            - name: About
+              path: about/
+            - name: Connected Services
+              path: connected-services/
+            - name: Privacy Settings
+              path: privacy/
+- tag: webapi
+  path: /webapi/
+  name: Web API
+  icon: fas fa-cloud
+  subsections:
+    - tag: b2b
+      path: b2b/
+      name: Fleet Owner
+      categories:
+        - name: Overview
+          path: overview/
+          pages: 
+            - name: About
+              path: about/
+            - name: Standards
+              path: standards/
+            - name: Demo
+              path: demo/
+        - name: Quickstart
+          path: quickstart/
+          pages:
+            - name: Authentication
+              path: authentication/
+            - name: Examples
+              path: examples/
+        - name: Monitor
+          path: monitor/
+          pages:
+            - name: About
+              path: about/
+            - name: Set Up
+              path: set-up/
+            - name: Webhook References
+              path: webhook/
+        - name: Remote
+          path: remote/
+          pages:
+            - name: About
+              path: about/
+            - name: Set Up
+              path: set-up/
+            - name: Webhook References
+              path: webhook/
+        - name: API Reference
+          path: reference/
+          pages:
+            - name: Specification
+              path: specification/
+    - tag: b2c
+      path: b2c/
+      name: End User
+      categories:
+        - name: Overview
+          path: overview/
+          pages: 
+            - name: About
+              path: about/
+            - name: Standards
+              path: standards/
+            - name: Demo
+              path: demo/
+        - name: Quickstart
+          path: quickstart/
+          pages:
+            - name: Connect
+              path: connect/
+            - name: Examples
+              path: examples/
+        - name: Monitor
+          path: monitor/
+          pages:
+            - name: About
+              path: about/
+            - name: Set Up
+              path: set-up/
+            - name: Webhook References
+              path: webhook/
+        - name: API Reference
+          path: reference/
+          pages:
+            - name: Specification
+              path: specification/
 - tag: webportal
   path: /webportal/
   name: Embedded Webportal
+  icon: fas fa-car-side
+  subsections: 
+    - tag: v1
+      path: v1/
+      name: Version 1
+      categories:
+        - name: Overview
+          path: overview/
+          pages:
+              - name: About
+                path: about/
+              - name: App Validation
+                path: app-validation/
+              - name: Standards
+                path: standards/
+              - name: Infotainment System
+                path: infotainment-system/
+        - name: Quickstart
+          path: quickstart/
+          pages:
+            - name: Get Started
+              path: get-started/
+            - name: Handling Events
+              path: events/
+            - name: Requirements
+              path: requirements/
+            - name: Guidelines
+              path: guidelines/
+            - name: Assets
+              path: assets/
+        - name: User Interaction
+          path: interactivity/
+          pages:
+            - name: Managing Embedded
+              path: managing-embedded/
+            - name: Receive Notifications
+              path: notifications/
+            - name: Popup
+              path: popup/
+            - name: Player
+              path: player/
+        - name: Connectivity
+          path: connectivity/
+          pages:
+            - name: MQTT
+              path: mqtt/
+            - name: Message
+              path: message/
+            - name: Notification
+              path: notification/
+            - name: User Subscription
+              path: user-subscription/
+        - name: API Reference
+          path: reference/
+          pages:
+            - name: References
+              path: list/
+            - name: Class
+              path: class/
+- tag: mobile-sdk
+  path: /mobile-sdk/
+  name: Mobile SDK
+  icon: fas fa-mobile
+  subsections:
+

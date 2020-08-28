@@ -1,0 +1,37 @@
+---
+layout: empty-content
+permalink: /webapi/b2b/reference/specification/
+redirect_from: 
+    - /webapi/b2b/reference/
+section: webapi
+subsection: b2b
+categorie: API Reference
+title: Specification
+fullpage: true
+description: "Groupe PSA Web API Reference: list of endpoints of our REST API for Fleet Owner."
+---
+
+{% assign urlReference = "/assets/openapi/api-b2b.yaml" %}
+
+    <div class="content">
+        {% include content-header.html %}
+    </div>
+    <div class="is-spec-content">
+        <div class="buttons has-addons">
+            <a class="tag_endpoint_large button is-info"> API BaseURL</a>
+            <a class="tag_endpoint_large tag_api_endpoint button is-info is-border">
+                {{site.webapiB2BPreProd}}
+            </a>
+        </div>
+        <div class="version">
+            <p>
+                <strong>{version}</strong> depends on your subscription:
+            </p>
+            <ul>
+                <li>v2: <em>delegation publique</em></li>
+                <li>v3: <em>connected fleet</em> / <em>TMTS</em> / <em>UBI</em></li>
+            </ul>
+        </div>
+    </div>
+    
+    {% include_relative content/webapi-reference-specification.md %}

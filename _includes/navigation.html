@@ -1,97 +1,68 @@
-<nav aria-label="main navigation" class="navbar" id="navbarpsa" role="navigation">
+<nav aria-label="main navigation" class="navbar {% unless page.permalink == "/" or page.name == "404.md" %}is-fixed-top{% endunless %}" id="navbarpsa" role="navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="{{site.baseurl}}/">
             <img alt="site-logo" id="logoPG4D" src="{{site.baseurl}}/assets/images/logo-PG4D.png">
-      </a>
-      <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-      </a>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
     </div>
     <div class="navbar-menu" id="navMenu">
         <div class="navbar-start">
-
-            <!-- CONNECTED VEHICLES-->
-            <div class="navbar-item menu has-dropdown is-hoverable">
-                <a class="textnavbar navbar-link {% if page.section == "connected-vehicles" %}is-active{% endif %}" href="{{site.baseurl}}/connected-vehicles/">
-                    <span class="icon is-large  is-white">
-                        <i class="fas fa-wifi"></i>
-                    </span>
-                    <span>CONNECTED&nbsp;<br class="is-hidden-touch">VEHICLES</span>
-
-                </a>
-                <div class="navbar-dropdown" id="dropdownAPI">
-                    {% for p in site.pages %}
-                        {% if p.section == "connected-vehicles" %}
-                        <a class="navbar-item {% if p.title == page.title and p.section == page.section %}is-active{% endif %}" href="{{ p.url | relative_url }}#pageTitle">
-                        {{p.title}}
-                        </a>
-                        {% endif %}
-                    {% endfor %}
+            {% for section in site.data.sections %}
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link {% if page.permalink contains section.tag %}is-active{% endif %}" href="{{site.baseurl | append: section.path }}">
+                        <span class="icon is-large is-white">
+                            <i class="{{section.icon}}"></i>
+                        </span>
+                        <span class="section-name">
+                            {{ section.name | replace: " ", "&nbsp;<br class='is-hidden-touch'>" }}
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        {% for subsection in section.subsections %}
+                            {% if subsection.tag %}
+                            <p href="{{site.baseurl}}{{section.path}}{{subsection.path}}#article" class="navbar-item dropdown-title {% if subsection.tag == page.subsection %}is-default is-active{% endif %}" id="{{subsection.tag}}" onclick="navClick(document.getElementById('{{subsection.tag}}'), '{{subsection.tag}}');">{% if subsection.tag == "ios" %}iOS{% else %}{{subsection.name | upcase}}{% endif %}
+                                <svg class="arrow {% if subsection.tag == page.subsection %}arrow-down{% else %}arrow-right{% endif %}" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                </svg>
+                                
+                            </p>
+                            {% endif %}
+                            {% for categorie in subsection.categories %}
+                                {% if subsection.tag %}
+                                        {% if categorie.name %}
+                                            {% assign page_link = section.path | append: subsection.path | append: categorie.path %}
+                                            <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: categorie.pages[0].path}}#article">
+                                                {{categorie.name }}
+                                            </a>
+                                        {% else %}
+                                            {% for p in categorie.pages %}
+                                                {% assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path %}
+                                                <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: p.path}}#article">
+                                                    {{p.name }}
+                                                </a>
+                                            {% endfor %}
+                                        {% endif %}
+                                {% else %}
+                                    {% for p in categorie.pages %}
+                                        {% assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path %}
+                                        <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: p.path}}#article">
+                                            {{p.name}}
+                                        </a>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                                {% if forloop.last == false %}
+                                    <hr class="navbar-divider">
+                                {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
-
-            <!-- WEB API -->
-            <div class="navbar-item menu has-dropdown is-hoverable">
-                <a class="textnavbar navbar-link {% if page.section == "webapi" or page.section == "webapib2b" or page.section == "b2b" or page.section == "webapib2c" or page.section == "b2c" %}is-active{% endif %}" href="{{site.baseurl}}/webapi/">
-                    <span class="icon is-large  is-white">
-                        <i class="fas fa-cloud"></i>
-                    </span>
-                    <span>WEB&nbsp;<br class="is-hidden-touch">API</span>
-                </a>
-                <div class="navbar-dropdown" id="dropdownAPI">
-                    {% for p in site.pages %}
-                        {% if p.section == "webapib2b" or p.section == "b2b" %}
-                        <a class="navbar-item {% if p.title == page.title and p.section == page.section %}is-active{% endif %}" href="{{ p.url | relative_url }}#pageTitle">
-                        B2B - {{p.title}}
-                        </a>
-                        {% endif %}
-                    {% endfor %}
-                        <hr class="navbar-divider">
-                    {% for p in site.pages %}
-                        {% if p.section == "webapib2c" or p.section == "b2c" %}
-                        <a class="navbar-item {% if p.title == page.title and p.section == page.section %}is-active{% endif %}" href="{{ p.url | relative_url }}#pageTitle">
-                        B2C - {{p.title}}
-                        </a>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-
-            <!-- WEBPORTAL -->
-            <div class="navbar-item menu has-dropdown is-hoverable">
-                <a class="textnavbar navbar-link {% if page.section == "webportal" %}is-active{% endif %}" href="{{site.baseurl}}/webportal/">
-                    <span class="icon is-large  is-white">
-                        <i class="fas fa-car-side"></i>
-                    </span>
-                    <span>EMBEDDED&nbsp;<br class="is-hidden-touch">WEBPORTAL</span>
-                </a>
-                <div class="navbar-dropdown" id="dropdownAPI">
-                    {% for p in site.pages %}
-                        {% if p.section == "webportal"%}
-                        <a class="navbar-item {% if p.title == page.title and p.section == page.section %}is-active{% endif %}" href="{{ p.url | relative_url }}#pageTitle">
-                        {{p.title}}
-                        </a>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-
-            <!-- MOBILE -->
-            <div class="navbar-item menu" style="padding: 0;">
-                <a class="textnavbar navbar-link {% if page.section == "mobile-sdk" or page.section == "ios" or page.section == "android" %}is-active{% endif %}" href="{{site.baseurl}}/mobile-sdk/">
-                    <span class="icon is-large  is-white">
-                        <i class="fas fa-mobile"></i>
-                    </span>
-                    <span>MOBILE&nbsp;<br class="is-hidden-touch">SDK</span>
-                </a>
-            
-            </div>
-
-            <!-- SEARCH -->
-            
+            {% endfor %}
         </div>
+        <!-- SEARCH -->
         <div class="navbar-end">
             <div class="textnavbar navbar-item menu">
                 {% include search-lunr.html %}
@@ -99,3 +70,78 @@
         </div>
     </div>
 </nav>
+<style>
+.navbar-item .textnavbar.navbar-link[href='/mobile-sdk/']~#dropdownAPI{
+    display:none
+}
+
+</style>
+<script>
+
+// MENU FIX
+{% if page.permalink == "/" %}
+document.querySelector("#navbarpsa .navbar-menu .navbar-start .navbar-item:first-child > a").classList.add("is-active");
+{% endif %}
+
+
+// Display navbar is-fixed-top navbar
+
+
+
+function navClick(clickedNavMenu, id) {
+    var a = document.querySelector(".navbar-item.dropdown-title#"+id).attributes.href.value;
+    console.log(a);
+    window.location.href = a;
+
+}
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+function navClick(clickedNavMenu, id) {
+    if (currentNavMenu == clickedNavMenu) {
+        currentNavMenu.classList.remove("is-active");
+        currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+        currentNavSubMenu.forEach(element => {
+            element.style.display = "none";
+        });
+        currentNavSubMenu = null;
+        currentNavMenu = null;
+    }
+    else {
+        if (currentNavMenu){
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavMenu.classList.remove("is-active");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+        }
+        clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+        clickedNavMenu.classList.add("is-active");
+        currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+        currentNavSubMenu.forEach(element => {
+            element.style.display = "block";
+        });
+        currentNavMenu = clickedNavMenu;
+    }
+}
+}
+else {
+    {% unless page.permalink == "/" or page.name == "404.md" %}
+    window.onscroll = function() {scrollFunction()};
+    {% endunless %}
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+        document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+        document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+</script>

@@ -1,75 +1,35 @@
 ---
-layout: page
+layout: empty-content
 permalink: /webapi/
 section: webapi
-title: Web APIs
 description: "Web API is available for Fleet Owner and End-Users developers. In both cases, you will be able to retrieve data, monitor data and also remote control vehicles."
+title: Fleet Owner or End-User
 ---
-<div class="content">
-    <p class="selection-paragraph">
-        Welcome to the Web API section, this api exists under two very similar versions, if you own or manage a fleet of groupe PSA vehicles, please choose Fleet Owner. If you are not in this case, please choose the end-user API.
-        In both cases, you will be able to <strong>retrieve data, monitor data</strong> and also <strong> remote control</strong> the vehicles you have access to.<br/>
-        Choose one of our API and start your tour by reading the doc!
-    </p>
-    <div class="tile is-ancestor">
-        <div class="tile is-parent">
-            <article id="is-fleet_owner" class="tile is-child notif-welcome-text notification">
-                <p class="title">Fleet Owner &nbsp;
-                        <span class="icon is-small is-white is-hidden-mobile">
-                            <i class="fas fa-car-side"></i>
-                        </span>&nbsp; &nbsp;
-                        <span class="icon is-small is-white is-hidden-mobile">
-                            <i class="fas fa-car-side"></i>
-                        </span>
-                        &nbsp; &nbsp;
-                </p>
-                <p class="subtitle"></p>
-                <p>Access our B2B APIs in order to develop application helping your business.</p>
-                <div class="field is-centered is-grouped">
-                    <p class="control">
-                        <a href="{{site.baseurl}}/webapi/b2b/" class="button is-psablue is-medium">
-                            <span class="icon is-large is-white is-hidden-mobile">
-                                <i class="fas fa-book"></i>
+<section class="section" id="article">
+    <div class="container" style="max-width: 960px"> 
+        <h1 class="selection-title" id="page-title">{{page.title}}</h1>
+        <p class="selection-paragraph">
+            Welcome to the Web API section, this api exists under two very similar versions, if you own or manage a fleet of groupe PSA vehicles, please choose Fleet Owner. If you are not in this case, please choose the end-user API.
+            In both cases, you will be able to <strong>retrieve data, monitor data</strong> and also <strong> remote control</strong> the vehicles you have access to.<br/>
+            Choose one of our API and start your tour by reading the doc!
+        </p>
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <article id="is-fleet_owner" class="tile is-child notif-welcome-text notification">
+                    <p class="title">Fleet Owner &nbsp;
+                            <span class="icon is-small is-white is-hidden-mobile">
+                                <i class="fas fa-car-side"></i>
+                            </span>&nbsp; &nbsp;
+                            <span class="icon is-small is-white is-hidden-mobile">
+                                <i class="fas fa-car-side"></i>
                             </span>
-                            <span>
-                                Read the doc
-                            </span></a>
+                            &nbsp; &nbsp;
                     </p>
-                    <p class="control">
-                        <a href="{{site.baseurl}}/webapi/b2b/demo#pageTitle" class="button is-psablue is-medium ">
-                            <span class="icon is-large is-white is-hidden-mobile">
-                                <i class="fas fa-code"></i>
-                            </span>
-                            <span>
-                                Discover demo
-                            </span>
-                    </a>
-                    </p>
-                    </div>
-            </article>
-        </div>
-        <div class="is-hidden-mobile tile is-parent is-hidden-mobile">
-            <article id="is-fleet_owner-pic" class="notif-welcome-text tile is-child notification">
-            </article>
-        </div>
-    </div>
-    <div class="tile is-ancestor">
-        <div class="is-hidden-mobile tile is-parent is-hidden-mobile">
-            <article id="is-end_user-pic" class="notif-welcome-text tile is-child notification">
-            </article>
-        </div>
-        <div class="tile is-parent">
-            <article id="is-end_user" class="tile is-child notif-welcome-text notification">
-                <p class="title">End-user &nbsp;
-                    <span class="icon is-small is-white is-hidden-mobile">
-                        <i class="fas fa-car-side"></i>
-                    </span>
-                </p>
-                <p class="subtitle"></p>
-                <p>Groupe PSA B2C API's allow developers to create applications for Groupe PSA clients.</p>
+                    <p class="subtitle"></p>
+                    <p>Access our B2B APIs in order to develop application helping your business.</p>
                     <div class="field is-centered is-grouped">
                         <p class="control">
-                            <a href="{{site.baseurl}}/webapi/b2c/" class="button is-psablue is-medium">
+                            <a href="{{site.baseurl}}/webapi/b2b/overview/about/#article" class="button is-psablue is-medium">
                                 <span class="icon is-large is-white is-hidden-mobile">
                                     <i class="fas fa-book"></i>
                                 </span>
@@ -78,15 +38,58 @@ description: "Web API is available for Fleet Owner and End-Users developers. In 
                                 </span></a>
                         </p>
                         <p class="control">
-                            <a href="{{site.baseurl}}/webapi/b2c/demo#pageTitle" class="button is-psablue is-medium ">
+                            <a href="{{site.baseurl}}/webapi/b2b/overview/demo/" class="button is-psablue is-medium ">
                                 <span class="icon is-large is-white is-hidden-mobile">
                                     <i class="fas fa-code"></i>
-                                </span><span>
+                                </span>
+                                <span>
                                     Discover demo
-                                </span></a>
+                                </span>
+                        </a>
                         </p>
-                      </div>
-            </article>
+                        </div>
+                </article>
+            </div>
+            <div class="is-hidden-mobile tile is-parent is-hidden-mobile">
+                <article id="is-fleet_owner-pic" class="notif-welcome-text tile is-child notification">
+                </article>
+            </div>
+        </div>
+        <div class="tile is-ancestor">
+            <div class="is-hidden-mobile tile is-parent is-hidden-mobile">
+                <article id="is-end_user-pic" class="notif-welcome-text tile is-child notification">
+                </article>
+            </div>
+            <div class="tile is-parent">
+                <article id="is-end_user" class="tile is-child notif-welcome-text notification">
+                    <p class="title">End-user &nbsp;
+                        <span class="icon is-small is-white is-hidden-mobile">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                    </p>
+                    <p class="subtitle"></p>
+                    <p>Groupe PSA B2C API's allow developers to create applications for Groupe PSA clients.</p>
+                        <div class="field is-centered is-grouped">
+                            <p class="control">
+                                <a href="{{site.baseurl}}/webapi/b2c/overview/about/#article" class="button is-psablue is-medium">
+                                    <span class="icon is-large is-white is-hidden-mobile">
+                                        <i class="fas fa-book"></i>
+                                    </span>
+                                    <span>
+                                        Read the doc
+                                    </span></a>
+                            </p>
+                            <p class="control">
+                                <a href="{{site.baseurl}}/webapi/b2c/overview/demo/" class="button is-psablue is-medium ">
+                                    <span class="icon is-large is-white is-hidden-mobile">
+                                        <i class="fas fa-code"></i>
+                                    </span><span>
+                                        Discover demo
+                                    </span></a>
+                            </p>
+                        </div>
+                </article>
+            </div>
         </div>
     </div>
-</div>
+</section>
