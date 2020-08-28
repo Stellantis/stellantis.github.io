@@ -169,7 +169,7 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/monitors/{mid}'{% elsif page
 - Path parameter **{id}** is the unique identifier of one of your vehicles. 
 - Query parameter `locale` will change the language of the alert message.
 
-{% include_relative content/webapi-curl.md apiEndpointB2B='/fleets/{fid}/monitors/{mid}' apiEndpointB2C='/user/vehicles/{id}/monitors/{mid}' referenceURLResssourceB2B='/#/Monitors/deleteFleetMonitor' referenceURLResssourceB2C='/#/Vehicles/deleteMonitordd' httpVerb='DELETE' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
+{% include_relative content/webapi-cUrl.md apiEndpointB2B='/fleets/{fid}/monitors/{mid}' apiEndpointB2C='/user/vehicles/{id}/monitors/{mid}' referenceURLResssourceB2B='/#/Monitors/deleteFleetMonitor' referenceURLResssourceB2C='/#/Vehicles/deleteMonitordd' httpVerb='DELETE' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
 
 
 # SEE ALSO
