@@ -1,1 +1,42 @@
-{% if page.permalink == "/" %}{{site.title}}  {% elsif page.permalink == "/webapi/" %}Web APIs | {{site.title}}{% elsif page.permalink == "/mobile-sdk/" %}Mobile SDKs | {{site.title}}{% else %}{% if page.title %}{% if page.section %}{% for section in site.data.sections %}{% if page.section == section.tag %}{% assign sectionName = section.name %}{% else %}{% endif %}{% endfor %}{{ page.title }} | {{sectionName}} | {{site.title}}{% else %}{{ page.title }} | {{site.title}}  {% endif %}{% else %}{{ site.title }}{% endif %}{% endif %}
+{% for section in site.data.sections %}
+    {% if page.section == section.tag %}
+        {% assign sectionName = section.name%}
+        {% for subsection in section.subsections %}
+            {% if page.subsection == subsection.tag %}
+                {% assign subsectionName = subsection.name %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+
+{% if page.categorie %}
+    {% if page.categorie contains "verview" %}
+        {% if page.title contains "bout" %}
+            {{page.section | capitalize}} {{page.subsection | upcase}}
+        {% else %}
+            {{page.title}} | {{page.subsection | upcase}} {{page.section | capitalize}} 
+        {% endif %}
+    {% else %}
+    {{page.title}} {{page.categorie}} | {{page.subsection | upcase}} {{page.section | capitalize}} 
+    {% endif %}
+{% elsif page.subsection %}
+    {% if page.title contains "bout" %}
+    {{subsectionName}} {{sectionName}} 
+    {% else %}
+    {{page.title}} | {{subsectionName}} {{sectionName}} 
+    {% endif %}
+{% elsif page.section %}
+    {% if page.title %}
+        {% if page.title contains "bout" %}
+        {{sectionName}}
+        {% else %}
+        {{page.title}} | {{sectionName}}
+        {% endif %}
+    {% else %}
+        {{sectionName}} | {{site.title}}
+    {% endif %}
+{% elsif page.title %}
+        {{page.title}} | {{site.title}}
+{% else %}
+    {{site.title}}
+{% endif %}

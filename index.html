@@ -1,0 +1,360 @@
+---
+layout: empty-page
+permalink: /
+require: aos leaflet typed
+description: "Groupe PSA for Developers is the dedicated platform for application developers working with Groupe PSA's
+connected vehicles APIs and SDKs."
+---
+<div class="black-gradient landing-page" style="margin-bottom: 3rem;">
+    <!-- INTRO -->
+    <section class="section">
+        <div class="container">
+            <h1 class="has-text-centered">
+                Groupe PSA for developers
+            </h1>
+            <p class="has-text-centered is-6 is-light text-compact">
+                Groupe PSA for Developers is the dedicated platform for application developers working with
+                Groupe PSA's connected vehicles.
+                Join us and build the future of connected car together!
+            </p>
+            <div class="separator is-centered"></div>
+        </div>
+    </section>
+    <!-- / INTRO -->
+    
+    <!-- RETRIEVE YOUR VEHCILES DATA -->
+    <section class="section section-feature">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-half description">
+                    <div class="landing-text-bloc">
+                        <h1 class="">Retrieve your <br> vehicles data.</h1>
+                        <div class="separator" data-aos="fade-right"></div>
+                        <p class="is-6 is-light  text-compact"> Our REST API allow retrieving everything about
+                            your vehicles. You can access all kind of telemetry, maintenance details,
+                            collisions, position, alerts etc. </p>
+                    </div>
+                </div>
+                <!-- CODE HIGHLIGHTER -->
+                <div class="column">
+                    <div class="landing-feature is-hidden-mobile">
+                        <div class="language-json highlighter-rouge">
+                            <div class="highlight">
+                                <pre class="highlight"><code><span class="mf">HTTP/1.1 200 OK<br/>Content-Type: application/hal+json<br/>Date: Tue, 09 Jun 2020 02:43:42 GMT</span>      
+  <span class="p">    </span><span class="w">
+  <span class="p">    {</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14167304a6753316b774e7b45774"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VR1A12BCDEF3456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"engine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thermic"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"energy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Petrol"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DC 7 Crossback"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"http://ds-picture.com/pic-front"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"http://ds-picture.com/pic-back"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"http://ds-picture.com/pic-inside"</span><span class="p">,</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-08T07:59:19Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-08T07:59:19Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"trips"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"lastPosition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"telemetry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"maintenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">    }</span>
+  <span class="w"></span></code>
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- / CODE HIGHLIGHTER -->
+            </div>
+        </div>
+    </section>
+    <!-- / RETRIEVE YOUR VEHCILES DATA -->
+    <!--  BUILD EMBEDDED APPS -->
+    <section class="section section-feature">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <!-- PIC WP -->
+                <div class="column is-half">
+                    <img class="rounded landing-feature is-hidden-mobile"
+                        src="{{site.baseurl}}/assets/images/apps-nac.jpg" style="filter: brightness(85%);">
+                </div>
+                <!-- / PIC WP -->
+                <div class="column description">
+                    <div class="landing-text-bloc">
+                        <h1 class="">Build embedded <br> web APPs.</h1>
+                        <div class="separator" data-aos="fade-left"></div>
+                        <p class="is-6 is-light  text-compact">Try our webportal framework and build wonderful
+                            APPs for your vehicle embedded screen using HTML CSS & JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / BUILD EMBEDDED APPS -->
+    <!--  REMOTE CONTROL -->
+    <section class="section section-feature">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column description">
+                    <div class="landing-text-bloc">
+                        <h1 class="">Remote control <br>your vehicle.</h1>
+                        <div class="separator" data-aos="fade-right"></div>
+                        <p class="is-6 is-light  text-compact">Remote control your vehicles over Bluetooth or
+                            HTTP: open the doors, precondition temperature, honk the horn and much more...</p>
+                    </div>
+                </div>
+                <!-- REMOTE PIC -->
+                <div class="column is-half">
+                    <img class="rounded landing-feature is-hidden-mobile"
+                        src="{{site.baseurl}}/assets/images/myds.png" style="filter: brightness(85%);">
+                </div>
+                <!-- / REMOTE PIC -->
+            </div>
+            <!-- / BUILD EMBEDDED APPS -->
+        </div>
+    </section>
+    <!--  / REMOTE CONTROL -->
+    <!--  BUILD INTERFACES -->
+    <section class="section section-feature">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <!-- MAP -->
+                <div class="column is-half">
+                    <div class="landing-feature is-hidden-mobile">
+                        <article id="map" style="border-radius: 3px; filter:brightness(85%)"></article>
+                    </div>
+                </div>
+                <!-- / MAP -->
+                <div class="column description">
+                    <div class="landing-text-bloc">
+                        <h1 class="">Design your own <br>user interface.</h1>
+                        <div class="separator" data-aos="fade-left"></div>
+                        <p class="is-6 is-light  text-compact">Use your vehicles data you and build customized
+                            app for your own needs!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / BUILD INTERFACES -->
+    <!-- SECTIONS -->
+    <section class="section">
+        <div class="container our-apis">
+            <!--  Our APIs-->
+            <div class="separator is-centered" style="margin-bottom: 3rem;">
+            </div>
+            <h1 class="has-text-centered">
+                Our APIs
+            </h1>
+            <p class="has-text-centered  is-6 is-light  text-compact" style="margin-bottom: 8rem;">
+                Choose which API from Groupe PSA's that you want to explore.
+            </p>
+            <!--  / OUR APIs -->
+            <div class="columns is-vcentered">
+                <!-- Feature -->
+                <div class="column is-4">
+                    <div class="has-text-centered" data-aos="zoom-in" data-aos-delay="100"
+                    data-aos-easing="ease-out-quart">
+                        <span class="icon is-large is-white" >
+                            <i class="fas fa-3x fa-cloud"></i>
+                        </span>
+                        <h2 class="is-6">&#60; Web API &#62;</h2>
+                        <p class="feature-text">Retrieve data and remote control using open web standards: REST
+                            API, GeoJSON & HAL.</p>
+                        <a href="{{site.baseurl}}/webapi/" class="button button-left">
+                            <span class="text">Explore the API</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Feature -->
+                <div class="column is-4">
+                    <div class="has-text-centered" data-aos="zoom-in" data-aos-delay="250"
+                    data-aos-easing="ease-out-quart">
+                        <span class="icon is-large  is-white" >
+                            <i class="fas fa-3x fa-car-side"></i>
+                        </span>
+                        <h2 class="is-6">&#60; WebPortal &#62;</h2>
+                        <p class="feature-text">An embedded framework to develop Web Applications in the media
+                            system your vehicle.</p>
+                        <a href="{{site.baseurl}}/webportal/" class="button button-middle">
+                            <span class="text"> Build your App</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Feature -->
+                <div class="column is-4">
+                    <div class="has-text-centered" data-aos="zoom-in" data-aos-delay="400"
+                    data-aos-easing="ease-out-quart">
+                        <span class="icon is-large  is-white" >
+                            <i class="fas fa-3x fa-mobile"></i>
+                        </span>
+                        <h2 class="is-6">&#60; SDK Mobile &#62;</h2>
+                        <p class="feature-text">An iOS and Android SDK for accessing data and remote control
+                            over Bluetooth.</p>
+
+                        <a href="{{site.baseurl}}/mobile-sdk/" class="button button-right">
+                            <span class="text">Control your car</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- PROJECTS -->
+    <section class="section landing-page">
+        <div class="separator is-centered" style="margin: 1rem auto; margin-top: 100px;" >
+        </div>
+        <h1 class="has-text-centered">
+            Projects
+        </h1>
+        <p class="has-text-centered  is-6 is-light  text-compact"  style="margin-bottom: 3rem;">
+            See what you can do with Groupe PSA's APIs.
+        </p>
+        <!-- PROJECTS LIST -->
+        <div class="projects">
+            {% for project in site.data.project-examples %}
+            <article class="project-preview">
+                <div class="project-img" style="
+                                background-image: url({{site.baseurl}}/assets/images/projects/{{project.img-url}});">
+                </div>
+                <div class="project-description">
+                    <div>
+                        <p class="project-categories">{{project.section | join: ' &sdot; '}}</p>
+                        <p class="project-title">{{project.long-name}}</p>
+                    </div>
+                    {% if project.link %}
+                    <div class="project-links">
+                        {% if project.link.ios %}
+                        <a href="{{project.link.ios}}" class="icon is-medium">
+                            <i class="fab fa-lg fa-apple"></i>
+                        </a>
+                        {% endif %}
+                        {% if project.link.android %}
+                        <a href="{{project.link.android}}" class="icon is-medium">
+                            <i class="fab fa-lg fa-android"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </article>
+            {% endfor %}
+            <article class="project-preview">
+                <a class="project-img" href="{{site.baseurl}}/connected-vehicles/about/" style="   
+                                background:  linear-gradient(152deg, rgba(38,51,99,1) 0%, rgba(255,66,56,1) 105%);
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                color: white;
+                                ">
+                    <p style="font-size: 1.5rem;">Why not your App?</p>
+                </a>
+            </article>
+            <article id="preview-fix" class="project-preview">
+            </article>
+        </div>
+
+    </section>
+<!-- / PROJECTS LIST -->
+</div>
+
+<script>
+    /*----------- TYPED ---------*/
+
+    var typedHeader1 = new Typed('#typed-header-1', {
+        strings: ['Build'], typeSpeed: 50, cursorChar: '_', onComplete: (self) => {
+            document.getElementById("typed-header-1").nextElementSibling.style.display = "none";
+            var typedHeader2 = new Typed('#typed-header-2', {
+                strings: ['The future'], typeSpeed: 50, cursorChar: '_', onComplete: (self) => {
+                    document.getElementById("typed-header-2").nextElementSibling.style.display = "none";
+                    var typedHeader3 = new Typed('#typed-header-3', {
+                        strings: ['Of'], typeSpeed: 50, cursorChar: '_', onComplete: (self) => {
+                            document.getElementById("typed-header-3").nextElementSibling.style.display = "none";
+                            var typedHeader4 = new Typed('#typed-header-4', { strings: ['Connected Cars'], typeSpeed: 50, cursorChar: '_', });
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+    /*----------- LEAFLET ---------*/
+
+    var map = null;
+    var vehicle = null;
+
+    window.onload = function () {
+
+        //init LEAFLET
+        //set view on velizy
+        var lat = 48.7712;
+        var lon = 2.2263;
+
+        //create map and insert into map html id
+        map = L.map('map', { zoomControl: false }).setView([lat, lon], 15);
+        //openstreetmap maps adress
+        L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+            //set credit to OSM
+            attribution: 'data © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - <a href="//openstreetmap.fr">OSM France</a>',
+            minZoom: 1,
+            maxZoom: 20,
+        }).addTo(map);
+
+        // lock map
+        map.dragging.disable();
+        map.touchZoom.disable();
+        map.doubleClickZoom.disable();
+        map.scrollWheelZoom.disable();
+        map.boxZoom.disable();
+        map.keyboard.disable();
+        if (map.tap) map.tap.disable();
+        document.getElementById('map').style.cursor = 'default';
+
+        //add marker on map
+        vehicle = L.marker([48.772476, 2.2221432]).addTo(map);
+        //add popup to marker with vehicle info
+        vehicle.bindPopup('<img class="image" src="{{site.baseurl}}/assets/images/c3.jpg" alt="No Image Available"><p><b>Id: </b>XA143Z2<br><b> Vin: </b>VF7A12BCDEF3456<br><b>Brand: </b>Citroën<br><b>Label: </b>C3 PureTech<br> <b> LastPosition:</b> <a href="{{site.baseurl}}/connectedcar/v4/user/vehicles/{id}/lastPosition">href</a></p>').openPopup();
+        //set map view above the marker
+        map.setView([48.7775, 2.22232]);
+
+    };
+
+    /*----------- AOS ---------*/
+
+    AOS.init({
+        // Global settings:
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: 'aos-init', // class applied after initialization
+        animatedClassName: 'aos-animate', // class applied on animation
+        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+        offset: 170, // offset (in px) from the original trigger point
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 500, // values from 0 to 3000, with step 50ms
+        easing: 'ease', // default easing for AOS animations
+        once: false, // whether animation should happen only once - while scrolling down
+        mirror: false, // whether elements should animate out while scrolling past them
+        anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+    });
+
+</script>

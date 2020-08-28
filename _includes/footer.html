@@ -3,9 +3,9 @@
         <div class="level-left">
             <div class="level-item" id="typo">
                 <div>
-                    {% if page.section == "webportal" %}
+                    {% if page.section == "webportal-v1" %}
                     <p>Doc webportal - v{{site.versionWebportal}}
-                        {% elsif page.section == "webapi" or page.section =="webapib2b" or page.section =="webapib2c" %}
+                        {% elsif page.section == "webapi" or page.section =="b2b" or page.section =="b2c" %}
                         <p>Doc web api - v{{site.versionWebAPI}}
                             {% elsif page.section == "ios" or page.section == "android" or page.section == "mobile" %}
                             <p>Doc mobile sdk - v{{site.versionMobileSDK}}

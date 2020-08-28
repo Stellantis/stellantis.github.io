@@ -1,0 +1,72 @@
+<aside class="menu">
+<span class="menu-title">{{page.section}} {% if page.subsection == "b2b" %}Fleet-owner{% elsif page.subsection == "b2c" %}End-user{% else %}{{page.subsection}}{% endif %}</span>
+{% if page.categorie %}
+    {% for section in site.data.sections %}
+        {% if section.subsections %}
+            {% for subsection in section.subsections %}
+                    {% if page.subsection == subsection.tag %}
+                    {% for categorie in subsection.categories %}
+                    <a href="{{site.baseurl}}{{section.path}}{{subsection.path}}{{categorie.path}}" class='menu-label has-list{% if page.categorie == categorie.name %} is-active{% endif %}' id="{{categorie.name}}">
+                        <span>
+                            {{categorie.name}}
+                        </span>
+                    </a>
+                    <ul class="menu-list">
+                        {% for p in categorie.pages %}
+                        {% assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path %}
+                        <li>
+                            <a {% if page.permalink contains page_link %}class="is-active"{% endif %} href="{{site.baseurl}}{{page_link}}#article">
+                                {{p.name}}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endfor %}
+                    {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+<div class="menu-one-level">
+    {% for section in site.data.sections %}
+        {% if section.subsections %}
+            {% for subsection in section.subsections %}
+                    {% if page.subsection %}
+                        {% if page.subsection == subsection.tag %}
+                            {% for p in subsection.categories[0].pages %}
+                                    <a href="{{site.baseurl}}{{section.path}}{{subsection.path}}{{p.path}}#article" class='menu-label{% if page.title == p.name %} is-active{% endif %}' id="{{p.name}}">
+                                        <span>
+                                            {{p.name}}
+                                        </span>
+                                    </a>
+                            {% endfor %}
+                        {% endif %}
+                    {% else %}
+                        {% if page.section == section.tag %}
+                            {% for p in subsection.categories[0].pages %}
+                                    <a href="{{site.baseurl}}{{section.path}}{{p.path}}#article" class='menu-label{% if page.title == p.name %} is-active{% endif %}' id="{{p.name}}">
+                                        <span>
+                                            {{p.name}}
+                                        </span>
+                                    </a>
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+
+</aside>
+
+<script>
+var referenceElement = document.getElementById("API Reference");
+// var referenceElementSpan = referenceElement.firstElementChild;
+if (referenceElement.classList.value.includes("is-active") ) {
+    referenceElement.innerHTML += '<i style="color: #4393b5" class="fas fa-stream"></i>';
+}
+else {
+    referenceElement.innerHTML += '<i style="color: #515151" class="fas fa-stream"></i>';
+}
+</script>

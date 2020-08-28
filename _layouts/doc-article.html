@@ -1,21 +1,44 @@
 ---
-layout: page
+layout: default
 ---
-
-                {% include content-header.html %}
-                {% include anchor_headings.html html=content anchorClass="bd-anchor-link" anchorBody="#" bodyPrefix='<span class="bd-anchor-name">' bodyAntefix="</span>" %}
-
-            </div>
+{% include header.html %}
+<section id="article">
+    <div id="lunr">
+        <div id="lunrsearchresults">
+            <ul></ul>
         </div>
     </div>
-    <aside class="bd-side is-flex-tablet is-hidden-mobile">
-        <div class="bd-anchors-reference" id="anchorsReference"></div>
-        <nav class="bd-anchors" id="anchors">
-            <p class="bd-anchors-title">
-                On this page
-            </p>
-            <hr style="background-color: rgb(187, 187, 187);">
-            <ul class="bd-anchors-list"></ul>
-        </nav>
-    </aside>
-</div>
+    <div class="columns is-gapless">
+
+        <div class="column is-narrow is-hidden-mobile"> 
+            {% if page.layout == "doc-article" %}
+            {% include menu.html %}
+            {% endif %}   
+        </div>
+
+        <main class="column">
+            <div class="content">
+                {% include content-header.html %}
+                {% include anchor_headings.html html=content anchorClass="bd-anchor-link" anchorBody="#" bodyPrefix='<span class="bd-anchor-name">' bodyAntefix="</span>" %}
+            <div>
+        </main>
+        
+        {% unless page.on_this_page == false %}
+        <div class="column is-hidden-touch" id="on-this-page-container">
+            <aside id="on-this-page">
+            {% if page.layout == "doc-article" %}
+            <div class="bd-anchors-reference" id="anchorsReference"></div>
+            <nav class="bd-anchors" id="anchors">
+                <p class="bd-anchors-title">
+                    On this page
+                </p>
+                <ul class="bd-anchors-list"></ul>
+            </nav>
+            {% endif %}
+            </aside>
+        </div>
+        {% endunless %}
+    </div>
+</section>
+
+{% include footer.html %}

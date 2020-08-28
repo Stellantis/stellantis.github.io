@@ -2,7 +2,7 @@
 
 In this tutorial you will find an explanation about **getting your B2B authentication** in PSA network. This authentication is required in order to consume Groupe PSA's APIs.
 
-This page is dedicated to Groupe PSA's commercial partners. End-user authentication procedure is different, check this [page]({{site.baseurl}}/webapi/b2c/connect).
+This page is dedicated to Groupe PSA's commercial partners. End-user authentication procedure is different, check this [page]({{site.baseurl}}/webapi/b2c/quickstart/connect).
 
 Our APIs let you access sensible data about your fleet of vehicles, that's why we have to perform mutual authentication between our networks. In order to sign your certificate we need you to produce a **Certificate Signing Request (CSR)**. 
 
@@ -16,7 +16,7 @@ At the end of this process you will have everything you need to consume our B2B 
 - `Private Key`: Your Private Key file.
 - `CA Certificate`: PSA CA Cert for peer verification.
 
-<img src="{{site.baseurl}}/assets/images/certificateProcess.png" alt="certificateProcess" style="max-width: 580px">
+<img src="{{site.baseurl}}/assets/images/certificateProcess.png" alt="certificateProcess" style="width: 580px">
 
 ## 1. PARTNER LOGIN
 

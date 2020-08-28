@@ -1,159 +1,81 @@
-{% if  page.permalink == "/" %}
-    <section class="hero is-dark is-fullheight hero_main">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            {% include navigation.html %}
-            {% include fixed-navbar.html %}
-        </div>
-        <div class="hero-body">
-            <div class="container">
-                <div class="landing-title">
-                    <h1 id="typed-header-1" class="title section-title"></h1>
-                    <h1 class="title section-title">&nbsp;</h1>
-                </div>
-                <div class="landing-title">
-                    <h1 id="typed-header-2" class="title section-title"></h1>
-                    <h1 class="title section-title">&nbsp;</h1>
-                </div>
-                <div class="landing-title">
-                    <h1 id="typed-header-3" class="title section-title"></h1>
-                    <h1 class="title section-title">&nbsp;</h1>
-                </div>
-                <div class="landing-title">
-                    <h1 id="typed-header-4" class="title section-title"></h1>
-                    <h1 class="title section-title">&nbsp;</h1>
-                </div>
-        </div>
-    </section>
-{% elsif page.section == "webportal" %}
-    <section class="hero is-dark is-medium hero_webportal">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            {% include navigation.html %}
-            {% include fixed-navbar.html %}
-        </div>
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title section-title section-title">Webportal</h1>
-                <h2 class="title">emmbedded apps</h2>
-            </div>
-        </div>
-    </section>
-{% elsif  page.section == "mobile" %}
-    <section class="hero is-dark is-medium hero_ios">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            {% include navigation.html %}
-        </div>
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title section-title">Mobile SDK</h1>
-                <h2 class="title">iOS or Android</h2>
-            </div>
-        </div>
-    </section>
-{% elsif  page.section == "android" %}
-    <section class="hero is-dark is-medium hero_android">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            {% include navigation.html %}
-            {% include fixed-navbar.html %}
-        </div>
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title section-title">Mobile SDK</h1>
-                <h2 class="title">for android</h2>
-            </div>
-        </div>
-    </section>
-{% elsif  page.section == "ios" %}
-    <section class="hero is-dark is-medium hero_ios">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            {% include navigation.html %}
-            {% include fixed-navbar.html %}
-        </div>
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title section-title">Mobile SDK</h1>
-                <h2 class="title">for iOS</h2>
-            </div>
-        </div>
-    </section>
+{% if page.section == "connected-vehicles" %}
+    {% assign hero_classes = "is-medium hero_main" %}
+    {% capture hero_content %}
+    <h1 class="title section-title">Connected Vehicles</h1>
+    {% endcapture %}
 {% elsif page.section == "webapi" %}
-    <section class="hero is-dark is-medium hero_api">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            {% include navigation.html %}
-        </div>
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title section-title">WEB API</h1>
-                <h2 class="title">fleet-owner or end-user</h2>
-            </div>
-        </div>
-    </section>
-{% elsif  page.section == "webapib2b" or page.section ==  "b2b" %}
-    <section class="hero is-dark is-medium hero_api">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            {% include navigation.html %}
-            {% if page.section == "webapib2b" %}
-                {% include fixed-navbar.html %}
-            {% endif %}
-        </div>
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title section-title">WEB API</h1>
-                <h2 class="title">for fleet owner</h2>
-            </div>
-        </div>
-    </section>
-{% elsif  page.section == "webapib2c" or page.section ==  "b2c" %}
-    <section class="hero is-dark is-medium hero_api">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            {% if page.section == "webapib2c" %}
-                {% include fixed-navbar.html %}
-            {% endif %}
-            {% include navigation.html %}
-            </div>
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title section-title">WEB API</h1>
-                <h2 class="title">
-                    for end-users</h2>
-            </div>
-        </div>
-    </section>
-{% elsif  page.section == "connected-vehicles" %}
-    <section class="hero is-dark is-medium hero_main">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            {% include fixed-navbar.html %}
-            {% include navigation.html %}
-            </div>
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title section-title">Connected Vehicles</h1>
-            </div>
-        </div>
-    </section>
-{% elsif  page.title == "404"  %}
-    <section class="hero is-dark is-fullheight hero_404">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            {% include navigation.html %}
-        </div>
-        <div class="hero-body">
+    {% if page.subsection == "b2b" %}
+        {% assign hero_classes = "is-medium hero_api" %}
+        {% capture hero_content %}
+        <h1 class="title section-title">WEB API</h1>
+        <h2 class="title">for fleet owner</h2>
+        {% endcapture %}
+    {% elsif page.subsection == "b2c" %}
+        {% assign hero_classes = "is-medium hero_api" %}
+        {% capture hero_content %}
+        <h1 class="title section-title">WEB API</h1>
+        <h2 class="title">for end-users</h2>
+        {% endcapture %}
+    {% else %}
+        {% assign hero_classes = "is-medium hero_api" %}
+        {% capture hero_content %}
+        <h1 class="title section-title">WEB API</h1>
+        <h2 class="title">fleet-owner or end-user</h2>
+        {% endcapture %}
+    {% endif %}
+{% elsif page.section == "webportal" %}
+    {% if page.subsection == "v1" %}
+        {% assign hero_classes = "is-medium hero_webportal" %}
+        {% capture hero_content %}
+        <h1 class="title section-title section-title">Webportal v1</h1>
+        <h2 class="title">embedded apps</h2>
+        {% endcapture %}
+    {% elsif page.subsection == "v2" %}
+        {% assign hero_classes = "is-medium hero_webportal" %}
+        {% capture hero_content %}
+        <h1 class="title section-title section-title">Webportal v2</h1>
+        <h2 class="title">embedded apps</h2>
+        {% endcapture %}
+    {% else %}
+        {% assign hero_classes = "is-medium hero_webportal" %}
+        {% capture hero_content %}
+        <h1 class="title section-title section-title">Webportal</h1>
+        <h2 class="title">embedded apps</h2>
+        {% endcapture %}
+    {% endif %}
+{% elsif page.section == "mobile-sdk" %}
+    {% if page.subsection == "ios" %}
+        {% assign hero_classes = "is-medium hero_ios" %}
+        {% capture hero_content %}
+        <h1 class="title section-title">Mobile SDK</h1>
+        <h2 class="title">for iOS</h2>
+        {% endcapture %}
+    {% elsif page.subsection == "android" %}
+        {% assign hero_classes = "is-medium hero_android" %}
+        {% capture hero_content %}
+        <h1 class="title section-title">Mobile SDK</h1>
+        <h2 class="title">for android</h2>
+        {% endcapture %}
+    {% else %}
+        {% assign hero_classes = "is-medium hero_ios" %}
+        {% capture hero_content %}
+        <h1 class="title section-title">Mobile SDK</h1>
+        <h2 class="title">iOS or Android</h2>
+        {% endcapture %}
+    {% endif %}
+{% else %}
+    {% if page.title %}
+        {% if page.title == "404" %}
+            {% assign hero_classes = "is-fullheight hero_404" %}
+            {% capture hero_content %}
             <div class="container">
                 <div class="columns">
-                  <div class="column">
+                <div class="column">
                     <h1 class="title section-title">404</h1>
                     <h1 class="title section-title">Page not</h1>
                     <h1 class="title section-title">Found</h1>
-                  </div>
-                  <div class="column" style="display: flex; flex-direction: column; justify-content: space-evenly;">
+                </div>
+                <div class="column" style="display: flex; flex-direction: column; justify-content: space-evenly;">
                     <p class="hero-para is-size-4" style="text-shadow: 2px 2px 4px #000000">It seems that we are unable to find this page. <br> We apologise for the inconvenience.
                     </p>
                     <a href="{{site.baseurl}}/" class="button is-psablue is-medium">
@@ -161,23 +83,47 @@
                             BACK TO HOMEPAGE
                         </span>                
                     </a>
-                  </div>
+                </div>
                 </div>
             </div>
-        </div>
-    </section>
-{% else %}
-    <section class="hero is-dark is-medium hero_api">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-            {% include navigation.html %}
-        </div>
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title section-title">Build the future</h1>
-                <h1 class="title section-title">of Connected Cars
-                </h1>
+            {% endcapture %}
+        {% endif %}
+    {% elsif page.permalink == "/"  %}
+        {% assign hero_classes = "is-fullheight hero_main home-page"%}
+        {% capture hero_content %}
+            <div class="landing-title">
+                <h1 id="typed-header-1" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
             </div>
-        </div>
-    </section>
+            <div class="landing-title">
+                <h1 id="typed-header-2" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
+            </div>
+            <div class="landing-title">
+                <h1 id="typed-header-3" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
+            </div>
+            <div class="landing-title">
+                <h1 id="typed-header-4" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
+            </div>
+        {% endcapture %}
+    {% else %}
+        {% assign hero_classes = "is-medium hero_api" %}
+        {% capture hero_content %}
+        <h1 class="title section-title">Build the future</h1>
+        <h1 class="title section-title">of Connected Cars</h1>
+        {% endcapture %}
+    {% endif %}
 {% endif %}
+
+<section class="hero is-dark {{hero_classes}}">
+    <div class="hero-head">
+        {% include navigation.html %}
+    </div>
+    <div class="hero-body">
+        <div class="container">
+        {{hero_content}}
+        </div>
+    </div>
+</section>

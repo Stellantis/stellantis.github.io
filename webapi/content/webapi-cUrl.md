@@ -11,7 +11,7 @@ Structure of this include:
 
 This is how it should be included in any HTML or markdown page of the webapi section:
 ```liquid
-{% include_relative content/webapi-cUrl.md httpVerb='POST' apiEndpointB2B='/user/vehicles/{id}/monitors' referenceURLResssourceB2C='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2B='' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' displayCURL=false httpBody='{
+{% include_relative content/webapi-curl.md httpVerb='POST' apiEndpointB2B='/user/vehicles/{id}/monitors' referenceURLResssourceB2C='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2B='' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' displayCURL=false httpBody='{
   "label": "monitor-name",
   "subscribeParam": { },
   "extendedEventParam": [ ],
@@ -41,13 +41,13 @@ referenceURLResssourceB2C | String | Required | Anchor for the endpoint link to 
 {% unless include.displayApiURL == true %}
 {% else %}
 <div class="buttons has-addons">
-  {% if page.section == 'webapib2b' %}
-  <a href="{{site.baseurl}}/webapi/b2b/reference/" class="tag_endpoint_large button is-info"> API BaseURL</a>
-  <a href="{{site.baseurl}}/webapi/b2b/reference/" class="tag_endpoint_large tag_api_endpoint button is-info">
+  {% if page.subsection == 'b2b' %}
+  <a href="{{site.baseurl}}/webapi/b2b/reference/specification/" class="tag_endpoint_large button is-info"> API BaseURL</a>
+  <a href="{{site.baseurl}}/webapi/b2b/reference/specification/" class="tag_endpoint_large tag_api_endpoint button is-info">
   {{site.webapiB2BPreProd}}
-  {% elsif page.section == "webapib2c" %}
-  <a href="{{site.baseurl}}/webapi/b2c/reference/" class="tag_endpoint_large button is-info"> API BaseURL</a>
-  <a href="{{site.baseurl}}/webapi/b2c/reference/" class="tag_endpoint_large tag_api_endpoint button is-info">
+  {% elsif page.subsection == 'b2c' %}
+  <a href="{{site.baseurl}}/webapi/b2c/reference/specification/" class="tag_endpoint_large button is-info"> API BaseURL</a>
+  <a href="{{site.baseurl}}/webapi/b2c/reference/specification/" class="tag_endpoint_large tag_api_endpoint button is-info">
   {{site.webapiB2CPreProd}}
   {% endif %}
   </a>
@@ -56,7 +56,7 @@ referenceURLResssourceB2C | String | Required | Anchor for the endpoint link to 
 {% unless include.displayApiEndpoint == false %}
 
 <div class="buttons has-addons">
-  {% if page.section == 'webapib2b' %}
+  {% if page.subsection == 'b2b' %}
     <a href="{{site.baseurl}}/webapi/b2b/reference{{include.referenceURLResssourceB2B}}" class="tag_endpoint_large button is-light is-selected {% if include.httpVerb == 'GET' %}
   get
   {% elsif include.httpVerb == 'POST' %}
@@ -70,8 +70,8 @@ referenceURLResssourceB2C | String | Required | Anchor for the endpoint link to 
   {% endif %} "> {{include.httpVerb}} </a>
   <a href="{{site.baseurl}}/webapi/b2b/reference{{include.referenceURLResssourceB2B}}" class="tag_endpoint_large button is-light is-selected">
   {{include.apiEndpointB2B}}</a>
-  {% elsif page.section == "webapib2c" %}
-    <a href="{{site.baseurl}}/webapi/b2c/reference{{include.referenceURLResssourceB2C}}" class="tag_endpoint_large button is-light is-selected {% if include.httpVerb == 'GET' %}
+  {% elsif page.subsection == 'b2c' %}
+    <a href="{{site.baseurl}}/webapi/b2c/reference/specification{{include.referenceURLResssourceB2C}}" class="tag_endpoint_large button is-light is-selected {% if include.httpVerb == 'GET' %}
   get
   {% elsif include.httpVerb == 'POST' %}
   post
@@ -82,14 +82,14 @@ referenceURLResssourceB2C | String | Required | Anchor for the endpoint link to 
   {% else %}
   get
   {% endif %} "> {{include.httpVerb}} </a>
-   <a href="{{site.baseurl}}/webapi/b2c/reference{{include.referenceURLResssourceB2C}}" class="tag_endpoint_large button is-light is-selected">
+   <a href="{{site.baseurl}}/webapi/b2c/reference/specification{{include.referenceURLResssourceB2C}}" class="tag_endpoint_large button is-light is-selected">
   {{include.apiEndpointB2C}}</a>
   {% endif %}
 </div>
 
 {% else %} {% endunless %}
 {% unless include.displayCURL == false %}
-{% if page.section == 'webapib2b' %}
+{% if page.subsection == 'b2b' %}
 ```shell
 $ curl \
   --request {{include.httpVerb}} \
@@ -110,7 +110,7 @@ Where **&lt;HTTP_body&gt;** is:
 ```
 {% else %}```
 {% endif %}
-{% elsif page.section == "webapib2c" %}
+{% elsif page.subsection == 'b2c' %}
 ```shell
 $ curl \
   --request {{include.httpVerb}} \

@@ -1,80 +1,122 @@
-<div class="bd-duo">
-    <div class="bd-lead ">
-        <div class="bd-content">
-            {% comment %}---TABS---{% endcomment %}
-            {% if page.section %}
-            <div id="tabs" class="tabs is-centered">
-                <ul> {% for p in site.pages %} {% if p.section contains page.section %}
-                    <li {% if page.title==p.title %}class="is-active" {% endif %}>
-                        <a href="{{ p.url | relative_url }}#pageTitle">{{ p.title" }}</a>
-                    </li> {% endif %} {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
-            {% comment %}---END TABS---{% endcomment %}
-            
-            
-            
-            <div class="content">
-                {% unless page.title == "API Reference" and page.section == "webapib2b" or page.title == "API Reference" and page.section == "webapib2c" %}
-                <div id="content-header" >
-                    {% comment %}---BREADCRUMB---{% endcomment %}
-                    
-                    <nav class="breadcrumb" aria-label="breadcrumbs">
-                        <ul>
-                            <li><a href="{{site.baseurl}}/">{{site.title}}</a></li>
-                            {% for section in site.data.sections %}
-                                {% if page.section == section.tag %}
-                                    {% if section.tag == "webapib2b" or section.tag == "webapib2c" %}
-                            <li>
-                                <a href="{{site.baseurl}}/webapi/#pageTitle">Web API</a>
-                            </li>
-                            <li>
-                                <a href="{{site.baseurl}}{{section.path}}#pageTitle">{{section.name}}</a>
-                            </li>
-                                    {% elsif section.tag == "ios" or section.tag == "android" %}
-                            <li>
-                                <a href="{{site.baseurl}}/mobile-sdk/#pageTitle">Mobile SDK</a>
-                            </li>
-                            <li>
-                                <a href="{{site.baseurl}}{{section.path}}#pageTitle">{{section.name}}</a>
-                            </li>
-                                    {% else %}
-                            <li>
-                                <a href="{{site.baseurl}}{{section.path}}#pageTitle">{{section.name}}</a>
-                            </li>
-                                    {% endif %}
-                                {% endif %}
+
+{% comment %}---SELECT MENU ---{% endcomment %}
+<div class="menu-select"> 
+    <span style="padding-right: 1rem; font-weight: 400; font-size:1.1rem">
+        Menu:
+    </span>
+    <div class="select page-select">
+        <select>
+            {% if page.categorie %}
+            {% assign counter = 1 %}
+                {% for section in site.data.sections %}
+                    {% if page.section == section.tag %}
+                        {% for subsection in section.subsections %}
+                            {% if page.subsection == subsection.tag %}
+                                {% for categorie in subsection.categories %}
+                                <optgroup label="{{categorie.name}}">
+                                    {% for p in categorie.pages %}
+                                        <option value="{{section.path}}{{subsection.path}}{{categorie.path}}{{p.path}}#article" {% if page.categorie == categorie.name and page.title == p.name %}selected{% endif %}>{{counter}}. {{p.name}}</option>
+                                        {% assign counter = counter | plus: 1 %}
+                                    {% endfor %}
+                                </optgroup>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% elsif page.subsection %}
+            {% for section in site.data.sections %}
+                {% if page.section == section.tag %}
+                    {% for subsection in section.subsections %}
+                        <optgroup label="{{subsection.name}}">
+                            {% assign counter = 1 %}
+                            {% for p in subsection.categories[0].pages %}
+                                <option value="{{section.path}}{{subsection.path}}{{p.path}}#article" {% if page.subsection == subsection.tag and page.title == p.name %}selected{% endif %}>{{counter}}. {{p.name}}</option>
+                                {% assign counter = counter | plus: 1 %}
                             {% endfor %}
-                            <li class="is-active">
-                                <a href="#" aria-current="page">{{page.title}}</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    
-                    {% comment %}---END BREADCRUMB---{% endcomment %}
-                    
-                    {% comment %}---EDIT WITH GITHUB---{% endcomment %}
-                    {% if page.gitHubPath %}
-                    <a href="{{site.gitHubURL}}{{page.gitHubPath}}"
-                    {% elsif page.title == "API Reference" and page.section == "webapib2b" %}
-                    <a href="{{site.gitHubSpecB2B}}"
-                    {% elsif page.title == "API Reference" and page.section == "webapib2c" %}
-                    <a href="{{site.gitHubSpecB2C}}"
-                    {% else %}
-                    <a href="{{site.gitHubURL}}{{ page.path }}"
-                    {% endif %} style="color: #4a4a4a" class="button  is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
-                    <span class="icon">
-                        <i  class="far fa-edit"></i> 
-                    </span>
-                    &nbsp; Edit this Page
-                </a>
-            </div>
-            {% endunless %}
-            {% comment %}---END EDIT WITH GITHUB---{% endcomment %}
-            
-            {% comment %}---B2B DISCLAIMER---{% endcomment %}
-            {% if page.section == "webapib2b" and page.title != "API Reference" %}
-                    {% include content/webapi-b2b-Disclaimer.html %}
+                        <optgroup>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            {% elsif page.section %}
+            {% assign counter = 1 %}
+            <optgroup label="{{page.section}}">
+                {% for p in site.pages %}
+                    {% if page.section == p.section %}
+                        <option value="{{p.permalink}}#article" {% if page.section == p.section and page.title == p.title %}selected{% endif %}>{{counter}}. {{p.title}}</option>
+                    {% assign counter = counter | plus: 1 %}
+                    {% endif %}
+                {% endfor %}
+            </optgroup>
             {% endif %}
-            {% comment %}---END B2B DISCLAIMER---{% endcomment %}
+        </select>
+      </div>
+</div>
+
+{% comment %}---END SELECT MENU ---{% endcomment %}
+<div id="content-header" >
+<div class="page-title-container">
+{% comment %}---PAGE TITLE---{% endcomment %}
+    <h1 id="page-title">
+        <span>
+            {% if page.categorie %}{{page.categorie}} - {% endif %}{{page.title}}
+        </span>
+    </h1>
+        {% comment %}---EDIT WITH GITHUB---{% endcomment %}
+        {% if page.gitHubPath %}
+        <a href="{{site.gitHubURL}}{{page.gitHubPath}}"
+        {% elsif page.title == "Specification" and page.subsection == "b2b" %}
+        <a href="{{site.gitHubSpecB2B}}"
+        {% elsif page.title == "Specification" and page.subsection == 'b2c' %}
+        <a href="{{site.gitHubSpecB2C}}"
+        {% else %}
+        <a href="{{site.gitHubURL}}{{ page.path }}"
+        {% endif %} class="button icon-button is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
+            <span class="icon">
+                <i  class="far fa-edit"></i> 
+            </span>
+            <span>
+                Edit this Page
+            </span>
+        </a>
+    {% comment %}---END EDIT WITH GITHUB---{% endcomment %}
+
+</div>
+    {% comment %}---BREADCRUMB---{% endcomment %}
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="{{site.baseurl}}/">Home</a></li>
+            {% if page.section%}
+            <li><a href="{{site.baseurl}}/{{page.section}}">{{page.section | capitalize}}</a></li>
+            {% endif %}
+            {% if page.subsection%}
+            <li><a href="{{site.baseurl}}/{{page.section}}/{{page.subsection}}">{% if page.subsection == "v1" %}v1{% elsif page.subsection == "v2" %}v2{% elsif page.subsection == "b2b" %}Fleet-owner{% elsif page.subsection =="b2c" %}End-user{% elsif page.subsection=="ios" %}iOS{% else %}{{page.subsection| capitalize}}{% endif %}</a></li>
+            {% endif %}
+            {% if page.categorie%}
+            <li><a href="{{site.baseurl}}/{{page.section}}/{{page.subsection}}/{{page.categorie | downcase}}/#article">{{page.categorie| capitalize}}</a></li>
+            {% endif %}
+            <li class="is-active">
+                <a href="#" aria-current="page">{{page.title| capitalize}}</a>
+            </li>
+        </ul>
+    </nav>
+    {% comment %}---END BREADCRUMB---{% endcomment %}
+</div>        
+
+{% comment %}--- DISCLAIMER---{% endcomment %}
+{% include content/page-disclaimer.html %}
+{% comment %}---END  DISCLAIMER---{% endcomment %}
+
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = "{{site.baseurl}}"+e.target.value;
+    });
+
+
+</script>
