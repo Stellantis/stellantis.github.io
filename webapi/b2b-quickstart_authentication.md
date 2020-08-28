@@ -18,7 +18,7 @@ Once you get what you need for authentication, you can try to send your first re
 
 Here is an example with cURL:
 
-{% include_relative content/webapi-curl.md apiEndpointB2B='/fleets' httpVerb='GET' referenceURLResssourceB2B='/#/Fleet/getFleets' displayApiURL=true %}
+{% include_relative content/webapi-cUrl.md apiEndpointB2B='/fleets' httpVerb='GET' referenceURLResssourceB2B='/#/Fleet/getFleets' displayApiURL=true %}
 
 **{version}** depends on your subscription:
 - v2: *delegation publique*
