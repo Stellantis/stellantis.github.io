@@ -1,4 +1,12 @@
 <style>
+#lunr {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+#txtsearchresult {
+    padding-top: 80px;
+}
 
 html {
 scroll-behavior: unset;
