@@ -5,7 +5,7 @@ section: webportal
 subsection: v1
 categorie: Connectivity
 title: Message
-description: ""
+description: "This tutorial details advanced features of Webportal like interacting with back-end."
 ---
 
 

@@ -6,7 +6,7 @@ subsection: b2c
 categorie: Overview
 title: Standards
 gitHubPath: webapi/content/webapi-overview_standards.md
-descirption: "Groupe PSA REST api returns type MIME: application/hal+json. GeoJson is for geolocation and time format is RFC3339."
+description: "Groupe PSA REST API B2C returns type MIME: application/hal+json. GeoJson is for geolocation and time format is RFC3339."
 redirect_from: 
     - /webapi/b2c/preview/
 ---

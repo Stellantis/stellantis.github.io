@@ -5,7 +5,7 @@ section: webportal
 subsection: v1
 categorie: User Interaction
 title: Managing Embedded
-description: "This tutorial details advanced features of Webportal like interacting with embedded software & back-end."
+description: "This tutorial details advanced features of Webportal like interacting with embedded software."
 redirect_from:
  - /webportal/v1/interactivity/
  - /webportal/tutorial-advanced/

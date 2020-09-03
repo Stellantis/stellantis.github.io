@@ -3,7 +3,7 @@ layout: doc-article
 permalink: /connected-vehicles/privacy/
 section: connected-vehicles
 title: Privacy Settings
-description: ""
+description: "Privacy settings are set in the infotainment system by the owner of the vehicle. Find information about these restrictions."
 ---
 
 # INBOARD
@@ -17,7 +17,7 @@ Within the vehicle infotainment system, the user can select various **privacy se
 
 This setting will impact your ability to retrieve data in our API.
 
-<img src="{{site.baseurl}}/assets/images/privacySelection.png" alt="privacySelection" style="width: 450px">
+<img src="{{site.baseurl}}/assets/images/privacy-selection.png" alt="privacy-selection" style="width: 450px">
 
 ## WEBPORTAL
 

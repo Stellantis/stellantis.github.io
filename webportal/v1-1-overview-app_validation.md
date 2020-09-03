@@ -5,7 +5,7 @@ section: webportal
 subsection: v1
 categorie: Overview
 title: App Validation
-description: ""
+description: "In order to allow your app in the webportal your app needs to be validated by Groupe PSA."
 ---
 
 # APP VALIDATION

@@ -20,10 +20,10 @@ webapiB2CPreProd: "https://api.groupe-psa.com/connectedcar/v4"
 webapiB2BPreProd: "https://api-cert.groupe-psa.com/connectedcar/{version}"
 cvsOAuth2PreProd: "https://idpcvs.{brand.tld}/am/oauth2/access_token"
 virtualKeyTokenPreProd: "https://api.groupe-psa.com/connectedcar/v3"
+webapiB2Bv3: "https://api-cert.groupe-psa.com/connectedcar/v3"
+webapiB2Bv2: "https://api-cert.groupe-psa.com/connectedcar/v2"
 
 collections:
-  webportal-nac-private:
-    output: false
   webportal-nac-reference:
     output: false
 

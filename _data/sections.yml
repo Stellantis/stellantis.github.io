@@ -32,7 +32,7 @@
               path: about/
             - name: Standards
               path: standards/
-            - name: Demo
+            - name: Try it Out!
               path: demo/
         - name: Quickstart
           path: quickstart/
@@ -62,8 +62,16 @@
         - name: API Reference
           path: reference/
           pages:
-            - name: Specification
-              path: specification/
+            - name: About Versions
+              path: about-versions/
+            - name: Specification Version 2
+              path: specification-v2/
+            - name: Specification Version 3
+              path: specification-v3/
+            - name: Changelog Version 2
+              path: changelog-v2/
+            - name: Changelog Version 3
+              path: changelog-v3/
     - tag: b2c
       path: b2c/
       name: End User
@@ -75,7 +83,7 @@
               path: about/
             - name: Standards
               path: standards/
-            - name: Demo
+            - name: Try it Out!
               path: demo/
         - name: Quickstart
           path: quickstart/
@@ -165,4 +173,9 @@
   name: Mobile SDK
   icon: fas fa-mobile
   subsections:
-
+    - tag: android
+      path: android/
+      name: Android
+    - tag: ios
+      path: ios/
+      name: iOS

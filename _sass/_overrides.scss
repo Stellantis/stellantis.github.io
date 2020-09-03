@@ -414,10 +414,23 @@ margin: 3rem auto 0;
     margin-bottom: 0.5rem;
 }
 
-#content-header .button{
+.edit-page{
     color: #4A4A4A;
     margin-left: 2rem;
-    margin-top:0.5rem;
+    margin-top:0.2rem;
+}
+
+.select.page-select select {
+    border-radius:2px;
+}
+
+@media screen and (max-width: 514px) {
+    .is-pulled-right.edit-page {
+        float: unset !important;
+        margin-left: 0rem;
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
 }
 
 .content #content-header{
@@ -446,6 +459,10 @@ margin: 3rem auto 0;
 .content #content-header .breadcrumb a{
     color: grey;
     padding: 0 .35rem;
+}
+
+.content #content-header .breadcrumb li:first-of-type a {
+    padding-left: 0;
 }
 
 .content #content-header .breadcrumb a:hover{
@@ -477,6 +494,24 @@ margin: 3rem auto 0;
 
 .content .container {
     padding-top: 1.2rem;
+}
+
+.content .select-url {
+    background: #1e2336;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    padding: 0.9rem;
+    
+}
+
+.content .select-url a {
+    text-decoration:  none;
+}
+
+.content .select-url span {
+    font-weight: 400;
 }
 
 .psaScroler {
@@ -566,6 +601,14 @@ margin: 3rem auto 0;
 .tag_api_endpoint{
     color: white!important;
     background: #1e2336 !important
+}
+
+.tag_api_endpoint.is-selectable{
+    cursor: auto;
+    user-select: text; 
+    -webkit-user-select: text; 
+    -moz-user-select: text;
+    -ms-user-select: text;
 }
 
 .tag_endpoint_large{
@@ -724,9 +767,7 @@ aside.menu{
     font-size: 0.815rem;
     font-weight: 400;
     line-height: 1.35rem;
-    // padding-top: 28px;
     padding-top: 55px;;
-    padding-left: 3%;
     top: 40px;
     position: -webkit-sticky;
     position: sticky;
@@ -738,7 +779,7 @@ aside.menu{
 }
 
 aside.menu .menu-title{
-    padding: 6px 6px 0px 20px;
+    padding: 6px 6px 0px calc(3% + 20px);
     margin-bottom: 20px;
     font-size: 0.95rem;
     font-weight: 500;
@@ -753,7 +794,7 @@ aside.menu .menu-label {
     font-family: "Roboto", sans-serif;
     margin: 0;
     font-size: inherit;
-    padding: 12.5px 20px;
+    padding: 12.5px calc(3% + 20px);
     letter-spacing: -0.002rem;
     cursor: pointer;
     display: flex; 
@@ -764,17 +805,15 @@ aside.menu .menu-label:first-of-type, aside.menu .menu-label.has-list:first-of-t
     margin-top: 12px;
 }
 
-aside.menu .menu-one-level {
-    padding-left: 15px;
-}
+
 
 aside.menu .menu-one-level .menu-label {
-    padding: 9px 20px;
+    padding: 9px calc(3% + 35px);
 }
 
 aside.menu .menu-list > li > a {
     color: inherit;
-    padding: 4px 20px 4px 30px;
+    padding: 4px 20px 4px calc(3% + 30px);
     line-height: 1rem;
 }
 
@@ -807,9 +846,15 @@ aside.menu .menu-list a::before {
 
 aside.menu .menu-label.has-list {
     font-weight: 500;
-    padding: 6px 20px 6px;
+    padding: 6px calc(3% + 20px) 6px;
     margin-top: 6.5px;
+    cursor: unset;
 }
+
+aside.menu .menu-label.has-list:hover {
+    background-color: unset;
+}
+
 
 aside.menu .menu-label.is-active.has-list span::before{
     content: none;
@@ -962,8 +1007,11 @@ aside#on-this-page {
 #navbarpsa{
     transition: all 0.3s ease;
     padding: 0 7.5%;
-    box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.77);
     min-height: 6rem;
+}
+
+.home-page #navbarpsa{
+    box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.77);
 }
 
 #navbarpsa.bluenavbar{
@@ -1485,7 +1533,7 @@ margin-bottom: 2rem;
 }
 
  #is-webportal-pic{
-    background-image: url("../../assets/images/WebPortal_pic.jpg");
+    background-image: url("../../assets/images/webportal-pic.jpg");
     background-size: cover;
     background-position: center center;
 }
@@ -1669,7 +1717,7 @@ margin-right: 0 !important;}
 
 @media screen and (max-width: 650px) {
      .content {
-        max-width: none;
+        // max-width: none;
     }
 
     #article{

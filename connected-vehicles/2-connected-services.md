@@ -3,11 +3,12 @@ layout: doc-article
 permalink: /connected-vehicles/connected-services/
 section: connected-vehicles
 title: Connected Services
-description: ""
+description: "Subscribing your vehicle to Groupe PSA APIs Connected Services is mandatory in order to retrieve data."
 ---
 
-Groupe PSA APIs are one side of connected vehicles services. 
-In order to retrieve data from your vehicles or from your users vehicles using our **REST API**, you need to make sure that these 3 conditions are fulfilled: 
+Groupe PSA APIs is the technical interface available for application developers in order to retrieve data. 
+
+However, to access thoses data from your vehicles or from your users vehicles, you need to make sure that these **3 conditions are fulfilled**: 
 - the car or the fleet is [subscribed](#car-services) to the appropriates services.
 - your developer account has subscribed to a [plan](#service-level-agreement) to the API that fit your needs of request.
 - set-up your [authorization](#authorization) to the API.

@@ -16,7 +16,7 @@ At the end of this process you will have everything you need to consume our B2B 
 - `Private Key`: Your Private Key file.
 - `CA Certificate`: PSA CA Cert for peer verification.
 
-<img src="{{site.baseurl}}/assets/images/certificateProcess.png" alt="certificateProcess" style="width: 580px">
+<img src="{{site.baseurl}}/assets/images/certificate-process.png" alt="certificate-process" style="width: 580px">
 
 ## 1. PARTNER LOGIN
 

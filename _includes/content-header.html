@@ -1,4 +1,23 @@
 
+        {% comment %}---EDIT WITH GITHUB---{% endcomment %}
+        {% if page.gitHubPath %}
+        <a href="{{site.gitHubURL}}{{page.gitHubPath}}"
+        {% elsif page.title == "Specification" and page.subsection == "b2b" %}
+        <a href="{{site.gitHubSpecB2B}}"
+        {% elsif page.title == "Specification" and page.subsection == 'b2c' %}
+        <a href="{{site.gitHubSpecB2C}}"
+        {% else %}
+        <a href="{{site.gitHubURL}}{{ page.path }}"
+        {% endif %} class="button edit-page icon-button is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
+            <span class="icon">
+                <i  class="far fa-edit"></i> 
+            </span>
+            <span>
+                Edit this Page
+            </span>
+        </a>
+    {% comment %}---END EDIT WITH GITHUB---{% endcomment %}
+
 {% comment %}---SELECT MENU ---{% endcomment %}
 <div class="menu-select"> 
     <span style="padding-right: 1rem; font-weight: 400; font-size:1.1rem">
@@ -15,7 +34,7 @@
                                 {% for categorie in subsection.categories %}
                                 <optgroup label="{{categorie.name}}">
                                     {% for p in categorie.pages %}
-                                        <option value="{{section.path}}{{subsection.path}}{{categorie.path}}{{p.path}}#article" {% if page.categorie == categorie.name and page.title == p.name %}selected{% endif %}>{{counter}}. {{p.name}}</option>
+                                        <option value="{{section.path}}{{subsection.path}}{{categorie.path}}{{p.path}}#article" {% if page.categorie == categorie.name and page.title == p.name %}selected{% endif %}>{{p.name}}</option>
                                         {% assign counter = counter | plus: 1 %}
                                     {% endfor %}
                                 </optgroup>
@@ -31,7 +50,7 @@
                         <optgroup label="{{subsection.name}}">
                             {% assign counter = 1 %}
                             {% for p in subsection.categories[0].pages %}
-                                <option value="{{section.path}}{{subsection.path}}{{p.path}}#article" {% if page.subsection == subsection.tag and page.title == p.name %}selected{% endif %}>{{counter}}. {{p.name}}</option>
+                                <option value="{{section.path}}{{subsection.path}}{{p.path}}#article" {% if page.subsection == subsection.tag and page.title == p.name %}selected{% endif %}>{{p.name}}</option>
                                 {% assign counter = counter | plus: 1 %}
                             {% endfor %}
                         <optgroup>
@@ -43,7 +62,7 @@
             <optgroup label="{{page.section}}">
                 {% for p in site.pages %}
                     {% if page.section == p.section %}
-                        <option value="{{p.permalink}}#article" {% if page.section == p.section and page.title == p.title %}selected{% endif %}>{{counter}}. {{p.title}}</option>
+                        <option value="{{p.permalink}}#article" {% if page.section == p.section and page.title == p.title %}selected{% endif %}>{{p.title}}</option>
                     {% assign counter = counter | plus: 1 %}
                     {% endif %}
                 {% endfor %}
@@ -62,24 +81,7 @@
             {% if page.categorie %}{{page.categorie}} - {% endif %}{{page.title}}
         </span>
     </h1>
-        {% comment %}---EDIT WITH GITHUB---{% endcomment %}
-        {% if page.gitHubPath %}
-        <a href="{{site.gitHubURL}}{{page.gitHubPath}}"
-        {% elsif page.title == "Specification" and page.subsection == "b2b" %}
-        <a href="{{site.gitHubSpecB2B}}"
-        {% elsif page.title == "Specification" and page.subsection == 'b2c' %}
-        <a href="{{site.gitHubSpecB2C}}"
-        {% else %}
-        <a href="{{site.gitHubURL}}{{ page.path }}"
-        {% endif %} class="button icon-button is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
-            <span class="icon">
-                <i  class="far fa-edit"></i> 
-            </span>
-            <span>
-                Edit this Page
-            </span>
-        </a>
-    {% comment %}---END EDIT WITH GITHUB---{% endcomment %}
+
 
 </div>
     {% comment %}---BREADCRUMB---{% endcomment %}
@@ -90,7 +92,7 @@
             <li><a href="{{site.baseurl}}/{{page.section}}">{{page.section | capitalize}}</a></li>
             {% endif %}
             {% if page.subsection%}
-            <li><a href="{{site.baseurl}}/{{page.section}}/{{page.subsection}}">{% if page.subsection == "v1" %}v1{% elsif page.subsection == "v2" %}v2{% elsif page.subsection == "b2b" %}Fleet-owner{% elsif page.subsection =="b2c" %}End-user{% elsif page.subsection=="ios" %}iOS{% else %}{{page.subsection| capitalize}}{% endif %}</a></li>
+            <li><a href="{{site.baseurl}}/{{page.section}}/{{page.subsection}}">{% if page.subsection == "v1" %}Version 1{% elsif page.subsection == "v2" %}Version 2{% elsif page.subsection == "b2b" %}Fleet-owner{% elsif page.subsection =="b2c" %}End-user{% elsif page.subsection=="ios" %}iOS{% else %}{{page.subsection| capitalize}}{% endif %}</a></li>
             {% endif %}
             {% if page.categorie%}
             <li><a href="{{site.baseurl}}/{{page.section}}/{{page.subsection}}/{{page.categorie | downcase}}/#article">{{page.categorie| capitalize}}</a></li>

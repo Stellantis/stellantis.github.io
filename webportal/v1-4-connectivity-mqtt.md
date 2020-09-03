@@ -5,7 +5,7 @@ section: webportal
 subsection: v1
 categorie: Connectivity
 title: MQTT
-description: "WebPortal is based on web technologies however, there are some specificities that you need to consider in order to optimize your app."
+description: "MQTT tutorial."
 redirect_from:
     - /webportal/v1/connectivity/
 ---

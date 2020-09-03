@@ -16,7 +16,7 @@ Vehicles are using various sensors which aim to improve security and driving exp
 
 Our web APIs grants you access to this data even outside the car:
 
-![presentationUnified]({{ site.baseurl }}/assets/images/presentationUnified.png)
+![presentation-unified]({{ site.baseurl }}/assets/images/presentation-unified.png)
 
 Sensors are collecting data inside the vehicle and send them to Groupe PSA via mobile network. Our servers will then **process** these raw data into **unified** and understandable info. Furthermore, cloud storage allow you to access your data at any time even though the vehicle is turned-off.
 
@@ -26,9 +26,9 @@ Everything is processed on our side **(Groupe PSA)** in order to provide you {% 
 
 By requesting this api you will have access to various **features**:
 
-<img src="{{ site.baseurl }}/assets/images/presentationFeatures.png" alt="presentationFeatures" style="width: 580px">
+<img src="{{ site.baseurl }}/assets/images/presentation-features.png" alt="presentation-features" style="width: 580px">
 
-| <img  alt="icon-history" class="is-paddingless is-marginless" src="{{ site.baseurl }}/assets/images/presentationHistory.png" style="width: 50px"> | **History**: trips, telemetrics, notifications and collisions are useful data, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history. |
+| <img  alt="icon-history" class="is-paddingless is-marginless" src="{{ site.baseurl }}/assets/images/presentation-history.png" style="width: 50px"> | **History**: trips, telemetrics, notifications and collisions are useful data, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history. |
 
 |Feature|Description|
 |-|-|
@@ -70,7 +70,7 @@ Sensors are gathering all types of interesting data inside cars. First, these da
 > Refreshment rates improves with vehicles bought since 2019.
 
 
-![presentationFrequency]({{ site.baseurl }}/assets/images/presentationFrequency.png)
+![presentation-frequency]({{ site.baseurl }}/assets/images/presentation-frequency.png)
 
 # SEE ALSO
 

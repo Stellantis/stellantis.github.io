@@ -6,7 +6,7 @@ When the even is triggered, we will send a notification to your server.
 
 **Available features:**
 
-![monitorsFeatures]({{site.baseurl}}/assets/images/monitorsFeatures.png)
+![monitors-features]({{site.baseurl}}/assets/images/monitors-features.png)
 
 - **Zone Triggering**: The monitor will be triggered with an area condition, it could be leaving or entering somewhere.
 - **Time Triggering**: The monitor will be triggered with an time condition, it could be using the vehicle during the night.
@@ -14,7 +14,7 @@ When the even is triggered, we will send a notification to your server.
 
 # HOW DOES IT WORK?
 
-![monitorSystem]({{site.baseurl}}/assets/images/monitorSystem.png)
+![monitor-system]({{site.baseurl}}/assets/images/monitor-system.png)
 
 Once the monitor is created, our **event engine** will continuously check for the realization of your pattern.
 
@@ -22,7 +22,7 @@ When our server are receiving data from your car the **event engine** will check
 
 It is possible to set a retry policy with a specific number and frequency, it's useful in case of your webhook is temporary unavailable. 
 
-![monitorSequence]({{site.baseurl}}/assets/images/monitorSequence.png)
+![monitor-sequence]({{site.baseurl}}/assets/images/monitor-sequence.png)
 
 
 # WEBHOOK TEMPLATE

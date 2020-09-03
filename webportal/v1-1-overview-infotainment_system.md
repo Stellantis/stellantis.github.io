@@ -5,7 +5,7 @@ section: webportal
 subsection: v1
 categorie: Overview
 title: Infotainment System
-description: ""
+description: "The NAC is the vehicle infotainment system in groupe PSA vehicles. This page explains some features of the NAC."
 ---
 
 # NAC
@@ -98,20 +98,20 @@ Here is actual available screen size: **SD** = 800 x 363 px ; **HD** = 1280 x 58
 
 
 **Standard-Definition**
-![screen-res-sd]({{site.baseurl }}/assets/images/webportalPresentationScreenSD.png)
+![screen-res-sd]({{site.baseurl }}/assets/images/webportal-presentation-screen-sd.png)
 
 **High-Definition**
-![screen-res-hd]({{site.baseurl }}/assets/images/webportalPresentationScreenHD.png)
+![screen-res-hd]({{site.baseurl }}/assets/images/webportal-presentation-screen-hd.png)
 
 **Wide High-Definition**
-![screen-res-whd]({{site.baseurl }}/assets/images/webportalPresentationScreenWHD.png)
+![screen-res-whd]({{site.baseurl }}/assets/images/webportal-presentation-screen-whd.png)
 
 
 ## VIRTUAL KEYBOARD
 
 A virtual keyboard is available on the NAC. It is displayed on the full size of the NAC touchscreen.
 
-![virtualKeyboard]({{site.baseurl}}/assets/images/virtualKeyboard.png)
+![virtual-keyboard]({{site.baseurl}}/assets/images/virtual-keyboard.png)
 
 You just have to create an HTML **input text**, once the user set the **focus** on this text field the virtual keyboard is displayed.
 
@@ -135,36 +135,36 @@ But then you will need to understand what this ID means. Here is correspondence 
 
 ID|Theme Name| Screenshot/Description |
 -|-:|--:|
-0|Blue Theme <br/> Mainstream PEUGEOT| ![ambiencePeugeot0]({{site.baseurl}}/assets/images/ambiencePeugeot0.png){:class="tableimg"} |
-1| Copper Theme <br/>  Onyx| ![ambiencePeugeot1]({{site.baseurl}}/assets/images/ambiencePeugeot1.png){:class="tableimg"} |
-2|Red Theme <br/> GTI| ![ambiencePeugeot2]({{site.baseurl}}/assets/images/ambiencePeugeot2.png){:class="tableimg"} |
-3|Green Theme <br/> QUARTZ| ![ambiencePeugeot3]({{site.baseurl}}/assets/images/ambiencePeugeot3.png){:class="tableimg"} |
-4|Dichroique Theme <br/> PHEV/BEV|![Blue as main color with flashy green lines]({{site.baseurl}}/assets/images/ambiencePeugeot4.png){:class="tableimg"} |
-5|Krypto Theme <br/> PHEV/Performance| ![Silver as main color with flashy yellow-ish lines]({{site.baseurl}}/assets/images/ambiencePeugeot5.png){:class="tableimg"} |
+0|Blue Theme <br/> Mainstream PEUGEOT| ![ambience-peugeot0]({{site.baseurl}}/assets/images/ambiences/ambience-peugeot0.png){:class="tableimg"} |
+1| Copper Theme <br/>  Onyx| ![ambience-peugeot1]({{site.baseurl}}/assets/images/ambiences/ambience-peugeot1.png){:class="tableimg"} |
+2|Red Theme <br/> GTI| ![ambience-peugeot2]({{site.baseurl}}/assets/images/ambiences/ambience-peugeot2.png){:class="tableimg"} |
+3|Green Theme <br/> QUARTZ| ![ambience-peugeot3]({{site.baseurl}}/assets/images/ambiences/ambience-peugeot3.png){:class="tableimg"} |
+4|Dichroique Theme <br/> PHEV/BEV|![Blue as main color with flashy green lines]({{site.baseurl}}/assets/images/ambiences/ambience-peugeot4.png){:class="tableimg"} |
+5|Krypto Theme <br/> PHEV/Performance| ![Silver as main color with flashy yellow-ish lines]({{site.baseurl}}/assets/images/ambiences/ambience-peugeot5.png){:class="tableimg"} |
 8|Red Theme <br/> Multidrive 1 <br/> BOOST||
-9|Sable/Zen Theme <br/> Multidrive 2 <br/> RELAX| ![ambiencePeugeot9]({{site.baseurl}}/assets/images/ambiencePeugeot9.png){:class="tableimg"} |
+9|Sable/Zen Theme <br/> Multidrive 2 <br/> RELAX| ![ambience-peugeot9]({{site.baseurl}}/assets/images/ambiences/ambience-peugeot9.png){:class="tableimg"} |
 
 #### Citroën
 
 ID|Theme Name| Screenshot/Description |
 -|-:|--:|
-0|Orange Theme <br/> Show Room| ![ambienceCitroen0]({{site.baseurl}}/assets/images/ambienceCitroen0.png){:class="tableimg"} |
-1| Mainstream <br/> Red Theme <br/> Checkerboard Background| ![ambienceCitroen1]({{site.baseurl}}/assets/images/ambienceCitroen1.png){:class="tableimg"} |
-2|Blue Theme <br/> Checkerboard background <br/> Luminous headband | ![ambienceCitroen2]({{site.baseurl}}/assets/images/ambienceCitroen2.png){:class="tableimg"} |
-3|Brown Theme <br/> Checkerboard Background | ![ambienceCitroen7]({{site.baseurl}}/assets/images/ambienceCitroen3.png){:class="tableimg"} |
-4|Battery Electric Vehicle / Plug<br/>in Hybrid Electric Vehicle | ![ambienceCitroen4]({{site.baseurl}}/assets/images/ambienceCitroen4.png){:class="tableimg"} |
-5|Theme Red <br/> Change plain background |![ambienceCitroen7]({{site.baseurl}}/assets/images/ambienceCitroen5.png){:class="tableimg"} |
-6|Theme Blue <br/> Change plain background<br/> Change Headband | ![ambienceCitroen7]({{site.baseurl}}/assets/images/ambienceCitroen6.png){:class="tableimg"} |
-7|Brown Theme <br/> Change plain background<br/> Change Headband | ![ambienceCitroen7]({{site.baseurl}}/assets/images/ambienceCitroen7.png){:class="tableimg"} |
+0|Orange Theme <br/> Show Room| ![ambience-citroen0]({{site.baseurl}}/assets/images/ambiences/ambience-citroen0.png){:class="tableimg"} |
+1| Mainstream <br/> Red Theme <br/> Checkerboard Background| ![ambience-citroen1]({{site.baseurl}}/assets/images/ambiences/ambience-citroen1.png){:class="tableimg"} |
+2|Blue Theme <br/> Checkerboard background <br/> Luminous headband | ![ambience-citroen2]({{site.baseurl}}/assets/images/ambiences/ambience-citroen2.png){:class="tableimg"} |
+3|Brown Theme <br/> Checkerboard Background | ![ambience-citroen7]({{site.baseurl}}/assets/images/ambiences/ambience-citroen3.png){:class="tableimg"} |
+4|Battery Electric Vehicle / Plug<br/>in Hybrid Electric Vehicle | ![ambience-citroen4]({{site.baseurl}}/assets/images/ambiences/ambience-citroen4.png){:class="tableimg"} |
+5|Theme Red <br/> Change plain background |![ambience-citroen7]({{site.baseurl}}/assets/images/ambiences/ambience-citroen5.png){:class="tableimg"} |
+6|Theme Blue <br/> Change plain background<br/> Change Headband | ![ambience-citroen7]({{site.baseurl}}/assets/images/ambiences/ambience-citroen6.png){:class="tableimg"} |
+7|Brown Theme <br/> Change plain background<br/> Change Headband | ![ambience-citroen7]({{site.baseurl}}/assets/images/ambiences/ambience-citroen7.png){:class="tableimg"} |
 
 #### DS
 
 ID|Theme Name| Screenshot/Description |
 -|-:|--:|
-0|Gold Theme <br/> Champagn |  ![Black/gray]({{site.baseurl}}/assets/images/ambienceDs0.png){:class="tableimg"}|
-1| Red Theme <br/> Champagn Perfo Line |  ![Black with red edges/angles]({{site.baseurl}}/assets/images/ambienceDs1.png){:class="tableimg"}|
-2| Blue Theme <br/>  Ruby | ![Red main color]({{site.baseurl}}/assets/images/ambienceDs2.png){:class="tableimg"} |
-3| Sapphire Theme <br/>  Battery Electric Vehicle <br/> Plug-in Hybrid Electric Vehicle |  ![Blue / white glow]({{site.baseurl}}/assets/images/ambienceDs3.png){:class="tableimg"} |
+0|Gold Theme <br/> Champagn |  ![Black/gray]({{site.baseurl}}/assets/images/ambiences/ambience-ds0.png){:class="tableimg"}|
+1| Red Theme <br/> Champagn Perfo Line |  ![Black with red edges/angles]({{site.baseurl}}/assets/images/ambiences/ambience-ds1.png){:class="tableimg"}|
+2| Blue Theme <br/>  Ruby | ![Red main color]({{site.baseurl}}/assets/images/ambiences/ambience-ds2.png){:class="tableimg"} |
+3| Sapphire Theme <br/>  Battery Electric Vehicle <br/> Plug-in Hybrid Electric Vehicle |  ![Blue / white glow]({{site.baseurl}}/assets/images/ambiences/ambience-ds3.png){:class="tableimg"} |
 8|Red Theme <br/>  Titanium <br/> (same as ambiance 3)| |
 9| Violet Theme <br/>  Cachemire| |
 
@@ -172,5 +172,5 @@ ID|Theme Name| Screenshot/Description |
 
 ID|Theme Name| Screenshot/Description |
 -|-:|--:|
-0|Red & grey Theme <br/> GM| ![ambienceOpel0]({{site.baseurl}}/assets/images/ambienceOpel0.png){:class="tableimg"} |
-1|Battery Electric Vehicle <br/> Plug-in Hybrid Electric Vehicle| ![ambienceOpel1]({{site.baseurl}}/assets/images/ambienceOpel1.png){:class="tableimg"}|
+0|Red & grey Theme <br/> GM| ![ambience-opel0]({{site.baseurl}}/assets/images/ambiences/ambience-opel0.png){:class="tableimg"} |
+1|Battery Electric Vehicle <br/> Plug-in Hybrid Electric Vehicle| ![ambience-opel1]({{site.baseurl}}/assets/images/ambiences/ambience-opel1.png){:class="tableimg"}|

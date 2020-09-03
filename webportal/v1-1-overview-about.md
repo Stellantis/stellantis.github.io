@@ -5,11 +5,11 @@ section: webportal
 subsection: v1
 categorie: Overview
 title: About
-description: "WebPortal is the browser allowing users to launch authorized Web Applications directly from the media system of their car."
+description: "WebPortal v1 is the browser allowing users to launch authorized Web Applications directly from the media system of their car."
 redirect_from:
-  - /webportal/
   - /webportal/v1/
   - /webportal/v1/overview/
+  - /webportal/
 ---
 
 # ABOUT WEBPORTAL
@@ -17,7 +17,7 @@ redirect_from:
 The WebPortal is the browser allowing users to launch authorized Web Applications directly from the media system of their car.
 All the applications function on a subscription basis and their presence on the welcome page is automatically managed by the WebPortal.
 
-![Image of Main Screen]({{ site.baseurl }}/assets/images/WebPortal_pic.jpg)
+![Image of Main Screen]({{ site.baseurl }}/assets/images/webportal-pic.jpg)
 
 The WebPortal relies on [REST API](https://restfulapi.net/) and [MQTT protocol](http://mosquitto.org/man/mqtt-7.html).
 
@@ -43,8 +43,8 @@ The API will allow you to do the following:
 
 When the system starts, a menu appears where the user can choose to access the Connected Apps:
 
-![Image of Main Screen]({{ site.baseurl }}/assets/images/Mainscreen_portal.png)
+![Image of Main Screen]({{ site.baseurl }}/assets/images/mainscreen_webportal.png)
 
 They then reach the main menu containing the applications they are subscribed to:
 
-![App Wall]({{ site.baseurl }}/assets/images/AppWall.png)
+![App Wall]({{ site.baseurl }}/assets/images/app-wall.png)
