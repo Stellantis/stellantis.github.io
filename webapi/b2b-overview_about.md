@@ -9,6 +9,6 @@ subsection: b2b
 categorie: Overview
 title: About
 gitHubPath: webapi/content/webapi-overview_about.md
-description: "Groupe PSA REST APIs implements various endpoints to retrieve resources from your Groupe PSA’s vehicles."
+description: "Groupe PSA REST B2B APIs implements various endpoints to retrieve resources from your Groupe PSA’s vehicles."
 ---
 {% include_relative content/webapi-overview_about.md %}

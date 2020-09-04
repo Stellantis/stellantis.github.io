@@ -27,7 +27,7 @@ At the end of this process you will have everything you need to consume our *B2C
 
 This schema explains the whole process:
 
-<img src="{{site.baseurl}}/assets/images/connectB2cProcess.jpg" alt="connectB2C" style="width: 470px">
+<img src="{{site.baseurl}}/assets/images/connect-b2c-process.jpg" alt="connect-b2c-process" style="width: 470px">
 
 # 1. REGISTER YOUR APP
 
@@ -41,7 +41,7 @@ On **[developer.groupe-psa.com](https://developer.groupe-psa.com/){:target="_bla
 - Then click on *create a new account* to validate the creation of your account.
 - You will receive an *activation email*, please use the link to confirm your account.
 
-<img src="{{site.baseurl}}/assets/images/connectB2cSignup.gif" alt="connectB2cSignup" style="width: 480px">
+<img src="{{site.baseurl}}/assets/images/connect-b2c-signup.gif" alt="connect-b2c-signup" style="width: 480px">
 
 ## 1.2 REGITSER YOUR APP
 
@@ -57,7 +57,7 @@ Next step is to create your application. This process will create an identifier 
 > **Be careful:** once your app has been submitted, you will be redirected to a page with your app info. At the top of the window, your `client_secret` will be displayed (you have to toggle *Show Client Secret*). This is the **ONLY** time it will be displayed on the website, you will then only be able to verify or reset it, so please write it down somewhere and keep it safe.
 You can retrieve your `client_id` at any time: go to the *APP tab* > select your APP > toggle *show* Client ID.
 
-<img src="{{site.baseurl}}/assets/images/connectB2cCreateApp.gif" alt="connectB2cCreateApp" style="width: 480px">
+<img src="{{site.baseurl}}/assets/images/connect-b2c-create_app.gif" alt="connect-b2c-create_app" style="width: 480px">
 
 ## 1.3 SELECT PRODUCTS
 
@@ -68,7 +68,7 @@ Now you have an account hosting your APP:
 
 For your requests to the API, you must use your `client_id`, `client_secret` and an `access token`.
 
-<img src="{{site.baseurl}}/assets/images/connectB2cSubscribeApp.gif" alt="connectB2cSubscribeApp" style="width: 480px">
+<img src="{{site.baseurl}}/assets/images/connect-b2c-subscribe_app.gif" alt="connect-b2c-subscribe_app" style="width: 480px">
 
 # 2. ACCESS TOKEN
 

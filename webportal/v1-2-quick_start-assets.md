@@ -5,7 +5,7 @@ section: webportal
 subsection: v1
 categorie: Quickstart
 title: Assets
-description: ""
+description: "Here you can find informations about how you shoul manage assets (pictures, font, audio ...) in webportal application."
 ---
 # LOADING AND USING ASSETS
 

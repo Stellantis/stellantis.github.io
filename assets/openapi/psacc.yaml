@@ -19,7 +19,7 @@ info:
     Token](https://tools.ietf.org/html/rfc6749#section-1.4) to access to user
     data.
 
-    # Errors:
+    # Errors
       Error codes returned by all REST APIs comply with the standard. Nevertheless, PSA Services (callers) need to have more complete data structures (even when the answer is not Http-OK) to better detail the type of error by providing application code, message and a debugging code(for investigation purposes). The http code of the response is managed by the protocol itself (in the header).
       
       **Errors are  returned as a generic error response:**
@@ -27,10 +27,10 @@ info:
   license:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'
-  title: Groupe PSA Connected Car API
-  version: '2.0'
-host: api.mpsa.com
-basePath: /api/connectedcar/v2
+  title: Groupe PSA Connected Car - WEB API B2C v4
+  version: ''
+host: api.groupe-psa.com/
+basePath: connectedcar/v4
 schemes:
   - https
 paths:

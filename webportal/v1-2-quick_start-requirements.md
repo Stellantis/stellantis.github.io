@@ -7,7 +7,13 @@ subsection: v1
 title: Requirements
 redirect_from:
  - /webportal/best-practice/
+description: "There are some requirements that you must consider for your app development. Otherwise, your application will not be validated in webportal."
 ---
+
+
+There are some requirements that you must consider for your app development.
+
+Otherwise, your application will not be [validated]({{site.baseurl}}/webportal/v1/overview/app-validation/#article) in webportal.
 
 # GENERAL
 

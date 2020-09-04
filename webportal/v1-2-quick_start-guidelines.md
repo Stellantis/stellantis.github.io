@@ -5,7 +5,7 @@ section: webportal
 subsection: v1
 categorie: Quickstart
 title: Guidelines
-description: ""
+description: "WebPortal is based on web technologies however, there are some specificities that you need to consider in order to optimize your app. This page give some good practices for development on webportal."
 ---
 
 # BEST PRACTICES 

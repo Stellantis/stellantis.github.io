@@ -5,7 +5,7 @@ section: webportal
 subsection: v1
 categorie: User Interaction
 title: Player
-description: ""
+description: "INstruction to handle media player implementation in webportal applications."
 ---
 
 # MANAGING AUDIO

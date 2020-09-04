@@ -2,7 +2,7 @@
 
 With our APIs, you are able to {% if page.subsection == 'b2b' %}[browse data]({{site.baseurl}}/webapi/b2b/overview/standards/){% elsif page.subsection == 'b2c' %}[browse datas]({{site.baseurl}}/webapi/b2c/overview/standards/){% endif %} about vehicles and receive {% if page.subsection == 'b2b' %}[custom notifications]({{site.baseurl}}/webapi/b2b/monitor/about){% elsif page.subsection == 'b2c' %}[custom notifications]({{site.baseurl}}/webapi/b2c/monitor/about){% endif %}. Now, the remote APIs allow you to send online commands to connected vehicles.
 
-<img src="{{site.baseurl}}/assets/images/remoteFeatures.png" alt="remoteFeatures" style="width: 580px">
+<img src="{{site.baseurl}}/assets/images/remote-features.png" alt="remote-features" style="width: 580px">
 
 **Available features:**
 
@@ -28,7 +28,7 @@ Callbacks are **specific** to certain remotes, as you can subscribe them to one 
 
 It is possible to set a retry policy with a specific number and frequency, it’s useful in case of your webhook is temporary unavailable. You can also set a batch notify policy.
 
-![remoteSequence]({{site.baseurl}}/assets/images/remoteCallbackSequence.png)
+![remote-callback-sequence]({{site.baseurl}}/assets/images/remote-callback-sequence.png)
 
 >**Note:** At least one callback is required to post a remote action. But you can use **only one callback** for all your remote actions if you need only one webhook configuration. Indeed, if you need to have different webhook or notification policies, you can set several callbacks.
 
@@ -37,7 +37,7 @@ It is possible to set a retry policy with a specific number and frequency, it’
 Once your callback is created, you will be able to **send remote** request to your vehicle (through Groupe PSA's network).
 While the command is being processed by the vehicle, you will receive callback reports in your webhook.
 
-![remoteSequence]({{site.baseurl}}/assets/images/remoteActionSequence.png)
+![remote-action-sequence]({{site.baseurl}}/assets/images/remote-action-sequence.png)
 
 When you send a remote action to a vehicle, you will receive **several notifications** as the action is processing: 
 - Pending: The remote action is in process (*Accepted*, *Waking-Up*, *Send* etc). You can receive several pending events.

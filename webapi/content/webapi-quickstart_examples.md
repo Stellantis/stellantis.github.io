@@ -2,7 +2,7 @@
 
 This Quick Start contains examples of curl requests to Groupe PSA's web api for {% if page.subsection == 'b2b' %}Fleet Owners{% elsif page.subsection == 'b2c' %}End-Users{% endif %}. These examples will show you how to deal with single objects, collections, geo-json objects and an example of POST and DELETE HTTP request.
 
-To retrieve {% if page.subsection == 'b2b' %} authentication information refer to [this section]({{site.baseurl}}/webapi/b2b/quickstart/autentication).{% elsif page.section == 'b2c' %} connection information refer to [this section]({{site.baseurl}}/webapi/b2c/quickstart/connect).{% endif %}
+To retrieve {% if page.subsection == 'b2b' %} authentication information refer to [this section]({{site.baseurl}}/webapi/b2b/quickstart/authentication).{% elsif page.section == 'b2c' %} connection information refer to [this section]({{site.baseurl}}/webapi/b2c/quickstart/connect).{% endif %}
 
 
 ## GET YOUR INFO
@@ -177,15 +177,6 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/monitors/{mid}'{% elsif page
 ##### TRY OUT!
 
 Retrieve all reference of this API, go to the {% if page.subsection == 'b2b' %}[API List]({{ site.baseurl }}/webapi/b2b/reference/specification/){% elsif page.subsection == 'b2c' %}[API List]({{ site.baseurl }}/webapi/b2c/reference/specification/){% endif %}.
-
-<!-- {% if page.subsection == 'b2b' %}
-##### AUTHENTICATION
-
-Groupe PSA's web API for fleet owner utilizes mutual authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/webapi/b2b/quickstart/autentication/) and obtain your own certificate.
-{% elsif page.subsection == 'b2c' %}
-##### CONNECT
-
-Groupe PSA's web API for end-users utilizes OAuth2 connection, follow this [link]({{site.baseurl}}/webapi/b2c/quickstart/connect/) for connection tutorial. {% endif %} -->
 
 ##### TUTORIAL
 

@@ -5,7 +5,7 @@ section: webportal
 subsection: v1
 categorie: Connectivity
 title: Notification
-description: ""
+description: "Send notification from your back-end to your app."
 ---
 
 

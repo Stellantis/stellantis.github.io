@@ -5,13 +5,17 @@ section: webportal
 subsection: v1
 categorie: Quickstart
 title: Handling Events
-description: ""
+description: "Webportal is designed to communicate with your app through event. Some of these events are very important to handle."
 ---
-
 
 # WEBPORTAL EVENTS
 
+Webportal is designed to communicate with your app through event. 
+
+
 The WebPortal will forward events to your application in order to be informed about the current state of both the App and the Portal.
+
+Some of these events are very important to handle. Indeed, some events are required for your app to work properly.
 
 ## STRUCTURE OF A WEBPORTAL MESSAGE
 ```javascript

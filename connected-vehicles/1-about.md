@@ -5,7 +5,7 @@ redirect_from:
 permalink: /connected-vehicles/about/
 section: connected-vehicles
 title: About
-description: ""
+description: "Groupe PSA for Developers is the dedicated platform for application developers working with Groupe PSA's connected vehicles."
 ---
 
 # WHAT IS GROUPE PSA FOR DEVELOPERS?

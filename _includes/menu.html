@@ -6,11 +6,11 @@
             {% for subsection in section.subsections %}
                     {% if page.subsection == subsection.tag %}
                     {% for categorie in subsection.categories %}
-                    <a href="{{site.baseurl}}{{section.path}}{{subsection.path}}{{categorie.path}}" class='menu-label has-list{% if page.categorie == categorie.name %} is-active{% endif %}' id="{{categorie.name}}">
+                    <p href="{{site.baseurl}}{{section.path}}{{subsection.path}}{{categorie.path}}" class='menu-label has-list{% if page.categorie == categorie.name %} is-active{% endif %}' id="{{categorie.name}}">
                         <span>
                             {{categorie.name}}
                         </span>
-                    </a>
+                    </p>
                     <ul class="menu-list">
                         {% for p in categorie.pages %}
                         {% assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path %}

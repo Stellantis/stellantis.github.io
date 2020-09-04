@@ -7,6 +7,6 @@ require: swagger
 gitHubPath: webapi/content/webapi-remote_webhook.md
 categorie: Remote
 title: Webhook References
-description: "Remote APIs allow you to send online commands to your connected vehicles."
+description: "Learn how to set-up your webhook in order to receive Remote notifications."
 ---
 {% include_relative content/webapi-remote_webhook.md %}

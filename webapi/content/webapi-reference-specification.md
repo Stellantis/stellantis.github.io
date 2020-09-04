@@ -1,12 +1,4 @@
 <style>
-#lunr {
-    padding-top: 0;
-    margin-top: 0;
-}
-
-#txtsearchresult {
-    padding-top: 80px;
-}
 
 html {
 scroll-behavior: unset;
@@ -22,14 +14,31 @@ h1, h2, h3, h4, h5 {
     display: flex;
 }
 
-.breadcrumb{
-    display: none;
+
+#content-header #page-title {
+    font-size: 1.8rem;
+
 }
+
+
+.page-title-container{
+    margin-top:1.2rem;
+}
+
+/* .notification.page-disclaimer{
+    display: none;
+} */
 
 .content {
     margin-bottom: 0 !important;
+    padding-top: 3.5rem;
     padding-bottom: 0.7rem;
-    max-width: 100%
+    max-width: 100%;
+}
+
+.content, .is-spec-content {
+    padding-left: 7.5%;
+    padding-right: 7.5%;
 }
 
 
@@ -77,15 +86,31 @@ font-size: inherit;
     display: inherit;
 }
 
+#lunr {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+#txtsearchresult {
+    padding-top: 80px;
+}
+
 .is-spec-content{
-    padding-bottom: 1.5rem;
-    padding-left: 5%;
+    padding-bottom: 2.5rem;
     border-bottom: 1px solid lightgrey;
 }
 
 #article {
     background: white;
 }
+
+@media screen and (max-width: 920px) {
+    .content, .is-spec-content {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+}
+
 
 
 </style>
@@ -99,7 +124,6 @@ font-size: inherit;
     scrollYOffset: 67,
     "unstable_ignoreMimeParameters": true,
     disableSearch: true,
-    hideHostname: true,
     noAutoAuth: true,
     expandResponses: "200,201,202",
     theme: {
@@ -120,6 +144,9 @@ font-size: inherit;
                 fontSize: '13px',
                 fontFamily: 'Inconsolata, monospace',
                 wrap: false,
+            },
+            links: {
+            color: "#2689b5"
             },
         },
         codeBlock: {

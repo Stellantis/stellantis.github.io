@@ -5,7 +5,7 @@ section: webportal
 subsection: v1
 categorie: User Interaction
 title: Popup
-description: ""
+description: "Follow this example to open a native popup from your app."
 ---
 
 # OPEN POPUP

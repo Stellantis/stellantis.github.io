@@ -7,6 +7,6 @@ require: swagger
 gitHubPath: webapi/content/webapi-remote_setup.md
 categorie: Remote
 title: Set Up
-description: "Remote APIs allow you to send online commands to your connected vehicles."
+description: "Learn how to set-up remotes in Groupe PSA B2B WEB API."
 ---
 {% include_relative content/webapi-remote_setup.md %}

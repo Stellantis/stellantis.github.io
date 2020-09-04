@@ -1,9 +1,14 @@
+---
+section: webapi
+subsection: b2b
+---
+
 openapi: 3.0.0
 servers:
-  - url: 'https://api-cert.groupe-psa.com/connectedcar/version'
+  - url: 'https://api-cert.groupe-psa.com/connectedcar/v3'
 info:
-  version: '2.0'
-  title: Groupe PSA Connected Car B2B API
+  version: ""
+  title: Groupe PSA Connected Car - WEB API B2B v3
   description: |
     *Business Partner Connected Fleet API*  
     
@@ -25,15 +30,15 @@ info:
     
     ---
     
-    # Paging:
+    # Paging
       To make this necessary feature easy to use when retrieving a collection of results, this API uses a token (computed and interpreted by the server only) as a context that contains all necessary information allowing the navigation through pages. 
       Token acts as an ```HTTP COOKIE``` on the client-side, so the server does not keep any cache or session settings to continue paging and keep all request stateless.
           
     ---
         
-    # Errors:
+    # Errors
       Error codes returned by all APIs comply with the standard. Nevertheless, PSA Services (callers) need to have more detailed data structures (even when the answer is not Http-OK) to better categorize the type of error by providing application code, message and debugging code(for investigation purposes). The HTTP code of the response is managed by the protocol itself (in the header).
-
+        
     ### These APIS are likely to report the following HTTP code:
     
     | <b>Code</b>  | <b>Description</b>  |  <b>Case</b> |  
@@ -55,7 +60,8 @@ info:
     ---
     
        
-    # API output:
+    # API output
+    
       ## Data profile
        B2B partners need to return vehicle data with an end-user profile. To do this, the data APIs allow to use an end-user profile according to a query parameter named ```profile```.  Remote,  Monitor, Fleets and Vehicles getter APIs are not affected by this parameter.
      
@@ -102,6 +108,7 @@ info:
       
      
     ---  
+
   license:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'

@@ -8,7 +8,7 @@ title: Get Started
 redirect_from:
  - /webportal/v1/quickstart/
  - /webportal/quickstart/
-description: "This tutorial explains the basics of creating an app for Webportal and using our API features."
+description: "This tutorial explains the basics of creating an app for Webportal v1 and using our API features."
 ---
 
 # GETTING STARTED
