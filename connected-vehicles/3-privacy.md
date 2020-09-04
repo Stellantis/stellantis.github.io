@@ -23,7 +23,7 @@ This setting will impact your ability to retrieve data in our API.
 
 You can access the feature of webportal that are allowed by the privacy mode of the user. That's why your APP needs to handle the privacy settings selected by the user.
 
-See this [section]({{site.baseurl}}/webportal/v1/quickstart/#privacy-mode) of webportal tutorial for more info.
+See this [section]({{site.baseurl}}/webportal/v1/quickstart/events/#privacy-mode) of webportal tutorial for more info.
 
 ## WEB API
 
@@ -31,16 +31,8 @@ You are developer for end-user application, you can access data based on the pri
 
 If your are a fleet owner you can access your vehicle data. However, in order to be compliant with GDPR, you can use the query parameter `profile` as described [here]({{site.baseurl}}/webapi/b2b/reference/specification#section/API-output:/Data-profile).
 
-## MOBILE SDK
-
-Mobile SDK is not affected by privacy settings.
 
 # SEE ALSO
-
-#### DATA CATALOG
-
-Look at our [data catalog]({{site.baseurl}}/connected-vehicles/data-catalog/#article) to find what kind of information are available in the API.
-
 
 #### CONNECTED SERVICES
 

@@ -29,8 +29,8 @@ info:
     url: 'https://www.psa-peugeot-citroen.com/'
   title: Groupe PSA Connected Car - WEB API B2C v4
   version: ''
-host: api.mpsa.com
-basePath: /api/connectedcar/v2
+host: api.groupe-psa.com/
+basePath: connectedcar/v4
 schemes:
   - https
 paths:

@@ -12,9 +12,11 @@ Our REST APIs implements various endpoints to retrieve resources from your Group
 
 # HOW DOES IT WORK?
 
-Vehicles are using various sensors which aim to improve security and driving experience. Those sensors are available for embedded applications development for the inboard car computer, as you can see [in this section]({{ site.baseurl }}/webportal/v1) of this documentation website.
+Vehicles are using various sensors which aim to improve security and driving experience.
 
-Our web APIs grants you access to this data even outside the car:
+Those sensors provide data that are available in the vehicle infotainment system. If you are interested in embedded application development, you can have a look [at this section]({{ site.baseurl }}/webportal/v1) of this documentation website.
+
+Furthermore, our web APIs grants you access to this data even outside the car:
 
 ![presentation-unified]({{ site.baseurl }}/assets/images/presentation-unified.png)
 

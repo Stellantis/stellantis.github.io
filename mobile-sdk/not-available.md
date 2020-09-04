@@ -5,6 +5,8 @@ section: mobile-sdk
 title: Not available
 on_this_page: false
 redirect_from:
+  - /mobile-sdk/ios/
+  - /mobile-sdk/android/
 ---
 
 <section class="content" style="padding-left:10%; padding-top: 5rem; padding-bottom: 5rem; background: white;">
