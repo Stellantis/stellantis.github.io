@@ -2,6 +2,7 @@
 layout: doc-article
 redirect_from: 
     - /webapi/b2b/overview/
+    - /webapi/b2b/#article
     - /webapi/b2b/
 permalink: /webapi/b2b/overview/about/
 section: webapi
