@@ -17,4 +17,4 @@ Here is some informations about webportal standars that you need to understand t
 - **JavaScript**: interact with the user and with the infotainment system.
     - `window.postMessage`: throught this JavaScript native API you will be able to interact with webportal vehicle APIs as explained in [Get-Started]({{site.baseurl}}/webportal/v1/quickstart/get-started/#article)
 - **JSON** Serialization format: along with `window.postMessage`. JSON allows you to interact with webportal API.
-- **MQTT** protocol: understanding MQTT protocol is mandatory in case you need a back-end for your App (in order to interact with vehicles through Groupe PSA MQTT borker). If you don't need any back-end, MQTT knowledge is not mandatory.
+- **MQTT** protocol: understanding MQTT protocol is mandatory in case you need a back-end for your App (in order to interact with vehicles through Groupe PSA MQTT broker). If you don't need any back-end, MQTT knowledge is not mandatory.
