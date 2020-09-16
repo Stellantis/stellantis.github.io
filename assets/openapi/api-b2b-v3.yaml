@@ -10,12 +10,10 @@ info:
   version: ""
   title: Groupe PSA Connected Car - WEB API B2B v3
   description: |
-    *Business Partner Connected Fleet API*  
-    
  
     # Introduction
 
-    This is the description of the *Groupe PSA Connected Car V2 B2B API*. 
+    This is the description of the *Groupe PSA Connected Car V3 B2B API*. 
     This specification is written in **OpenAPI Specification version 3** and can
     be displayed using [ReDoc](https://github.com/Rebilly/ReDoc) or
     [Swagger](http://swagger.io).
