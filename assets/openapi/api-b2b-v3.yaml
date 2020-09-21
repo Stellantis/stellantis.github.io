@@ -7,9 +7,11 @@ openapi: 3.0.0
 servers:
   - url: 'https://api-cert.groupe-psa.com/connectedcar/v3'
 info:
-  version: ""
-  title: Groupe PSA Connected Car - WEB API B2B v3
+  version: '3.0'
+  title: Groupe PSA Connected Car B2B API
   description: |
+    *Business Partner Connected Fleet API*  
+    
  
     # Introduction
 
@@ -28,13 +30,13 @@ info:
     
     ---
     
-    # Paging
+    # Paging:
       To make this necessary feature easy to use when retrieving a collection of results, this API uses a token (computed and interpreted by the server only) as a context that contains all necessary information allowing the navigation through pages. 
       Token acts as an ```HTTP COOKIE``` on the client-side, so the server does not keep any cache or session settings to continue paging and keep all request stateless.
           
     ---
         
-    # Errors
+    # Errors:
       Error codes returned by all APIs comply with the standard. Nevertheless, PSA Services (callers) need to have more detailed data structures (even when the answer is not Http-OK) to better categorize the type of error by providing application code, message and debugging code(for investigation purposes). The HTTP code of the response is managed by the protocol itself (in the header).
         
     ### These APIS are likely to report the following HTTP code:
@@ -58,8 +60,7 @@ info:
     ---
     
        
-    # API output
-    
+    # API output:
       ## Data profile
        B2B partners need to return vehicle data with an end-user profile. To do this, the data APIs allow to use an end-user profile according to a query parameter named ```profile```.  Remote,  Monitor, Fleets and Vehicles getter APIs are not affected by this parameter.
      
@@ -106,7 +107,6 @@ info:
       
      
     ---  
-
   license:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'
@@ -1213,6 +1213,16 @@ components:
               type: boolean
             type:
               $ref: '#/components/schemas/AlertMsgEnum'
+            severity:
+              description: |
+                            Alert severity level.
+                            |Severity|Description|
+                            |:---|:---|
+                            |Information|Better to fix but it is operating accurately.|
+                            |Warning|Should fix it asap.|
+                            |Critical|Starting prohibited without repair.|                           
+              type: string
+              enum: [Information, Warning, Critical]
             updatedAt:
               type: string
               format: date-time
@@ -2069,6 +2079,7 @@ components:
                        ### Note: 
                        The number of results may be lower than the specified page 'size' due to the applying of the path simplifying after resolving the page resultset.
                   type: boolean
+                  deprecated: true
                 positions:
                   type: array
                   items:
@@ -2159,7 +2170,7 @@ components:
                   - type: string
                     enum: [vin,monitorID,fleetID]
                     description: |
-                      Set of variables that will be contextually valued and used as attribute value. To reference the variable, prefix its name with the dollar sign ($)  
+                      A value  that will be associated with the provided key as is if expressed as literal value or  contextually valued if prefixed with the dollar sign ($).  
                       
                       * Disclaimer: if the var "vin" is used as a query parameter, the batchnotify will be no more possible and each event will be sent through a separated request!.
                       * example: Having a vin=VIN123456, the following attribute set:
@@ -2210,7 +2221,7 @@ components:
     RemoteAttributeSet:          
         type: array
         description: |
-            Additional attributes-set that can be used as http header enhancement (such as headers can be used as an authentication parameter when posting the event) or simply added to the notification event body (as set of key/values) or finally as additional query parameters.
+            Additional attributes-set as key/value pairs wich will be added to the request when sending the event. It can be used as http header enhancement (such as headers can be used as an authentication parameter when posting the event) or simply added to the notification event body (as set of key/values) or finally as additional query parameters.
         items:
             $ref: '#/components/schemas/RemoteAttribute'  
         example:
@@ -2224,7 +2235,7 @@ components:
     AttributeSet:          
           type: array
           description: |
-            Additional attributes-set that can be used as http header enhancement (such as headers can be used as an authentication parameter when posting the event) or simply added to the notification event body (as set of key/values) or finally as additional query parameters.
+            Additional attributes-set as key/value pairs wich will be added to the request when sending the event. It can be used as http header enhancement (such as headers can be used as an authentication parameter when posting the event) or simply added to the notification event body (as set of key/values) or finally as additional query parameters.
           items:
             $ref: '#/components/schemas/Attribute'
             
@@ -3058,7 +3069,7 @@ components:
     BoundedProgram:
       allOf:
         -  $ref: '#/components/schemas/Program'
-        - required: [start, duration, recurrence]
+        - required: [start, duration]
           description: >
            extended program witch specify action duration. The relative start time (to 0h00). 
            
@@ -3121,9 +3132,9 @@ components:
           * '/T' startless range, known end date but no start date. No lower limit
             will be used to retrieve results.
             
-          * Rn/T/D  repeat the interval of D **n** times starting at T.
+          * Rn/T/D/[d]  repeat the interval of D **n** times starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H 
           
-          * R/T/D unbounded number of repetitions starting at T.
+          * R/T/D/[d] unbounded number of repetitions starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H.
 
 
             *T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).*
@@ -3139,7 +3150,7 @@ components:
 
             *  *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
             
-            *  *R5/2018-01-03T12:00:00Z/P6H* repeate duration 6H interval for 5 times starting at 2018-01-03T12:00:00Z.
+            *  *R5/2018-01-03T12:00:00Z/P6H/P2H* repeate duration 6H wiht interval period of 2H for 5 times starting at 2018-01-03T12:00:00Z.
               
     indexRange:
       type: string
@@ -3323,12 +3334,11 @@ components:
     TelemetryExtensionType:
       type: array
       minItems: 1
-      maxItems: 6
+      maxItems: 5
       items:
         type: string
         enum:
           - location
-          - alerts
           - collision
           - maintenance
           - odometer
@@ -3357,10 +3367,6 @@ components:
         allOf:
           - description: Additional data set for telemetry.  
           - properties:
-                alerts:
-                  type: array
-                  items:
-                      $ref: '#/components/schemas/Alert'
                 odometer: 
                     type: object
                     properties:
@@ -3572,21 +3578,29 @@ components:
         enum:
         #  - vehicle.odometer
         #  - vehicle.kinetic
-          - vehicle.running
-          - vehicle.engines.oil.temp
+        #  - vehicle.running
+          - vehicle.engines
+        #  - vehicle.engines.oil.temp
           - vehicle.engines.speed
+          - vehicle.engines.gmpStatus
+          - vehicle.engines.extension
+          - vehicle.energies
+          - vehicle.energies.type
+          - vehicle.energies.level
+          - vehicle.energies.autonomy
+          - vehicle.energies.extension
+        #  - vehicle.energy.consumption  
           - vehicle.brakingSystem.parking
-          - vehicle.energy.type
-          - vehicle.energy.level
-          - vehicle.energy.consumption  
-          - vehicle.energy.autonomy
           - vehicle.ignition
+          - vehicle.doorsState
           - vehicle.doorsState.lockedState
           - vehicle.doorsState.opening
-          - vehicle.energy.charging
+        #  - vehicle.energy.charging
+          - vehicle.transmission
           - vehicle.transmission.gearbox.mode 
           - vehicle.transmission.gearbox.gear
           - vehicle.lighting
+          - vehicle.adas
           - vehicle.adas.parkAssist.front
           - vehicle.adas.parkAssist.rear
           - vehicle.adas.aebs
@@ -3601,9 +3615,13 @@ components:
           - vehicle.adas.lka
           - vehicle.adas.bsm
           - vehicle.adas.sli
-          - passenger.seatbelt
+        #  - passenger.seatbelt
+          - vehicle.battery
+          - vehicle.safety
+          - privacy
           - environment.air
           - environment.luminosity
+          
     
     DataProfile:
         type: string
@@ -3799,7 +3817,7 @@ components:
       name: extension
       in: query
       description: >-
-        Additional data set that will be included in embedded field```(the number of elements in this array must be between 1 and 6)```.
+        Additional data set that will be included in embedded field```(the number of elements in this array must be between 1 and 5)```.
         
          * _Disclaimer_:  **Enabling ```odometer``` extension will automatically disable ```kinetic``` telemetry message**
       required: false
