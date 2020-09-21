@@ -95,7 +95,11 @@
             <li><a href="{{site.baseurl}}/{{page.section}}/{{page.subsection}}">{% if page.subsection == "v1" %}Version 1{% elsif page.subsection == "v2" %}Version 2{% elsif page.subsection == "b2b" %}Fleet-owner{% elsif page.subsection =="b2c" %}End-user{% elsif page.subsection=="ios" %}iOS{% else %}{{page.subsection| capitalize}}{% endif %}</a></li>
             {% endif %}
             {% if page.categorie%}
-            <li><a href="{{site.baseurl}}/{{page.section}}/{{page.subsection}}/{{page.categorie | downcase}}/#article">{{page.categorie| capitalize}}</a></li>
+                {% if page.categorie == "API Reference"%}
+                    <li><a href="{{site.baseurl}}/{{page.section}}/{{page.subsection}}/reference/#article">{{page.categorie| capitalize}}</a></li>
+                {% else %}
+                    <li><a href="{{site.baseurl}}/{{page.section}}/{{page.subsection}}/{{page.categorie | downcase}}/#article">{{page.categorie| capitalize}}</a></li>
+                {% endif %} 
             {% endif %}
             <li class="is-active">
                 <a href="#" aria-current="page">{{page.title| capitalize}}</a>
