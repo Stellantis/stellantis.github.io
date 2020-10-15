@@ -42,13 +42,13 @@ referenceURLResssourceB2C | String | Required | Anchor for the endpoint link to 
 {% else %}
 <div class="buttons has-addons">
   {% if page.subsection == 'b2b' %}
-  <a href="{{site.baseurl}}/webapi/b2b/reference/specification/" class="tag_endpoint_large button is-info"> API BaseURL</a>
-  <a href="{{site.baseurl}}/webapi/b2b/reference/specification/" class="tag_endpoint_large tag_api_endpoint button is-info">
-  {{site.webapiB2BPreProd}}
+  <a href="{{site.baseurl}}/webapi/b2b/api-reference/specification/" class="tag_endpoint_large button is-info"> API BaseURL</a>
+  <a href="{{site.baseurl}}/webapi/b2b/api-reference/specification/" class="tag_endpoint_large tag_api_endpoint button is-info">
+  {{site.webapiB2B}}
   {% elsif page.subsection == 'b2c' %}
-  <a href="{{site.baseurl}}/webapi/b2c/reference/specification/" class="tag_endpoint_large button is-info"> API BaseURL</a>
-  <a href="{{site.baseurl}}/webapi/b2c/reference/specification/" class="tag_endpoint_large tag_api_endpoint button is-info">
-  {{site.webapiB2CPreProd}}
+  <a href="{{site.baseurl}}/webapi/b2c/api-reference/specification/" class="tag_endpoint_large button is-info"> API BaseURL</a>
+  <a href="{{site.baseurl}}/webapi/b2c/api-reference/specification/" class="tag_endpoint_large tag_api_endpoint button is-info">
+  {{site.webapiB2C}}
   {% endif %}
   </a>
 </div>
@@ -57,7 +57,7 @@ referenceURLResssourceB2C | String | Required | Anchor for the endpoint link to 
 
 <div class="buttons has-addons">
   {% if page.subsection == 'b2b' %}
-    <a href="{{site.baseurl}}/webapi/b2b/reference{{include.referenceURLResssourceB2B}}" class="tag_endpoint_large button is-light is-selected {% if include.httpVerb == 'GET' %}
+    <a href="{{site.baseurl}}/webapi/b2b/api-reference{{include.referenceURLResssourceB2B}}" class="tag_endpoint_large button is-light is-selected {% if include.httpVerb == 'GET' %}
   get
   {% elsif include.httpVerb == 'POST' %}
   post
@@ -68,10 +68,10 @@ referenceURLResssourceB2C | String | Required | Anchor for the endpoint link to 
   {% else %}
   get
   {% endif %} "> {{include.httpVerb}} </a>
-  <a href="{{site.baseurl}}/webapi/b2b/reference{{include.referenceURLResssourceB2B}}" class="tag_endpoint_large button is-light is-selected">
+  <a href="{{site.baseurl}}/webapi/b2b/api-reference{{include.referenceURLResssourceB2B}}" class="tag_endpoint_large button is-light is-selected">
   {{include.apiEndpointB2B}}</a>
   {% elsif page.subsection == 'b2c' %}
-    <a href="{{site.baseurl}}/webapi/b2c/reference/specification{{include.referenceURLResssourceB2C}}" class="tag_endpoint_large button is-light is-selected {% if include.httpVerb == 'GET' %}
+    <a href="{{site.baseurl}}/webapi/b2c/api-reference/specification{{include.referenceURLResssourceB2C}}" class="tag_endpoint_large button is-light is-selected {% if include.httpVerb == 'GET' %}
   get
   {% elsif include.httpVerb == 'POST' %}
   post
@@ -82,7 +82,7 @@ referenceURLResssourceB2C | String | Required | Anchor for the endpoint link to 
   {% else %}
   get
   {% endif %} "> {{include.httpVerb}} </a>
-   <a href="{{site.baseurl}}/webapi/b2c/reference/specification{{include.referenceURLResssourceB2C}}" class="tag_endpoint_large button is-light is-selected">
+   <a href="{{site.baseurl}}/webapi/b2c/api-reference/specification{{include.referenceURLResssourceB2C}}" class="tag_endpoint_large button is-light is-selected">
   {{include.apiEndpointB2C}}</a>
   {% endif %}
 </div>
@@ -93,7 +93,7 @@ referenceURLResssourceB2C | String | Required | Anchor for the endpoint link to 
 ```shell
 $ curl \
   --request {{include.httpVerb}} \
-  --url '{{site.webapiB2BPreProd}}{{include.apiEndpointB2B}}?client_id=<client_id>{{include.queryParam}}' \
+  --url '{{site.webapiB2B}}{{include.apiEndpointB2B}}?client_id=<client_id>{{include.queryParam}}' \
   --cert 'path/to/client_cert.pem[:<cert_password>]'
   --key 'path/to/key.pem'
   --cacert 'path/to/ca_cert.pem'
@@ -114,7 +114,7 @@ Where **&lt;HTTP_body&gt;** is:
 ```shell
 $ curl \
   --request {{include.httpVerb}} \
-  --url '{{site.webapiB2CPreProd}}{{include.apiEndpointB2C}}?client_id=<client_id>{{include.queryParam}}' \
+  --url '{{site.webapiB2C}}{{include.apiEndpointB2C}}?client_id=<client_id>{{include.queryParam}}' \
   --header 'Authorization: Bearer <access_token>' \
   --header 'x-introspect-realm: <realm>' 
 {% if include.apiEndpointB2C contains 'lastPosition' %}  --header 'Accept: application/vnd.geo+json' \

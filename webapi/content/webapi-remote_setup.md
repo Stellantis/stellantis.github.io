@@ -17,13 +17,13 @@ Here is an overview of an **HTTP request** intended to create a remote callback.
   "extendedEventParam": [ ]
 }' %}
 
-Below is a description of the JSON models explaining how to configure a callback. Please refer to {% if page.subsection == 'b2b' %}[API Reference]({{site.baseurl}}/webapi/b2b/reference){% elsif page.subsection == 'b2c' %}[API Reference]({{site.baseurl}}/webapi/b2c/reference/specification){% endif %} models to read a full description of the callback configuration.
+Below is a description of the JSON models explaining how to configure a callback. Please refer to {% if page.subsection == 'b2b' %}[API Reference]({{site.baseurl}}/webapi/b2b/api-reference){% elsif page.subsection == 'b2c' %}[API Reference]({{site.baseurl}}/webapi/b2c/api-reference/specification){% endif %} models to read a full description of the callback configuration.
 
-- **{% if page.subsection == 'b2b' %}[RemoteCallbackSubscribe]({{site.baseurl}}/webapi/b2b/reference/specification#model-RemoteCallbackSubscribe){% elsif page.subsection == 'b2c' %}[RemoteCallbackSubscribe]({{site.baseurl}}/webapi/b2c/reference/specification/#model-RemoteCallbackSubscribe){% endif %}**: this JSON object allow you to configure your remote callback:
+- **{% if page.subsection == 'b2b' %}[RemoteCallbackSubscribe]({{site.baseurl}}/webapi/b2b/api-reference/specification#model-RemoteCallbackSubscribe){% elsif page.subsection == 'b2c' %}[RemoteCallbackSubscribe]({{site.baseurl}}/webapi/b2c/api-reference/specification/#model-RemoteCallbackSubscribe){% endif %}**: this JSON object allow you to configure your remote callback:
    - **retryPolicy**: this where you set retry policy, it's in case your webhook has not received the callback, whatever is the reason.
    - **batchNotify**: you can set this object in case you need to receive notification in batch instead of one by one.
    - **callback>webhook**: this required object is where you will set the address and name of your webhook. This is also where you can customize the HTTP notification (example: for authentication purpose).
-- **{% if page.subsection == 'b2b' %}[notificationTypes]({{site.baseurl}}/webapi/b2b/reference/specification#model-RemoteType){% elsif page.subsection == 'b2c' %}[notificationTypes]({{site.baseurl}}/webapi/b2c/reference/specification/#model-RemoteType){% endif %}**: this array of remotes allow you to subscribe this callback to one or more actions.
+- **{% if page.subsection == 'b2b' %}[notificationTypes]({{site.baseurl}}/webapi/b2b/api-reference/specification#model-RemoteType){% elsif page.subsection == 'b2c' %}[notificationTypes]({{site.baseurl}}/webapi/b2c/api-reference/specification/#model-RemoteType){% endif %}**: this array of remotes allow you to subscribe this callback to one or more actions.
 
 #### Example
 
@@ -100,7 +100,7 @@ In this API you have to replace this fields:
 - **{vid}** is the id of the vehicle to which you want to send the remote action.
 - **{cbid}** is the id of one of your callbacks *(see [1. Post remote Callback](#1-post-remote-callback))*.
 
-You can browse the **{% if page.subsection == 'b2b' %}[Remote Object]({{site.baseurl}}/webapi/b2b/reference/specification#model-Remote){% elsif page.subsection == 'b2c' %}[Remote Object]({{site.baseurl}}/webapi/b2c/reference/specification/#model-Remote){% endif %}** in the reference section to have more info about how to send a specific remote action:
+You can browse the **{% if page.subsection == 'b2b' %}[Remote Object]({{site.baseurl}}/webapi/b2b/api-reference/specification#model-Remote){% elsif page.subsection == 'b2c' %}[Remote Object]({{site.baseurl}}/webapi/b2c/api-reference/specification/#model-Remote){% endif %}** in the reference section to have more info about how to send a specific remote action:
 
 Object Name | Description | Example
 -|-|-
@@ -109,7 +109,7 @@ RemoteSetImmobilization | Set to `activate` to true if you need to immobilize a 
 RemoteDoorsState | Set `state` to `Locked` or `Unlocked`. | ``` {  "door": {    "state": "Unlocked"  } }```
 RemoteHorn | Choose the `number` of times the horn will honk and if the remote is `"state": "Activated"` or `"state": "Unactivated"`. | ``` {  "horn": {    "number": 0,    "state": "Activated"  } }```
 RemoteCharging | You can choose between `immediate` recharge or `nextDelayedTime` with a timestamp [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) before the charge activation. | ``` {  "charging": {    "nextDelayedTime": "string",    "immediate": false  } }```
-RemoteSetStolen | Set `stolen` to true if you want the vehicle to be in stolen state. It's mean that it will stay awake and refresh {% if page.subsection == 'b2b' %}[lastPosition]({{site.baseurl}}/webapi/b2b/reference/specification#operations-Vehicles-getCarLastPosition){% elsif page.subsection == 'b2c' %}[lastPosition]({{site.baseurl}}/webapi/b2b/reference/specification#operations-Vehicles-getCarLastPosition){% endif %} on a regular basis.  | ``` {  "stolen": {    "stolen": true  } }```
+RemoteSetStolen | Set `stolen` to true if you want the vehicle to be in stolen state. It's mean that it will stay awake and refresh {% if page.subsection == 'b2b' %}[lastPosition]({{site.baseurl}}/webapi/b2b/api-reference/specification#operations-Vehicles-getCarLastPosition){% elsif page.subsection == 'b2c' %}[lastPosition]({{site.baseurl}}/webapi/b2b/api-reference/specification#operations-Vehicles-getCarLastPosition){% endif %} on a regular basis.  | ``` {  "stolen": {    "stolen": true  } }```
 RemoteLights | Set `on` or not the vehicles lights. If you turn it on, you can choose a duration expressed using [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). | ``` {  "ligths": {    "on": true,    "duration": "PT20S"  } }```
 RemoteState | Set `action: state` to retrieve an updated status of the vehicle. | ``` {  "state": {    "action": "state"  } }``` |
 

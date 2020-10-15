@@ -98,7 +98,7 @@ Videos are currently not compatible and will not be read by the WebPortal.
 ## DATE AND TIME
 
 Do not use the methods of the JavaScript Date class.
-Instead, you sould use the [methods from webportal]({{ site.baseurl }}/webportal/v1/reference/list/#api-Car-GetTime) meant to manipulate those values as they correspond to the current time of the user.
+Instead, you sould use the [methods from webportal]({{ site.baseurl }}/webportal/v1/api-reference/list/#api-Car-GetTime) meant to manipulate those values as they correspond to the current time of the user.
 
 ## USING FONTS
 

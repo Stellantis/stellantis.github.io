@@ -382,6 +382,15 @@ margin: 3rem auto 0;
     border-width: 0 0 1px;
 }
 
+table {
+    display: block;
+    overflow-x: scroll;
+}
+
+table code {
+    word-wrap: anywhere;
+}
+
 .content {
     padding: 0rem 5%;
     padding-bottom: 2.6rem;
@@ -403,7 +412,7 @@ margin: 3rem auto 0;
     font-family: 'Roboto', sans-serif;
     padding-top: 5rem;
     margin-top: -5rem;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 0;
 }
 
@@ -588,6 +597,8 @@ margin: 3rem auto 0;
     color: white;
     margin-top: 1rem; 
     border: none;
+    font-weight: 400;
+    border-radius: 2px;
 }
 
 .is-psablue:hover{

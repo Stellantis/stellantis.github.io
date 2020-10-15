@@ -3,7 +3,7 @@ layout: doc-article
 permalink: /webportal/v1/interactivity/notifications/
 section: webportal
 subsection: v1
-categorie: User Interaction
+categorie: interactivity
 title: Receive Notifications
 description: ""
 ---

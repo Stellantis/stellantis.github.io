@@ -1,21 +1,17 @@
----
-section: webapi
-subsection: b2b
----
-
 openapi: 3.0.0
 servers:
-  - url: 'https://api-cert.groupe-psa.com/connectedcar/v3'
-info:
-  version: ""
-  title: Groupe PSA Connected Car - WEB API B2B v3
-  description: |
-    *Business Partner Connected Fleet API*  
+  - url: 'https://api-cert-preprod.groupe-psa.com/connectedcar/v3'
+security:
+  - BasicAuth: []
+    ClientId: []
     
- 
+info:
+  version: "3.0"
+  title: Groupe PSA Connected Car B2B API
+  description: |
     # Introduction
 
-    This is the description of the *Groupe PSA Connected Car V2 B2B API*. 
+    This is the description of the *Groupe PSA Connected Car V3 B2B API*. 
     This specification is written in **OpenAPI Specification version 3** and can
     be displayed using [ReDoc](https://github.com/Rebilly/ReDoc) or
     [Swagger](http://swagger.io).
@@ -61,7 +57,6 @@ info:
     
        
     # API output
-    
       ## Data profile
        B2B partners need to return vehicle data with an end-user profile. To do this, the data APIs allow to use an end-user profile according to a query parameter named ```profile```.  Remote,  Monitor, Fleets and Vehicles getter APIs are not affected by this parameter.
      
@@ -108,7 +103,6 @@ info:
       
      
     ---  
-
   license:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'
@@ -133,7 +127,6 @@ paths:
       description: Returns all Fleets owned by a partner. 
       operationId: getFleets
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
@@ -152,7 +145,6 @@ paths:
       description: Returns the Fleet's information. 
       operationId: getFleet
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
       responses:
         200:
@@ -169,7 +161,6 @@ paths:
       description: Returns the Vehicles associated with the Fleet.
       operationId: getVehiclesByDevice
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
@@ -195,7 +186,6 @@ paths:
       description: Returns detailed information about a Vehicle.
       operationId: getVehicleByid
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
    
@@ -218,7 +208,6 @@ paths:
       description: Returns the latest GPS Position of the Vehicle.
       operationId: getCarLastPosition
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
@@ -243,7 +232,6 @@ paths:
         during the timestamp ranges and bounded by an index range.
       operationId: getVehicleCollision
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
@@ -265,7 +253,6 @@ paths:
       description: Returns the Collision that matches the vehicle id and the Collision cid.
       operationId: getVehicleCollisionById
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
@@ -284,7 +271,6 @@ paths:
       description: Returns the latest Maintenance information for a Vehicle.
       operationId: getVehicleMaintenance
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
@@ -306,7 +292,6 @@ paths:
       summary: Fleet Vehicles status.
       operationId: getFleetStatusList
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/indexRange'
@@ -327,7 +312,6 @@ paths:
       summary: Fleet Vehicles maintenances.
       operationId: getFleetMantenanceList
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/indexRange'
@@ -347,7 +331,6 @@ paths:
       summary: Fleet Vehicles alerts.
       operationId: getFleetAlertList
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/timestamps'
@@ -369,7 +352,6 @@ paths:
       summary: Fleet single alert.
       operationId: getFleetAlertById
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/alertId'        
@@ -388,7 +370,6 @@ paths:
         Returns the latest Telemetry messages that occurred during a selective timestamp-ranges and bounded by an index range.
       operationId: getFleetTelemetriesList
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/telemetryType'
@@ -430,7 +411,6 @@ paths:
       summary: Vehicle status.
       operationId: getFleetVehicleStatus
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/vehicleId'
@@ -453,7 +433,6 @@ paths:
       description: Returns the latest alert messages for a Vehicle.
       operationId: getVehicleAlerts
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
@@ -476,7 +455,6 @@ paths:
       description: Returns information about a specific alert messages for a Vehicle.
       operationId: getFleetVehicleAlertsById
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
@@ -497,7 +475,6 @@ paths:
         Returns the latest Telemetry messages that occurred during a selective timestamp-ranges and bounded by an index range.
       operationId: getTelemetry
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
@@ -522,7 +499,6 @@ paths:
       description: Returns the list of subscribed Monitors of the fleet.
       operationId: getFleetMonitors
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
@@ -543,7 +519,6 @@ paths:
                     >When the trigger occurs, the built event expressed as a JSON object will be sent over the subscribed callback.
       operationId: createFleetVehicleMonitor
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
       requestBody:
         content:
@@ -585,7 +560,6 @@ paths:
       summary: Get the monitor by monitor Id.
       operationId: getFleetMonitorsStatusById
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/monitorId'
       responses:
@@ -600,7 +574,6 @@ paths:
       description: Stop (disable) an existing Monitor.
       operationId: deleteFleetMonitor
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/monitorId'
       responses:
@@ -621,7 +594,6 @@ paths:
                    Set monitor status. 
       operationId: setFleetVehicleMonitorStatus
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/monitorId'
       requestBody:
@@ -644,7 +616,6 @@ paths:
         This will NOT include Trips that have not yet been completed.
       operationId: getTripsByVehicle
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
@@ -667,7 +638,6 @@ paths:
         This method returns a list of all Trips. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
       operationId: getFleetTrips
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/timestamps'
@@ -689,7 +659,6 @@ paths:
         Returns the set of Collisions that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
       operationId: getTripCollisionsByTrip
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/tripId'
@@ -712,7 +681,6 @@ paths:
         Returns the set of Collisions of a Fleet of vehicles. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
       operationId: getFleetTripCollisions
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/pageToken'
@@ -734,7 +702,6 @@ paths:
         Returns the Collision that matches the fleet id and the Collision cid. 
       operationId: getCollisionsById
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/collisionId'      
@@ -752,7 +719,6 @@ paths:
         Gives the Trip that matches the Trip id (tid).
       operationId: getFleetTripsById
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/profile'
@@ -771,7 +737,6 @@ paths:
         Vehicle (id) has taken.
       operationId: getFleetTripByVehicle
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/fleetId'
@@ -790,7 +755,6 @@ paths:
         Returns the alert message list for a given trip.
       operationId: getFleetTripAlerts
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/timestamps'
@@ -814,7 +778,6 @@ paths:
         Returns the alert message list for a given vehicle.
       operationId: getFleetTripAlertByVehicle
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/fleetId'
@@ -840,7 +803,6 @@ paths:
         Returns the alert message list for a given vehicle that occure during a trip.
       operationId: getFleetTripAlertByVehicleById
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/tripId'
@@ -862,7 +824,6 @@ paths:
         Returns the alert message for a given trip.
       operationId: getFleetTripAlertById
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/alertId'
@@ -882,7 +843,6 @@ paths:
       description: Gives the wayPoints for a specified Fleet Trip.
       operationId: getPathForATrip
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/indexRange'
@@ -906,7 +866,6 @@ paths:
       description: Gives the Vehicle's wayPoints for a specified Trip.
       operationId: getPathForTrip
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/tripId'
@@ -935,7 +894,6 @@ paths:
         an index range.
       operationId: getFleetTelemetryForTrip
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/profile'
@@ -963,7 +921,6 @@ paths:
         an index range.
       operationId: getTelemetryForTripByVehicle
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/tripId'
@@ -988,7 +945,6 @@ paths:
       description: Returns the list of subscribed remote callback of the fleet.
       operationId: getFleetRemotes
       parameters:
-          - $ref: '#/components/parameters/tokenAuth'
           - $ref: '#/components/parameters/fleetId'
           - $ref: '#/components/parameters/remoteType'
 
@@ -1010,7 +966,6 @@ paths:
                      Create a new reusable callback. 
         operationId: setFleetVehicleRemote
         parameters:
-          - $ref: '#/components/parameters/tokenAuth'
           - $ref: '#/components/parameters/fleetId'
         requestBody:
           content:
@@ -1034,7 +989,6 @@ paths:
 
         operationId: setFleetVehicleRemoteById
         parameters:
-          - $ref: '#/components/parameters/tokenAuth'
           - $ref: '#/components/parameters/fleetId'
           - $ref: '#/components/parameters/callbackId'
         requestBody:
@@ -1054,7 +1008,6 @@ paths:
       description: Returns a subscribed remote callback of the fleet by subscribe ID.
       operationId: getFleetRemotebyId
       parameters:
-          - $ref: '#/components/parameters/tokenAuth'
           - $ref: '#/components/parameters/fleetId'
           - $ref: '#/components/parameters/callbackId'
           
@@ -1070,7 +1023,6 @@ paths:
       description: Remove an existing callback if and only if there is no pending remote attached to it.
       operationId: deleteFleetRemote
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/callbackId'
       responses:
@@ -1090,7 +1042,6 @@ paths:
                    Set the remote callback status.```Paused``` means that the callback will not post any event.
       operationId: setFleeRemoteCallbackStatus
       parameters:
-        - $ref: '#/components/parameters/tokenAuth'
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/callbackId'
       requestBody:
@@ -1113,7 +1064,6 @@ paths:
                      Create a new asynchrone vehicle remote action and request it. 
       operationId: sendRemoteToVhl
       parameters:
-          - $ref: '#/components/parameters/tokenAuth'
           - $ref: '#/components/parameters/fleetId'
           - $ref: '#/components/parameters/vehicleId'
           - $ref: '#/components/parameters/callbackId'
@@ -1135,7 +1085,6 @@ paths:
       description: Returns the list of action remote requested for vehicle.
       operationId: getRemoteRequestsForVhl
       parameters:
-          - $ref: '#/components/parameters/tokenAuth'
           - $ref: '#/components/parameters/fleetId'
           - $ref: '#/components/parameters/vehicleId'
           - $ref: '#/components/parameters/callbackId'
@@ -1157,7 +1106,6 @@ paths:
       description: Returns the remote action requested for vehicle by ID.
       operationId: getRemoteRequestForVhlById
       parameters:
-          - $ref: '#/components/parameters/tokenAuth'
           - $ref: '#/components/parameters/fleetId'
           - $ref: '#/components/parameters/vehicleId'
           - $ref: '#/components/parameters/callbackId'
@@ -1173,9 +1121,13 @@ paths:
 
 components:
   securitySchemes:
-    basicAuth:     # <-- arbitrary name for the security scheme
+    BasicAuth:
       type: http
       scheme: basic
+    ClientId:
+      name: client_id
+      type: apiKey
+      in: query
   schemas: 
     Vin:  
           description: Identifier of a vehicle. **Set when retrieving resource in batch mode**.   
@@ -1215,6 +1167,16 @@ components:
               type: boolean
             type:
               $ref: '#/components/schemas/AlertMsgEnum'
+            severity:
+              description: |
+                            Alert severity level.
+                            |Severity|Description|
+                            |:---|:---|
+                            |Information|Better to fix but it is operating accurately.|
+                            |Warning|Should fix it asap.|
+                            |Critical|Starting prohibited without repair.|                           
+              type: string
+              enum: [Information, Warning, Critical]
             updatedAt:
               type: string
               format: date-time
@@ -2071,6 +2033,7 @@ components:
                        ### Note: 
                        The number of results may be lower than the specified page 'size' due to the applying of the path simplifying after resolving the page resultset.
                   type: boolean
+                  deprecated: true
                 positions:
                   type: array
                   items:
@@ -2161,7 +2124,7 @@ components:
                   - type: string
                     enum: [vin,monitorID,fleetID]
                     description: |
-                      Set of variables that will be contextually valued and used as attribute value. To reference the variable, prefix its name with the dollar sign ($)  
+                      A value  that will be associated with the provided key as is if expressed as literal value or  contextually valued if prefixed with the dollar sign ($).  
                       
                       * Disclaimer: if the var "vin" is used as a query parameter, the batchnotify will be no more possible and each event will be sent through a separated request!.
                       * example: Having a vin=VIN123456, the following attribute set:
@@ -2212,7 +2175,7 @@ components:
     RemoteAttributeSet:          
         type: array
         description: |
-            Additional attributes-set that can be used as http header enhancement (such as headers can be used as an authentication parameter when posting the event) or simply added to the notification event body (as set of key/values) or finally as additional query parameters.
+            Additional attributes-set as key/value pairs wich will be added to the request when sending the event. It can be used as http header enhancement (such as headers can be used as an authentication parameter when posting the event) or simply added to the notification event body (as set of key/values) or finally as additional query parameters.
         items:
             $ref: '#/components/schemas/RemoteAttribute'  
         example:
@@ -2226,7 +2189,7 @@ components:
     AttributeSet:          
           type: array
           description: |
-            Additional attributes-set that can be used as http header enhancement (such as headers can be used as an authentication parameter when posting the event) or simply added to the notification event body (as set of key/values) or finally as additional query parameters.
+            Additional attributes-set as key/value pairs wich will be added to the request when sending the event. It can be used as http header enhancement (such as headers can be used as an authentication parameter when posting the event) or simply added to the notification event body (as set of key/values) or finally as additional query parameters.
           items:
             $ref: '#/components/schemas/Attribute'
             
@@ -3060,7 +3023,7 @@ components:
     BoundedProgram:
       allOf:
         -  $ref: '#/components/schemas/Program'
-        - required: [start, duration, recurrence]
+        - required: [start, duration]
           description: >
            extended program witch specify action duration. The relative start time (to 0h00). 
            
@@ -3123,9 +3086,9 @@ components:
           * '/T' startless range, known end date but no start date. No lower limit
             will be used to retrieve results.
             
-          * Rn/T/D  repeat the interval of D **n** times starting at T.
+          * Rn/T/D/[d]  repeat the interval of D **n** times starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H 
           
-          * R/T/D unbounded number of repetitions starting at T.
+          * R/T/D/[d] unbounded number of repetitions starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H.
 
 
             *T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).*
@@ -3141,7 +3104,7 @@ components:
 
             *  *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
             
-            *  *R5/2018-01-03T12:00:00Z/P6H* repeate duration 6H interval for 5 times starting at 2018-01-03T12:00:00Z.
+            *  *R5/2018-01-03T12:00:00Z/P6H/P2H* repeate duration 6H wiht interval period of 2H for 5 times starting at 2018-01-03T12:00:00Z.
               
     indexRange:
       type: string
@@ -3325,12 +3288,11 @@ components:
     TelemetryExtensionType:
       type: array
       minItems: 1
-      maxItems: 6
+      maxItems: 5
       items:
         type: string
         enum:
           - location
-          - alerts
           - collision
           - maintenance
           - odometer
@@ -3359,10 +3321,6 @@ components:
         allOf:
           - description: Additional data set for telemetry.  
           - properties:
-                alerts:
-                  type: array
-                  items:
-                      $ref: '#/components/schemas/Alert'
                 odometer: 
                     type: object
                     properties:
@@ -3574,21 +3532,29 @@ components:
         enum:
         #  - vehicle.odometer
         #  - vehicle.kinetic
-          - vehicle.running
-          - vehicle.engines.oil.temp
+        #  - vehicle.running
+          - vehicle.engines
+        #  - vehicle.engines.oil.temp
           - vehicle.engines.speed
+          - vehicle.engines.gmpStatus
+          - vehicle.engines.extension
+          - vehicle.energies
+          - vehicle.energies.type
+          - vehicle.energies.level
+          - vehicle.energies.autonomy
+          - vehicle.energies.extension
+        #  - vehicle.energy.consumption  
           - vehicle.brakingSystem.parking
-          - vehicle.energy.type
-          - vehicle.energy.level
-          - vehicle.energy.consumption  
-          - vehicle.energy.autonomy
           - vehicle.ignition
+          - vehicle.doorsState
           - vehicle.doorsState.lockedState
           - vehicle.doorsState.opening
-          - vehicle.energy.charging
+        #  - vehicle.energy.charging
+          - vehicle.transmission
           - vehicle.transmission.gearbox.mode 
           - vehicle.transmission.gearbox.gear
           - vehicle.lighting
+          - vehicle.adas
           - vehicle.adas.parkAssist.front
           - vehicle.adas.parkAssist.rear
           - vehicle.adas.aebs
@@ -3603,9 +3569,13 @@ components:
           - vehicle.adas.lka
           - vehicle.adas.bsm
           - vehicle.adas.sli
-          - passenger.seatbelt
+        #  - passenger.seatbelt
+          - vehicle.battery
+          - vehicle.safety
+          - privacy
           - environment.air
           - environment.luminosity
+          
     
     DataProfile:
         type: string
@@ -3614,15 +3584,6 @@ components:
           - endUser
   ############################ PARAMETERS ################################        
   parameters:  
-    tokenAuth:
-      name: authorization
-      description: >-
-        HTTP token authentication (Bearer authentication).
-      in: header
-      required: true
-      schema:
-        type: string
-        pattern: Bearer (\w|-|=)*
     fleetId:
       name: fid
       in: path
@@ -3801,7 +3762,7 @@ components:
       name: extension
       in: query
       description: >-
-        Additional data set that will be included in embedded field```(the number of elements in this array must be between 1 and 6)```.
+        Additional data set that will be included in embedded field```(the number of elements in this array must be between 1 and 5)```.
         
          * _Disclaimer_:  **Enabling ```odometer``` extension will automatically disable ```kinetic``` telemetry message**
       required: false

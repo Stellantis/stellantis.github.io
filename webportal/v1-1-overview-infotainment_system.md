@@ -127,7 +127,7 @@ You just have to create an HTML **input text**, once the user set the **focus** 
 
 ## COLOUR THEME
 
-Depending on the car brand and vehicle, your entertainment system could display various colour theme. For graphic purposes, maybe you will need to know more about the main color and design the user of your application have selected. You can refer to the function [Device.GetHMITheme()]({{site.baseurl}}/webportal/v1/reference/list/#api-Device-GetHMITheme) to retrieve this theme ID. 
+Depending on the car brand and vehicle, your entertainment system could display various colour theme. For graphic purposes, maybe you will need to know more about the main color and design the user of your application have selected. You can refer to the function [Device.GetHMITheme()]({{site.baseurl}}/webportal/v1/api-reference/list/#api-Device-GetHMITheme) to retrieve this theme ID. 
 
 But then you will need to understand what this ID means. Here is correspondence tables between ID and theme depending on vehicle brand:
 

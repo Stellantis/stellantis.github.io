@@ -3,7 +3,7 @@ layout: doc-article
 permalink: /webportal/v1/interactivity/player/
 section: webportal
 subsection: v1
-categorie: User Interaction
+categorie: interactivity
 title: Player
 description: "INstruction to handle media player implementation in webportal applications."
 ---

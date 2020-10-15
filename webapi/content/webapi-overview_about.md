@@ -82,5 +82,5 @@ Want to see what it's look like? Browse our {% if page.subsection == 'b2b' %}[St
 
 ##### TRY OUT!
 
-Retrieve all reference of this API, go to the {% if page.subsection == 'b2b' %}[API List]({{ site.baseurl }}/webapi/b2b/reference/specification/){% elsif page.subsection == 'b2c' %}[API List]({{ site.baseurl }}/webapi/b2c/reference/specification/){% endif %}.
+Retrieve all reference of this API, go to the {% if page.subsection == 'b2b' %}[API List]({{ site.baseurl }}/webapi/b2b/api-reference/specification/){% elsif page.subsection == 'b2c' %}[API List]({{ site.baseurl }}/webapi/b2c/api-reference/specification/){% endif %}.
 
