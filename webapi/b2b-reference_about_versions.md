@@ -58,8 +58,8 @@ Here is the URL of the API:
         Where <strong>{version}</strong> depends on your subscription:
     </p>
     <ul>
-        <li>v2: <em>delegation publique</em></li>
-        <li>v3: <em>connected fleet</em> / <em>TMTS</em> / <em>UBI</em></li>
+        <li>v2: <em>connected fleet</em> / <em>TMTS</em> / <em>UBI</em></li>
+        <li>v3: <em>delegation publique</em></li>
     </ul>
 </div>
 
