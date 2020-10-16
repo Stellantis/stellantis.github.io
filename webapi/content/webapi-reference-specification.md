@@ -122,9 +122,7 @@ font-size: inherit;
 <script>
     Redoc.init('{{ urlReference | prepend: site.baseurl }}', {
     scrollYOffset: 67,
-    "unstable_ignoreMimeParameters": true,
     disableSearch: true,
-    noAutoAuth: true,
     expandResponses: "200,201,202",
     theme: {
         colors: {

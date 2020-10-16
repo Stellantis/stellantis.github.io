@@ -1,9 +1,9 @@
 ---
 layout: doc-article
-permalink: /webportal/v1/reference/class/
+permalink: /webportal/v1/api-reference/class/
 section: webportal
 subsection: v1
-categorie: API Reference
+categorie: api reference 
 title: Class
 gitHubPath: _webportal-nac-reference/
 description: "Groupe PSA Webportal API Class: summary of this API available features."

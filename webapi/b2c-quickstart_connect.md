@@ -80,14 +80,14 @@ The process to connect to the API require that you get an access token in exchan
 <div class="buttons has-addons">
   <a href="#2-access-token" class="tag_endpoint_large button is-info"> API BaseURL</a>
   <a href="#2-access-token" class="tag_endpoint_large tag_api_endpoint button is-info">
-  {{site.cvsOAuth2PreProd}}  
+  {{site.cvsOAuth2}}  
   </a>
 </div>
 
 ```shell
 $ curl \
   --request POST \
-  --url '{{site.cvsOAuth2PreProd}}' \
+  --url '{{site.cvsOAuth2}}' \
   --header 'Authorization: Basic <(client_id:client_secret)base64>' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data 'realm=<realm>&grant_type=password&password=<password>&username=<username>scope=profile%20openid'
@@ -179,4 +179,4 @@ A [Quick Start guide]({{ site.baseurl }}/webapi/b2c/quickstart/examples/) is pro
 
 ##### TRY OUT!
 
-Retrieve all reference of this API, go to the [API List]({{ site.baseurl }}/webapi/b2c/reference/specification/).
+Retrieve all reference of this API, go to the [API List]({{ site.baseurl }}/webapi/b2c/api-reference/specification/).

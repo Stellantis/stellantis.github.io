@@ -46,7 +46,7 @@ The Groupe PSA's Web APIs are based on **REST** principles. Data resources are a
 
 ## ERROR
 
-Error codes are returned by all APIs when the answer is not HTTP-OK. It's displayed in {% if page.section == 'webapib2b' %}[Reference]({{ site.baseurl }}/webapi/b2b/reference/){% elsif page.section == "webapib2c" %}[Reference]({{ site.baseurl }}/webapi/b2c/reference/){% endif %} page as **Default** button on the right panel.
+Error codes are returned by all APIs when the answer is not HTTP-OK. It's displayed in {% if page.section == 'webapib2b' %}[Reference]({{ site.baseurl }}/webapi/b2b/api-reference/){% elsif page.section == "webapib2c" %}[Reference]({{ site.baseurl }}/webapi/b2c/api-reference/){% endif %} page as **Default** button on the right panel.
 
 The structure of the error message will always be the same as you can decode it:
 
@@ -208,9 +208,9 @@ Resources in the API are using HAL for **HATEOAS integration**. It allows intera
     <span class="tag is-large is-fullheight is-light"
         >
         {% if page.subsection == 'b2b' %}
-        <a href="{{site.baseurl}}/webapi/b2b/reference/specification#/Fleet/getFleetStatusList">/fleets/{fid}/status</a>
+        <a href="{{site.baseurl}}/webapi/b2b/api-reference/specification#/Fleet/getFleetStatusList">/fleets/{fid}/status</a>
         {% elsif page.subsection == 'b2c' %}
-        <a href="{{site.baseurl}}//reference/specification/#/Vehicles/getVehicleStatus">/user/vehicles/{id}/status</a>
+        <a href="{{site.baseurl}}//api-reference/specification/#/Vehicles/getVehicleStatus">/user/vehicles/{id}/status</a>
         {% endif %}
         </span>
 </div>

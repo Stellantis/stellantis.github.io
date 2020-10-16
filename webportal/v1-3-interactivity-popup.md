@@ -3,14 +3,14 @@ layout: doc-article
 permalink: /webportal/v1/interactivity/popup/
 section: webportal
 subsection: v1
-categorie: User Interaction
+categorie: interactivity
 title: Popup
 description: "Follow this example to open a native popup from your app."
 ---
 
 # OPEN POPUP
 
-Follow this example to open a native popup from your app. See [nativePopup]({{site.baseurl}}/webportal/v1/reference/list/#api-WebPortal-nativePopup-open) reference.
+Follow this example to open a native popup from your app. See [nativePopup]({{site.baseurl}}/webportal/v1/api-reference/list/#api-WebPortal-nativePopup-open) reference.
 
 ```javascript
 

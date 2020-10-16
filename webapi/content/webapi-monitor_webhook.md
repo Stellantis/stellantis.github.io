@@ -7,6 +7,17 @@ This web server needs to be configured to read & process our events in order tha
 
 > **Note:** HTTPS must be supported and a certificate issued by a trusted public and known CA must be provided. Indeed, the URL of your webhook must be the same as the one specified in when you created the callback.
 
+<style>
+h1, h2, h3, h4, h5 {
+    padding-top: inherit;
+    margin-top: inherit;
+}
+.content h1:not(:first-child), .content h2:not(:first-child), .content h3:not(:first-child), .content h4, .content h5 {
+    padding-top: inherit;
+    margin-top: inherit;  
+}
+</style>
+
 <div id="swagger-ui"></div>
 <script src="{{ '/assets/js/swagger-ui-bundle.js' | prepend: site.baseurl | prepend: site.url }}"> </script>
 <script src="{{ '/assets/js/swagger-ui-standalone-preset.js' | prepend: site.baseurl | prepend: site.url }}"> </script>
@@ -25,14 +36,9 @@ This web server needs to be configured to read & process our events in order tha
                 SwaggerUIBundle.plugins.DownloadUrl
             ],
             layout: "StandaloneLayout",
-            onComplete: hideInfoSwagger
         })
         // End Swagger UI call region
         window.ui = ui;
-        //hide description
-        function hideInfoSwagger() {
-            document.getElementsByClassName('info')[0].style.display = "none";
-        }
     }
 </script>
 
@@ -44,4 +50,4 @@ Need to see examples of request to the API? Browse our {% if page.subsection == 
 
 ##### TRY OUT!
 
-Retrieve reference of this API, go to the {% if page.subsection == 'b2b' %}[API List]({{ site.baseurl }}/webapi/b2b/reference/specification/){% elsif page.subsection == 'b2c' %}[API List]({{ site.baseurl }}/webapi/b2c/reference/specification/){% endif %}.
+Retrieve reference of this API, go to the {% if page.subsection == 'b2b' %}[API List]({{ site.baseurl }}/webapi/b2b/api-reference/specification/){% elsif page.subsection == 'b2c' %}[API List]({{ site.baseurl }}/webapi/b2c/api-reference/specification/){% endif %}.

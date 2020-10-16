@@ -43,4 +43,4 @@ A [Quick Start guide]({{ site.baseurl }}/webapi/b2b/quickstart/examples/) is pro
 
 ##### TESTING THE API
 
-To test the API you can check the [API List]({{ site.baseurl }}/webapi/b2b/reference/specification/) directly.
+To test the API you can check the [API List]({{ site.baseurl }}/webapi/b2b/api-reference/specification/) directly.

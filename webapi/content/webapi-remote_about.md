@@ -2,6 +2,8 @@
 
 With our APIs, you are able to {% if page.subsection == 'b2b' %}[browse data]({{site.baseurl}}/webapi/b2b/overview/standards/){% elsif page.subsection == 'b2c' %}[browse datas]({{site.baseurl}}/webapi/b2c/overview/standards/){% endif %} about vehicles and receive {% if page.subsection == 'b2b' %}[custom notifications]({{site.baseurl}}/webapi/b2b/monitor/about){% elsif page.subsection == 'b2c' %}[custom notifications]({{site.baseurl}}/webapi/b2c/monitor/about){% endif %}. Now, the remote APIs allow you to send online commands to connected vehicles.
 
+> **Note:** Remote control is only available with WEB API V3.
+
 <img src="{{site.baseurl}}/assets/images/remote-features.png" alt="remote-features" style="width: 580px">
 
 **Available features:**
@@ -20,7 +22,7 @@ With our APIs, you are able to {% if page.subsection == 'b2b' %}[browse data]({{
 **Step1: create a callback**
 
 First, you will have to set up a remote callback.
-If you are already working with monitors, it is almost the same as posting a {% if page.subsection == 'b2b' %}[monitor]({{site.baseurl}}/webapi/b2b/monitor/setup/#post-monitor-request){% elsif page.subsection == 'b2c' %}[monitor]({{site.baseurl}}/webapi/b2c/monitor/about/setup/#post-monitor-request){% endif %}. 
+If you are already working with monitors, it is almost the same as posting a {% if page.subsection == 'b2b' %}[monitor]({{site.baseurl}}/webapi/b2b/monitor/set-up/#post-monitor-request){% elsif page.subsection == 'b2c' %}[monitor]({{site.baseurl}}/webapi/b2c/monitor/about/set-up/#post-monitor-request){% endif %}. 
 
 Callback is where you define the parameters of your **webhook** (URL, authentication) and the structure of the **HTTP request** you will receive as a notification.
 

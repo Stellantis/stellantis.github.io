@@ -10,7 +10,7 @@ description: "Informations about webportal standards. You need to understand the
 
 # TECHNOLOGIES
 
-Here are some information about webportal standards that you need to understand theses web technologies to develop webportal APPs.
+Here is the list of web technologies used to develop webportal applications:
 
 - **HTML**: structure your APP content. See [W3C](https://www.w3.org/standards/webdesign/htmlcss)
 - **CSS**: manage presentation of your APP.

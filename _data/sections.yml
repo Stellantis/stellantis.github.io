@@ -60,7 +60,7 @@
             - name: Webhook References
               path: webhook/
         - name: API Reference
-          path: reference/
+          path: api-reference/
           pages:
             - name: About Versions
               path: about-versions/
@@ -102,7 +102,7 @@
             - name: Webhook References
               path: webhook/
         - name: API Reference
-          path: reference/
+          path: api-reference/
           pages:
             - name: Specification
               path: specification/
@@ -139,7 +139,7 @@
               path: guidelines/
             - name: Assets
               path: assets/
-        - name: User Interaction
+        - name: Interactivity
           path: interactivity/
           pages:
             - name: Managing Embedded
@@ -162,7 +162,7 @@
             - name: User Subscription
               path: user-subscription/
         - name: API Reference
-          path: reference/
+          path: api-reference/
           pages:
             - name: References
               path: list/

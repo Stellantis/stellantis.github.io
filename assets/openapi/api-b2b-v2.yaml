@@ -1,11 +1,9 @@
----
-section: webapi
-subsection: b2b
----
-
 openapi: 3.0.0
 servers:
-  - url: 'https://api-cert.groupe-psa.com/connectedcar/v2'
+  - url: 'https://api-cert-preprod.groupe-psa.com/connectedcar/v2'
+security:
+  - BasicAuth: []
+    ClientId: []
 info:
   version: '2.0'
   title: Groupe PSA Connected Car B2B API
@@ -961,9 +959,13 @@ paths:
 
 components:
   securitySchemes:
-    basicAuth:     # <-- arbitrary name for the security scheme
+    basicAuth:    
       type: http
       scheme: basic
+    ClientId:
+      name: client_id
+      type: apiKey
+      in: query
   schemas: 
     Vin:  
           description: Identifier of a vehicle. **Set when retrieving resource in batch mode**.   

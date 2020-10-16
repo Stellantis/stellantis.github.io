@@ -27,8 +27,8 @@ info:
   license:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'
-  title: Groupe PSA Connected Car - WEB API B2C v4
-  version: ''
+  title: Groupe PSA Connected Car - WEB API B2C
+  version: '4.0'
 host: api.groupe-psa.com/
 basePath: connectedcar/v4
 schemes:

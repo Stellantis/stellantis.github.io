@@ -67,9 +67,9 @@ This is the models explaining how to configure the callback:
 }
 ```
 
-Below is a description of the JSON models explaining how to configure the callback. Please refer to {% if page.subsection == 'b2b' %}[API Reference]({{site.baseurl}}/webapi/b2b/reference){% elsif page.subsection == 'b2c' %}[API Reference]({{site.baseurl}}/webapi/b2c/reference/specification){% endif %} models to read a full description of the callback configuration.
+Below is a description of the JSON models explaining how to configure the callback. Please refer to {% if page.subsection == 'b2b' %}[API Reference]({{site.baseurl}}/webapi/b2b/api-reference){% elsif page.subsection == 'b2c' %}[API Reference]({{site.baseurl}}/webapi/b2c/api-reference/specification){% endif %} models to read a full description of the callback configuration.
 
-**{% if page.subsection == 'b2b' %}[MonitorParameter]({{site.baseurl}}/webapi/b2b/reference/specification#model-MonitorParameter){% elsif page.subsection == 'b2c' %}[MonitorParameter]({{site.baseurl}}/webapi/b2c/reference/specification/#model-MonitorParameter){% endif %}**: this JSON object allow you to configure your monitor callback:
+**{% if page.subsection == 'b2b' %}[MonitorParameter]({{site.baseurl}}/webapi/b2b/api-reference/specification#model-MonitorParameter){% elsif page.subsection == 'b2c' %}[MonitorParameter]({{site.baseurl}}/webapi/b2c/api-reference/specification/#model-MonitorParameter){% endif %}**: this JSON object allow you to configure your monitor callback:
    - **retryPolicy**: this where you set retry policy, it's in case your webhook has not received the callback, whatever is the reason.
    - **batchNotify**: you can set this object in case you need to receive notification in batch instead of one by one.
    - **callback>webhook**: this required object is where you will set the address and name of you webhook. This is also where you can customize the HTTP notification (example: for authentication purpose).
@@ -139,7 +139,7 @@ Choose and configure the triggers you need as a JSON table:
 }
 ```
 
-For the entire documentation, look closer at {% if page.subsection == 'b2b' %}[API Reference]({{site.baseurl}}/webapi/b2b/reference){% elsif page.subsection == 'b2c' %}[[API Reference]({{site.baseurl}}/webapi/b2c/reference/specification){% endif %}>**MonitorParameter>triggerParam>triggers**. 
+For the entire documentation, look closer at {% if page.subsection == 'b2b' %}[API Reference]({{site.baseurl}}/webapi/b2b/api-reference){% elsif page.subsection == 'b2c' %}[[API Reference]({{site.baseurl}}/webapi/b2c/api-reference/specification){% endif %}>**MonitorParameter>triggerParam>triggers**. 
 This is where you can find the **entire list of available triggers**.
 
 
@@ -151,6 +151,10 @@ This is where you can find the **entire list of available triggers**.
 <p>
 This is the old way of setting a triggering policy, it'is less performant as it allow only "AND relationship" between triggers. Because of retro-compatibility purposes it's still available, but we recommend you strongly to use the new data schema.
 </p>
+</div>
+
+<div class="notification">
+<strong>Warning:</strong> If you are using <strong>WEB API V2</strong>, you have to use the deprecated way with timeZoneTrigger and dataTrigger.
 </div>
 
 ### 3.2 BOOLEAN EXPRESSION

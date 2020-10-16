@@ -180,11 +180,9 @@
   display: none;
 }
 
-
 </style>
 <div class="content">
   {% include content-header.html %}
-
   <h1 id="demoTitle">
     <span>
       Click on the APIs buttons and retrieve related info 👇                     
@@ -195,14 +193,14 @@
   <a class="colortags tags has-addons " onclick="fetchStatus()" id="buttonStatusColor">
     <span class="tag_endpoint_large tag is-white">
       <span class="verb get">GET
-        {% if page.subsection == 'b2b' %}/fleets/{fid}/vehicles/{id}/status</span>{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/status{% elsif page.subsection == "b2c" %}/user/vehicles/{id}/status</span>{{site.webapiB2CPreProd}}/user/vehicles/{id}/status{% endif %}
+        {% if page.subsection == 'b2b' %}/fleets/{fid}/vehicles/{id}/status</span>{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}/status{% elsif page.subsection == "b2c" %}/user/vehicles/{id}/status</span>{{site.webapiB2C}}/user/vehicles/{id}/status{% endif %}
     </span>
   </a>
   <!-- status api BUTTON GREY-->
   <div class="greytags tags has-addons" id="buttonStatusGrey" style="display: none">
     <span class="greyUrl tag_endpoint_large tag">
       <span class="verb get greyGet">GET
-        {% if page.subsection == 'b2b' %}/fleets/{fid}/vehicles/{id}/status</span>{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/status{% elsif page.subsection == "b2c" %}/user/vehicles/{id}/status</span>{{site.webapiB2CPreProd}}/user/vehicles/{id}/status{% endif %}
+        {% if page.subsection == 'b2b' %}/fleets/{fid}/vehicles/{id}/status</span>{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}/status{% elsif page.subsection == "b2c" %}/user/vehicles/{id}/status</span>{{site.webapiB2C}}/user/vehicles/{id}/status{% endif %}
     </span>
   </div>
   <!-- vehicle api BUTTON COLOR -->
@@ -211,7 +209,7 @@
       <span class="tag_endpoint_large tag is-white">
         <span class="verb get">
           GET
-          {% if page.subsection == 'b2b' %}/fleets/{fid}/vehicles/{id}</span>{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}{% elsif page.subsection == "b2c" %}/user/vehicles/{id}</span>{{site.webapiB2CPreProd}}/user/vehicles/{id}{% endif %}
+          {% if page.subsection == 'b2b' %}/fleets/{fid}/vehicles/{id}</span>{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}{% elsif page.subsection == "b2c" %}/user/vehicles/{id}</span>{{site.webapiB2C}}/user/vehicles/{id}{% endif %}
       </span>
     </a>
   </div>
@@ -219,7 +217,7 @@
   <div class="greytags tags has-addons" id="buttonVehicleGrey">
     <span class="greyUrl tag_endpoint_large tag ">
       <span class="verb get greyGet">GET
-        {% if page.subsection == 'b2b' %}/fleets/{fid}/vehicles/{id}</span>{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}{% elsif page.subsection == "b2c" %}/user/vehicles/{id}</span>{{site.webapiB2CPreProd}}/user/vehicles/{id}{% endif %}
+        {% if page.subsection == 'b2b' %}/fleets/{fid}/vehicles/{id}</span>{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}{% elsif page.subsection == "b2c" %}/user/vehicles/{id}</span>{{site.webapiB2C}}/user/vehicles/{id}{% endif %}
     </span>
   </div>
 
@@ -267,7 +265,7 @@
                 </code></pre>
               <!-- / empty payload --> 
               <!-- status payload -->
-<pre class="highlight" id="statusPayload" style="display: none;"><code><span class="p">{% if page.subsection == "b2b"  %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/status{% elsif page.subsection == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/status{% endif %}</span>
+<pre class="highlight" id="statusPayload" style="display: none;"><code><span class="p">{% if page.subsection == "b2b"  %}{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}/status{% elsif page.subsection == "b2c" %}{{site.webapiB2C}}/user/vehicles/{id}/status{% endif %}</span>
   
   <span class="p">{</span><span class="w">
     </span><span class="s2">"lastPosition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -351,19 +349,19 @@
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">{% if page.subsection == "b2b" %}
       </span><span class="s2">"fleet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{site.webapiB2BPreProd}}/{fid}"</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{site.webapiB2B}}/{fid}"</span><span class="w">
       </span><span class="p">},</span><span class="w">{% endif %}
       </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b"%}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/status{% elsif page.subsection == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/status{% endif %}"</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b"%}{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}/status{% elsif page.subsection == "b2c" %}{{site.webapiB2C}}/user/vehicles/{id}/status{% endif %}"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"vehicles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}{% elsif page.subsection == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}{% endif %}"</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}{% elsif page.subsection == "b2c" %}{{site.webapiB2C}}/user/vehicles/{id}{% endif %}"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w"></span></code>
 </pre>
 <!-- vehicleId payload -->
-<pre class="highlight" id="vehicleIdPayload" style="display: none;"><code><span class="p">GET {% if page.subsection == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}{% elsif page.subsection  == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}{% endif %}</span>
+<pre class="highlight" id="vehicleIdPayload" style="display: none;"><code><span class="p">GET {% if page.subsection == "b2b" %}{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}{% elsif page.subsection  == "b2c" %}{{site.webapiB2C}}/user/vehicles/{id}{% endif %}</span>
  
   <span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XA143Z2"</span><span class="p">,</span><span class="w">
@@ -386,22 +384,22 @@
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}"{% elsif page.subsection == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}"{% endif %}</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}"{% elsif page.subsection == "b2c" %}{{site.webapiB2C}}/user/vehicles/{id}"{% endif %}</span><span class="w">
       </span><span class="s2">"alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"trips"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/trips"{% elsif page.subsection == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/trips"{% endif %}</span><span class="w">
+        </span><span class="s2">"trips"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}/trips"{% elsif page.subsection == "b2c" %}{{site.webapiB2C}}/user/vehicles/{id}/trips"{% endif %}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"lastPosition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/lastPosition"{% elsif page.subsection == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/lastPosition"{% endif %}</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}/lastPosition"{% elsif page.subsection == "b2c" %}{{site.webapiB2C}}/user/vehicles/{id}/lastPosition"{% endif %}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"telemetry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/telemetry"{% elsif page.subsection == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/telemetry"{% endif %}</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}/telemetry"{% elsif page.subsection == "b2c" %}{{site.webapiB2C}}/user/vehicles/{id}/telemetry"{% endif %}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"maitenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/maintenance"{% elsif page.subsection == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/maintenance"{% endif %}</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}/maintenance"{% elsif page.subsection == "b2c" %}{{site.webapiB2C}}/user/vehicles/{id}/maintenance"{% endif %}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2BPreProd}}/fleets/{fid}/vehicles/{id}/status"{% elsif page.subsection == "b2c" %}{{site.webapiB2CPreProd}}/user/vehicles/{id}/status"{% endif %}</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{% if page.subsection == "b2b" %}{{site.webapiB2B}}/fleets/{fid}/vehicles/{id}/status"{% elsif page.subsection == "b2c" %}{{site.webapiB2C}}/user/vehicles/{id}/status"{% endif %}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w"></span></code>

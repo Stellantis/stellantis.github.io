@@ -26,17 +26,17 @@ This notification will be displayed regardless of the current active module (Nav
 
 The user is able to:
 
-- Press the *OK* button. [See okBtn event]({{site.baseurl}}/webportal/v1/reference/list/#event-WebPortal-okBtnPopupRequestClicked).
-- Press the Return arrow to the top left. [See cancelBtn event]({{site.baseurl}}/webportal/v1/reference/list/#event-WebPortal-cancelBtnPopupRequestClicked).
-- Not do anything, in which case the window will close automatically after 15 seconds. [See closeTimeout event]({{site.baseurl}}/webportal/v1/reference/list/#event-WebPortal-closeTimeoutPopupRequest).
+- Press the *OK* button. [See okBtn event]({{site.baseurl}}/webportal/v1/api-reference/list/#event-WebPortal-okBtnPopupRequestClicked).
+- Press the Return arrow to the top left. [See cancelBtn event]({{site.baseurl}}/webportal/v1/api-reference/list/#event-WebPortal-cancelBtnPopupRequestClicked).
+- Not do anything, in which case the window will close automatically after 15 seconds. [See closeTimeout event]({{site.baseurl}}/webportal/v1/api-reference/list/#event-WebPortal-closeTimeoutPopupRequest).
 
 The action done by the user is transferred to the embedded Application for it to react accordingly.
 
 ## IMPORTANT
 
->**Caution:** Popups (either [MQTT]({{site.baseurl}}/webportal/v1/connectivity/notification/#sending-popup) or [nativePopup]({{site.baseurl}}/webportal/v1/reference/list/#api-WebPortal-nativePopup-open)) must not be asked more often than once every 20 seconds.
+>**Caution:** Popups (either [MQTT]({{site.baseurl}}/webportal/v1/connectivity/notification/#sending-popup) or [nativePopup]({{site.baseurl}}/webportal/v1/api-reference/list/#api-WebPortal-nativePopup-open)) must not be asked more often than once every 20 seconds.
 
-> **Caution 2:** [Navigation.LaunchGuidance()]({{site.baseurl}}//webportal/v1/reference/list/#api-Navigation-LaunchGuidance) and [Navigation.LaunchGuidanceWaypoints()]({{site.baseurl}}/webportal/v1/reference/list/#api-Navigation-LaunchGuidanceWaypoints) can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/v1/connectivity/notification/#sending-popup) or [nativePopup]({{site.baseurl}}/webportal/v1/reference/list/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that LaunchGuidance function return is `True`.
+> **Caution 2:** [Navigation.LaunchGuidance()]({{site.baseurl}}//webportal/v1/api-reference/list/#api-Navigation-LaunchGuidance) and [Navigation.LaunchGuidanceWaypoints()]({{site.baseurl}}/webportal/v1/api-reference/list/#api-Navigation-LaunchGuidanceWaypoints) can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/v1/connectivity/notification/#sending-popup) or [nativePopup]({{site.baseurl}}/webportal/v1/api-reference/list/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that LaunchGuidance function return is `True`.
 
 ## STRUCTURE OF MQTT MESSAGE
 ```javascript
