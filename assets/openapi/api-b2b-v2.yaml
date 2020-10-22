@@ -2776,7 +2776,10 @@ components:
     
     Kinetic:
         allOf:
-            - $ref: '#/components/schemas/TimeStamped'
+            - properties:
+                createdAt:
+                      type: string
+                      format: date-time
             - $ref: '#/components/schemas/BasicKinetic'
          
     BrakingSystem:
