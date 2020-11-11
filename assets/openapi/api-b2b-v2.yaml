@@ -59,9 +59,6 @@ info:
     
        
     # API output:
-      ## Data profile
-       B2B partners need to return vehicle data with an end-user profile. To do this, the data APIs allow to use an end-user profile according to a query parameter named ```profile```. Monitor, Fleets and Vehicles getter APIs are not affected by this parameter.
-     
       ## Data format
       
       **All APIs return data in JSON format. The application who uses them must take into account the evolving character of them and more precisely regarding the schemas of the exposed data. Indeed:**
@@ -215,7 +212,7 @@ paths:
         
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/profile'
+        
       responses:
         200:
           description: Position response
@@ -227,48 +224,6 @@ paths:
           description: Vehicle not found
           $ref: '#/x-fragment/general_error_fragment'
           
-  '/fleets/{fid}/vehicles/{vid}/collisions':
-    get:
-      tags:
-        - Vehicles
-      summary: Collisions happened to a vehicle.
-      description: >-
-        Returns the set of Collisions that occurred for a given vehicle (id)
-        during the timestamp ranges and bounded by an index range.
-      operationId: getVehicleCollision
-      parameters:
-        
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
-      responses:
-        200:
-          $ref: '#/components/responses/CollisionsSuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse'
-          
-  '/fleets/{fid}/vehicles/{vid}/collisions/{cid}':
-    get:
-      tags:
-        - Vehicles
-      summary: An identified collision that occurred to a vehicle.
-      description: Returns the Collision that matches the vehicle id and the Collision cid.
-      operationId: getVehicleCollisionById
-      parameters:
-        
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/collisionId'
-      responses:
-        200:
-          $ref: '#/components/responses/CollisionsuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse'
           
   '/fleets/{fid}/vehicles/{vid}/maintenance':
     get:
@@ -281,7 +236,7 @@ paths:
         
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/profile'
+        
       responses:
         200:
           description: Maintenant response
@@ -302,7 +257,7 @@ paths:
       parameters:
         
         - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
+        
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
@@ -323,7 +278,7 @@ paths:
       parameters:
         
         - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
+        
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
@@ -343,7 +298,7 @@ paths:
       parameters:
         
         - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
+        
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
@@ -365,7 +320,7 @@ paths:
       parameters:
         
         - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
+        
         - $ref: '#/components/parameters/alertId'        
       responses:
         200:
@@ -384,8 +339,8 @@ paths:
       parameters:
         
         - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/telemetryType'
+        
+        
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
@@ -426,7 +381,7 @@ paths:
       parameters:
         
         - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
+        
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/statusExtension'
       responses:
@@ -450,7 +405,7 @@ paths:
         
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/profile'
+        
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
@@ -473,7 +428,7 @@ paths:
         
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/profile'
+        
         - $ref: '#/components/parameters/alertId'
         - $ref: '#/components/parameters/locale'
       responses:
@@ -494,13 +449,13 @@ paths:
         
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/profile'
+        
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/telemetryType'
+        
         - $ref: '#/components/parameters/telemetryExtension'
       responses:
         200:
@@ -622,7 +577,7 @@ paths:
         
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/profile'
+        
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
@@ -644,7 +599,7 @@ paths:
       parameters:
         
         - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
+        
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
@@ -655,69 +610,7 @@ paths:
         default:
           $ref: '#/components/responses/TripFailedResponse'
   
-  '/fleets/{fid}/trips/{tid}/collisions':
-    get:
-      tags:
-        - Trips
-      summary: Trips of fleet. 
-      description: >-
-        Returns the set of Collisions that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
-      operationId: getTripCollisionsByTrip
-      parameters:
-        
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-      responses:
-        '200':
-          $ref: '#/components/responses/CollisionsSuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse'
-  
-  '/fleets/{fid}/collisions':
-    get:
-      tags:
-        - Fleet
-      summary: Collisions of all vehicles ofthe fleet.
-      description: >-
-        Returns the set of Collisions of a Fleet of vehicles. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
-      operationId: getFleetTripCollisions
-      parameters:
-        
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'      
-      responses:
-        '200':
-          $ref: '#/components/responses/CollisionsSuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse'
-  
-  '/fleets/{fid}/collisions/{cid}':    
-    get:
-      tags:
-        - Fleet
-      summary: A single collision f the fleet.
-      description: >-
-        Returns the Collision that matches the fleet id and the Collision cid. 
-      operationId: getCollisionsById
-      parameters:
-        
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/collisionId'      
-      responses:
-        '200':
-          $ref: '#/components/responses/CollisionsSuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse' 
+
 
   '/fleets/{fid}/trips/{tid}':
     get:
@@ -730,7 +623,7 @@ paths:
         
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/profile'
+        
       responses:
         200:
           $ref: '#/components/responses/TripsuccessResponse'
@@ -750,7 +643,7 @@ paths:
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
+        
       responses:
         200:
           $ref: '#/components/responses/TripsuccessResponse'
@@ -773,7 +666,7 @@ paths:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/profile'
+        
 
       responses:
         200:
@@ -798,7 +691,7 @@ paths:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/profile'
+        
 
       responses:
         200:
@@ -821,7 +714,7 @@ paths:
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/alertId'
         - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/profile'
+        
 
       responses:
         200:
@@ -842,7 +735,7 @@ paths:
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/alertId'
         - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/profile'
+        
 
       responses:
         200:
@@ -863,7 +756,7 @@ paths:
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/tolerence'
-        - $ref: '#/components/parameters/profile'
+        
       responses:
         200:
           description: Path response
@@ -888,7 +781,7 @@ paths:
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/tolerence'
-        - $ref: '#/components/parameters/profile'
+        
         
       responses:
         200:
@@ -913,13 +806,12 @@ paths:
         
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/telemetryType'
+        
         - $ref: '#/components/parameters/telemetryExtension'
       responses:
         200:
@@ -942,12 +834,10 @@ paths:
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/telemetryType'
         - $ref: '#/components/parameters/telemetryExtension'
       responses:
         200:
@@ -1019,7 +909,7 @@ components:
             updatedAt:
               type: string
               format: date-time
-            startdAt:
+            startedAt:
               type: string
               format: date-time
             endAt:
@@ -1033,7 +923,7 @@ components:
               allOf:
                 - $ref: '#/components/schemas/Position'
                 - description: The position (last vehicle known one) where the alert occurs. 
-          required: [ id,active,type,updatedAt,startdAt]
+          required: [ id,active,type,updatedAt,startedAt]
         
     MonitorStatus:
       type: string
@@ -1064,76 +954,6 @@ components:
               $ref: '#/components/schemas/MonitorStatus'
           required: [status, monitorId, monitor, createdAt,updatedAt]
       
-    CollisionObj:
-     allOf:
-        - title: Collision
-          type: object
-          properties:
-            
-            id:
-              type: string
-            
-            rollOver:
-              type: boolean
-            rear:
-              type: object
-              properties:
-                level:
-                  type: string
-                  default: none
-                  enum:
-                    - none
-                    - low
-                    - medium
-                    - high
-                    - fixable
-            front:
-              type: object
-              properties:
-                level:
-                  type: string
-                  default: none
-                  enum:
-                    - none
-                    - low
-                    - medium
-                    - high
-                    - fixable
-            lateral:
-              type: object
-              properties:
-                level:
-                  type: string
-                  default: none
-                  enum:
-                    - none
-                    - low
-                    - medium
-                    - high
-                    - fixable
-            pedestrian:
-              type: boolean
-    
-    Collision:
-     allOf:
-        - $ref: '#/components/schemas/TimeStamped'
-        - $ref: '#/components/schemas/CollisionObj'
-        - title: Collision
-          type: object
-          properties:
-            updatedAt:
-              type: string
-              format: date-time
-            _links:
-              type: object
-              properties:
-                self:
-                  $ref: '#/components/schemas/Link'
-                vehicle:
-                  $ref: '#/components/schemas/Link'
-                trip:
-                  $ref: '#/components/schemas/Link'
-           
     ECoaching:
       type: object
       properties:
@@ -1158,6 +978,7 @@ components:
                   enum: [Global, Acceleration, Break, AirCondioner, ColdEngine, TirePressure, Slope, Speed, StartStop]
                 score:
                   type: number
+                  format: int
                   minimum: 0
                   maximum: 10
        
@@ -1171,7 +992,7 @@ components:
     MaintenanceObj:
      allOf:
         - $ref: '#/components/schemas/TimeStamped'
-        - description: 
+        - description: >-
             Expresses next Maintenance destails. Such as number of days and the
             mileage till the next Maintenance.
           type: object
@@ -1223,9 +1044,10 @@ components:
           mileage:
                 description: Vehicle mileage expressed in KM.
                 type: number
-          createdAt:
-              type: string
-              format: date-time
+                format: float
+          #createdAt:
+              #type: string
+              #format: date-time
               
     Battery:
               description: Describe the car (with combustion engine)  battery status.
@@ -1309,7 +1131,7 @@ components:
                   $ref: '#/components/schemas/Position'
             preconditioning:
                   $ref: '#/components/schemas/Preconditioning'
-            energy:
+            energies:
                 $ref: '#/components/schemas/Energy'
             engines:
               type: array
@@ -1384,6 +1206,7 @@ components:
               type: array
               items:
                 type: number
+                format: float
                 minItems: 2
                   
     Position:
@@ -1491,6 +1314,7 @@ components:
     FuelEnergyConsumption:
               description: Instant consumption for vehicles for thermic vehicle. Expressed L/100Km
               type: number
+              format: float
               minimum: 0
               
     ElectricResidualEnergy:
@@ -1697,8 +1521,6 @@ components:
               $ref: '#/components/schemas/Link'
             trips:
               $ref: '#/components/schemas/Link'
-            collisions:
-              $ref: '#/components/schemas/Link'
             telemetries:
               $ref: '#/components/schemas/Link'
             monitors:
@@ -1753,6 +1575,7 @@ components:
           type: string
         brand:
           description: Brand of a vehicle
+          type: string
         engine:  
           description: Engine of a vehicle
           type: array
@@ -1845,17 +1668,6 @@ components:
                   items:
                     $ref: '#/components/schemas/Monitor'
                     
-    Collisions:
-      allOf:
-        - $ref: '#/components/schemas/CollectionResult'
-        - properties:
-            _embedded:
-              type: object
-              properties:
-                Collisions:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/Collision'
     
     WayPoints:
       allOf:
@@ -2052,9 +1864,11 @@ components:
                 properties:
                   size:
                     type: number
+                    format: int
                     description: Batch size (positive value and not zero).
                   timeWindow:
                     type: number
+                    format: int
                     default: 60
                     minimum: 5
                     description: Notification batch window size (expressed in seconds).
@@ -2117,12 +1931,9 @@ components:
                             |vehicle.status|Latest know vehicle status (timestamped)|Status|
                             |vehicle.maintenance|Latest know maintenance(timestamped)|Maintenance|
                             |vehicle.position|Last vehicle position (timestamped)|Position|
-                            |vehicle.telemetry${.TelemetryEnum}|Latest known telemetry (timestamped). |Telemetry
+                            |vehicle.telemetry|Latest known telemetry (timestamped). |Telemetry
                             |vehicle.alerts|List of active alerts|Alert|
-                            
-                            * For telemetry extension:  
-                              * The suffix ```${.TelemetryEnum}``` can be selected to refine with telemetry type (from the TelemetryEnum list). This value (with suffix) can be selected **_several times_** to included suitable telemetry messages with the extention.
-                              * Using ```vehicle.telemetry``` without suffix means to include all available telemetries. 
+ 
             triggerParam:
               description: |
                              Monitor trigger-param that allows to compound triggers by applying a boolean expression to evaluate them.
@@ -2202,6 +2013,7 @@ components:
                       radius:
                         description: Circle radius (expressed in km)
                         type: number
+                        format: int
                       center:
                         type: object
                         properties:
@@ -2260,7 +2072,7 @@ components:
             
             |**Data**|**Type**|**Op**|**Value**|
             |---|---| ---:| ---:|
-            | vehicle.alert | List of value | OnChange (at least one)/IncludedIn/equalsTo | Value (ObjetAlert) |
+            | vehicle.alert | List of value | OnChange (at least one)/includedIn/equalsTo | Value (ObjetAlert) |
             | vehicle.odometer | Integer | equalsTo/greaterThan/lowerThan/ | Value |
             | vehicle.engines.running (boolean) | Boolean | OnChange/equalsTo | Value (true/false) |
             | vehicle.engines.thermic.oil.temp | Integer | equalsTo/greaterThan/ lowerThan/ | Value |
@@ -2280,7 +2092,7 @@ components:
             | vehicle.maintenance.mileageBeforeMaintenance| Number | OnChange/equalsTo/ greaterThan/ lowerThan/ | Value |
             | vehicle.safety.beltWarning | Enum(beltWarning) | OnChange/equalsTo | Value |
             | environment.air.temp | Number | equalsTo/greaterThan/lowerThan/ | Value |
-            | privacy.state | Enum(Privacy) | equalsTo / OnChange/IncludedIN | Value |
+            | privacy.state | Enum(Privacy) | equalsTo / OnChange/includedIn | Value |
                 
                         
             The right operand  (value) argument depends on the type of operation (OP) as following:
@@ -2579,9 +2391,11 @@ components:
                                 level:
                                   description: Engine liquid level expressed in persent.
                                   type: number
+                                  format: int
                                 temp:
                                   description: Engine liquid temperature expressed in Celsius degrees.
                                   type: number
+                                  format: float
     Engine:
           type: object
           properties:
@@ -2598,8 +2412,10 @@ components:
                     properties:
                       temp:
                         type: number
+                        format: float
                   speed:
                     type: number
+                    format: float
                   gmpStatus:
                     type: string
                     enum: [NotRunning, Starting, Running, Stopping, Stopped]
@@ -2639,18 +2455,14 @@ components:
         privacy:
           $ref: '#/components/schemas/Privacy'
         vehicle:
-          
           type: object
           properties:
-            
             engines:
               type: array
               items:
                 $ref: '#/components/schemas/Engine'
-                
-                  
                             #groupe motopropulseur
-            energy:  
+            energies:  
                 $ref: '#/components/schemas/Energy'
             brakingSystem:
               $ref: '#/components/schemas/BrakingSystem'
@@ -2730,7 +2542,7 @@ components:
       type: object
       description: Additional data set.
       properties:
-        odemeter:
+        odometer:
           $ref: '#/components/schemas/VehicleOdometer'
         kinetic:
           $ref: '#/components/schemas/Kinetic'
@@ -2745,6 +2557,7 @@ components:
                       mileage:
                             description: Vehicle mileage expressed in KM.
                             type: number
+                            format: float
                 kinetic :
                       $ref: '#/components/schemas/BasicKinetic'
                 location:
@@ -2762,7 +2575,7 @@ components:
                 acceleration:
                   type: number
                   format: float
-                  description:  Vehicle acceleration (expressed in m/s≤)
+                  description:  Vehicle acceleration (expressed in m/s²)
                 speed:
                   type: number
                   format: float
@@ -2941,66 +2754,9 @@ components:
                 properties:
                   temp:
                     type: number
+                    format: float
     
-    TelemetryEnum:
-      type: array
-      minItems: 1
-      maxItems: 10
-      items:
-        type: string
-        enum:
-        #  - vehicle.odometer
-        #  - vehicle.kinetic
-        #  - vehicle.running
-          - vehicle.engines
-        #  - vehicle.engines.oil.temp
-          - vehicle.engines.speed
-          - vehicle.engines.gmpStatus
-          - vehicle.engines.extension
-          - vehicle.energies
-          - vehicle.energies.type
-          - vehicle.energies.level
-          - vehicle.energies.autonomy
-          - vehicle.energies.extension
-        #  - vehicle.energy.consumption  
-          - vehicle.brakingSystem.parking
-          - vehicle.ignition
-          - vehicle.doorsState
-          - vehicle.doorsState.lockedState
-          - vehicle.doorsState.opening
-        #  - vehicle.energy.charging
-          - vehicle.transmission
-          - vehicle.transmission.gearbox.mode 
-          - vehicle.transmission.gearbox.gear
-          - vehicle.lighting
-          - vehicle.adas
-          - vehicle.adas.parkAssist.front
-          - vehicle.adas.parkAssist.rear
-          - vehicle.adas.aebs
-          - vehicle.adas.afil
-          - vehicle.adas.artiv
-          - vehicle.adas.esp
-          - vehicle.adas.abs
-          - vehicle.adas.fse
-          - vehicle.adas.acc
-          - vehicle.adas.lvv
-          - vehicle.adas.rvv
-          - vehicle.adas.lka
-          - vehicle.adas.bsm
-          - vehicle.adas.sli
-        #  - passenger.seatbelt
-          - vehicle.battery
-          - vehicle.safety
-          - privacy
-          - environment.air
-          - environment.luminosity
           
-    
-    DataProfile:
-        type: string
-        enum:
-          - fleet
-          - endUser
   ############################ PARAMETERS ################################        
   parameters:  
     fleetId:
@@ -3026,15 +2782,7 @@ components:
       required: true
       schema:
         type: string
-    
-    collisionId:
-      name: cid
-      in: path
-      description: Results will only contain the Collision related to this Collision ID.
-      required: true
-      schema:
-        type: string
-    
+  
     vehicleId:
       name: vid
       in: path
@@ -3165,16 +2913,6 @@ components:
         type: number
         format: float
         
-    telemetryType:
-      name: type
-      in: query
-      description: >-
-        Results will only contain Telemetry messages of this kind. You can add
-        more than one message type. By default, if no type is selected then all telemetries will be taken ```(the number of elements in this array must be between 1 and 10)```.
-      required: false
-      schema:
-        $ref: '#/components/schemas/TelemetryEnum'
-    
     statusExtension: 
       name: extension
       in: query
@@ -3200,37 +2938,8 @@ components:
         $ref: '#/components/schemas/TelemetryExtensionType'    
     
  
-    
-    profile:
-      name: profile
-      in: query
-      description: >-
-        Results will contain a relative view of the data depending on the selected profile. Indeed, ```endUser``` will expose only the data available to the end-user as if there were no intermediaries between him and the vehicle (case of B-2-B-2-C). If not specified, this parameter will be set to```fleet```value (deault value).
-        
-         * _Disclaimer_:  Since the```fleet```profile has a larger data scope, selecting```endUser```profile will potentially result in not found status depending on its granted rights and privacy level. 
-      required: false
-      schema:
-        $ref: '#/components/schemas/DataProfile'  
   #TelemetryExtensionType
   responses:
-    CollisionsuccessResponse:
-      description: Collision response
-      content:
-        application/hal+json:
-          schema:
-            $ref: '#/components/schemas/Collision'
-    
-    CollisionsSuccessResponse:
-      description: A list of Collision
-      content:
-        application/hal+json:
-          schema:
-            $ref: '#/components/schemas/Collisions'
-    
-    CollisionFailedResponse:
-      description: Collision request error
-      $ref: '#/x-fragment/general_error_fragment'
-    
     AlertsuccessResponse:
       description: Alert response
       content:
