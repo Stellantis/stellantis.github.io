@@ -15,7 +15,7 @@ info:
 
     PSA Connected Car APIs uses the [OAuth
     2.0](https://tools.ietf.org/html/rfc6749) protocol for authentication and
-    authorization. any application require a valid [Access
+    Authorization. any application require a valid [Access
     Token](https://tools.ietf.org/html/rfc6749#section-1.4) to access to user
     data.
 
@@ -40,14 +40,7 @@ paths:
         - application/hal+json
         - application/json
       parameters:
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
+
       responses:
         '200':
           description: OK
@@ -108,20 +101,8 @@ paths:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: A list of Trip
@@ -131,7 +112,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -151,20 +134,8 @@ paths:
           name: tid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Trip response
@@ -174,7 +145,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -234,20 +207,8 @@ paths:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats.
@@ -264,7 +225,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - alert_read
             - Trip_read
       tags:
@@ -293,20 +256,8 @@ paths:
           name: locale
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Alert response
@@ -316,7 +267,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - alert_read
             - Trip_read
       tags:
@@ -375,20 +328,8 @@ paths:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: A list of Collision
@@ -398,7 +339,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Collision request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Collision_read
             - Trip_read
       tags:
@@ -425,20 +368,8 @@ paths:
           name: cid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Collision response
@@ -448,7 +379,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Collision request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Collision_read
             - Trip_read
       tags:
@@ -469,20 +402,8 @@ paths:
           name: tid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats. Respect REGEX \w(-\w)?
@@ -499,7 +420,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: ECoaching request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -540,14 +463,7 @@ paths:
           pattern: \d+-\d*
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
+
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats. Respect REGEX \w(-\w)?
@@ -555,12 +471,7 @@ paths:
           name: locale
           required: false
           type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+        
         - collectionFormat: multi
           description: >-
             Results will only contain Telemetry messages of this kind. You can
@@ -644,7 +555,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -678,20 +591,8 @@ paths:
           pattern: \d+-\d*
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Path response
@@ -700,7 +601,9 @@ paths:
         default:
           description: wayPoints not found
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -750,20 +653,8 @@ paths:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: OK
@@ -773,7 +664,9 @@ paths:
           schema:
             $ref: '#/definitions/xError'
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Vehicle_read
       tags:
         - Vehicles
@@ -790,20 +683,8 @@ paths:
           name: id
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: OK
@@ -813,7 +694,9 @@ paths:
           schema:
             $ref: '#/definitions/xError'
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Vehicle_read
       tags:
         - Vehicles
@@ -872,20 +755,8 @@ paths:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats. Respect REGEX \w(-\w)?
@@ -909,7 +780,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - alert_read
             - Vehicle_read
       tags:
@@ -938,20 +811,8 @@ paths:
           name: locale
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Alert response
@@ -961,7 +822,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - alert_read
             - Vehicle_read
       tags:
@@ -1020,20 +883,8 @@ paths:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: A list of Collision
@@ -1043,7 +894,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Collision request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Collision_read
             - Vehicle_read
       tags:
@@ -1071,20 +924,8 @@ paths:
           name: cid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Collision response
@@ -1094,7 +935,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Collision request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Collision_read
             - Vehicle_read
       tags:
@@ -1113,20 +956,7 @@ paths:
           name: id
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+        
       responses:
         '200':
           description: Position response
@@ -1136,7 +966,9 @@ paths:
           schema:
             $ref: '#/definitions/xError'
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - localisation_read
             - Vehicle_read
       tags:
@@ -1154,20 +986,8 @@ paths:
           name: id
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Maintenant response
@@ -1177,7 +997,9 @@ paths:
           schema:
             $ref: '#/definitions/xError'
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Maintenance_read
             - Vehicle_read
       tags:
@@ -1224,20 +1046,8 @@ paths:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: A list of Monitors
@@ -1246,6 +1056,12 @@ paths:
         default:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
+      security:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
+            - Maintenance_read
+            - Vehicle_read
       tags:
         - Vehicles
       deprecated: true
@@ -1263,20 +1079,8 @@ paths:
           name: id
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - in: body
           name: body
           schema:
@@ -1285,12 +1089,14 @@ paths:
         '201':
           description: Monitor post success response
           schema:
-            $ref: '#/definitions/MonitorRef'
+            $ref: '#/definitions/MonitorParameter'
         default:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        - client_id: []
+          realm: []
+          Vehicle_auth:
             - Vehicle_read
             - Monitor_write
       tags:
@@ -1320,27 +1126,16 @@ paths:
           name: mid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+        
       responses:
         '200':
           description: Monitor deleted
         default:
           description: Vehicle not found
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Vehicle_read
             - Monitor_write
       tags:
@@ -1363,30 +1158,20 @@ paths:
           name: mid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Monitor response
           schema:
-            $ref: '#/definitions/Monitor'
+            $ref: '#/definitions/MonitorParameter'
         default:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Monitor_read
             - Vehicle_read
       tags:
@@ -1448,20 +1233,8 @@ paths:
           name: mid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - in: body
           name: body
           schema:
@@ -1491,20 +1264,8 @@ paths:
           name: id
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - collectionFormat: multi
           description: |-
             Additional data set that will be included in embedded field 
@@ -1528,7 +1289,9 @@ paths:
           schema:
             $ref: '#/definitions/xError'
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Status_read
             - Vehicle_read
       tags:
@@ -1634,20 +1397,8 @@ paths:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats. Respect REGEX \w(-\w)?
@@ -1680,7 +1431,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Telemetry_read
             - Vehicle_read
       tags:
@@ -1741,20 +1494,8 @@ paths:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: A list of Trip
@@ -1764,7 +1505,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
             - Vehicle_read
       tags:
@@ -1788,20 +1531,8 @@ paths:
           name: tid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Trip response
@@ -1811,7 +1542,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
             - Vehicle_read
       tags:
@@ -1877,20 +1610,8 @@ paths:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats.
@@ -1907,7 +1628,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - alert_read
             - Vehicle_read
             - Trip_read
@@ -1942,20 +1665,8 @@ paths:
           name: locale
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Alert response
@@ -1965,7 +1676,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - alert_read
             - Vehicle_read
             - Trip_read
@@ -2032,20 +1745,8 @@ paths:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: A list of Collision
@@ -2055,7 +1756,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Collision request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Collision_read
             - Vehicle_read
             - Trip_read
@@ -2088,20 +1791,8 @@ paths:
           name: cid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Collision response
@@ -2111,7 +1802,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Collision request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Collision_read
             - Vehicle_read
             - Trip_read
@@ -2136,20 +1829,8 @@ paths:
           name: tid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats. Respect REGEX \w(-\w)?
@@ -2166,7 +1847,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: ECoaching request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
             - Vehicle_read
       tags:
@@ -2213,20 +1896,8 @@ paths:
           pattern: \d+-\d*
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats. Respect REGEX \w(-\w)?
@@ -2317,7 +1988,9 @@ paths:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -2379,20 +2052,8 @@ paths:
           in: query
           name: tolerance
           type: number
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Path response
@@ -2401,7 +2062,9 @@ paths:
         default:
           description: wayPoints not found
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -3408,7 +3071,7 @@ definitions:
           self:
             $ref: '#/definitions/Link'
         type: object
-      id:
+      mid:
         $ref: '#/definitions/MonitorId'
       monitor:
         $ref: '#/definitions/MonitorParameter'
@@ -3416,7 +3079,7 @@ definitions:
         $ref: '#/definitions/MonitorStatus'
     required:
       - status
-      - id
+      - mid
       - monitor
     title: Monitor
     type: object
@@ -3713,7 +3376,7 @@ definitions:
             properties:
               monitors:
                 items:
-                  $ref: '#/definitions/Monitor'
+                  $ref: '#/definitions/MonitorParameter'
                 type: array
             type: object
     title: Monitors Array
@@ -3769,8 +3432,10 @@ definitions:
                 type: number
               type:
                 enum:
+                  - Estimated
+                  - Acquired
                   - Estimate
-                  - Acquire
+                  - Aquire
                 type: string
             type: object
           type:
@@ -4700,7 +4365,7 @@ definitions:
     type: object
 securityDefinitions:
   Vehicle_auth:
-    authorizationUrl: 'https://api.mpsa.com/api/connectedcar/v2/oauth/authorize'
+    AuthorizationUrl: 'https://api.mpsa.com/api/connectedcar/v2/oauth/authorize'
     flow: implicit
     scopes:
       Collision_read: read Collision related data
@@ -4713,6 +4378,16 @@ securityDefinitions:
       alert_write: 'create, modify or delete alerte'
       localisation_read: read location related data
     type: oauth2
+  realm:
+    type: apiKey
+    in: header
+    name: "x-introspect-realm"
+    description: Some requests need to include the `"x-introspect-realm"` header. It can be clientsB2CPeugeot, clientsB2CDS, clientsB2COpel, clientsB2CVauxhall.
+  client_id:
+    type: apiKey
+    in: query
+    name: "client_id"
+    description: Some requests need to include the `"client_id"` in the.
 tags:
   - name: User
   - description: Access to Vehicles details.
@@ -4902,7 +4577,7 @@ x-components:
         HTTP token authentication (Bearer authentication) that should be
         retrived using PSA connection API.
       in: header
-      name: authorization
+      name: Authorization
       pattern: Bearer (\w|-|=)*
       required: true
       type: string
@@ -5044,20 +4719,8 @@ x-fragment:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats.
@@ -5074,7 +4737,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - alert_read
             - Trip_read
       tags:
@@ -5103,20 +4768,8 @@ x-fragment:
           name: locale
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Alert response
@@ -5126,7 +4779,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - alert_read
             - Trip_read
       tags:
@@ -5185,20 +4840,8 @@ x-fragment:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: A list of Collision
@@ -5208,7 +4851,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Collision request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Collision_read
             - Trip_read
       tags:
@@ -5235,20 +4880,8 @@ x-fragment:
           name: cid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Collision response
@@ -5258,7 +4891,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Collision request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Collision_read
             - Trip_read
       tags:
@@ -5279,20 +4914,8 @@ x-fragment:
           name: tid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats. Respect REGEX \w(-\w)?
@@ -5309,7 +4932,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: ECoaching request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -5350,14 +4975,7 @@ x-fragment:
           pattern: \d+-\d*
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
+
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats. Respect REGEX \w(-\w)?
@@ -5365,12 +4983,7 @@ x-fragment:
           name: locale
           required: false
           type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+        
         - collectionFormat: multi
           description: >-
             Results will only contain Telemetry messages of this kind. You can
@@ -5454,7 +5067,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -5475,20 +5090,8 @@ x-fragment:
           name: tid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Trip response
@@ -5498,7 +5101,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -5531,20 +5136,8 @@ x-fragment:
           pattern: \d+-\d*
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Path response
@@ -5553,7 +5146,9 @@ x-fragment:
         default:
           description: wayPoints not found
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -5608,20 +5203,8 @@ x-fragment:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: A list of Trip
@@ -5631,7 +5214,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -5654,20 +5239,8 @@ x-fragment:
           name: tid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Trip response
@@ -5677,7 +5250,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
             - Vehicle_read
       tags:
@@ -5743,20 +5318,8 @@ x-fragment:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats.
@@ -5773,7 +5336,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - alert_read
             - Vehicle_read
             - Trip_read
@@ -5808,20 +5373,8 @@ x-fragment:
           name: locale
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Alert response
@@ -5831,7 +5384,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Alert request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - alert_read
             - Vehicle_read
             - Trip_read
@@ -5898,20 +5453,8 @@ x-fragment:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: A list of Collision
@@ -5921,7 +5464,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Collision request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Collision_read
             - Vehicle_read
             - Trip_read
@@ -5954,20 +5499,8 @@ x-fragment:
           name: cid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Collision response
@@ -5977,7 +5510,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Collision request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Collision_read
             - Vehicle_read
             - Trip_read
@@ -6002,20 +5537,8 @@ x-fragment:
           name: tid
           required: true
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats. Respect REGEX \w(-\w)?
@@ -6032,7 +5555,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: ECoaching request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
             - Vehicle_read
       tags:
@@ -6079,20 +5604,8 @@ x-fragment:
           pattern: \d+-\d*
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
         - description: >-
             Locale is used for rendering text, correctly displaying regional
             monetary values, time and date formats. Respect REGEX \w(-\w)?
@@ -6183,7 +5696,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -6245,20 +5760,8 @@ x-fragment:
           in: query
           name: tolerance
           type: number
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: Path response
@@ -6267,7 +5770,9 @@ x-fragment:
         default:
           description: wayPoints not found
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
       tags:
         - Trips
@@ -6325,20 +5830,8 @@ x-fragment:
           name: pageToken
           required: false
           type: string
-        - description: >-
-            HTTP token authentication (Bearer authentication) that should be
-            retrived using PSA connection API.
-          in: header
-          name: authorization
-          pattern: Bearer (\w|-|=)*
-          required: true
-          type: string
-        - description: The client ID related to the API User account.
-          in: query
-          name: client_id
-          pattern: '([0-9a-fA-F]|-|_)*'
-          required: true
-          type: string
+
+        
       responses:
         '200':
           description: A list of Trip
@@ -6348,7 +5841,9 @@ x-fragment:
           $ref: '#/x-fragment/general_error_fragment'
           description: Trip request error
       security:
-        - Vehicle_auth:
+        -  client_id: []
+           realm: []
+           Vehicle_auth:
             - Trip_read
             - Vehicle_read
       tags:
