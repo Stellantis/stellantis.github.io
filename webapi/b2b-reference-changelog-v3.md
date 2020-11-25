@@ -11,9 +11,28 @@ title: Changelog Version 3
 
 Version|Name
 -|-
-[b2b_v3.0.3](#b2b_v303) | 
+[b2b_v3.0.4](#b2b_v304) | 3.0.4
+[b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
 
+<hr>
+
+## b2b_v3.0.4
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Tue Nov 24 2020</span></div>
+
+#### MPH Addons&Changes:
+
+- Remove duration from remote ligth
+- Fix includedIn keyword
+- Replacement of energy by energies in API Status & Telemetries
+- Fix missing type for brand field in vehicles object
+- Add missing format for type: number
+- Add description for triggerParam>boolExp field in API Monitors
+- fix startd for startedAt
+
+#### Webhook Monitor Template change:
+- Change extension body type from array to object
 
 <hr>
 

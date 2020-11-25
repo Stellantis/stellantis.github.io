@@ -48,8 +48,10 @@
               path: about/
             - name: Set Up
               path: set-up/
-            - name: Webhook References
-              path: webhook/
+            - name: Webhook References v2
+              path: webhook-v2/
+            - name: Webhook References v3
+              path: webhook-v3/
         - name: Remote
           path: remote/
           pages:
