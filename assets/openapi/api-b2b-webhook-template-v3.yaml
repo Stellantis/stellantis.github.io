@@ -2,15 +2,16 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: ''
+  version: '3'
   title: Groupe PSA Connected Car B2B API
   description: | 
+               
                 # Introduction
   
-                This is the description of the *Groupe PSA Connected Car V2 & V3 B2B API* Webhooks template.This specification is written in **OpenAPI Specification version 3** and can
+                This is the description of the *Groupe PSA Connected Car V3 B2B API* Webhooks template.This specification is written in **OpenAPI Specification version 3** and can
                 be displayed using [ReDoc](https://github.com/Rebilly/ReDoc) or
                 [Swagger](http://swagger.io).
-                 
+                 .
                 # Security
                   * The authentication is already set when registering the callback using the attributes field to set HTTP header entries for the authentication(usually a _basic authentication_).
                   * Https scheme should be supported with the webhook server with a certificate issued by a trusted public and known CA. 
@@ -189,10 +190,21 @@ components:
                 description: Speficies the data type of body items. 
                 enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts]
               body:
-                type: array
-                description: 
-                  Extended data can be expressed as a list of objects because in some case, a vehicle data state should be expressed as a list of value (such as active alerts at a given time). In this spec, those data are expressed as generic object and the type is provided (see type field) and so  the client application should be aware of that and should convert it regarding this data type.
-                items:
+               
+                  description: >
+                    The body of the extension is made up of one of the fields below. Each one is expressed as a generic object and the type is the same as the related one in [MPH API SPEC](https://developer.groupe-psa.io/assets/openapi/api-b2b-v3.yaml)  (without ```HAL links``` fields).                      
+                      |  Field | MPH API related data model type  |
+                      |---|---|
+                      |doorState|```DoorsState```  |
+                      |status|```Status```  |
+                      |maintenance|```Maintenance```  |
+                      |position|```Position```  |
+                      |telemetry|```Telemetry```  |
+                      |alerts|Array of ```Alert``` object |
+                      |   |   |
+
+
+                      
                   type: object
                   properties:
                     doorState:
@@ -208,7 +220,7 @@ components:
                     alerts:
                       type: array
                       items:  
-                         type: object 
+                         type: object  
                   
         
         refresh:

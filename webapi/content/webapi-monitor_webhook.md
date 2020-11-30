@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5 {
     window.onload = function () {
         // Begin Swagger UI call region
         const ui = SwaggerUIBundle({
-            url: "{{ site.url }}{{site.baseurl}}/assets/openapi/{% if page.subsection == 'b2b' %}api-b2b-webhook-template.yaml{% elsif page.subsection == 'b2c' %}api-b2c-webhook-template.yaml{% endif %}",
+            url: "{{ site.url }}{{site.baseurl}}/assets/openapi/{% if page.subsection == 'b2b' %}{% if page.title contains "v3" %}api-b2b-webhook-template-v3.yaml{% elsif page.title contains "v2" %}api-b2b-webhook-template-v2.yaml{% endif %}{% elsif page.subsection == 'b2c' %}api-b2c-webhook-template.yaml{% endif %}",
             dom_id: '#swagger-ui',
             deepLinking: true,
             presets: [

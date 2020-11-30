@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.0'
+  version: '3.0.4'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -676,6 +676,7 @@ paths:
         default:
           $ref: '#/components/responses/TripFailedResponse'
   
+
   '/fleets/{fid}/trips/{tid}/collisions':
     get:
       tags:
@@ -987,7 +988,6 @@ paths:
           
           - $ref: '#/components/parameters/fleetId'
           - $ref: '#/components/parameters/remoteType'
-
           - $ref: '#/components/parameters/indexRange'
           - $ref: '#/components/parameters/pageSize'
           - $ref: '#/components/parameters/pageToken'
@@ -1180,9 +1180,7 @@ components:
     Vin:  
           description: Identifier of a vehicle. **Set when retrieving resource in batch mode**.   
           type: string
-    
 
-    
     Alert:
       allOf: 
         - $ref: '#/components/schemas/CreatedAtField'
@@ -1223,7 +1221,7 @@ components:
                             |Critical|Starting prohibited without repair.|                           
               type: string
               enum: [Information, Warning, Critical]
-            startdAt:
+            startedAt:
               type: string
               format: date-time
             endAt:
@@ -1237,7 +1235,7 @@ components:
               allOf:
                 - $ref: '#/components/schemas/Position'
                 - description: The position (last vehicle known one) where the alert occurs. 
-          required: [ id,active,type,updatedAt,startdAt]
+          required: [ id,active,type,updatedAt,startedAt]
         
     MonitorStatus:
       type: string
@@ -1260,13 +1258,14 @@ components:
                   $ref: '#/components/schemas/Link'
                 fleet:
                   $ref: '#/components/schemas/Link'
-            id:
+            monitorId:
               $ref: '#/components/schemas/MonitorId'
             monitor:
               $ref: '#/components/schemas/MonitorParameter'
             status:
               $ref: '#/components/schemas/MonitorStatus'
-          required: [status,id,monitor, createdAt,updatedAt]
+          required: [status,monitorId,monitor,createdAt,updatedAt]
+
     
     CollisionDetails:
       type: object
@@ -1348,6 +1347,7 @@ components:
                   enum: [Global, Acceleration, Break, AirCondioner, ColdEngine, TirePressure, Slope, Speed, StartStop]
                 score:
                   type: number
+                  format: int
                   minimum: 0
                   maximum: 10
        
@@ -1366,7 +1366,7 @@ components:
                 description: Date when the resource has been created.
                 type: string
                 format: date-time 
-        - description: 
+        - description:
             Expresses next Maintenance destails. Such as number of days and the
             mileage till the next Maintenance.
           type: object
@@ -1418,6 +1418,7 @@ components:
                 type: string
                 enum: [Stop, StartUp, Start, Free]
           required: [type,createdAt]     
+
     VehicleOdometer:
         type: object
         properties:
@@ -1427,7 +1428,7 @@ components:
           createdAt:
               type: string
               format: date-time
-              
+
     Battery:  
            allOf:
               - type: object
@@ -1435,7 +1436,7 @@ components:
                     createdAt:
                       description: Date when the resource has been created.
                       type: string
-                      format: date-time  
+                      format: date-time 
               - $ref: '#/components/schemas/BatteryBase'
               
     BatteryBase:  
@@ -1536,7 +1537,7 @@ components:
                   $ref: '#/components/schemas/Position'
             preconditioning:
                   $ref: '#/components/schemas/Preconditioning'
-            energy:
+            energies:
                 $ref: '#/components/schemas/Energy'
             engines:
               type: array
@@ -1611,6 +1612,7 @@ components:
               type: array
               items:
                 type: number
+                format: float
                 minItems: 2
                   
     Position:
@@ -1706,7 +1708,7 @@ components:
                       - $ref: '#/components/schemas/FuelEnergyConsumption'
                       - deprecated: true
                       - description:  Instant consumption for thermic vehicle. Expressed L/100Km. Depricated, use extension for this pupose.
-                  residual:
+                  residual:		 
                      allOf:
                       - $ref: '#/components/schemas/ElectricResidualEnergy'
                       - deprecated: true
@@ -1721,10 +1723,12 @@ components:
                       - $ref: '#/components/schemas/EnergyCharging'
                       - deprecated: true
                       - description: Battery capacity and heath for electric energy type. Depricated, use electric extension for this pupose.
+
           
     FuelEnergyConsumption:
               description: Instant consumption for vehicles for thermic vehicle. Expressed L/100Km
               type: number
+              format: float
               minimum: 0
               
     ElectricResidualEnergy:
@@ -1758,7 +1762,6 @@ components:
                       type: string
                       
     EnergyBattery:
-              
               type: object
               description: Electric charging state.
               properties:
@@ -1766,15 +1769,13 @@ components:
                   description: Electric battery total capacity (expressed in Wh). 
                   type: number
                   format: float
-                  
                 health:
                   type: object
                   properties:
                     capacity:
                       description:  Health related to battery capacity (expressed in percentage).
                       type: number
-                      format: int
-                            
+                      format: int 
                     resistance:
                       description:  Health related to battery resistance (expressed in percentage).
                       type: number
@@ -1831,15 +1832,17 @@ components:
         - required: [enabled, recurrence, occurence]
         
     Preconditioning:
+
       allOf:
           - type: object
             properties:
                 createdAt:
                   description: Date when the resource has been created.
                   type: string
-                  format: date-time  
+                  format: date-time 
           - type: object
             description: Preconditioning the vehicle for driver and passenger.
+			
             properties:
               airConditioning:
                 type : object
@@ -1996,6 +1999,7 @@ components:
           type: string
         brand:
           description: Brand of a vehicle
+          type: string
         engine:  
           description: Engine of a vehicle
           type: array
@@ -2226,51 +2230,10 @@ components:
               type: Header
               key: X-Vehicle_Id
               value: $vin
+
     RemoteAttribute:
       allOf:
-        - type: object
-          properties:
-            type:
-              type: string
-              enum: [Header, Body, Query]
-              description: |
-                3 attributes type:
-
-                |Attribute-type|Role|
-                |----------|-------------|
-                |Header|-Will be add as http header extension "x-######:"|
-                |Body|-Will be simply add to event body map attribute (see monitor event definition in template document)|
-                |Query|-Will set as http query parameter when invoking the Webhook|
-                
-            key:
-              type: string
-            value:
-                  type: string
-                  enum: [vin,monitorID,fleetID]
-                  description: |
-                    A value  that will be associated with the provided key as is if expressed as literal value or  contextually valued if prefixed with the dollar sign ($).  
-                    
-                    * Disclaimer: if the var "vin" is used as a query parameter, the batchnotify will be no more possible and each event will be sent through a separated request!.
-                    * example: Having a vin=VIN123456, the following attribute set:
-                            ```"attributes": [
-                                {
-                                  "type": "Header",
-                                  "key": "X-vehicle-id"
-                                  "value":"$vin"
-                                }
-                              ]```
-                      will be valued as http header extension: 
-                              
-                      *"X-vehicle-id: VIN123456"*
-          required:
-            - key
-            - value  
-            - type
-          example:
-            
-            type: Header
-            key: X-Vehicle_Id
-            value: $vin
+        - $ref: '#/components/schemas/Attribute'
         - properties:
               value:
                     type: string
@@ -2291,6 +2254,7 @@ components:
                                 
                         *"X-vehicle-id: VIN123456"*          
         
+
     RemoteAttributeSet:          
         type: array
         description: |
@@ -2370,9 +2334,11 @@ components:
                 properties:
                   size:
                     type: number
+                    format: int
                     description: Batch size (positive value and not zero).
                   timeWindow:
                     type: number
+                    format: int
                     default: 60
                     minimum: 5
                     description: Notification batch window size (expressed in seconds).
@@ -2437,27 +2403,33 @@ components:
                             |vehicle.position|Last vehicle position (timestamped)|Position|
                             |vehicle.telemetry${.TelemetryEnum}|Latest known telemetry (timestamped). |Telemetry
                             |vehicle.alerts|List of active alerts|Alert|
+
                             
                             * For telemetry extension:  
                               * The suffix ```${.TelemetryEnum}``` can be selected to refine with telemetry type (from the TelemetryEnum list). This value (with suffix) can be selected **_several times_** to included suitable telemetry messages with the extention.
                               * Using ```vehicle.telemetry``` without suffix means to include all available telemetries. 
             triggerParam:
-              description: |
-                             Monitor trigger-param that allows to compound triggers by applying a boolean expression to evaluate them.
+              description: Monitor trigger-param that allows to compound triggers by applying a boolean expression to evaluate them.
                              
-                             **Note**: To be compliant with the previous spec version (retro compatibility) this parameter continues to expose ```timeZoneTriggers``` and ```dataTriggers``` with only ```AND``` relationship. It is not possible the compound the old and the new triggers *style* (and will result with ```HTTP-400``` error)
+# **Note**: To be compliant with the previous spec version (retro compatibility) this parameter continues to expose ```timeZoneTriggers``` and ```dataTriggers```
+# with only ```AND``` relationship. It is not possible the compound the old and the new triggers *style* (and will result with ```HTTP-400``` error)
               properties:
                           triggers:
                             description: |
-                              Compound monitor triggers (will be evaluated using boolean expresion :```boo.exp```)
+                              Compound monitor triggers (will be evaluated using boolean expresion :```booExp```). At least, ```one``` trigger should be provided and at  most, ```five``` items are accepted.
                             type: array
+                            minItems: 1
+                            maxItems: 5
                             items:
                                 $ref: '#/components/schemas/MonitorTrigger'      
                           boolExp:
                               type: string
                               description: |
                                 A boolean expression that allow defining a logical relationship between triggers. Used Operands with this expression should be the names of the defined triggers. 
-                                
+                                 
+                                  _Note:_ Always ```true``` or Always```false``` expression are prohibited and will result with an http 400 error response.
+                                  
+                                  
                                 Grammar:
                                 ```
                                 exp ::= exp '&' exp
@@ -2471,17 +2443,17 @@ components:
                                   we can have a boolean expression such as: : ``` ((z1 & t1) | (z2 & !t1) | (f & z1) | (a & (z1|t))  | (o & (z1 | z2))) ```
                               example :
                                 ((z1 & t1) | (z2 & !t1) | (f & z1) | (a & (z1|t))  | (o & (z1 | z2)))
-                          timeZoneTriggers: 
-                             $ref: '#/components/schemas/TimeZoneTrigger'
-                          dataTriggers: 
-                            deprecated: true
-                            description: | 
-                              Compound data triggers (will be evaluated with an AND relationship)
-                              
-                              *Note*: ```dataTriggers``` is depricated according the new monitor spec. Please use the new data schema.
-                            type: array
-                            items:
-                                $ref: '#/components/schemas/DataTrigger'
+  #                        timeZoneTriggers: 
+  #                           $ref: '#/components/schemas/TimeZoneTrigger'
+  #                        dataTriggers: 
+  #                          deprecated: true
+  #                          description: | 
+  #                            Compound data triggers (will be evaluated with an AND relationship)
+  #                            
+  #                            *Note*: ```dataTriggers``` is depricated according the new monitor spec. Please use the new data schema.
+  #                          type: array
+  #                          items:
+  #                              $ref: '#/components/schemas/DataTrigger'
               required: [triggers,boolExp]
       required: [subscribeParam,triggerParam,label]
     
@@ -2544,6 +2516,7 @@ components:
                       radius:
                         description: Circle radius (expressed in km)
                         type: number
+                        format: int
                       center:
                         type: object
                         properties:
@@ -2603,7 +2576,7 @@ components:
             
             |**Data**|**Type**|**Op**|**Value**|
             |---|---| ---:| ---:|
-            | vehicle.alert | List of value | OnChange (at least one)/IncludedIn/equalsTo | Value (ObjetAlert) |
+            | vehicle.alert | List of value | OnChange (at least one)/includedIn/equalsTo | Value (ObjetAlert) |
             | vehicle.odometer | Integer | equalsTo/greaterThan/lowerThan/ | Value |
             | vehicle.engines.running (boolean) | Boolean | OnChange/equalsTo | Value (true/false) |
             | vehicle.engines.thermic.oil.temp | Integer | equalsTo/greaterThan/ lowerThan/ | Value |
@@ -2623,7 +2596,8 @@ components:
             | vehicle.maintenance.mileageBeforeMaintenance| Number | OnChange/equalsTo/ greaterThan/ lowerThan/ | Value |
             | vehicle.safety.beltWarning | Enum(beltWarning) | OnChange/equalsTo | Value |
             | environment.air.temp | Number | equalsTo/greaterThan/lowerThan/ | Value |
-            | privacy.state | Enum(Privacy) | equalsTo / OnChange/IncludedIN | Value |
+            | privacy.state | Enum(Privacy) | equalsTo / OnChange/includedIN | Value |
+
                         
             The right operand  (value) argument depends on the type of operation (OP) as following:
               
@@ -2670,6 +2644,7 @@ components:
         op: greaterThan
         value: ["75"]
 
+
     ##### REMOTE WORK
     RemoteCallbackSubscribe:
         allOf:
@@ -2715,11 +2690,13 @@ components:
             - Stolen
             - WakeUp
     
+
     RemoteTypes:
           type: array
           items:
             $ref: '#/components/schemas/RemoteType'
         
+
     RemoteCharging:
                   type: object
                   description: Remote electric battery charging action.
@@ -2747,14 +2724,14 @@ components:
                     on:
                       type: boolean
                       description :  Swith, if ```true```, the vehicle lights ON  or OFF (otherwise).   
-                    duration:
-                      description : |
-                        The duration of the lighting if switched on (expressed using  [ISO-8601 Duration spec](https://en.wikipedia.org/wiki/ISO_8601#Durations))
-                          * minimum: ```PT1S```  _1 sec_.
-                          * maximum: ```PT2M0S```   _120 sec_.
-                      type: string
-                      default: PT10S
-                      example: PT20S
+                    #duration:
+                      #description : |
+                        #The duration of the lighting if switched on (expressed using  [ISO-8601 Duration spec](https://en.wikipedia.org/wiki/ISO_8601#Durations))
+                          #* minimum: ```PT1S```  _1 sec_.
+                          #* maximum: ```PT2M0S```   _120 sec_.
+                      #type: string
+                      #default: PT10S
+                      #example: PT20S
                   required: [on]
     
     RemoteWakeUp:
@@ -3078,6 +3055,7 @@ components:
         - padWearFault
         - fuelLevelAlarm
         - airbagOrSeatbeltFault
+
         - absFault
         - riskOfParticleFilterBlockage
         - particleFilterAdditiveTooLow
@@ -3235,17 +3213,18 @@ components:
             type: string
             format: date-time      
     
-      
-        
+
     EngineLiquid:
                               type: object
                               properties:
                                 level:
                                   description: Engine liquid level expressed in persent.
                                   type: number
+                                  format: int
                                 temp:
                                   description: Engine liquid temperature expressed in Celsius degrees.
                                   type: number
+                                  format: float
 
     EngineBase:
           type: object
@@ -3263,8 +3242,10 @@ components:
                     properties:
                       temp:
                         type: number
+                        format: float
                   speed:
                     type: number
+                    format: float
                   gmpStatus:
                     type: string
                     enum: [NotRunning, Starting, Running, Stopping, Stopped]
@@ -3299,6 +3280,7 @@ components:
             
                  
     Telemetry:
+
         allOf:
             - $ref: '#/components/schemas/CreatedAtField'
             - type: object
@@ -3348,7 +3330,6 @@ components:
                             enum: [AirbagUnabled, NoRequest, Requested]
                 environment:
                   $ref: '#/components/schemas/EnvironmentBase'
-              
                 _embedded:
                   type: object
                   properties:
@@ -3366,6 +3347,7 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/Telemetry'
+
           
     TelemetryExtensionType:
       type: array
@@ -3393,7 +3375,7 @@ components:
       type: object
       description: Additional data set.
       properties:
-        odemeter:
+        odometer:
           $ref: '#/components/schemas/VehicleOdometer'
         kinetic:
           $ref: '#/components/schemas/Kinetic'
@@ -3408,6 +3390,7 @@ components:
                       mileage:
                             description: Vehicle mileage expressed in KM.
                             type: number
+                            format: float
                 kinetic :
                       $ref: '#/components/schemas/BasicKinetic'
                 location:
@@ -3425,7 +3408,7 @@ components:
                 acceleration:
                   type: number
                   format: float
-                  description:  Vehicle acceleration (expressed in m/s2)
+                  description:  Vehicle acceleration (expressed in m/s²)
                 speed:
                   type: number
                   format: float
@@ -3616,7 +3599,6 @@ components:
                               type: string
                               format: date-time 
                       - $ref: '#/components/schemas/LuminosityBase'
-
     LuminosityBase:
                     allOf:
                       - type: object
@@ -3624,7 +3606,7 @@ components:
                             createdAt:
                               description: Date when the resource has been created.
                               type: string
-                              format: date-time 
+                              format: date-time
                       - type: object
                         properties:
                           day:
@@ -3638,7 +3620,6 @@ components:
                               type: string
                               format: date-time 
                       - $ref: '#/components/schemas/AirBase'
-    
     AirBase:
                         type: object
                         properties:
@@ -3679,7 +3660,7 @@ components:
       required: true
       schema:
         type: string
-    
+		
     callbackId:
       name: cbid
       description: The remote callback ID.
@@ -3713,6 +3694,7 @@ components:
       required: true
       schema:
         type: string
+
     
     collisionId:
       name: cid
@@ -3763,35 +3745,37 @@ components:
           timestamps are included in those date-time ranges (see **timestamp**
           data  model).**"timestamp"** items should be expressed as in
           '[RFC3339](https://www.ietf.org/rfc/rfc3339.txt)'. Each element of the array expresses a time range (with the pattern ```\w?/\w?``` or ```R\d?/w/w(/w)?```) which is the period between two or more times. The range can be expressed by two times Points (start and end *Timestamp*s), by a start
+
                 *Timestamp* Point and a *Duration* or as a repeating interval. All of
                 them  should be expressed using the 
                 [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) and the interval format
                 is based on
                 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals)
-        
+
+
                     * 'T1/T2' interval time from low limit T1 to hight T2
+
           
                     * 'T1/D' interval time from low limit T1 with duration = D ( T2=T1+D)
-          
-          
+
                     * 'T/' endless range, known start Timestamp but no end Timestamp. The current time  will be used as the high time limit.
-          
-          
+
                     * '/T' startless range, known end date but no start date. No lower limit
                       will be used to retrieve results.
-                      
+
                     * Rn/T/D/[d]  repeat the interval of D **n** times starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H 
                     
                     * R/T/D/[d] unbounded number of repetitions starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H.
           
           
                       *T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).*
-          
+
                       *  *2018-01-01T09:00:00+01:00/2018-01-01T12:00:00+01:00* known low and hight
+
                         limits.
           
                       *  *2018-01-03T12:00:00+01:00/P3Y6M4DT12H30M5S*  known low limit, hight limit = start + duration.
-          
+
                       *  *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
                       
                       *  *R5/2018-01-03T12:00:00Z/P6H/P2H* repeate duration 6H wiht interval period of 2H for 5 times starting at 2018-01-03T12:00:00Z.
@@ -3804,6 +3788,7 @@ components:
         items:
           type: string
           pattern: \w?/\w?
+
          # $ref: '#/components/schemas/TimeRange'
     
     pageSize:
@@ -3870,7 +3855,7 @@ components:
       required: false
       schema:
         $ref: '#/components/schemas/StatusExtensionType'  
-    
+  
     telemetryExtension:
       name: extension
       in: query
@@ -3882,6 +3867,7 @@ components:
       schema:
         $ref: '#/components/schemas/TelemetryExtensionType'    
     
+
     remoteType:
       name: types
       in: query
@@ -4000,6 +3986,7 @@ components:
       $ref: '#/x-fragment/general_error_fragment'
       
       
+
     #######  R E M O T E
     RemoteCallbackSuccessStatusResponse:
       description: Monitor response
