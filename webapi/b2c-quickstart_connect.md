@@ -90,7 +90,7 @@ $ curl \
   --url '{{site.cvsOAuth2}}' \
   --header 'Authorization: Basic <(client_id:client_secret)base64>' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data 'realm=<realm>&grant_type=password&password=<password>&username=<username>scope=profile%20openid'
+  --data 'realm=<realm>&grant_type=password&password=<password>&username=<username>&scope=profile%20openid' \
 ```
 
 |Type|Name|Value|Description|Required|

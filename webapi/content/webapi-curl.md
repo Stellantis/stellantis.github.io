@@ -94,9 +94,9 @@ referenceURLResssourceB2C | String | Required | Anchor for the endpoint link to 
 $ curl \
   --request {{include.httpVerb}} \
   --url '{{site.webapiB2B}}{{include.apiEndpointB2B}}?client_id=<client_id>{{include.queryParam}}' \
-  --cert 'path/to/client_cert.pem[:<cert_password>]'
-  --key 'path/to/key.pem'
-  --cacert 'path/to/ca_cert.pem'
+  --cert 'path/to/client_cert.pem[:<cert_password>]' \
+  --key 'path/to/key.pem' \
+  --cacert 'path/to/ca_cert.pem' \
   --header 'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' \
 {% if include.apiEndpointB2B contains 'lastPosition' %}  --header 'Accept: application/vnd.geo+json' \{% else %}  --header 'Accept: application/hal+json' \ {% endif %}
 {% if include.httpVerb == 'POST','PUT' %}  --header 'Content-type: application/json' \
@@ -116,7 +116,7 @@ $ curl \
   --request {{include.httpVerb}} \
   --url '{{site.webapiB2C}}{{include.apiEndpointB2C}}?client_id=<client_id>{{include.queryParam}}' \
   --header 'Authorization: Bearer <access_token>' \
-  --header 'x-introspect-realm: <realm>' 
+  --header 'x-introspect-realm: <realm>' \
 {% if include.apiEndpointB2C contains 'lastPosition' %}  --header 'Accept: application/vnd.geo+json' \
 {% else %}  --header 'Accept: application/hal+json' \ {% endif %}
 {% if include.httpVerb == 'POST','PUT' %}  --header 'Content-type: application/json' \

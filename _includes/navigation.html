@@ -24,10 +24,14 @@
                     <div class="navbar-dropdown" id="dropdownAPI">
                         {% for subsection in section.subsections %}
                             {% if subsection.tag %}
-                            <p href="{{site.baseurl}}{{section.path}}{{subsection.path}}#article" class="navbar-item dropdown-title {% if subsection.tag == page.subsection %}is-default is-active{% endif %}" id="{{subsection.tag}}" onclick="navClick(document.getElementById('{{subsection.tag}}'), '{{subsection.tag}}');">{% if subsection.tag == "ios" %}iOS{% else %}{{subsection.name | upcase}}{% endif %}
-                                <svg class="arrow {% if subsection.tag == page.subsection %}arrow-down{% else %}arrow-right{% endif %}" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-                                </svg>
-                                
+                            <p href="{{site.baseurl}}{{section.path}}{{subsection.path}}#article" class="navbar-item dropdown-title {% if subsection.tag == page.subsection %}is-default is-active{% endif %}" id="{{subsection.tag}}" onclick="navClick(document.getElementById('{{subsection.tag}}'), '{{subsection.tag}}');">
+                                <span>
+                                    {% if subsection.tag == "ios" %}iOS{% else %}{{subsection.name | upcase}}{% endif %}
+                                </span>
+                                <span>
+                                    <svg class="arrow {% if subsection.tag == page.subsection %}arrow-down{% else %}arrow-right{% endif %}" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
                             </p>
                             {% endif %}
                             {% for categorie in subsection.categories %}
@@ -82,53 +86,45 @@
 document.querySelector("#navbarpsa .navbar-menu .navbar-start .navbar-item:first-child > a").classList.add("is-active");
 {% endif %}
 
-
-// Display navbar is-fixed-top navbar
-
-
-
-function navClick(clickedNavMenu, id) {
-    var a = document.querySelector(".navbar-item.dropdown-title#"+id).attributes.href.value;
-    console.log(a);
-    window.location.href = a;
-
-}
-
 var mq = window.matchMedia( "(max-width: 1088px)" );
 
 var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
 
 var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
 
-if (mq.matches) {
-    document.getElementById("navbarpsa").classList.add("bluenavbar");
-function navClick(clickedNavMenu, id) {
-    if (currentNavMenu == clickedNavMenu) {
-        currentNavMenu.classList.remove("is-active");
-        currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
-        currentNavSubMenu.forEach(element => {
-            element.style.display = "none";
-        });
-        currentNavSubMenu = null;
-        currentNavMenu = null;
-    }
-    else {
-        if (currentNavMenu){
-            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
             currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
             currentNavSubMenu.forEach(element => {
                 element.style.display = "none";
             });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
         }
-        clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
-        clickedNavMenu.classList.add("is-active");
-        currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
-        currentNavSubMenu.forEach(element => {
-            element.style.display = "block";
-        });
-        currentNavMenu = clickedNavMenu;
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
     }
 }
+
+// Display navbar is-fixed-top navbar
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
 }
 else {
     {% unless page.permalink == "/" or page.name == "404.md" %}

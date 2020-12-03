@@ -1225,14 +1225,14 @@ background-color: inherit;
 #navbarpsa #dropdownAPI:hover .navbar-item{
     color: darkgrey;
 }
-#navbarpsa #dropdownAPI:hover .navbar-item:hover,  #navbarpsa #dropdownAPI .dropdown-title{
+#navbarpsa #dropdownAPI:hover .navbar-item:hover:not(.dropdown-title){
     color: #4b4b4b;
 }
 
 #navbarpsa #dropdownAPI .dropdown-title{
     font-weight: 600;
     display: flex;
-    cursor: pointer;
+    color: #4a4a4a;
 }
 
 #navbarpsa #dropdownAPI  a.navbar-item.is-active {
@@ -1250,12 +1250,8 @@ background-color: inherit;
 } 
 
 .navbar-dropdown a.navbar-item {
-    padding-right: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-    padding-top: 0.4rem;
-    margin-right: 1rem;
-    margin-left: 1.4rem;
+    margin: 0;
+    padding: .2rem 1rem .2rem 1.4rem;
 }
 
 .navbar-dropdown a.dropdown-title.navbar-item {
@@ -1263,14 +1259,15 @@ background-color: inherit;
     margin: 0;
 }
 
-
-
 #navbarpsa #dropdownAPI  .dropdown-title svg {
     display: none;
 }
 
-
 @media screen and (max-width: 1087px) {
+
+    .navbar-item, .navbar-link {
+        color: white;
+    }
 
     #navbarpsa .navbar-menu#navMenu {
         padding: 1rem 0.65rem ;
@@ -1351,9 +1348,9 @@ background-color: inherit;
     #navbarpsa .navbar-dropdown .dropdown-title {
         margin: 0;
         padding: 0.4rem 0 0.4rem 0;
+        align-items: center;
         cursor: pointer;
     }
-
 
     #navbarpsa .textnavbar {
         font-size: 0.965rem;
