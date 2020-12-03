@@ -5,12 +5,13 @@ info:
   version: '2'
   title: Groupe PSA Connected Car B2B API
   description: | 
+                
                 # Introduction
   
                 This is the description of the *Groupe PSA Connected Car V2 B2B API* Webhooks template.This specification is written in **OpenAPI Specification version 3** and can
                 be displayed using [ReDoc](https://github.com/Rebilly/ReDoc) or
                 [Swagger](http://swagger.io).
-                 
+                 .
                 # Security
                   * The authentication is already set when registering the callback using the attributes field to set HTTP header entries for the authentication(usually a _basic authentication_).
                   * Https scheme should be supported with the webhook server with a certificate issued by a trusted public and known CA. 
@@ -20,35 +21,10 @@ info:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'
 tags:
-  - name: Remote-Webhook
-    description: Remote webhook model.
-  
   - name: Monitor-Webhook
     description: Monitor webhook model.
  
 paths:
-  '/remote/webhook':
-    post:
-      tags:
-        - Remote-Webhook
-      summary: Post a list of remote events.
-      description: |
-                    Post a list of remote events.
-      operationId: postRemoteEvents
-      parameters:
-        - $ref: '#/components/parameters/headerAttribute'
-        - $ref: '#/components/parameters/queryAttribute'
-      requestBody:
-        content:
-          application/json:
-            schema:
-                $ref: '#/components/schemas/RemoteEvents'
-      responses:
-        202:
-         description: Post Ok(accepted).
-        default:
-          $ref: '#/components/responses/PostErrorResponse'
-  
   '/monitors/webhook':
     post:
       tags:
@@ -189,10 +165,21 @@ components:
                 description: Speficies the data type of body items. 
                 enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts]
               body:
-                type: array
-                description: 
-                  Extended data can be expressed as a list of objects because in some case, a vehicle data state should be expressed as a list of value (such as active alerts at a given time). In this spec, those data are expressed as generic object and the type is provided (see type field) and so  the client application should be aware of that and should convert it regarding this data type.
-                items:
+               
+                  description: >
+                    The body of the extension is made up of one of the fields below. Each one is expressed as a generic object and the type is the same as the related one in [MPH API SPEC](https://developer.groupe-psa.io/assets/openapi/api-b2b-v3.yaml)  (without ```HAL links``` fields).                      
+                      |  Field | MPH API related data model type  |
+                      |---|---|
+                      |doorState|```DoorsState```  |
+                      |status|```Status```  |
+                      |maintenance|```Maintenance```  |
+                      |position|```Position```  |
+                      |telemetry|```Telemetry```  |
+                      |alerts|Array of ```Alert``` object |
+                      |   |   |
+
+
+                      
                   type: object
                   properties:
                     doorState:
@@ -208,7 +195,7 @@ components:
                     alerts:
                       type: array
                       items:  
-                         type: object 
+                         type: object  
                   
         
         refresh:
@@ -222,123 +209,6 @@ components:
     MonitorId:
       type: string
       description: The identifier of monitor that raised the event.  
-    RemoteActionId:
-      type: string
-      description: The uniq remote action ID. This ID is returned when the remote action is posted and accepted.
-      
-    RemoteCallbackId:
-      type: string
-      description: Uniq remote callback ID used to notify events. This Id refers to the remote callback created at B2B API..  
-      
-    RemoteEvents:
-      title: RemoteEvents
-      description: Remote event list. This list will contain only one item when the batch-notify (see Remote API) is not set.
-      type: object
-      properties:
-        callbackId:
-           $ref: '#/components/schemas/RemoteCallbackId'
-        attributes:   
-            $ref: '#/components/schemas/Attributes'
-       
-        events:
-              type: array
-              items:
-                $ref: '#/components/schemas/RemoteEvent'
-    RemoteType:
-      type: string    
-      enum: 
-            - ThermalPreconditioning
-            - ElectricBatteryChargingRequest
-            - Horn
-            - Doors
-            - Lights
-            - Immobilization
-            - Stolen
-            - VehicleState
-            - ChargingState
-    RemoteEventType:
-      description: | 
-        The event type. See```status```for event sate.
-        * Pending event is related to intermediate state of the action before it is handled by the vehicle.
-        * Done event is related to a final state of the action when handled by the vehicle.
-         
-      type: string    
-      enum: 
-            - Pending
-            - Done
-            
-    RemoteDoneEventStatus:
-      description: | 
-        The reponse event status. 
-         
-      type: string    
-      enum: 
-            - Success
-            - SuccessCauseAlreadyReached
-    RemotePendingEventStatus:
-      description: | 
-        The processing event status. 
-         
-      type: string    
-      enum: 
-            - Accepted
-            - WakingUpVehicle
-            - CheckingVehicle
-            - SentToVehicle
-            - VehicleBatteryChargeTooLow
-            - TooManyWakeUpsOverMonth
-    RemoteFailedEventStatus:
-      description: | 
-        The failure cause for event with failed status. This field is filled only is faillure state. 
-         
-      type: string    
-      enum: 
-            - GeneralError
-            - VehicleError
-            - VehicleConnectionTimeout
-            - MissingRights
-            - MissingRightsDueToVehiclePrivacyLevel
-            - MissingRightsDueToVehicleBatteryLevel
-            - MissingVehicleKeyRights
-            - SameActionInProgress
-            - VehicleRunning
-            - NotStolen
-            - MaxActionNumberReached       
-      
-    RemoteEventStatus:
-              type: object
-              properties:
-                type:   
-                  $ref: '#/components/schemas/RemoteEventType'
-                status:
-                  oneOf:
-                    - $ref: '#/components/schemas/RemoteDoneEventStatus'
-                    - $ref: '#/components/schemas/RemotePendingEventStatus'
-                failureCause:   
-                  $ref: '#/components/schemas/RemoteFailedEventStatus'
-               
-              required: [type,status]
-              
-    
-      
-    RemoteEvent:
-      title: RemoteEvent
-      type: object
-      properties:
-        remoteActionId:
-          $ref: '#/components/schemas/RemoteActionId'
-      
-        vin:
-          description: Identifier of the vehicle that raises the event.
-          type: string  
-        eventDate:
-          description: The date when the event was raised.
-          type: string
-          format: date-time
-        remoteType:
-          $ref: '#/components/schemas/RemoteType'
-        eventStatus:
-            $ref: '#/components/schemas/RemoteEventStatus'
 
     xError:
       type: object
