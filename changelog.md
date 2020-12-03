@@ -51,7 +51,7 @@ Version|Name
 {% include published_on.html date='3 Dec 2020' %}
 
 **Web API**
-- Fix curl example (missing "&" and "\")
+- Fix curl example (missing "&" and "backslash")
 
 **Web API B2B**
 - Update webhook spec v2
