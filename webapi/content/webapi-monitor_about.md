@@ -33,34 +33,6 @@ This web server needs to be configured to read & process our events in order tha
 
 > **Note:** HTTPS must be supported and a certificate issued by a trusted public and known CA must be provided. Indeed, the URL of your webhook must be the same as the one specified in when you created the callback.
 
-<div id="swagger-ui"></div>
-<script src="{{ '/assets/js/swagger-ui-bundle.js' | prepend: site.baseurl | prepend: site.url }}"> </script>
-<script src="{{ '/assets/js/swagger-ui-standalone-preset.js' | prepend: site.baseurl | prepend: site.url }}"> </script>
-<script>
-    window.onload = function () {
-        // Begin Swagger UI call region
-        const ui = SwaggerUIBundle({
-            url: "{{ site.url }}{{site.baseurl}}/assets/openapi/{% if page.subsection == 'b2b' %}api-b2b-webhook-template.yaml{% elsif page.subsection == 'b2c' %}api-b2c-webhook-template.yaml{% endif %}",
-            dom_id: '#swagger-ui',
-            deepLinking: true,
-            presets: [
-                SwaggerUIBundle.presets.apis,
-                SwaggerUIStandalonePreset
-            ],
-            plugins: [
-                SwaggerUIBundle.plugins.DownloadUrl
-            ],
-            layout: "StandaloneLayout",
-            onComplete: hideInfoSwagger
-        })
-        // End Swagger UI call region
-        window.ui = ui;
-        //hide description
-        function hideInfoSwagger() {
-            document.getElementsByClassName('info')[0].style.display = "none";
-        }
-    }
-</script>
 
 # SEE ALSO
 
