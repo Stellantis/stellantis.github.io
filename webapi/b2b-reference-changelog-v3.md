@@ -11,9 +11,22 @@ title: Changelog Version 3
 
 Version|Name
 -|-
+[b2b_v3.0.5](#b2b_v305) | 3.0.5
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
 [b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
+
+<hr>
+
+
+## b2b_v3.0.5
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Wed Jan 6 2021</span></div>
+
+- Fix door.states enum by vehicle.doorsStates in extendedEventParam object
+- Fix alerts enum by vehicle.alerts in extendedEventParam object
+- Replacement OnChange by onChange in monitors descriptions
+- Replacement Estimate enum to Estimated in lastPosition object
 
 <hr>
 

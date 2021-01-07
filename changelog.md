@@ -9,6 +9,7 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
+[5.7.0](#570) | Update spec Web API v2 & v3 : naming & enums
 [5.6.1](#561) | Fix about monitor
 [5.6.0](#560) | Update Web API Webhook spec v2
 [5.5.0](#550) | Update Web API Specification 3.0.4
@@ -46,6 +47,17 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+
+## 5.7.0
+
+{% include published_on.html date='11 Jan 2021' %}
+
+**Web API B2B**
+- Update spec v2
+- update spec v3
+
+<hr>
 
 ## 5.6.1
 
