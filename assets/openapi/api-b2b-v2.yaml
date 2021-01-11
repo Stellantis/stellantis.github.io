@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '2.0.3-P5'
+  version: '2.0.3-P6'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -1247,7 +1247,7 @@ components:
                 type:
                   type: string
                   enum:
-                    - Estimate
+                    - Estimated
                     - Acquire
     
     Energy:
@@ -1919,7 +1919,7 @@ components:
             extendedEventParam:
               type: array
               items:
-                 enum: [door.state, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, alerts]
+                 enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts]
               description: | 
                             Allow to set extra vehicle data (defined in data model) to add to the monitor event
                             when publishing. The possible values are
@@ -2072,27 +2072,27 @@ components:
             
             |**Data**|**Type**|**Op**|**Value**|
             |---|---| ---:| ---:|
-            | vehicle.alert | List of value | OnChange (at least one)/includedIn/equalsTo | Value (ObjetAlert) |
+            | vehicle.alert | List of value | onChange (at least one)/includedIn/equalsTo | Value (ObjetAlert) |
             | vehicle.odometer | Integer | equalsTo/greaterThan/lowerThan/ | Value |
-            | vehicle.engines.running (boolean) | Boolean | OnChange/equalsTo | Value (true/false) |
+            | vehicle.engines.running (boolean) | Boolean | onChange/equalsTo | Value (true/false) |
             | vehicle.engines.thermic.oil.temp | Integer | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.electric.level | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.electric.autonomy | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.fuel.level | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.fuel.autonomy | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.autonomy (global) | Number | equalsTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.energy.charging.status | Enum(ChargingStatusEnum) | OnChange/equalsTo | Value |
-            | vehicle.energy.charging.plugged | Boolean | OnChange/equalsTo | Value |
-            | vehicle.doorsState.lockedState | N/A | OnChange | Value |
-            | vehicle.doorsState.opening | N/A | OnChange | Value |
-            | vehicle.kinetic.moving| Boolean | OnChange/equalsTo | Value (true/false) |
+            | vehicle.energy.charging.status | Enum(ChargingStatusEnum) | onChange/equalsTo | Value |
+            | vehicle.energy.charging.plugged | Boolean | onChange/equalsTo | Value |
+            | vehicle.doorsState.lockedState | N/A | onChange | Value |
+            | vehicle.doorsState.opening | N/A | onChange | Value |
+            | vehicle.kinetic.moving| Boolean | onChange/equalsTo | Value (true/false) |
             | vehicle.kinetic.speed | Number | equalsTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.trip| Literal | OnChange| Value(IDTRIP) |
-            | vehicle.maintenance.daysBeforeMaintenance, | Number | OnChange/equalsTo/ greaterThan/ lowerThan/ | Value |
-            | vehicle.maintenance.mileageBeforeMaintenance| Number | OnChange/equalsTo/ greaterThan/ lowerThan/ | Value |
-            | vehicle.safety.beltWarning | Enum(beltWarning) | OnChange/equalsTo | Value |
+            | vehicle.trip| Literal | onChange| Value(IDTRIP) |
+            | vehicle.maintenance.daysBeforeMaintenance, | Number | onChange/equalsTo/ greaterThan/ lowerThan/ | Value |
+            | vehicle.maintenance.mileageBeforeMaintenance| Number | onChange/equalsTo/ greaterThan/ lowerThan/ | Value |
+            | vehicle.safety.beltWarning | Enum(beltWarning) | onChange/equalsTo | Value |
             | environment.air.temp | Number | equalsTo/greaterThan/lowerThan/ | Value |
-            | privacy.state | Enum(Privacy) | equalsTo / OnChange/includedIn | Value |
+            | privacy.state | Enum(Privacy) | equalsTo / onChange/includedIn | Value |
                 
                         
             The right operand  (value) argument depends on the type of operation (OP) as following:

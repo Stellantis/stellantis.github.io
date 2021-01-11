@@ -11,10 +11,22 @@ title: Changelog Version 2
 
 Version|Name
 -|-
+[b2b_v2.0.3-P6](#b2b_v203-p6) | Fix naming & enums
 [b2b_v2.0.3-P5](#b2b_v203-p5) | Misprints & Missing format & Remove collision + profile 
 [b2b_v2.0.3-P4](#b2b_v203-p4) | Security & TimeStamp
 [b2b_v2.0.3-P3](#b2b_v203-p3) | Align with v3
 [b2b_v2.0.3](#b2b_v203) | Candiate version
+
+
+## b2b_v2.0.3-P6
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Wed Jan 6 2021</span></div>
+
+
+- Fix door.states enum by vehicle.doorsStates in extendedEventParam object
+- Fix alerts enum by vehicle.alerts in extendedEventParam object
+- Replacement OnChange by onChange in monitors descriptions
+- Replacement Estimate enum to Estimated in lastPosition object
 
 ## b2b_v2.0.3-P5
 
