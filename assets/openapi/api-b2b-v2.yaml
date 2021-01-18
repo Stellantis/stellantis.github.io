@@ -1294,7 +1294,7 @@ components:
                allOf:
                 - $ref: '#/components/schemas/FuelEnergyConsumption'
                 - deprecated: true
-                - description:  Instant consumption for thermic vehicle. Expressed L/100Km. Depricated, use electric extension for this pupose.
+                - description:  Total consumption for thermic vehicle. Expressed L/100Km.
             residual:
                allOf:
                 - $ref: '#/components/schemas/ElectricResidualEnergy'
