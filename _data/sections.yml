@@ -19,11 +19,10 @@
               path: privacy/
             - name: Data Catalog
               path: data-catalog/
-
     - tag: api-data
       path: api-data/
-      name: APIs
-      nameUpcase: APIs
+      name: Features
+      nameUpcase: FEATURES
       categories:
       - name: 
         path:

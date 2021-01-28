@@ -12,49 +12,6 @@ layout: article
     </div>
 </div>
 
-{% if page.response-preview %}
-
-<div class="unboxed-bloc">
-    <h2 class="unboxed-title" >TECHNICAL PREVIEW</h2>
-
-    {%- comment -%} REQUEST {%- endcomment -%}
-
-    {% assign request_preview_title = page.title | append: " Request Preview" %}
-
-    {% capture request_preview_content %}
-        {% include_relative request.md %}
-    {% endcapture %}    
-    
-    {% 
-        include dropdown-content.html
-        markdown=request_preview_content
-        title=request_preview_title
-        tag='request'
-        icon="fas fa-cogs"
-    %}
-
-
-    {%- comment -%} RESPONSE {%- endcomment -%}
-
-
-    {% assign response_preview_title = page.title | append: " Response Preview" %}
-
-    {% capture response_preview_content %}
-        {% include_relative {{page.response-preview}} %}
-    {% endcapture %}    
-
-    {% 
-        include dropdown-content.html
-        markdown=response_preview_content
-        title=response_preview_title
-        tag='response'
-        icon="fas fa-cogs"
-    %}
-</div>
-
-
-{% endif %}
-
 <div class="unboxed-bloc">
     <h2 class="unboxed-title">AVAILABILITY</h2>
     <div class="unboxed-content">

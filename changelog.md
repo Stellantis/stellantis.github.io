@@ -11,7 +11,7 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
-[5.8.0](#590) | Connected-Vehicles>APIs + layouts + components
+[6.0.0](#600) | Connected-Vehicles>APIs + layouts + components
 [5.8.0](#580) | Add Data-Catalog
 [5.7.1](#571) | Fix spec Web API v2: consumption
 [5.7.0](#570) | Update spec Web API v2 & v3: naming & enums
@@ -54,14 +54,15 @@ Version|Name
 [1.0.0](#010) | Add Webportal section
 
 
-## 5.9.0
+## 6.0.0
 
 {% include published_on.html date='28 Jan 2021' %}
 
 **Website**
 - new layouts (connected vehicles)
+- connected-vehicles > Features
 - components (homepage/connected-vehicles)
-- compress images
+- compressed images
 
 <hr>
 
