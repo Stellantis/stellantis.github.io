@@ -1,0 +1,286 @@
+{% include data-catalog-table.html %}
+<link rel="stylesheet" href="{{ '/connected-vehicles/data-catalog.css' | prepend: site.baseurl }}">
+
+<div class="table-header">
+  <span class="table-filter-sort">Filter & Sorting</span>
+  <div class="field" class="search-div">
+    <p class="control has-icons-left">
+      <input class="input" type="text" placeholder="Search in table" id="table-search" onkeyup="tablesearch(document.getElementById('table-search').value)">
+      <span class="icon is-small is-left">
+          <i class="fas fa-search" style="color: darkgrey;"></i>
+      </span>
+    </p>
+  </div>
+</div>
+
+<link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/bulma/tabulator_bulma.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
+
+<div id="data-catalog"></div>
+
+<script>
+
+function tablesearch(searchInput) {
+  table.setFilter([
+    {field:"name",type:"!=",value:""},
+    [
+      {field:"name", type:"like", value:searchInput},
+      {field:"domain", type:"like", value:searchInput},
+      {field:"description", type:"like", value:searchInput}, 
+      {field:"type", type:"like", value:searchInput}, 
+      {field:"unit_or_value", type:"like", value:searchInput}, 
+      {field:"step", type:"like", value:searchInput}, 
+      {field:"update", type:"like", value:searchInput},
+      {field:"webportal_v1", type:"like", value:searchInput},
+      {field:"webportal_v2", type:"like", value:searchInput},
+      {field:"webapi_b2b_v2", type:"like", value:searchInput},
+      {field:"webapi_b2b_v3", type:"like", value:searchInput},
+      {field:"webapi_b2c_v4", type:"like", value:searchInput}
+    ]
+]);
+}
+
+const domain_categories = {
+  alert: "fas fa-exclamation-circle",
+  collision: "fas fa-car-crash",
+  location: "fas fa-compass",
+  maitenance: "fas fa-tools",
+  monitor: "fas fa-bell",
+  picture: "fas fa-image",
+  remote: "fas fa-satellite-dish",
+  telemetrie: "fas fa-chart-bar",
+  trip: "fas fa-route",
+  vehicle_info: "fas fa-info",
+  HMI: "fas fa-car-side",
+}
+
+
+function taggify (link, tagShortText) {
+  if (link) {
+    var tagLink = 
+      "<a href='{{site.baseurl}}" + link + "' target='_blank' class='tag data-item-available is-link'>"+
+        "<span> " + tagShortText +  "&nbsp; </span>"+
+      "</a>";
+    return tagLink;
+  }
+  else {
+    var tagNotLink = 
+    "<span class='tag data-item-type'>"+
+        "<span>"+ 
+          tagShortText+
+        "</span>"+
+     "</span>";
+    return tagNotLink;
+  }
+}
+
+function taggifyWebportal(v1, v2){ 
+  if(!v1 && !v2 ){
+    return (
+      "<div class='control'>"+
+          "<div class='tags has-addons n-a'>"+
+            "<span class='tag is-info'>" +
+              "<span class='icon'>"+ 
+                "<i class='fas fa-car-side'></i>"+
+              "</span>"
+              +"<span class='availability-name'>&nbsp; WEBPORTAL</span>"+
+            "</span>"+
+            "<span class='tag data-item-available is-danger'><span>n/a</span></span>"+
+          "</div>"+
+      "</div>"
+    )}
+  else{
+    var tagAddonV1 = "";
+    var tagAddonV2 = "";
+
+    if (v1) {
+      tagAddonV1 = taggify(v1, "v1");
+    }
+    if (v2) {
+      tagAddonV2 = taggify(v2, "v2");
+    }
+    var tagAddon = 
+      "<div class='control'>"+
+          "<div class='tags has-addons available'>"+
+            "<span class='tag is-info'>" +
+              "<span class='icon'>"+ 
+                "<i class='fas fa-car-side'></i>"+
+              "</span>"
+              +"<span class='availability-name'>&nbsp; WEBPORTAL</span>"+
+            "</span>"+
+            tagAddonV1+ 
+            tagAddonV2+ 
+          "</div>"+
+      "</div>";
+    return tagAddon;
+  }
+};
+
+
+function taggifyWebapi(v2, v3, v4){ 
+  if(!v2 && !v3 && !v4){
+    return (
+      "<div class='control'>"+
+          "<div class='tags has-addons n-a'>"+
+            "<span class='tag is-info'>" +
+              "<span class='icon'>"+ 
+                "<i class='fas fa-cloud'></i>"+
+              "</span>"
+              +"<span class='availability-name'>&nbsp; WEB API</span>"+
+            "</span>"+
+            "<span class='tag data-item-available is-danger'><span>n/a</span></span>"+
+          "</div>"+
+      "</div>"
+    )}
+  else{
+    var tagAddonV2 = "";
+    var tagAddonV3 = "";
+    var tagAddonV4 = "";
+    if (v2) {
+      tagAddonV2 = taggify(v2, "v2");
+    }
+    if (v3) {
+      tagAddonV3 = taggify(v3, "v3");
+    }
+    if (v4) {
+      tagAddonV4 = taggify(v4, "v4");
+    }
+    var tagAddon = 
+      "<div class='control'>"+
+          "<div class='tags has-addons available'>"+
+            "<span class='tag is-info'>" +
+              "<span class='icon'>"+ 
+                "<i class='fas fa-cloud'></i>"+
+              "</span>"
+              +"<span class='availability-name'>&nbsp; WEB API</span>"+
+            "</span>"+
+            tagAddonV2+ 
+            tagAddonV3+ 
+            tagAddonV4+ 
+          "</div>"+
+      "</div>";
+    return tagAddon;
+  }
+};
+
+
+function codify (text) {
+  if (text.includes("`")) {
+    var textEnum = text.replace(/(`\w+`)/g, function(match) {
+      return "<code class='highlighter-rouge'>'" + match.slice(1, -1) + "'</code>"
+    })
+    return "<code class='highlighter-rouge'>[</code>"+ textEnum + "<code class='highlighter-rouge'>]</code>";
+  }
+  else {
+    return "<code class='highlighter-rouge'>"+ text +"</code>"
+  }  
+}
+
+
+
+var currentRow;
+var highlightRow = function(e, row){
+  var rowElement = row.getElement();
+  if (rowElement == currentRow) {
+    currentRow.classList.remove("row-highlighted");
+    currentRow = null;
+  }
+  else {
+    if (currentRow) {
+      currentRow.classList.remove("row-highlighted");
+    }
+    currentRow = rowElement;
+    currentRow.classList.add("row-highlighted");
+  }
+}
+
+var table = new Tabulator("#data-catalog", {
+	data:dataCatalog,           //load row data from array
+	movableColumns:false,      //allow column order to be changed
+	resizableRows:false,       //allow row order to be changed
+  resizableColumns:false,       //allow row order to be changed
+  selectable:false,
+  layout:"fitColumns",
+  pagination: "local",
+  paginationSize: 30,
+  rowClick: highlightRow,
+  columns:
+    [
+      {title:"Domain", field:"domain", cssClass:"column-title",editor:"input", headerFilter:"select", headerFilterParams:{values: { "alert":"Alert", "collision":"Collision", "location" : "Location" , "maitenance" : "Maintenance" , "monitor": "Monitor" , "picture": "Picture", "remote":"Remote", "telemetrie":"Telemetrie", "trip": "Trip" , "vehicle_info": "Vehicle Info" , "HMI":"HMI"}}, headerFilterPlaceholder:"Select ↓"},
+      {title:"Name", field:"name", cssClass:"column-title", headerFilter:true, headerFilterPlaceholder:"Search..."},
+      {title:"Unit/Value", field:"unit_or_value", cssClass:"column-title", headerFilter:true, headerFilterPlaceholder:"Search..."},
+      {title:"Type", field:"type", cssClass:"column-title",editor:"input", headerFilter:"select", headerFilterParams:{values: true}, headerFilterPlaceholder:"Select ↓"},
+    ],
+    rowFormatter:function(row){
+        var element = row.getElement(),
+        data = row.getData(),
+        cellContents,
+        itemCategorieLogo = domain_categories[data.domain],
+        elementWebportal = taggifyWebportal(data.webportal_v1, data.webportal_v2),
+        elementWebapi = taggifyWebapi(data.webapi_b2b_v2, data.webapi_b2b_v3, data.webapi_b2c_v4),
+        elementType = taggify(false, data.type, data.type),
+        elementUnitValue = codify(data.unit_or_value),
+        elementWebapi_v2,
+        elementWebapi_v3,
+        elementWebapi_v4,
+        elementWeportal_v1,
+        elementWeportal_v2;
+
+        //clear current row data
+        while(element.firstChild) element.removeChild(element.firstChild);
+
+        // create new row data
+        cellContents = 
+        "<div class='data-item'>"+
+          
+          "<div class='data-item-category'>"+
+            "<span title='API Domain: "+ data.domain.replace("_", " ") +"' class='icon is-large'>"+
+              "<i class='fa "+ itemCategorieLogo +"'></i>"+
+            "</span>"+
+            "<span class='data-item-domain-name'>" + data.domain.replace("vehicle_info", "Vechicle<br>Info") + "</span>"+
+          "</div>"+
+
+          "<div class='data-item-content'>"+
+
+            "<div class='data-item-info'>"+
+              "<div class='data-item-title'>" + data.name + "</div>"+
+              "<div class='data-item-description'>"+ data.description +"</div>"+
+            "</div>"+
+            "<div  class='data-item-technical'>"+
+              "<div class='data-item-type'>"+
+                "<span>" + elementType + "</span>"+
+              "</div>"+
+              "<div class='data-item-unit_value'>"+
+                "<span class='data-item-fiel-title'>Unit/Value:&nbsp;</span>"+ 
+                "<span>" + elementUnitValue + "</span>"+
+              "</div>"+
+            "</div>"+
+            "<nav class='data-item-availability'>"+
+              "<div class='data-item-links'>"+
+                "<div class='field is-grouped is-grouped-multiline'>" +
+                elementWebportal+
+                elementWebapi +
+                "</div>"+
+              "</div>"+
+            "</nav>"+
+            "</div>"+
+            "<div class='data-item-expand-arrow'>"+
+              "<span class='icon is-medium'>"+
+                "<i class='fa fa-2x fa-angle-right'></i>"+
+              "</span>"+
+            "</div>"+
+        "</div>";
+
+        var dataItemElement = document.createElement("div");
+        dataItemElement.innerHTML = cellContents ;
+
+        element.append(dataItemElement);
+    },
+});
+
+{% if page.subsection == "api-data" %}
+table.setFilter("domain", "like", "{{page.search-catalog-keyword}}")
+{% endif %}
+
+</script>
+

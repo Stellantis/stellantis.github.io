@@ -9,6 +9,7 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
+[5.8.0](#580) | Add Data-Catalog
 [5.7.1](#571) | Fix spec Web API v2: consumption
 [5.7.0](#570) | Update spec Web API v2 & v3: naming & enums
 [5.6.1](#561) | Fix about monitor
@@ -48,6 +49,15 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+## 5.8.0
+
+{% include published_on.html date='28 Jan 2021' %}
+
+**Website**
+- Add Data-catalog
+
+<hr>
 
 ## 5.7.1
 

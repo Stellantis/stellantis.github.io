@@ -1,0 +1,584 @@
+---
+# In order to import this stlye, import it with 'require: data-catalog-v2' in the page front matter.
+---
+// --------------------  MEDIA BOX -------------------
+//   __  __ _____ ____ ___    _      ____   _____  __
+//  |  \/  | ____|  _ |_ _|  / \    | __ ) / _ \ \/ /
+//  | |\/| |  _| | | | | |  / _ \   |  _ \| | | \  / 
+//  | |  | | |___| |_| | | / ___ \  | |_) | |_| /  \ 
+//  |_|  |_|_____|____|___/_/   \_\ |____/ \___/_/\_\
+//
+// --------------------------------------------------
+
+
+// ------ FIX & CUSTOM TABLE -----
+
+
+.column-title {
+  text-align: center !important;
+}
+
+.tabulator-col-group-cols {
+  border-right: 2px solid #aaa;
+}
+
+.tabulator .tabulator-header .tabulator-col.tabulator-sortable .tabulator-col-title {
+  padding-right: 0 !important;
+}
+.tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort="none"] .tabulator-col-content .tabulator-arrow {
+  display: none !important;
+}
+
+#data-catalog .tabulator-row table{
+  vertical-align: middle;
+  border-collapse:collapse;
+}
+
+
+#data-catalog .tabulator-table {
+  width: 100%;
+}
+
+.tabulator-row:first-of-type {
+  border-top: 2px solid lightgrey;
+  margin-top: 4rem;;
+}
+
+.tabulator-row:not(:last-of-type) {
+  border-bottom: 1px solid lightgrey;
+}
+
+
+.tabulator-row {
+  transition: all 0.3s ease-out;
+  padding: .25rem 0;
+  cursor: pointer;
+}
+
+#data-catalog.tabulator {
+  background: transparent;
+}
+
+
+// ----- END FIX & CUSTOM TABLE -----
+
+.data-item {
+  transition: all .3s ease-out;
+  display: flex;
+  align-items: center;
+}
+
+.row-highlighted {
+  padding: 1rem 0;
+
+  .data-item-fiel-title, .data-item-description, .data-item-link-subtext, .data-item-domain-name, .data-item-type {
+    display: inherit;
+  }
+
+  .data-item-unit_value {
+    display: block;
+  }
+
+  .data-item-title {
+    font-weight: 600;
+    font-size: 1.45rem;
+  }
+
+  .data-item-category .icon {
+
+  margin-bottom: .5rem;
+  color: white;
+  background-color: #83786f;
+  border-radius: 35px;
+  }
+
+  .data-item-link-icon {
+  font-size: 15px;
+  width: 32.5px;
+  min-width: 32.5px;
+  height: 32.5px;
+  min-height: 32.5px;
+  border: 2px solid #83786f;
+  }
+
+  .tag:not(body).data-item-type {
+    background-color: #83786f;
+    color: white;
+    font-weight:500;
+    display: inline-flex;
+    margin-bottom: .5rem;
+  }
+
+  .data-item-content {
+    align-items: start;
+  }
+
+  .availability-name {
+    display: block;
+  }
+
+  .tag:not(body).is-info {
+    color: white;
+    background-color: #83786f;
+  }
+  
+  .tag:not(body).data-item-available {
+    display: inline-flex;
+  }
+
+  .fa-angle-right {
+    transform: rotate(90deg);
+  }
+
+
+  .tags.n-a .is-info::after {
+    content: none;
+   }
+   
+   .tags.available .is-info::after {
+     content: none;
+    }
+  
+
+    .field.is-grouped {
+      display: block;
+    }
+  
+}
+
+.data-item-description, .data-item-unit_value, .data-item-link-subtext, .data-item-fiel-title, .data-item-domain-name {
+  display: none;
+}
+
+
+.data-item-title {
+  transition: all 0.3s ease-out;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 1.25rem;
+  display: flex;
+}
+
+.data-item-category {
+  display: flex;
+  min-width: 100px;
+  flex-direction:column;
+  align-items: center;
+  padding: 0 .5rem;
+  min-height: inherit;
+  align-self: start;
+}
+
+.data-item-category .icon {
+  transition: all 0.3s ease-out;
+  font-size: 21.5px;
+  width: 37.5px;
+  min-width: 37.5px;
+  height: 37.5px;
+  min-height: 37.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7b7167;
+  align-self: center;
+  border-radius: 35px;
+
+
+  &.alert {
+    background-color:#c0392b
+  }
+  &.collision {
+    background-color:#c0392b
+  }
+  &.location {
+    background-color:#3498db
+  }
+  &.maitenance {
+    background-color: #27ae60
+  }
+  &.monitor {
+    background-color: #ea9124bb;
+  }
+  &.picture {
+    background-color: #27ae60
+  }
+  &.remote {
+    background-color:#e67e22
+  }
+  &.telemetrie {
+    background-color:#f1c40f;
+  }
+  &.trip {
+    background-color:  #3498db
+  }
+  &.vehicle_info {
+  background-color: #f1c40f
+  }
+  &.HMI {
+    background-color:  #9b59b6
+  }
+
+}
+
+.data-item-domain-name{
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: break-spaces;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.data-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.data-item-content strong {
+  font-weight: 500;
+}
+
+.data-item-info {
+  flex: 2;
+  padding: 0 .5rem;
+}
+
+.data-item-fiel-title {
+  color: #363636;
+  font-weight: 500;
+  font-size: .9rem;
+}
+
+
+.data-item-technical {
+  flex: 1.5; 
+  padding: 0rem .5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.data-item-unit_value {
+  padding: .25rem 0;
+  code {
+    font-size:.9rem;
+  }
+}
+
+
+.data-item-title, .data-item-description, .data-item-type, .data-item-unit_value  {
+  white-space: break-spaces;
+}
+
+.data-item-availability {
+  width: 290px;
+  margin-left: .5rem;
+  
+}
+
+.availability-name {
+  display: none;
+}
+
+.tag:not(body).data-item-available {
+display: none;
+}
+.tag:not(body).data-item-available.is-link {
+  background-color: whitesmoke;
+  color: #2689b5;
+  align-items: center;
+  a {
+    color: #2689b5;
+  }
+  &::after{
+    content: "\f35d";
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-weight: 900;
+  font-size: .6rem;
+  }
+}
+
+.tag:not(body).data-item-available.is-link:hover {
+  background-color: #2689b5;
+  color: white;
+  text-decoration: underline;
+  a {
+    color: white;
+  }
+  &::after {
+    color: white;
+  }
+}
+
+.tags.n-a .is-info {
+  background: transparent;
+  color: #83786f8e;
+  &::after {
+    color: #83786f8e;
+  }
+}
+
+.tags.n-a .is-info::after {
+ content: "\f00d";
+ font-family: "Font Awesome 5 Free";
+ display: inline-block;
+ font-style: normal;
+ font-variant: normal;
+ text-rendering: auto;
+ line-height: 1;
+ font-weight: 900;
+}
+
+.tags.available .is-info::after {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+font-style: normal;
+font-variant: normal;
+text-rendering: auto;
+line-height: 1;
+font-weight: 900;
+ }
+
+.data-item-availability .control:not(:last-of-type) {
+  margin: 0 1rem .75rem 0 !important;
+}
+
+.tag:not(body).data-item-type {
+  transition: all 0.3s ease-out;
+  font-weight: 500;
+  background: transparent;
+}
+
+
+.data-item-links {
+  width: 100%;
+}
+
+.field.is-grouped {
+  display: flex;
+  justify-content: center;
+
+}
+
+.data-item-link {
+  color: #83786f;
+  margin-right: .9rem;
+  &:hover {
+    .data-item-link-icon {
+      color: white;
+      background-color: #83786f;
+      border: none;
+    }
+  .data-item-link-subtext{
+    text-decoration: underline;
+  }
+}
+
+  a {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+}
+
+.data-item-link-icon {
+  transition: all 0.3s ease-out;
+  font-size: 13.5px;
+  border-radius: 35px;
+  color: #83786f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.data-item-link-subtext {
+  color: #83786f;
+  font-size: 0.9rem;
+}
+
+.tag:not(body) {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.tag:not(body).is-dark {
+  background-color: #83786f;
+}
+
+.tag:not(body).is-info {
+  transition: all 0.3s ease-out;
+  background: transparent;
+  color: #7b7167;
+  min-width: 55px;
+}
+
+
+.tag:not(body).is-danger {
+  color: #ff4238;
+  background: whitesmoke;
+}
+
+.fa-angle-right {
+  transition: all 0.3s ease-out;
+  font-size: 1.05rem;
+}
+
+
+// --------------------------------------
+
+.notif-webapib2b{
+  display:none;
+}
+
+.tabulator-edit-select-list-item {
+background-color: #83786f;
+color: white !important;
+}
+.tabulator-edit-select-list-item:hover {
+  color:white !important;
+}
+
+.tabulator-header {
+  border: 1px solid #83786f !important;
+  border-radius: 4px;
+}
+
+.tabulator-header-filter  {
+  margin-top: 10px !important;
+}
+
+.tabulator-header-filter input {
+  border: 2px solid #83786f;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  height: 27.5px;
+}
+
+.tabulator-table .tabulator-cell:nth-child(2){
+  font-weight: bold;
+  text-transform: capitalize
+}
+
+.centered{
+  text-align:center !important;
+}
+
+.twenty-icon{
+  font-size:19px !important;
+}
+.tabulator-responsive-collapse-toggle-open, .tabulator-responsive-collapse-toggle-close{
+color: white;
+padding: 5px;
+}
+  
+
+.thirteen-icon{
+  font-size:11.5px !important;
+}
+
+.tabulator-icon{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  height: 100%;
+  font-size:14px;
+}
+
+.search-div{
+  width: 13rem;
+  margin-right: 1rem;
+} 
+
+.table-filter-sort {
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.table-header{
+  display:flex;
+  align-items: center;
+  margin: 2.5rem 1.5rem 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1087px) {
+  .tag:not(body) {
+    font-size: 0.8rem;
+  }
+  .data-item-category {
+    min-width: 37.5px;
+  }
+  .data-item-availability {
+    width: 130px;
+  }
+  .data-item-title {
+    font-size: 1.1rem;
+    line-height: 1.25;
+  }
+  .row-highlighted {
+    padding: .75rem 0;
+     .data-item-title {
+      font-size: 1.3rem;
+    }
+    .data-item-availability {
+      width: auto;
+    }
+  }
+} 
+@media screen and (max-width: 950px) {
+  
+  .tag:not(body).is-info{
+    min-width: 0;
+  }
+  .row-highlighted {
+    
+    .data-item-content  {
+      flex-wrap: wrap;
+    }
+
+    .availability-name {
+      display: none;
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  
+  .data-item-technical {
+    display: none;
+  }
+
+  .data-item-availability .control:not(:last-of-type) {
+    margin: 0 .25rem .75rem 0 !important
+  }
+  .field.is-grouped {
+    justify-content: unset;
+    }
+  .data-item-links .tags .is-info::after {
+    display: none;
+  }
+  .row-highlighted {
+    .data-item-technical {
+      display: block;
+    }
+    .data-item-description {
+      padding-bottom: .5rem;
+    }
+    .data-item-links .tags .is-info::after {
+      display: block;
+    }
+  }
+} 
