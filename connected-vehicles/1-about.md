@@ -1,19 +1,18 @@
 ---
-layout: doc-article
+layout: simple-article
 redirect_from:
     - /connected-vehicles/
+    - /connected-vehicles/overview/
 permalink: /connected-vehicles/about/
 section: connected-vehicles
 title: About
+subsection: overview
 description: "Groupe PSA for Developers is the dedicated platform for application developers working with Groupe PSA's connected vehicles."
+subtitle: GROUPE PSA FOR DEVELOPERS
 ---
-
-# WHAT IS GROUPE PSA FOR DEVELOPERS?
 
 Groupe PSA for Developers is the dedicated platform for application developers working with Groupe PSA's connected vehicles. Here you can find everything about our APIs and SDKs. Whether you are working by yourself or being part of a company, this platform will let you access documentation about our products for connected cars.
 You will be able to access our **web API** in order to retrieve your vehicle data and send remote commands, develop apps for your vehicles **embedded screen** and use our mobile SDK to **remote control** your car using Bluetooth.
-
-![build-the-future-pg4d]({{site.baseurl}}/assets/images/build-the-future-pg4d.jpg)
 
 # AVAILABLE FEATURES
 

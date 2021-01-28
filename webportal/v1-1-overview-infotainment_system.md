@@ -15,7 +15,7 @@ in Groupe PSA vehicles. It allows to use navigation, browse media player, custom
 
 Driver interacts with the NAC through a capacitive touchscreen. Webportal Embedded Apps are also displayed on this same screen! 
 
-![NAC]({{ site.baseurl }}/assets/images/nac.png)
+![NAC]({{ site.baseurl }}/assets/images/nac.jpg)
 
 
 # SOFTWARE VERSIONS
@@ -98,20 +98,20 @@ Here is actual available screen size: **SD** = 800 x 363 px ; **HD** = 1280 x 58
 
 
 **Standard-Definition**
-![screen-res-sd]({{site.baseurl }}/assets/images/webportal-presentation-screen-sd.png)
+![screen-res-sd]({{site.baseurl }}/assets/images/webportal-presentation-screen-sd.jpg)
 
 **High-Definition**
-![screen-res-hd]({{site.baseurl }}/assets/images/webportal-presentation-screen-hd.png)
+![screen-res-hd]({{site.baseurl }}/assets/images/webportal-presentation-screen-hd.jpg)
 
 **Wide High-Definition**
-![screen-res-whd]({{site.baseurl }}/assets/images/webportal-presentation-screen-whd.png)
+![screen-res-whd]({{site.baseurl }}/assets/images/webportal-presentation-screen-whd.jpg)
 
 
 ## VIRTUAL KEYBOARD
 
 A virtual keyboard is available on the NAC. It is displayed on the full size of the NAC touchscreen.
 
-![virtual-keyboard]({{site.baseurl}}/assets/images/virtual-keyboard.png)
+![virtual-keyboard]({{site.baseurl}}/assets/images/virtual-keyboard.jpg)
 
 You just have to create an HTML **input text**, once the user set the **focus** on this text field the virtual keyboard is displayed.
 

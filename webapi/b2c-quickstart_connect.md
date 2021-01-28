@@ -134,7 +134,7 @@ Name|Value|Description
 
 Once you get your token, you can test your bearer by **requesting** the *B2C API*:
 
-{% include_relative content/webapi-curl.md apiEndpointB2C='/user/vehicles' referenceURLResssourceB2B='/#/Vehicles/getVehiclesByDevice' httpVerb='GET' displayApiURL=true %}
+{% include webapi-curl.md apiEndpointB2C='/user/vehicles' referenceURLResssourceB2B='/#/Vehicles/getVehiclesByDevice' httpVerb='GET' displayApiURL=true %}
 
 Type|Name|Value|Description|Required
 -|-|-|-|-

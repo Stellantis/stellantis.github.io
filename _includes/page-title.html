@@ -1,42 +1,42 @@
-{% for section in site.data.sections %}
-    {% if page.section == section.tag %}
-        {% assign sectionName = section.name%}
-        {% for subsection in section.subsections %}
-            {% if page.subsection == subsection.tag %}
-                {% assign subsectionName = subsection.name %}
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-{% endfor %}
+{%- for section in site.data.sections -%}
+    {%- if page.section == section.tag -%}
+        {%- assign sectionName = section.name-%}
+        {%- for subsection in section.subsections -%}
+            {%- if page.subsection == subsection.tag -%}
+                {%- assign subsectionName = subsection.name -%}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endfor -%}
 
-{% if page.categorie %}
-    {% if page.categorie contains "verview" %}
-        {% if page.title contains "bout" %}
+{%- if page.categorie -%}
+    {%- if page.categorie contains "verview" -%}
+        {%- if page.title contains "bout" -%}
             {{page.section | capitalize}} {{page.subsection | upcase}}
-        {% else %}
+        {%- else -%}
             {{page.title}} | {{page.subsection | upcase}} {{page.section | capitalize}} 
-        {% endif %}
-    {% else %}
+        {%- endif -%}
+    {%- else -%}
     {{page.title}} {{page.categorie}} | {{page.subsection | upcase}} {{page.section | capitalize}} 
-    {% endif %}
-{% elsif page.subsection %}
-    {% if page.title contains "bout" %}
+    {%- endif -%}
+{%- elsif page.subsection -%}
+    {%- if page.title contains "bout" -%}
     {{subsectionName}} {{sectionName}} 
-    {% else %}
+    {%- else -%}
     {{page.title}} | {{subsectionName}} {{sectionName}} 
-    {% endif %}
-{% elsif page.section %}
-    {% if page.title %}
-        {% if page.title contains "bout" %}
+    {%- endif -%}
+{%- elsif page.section -%}
+    {%- if page.title -%}
+        {%- if page.title contains "bout" -%}
         {{sectionName}}
-        {% else %}
+        {%- else -%}
         {{page.title}} | {{sectionName}}
-        {% endif %}
-    {% else %}
+        {%- endif -%}
+    {%- else -%}
         {{sectionName}} | {{site.title}}
-    {% endif %}
-{% elsif page.title %}
+    {%- endif -%}
+{%- elsif page.title -%}
         {{page.title}} | {{site.title}}
-{% else %}
+{%- else -%}
     {{site.title}}
-{% endif %}
+{%- endif -%}

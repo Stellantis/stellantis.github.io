@@ -3,9 +3,10 @@
   name: Connected Vehicles
   icon: fas fa-wifi
   subsections:
-    - tag: home
+    - tag: overview
       path: 
-      name: Home
+      name: Overview
+      nameUpcase: OVERVIEW
       categories:
         - name: 
           path: 
@@ -18,6 +19,37 @@
               path: privacy/
             - name: Data Catalog
               path: data-catalog/
+
+    - tag: api-data
+      path: api-data/
+      name: APIs
+      nameUpcase: APIs
+      categories:
+      - name: 
+        path:
+        pages:
+        - name: Alerts
+          path: alerts/
+        - name: Collisions
+          path: collisions/
+        - name: Location
+          path: location/
+        - name: Maintenance
+          path: maintenance/
+        - name: Monitors
+          path: monitors/
+        - name: Pictures
+          path: pictures/
+        - name: Remotes
+          path: remotes/
+        - name: Telemetries
+          path: telemetries/
+        - name: Trips
+          path: trips/
+        - name: Vehicle Info
+          path: vehicle-info/
+        - name: HMI
+          path: hmi/
 - tag: webapi
   path: /webapi/
   name: Web API
@@ -26,6 +58,7 @@
     - tag: b2b
       path: b2b/
       name: Fleet Owner
+      nameUpcase: FLEET OWNER
       categories:
         - name: Overview
           path: overview/
@@ -79,6 +112,7 @@
     - tag: b2c
       path: b2c/
       name: End User
+      nameUpcase: END USER
       categories:
         - name: Overview
           path: overview/
@@ -118,6 +152,7 @@
     - tag: v1
       path: v1/
       name: Version 1
+      nameUpcase: VERSION 1
       categories:
         - name: Overview
           path: overview/

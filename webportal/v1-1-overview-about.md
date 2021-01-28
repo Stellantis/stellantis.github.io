@@ -47,4 +47,4 @@ When the system starts, a menu appears where the user can choose to access the C
 
 They then reach the main menu containing the applications they are subscribed to:
 
-![App Wall]({{ site.baseurl }}/assets/images/app-wall.png)
+![App Wall]({{ site.baseurl }}/assets/images/app-wall.jpg)

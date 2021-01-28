@@ -6,7 +6,7 @@ Here is an overview of an **HTTP request** intended to create a monitor.
 
 We will then take a closer look to the **body request**.
 
-{% include_relative content/webapi-curl.md apiEndpointB2B='/fleets/{fid}/monitors' apiEndpointB2C='/user/vehicles/{id}/monitors' referenceURLResssourceB2B ='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2C ='/#/Vehicles/setVehicleMonitor' displayCURL=false displayApiURL=true referenceURLResssource ='/#/Vehicles/setVehicleMonitor' httpVerb='POST' httpBody='{
+{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/monitors' apiEndpointB2C='/user/vehicles/{id}/monitors' referenceURLResssourceB2B ='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2C ='/#/Vehicles/setVehicleMonitor' displayCURL=false displayApiURL=true referenceURLResssource ='/#/Vehicles/setVehicleMonitor' httpVerb='POST' httpBody='{
   "label": "monitor-name",
   "subscribeParam": { },
   "extendedEventParam": [ ],

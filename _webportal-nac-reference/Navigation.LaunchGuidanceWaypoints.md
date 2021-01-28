@@ -34,7 +34,7 @@ var Waypoint2Lat = 48.111111
 var Waypoint2Lon = 2.11132
 var CustomerConfirmation = true
 
-if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitude, [{lat: Waypoint1Lat, lon: Waypoint1Lon}, {lat: Waypoint2Lat, lon: Waypoint2Lon}], CustomerConfirmation) === false ) {
+if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitude, [{lat: Waypoint1Lat, lon: Waypoint1Lon}, {lat: Waypoint2Lat, lon: Waypoint2Lon}], CustomerConfirmation) === false) {
 	// Error, Itinerary not correctly set
 } else {
 	// Itinerary started

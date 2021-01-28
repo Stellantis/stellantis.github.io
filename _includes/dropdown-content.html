@@ -1,0 +1,32 @@
+
+<div class="boxed-module expandable content" id="{{include.tag}}">
+   
+   
+    <div class="boxed-module-header" onclick="dropdown('{{include.tag}}')">
+        
+        <div class="boxed-module-icon">
+            <i class="{{include.icon}}"></i>
+        </div>
+
+        <h2 class="boxed-module-title">
+            {{include.title}}
+        </h2> 
+
+        <svg class="expand-icon icon-plus" viewBox="0 0 20 20">
+            <path d="M9,9 L0,9 L0,11 L9,11 L9,20 L11,20 L11,11 L20,11 L20,9 L11,9 L11,0 L9,0 L9,9 Z"></path>
+        </svg>
+        <svg class="expand-icon icon-moins" viewBox="0 0 20 2">
+            <rect x="0" y="0" width="20" height="2"></rect>
+        </svg>
+
+    </div>
+    <div class="boxed-module-hidden">
+        <hr style="margin-top: 0; margin-bottom: 1.5rem; background-color: darkgrey;">
+        <div class="boxed-module-content">
+            <div class="boxed-module-content-text">
+                {{include.markdown | markdownify}}
+            </div>
+       </div>
+    </div>
+</div>
+

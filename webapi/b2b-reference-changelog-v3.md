@@ -4,7 +4,7 @@ permalink: /webapi/b2b/api-reference/changelog-v3/
 section: webapi
 subsection: b2b
 categorie: api reference 
-title: Changelog Version 3
+title: Changelog v3
 ---
 
 

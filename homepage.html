@@ -1,17 +1,20 @@
 ---
 layout: empty-page
 permalink: /
-require: aos leaflet typed
+require: aos leaflet typed card homepage thumbnail
 description: "Groupe PSA for Developers is the dedicated platform for application developers working with Groupe PSA's
 connected vehicles APIs and SDKs."
+redirect_from:
+    - /connected-vehicles/use-case/
 ---
+
 <div class="black-gradient landing-page" style="margin-bottom: 3rem;">
     <!-- INTRO -->
     <section class="section">
         <div class="container">
-            <h1 class="has-text-centered">
+            <h2 class="has-text-centered">
                 Groupe PSA for developers
-            </h1>
+            </h2>
             <p class="has-text-centered is-6 is-light text-compact">
                 Groupe PSA for Developers is the dedicated platform for application developers working with
                 Groupe PSA's connected vehicles.
@@ -21,19 +24,22 @@ connected vehicles APIs and SDKs."
         </div>
     </section>
     <!-- / INTRO -->
-    
     <!-- RETRIEVE YOUR VEHCILES DATA -->
     <section class="section section-feature">
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-half description">
-                    <div class="landing-text-bloc">
-                        <h1 class="">Retrieve your <br> vehicles data.</h1>
-                        <div class="separator" data-aos="fade-right"></div>
+                    <a href="{{site.baseurl}}/webapi/" data-aos="fade-right" class="landing-text-bloc">
+                        <h3 class="">Retrieve your <br> vehicles data.</h3>
+                        <div class="separator"></div>
                         <p class="is-6 is-light  text-compact"> Our REST API allow retrieving everything about
                             your vehicles. You can access all kind of telemetry, maintenance details,
-                            collisions, position, alerts etc. </p>
-                    </div>
+                            collisions, position, alerts etc. &nbsp;
+                            <svg class="link-arrow" viewBox="0 0 25 12">
+                                <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
+                            </svg>
+                        </p>
+                    </a>
                 </div>
                 <!-- CODE HIGHLIGHTER -->
                 <div class="column">
@@ -92,12 +98,16 @@ connected vehicles APIs and SDKs."
                 </div>
                 <!-- / PIC WP -->
                 <div class="column description">
-                    <div class="landing-text-bloc">
-                        <h1 class="">Build embedded <br> web APPs.</h1>
-                        <div class="separator" data-aos="fade-left"></div>
+                    <a href="{{site.baseurl}}/webportal/" class="landing-text-bloc" data-aos="fade-left">
+                        <h3 class="">Build embedded <br> web APPs.</h3>
+                        <div class="separator"></div>
                         <p class="is-6 is-light  text-compact">Try our webportal framework and build wonderful
-                            APPs for your vehicle embedded screen using HTML CSS & JavaScript.</p>
-                    </div>
+                            APPs for your vehicle embedded screen using HTML CSS & JavaScript. &nbsp;
+                            <svg class="link-arrow" viewBox="0 0 25 12">
+                                <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
+                            </svg>
+                        </p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -108,17 +118,22 @@ connected vehicles APIs and SDKs."
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column description">
-                    <div class="landing-text-bloc">
-                        <h1 class="">Remote control <br>your vehicle.</h1>
-                        <div class="separator" data-aos="fade-right"></div>
+                    <a href="{{site.baseurl}}/webapi/b2b/remote/about/"  class="landing-text-bloc" data-aos="fade-right">
+                        <h3 class="">Remote control <br>your vehicle.</h3>
+                        <div class="separator"></div>
                         <p class="is-6 is-light  text-compact">Remote control your vehicles over Bluetooth or
-                            HTTP: open the doors, precondition temperature, honk the horn and much more...</p>
-                    </div>
+                            HTTP: open the doors, precondition temperature, honk the horn and much more...
+                            &nbsp;
+                            <svg class="link-arrow" viewBox="0 0 25 12">
+                                <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
+                            </svg>
+                        </p>
+                    </a>
                 </div>
                 <!-- REMOTE PIC -->
                 <div class="column is-half">
                     <img class="rounded landing-feature is-hidden-mobile"
-                        src="{{site.baseurl}}/assets/images/myds.png" style="filter: brightness(85%);">
+                        src="{{site.baseurl}}/assets/images/myds.jpg" style="filter: brightness(85%);">
                 </div>
                 <!-- / REMOTE PIC -->
             </div>
@@ -138,9 +153,9 @@ connected vehicles APIs and SDKs."
                 </div>
                 <!-- / MAP -->
                 <div class="column description">
-                    <div class="landing-text-bloc">
-                        <h1 class="">Design your own <br>user interface.</h1>
-                        <div class="separator" data-aos="fade-left"></div>
+                    <div class="landing-text-bloc" data-aos="fade-left">
+                        <h3 class="">Design your own <br>user interface.</h3>
+                        <div class="separator"></div>
                         <p class="is-6 is-light  text-compact">Use your vehicles data you and build customized
                             app for your own needs!</p>
                     </div>
@@ -149,107 +164,89 @@ connected vehicles APIs and SDKs."
         </div>
     </section>
     <!-- / BUILD INTERFACES -->
-    <!-- SECTIONS -->
+
+    <!-- APIs -->
     <section class="section">
         <div class="container our-apis">
             <!--  Our APIs-->
             <div class="separator is-centered" style="margin-bottom: 3rem;">
             </div>
-            <h1 class="has-text-centered">
+            <h2 class="has-text-centered">
                 Our APIs
-            </h1>
+            </h2>
             <p class="has-text-centered  is-6 is-light  text-compact" style="margin-bottom: 8rem;">
                 Choose which API from Groupe PSA's that you want to explore.
             </p>
             <!--  / OUR APIs -->
-            <div class="columns is-vcentered">
-                <!-- Feature -->
-                <div class="column is-4">
-                    <div class="has-text-centered" data-aos="zoom-in" data-aos-delay="100"
-                    data-aos-easing="ease-out-quart">
-                        <span class="icon is-large is-white" >
-                            <i class="fas fa-3x fa-cloud"></i>
-                        </span>
-                        <h2 class="is-6">&#60; Web API &#62;</h2>
-                        <p class="feature-text">Retrieve data and remote control using open web standards: REST
-                            API, GeoJSON & HAL.</p>
-                        <a href="{{site.baseurl}}/webapi/" class="button button-left">
-                            <span class="text">Explore the API</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Feature -->
-                <div class="column is-4">
-                    <div class="has-text-centered" data-aos="zoom-in" data-aos-delay="250"
-                    data-aos-easing="ease-out-quart">
-                        <span class="icon is-large  is-white" >
-                            <i class="fas fa-3x fa-car-side"></i>
-                        </span>
-                        <h2 class="is-6">&#60; WebPortal &#62;</h2>
-                        <p class="feature-text">An embedded framework to develop Web Applications in the media
-                            system your vehicle.</p>
-                        <a href="{{site.baseurl}}/webportal/" class="button button-middle">
-                            <span class="text"> Build your App</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- Feature -->
-                <div class="column is-4">
-                    <div class="has-text-centered" data-aos="zoom-in" data-aos-delay="400"
-                    data-aos-easing="ease-out-quart">
-                        <span class="icon is-large  is-white" >
-                            <i class="fas fa-3x fa-mobile"></i>
-                        </span>
-                        <h2 class="is-6">&#60; SDK Mobile &#62;</h2>
-                        <p class="feature-text">An iOS and Android SDK for accessing data and remote control
-                            over Bluetooth.</p>
 
-                        <a href="{{site.baseurl}}/mobile-sdk/" class="button button-right">
-                            <span class="text">Control your car</span>
-                        </a>
+            <div class="unboxed-content">
+                <div class="cards"> 
+
+                    <div data-aos="zoom-in" data-aos-delay=0" data-aos-easing="ease-out-quart">
+                        {% 
+                            include card.html 
+                            modifier='card-transparent' 
+                            linkto="/webapi/"
+                            title="Web API"
+                            text="Retrieve data and remote control using open web standards: REST"
+                            logo=" fa-cloud"
+                            card-arrow="always"
+                        %}
                     </div>
+
+                    <div data-aos="zoom-in" data-aos-delay="250" data-aos-easing="ease-out-quart">
+                        {% 
+                            include card.html 
+                            modifier='card-transparent' 
+                            linkto="/webportal/"
+                            title="WebPortal"
+                            text="An embedded framework to develop Web Applications in the media system your vehicle."
+                            logo=" fa-car-side"
+                            card-arrow="always"
+                        %}
+                    </div>  
+
+                    <div data-aos="zoom-in" data-aos-delay="400" data-aos-easing="ease-out-quart">
+                        {%  
+                            include card.html 
+                            modifier='card-transparent' 
+                            linkto="/mobile-sdk/"
+                            title="SDK Mobile"
+                            text="An iOS and Android SDK for accessing data and remote control over Bluetooth."
+                            logo=" fa-mobile"
+                            card-arrow="always"
+                        %}
+                    </div>
+
                 </div>
             </div>
+
         </div>
     </section>
-    <!-- PROJECTS -->
-    <section class="section landing-page">
+    <!-- /APIs -->
+    <!-- PROJECTS LIST -->
+    <section class="section landing-page container">
         <div class="separator is-centered" style="margin: 1rem auto; margin-top: 100px;" >
         </div>
-        <h1 class="has-text-centered">
+        <h2 class="has-text-centered">
             Projects
-        </h1>
+        </h2>
         <p class="has-text-centered  is-6 is-light  text-compact"  style="margin-bottom: 3rem;">
             See what you can do with Groupe PSA's APIs.
         </p>
         <!-- PROJECTS LIST -->
-        <div class="projects">
+        <div class="projects" data-aos="fade-up">
             {% for project in site.data.project-examples %}
-            <article class="project-preview">
-                <div class="project-img" style="
-                                background-image: url({{site.baseurl}}/assets/images/projects/{{project.img-url}});">
-                </div>
-                <div class="project-description">
-                    <div>
-                        <p class="project-categories">{{project.section | join: ' &sdot; '}}</p>
-                        <p class="project-title">{{project.long-name}}</p>
-                    </div>
-                    {% if project.link %}
-                    <div class="project-links">
-                        {% if project.link.ios %}
-                        <a href="{{project.link.ios}}" class="icon is-medium">
-                            <i class="fab fa-lg fa-apple"></i>
-                        </a>
-                        {% endif %}
-                        {% if project.link.android %}
-                        <a href="{{project.link.android}}" class="icon is-medium">
-                            <i class="fab fa-lg fa-android"></i>
-                        </a>
-                        {% endif %}
-                    </div>
-                    {% endif %}
-                </div>
-            </article>
+
+                {% 
+                    include thumbnail.html
+                    img-url=project.img-url
+                    section=project.section
+                    long-name=project.long-name
+                    link-ios=project.link.ios
+                    link-android=project.link.android
+                 %}
+                 
             {% endfor %}
             <article class="project-preview">
                 <a class="project-img" href="{{site.baseurl}}/connected-vehicles/about/" style="   
@@ -263,8 +260,9 @@ connected vehicles APIs and SDKs."
                     <p style="font-size: 1.5rem;">Why not your App?</p>
                 </a>
             </article>
-            <article id="preview-fix" class="project-preview">
-            </article>
+            <!-- FIX Project -->
+            <!-- <article id="preview-fix" class="project-preview">
+            </article> -->
         </div>
 
     </section>
@@ -331,30 +329,5 @@ connected vehicles APIs and SDKs."
         map.setView([48.7775, 2.22232]);
 
     };
-
-    /*----------- AOS ---------*/
-
-    AOS.init({
-        // Global settings:
-        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-        startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-        initClassName: 'aos-init', // class applied after initialization
-        animatedClassName: 'aos-animate', // class applied on animation
-        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-
-        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-        offset: 170, // offset (in px) from the original trigger point
-        delay: 0, // values from 0 to 3000, with step 50ms
-        duration: 500, // values from 0 to 3000, with step 50ms
-        easing: 'ease', // default easing for AOS animations
-        once: false, // whether animation should happen only once - while scrolling down
-        mirror: false, // whether elements should animate out while scrolling past them
-        anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
-    });
 
 </script>

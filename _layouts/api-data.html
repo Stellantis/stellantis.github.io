@@ -1,0 +1,84 @@
+---
+layout: article
+---
+
+
+
+<div class="content">
+    <div>
+        {% include content-header.html %}
+        {% include data-catalog-script.html %}
+        {{content}}
+    </div>
+</div>
+
+{% if page.response-preview %}
+
+<div class="unboxed-bloc">
+    <h2 class="unboxed-title" >TECHNICAL PREVIEW</h2>
+
+    {%- comment -%} REQUEST {%- endcomment -%}
+
+    {% assign request_preview_title = page.title | append: " Request Preview" %}
+
+    {% capture request_preview_content %}
+        {% include_relative request.md %}
+    {% endcapture %}    
+    
+    {% 
+        include dropdown-content.html
+        markdown=request_preview_content
+        title=request_preview_title
+        tag='request'
+        icon="fas fa-cogs"
+    %}
+
+
+    {%- comment -%} RESPONSE {%- endcomment -%}
+
+
+    {% assign response_preview_title = page.title | append: " Response Preview" %}
+
+    {% capture response_preview_content %}
+        {% include_relative {{page.response-preview}} %}
+    {% endcapture %}    
+
+    {% 
+        include dropdown-content.html
+        markdown=response_preview_content
+        title=response_preview_title
+        tag='response'
+        icon="fas fa-cogs"
+    %}
+</div>
+
+
+{% endif %}
+
+<div class="unboxed-bloc">
+    <h2 class="unboxed-title">AVAILABILITY</h2>
+    <div class="unboxed-content">
+        <div class="availability">
+            <div class="cards"> 
+
+                {% for api in site.data.apis %}
+                    {% if page.apis contains api.tag %}
+                        {% include card.html 
+                            modifier='card-transparent' 
+                            linkto=api.home-path
+                            title=api.short-name 
+                            text=api.description
+                            logo=api.icon 
+                        %}
+
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<hr style="background: white; margin: 0rem  4rem 2.5rem">    

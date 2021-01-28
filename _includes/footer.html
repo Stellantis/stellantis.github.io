@@ -1,48 +1,94 @@
-<footer class="bd-footer-support footer">
-    <div class="level container">
-        <div class="level-left">
-            <div class="level-item" id="typo">
-                <div>
-                    <p>Version {{site.doc-version}}</p>
-                    <p><a href="{{site.baseurl}}/changelog/">Changelog</a></p>
-                    <p>© Groupe PSA {{ 'now' | date: "%Y" }}</p>
-                    <p><a href="{{site.baseurl}}/sitemap.xml">Sitemap</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="level-center">
-            <div class="level-item" id="typo">
-                <div>
-                    <p>We love answering questions! <a href="mailto:connectedcar@mpsa.com">Contact #PG4D team</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="level-right">
-            <a class="level-item" href="https://twitter.com/groupePSA" target="_blank">
-                <span class="icon is-large is-white">
-                    <i class="fab fa-2x fa-twitter"></i>
-                </span>
-            </a>
-            <a class="level-item" href="https://www.linkedin.com/company/groupepsa?trk=top_nav_home" target="_blank">
-                <span class="icon is-large  is-white">
-                    <i class="fab fa-2x fa-linkedin "></i>
-                </span>
-            </a>
-            <a class="level-item" href="https://www.facebook.com/groupepsa/" target="_blank">
-                <span class="icon is-large  is-white">
-                    <i class="fab fa-2x fa-facebook "></i>
-                </span>
-            </a>
-            <a class="level-item" href="https://www.youtube.com/user/PSAPEUGEOTCITROEN?feature=mhee" target="_blank">
-                <span class="icon is-large  is-white">
-                    <i class="fab fa-2x fa-youtube  is-white"></i>
-                </span>
-            </a>
-            <a class="level-item" href="https://github.com/GroupePSA" target="_blank">
-                <span class="icon is-large  is-white">
-                    <i class="fab fa-2x fa-github  is-white"></i>
-                </span>
-            </a>
-        </div>
+<footer class="footer">
+  <div class="footer-items">
+    <!-- THIS WEBSITE -->
+    <div class="footer-item">
+      <p class="footer-heading">THIS WEBSITE</p>
+      <div class="footer-links">
+        <span class="footer-link">Version&nbsp;<a href="{{site.baseurl}}/changelog/#{{site.doc-version | remove: '.'}}">{{site.doc-version}}</a></span>
+        <a class="footer-link" href="{{site.baseurl}}/changelog/">Changelog</a>
+        <a class="footer-link" href="{{site.baseurl}}/credits/">Credits</a>
+        <a class="footer-link" href="{{site.baseurl}}/sitemap.xml">Sitemap</a>
+        <span class="footer-link">© Groupe PSA {{ 'now' | date: "%Y" }}</span>
+      </div>
     </div>
+    <!-- /THIS WEBSITE -->
+    <!-- APIs -->
+    <div class="footer-item">
+      <p class="footer-heading">APIs</p>
+      <div class="footer-links">
+        <a class="footer-link" href="{{site.baseurl}}/webapi/b2b/">API Fleet Owner</a>
+        <a class="footer-link" href="{{site.baseurl}}/webapi/b2c/">API End User</a>
+        <a class="footer-link" href="{{site.baseurl}}/webportal/v1/">Webportal v1</a>
+        <a class="footer-link" href="{{site.baseurl}}/webportal/v2/">Webportal v2</a>
+        <a class="footer-link" href="{{site.baseurl}}/mobile-sdk/">Mobile SDK</a>
+      </div>
+    </div>
+    <!-- /APIs -->
+    <!-- OTHER WEBSITES -->
+    <div class="footer-item">
+      <p class="footer-heading">OUR WEBSITES</p>
+      <div class="footer-links">
+        <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+        <a class="footer-link" href="https://www.groupe-psa.com/en/">PSA Groupe</a>
+        <a class="footer-link" href="https://developer.groupe-psa.com/">API Subscription</a>
+        <a class="footer-link" href="http://www.free2move-corp.com">Free 2 Move</a>
+      </div>
+    </div>
+    <!-- /OTHER WEBSITES -->
+    <!-- SOCIAL -->
+    <div class="footer-item">
+      <p class="footer-heading">SOCIAL</p>
+      <div class="footer-links">
+        <a class="footer-link" href="mailto:connectedcar@mpsa.com" target="_blank">
+          <span class="icon is-white">
+            <i class="fas fa-at"></i>
+          </span>
+          <span>
+            Email
+          </span>
+        </a>
+        <a class="footer-link" href="https://twitter.com/groupePSA" target="_blank">
+          <span class="icon is-white">
+            <i class="fab fa-twitter"></i>
+          </span>
+          <span>
+            Twitter
+          </span>
+        </a>
+        <a class="footer-link" href="https://www.linkedin.com/company/groupepsa" target="_blank">
+          <span class="icon is-white">
+            <i class="fab fa-linkedin "></i>
+          </span>
+          <span>
+            LinkedIn
+          </span>
+        </a>
+        <a class="footer-link" href="https://www.facebook.com/groupepsa/" target="_blank">
+          <span class="icon is-white">
+            <i class="fab fa-facebook "></i>
+          </span>
+          <span>
+            Facebook
+          </span>
+        </a>
+        <a class="footer-link" href="https://www.youtube.com/user/PSAPEUGEOTCITROEN?feature=mhee" target="_blank">
+          <span class="icon is-white">
+            <i class="fab fa-youtube  is-white"></i>
+          </span>
+          <span>
+            YouTube
+          </span>
+        </a>
+        <a class="footer-link" href="https://github.com/GroupePSA" target="_blank">
+          <span class="icon is-white">
+            <i class="fab fa-github  is-white"></i>
+          </span>
+          <span>
+            GitHub
+          </span>
+        </a>            
+      </div>
+    </div>
+    <!-- /SOCIAL -->
+  </div>
 </footer>

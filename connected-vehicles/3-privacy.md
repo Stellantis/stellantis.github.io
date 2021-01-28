@@ -1,9 +1,11 @@
 ---
-layout: doc-article
+layout: simple-article
 permalink: /connected-vehicles/privacy/
 section: connected-vehicles
 title: Privacy Settings
-description: "Privacy settings are set in the infotainment system by the owner of the vehicle. Find information about these restrictions."
+subsection: overview
+description: "Privacy settings are set in the infotainment system by the owner of the vehicle. Find information about these settings here."
+subtitle: "Learn about privacy"
 ---
 
 # INBOARD
@@ -17,13 +19,13 @@ Within the vehicle infotainment system, the user can select various **privacy se
 
 This setting will impact your ability to retrieve data in our API.
 
-<img src="{{site.baseurl}}/assets/images/privacy-selection.png" alt="privacy-selection" style="width: 450px">
+<img src="{{site.baseurl}}/assets/images/privacy-selection.jpg" alt="privacy-selection" style="width: 450px">
 
 ## WEBPORTAL
 
 You can access the feature of webportal that are allowed by the privacy mode of the user. That's why your APP needs to handle the privacy settings selected by the user.
 
-See this [section]({{site.baseurl}}/webportal/v1/quickstart/events/#privacy-mode) of webportal tutorial for more info.
+See this [section]({{site.baseurl}}/webportal/v1/quickstart/#privacy-mode) of webportal tutorial for more info.
 
 ## WEB API
 
@@ -33,6 +35,11 @@ If your are a fleet owner you can access your vehicle data. However, in order to
 
 
 # SEE ALSO
+
+#### DATA CATALOG
+
+Look at our [data catalog]({{site.baseurl}}/connected-vehicles/data-catalog/#article) to find what kind of information are available in the API.
+
 
 #### CONNECTED SERVICES
 

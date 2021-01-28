@@ -1,0 +1,25 @@
+<article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url({{site.baseurl}}{{include.img-url}});">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">{{include.section | join: ' &sdot; '}}</p>
+            <p class="project-title">{{include.long-name}}</p>
+        </div>
+        {% if include.link-ios or include.link-android %}
+        <div class="project-links">
+            {% if include.link-ios %}
+            <a href="{{include.link-ios}}" class="icon is-medium">
+                <i class="fab fa-lg fa-apple"></i>
+            </a>
+            {% endif %}
+            {% if include.link-android %}
+            <a href="{{include.link-android}}" class="icon is-medium">
+                <i class="fab fa-lg fa-android"></i>
+            </a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</article>
