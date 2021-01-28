@@ -16,6 +16,8 @@
               path: connected-services/
             - name: Privacy Settings
               path: privacy/
+            - name: Data Catalog
+              path: data-catalog/
 - tag: webapi
   path: /webapi/
   name: Web API

@@ -7,7 +7,7 @@ type: api
 privacy: Public
 ---
 
-### `Navigation.LaunchGuidanceWaypoints(Number destLon, Number destLat, [object{lat: Number, lon: Number}] waypoints)`
+### `Navigation.LaunchGuidanceWaypoints(Number destLon, Number destLat, [object{lat: Number, lon: Number}] waypoints, Boolean customerConfirmation)`
 
 | **Description** | Starts the navigation to the specified destination and going through all the specified waypoints.
 | **Response** | *Boolean*  `True` if the destination and waypoints were all correctly set, else `False` if the process failed.
@@ -17,8 +17,7 @@ Parameter | Type | Description | Required
 `destLon` | *Number* | The destination's longitude, should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
 `destLat` | *Number* | The destination's latitude, should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
 `waypoints` | *array[object(lat: Number, lon: Number)]* | The waypoints to go through before the final destination (9 waypoints max), Each waypoint should be WGS84 Signed Decimal Degrees and have a length < 11 characters. | Required
-`cus- tomerConfirmation`| *Boolean* | Available since *42.02.64.50*, if set to true, a pop-up will ask the user to confirm the new guidance request. | Optional, default: *false*.
-`CustomerConfirmation`| *Boolean* | If set to true, a pop-up will be displayed which will ask the user to confirm the new guidance request. | Optional, default: *false*.
+`customerConfirmation`| *Boolean* | Available since *42.02.64.50*, if set to true, a pop-up will ask the user to confirm the new guidance request. | Optional, default: *false*.
 
 #### IMPORTANT
 
@@ -33,8 +32,9 @@ var Waypoint1Lat = 48.77745
 var Waypoint1Lon = 2.22366
 var Waypoint2Lat = 48.111111
 var Waypoint2Lon = 2.11132
+var CustomerConfirmation = true
 
-if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitude, [{lat: Waypoint1Lat, lon: Waypoint1Lon}, {lat: Waypoint2Lat, lon: Waypoint2Lon}]) === false ) {
+if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitude, [{lat: Waypoint1Lat, lon: Waypoint1Lon}, {lat: Waypoint2Lat, lon: Waypoint2Lon}], CustomerConfirmation) === false ) {
 	// Error, Itinerary not correctly set
 } else {
 	// Itinerary started
