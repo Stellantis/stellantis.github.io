@@ -10,7 +10,7 @@ type: api
 ### `Device.GetHMITheme()`
 
 | **Description** | Get the theme of the HMI
-| **Response** | *Number* <br/>The number corresponding to the theme ID.<br/> Browse [Ambience Section]({{site.baseurl}}/webportal/v1/best-pratice/#ambience) for a correspondence table.
+| **Response** | *Number* <br/>The number corresponding to the theme ID.<br/> Browse [Ambience Section]({{site.baseurl}}webportal/v1/overview/infotainment-system/#colour-theme) for a correspondence table.
 | **Parameter**   | *Void*
 
 #### EXAMPLE

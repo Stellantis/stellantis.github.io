@@ -11,3 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+function dropdown(id) {
+    var dropdownElement = document.querySelector(".expandable#"+id);
+    if (dropdownElement.classList.contains("is-open")) {
+        dropdownElement.classList.remove("is-open");
+    }
+    else {
+        dropdownElement.classList.add("is-open");
+    }
+}

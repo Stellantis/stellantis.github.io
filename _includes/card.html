@@ -1,0 +1,30 @@
+<div class="card {{include.modifier}}">
+    <a class="card-body" href="{{site.baseurl}}{{include.linkto}}">
+        {% unless include.modifier contains "card-transparent" %}
+        <div class="card-image-container">
+            <picture class="card-image" style="background-image: url({{site.baseurl}}{{include.picture}});"> </picture>
+        </div>
+        {% endunless %}
+        <div class="card-content">
+            <div class="card-header">
+                {% if include.modifier contains "transparent" %}
+                <h4 class="card-title">{{include.title}}</h4>
+                <span class="icon card-icon">
+                    <i class="fas {{include.logo}}"></i>
+                </span>
+                {% else %}
+                <span class="card-category">{{include.category}}</span>
+                <h4 class="card-title">{{include.title}}</h4>
+                {% endif %}
+            </div>
+            <div class="card-text">
+                    {{include.text}}
+            </div>
+            <svg class="card-arrow" viewBox="0 0 25 12" 
+                {% if include.card-arrow == "always" %}style="fill: #ff4238 !important" {% endif %}
+            >
+                <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
+            </svg>
+        </div>
+    </a>
+</div>

@@ -1,0 +1,57 @@
+---
+layout: default
+---
+{% include header.html %}
+
+<section id="article">
+    <div id="lunr">
+        <div id="lunrsearchresults">
+            <ul></ul>
+        </div>
+    </div>
+    
+    {%- comment -%} HEADER {%- endcomment -%}
+    <div class="unboxed-page-header">
+
+        <div class="unboxed-page-title-container">
+            
+            <span>
+                <h1 class="unboxed-page-title">
+                    {{page.title}}
+                </h1>
+            </span>
+
+            {% if page.logo %}
+                <span class="icon">
+                    <i class="{{page.logo}}"></i>
+                </span>
+            {% endif %}
+
+        </div>
+
+        <p class="unboxed-page-subtext">
+            {% if page.subtext %}
+                {{page.subtext}}
+            {% else %}
+                {{page.description}}
+            {% endif %}
+                
+            {% if page.layout == "use-case" %}
+                <br>
+                {% include content/use_case_subscribing.md %}
+            {% endif %}
+        </p>
+
+    </div>
+
+        <main>
+            <div class="content">
+                {% include content-header.html %}
+
+                {{content}}
+            <div>
+        </main>
+        
+</section>
+
+{% include footer.html %}

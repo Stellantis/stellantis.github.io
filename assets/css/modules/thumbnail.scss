@@ -1,0 +1,75 @@
+---
+# In order to import this stlye, import it with 'require: thumbnail' in the page front matter.
+---
+
+.project-preview{
+    position: relative;
+    min-height: 200px;
+    margin: 4.5rem 1rem 0;
+    min-width: 300px;
+}
+
+.projects{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap; 
+    margin: auto;
+}
+
+.project-preview {
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.15);
+}
+
+.project-description{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.2rem 1rem;
+    background: rgba(0,0,0,.7);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-links, .project-links a{
+    color: white;
+}
+
+.project-links a:hover{
+    color: grey;
+}
+
+.project-preview .project-categories{
+    color: rgba(255,66,56,1);
+    font-weight: 400;
+    font-size: 0.75rem;
+}
+
+
+.project-preview .project-title{
+    color: white;
+    font-weight: 500;
+}
+
+.project-preview:hover {
+    -webkit-transform: scale(1.025);
+    -ms-transform: scale(1.025);
+    transform: scale(1.025);
+    transition: all .4s ease;
+}
+
+.project-preview:hover .project-img{
+    filter: brightness(100%);
+}
+
+.project-preview .project-img {
+    border-radius: 3px;
+    filter: brightness(80%);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    position: absolute
+}

@@ -1,10 +1,10 @@
 <aside class="menu">
 <span class="menu-title">{{page.section}} {% if page.subsection == "b2b" %}Fleet-owner{% elsif page.subsection == "b2c" %}End-user{% else %}{{page.subsection}}{% endif %}</span>
-{% if page.categorie %}
-    {% for section in site.data.sections %}
-        {% if section.subsections %}
-            {% for subsection in section.subsections %}
-                    {% if page.subsection == subsection.tag %}
+{%- if page.categorie -%}
+    {%- for section in site.data.sections -%}
+        {%- if section.subsections -%}
+            {%- for subsection in section.subsections -%}
+                    {%- if page.subsection == subsection.tag -%}
                     {% for categorie in subsection.categories %}
                     <p href="{{site.baseurl}}{{section.path}}{{subsection.path}}{{categorie.path}}" class='menu-label has-list{% if page.categorie == categorie.name %} is-active{% endif %}' id="{{categorie.name}}">
                         <span>
@@ -13,7 +13,7 @@
                     </p>
                     <ul class="menu-list">
                         {% for p in categorie.pages %}
-                        {% assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path %}
+                        {%- assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path -%}
                         <li>
                             <a {% if page.permalink contains page_link %}class="is-active"{% endif %} href="{{site.baseurl}}{{page_link}}#article">
                                 {{p.name}}
@@ -22,17 +22,17 @@
                         {% endfor %}
                     </ul>
                     {% endfor %}
-                    {% endif %}
-            {% endfor %}
-        {% endif %}
-    {% endfor %}
-{% else %}
+                    {%- endif -%}
+            {%- endfor -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- else -%}
 <div class="menu-one-level">
-    {% for section in site.data.sections %}
-        {% if section.subsections %}
-            {% for subsection in section.subsections %}
-                    {% if page.subsection %}
-                        {% if page.subsection == subsection.tag %}
+    {%- for section in site.data.sections -%}
+        {%- if section.subsections -%}
+            {%- for subsection in section.subsections -%}
+                    {%- if page.subsection -%}
+                        {%- if page.subsection == subsection.tag -%}
                             {% for p in subsection.categories[0].pages %}
                                     <a href="{{site.baseurl}}{{section.path}}{{subsection.path}}{{p.path}}#article" class='menu-label{% if page.title == p.name %} is-active{% endif %}' id="{{p.name}}">
                                         <span>
@@ -40,9 +40,9 @@
                                         </span>
                                     </a>
                             {% endfor %}
-                        {% endif %}
-                    {% else %}
-                        {% if page.section == section.tag %}
+                        {%- endif -%}
+                    {%- else -%}
+                        {%- if page.section == section.tag -%}
                             {% for p in subsection.categories[0].pages %}
                                     <a href="{{site.baseurl}}{{section.path}}{{p.path}}#article" class='menu-label{% if page.title == p.name %} is-active{% endif %}' id="{{p.name}}">
                                         <span>
@@ -50,13 +50,13 @@
                                         </span>
                                     </a>
                             {% endfor %}
-                        {% endif %}
-                    {% endif %}
-            {% endfor %}
-        {% endif %}
-    {% endfor %}
+                        {%- endif -%}
+                    {%- endif -%}
+            {%- endfor -%}
+        {%- endif -%}
+    {%- endfor -%}
 </div>
-{% endif %}
+{%- endif -%}
 
 </aside>
 

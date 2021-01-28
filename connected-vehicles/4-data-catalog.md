@@ -1,8 +1,9 @@
 ---
-layout: doc-article
+layout: simple-article
 permalink: /connected-vehicles/data-catalog/
 section: connected-vehicles
 title: Data Catalog
+subsection: overview
 on_this_page: false
 menu: false
 require: data-catalog
@@ -11,9 +12,3 @@ subtitle: Available Data
 ---
 
 {% include data-catalog-script.html %}
-
-<style>
-.title.section-title, .title.section-title + .title, aside.menu {
-    display:none;
-}
-</style>

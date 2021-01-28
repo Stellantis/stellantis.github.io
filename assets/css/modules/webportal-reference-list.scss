@@ -1,0 +1,200 @@
+---
+# In order to import this stlye, import it with 'require: webportal-reference-list' in the page front matter.
+---
+
+.bd-anchors-list li.is-past a, .bd-category-list li.is-past a, .bd-anchors-list li.is-current a, .bd-category-list li.is-current a{
+color: #131313;
+}
+.domain-name {
+font-size: 1.7rem;
+font-weight: 500;
+}
+
+.domain-content{
+padding-top: 1rem;
+}
+
+.api-header{
+transition: all 0.3s ease-out;
+padding: 0.35rem 1.5rem 0.7rem;
+border-left: 3px solid #2d2d2d;
+border-radius: inherit;
+}
+.api-info.is-open .api-header {
+transition: all 0.3s ease-in;
+}
+
+.api-title {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.api-name span{
+font-size: 1.45rem;
+font-weight: 500;;
+word-wrap: break-word;
+}
+
+h2.api-name{
+padding-top: 6rem;
+margin-top: -6rem;
+margin-bottom: 0rem;
+}
+
+
+.api-name .bd-anchor-link{
+display: none;
+}
+
+.content p.api-short {
+font-size: 0.85rem;
+margin-bottom: 0.7rem;
+margin-top:0.5rem
+}
+
+.api-info{
+margin-bottom: 2rem;
+}
+
+.api-info.is-open{
+border-radius: 0;
+border-top-right-radius: 3px;
+}
+
+.api-info.is-open .api-header {
+background: whitesmoke;
+}
+
+.api-privacy .tag:not(body) {
+    font-size: 0.75rem;
+    font-weight: 400;
+    background: whitesmoke;
+    color: black;;
+}
+
+.arrow {
+    width: 18px;
+}
+
+.api-type .is-active .arrow{
+transition: all 0.3s ease-out;
+fill: white;
+}
+
+.api-type .is-active .arrow{
+transition: all 0.3s ease-in;
+transform: rotateZ(0deg);
+}
+
+.api-types{
+display:flex;
+}
+
+.api-type{
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+
+.api-type .is-active .tag:nth-child(2) {
+font-weight: 500;
+}
+
+.api-type  .tag:not(body){
+font-size: 0.925rem;
+font-weight: 500;
+}
+
+.tag:not(body).api-verb-get {
+background-color: #2d3664;
+color: #fff;
+}
+
+.tag:not(body).api-verb-set {
+background-color:#6d635c;
+color: #fff;
+}
+
+.tag:not(body).api-verb-suscribe {
+background-color:#227ea5
+;
+color: #fff;
+}
+.api-verb-suscribe, .api-verb-set, .api-verb-get {
+min-width: 106px;
+}
+
+.dropdown-api{
+transition: height 0.6s ease-out;
+height: 0;
+overflow: hidden;
+background-color: #fafafa;
+}
+
+.dropdown-api.is-active{
+transition: height 0.6s ease-in;
+height: 100%;
+}
+
+.dropdown-api.is-active.get {
+border-left: 3px solid#2d3664;
+}
+.dropdown-api.is-active.set {
+border-left: 3px solid#6d635c;
+}
+.dropdown-api.is-active.subscribe {
+border-left: 3px solid#227ea5
+;
+}
+
+.api-content{
+padding: 1.5rem 1.5rem 0
+}
+
+.api-content h3{
+font-weight: 500;
+padding-top: 6rem;
+margin-top: -6rem;
+}
+
+.api-content ul {
+font-size: 0.94rem;
+}
+
+.api-content h3 .highlighter-rouge {
+font-size: 26px;
+background: transparent;
+padding: 0;
+}
+
+.api-content table {
+font-size: 0.94rem;
+}
+
+.api-content p {
+margin-left: 10px;
+font-size:0.94rem
+}
+
+.api-content pre code {
+font-size: 0.8rem;
+}
+
+.dropdown-api.get{
+background: #fafafa !important;
+color: black !important;
+}
+
+.dropdown-api.get .api-content h3,    .dropdown-api.get .api-content h4,    .dropdown-api.get .api-content h5  {
+color:#2d3664;
+}
+
+.dropdown-api.set .api-content h3, .dropdown-api.set .api-content h4,   .dropdown-api.set .api-content h5  {
+color:#6d635c;
+}
+
+.dropdown-api.subscribe .api-content h3,   .dropdown-api.subscribe .api-content h4,   .dropdown-api.subscribe .api-content h5  {
+color:#227ea5
+;
+}

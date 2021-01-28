@@ -2,19 +2,24 @@
 layout: default
 ---
 {% include header.html %}
+
 <section id="article">
     <div id="lunr">
         <div id="lunrsearchresults">
             <ul></ul>
         </div>
     </div>
+    
     <div class="columns is-gapless">
 
+        
+        {% unless page.menu == false %}
         <div class="column is-narrow is-hidden-mobile"> 
             {% if page.layout == "doc-article" %}
             {% include menu.html %}
             {% endif %}   
         </div>
+        {% endunless %}
 
         <main class="column">
             <div class="content">

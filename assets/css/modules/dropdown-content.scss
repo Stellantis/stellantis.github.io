@@ -1,0 +1,83 @@
+---
+# In order to import this stlye, import it with 'require: boxed-module' in the page front matter.
+---
+
+.boxed-module.content{
+    margin: 4rem 0 0;
+    padding: 0;
+    color: #131313;
+}
+.boxed-module-header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 3rem 8%;
+}
+
+.boxed-module-icon {
+    font-size: 28px;
+    width: 65px;
+    min-width: 65px;
+    height: 65px;
+    min-height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(51, 51, 51);
+    border-radius: 35px;
+    align-self: start;
+}
+
+
+.boxed-module h2.boxed-module-title {
+    font-size: 1.75rem;
+    font-weight: 500;
+    padding: 0;
+    margin:  0 1.5rem 0 3rem;
+    width: 100%;
+   
+}
+
+.expand-icon {
+    fill: #ff4238;
+    transform-origin: top left;
+}
+
+.icon-plus {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.boxed-module.is-open .icon-plus {
+    display: none;
+}
+
+.icon-moins {
+    display: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    max-width: 20px;
+}
+
+.boxed-module.is-open .icon-moins {
+    display: block;
+}
+
+
+.boxed-module-hidden {
+    display: none;
+    padding: 0 8% 1.5rem;
+}
+
+.boxed-module.is-open .boxed-module-hidden {
+    display: block;
+}
+
+.boxed-module table td {
+    min-width: 100px;
+}

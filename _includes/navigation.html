@@ -1,7 +1,9 @@
 <nav aria-label="main navigation" class="navbar {% unless page.permalink == "/" or page.name == "404.md" %}is-fixed-top{% endunless %}" id="navbarpsa" role="navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="{{site.baseurl}}/">
-            <img alt="site-logo" id="logoPG4D" src="{{site.baseurl}}/assets/images/logo-pg4d.png">
+            <div id="logoPG4D">
+                {% include logo-pg4d.html %}
+            </div>
         </a>
         <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
             <span aria-hidden="true"></span>
@@ -23,10 +25,10 @@
                     </a>
                     <div class="navbar-dropdown" id="dropdownAPI">
                         {% for subsection in section.subsections %}
-                            {% if subsection.tag %}
+                            {%- if subsection.tag -%}
                             <p href="{{site.baseurl}}{{section.path}}{{subsection.path}}#article" class="navbar-item dropdown-title {% if subsection.tag == page.subsection %}is-default is-active{% endif %}" id="{{subsection.tag}}" onclick="navClick(document.getElementById('{{subsection.tag}}'), '{{subsection.tag}}');">
                                 <span>
-                                    {% if subsection.tag == "ios" %}iOS{% else %}{{subsection.name | upcase}}{% endif %}
+                                    {% if subsection.tag == "ios" %}iOS{% else %}{{subsection.nameUpcase}}{% endif %}
                                 </span>
                                 <span>
                                     <svg class="arrow {% if subsection.tag == page.subsection %}arrow-down{% else %}arrow-right{% endif %}" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
@@ -35,33 +37,33 @@
                             </p>
                             {% endif %}
                             {% for categorie in subsection.categories %}
-                                {% if subsection.tag %}
-                                        {% if categorie.name %}
-                                            {% assign page_link = section.path | append: subsection.path | append: categorie.path %}
+                                {%- if subsection.tag -%}
+                                        {%- if categorie.name -%}
+                                            {%- assign page_link = section.path | append: subsection.path | append: categorie.path -%}
                                             <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: categorie.pages[0].path}}#article">
                                                 {{categorie.name }}
                                             </a>
-                                        {% else %}
+                                        {%- else -%}
                                             {% for p in categorie.pages %}
-                                                {% assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path %}
+                                                {%- assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path -%}
                                                 <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: p.path}}#article">
                                                     {{p.name }}
                                                 </a>
                                             {% endfor %}
-                                        {% endif %}
-                                {% else %}
+                                        {%- endif -%}
+                                {%- else -%}
                                     {% for p in categorie.pages %}
-                                        {% assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path %}
+                                        {%- assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path -%}
                                         <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: p.path}}#article">
                                             {{p.name}}
                                         </a>
                                     {% endfor %}
-                                {% endif %}
-                            {% endfor %}
-                                {% if forloop.last == false %}
+                                {%- endif -%}
+                            {%- endfor -%}
+                                {%- if forloop.last == false -%}
                                     <hr class="navbar-divider">
-                                {% endif %}
-                        {% endfor %}
+                                {%- endif -%}
+                        {%- endfor -%}
                     </div>
                 </div>
             {% endfor %}
@@ -74,11 +76,6 @@
         </div>
     </div>
 </nav>
-<style>
-.navbar-item .textnavbar.navbar-link[href='/mobile-sdk/']~#dropdownAPI{
-    display:none
-}
-</style>
 <script>
 
 // MENU FIX
@@ -140,3 +137,8 @@ else {
     } 
 }
 </script>
+<style>
+    .navbar-item .textnavbar.navbar-link[href='/mobile-sdk/']~#dropdownAPI{
+        display:none
+    }
+</style>

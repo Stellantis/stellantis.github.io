@@ -3,12 +3,15 @@ layout: doc-article
 permalink: /changelog/
 title: Changelog
 menu: false
-section: 
+section: other
 description: "PSA Groupe developer portal's version changelog."
 ---
 
+
+
 Version|Name
 -|-
+[6.0.0](#600) | Connected-Vehicles>APIs + layouts + components
 [5.8.0](#580) | Add Data-Catalog
 [5.7.1](#571) | Fix spec Web API v2: consumption
 [5.7.0](#570) | Update spec Web API v2 & v3: naming & enums
@@ -49,6 +52,19 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+
+## 6.0.0
+
+{% include published_on.html date='28 Jan 2021' %}
+
+**Website**
+- new layouts (connected vehicles)
+- connected-vehicles > Features
+- components (homepage/connected-vehicles)
+- compressed images
+
+<hr>
 
 ## 5.8.0
 
@@ -93,7 +109,6 @@ Version|Name
 
 **Web API**
 - Fix curl example (missing "&" and "backslash")
-
 **Web API B2B**
 - Update webhook spec v2
 
@@ -575,10 +590,3 @@ Version|Name
 **Embedded Webportal**
 
 - Add section Embedded Webportal.
-
-
-<style>
-.title.section-title, .title.section-title + .title, aside.menu {
-    display:none;
-}
-</style>

@@ -1,0 +1,110 @@
+---
+# In order to import this stlye, import it with 'require: webapi-demo' in the page front matter.
+---
+
+
+#buttonVehicleColor, #buttonReloadColor{
+padding-top: 80px;
+margin-top: -80px;
+margin-bottom: 1rem;
+}
+
+#map{
+border-radius: 2px;
+}
+
+#map, .highlighter-rouge .highlight {
+box-sizing: content-box;
+height: 50vh;
+}
+
+.highlighter-rouge {
+margin: 0;
+}
+
+img {
+padding: 0;
+}
+
+  @keyframes payAttention {
+  20% {
+    transform: initial
+  }
+  23% {
+    transform: scale(1.05)
+  }
+  26% {
+    transform: scale(.94)
+  }
+  29% {
+    transform: scale(1.05)
+  }
+  32% {
+    transform: initial
+  }
+}
+
+#buttonStatusColor, #buttonVehicleColor{
+  animation: payAttention 5s infinite;
+}
+
+#demoTitle {
+    padding: 2rem 0rem 1.3rem;
+    padding-top: 10rem;
+    margin-top: -8rem;
+}
+
+.tags .tag {
+    margin-bottom: 0rem;
+  }
+.tag:not(body).is-white {
+  color: rgb(74, 74, 74);
+}
+
+.colortags {
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.greytags {
+  background: whitesmoke;
+  border-radius: 4px;
+}
+
+#buttonReloadGrey span {
+  margin: auto;
+}
+
+#buttonReloadColor span {
+  margin: auto;
+}
+
+.tags {
+  margin: none;
+}
+
+.tag_endpoint_large {
+  padding: 0.8rem !important;
+}
+
+.verb {
+  margin-right: 1rem;
+}
+
+.greyGet {
+  color: darkgray !important;
+  background: white !important;
+}
+
+.content {
+  max-width: 100%;
+}
+
+.menu-select{
+    display: flex;
+}
+
+.page-disclaimer, #page-title, .edit-page {
+  display: none;
+}
+

@@ -1,114 +1,175 @@
+{% assign no_edit_layouts = "simple-article simple-article-large api-data use-case" %}
 
-        {% comment %}---EDIT WITH GITHUB---{% endcomment %}
-        {% if page.gitHubPath %}
-        <a href="{{site.gitHubURL}}{{page.gitHubPath}}"
-        {% elsif page.title == "Specification" and page.subsection == "b2b" %}
-        <a href="{{site.gitHubSpecB2B}}"
-        {% elsif page.title == "Specification" and page.subsection == 'b2c' %}
-        <a href="{{site.gitHubSpecB2C}}"
-        {% else %}
-        <a href="{{site.gitHubURL}}{{ page.path }}"
-        {% endif %} class="button edit-page icon-button is-outlined is-pulled-right" target="_blank" title="Edit this page on GitHub">
-            <span class="icon">
-                <i  class="far fa-edit"></i> 
-            </span>
+<div class="content-header" >
+    <div class="page-title-container">
+
+    {%-  comment -%}---PAGE TITLE---{%-  endcomment -%}
+        <h1 id="page-title">
             <span>
-                Edit this Page
+                {% if no_edit_layouts contains page.layout %}
+                    {{page.subtitle}}
+                {% else %}
+                    {% if page.categorie %}{{page.categorie}} - {% endif %}{{page.title}}
+                {% endif %}
             </span>
-        </a>
-    {% comment %}---END EDIT WITH GITHUB---{% endcomment %}
+        </h1>
+    {%- comment -%}---END PAGE TITLE---{%- endcomment -%}
 
-{% comment %}---SELECT MENU ---{% endcomment %}
-<div class="menu-select"> 
-    <span style="padding-right: 1rem; font-weight: 400; font-size:1.1rem">
-        Menu:
-    </span>
-    <div class="select page-select">
-        <select>
-            {% if page.categorie %}
-            {% assign counter = 1 %}
-                {% for section in site.data.sections %}
-                    {% if page.section == section.tag %}
-                        {% for subsection in section.subsections %}
-                            {% if page.subsection == subsection.tag %}
-                                {% for categorie in subsection.categories %}
-                                <optgroup label="{{categorie.name}}">
-                                    {% for p in categorie.pages %}
-                                        <option value="{{section.path}}{{subsection.path}}{{categorie.path}}{{p.path}}#article" {% if page.categorie == categorie.name and page.title == p.name %}selected{% endif %}>{{p.name}}</option>
-                                        {% assign counter = counter | plus: 1 %}
+    {%  comment %}---SELECT MENU ---{%  endcomment %}
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                    {%- if page.categorie -%}
+                        {%- for section in site.data.sections -%}
+                            {%- if page.section == section.tag -%}
+
+                            {% assign currentSectionName = section.name %}
+                            {% assign currentSectionPath = section.path %}
+
+                                {%- for subsection in section.subsections -%}
+                                    {%- if page.subsection == subsection.tag -%}
+
+                                    {% assign currentSubSectionName = subsection.name %}
+                                    {% assign currentSubSectionPath = subsection.path %}
+
+                                        {% for categorie in subsection.categories %}
+
+                                        {% assign currentCategorieName = categorie.name %}
+                                        {% assign currentCategoriePath = categorie.path %}
+
+
+                                        <optgroup label="{{categorie.name}}">
+                                            {% for p in categorie.pages %}
+
+                                                {% assign currentPath = section.path | append: subsection.path | append: categorie.path | append:p.path %}
+
+                                                <option 
+                                                    value="{{currentPath}}#article" 
+                                                    {% if currentPath == page.permalink %}selected{% endif %}>
+                                                        {{p.name}}
+                                                </option>
+
+                                            {% endfor %}
+                                        </optgroup>
+
+                                        {% endfor %}
+                                    {%- endif -%}
+                                {%- endfor -%}
+                            {%- endif -%}
+                        {%- endfor -%}
+                    {%- elsif page.subsection -%}
+                        {%- for section in site.data.sections -%}
+                            {%- if page.section == section.tag -%}
+
+                            {% assign currentSectionName = section.name %}
+                            {% assign currentSectionPath = section.path %}
+
+                                {% for subsection in section.subsections %}
+                                    
+                                    {% if page.subsection == subsection.tag %}
+                                        {% assign currentSubSectionName = subsection.name %}
+                                        {% assign currentSubSectionPath = subsection.path %}
+                                    {% endif %}
+
+                                    <optgroup label="{{subsection.name}}">
+                                        {% for p in subsection.categories[0].pages %}
+
+                                            {% assign currentPath = section.path | append: subsection.path | append:p.path %}
+
+                                            <option value="{{currentPath}}#article" {% if page.permalink == currentPath %}selected{% endif %}>{{p.name}}</option>
+
+                                        {% endfor %}
+                                    <optgroup>
+                                
+                                {% endfor %}
+                            {%- endif -%}
+                        {%- endfor -%}
+                    {%- elsif page.section -%}
+                        {%- for section in site.data.sections -%}
+                            {%- if page.section == section.tag -%}
+
+                                {% assign currentSectionName = section.name %}
+                                {% assign currentSectionPath = section.path %}
+
+                                <optgroup label="{{section.name}}">
+                                    {% for p in site.pages %}
+                                        {%- if page.section == p.section -%}
+
+                                            <option value="{{p.permalink}}#article" {% if page.permalink == p.permalink %}selected{% endif %}>{{p.title}}</option>
+
+                                        {%- endif -%}
                                     {% endfor %}
                                 </optgroup>
-                                {% endfor %}
-                            {% endif %}
+
+                            {%- endif -%}
                         {% endfor %}
-                    {% endif %}
-                {% endfor %}
-            {% elsif page.subsection %}
-            {% for section in site.data.sections %}
-                {% if page.section == section.tag %}
-                    {% for subsection in section.subsections %}
-                        <optgroup label="{{subsection.name}}">
-                            {% assign counter = 1 %}
-                            {% for p in subsection.categories[0].pages %}
-                                <option value="{{section.path}}{{subsection.path}}{{p.path}}#article" {% if page.subsection == subsection.tag and page.title == p.name %}selected{% endif %}>{{p.name}}</option>
-                                {% assign counter = counter | plus: 1 %}
-                            {% endfor %}
-                        <optgroup>
-                    {% endfor %}
-                {% endif %}
-            {% endfor %}
-            {% elsif page.section %}
-            {% assign counter = 1 %}
-            <optgroup label="{{page.section}}">
-                {% for p in site.pages %}
-                    {% if page.section == p.section %}
-                        <option value="{{p.permalink}}#article" {% if page.section == p.section and page.title == p.title %}selected{% endif %}>{{p.title}}</option>
-                    {% assign counter = counter | plus: 1 %}
-                    {% endif %}
-                {% endfor %}
-            </optgroup>
-            {% endif %}
-        </select>
-      </div>
-</div>
+                    {%- endif -%}
+                </select>
+            </div>
+        </div>
+    {%-  comment -%}---END SELECT MENU ---{%-  endcomment -%}
 
-{% comment %}---END SELECT MENU ---{% endcomment %}
-<div id="content-header" >
-<div class="page-title-container">
-{% comment %}---PAGE TITLE---{% endcomment %}
-    <h1 id="page-title">
-        <span>
-            {% if page.categorie %}{{page.categorie}} - {% endif %}{{page.title}}
-        </span>
-    </h1>
+    {%-  comment -%}---EDIT WITH GITHUB---{%-  endcomment -%}
+        {% if no_edit_layout contains page.layout  %}
+            <a 
+                {% if page.gitHubPath %}
+                href="{{site.gitHubURL}}{{page.gitHubPath}}"
+                {% elsif page.title == "Specification" and page.subsection == "b2b" %}
+                href="{{site.gitHubSpecB2B}}"
+                {% elsif page.title == "Specification" and page.subsection == 'b2c' %}
+                href="{{site.gitHubSpecB2C}}"
+                {% else %}
+                href="{{site.gitHubURL}}{{ page.path }}"
+                {% endif %} 
+                class="button edit-page icon-button is-outlined is-pulled-right" 
+                target="_blank" 
+                title="Edit this page on GitHub">
+                    <span class="icon">
+                        <i  class="far fa-edit"></i> 
+                    </span>
+                    <span class="edit-page-text">
+                        Edit this Page
+                    </span>
+            </a>
+        {% endif %}
+    {%-  comment -%}---END EDIT WITH GITHUB---{%-  endcomment -%}
 
+    </div>
+    {%- comment -%} END PAGE-TITLE {%- endcomment -%}
 
-</div>
-    {% comment %}---BREADCRUMB---{% endcomment %}
+    {%-  comment -%}---BREADCRUMB---{%-  endcomment -%}
     <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="{{site.baseurl}}/">Home</a></li>
+            <li>
+                <a href="{{site.baseurl}}/">Home</a>
+            </li>
             {% if page.section%}
-            <li><a href="{{site.baseurl}}/{{page.section}}/">{% if page.section == "webapi" %}API Web{% elsif page.section == "webportal" %}Embedded Webportal{% elsif page.section == "mobile-sdk" %}Mobile SDK{% elsif page.section =="connected-vehicles" %}Connected Vehicles{% else %}{{page.section| capitalize}}{% endif %}</a></li>
+            <li>
+                <a href="{{site.baseurl}}{{currentSectionPath}}">{{currentSectionName}}</a>
+            </li>
             {% endif %}
             {% if page.subsection%}
-            <li><a href="{{site.baseurl}}/{{page.section}}/{{page.subsection}}/">{% if page.subsection == "v1" %}Version 1{% elsif page.subsection == "v2" %}Version 2{% elsif page.subsection == "b2b" %}Fleet-owner{% elsif page.subsection =="b2c" %}End-user{% elsif page.subsection=="ios" %}iOS{% else %}{{page.subsection| capitalize}}{% endif %}</a></li>
+            <li>
+                <a href="{{site.baseurl}}{{currentSectionPath}}{{currentSubSectionPath}}">{{currentSubSectionName}}</a>
+            </li>
             {% endif %}
             {% if page.categorie%}
-            <li><a href="{{site.baseurl}}/{{page.section}}/{{page.subsection}}/{{page.categorie | replace: " ", "-" | downcase}}/">{% if page.categorie == "api reference" %}API Reference{% else %}{{page.categorie| capitalize}}{% endif %}</a></li>
+            <li>
+                <a href="{{site.baseurl}}{{currentSectionPath}}{{currentSubSectionPath}}{{ currentCategoriePath }}">{{currentCategorieName}}</a>
+            </li>
             {% endif %}
-            <li class="is-active">
-                <a href="#" aria-current="page">{{page.title| capitalize}}</a>
+            <li>
+                <a href="#article" aria-current="page">{{page.title | capitalize}}</a>
             </li>
         </ul>
     </nav>
-    {% comment %}---END BREADCRUMB---{% endcomment %}
-</div>        
+    {%-  comment -%}---END BREADCRUMB---{%-  endcomment -%}
 
-{% comment %}--- DISCLAIMER---{% endcomment %}
-{% include content/page-disclaimer.html %}
-{% comment %}---END  DISCLAIMER---{% endcomment %}
+    {%-  comment -%}--- DISCLAIMER---{%-  endcomment -%}
+    {% include content/page-disclaimer.html %}
+    {%-  comment -%}---END  DISCLAIMER---{%-  endcomment -%}
 
+</div>
 
 <script>
 

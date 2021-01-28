@@ -12,7 +12,7 @@ To retrieve {% if page.subsection == 'b2b' %} authentication information refer t
 
    Web API base endpoint {% if page.subsection == 'b2b' %}'/fleets'{% elsif page.subsection == 'b2c' %}'/user'{% endif %} allow you to retrieve info about your account in Groupe PSA's Network.
 
-   {% include_relative content/webapi-curl.md apiEndpointB2B='/fleets' apiEndpointB2C='/user' referenceURLResssourceB2C='/#/User/getUser' referenceURLResssourceB2B='/#/Fleet/getFleets' httpVerb='GET' displayApiURL=true %}
+   {% include webapi-curl.md apiEndpointB2B='/fleets' apiEndpointB2C='/user' referenceURLResssourceB2C='/#/User/getUser' referenceURLResssourceB2B='/#/Fleet/getFleets' httpVerb='GET' displayApiURL=true %}
 
    {% if page.subsection == 'b2b' %} 
    **{version}** depends on your subscription:
@@ -28,7 +28,7 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/vehicles'{% elsif page.subse
 
 See {% if page.subsection == 'b2b' %}[standards]({{site.baseurl}}/webapi/b2b/overview/standards#pagination){% elsif page.subsection == 'b2c' %}[standards]({{site.baseurl}}/webapi/b2c/overview/standards#pagination){% endif %} for explanation about `indexRange` and `pageSize`.
 
-{% include_relative content/webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles'  referenceURLResssourceB2B='/#/Vehicles/getVehiclesByDevice' apiEndpointB2C='/user/vehicles' referenceURLResssourceB2C='/#/Vehicles/getVehiclesByDevice' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' %}
+{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles'  referenceURLResssourceB2B='/#/Vehicles/getVehiclesByDevice' apiEndpointB2C='/user/vehicles' referenceURLResssourceB2C='/#/Vehicles/getVehiclesByDevice' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' %}
 
 
 ## GET A VEHICLE POSITION
@@ -38,7 +38,7 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/vehicles/{id}/lastPosition'{
 
 Note that the 'Accept' header is not `--header 'Accept: application/hal+json'` but `Accept: application/vnd.geo+json`.
 
-{% include_relative content/webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/lastPosition' apiEndpointB2C='/user/vehicles/{id}/lastPosition' referenceURLResssourceB2B='/#/Vehicles/getCarLastPosition' referenceURLResssourceB2C='/#/Vehicles/getCarLastPosition' httpVerb='GET' %}
+{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/lastPosition' apiEndpointB2C='/user/vehicles/{id}/lastPosition' referenceURLResssourceB2B='/#/Vehicles/getCarLastPosition' referenceURLResssourceB2C='/#/Vehicles/getCarLastPosition' httpVerb='GET' %}
 
 
 ## GET ALERTS OF A VEHICLE
@@ -48,7 +48,7 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/vehicles/{id}/alerts'{% elsi
 - Path parameter **{id}** is the unique identifier of one of your vehicles. 
 - Query parameter `locale` will change the language of the alert message.
 
-{% include_relative content/webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/alerts' apiEndpointB2C='/user/vehicles/{id}/alerts' referenceURLResssourceB2B='/#/Vehicles/getVehicleAlerts' referenceURLResssourceB2C='/#/Vehicles/getVehicleAlerts' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
+{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/alerts' apiEndpointB2C='/user/vehicles/{id}/alerts' referenceURLResssourceB2B='/#/Vehicles/getVehicleAlerts' referenceURLResssourceB2C='/#/Vehicles/getVehicleAlerts' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
 
 
 ## POST NEW MONITOR
@@ -58,7 +58,7 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/monitors'{% elsif page.subse
 - Path parameter **{id}** is the unique identifier of one of your vehicles.
 {% endif %} 
 
-{% include_relative content/webapi-curl.md apiEndpointB2B='/fleets/{fid}/monitors' apiEndpointB2C='/user/vehicles/{id}/monitors' httpVerb='POST' referenceURLResssourceB2B ='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2B='#/Vehicles/setVehicleMonitor' httpBody='{
+{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/monitors' apiEndpointB2C='/user/vehicles/{id}/monitors' httpVerb='POST' referenceURLResssourceB2B ='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2B='#/Vehicles/setVehicleMonitor' httpBody='{
    "label":"IDF Zone monitor With Data Triggering:[vehicle.energy.electric.level] OR on Mondays",
    "subscribeParam":{
       "refreshEvent":600,
@@ -158,7 +158,7 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/monitors/{mid}/status'{% els
 {% assign httpBody='{
 
 }'%}
-{% include_relative content/webapi-curl.md %}
+{% include webapi-curl.md %}
 {% endcomment %}
 
 
@@ -169,7 +169,7 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/monitors/{mid}'{% elsif page
 - Path parameter **{id}** is the unique identifier of one of your vehicles. 
 - Query parameter `locale` will change the language of the alert message.
 
-{% include_relative content/webapi-curl.md apiEndpointB2B='/fleets/{fid}/monitors/{mid}' apiEndpointB2C='/user/vehicles/{id}/monitors/{mid}' referenceURLResssourceB2B='/#/Monitors/deleteFleetMonitor' referenceURLResssourceB2C='/#/Vehicles/deleteMonitordd' httpVerb='DELETE' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
+{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/monitors/{mid}' apiEndpointB2C='/user/vehicles/{id}/monitors/{mid}' referenceURLResssourceB2B='/#/Monitors/deleteFleetMonitor' referenceURLResssourceB2C='/#/Vehicles/deleteMonitordd' httpVerb='DELETE' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
 
 
 # SEE ALSO

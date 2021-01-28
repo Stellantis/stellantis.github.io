@@ -1,0 +1,4 @@
+{%- comment -%} AOS {%- endcomment -%}
+{% if page.require contains "aos" or page.layout == "use-case" %}
+<script src="{{ '/assets/js/aos.js' | prepend: site.baseurl | prepend: site.url }}"></script>
+{% endif %}

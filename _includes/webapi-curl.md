@@ -11,7 +11,7 @@ Structure of this include:
 
 This is how it should be included in any HTML or markdown page of the webapi section:
 ```liquid
-{% include_relative content/webapi-curl.md httpVerb='POST' apiEndpointB2B='/user/vehicles/{id}/monitors' referenceURLResssourceB2C='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2B='' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' displayCURL=false httpBody='{
+{% include webapi-curl.md httpVerb='POST' apiEndpointB2B='/user/vehicles/{id}/monitors' referenceURLResssourceB2C='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2B='' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' displayCURL=false httpBody='{
   "label": "monitor-name",
   "subscribeParam": { },
   "extendedEventParam": [ ],
@@ -102,6 +102,7 @@ $ curl \
 {% if include.httpVerb == 'POST','PUT' %}  --header 'Content-type: application/json' \
   --data '<HTTP_body>' \
 ```
+
 
 Where **&lt;HTTP_body&gt;** is:
 

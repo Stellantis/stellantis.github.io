@@ -1,0 +1,60 @@
+---
+# In order to import this stlye, import it with 'require: highlighted-link' in the page front matter.
+---
+
+.highlighted-link {
+    position: relative;
+    display: block;
+    padding: 25px 50px 25px 0px;
+    transition: all .2s ease;
+    vertical-align: baseline;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    margin: 3rem 0;
+}
+
+.highlighted-link {
+    border-color: darkgrey;
+}
+
+
+.highlighted-link-label {
+    transition: all .2s ease;
+    display: block;
+    font-size: 1.25rem;
+    line-height: 1.6rem;
+    color: #2689b5;
+    font-weight: 500;
+    line-height: 32px;
+}
+
+.highlighted-link:hover .highlighted-link-label {
+    color: #83786f;
+}
+
+.highlighted-link-arrow {
+    transition: all .2s ease;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -6px;
+    fill: #ff4238;
+    width: 25px;
+    height: 12px;
+    transform-origin: top left;
+}
+
+.highlighted-link:hover .highlighted-link-arrow {
+    -webkit-transform: translateX(-7px);
+    -ms-transform: translateX(-7px);
+    transform: translateX(-7px);
+}
+
+.highlighted-link:not(:last-of-type) {
+    margin-bottom: 0;
+}
+
+.highlighted-link:not(:first-of-type) {
+    margin-top: 0;
+    border-top: none;
+}
