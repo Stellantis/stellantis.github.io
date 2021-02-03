@@ -1,6 +1,6 @@
 openapi: 3.0.0
 servers:
-  - url: 'https://api-cert-preprod.groupe-psa.com/connectedcar/v2'
+  - url: 'https://api-cert.groupe-psa.com/connectedcar/v2'
 security:
   - BasicAuth: []
     ClientId: []
