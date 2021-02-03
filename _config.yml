@@ -11,15 +11,15 @@ gitHubSpecB2B: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/ass
 gitHubSpecB2C: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/assets/openapi/psacc.yaml"
 
 # doc versionning
-doc-version: "6.0.0"
+doc-version: "6.1.0"
 
 # WEB API BaseURI - theses var have to be renamed without prod/preprod (because we display only one at once)
 webapiB2C: "https://api.groupe-psa.com/connectedcar/v4"
 cvsOAuth2: "https://idpcvs.{brand.tld}/am/oauth2/access_token"
 virtualKeyToken: "https://api.groupe-psa.com/connectedcar/v3"
-webapiB2B: "https://api-cert-preprod.groupe-psa.com/connectedcar/{version}"
-webapiB2Bv3: "https://api-cert-preprod.groupe-psa.com/connectedcar/v3"
-webapiB2Bv2: "https://api-cert-preprod.groupe-psa.com/connectedcar/v2"
+webapiB2B: "https://api-cert.groupe-psa.com/connectedcar/{version}"
+webapiB2Bv3: "https://api-cert.groupe-psa.com/connectedcar/v3"
+webapiB2Bv2: "https://api-cert.groupe-psa.com/connectedcar/v2"
 
 collections:
   webportal-nac-reference:

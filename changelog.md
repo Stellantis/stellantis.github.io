@@ -11,6 +11,7 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
+[6.1.0](#610) | WEB API B2B v2 / v3 : Production URL
 [6.0.0](#600) | Connected-Vehicles>APIs + layouts + components
 [5.8.0](#580) | Add Data-Catalog
 [5.7.1](#571) | Fix spec Web API v2: consumption
@@ -53,6 +54,15 @@ Version|Name
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
 
+
+## 6.1.0
+
+{% include published_on.html date='3 Feb 2021' %}
+
+**Web API B2B**
+- v2 & v3 : production URL 
+
+<hr>
 
 ## 6.0.0
 
