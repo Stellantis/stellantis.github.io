@@ -2,19 +2,21 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '3'
+  version: '3.0.6'
   title: Groupe PSA Connected Car B2B API
   description: | 
-                
+
                 # Introduction
   
-                This is the description of the *Groupe PSA Connected Car V3 B2B API* Webhooks template.This specification is written in **OpenAPI Specification version 3** and can
+                This is the description of the *Groupe PSA Connected Car V2 B2B API* Webhooks template.This specification is written in **OpenAPI Specification version 3** and can
                 be displayed using [ReDoc](https://github.com/Rebilly/ReDoc) or
                 [Swagger](http://swagger.io).
-                 .
+                
+                This webhook template specifies the HTTP POST requests related to the **remote action** & **monitor** events of *Groupe PSA Connected Car V2 B2B API*.
+                
                 # Security
-                  * The authentication is already set when registering the callback using the attributes field to set HTTP header entries for the authentication(usually a _basic authentication_).
-                  * Https scheme should be supported with the webhook server with a certificate issued by a trusted public and known CA. 
+                  * The authentication is already set when registering the callback using the attributes field to set HTTP header entries for the authentication (usually a _basic authentication_).
+                  * HTTPS scheme should be supported with the webhook server with a certificate issued by a trusted public and known CA. 
 
     
   license:
@@ -180,7 +182,7 @@ components:
                               description: For this object schema definition (based on the type of field), refere to the API Spec definition.
                     
         extensions:
-          description: Defines the extra vehicle data as specified in the monitor extended eventparam file (see Monitor paramaeter objecrt definition in the API Spec)
+          description: Defines the extra vehicle data as specified in the monitor extended eventparam file (see Monitor paramaeter object definition in the API Spec)
           type: array
           items:
             type: object
@@ -194,33 +196,40 @@ components:
                   description: >
                     The body of the extension is made up of one of the fields below. Each one is expressed as a generic object and the type is the same as the related one in [MPH API SPEC](https://developer.groupe-psa.io/assets/openapi/api-b2b-v3.yaml)  (without ```HAL links``` fields).                      
                       |  Field | MPH API related data model type  |
-                      |---|---|
-                      |doorState|```DoorsState```  |
-                      |status|```Status```  |
-                      |maintenance|```Maintenance```  |
-                      |position|```Position```  |
-                      |telemetry|```Telemetry```  |
-                      |alerts|Array of ```Alert``` object |
-                      |   |   |
+                    
+                    |value|description|Related model |
+                    |----------|:-------------|------:|
+                    |vehicle.doorsState|Latest know door state (timestamped) before the eventDate|DoorState|
+                    |vehicle.status|Latest know vehicle status (timestamped) before the eventDate|Status|
+                    |vehicle.maintenance|Latest know maintenance(timestamped) before the eventDate|Maintenance|
+                    |vehicle.position|Last vehicle position (timestamped) before the eventDate|Position|
+                    |vehicle.telemetry${.TelemetryEnum}|Latest known telemetry (timestamped) before the eventDate filtered with type|Telemetry
+                    |vehicle.alerts|List of active alerts at the eventDate|Alert|
 
 
-                      
+                   
                   type: object
                   properties:
                     doorState:
                       type: object
+                      description: Return the latest known doors status before or at the eventDate
                     status:
                       type: object
+                      description: Return the latest known status before or at the eventDate
                     maintenance:
                       type: object
+                      description: Return the latest known maintenance information before or at the eventDate
                     position:
                       type: object  
+                      description: Return the latest known position before or at the eventDate
                     telemetry:
                       type: object
+                      description: Return the latest known telemtry before or at the eventDate
                     alerts:
                       type: array
-                      items:  
-                         type: object  
+                      description: Return all active alerts at the eventDate
+                      items:
+                        type: object
                   
         
         refresh:
@@ -236,11 +245,11 @@ components:
       description: The identifier of monitor that raised the event.  
     RemoteActionId:
       type: string
-      description: The uniq remote action ID. This ID is returned when the remote action is posted and accepted.
+      description: The unique remote action ID. This ID is returned when the remote action is posted and accepted.
       
     RemoteCallbackId:
       type: string
-      description: Uniq remote callback ID used to notify events. This Id refers to the remote callback created at B2B API..  
+      description: Unique remote callback ID used to notify events. This Id refers to the remote callback created and selected to post this remote action in "Connected Car B2B API".
       
     RemoteEvents:
       title: RemoteEvents
@@ -268,6 +277,7 @@ components:
             - Stolen
             - VehicleState
             - ChargingState
+            - WakeUp
     RemoteEventType:
       description: | 
         The event type. See```status```for event sate.

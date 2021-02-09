@@ -11,10 +11,26 @@ title: Changelog v3
 
 Version|Name
 -|-
+[b2b_v3.0.6](#b2b_v306) | 3.0.6
 [b2b_v3.0.5](#b2b_v305) | 3.0.5
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
 [b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
+
+<hr>
+
+## b2b_v3.0.6
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Tue Feb 9 2021</span></div>
+
+- Update Typo (Description, Patterns...)
+- Update DoorState & mileage object
+- Remove collisions API
+- Add NextDelayedTime as mandatory for remote Charging
+- Add RemoteType WakeUp
+- Add 2 new enum for lockedState
+- Refactoring callback for remote & monitor
+
 
 <hr>
 

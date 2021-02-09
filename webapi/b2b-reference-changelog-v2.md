@@ -10,11 +10,22 @@ title: Changelog v2
 
 Version|Name
 -|-
+[b2b_v2.0.5](#b2b_v205) | 2.0.5
 [b2b_v2.0.3-P6](#b2b_v203-p6) | Fix naming & enums
 [b2b_v2.0.3-P5](#b2b_v203-p5) | Misprints & Missing format & Remove collision + profile 
 [b2b_v2.0.3-P4](#b2b_v203-p4) | Security & TimeStamp
 [b2b_v2.0.3-P3](#b2b_v203-p3) | Align with v3
 [b2b_v2.0.3](#b2b_v203) | Candiate version
+
+
+## b2b_v2.0.5
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Tue Feb 9 2021</span></div>
+
+
+- Update Typo (Descriptions, Patterns...)
+- Removing onChange for maintenance monitors
+- Remove indexRange for /fleets & /fleets/{fid}/vehicles
 
 
 ## b2b_v2.0.3-P6
