@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '2.0.3-P6'
+  version: '2.0.5'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -42,13 +42,13 @@ info:
     | <b>Code</b>  | <b>Description</b>  |  <b>Case</b> |  
     |---|---|---|
     | 200  |<i>The request has succeeded and the resource data has been sent.</i>|GET APIs.  |
-    | 202  |<i>The request has been accepted for processing, but not yet acted upon. An id of processing is returned.</i>|POST/PUT requests:<br>Create monitor callbak.| 
+    | 202  |<i>The request has been accepted for processing, but not yet acted upon. An id of processing is returned.</i>|POST/PUT requests:<br>Create monitor callback.| 
     | 204  |<i>The request has been accepted and there is no additional content</i>|DELTE APIs:<br>Delete monitor callback.|
     |400|<i>Request cannot be processed due to invalid query parameter value of body content (for POST/PUT verbs)</i>|ALL APIs.|
     |401|<i>Unauthorized request due to lack of valid authentication credentials.</i>|All APIs.|
     |403|<i>Unauthorized request due to insufficient credentials to grant access.</i>|All APIs.|
-    |404|<i>Target resource not found.|All APIs. Even POST, PUT or DELETE if the resource id is uncknown.</i>|
-    |500|<i>Unexpected condition that prevented from fulfilling the reques.</i>|All APIs.|
+    |404|<i>Target resource not found.|All APIs. Even POST, PUT or DELETE if the resource id is unknown.</i>|
+    |500|<i>Unexpected condition that prevented from fulfilling the request.</i>|All APIs.|
 
 
       
@@ -125,7 +125,6 @@ paths:
       operationId: getFleets
       parameters:
         
-        - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
       responses:
@@ -162,7 +161,6 @@ paths:
       parameters:
         
         - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/locale'
@@ -251,7 +249,7 @@ paths:
     get:
       tags:
         - Fleet
-      description: Returns the latest vehicles status for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
+      description: Returns the latest vehicles' status of a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
       summary: Fleet Vehicles status.
       operationId: getFleetStatusList
       parameters:
@@ -272,7 +270,7 @@ paths:
     get:
       tags:
         - Fleet
-      description: Returns the latest vehicles maintenance list for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
+      description: Returns the latest vehicles' maintenance information of a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
       summary: Fleet Vehicles maintenances.
       operationId: getFleetMantenanceList
       parameters:
@@ -292,7 +290,7 @@ paths:
     get:
       tags:
         - Fleet
-      description: Returns the vehicles alerts list for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
+      description: Returns vehicles' alerts list of a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
       summary: Fleet Vehicles alerts.
       operationId: getFleetAlertList
       parameters:
@@ -333,8 +331,7 @@ paths:
       tags:
         - Fleet
       summary: Telemetry list of the fleet.
-      description: >-
-        Returns the latest Telemetry messages that occurred during a selective timestamp-ranges and bounded by an index range.
+      description: Returns vehicles' telemetry list of a given fleet that occurred during a selective timestamp-ranges and bounded by an index range.
       operationId: getFleetTelemetriesList
       parameters:
         
@@ -593,8 +590,7 @@ paths:
       summary: Trips of all vehicles of the fleet. 
       tags:
         - Fleet
-      description: >-
-        This method returns a list of all Trips. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
+      description: Returns vehicles' trips list of a given fleet.
       operationId: getFleetTrips
       parameters:
         
@@ -1041,13 +1037,13 @@ components:
     VehicleOdometer:
         type: object
         properties:
+          createdAt:
+                type: string
+                format: date-time
           mileage:
                 description: Vehicle mileage expressed in KM.
                 type: number
                 format: float
-          #createdAt:
-              #type: string
-              #format: date-time
               
     Battery:
               description: Describe the car (with combustion engine)  battery status.
@@ -1086,14 +1082,14 @@ components:
     DoorsState:
         allOf:
           - properties:
-              createdAt:
+              updatedAt:
                     type: string
                     format: date-time        
           - type: object
             properties:
                 lockedState:
                   type: string
-                  enum: [Unlocked, Locked, SuperLocked, DriverDoorUnlocked, CabinDoorsUnlocked, CargoDoorsLocked, CargoDoorsUnlocked, RearDoorsUnlocked, RearDoorsLocked]
+                  enum: [Unlocked, Locked, SuperLocked, DriverDoorUnlocked, CabinDoorsUnlocked, CargoDoorsLocked, CargoDoorsUnlocked, RearDoorsUnlocked, RearDoorsLocked, TrunkLocked, TrunkUnLocked]
                 opening:
                   type: array
                   items:
@@ -1294,7 +1290,7 @@ components:
                allOf:
                 - $ref: '#/components/schemas/FuelEnergyConsumption'
                 - deprecated: true
-                - description:  Total consumption for thermic vehicle. Expressed L/100Km.
+                - description:  Total consumption for thermic vehicle. Expressed L/100Km. Depricated, use electric extension for this pupose.
             residual:
                allOf:
                 - $ref: '#/components/schemas/ElectricResidualEnergy'
@@ -1312,7 +1308,7 @@ components:
                 - description: Battery capacity and heath for electric energy type. Depricated, use electric extension for this pupose.
     
     FuelEnergyConsumption:
-              description: Instant consumption for vehicles for thermic vehicle. Expressed L/100Km
+              description: Total consumption for vehicles for thermic vehicle. Expressed L/100Km
               type: number
               format: float
               minimum: 0
@@ -1344,7 +1340,7 @@ components:
                         type: string
                         enum: [ No, Slow, Quick ]
                     nextDelayedTime:
-                      description:  Timestamp (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) of the next battery charging.
+                      description:  Duration (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) until the next battery charging.
                       type: string
                       
     EnergyBattery:
@@ -1680,7 +1676,7 @@ components:
                   description: >
                       Determines whether this result set (page) has been reduced due to path simplifying (by providing a tolerance factor). 
                        ### Note: 
-                       The number of results may be lower than the specified page 'size' due to the applying of the path simplifying after resolving the page resultset.
+                       The number of results may be lower than the specified page 'size' due to the applying of the path simplifying after resolving the page result set.
                   type: boolean
                   deprecated: true
                 positions:
@@ -1849,14 +1845,14 @@ components:
                 default: 3
                 minimum: 1
             retryDelay:
-                description: Time to wait (expressed in seconds) befor retrying to push a notification (ignored if retryPolicy is set to ```None```).
+                description: Time to wait (expressed in seconds) before retrying to push a notification (ignored if retryPolicy is set to ```None```).
                 type: integer
                 default: 10
                 minimum: 1 
         batchNotify:
                 description: |
 
-                  Notification batch of events defined by a time window and batch size. If this field is not set, the callbak will post only one event by call.
+                  Notification batch of events defined by a time window and batch size. If this field is not set, the callback will post only one event by call.
 
                     * **At least, the ```size``` parameter should be provided.**
                     * **If the time window is not set then the default value will be applied.**
@@ -1908,7 +1904,7 @@ components:
       properties:
             label:
               type: string
-              description: Monitor lablel (usually its name). 
+              description: Monitor label (usually its name). 
             locale:
               type: string
               pattern: \w(-\w)?
@@ -1927,12 +1923,12 @@ components:
                             
                             |value|description|Related model |
                             |----------|:-------------|------:|
-                            |vehicle.doorsState|Latest know door state (timestamped)|DoorState|
-                            |vehicle.status|Latest know vehicle status (timestamped)|Status|
-                            |vehicle.maintenance|Latest know maintenance(timestamped)|Maintenance|
-                            |vehicle.position|Last vehicle position (timestamped)|Position|
-                            |vehicle.telemetry|Latest known telemetry (timestamped). |Telemetry
-                            |vehicle.alerts|List of active alerts|Alert|
+                            |vehicle.doorsState|Latest known door state (timestamped) before the eventDate|DoorState|
+                            |vehicle.status|Latest known vehicle status (timestamped) before the eventDate|Status|
+                            |vehicle.maintenance|Latest known maintenance(timestamped) before the eventDate|Maintenance|
+                            |vehicle.position|Last vehicle position (timestamped) before the eventDate|Position|
+                            |vehicle.telemetry|Latest known telemetry (timestamped) before the eventDate |Telemetry
+                            |vehicle.alerts|List of active alerts at the eventDate|Alert|
  
             triggerParam:
               description: |
@@ -1982,7 +1978,8 @@ components:
         Monitor trigger.```Only one```of *Zone, Time or Data* is supported at a time. Otherwise it would cause a bad request response.  
       properties:
         name: 
-          description: The trigger name(should be uniq)
+          description: 'The trigger name must be uniq and respect the following pattern'
+          pattern: "\"[a-zA-Z]+[.-_]?[0-9]*\""
           type: string
         zone: 
              $ref: '#/components/schemas/ZoneTrigger'
@@ -2080,7 +2077,6 @@ components:
             | vehicle.energy.electric.autonomy | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.fuel.level | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.fuel.autonomy | Number | equalsTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.autonomy (global) | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.charging.status | Enum(ChargingStatusEnum) | onChange/equalsTo | Value |
             | vehicle.energy.charging.plugged | Boolean | onChange/equalsTo | Value |
             | vehicle.doorsState.lockedState | N/A | onChange | Value |
@@ -2088,8 +2084,8 @@ components:
             | vehicle.kinetic.moving| Boolean | onChange/equalsTo | Value (true/false) |
             | vehicle.kinetic.speed | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.trip| Literal | onChange| Value(IDTRIP) |
-            | vehicle.maintenance.daysBeforeMaintenance, | Number | onChange/equalsTo/ greaterThan/ lowerThan/ | Value |
-            | vehicle.maintenance.mileageBeforeMaintenance| Number | onChange/equalsTo/ greaterThan/ lowerThan/ | Value |
+            | vehicle.maintenance.daysBeforeMaintenance, | Number | equalsTo/ greaterThan/ lowerThan/ | Value |
+            | vehicle.maintenance.mileageBeforeMaintenance| Number | equalsTo/ greaterThan/ lowerThan/ | Value |
             | vehicle.safety.beltWarning | Enum(beltWarning) | onChange/equalsTo | Value |
             | environment.air.temp | Number | equalsTo/greaterThan/lowerThan/ | Value |
             | privacy.state | Enum(Privacy) | equalsTo / onChange/includedIn | Value |
@@ -2110,7 +2106,6 @@ components:
             - vehicle.energy.electric.autonomy
             - vehicle.energy.fuel.level
             - vehicle.energy.fuel.autonomy
-            - vehicle.autonomy
             - vehicle.energy.charging.status
             - vehicle.energy.charging.plugged
             - vehicle.doorsState.lockedState
@@ -2907,7 +2902,7 @@ components:
     tolerence:
       name: tolerance
       description: >
-          Tolerance factor is expressed in length km unit and is used to simplify path by reducing the total number of points by is using Douglas-Peucker algorithme to find a similar curve with fewer points (find more info here: [Ramer_Douglas_Peucker_algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm#Algorithm) ).
+          Tolerance factor is expressed in length km unit and is used to simplify path by reducing the total number of points by is using Douglas-Peucker algorithm to find a similar curve with fewer points (find more info here: [Ramer_Douglas_Peucker_algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm#Algorithm) ).
       in: query
       schema:
         type: number

@@ -1,46 +1,45 @@
 openapi: 3.0.0
+#Version 2.0.5
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '2'
+  version: '2.0.5'
   title: Groupe PSA Connected Car B2B API
   description: | 
-                
-                # Introduction
-  
-                This is the description of the *Groupe PSA Connected Car V2 B2B API* Webhooks template.This specification is written in **OpenAPI Specification version 3** and can
-                be displayed using [ReDoc](https://github.com/Rebilly/ReDoc) or
-                [Swagger](http://swagger.io).
-                 .
-                # Security
-                  * The authentication is already set when registering the callback using the attributes field to set HTTP header entries for the authentication(usually a _basic authentication_).
-                  * Https scheme should be supported with the webhook server with a certificate issued by a trusted public and known CA. 
+
+              # Introduction
+
+              This is the description of the *Groupe PSA Connected Car V2 B2B API* Monitor Webhook template. The
+              specification is  is based on **OpenAPI Specification version 3** and can
+              be displayed using [ReDoc](https://github.com/Rebilly/ReDoc) or
+              [Swagger](http://swagger.io).
+
 
     
   license:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'
 tags:
-  - name: Monitor-Webhook
+  - name: Webhook
     description: Monitor webhook model.
  
 paths:
+
   '/monitors/webhook':
     post:
       tags:
-        - Monitor-Webhook
+        - Webhook
       summary: Post a list of monitor events.
       description: |
-                    Post a list of avent raised by a registered monitor.
-      operationId: postMonitorEvents
+                    Post a a list of avent raised by a a registered monitor.
+      operationId: set
       parameters:
         - $ref: '#/components/parameters/headerAttribute'
-        - $ref: '#/components/parameters/queryAttribute'
       requestBody:
         content:
           application/json:
             schema:
-               $ref: '#/components/schemas/MonitorEvents'
+                $ref: '#/components/schemas/MonitorEvents'
       responses:
         201:
          description: Post Ok.
@@ -57,7 +56,7 @@ components:
     Attributes:
           type: array
           description: >-
-            Additional attribute set that was defined as 'body' attribute type when registering the monitor (a set of key / values)
+            Additional attribute set that was defined when registering the monitor (a set of key / values)
           items:
             type: object
             properties:
@@ -70,7 +69,10 @@ components:
               - value  
    
   
-  
+    MonitorId:
+      type: string
+      description: The identifier of monitor that raised the event.
+      
     MonitorEvents:
       title: MonitorEvents
       description: Monitor event list. This list will contain only one item when the batch-notify (see Monitor API) is not set.
@@ -92,7 +94,7 @@ components:
       properties:
       
         vin:
-          description: Identifier of the vehicle that raises the event.
+          description: Vehicle identifier for which the event was raised.
           type: string  
         eventDate:
           description: The date on which the event was raised..
@@ -111,27 +113,26 @@ components:
               data:
                   type: string
                   enum:
-                  - vehicle.alert
-                  - vehicle.odometer
-                  - vehicle.engines.running
-                  - vehicle.engines.thermic.oil.temp
-                  - vehicle.energy.electric.level
-                  - vehicle.energy.electric.autonomy
-                  - vehicle.energy.fuel.level
-                  - vehicle.energy.fuel.autonomy
-                  - vehicle.autonomy
-                  - vehicle.energy.charging.status
-                  - vehicle.energy.charging.plugged
-                  - vehicle.doorsState.lockedState
-                  - vehicle.doorsState.opening
-                  - vehicle.kinetic.moving
-                  - vehicle.kinetic.speed
-                  - vehicle.trip
-                  - vehicle.maintenance.daysBeforeMaintenance
-                  - vehicle.maintenance.mileageBeforeMaintenance
-                  - vehicle.safety.beltWarning
-                  - environment.air.temp
-                  - privacy.state
+                    - vehicle.alert
+                    - vehicle.odometer
+                    - vehicle.engines.running
+                    - vehicle.engines.thermic.oil.temp
+                    - vehicle.energy.electric.level
+                    - vehicle.energy.electric.autonomy
+                    - vehicle.energy.fuel.level
+                    - vehicle.energy.fuel.autonomy
+                    - vehicle.energy.charging.status
+                    - vehicle.energy.charging.plugged
+                    - vehicle.doorsState.lockedState
+                    - vehicle.doorsState.opening
+                    - vehicle.kinetic.moving
+                    - vehicle.kinetic.speed
+                    - vehicle.trip
+                    - vehicle.maintenance.daysBeforeMaintenance
+                    - vehicle.maintenance.mileageBeforeMaintenance
+                    - vehicle.safety.beltWarning
+                    - environment.air.temp
+                    - privacy.state
                 
                   description: The monitored data (operand of a trigger).
               value: 
@@ -144,15 +145,12 @@ components:
                       body:
                         type: object
                         properties:
-                        
                           literalValue:
                             type: string
-                            description: A literal representation of the primitive data value. The client application should be aware of that and should convert it regarding the trigger data type.  
-                          objectValues:
-                            type: array 
-                            items:
-                              type: object
-                              description: For this object schema definition (based on the type of field), refere to the API Spec definition.
+                            description: a string representation of the primitive data value. The client application should be aware of that and should convert it regarding the trigger data type.  
+                          objectValue:
+                            type: object
+                            description: For this object schema definition (based on the type of field), refere to the API Spec definition.
                     
         extensions:
           description: Defines the extra vehicle data as specified in the monitor extended eventparam file (see Monitor paramaeter objecrt definition in the API Spec)
@@ -165,50 +163,40 @@ components:
                 description: Speficies the data type of body items. 
                 enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts]
               body:
-               
-                  description: >
-                    The body of the extension is made up of one of the fields below. Each one is expressed as a generic object and the type is the same as the related one in [MPH API SPEC](https://developer.groupe-psa.io/assets/openapi/api-b2b-v3.yaml)  (without ```HAL links``` fields).                      
-                      |  Field | MPH API related data model type  |
-                      |---|---|
-                      |doorState|```DoorsState```  |
-                      |status|```Status```  |
-                      |maintenance|```Maintenance```  |
-                      |position|```Position```  |
-                      |telemetry|```Telemetry```  |
-                      |alerts|Array of ```Alert``` object |
-                      |   |   |
-
-
-                      
+                type: array
+                description: 
+                  Extended data can be expressed as a list of objects because in some case, a vehicle data state should be expressed as a list of value (such as active alerts at a given time). In this spec, those data are expressed as generic object and the type is provided (see type field) and so  the client application should be aware of that and should convert it regarding this data type.
+                items:
                   type: object
                   properties:
                     doorState:
                       type: object
+                      description: Return the latest known doors status before or at the eventDate
                     status:
                       type: object
+                      description: Return the latest known status before or at the eventDate
                     maintenance:
                       type: object
+                      description: Return the latest known maintenance information before or at the eventDate
                     position:
                       type: object  
+                      description: Return the latest known position before or at the eventDate
                     telemetry:
                       type: object
+                      description: Return the latest known telemtry before or at the eventDate
                     alerts:
                       type: array
-                      items:  
-                         type: object  
+                      description: Return all active alerts at the eventDate
+                      items:
+                        type: object
                   
         
         refresh:
           description: |
               Indicates whether the event is a refresh (reminder) one or not.
-              * ```false``` means entering the context of the trigger (1st time the trigger valued true). 
-              * ```true``` means this is it a reminder event (already within trigger satisfied context).
+              * ```false``` means entering the context of the trigger (1st time the trigger evaluated true). 
+              * ```true```means that is it a reminder event (already within trigger satisfied context).
           type: boolean
-
-    
-    MonitorId:
-      type: string
-      description: The identifier of monitor that raised the event.  
 
     xError:
       type: object
@@ -224,7 +212,7 @@ components:
           description: A human-readable error message.
           type: string
       example:
-        code: 500123
+        code: 1001
         debug: CMP_001234
         message: Not able to process the post.
         
@@ -249,21 +237,11 @@ components:
           
   parameters:
     headerAttribute:
-      name: <header-attribute-key> 
+      name: <attribute-key> 
       description: |
-         An attribute key/value as specified in the registered callback in additional attributes set as an HTTP header entry(_can also be used as an **Authorization** (Bearer authentication)).
+         An attribute key as specified in the registered monitor additional attributes set that can be used as http header (_can also be used as an **Authorization** parameter specified by the registerer_). The provided attribute value is also set when calling this api. 
          
-         **Note**:  ```This parameter is repeated as many times as attributes typed as 'header' in the declared attribute-set when registring of the callback.```
-      in: header
-      required: true
-      schema:
-        type: string
-    queryAttribute:
-      name: <query-attribute-key> 
-      description: |
-         An attribute key/value as specified in the registered callback in additional attributes set as HTTP query parameter.
-         
-         **Note**:  ```This parameter is repeated as many times as attributes typed as 'query' in the declared attribute-set when registring of the callback.```
+         **Note**:  This parameter is repeated as many times as attributes in the attribute-set declared when registring of the monitor.
       in: header
       required: true
       schema:
@@ -272,9 +250,17 @@ components:
     tokenAuth:
       name: authorization
       description: >-
-        HTTP token authentication (Bearer authentication) as part of .
+        HTTP token authentication (Bearer authentication) that should be
+        retrived using PSA connection API.
       in: header
       required: true
       schema:
         type: string
         pattern: Bearer (\w|-|=)*
+
+ 
+  
+    
+   
+  
+    

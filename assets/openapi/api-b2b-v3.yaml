@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.0.5'
+  version: '3.0.6'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -42,13 +42,13 @@ info:
     | <b>Code</b>  | <b>Description</b>  |  <b>Case</b> |  
     |---|---|---|
     | 200  |<i>The request has succeeded and the resource data has been sent.</i>|GET APIs.  |
-    | 202  |<i>The request has been accepted for processing, but not yet acted upon. An id of processing is returned.</i>|POST/PUT requests:<br>-Create monitor<br>-Create Remote callbak.| 
+    | 202  |<i>The request has been accepted for processing, but not yet acted upon. An id of processing is returned.</i>|POST/PUT requests:<br>-Create monitor<br>-Create Remote callback.| 
     | 204  |<i>The request has been accepted and there is no additional content</i>|DELTE APIs:<br>-Delete monitor.<br>-Delete remote callback.|
     |400|<i>Request cannot be processed due to invalid query parameter value of body content (for POST/PUT verbs)</i>|ALL APIs.|
     |401|<i>Unauthorized request due to lack of valid authentication credentials.</i>|All APIs.|
     |403|<i>Unauthorized request due to insufficient credentials to grant access.</i>|All APIs.|
-    |404|<i>Target resource not found.|All APIs. Even POST, PUT or DELETE if the resource id is uncknown.</i>|
-    |500|<i>Unexpected condition that prevented from fulfilling the reques.</i>|All APIs.|
+    |404|<i>Target resource not found.|All APIs. Even POST, PUT or DELETE if the resource id is unknown.</i>|
+    |500|<i>Unexpected condition that prevented from fulfilling the request.</i>|All APIs.|
 
 
       
@@ -130,7 +130,6 @@ paths:
       operationId: getFleets
       parameters:
         
-        - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
       responses:
@@ -167,7 +166,6 @@ paths:
       parameters:
         
         - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/locale'
@@ -229,48 +227,48 @@ paths:
           description: Vehicle not found
           $ref: '#/x-fragment/general_error_fragment'
           
-  '/fleets/{fid}/vehicles/{vid}/collisions':
-    get:
-      tags:
-        - Vehicles
-      summary: Collisions happened to a vehicle.
-      description: >-
-        Returns the set of Collisions that occurred for a given vehicle (id)
-        during the timestamp ranges and bounded by an index range.
-      operationId: getVehicleCollision
-      parameters:
+  # '/fleets/{fid}/vehicles/{vid}/collisions':
+  # get:
+  #       tags:
+  #         - Vehicles
+  #       summary: Collisions happened to a vehicle.
+  #       description: >-
+  #         Returns the set of Collisions that occurred for a given vehicle (id)
+  #        during the timestamp ranges and bounded by an index range.
+  #   operationId: getVehicleCollision
+  #  parameters:
         
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
-      responses:
-        200:
-          $ref: '#/components/responses/CollisionsSuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse'
+  #  - $ref: '#/components/parameters/fleetId'
+  # - $ref: '#/components/parameters/vehicleId'
+  # - $ref: '#/components/parameters/profile'
+  # - $ref: '#/components/parameters/timestamps'
+  # - $ref: '#/components/parameters/indexRange'
+  # - $ref: '#/components/parameters/pageSize'
+  # - $ref: '#/components/parameters/pageToken'
+  # responses:
+  # 200:
+  # $ref: '#/components/responses/CollisionsSuccessResponse'
+  # default:
+  # $ref: '#/components/responses/CollisionFailedResponse'
           
-  '/fleets/{fid}/vehicles/{vid}/collisions/{cid}':
-    get:
-      tags:
-        - Vehicles
-      summary: An identified collision that occurred to a vehicle.
-      description: Returns the Collision that matches the vehicle id and the Collision cid.
-      operationId: getVehicleCollisionById
-      parameters:
+    # '/fleets/{fid}/vehicles/{vid}/collisions/{cid}':
+      # get:
+        # tags:
+          # - Vehicles
+        # summary: An identified collision that occurred to a vehicle.
+        # description: Returns the Collision that matches the vehicle id and the Collision cid.
+        # operationId: getVehicleCollisionById
+        # parameters:
         
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/collisionId'
-      responses:
-        200:
-          $ref: '#/components/responses/CollisionsuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse'
+        #   - $ref: '#/components/parameters/fleetId'
+          # - $ref: '#/components/parameters/vehicleId'
+          # - $ref: '#/components/parameters/profile'
+          # - $ref: '#/components/parameters/collisionId'
+        # responses:
+          # 200:
+            # $ref: '#/components/responses/CollisionsuccessResponse'
+          # default:
+            # $ref: '#/components/responses/CollisionFailedResponse'
           
   '/fleets/{fid}/vehicles/{vid}/maintenance':
     get:
@@ -677,69 +675,69 @@ paths:
           $ref: '#/components/responses/TripFailedResponse'
   
 
-  '/fleets/{fid}/trips/{tid}/collisions':
-    get:
-      tags:
-        - Trips
-      summary: Trips of fleet. 
-      description: >-
-        Returns the set of Collisions that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
-      operationId: getTripCollisionsByTrip
-      parameters:
+    # '/fleets/{fid}/trips/{tid}/collisions':
+     #  get:
+        # tags:
+        #   - Trips
+        # summary: Trips of fleet. 
+        # description: >-
+       #    Returns the set of Collisions that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
+       #  operationId: getTripCollisionsByTrip
+       #  parameters:
         
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-      responses:
-        '200':
-          $ref: '#/components/responses/CollisionsSuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse'
+        #   - $ref: '#/components/parameters/fleetId'
+        #   - $ref: '#/components/parameters/pageToken'
+         #  - $ref: '#/components/parameters/tripId'
+         #  - $ref: '#/components/parameters/profile'
+         #  - $ref: '#/components/parameters/timestamps'
+          # - $ref: '#/components/parameters/indexRange'
+          # - $ref: '#/components/parameters/pageSize'
+       #  responses:
+         #  '200':
+            # $ref: '#/components/responses/CollisionsSuccessResponse'
+          # default:
+            # $ref: '#/components/responses/CollisionFailedResponse'
   
-  '/fleets/{fid}/collisions':
-    get:
-      tags:
-        - Fleet
-      summary: Collisions of all vehicles ofthe fleet.
-      description: >-
-        Returns the set of Collisions of a Fleet of vehicles. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
-      operationId: getFleetTripCollisions
-      parameters:
+    # '/fleets/{fid}/collisions':
+      # get:
+        # tags:
+         #  - Fleet
+       #  summary: Collisions of all vehicles ofthe fleet.
+        # description: >-
+        #   Returns the set of Collisions of a Fleet of vehicles. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
+       #  operationId: getFleetTripCollisions
+       #  parameters:
         
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'      
-      responses:
-        '200':
-          $ref: '#/components/responses/CollisionsSuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse'
+         #  - $ref: '#/components/parameters/fleetId'
+         #  - $ref: '#/components/parameters/profile'
+          # - $ref: '#/components/parameters/pageToken'
+          # - $ref: '#/components/parameters/timestamps'
+          # - $ref: '#/components/parameters/indexRange'
+         #  - $ref: '#/components/parameters/pageSize'      
+        # responses:
+          # '200':
+           #  $ref: '#/components/responses/CollisionsSuccessResponse'
+         #  default:
+            # $ref: '#/components/responses/CollisionFailedResponse'
   
-  '/fleets/{fid}/collisions/{cid}':    
-    get:
-      tags:
-        - Fleet
-      summary: A single collision f the fleet.
-      description: >-
-        Returns the Collision that matches the fleet id and the Collision cid. 
-      operationId: getCollisionsById
-      parameters:
+    # '/fleets/{fid}/collisions/{cid}':    
+      # get:
+        # tags:
+         #  - Fleet
+        # summary: A single collision f the fleet.
+        # description: >-
+          # Returns the Collision that matches the fleet id and the Collision cid. 
+        # operationId: getCollisionsById
+        # parameters:
         
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/collisionId'      
-      responses:
-        '200':
-          $ref: '#/components/responses/CollisionsSuccessResponse'
-        default:
-          $ref: '#/components/responses/CollisionFailedResponse' 
+          # - $ref: '#/components/parameters/fleetId'
+          # - $ref: '#/components/parameters/profile'
+          # - $ref: '#/components/parameters/collisionId'      
+        # responses:
+          # '200':
+            # $ref: '#/components/responses/CollisionsSuccessResponse'
+          # default:
+            # $ref: '#/components/responses/CollisionFailedResponse' 
 
   '/fleets/{fid}/trips/{tid}':
     get:
@@ -1457,7 +1455,7 @@ components:
                     createdAt:
                       description: Date when the resource has been created.
                       type: string
-                      format: date-time               
+                      format: date-time
               - type: object
                 properties:
                   beltWarning:
@@ -1474,7 +1472,7 @@ components:
                     createdAt:
                       description: Date when the resource has been created.
                       type: string
-                      format: date-time  
+                      format: date-time
               - type: object
                 properties:
                   updatedAt:
@@ -1491,7 +1489,7 @@ components:
                 createdAt:
                   description: Date when the resource has been created.
                   type: string
-                  format: date-time  
+                  format: date-time
           - $ref: '#/components/schemas/DoorsStateBase'
                         
     DoorsStateBase:
@@ -1499,7 +1497,7 @@ components:
             properties:
                 lockedState:
                   type: string
-                  enum: [Unlocked, Locked, SuperLocked, DriverDoorUnlocked, CabinDoorsUnlocked, CargoDoorsLocked, CargoDoorsUnlocked, RearDoorsUnlocked, RearDoorsLocked]
+                  enum: [Unlocked, Locked, SuperLocked, DriverDoorUnlocked, CabinDoorsUnlocked, CargoDoorsLocked, CargoDoorsUnlocked, RearDoorsUnlocked, RearDoorsLocked, TrunkLocked, TrunkUnLocked]
                 opening:
                   type: array
                   items:
@@ -1663,7 +1661,7 @@ components:
                 createdAt:
                   description: Date when the resource has been created.
                   type: string
-                  format: date-time  
+                  format: date-time
           - $ref: '#/components/schemas/EnergyBase'
 
     EnergyBase:
@@ -1707,7 +1705,7 @@ components:
                      allOf:
                       - $ref: '#/components/schemas/FuelEnergyConsumption'
                       - deprecated: true
-                      - description:  Instant consumption for thermic vehicle. Expressed L/100Km. Depricated, use extension for this pupose.
+                      - description:  Total consumption for thermic vehicle. Expressed L/100Km. Depricated, use extension for this pupose.
                   residual:		 
                      allOf:
                       - $ref: '#/components/schemas/ElectricResidualEnergy'
@@ -1726,7 +1724,7 @@ components:
 
           
     FuelEnergyConsumption:
-              description: Instant consumption for vehicles for thermic vehicle. Expressed L/100Km
+              description: Total consumption for vehicles for thermic vehicle. Expressed L/100Km
               type: number
               format: float
               minimum: 0
@@ -1758,7 +1756,7 @@ components:
                         type: string
                         enum: [ No, Slow, Quick ]
                     nextDelayedTime:
-                      description:  Timestamp (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) of the next battery charging.
+                      description:  Duration (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) until the next battery charging.
                       type: string
                       
     EnergyBattery:
@@ -1839,7 +1837,7 @@ components:
                 createdAt:
                   description: Date when the resource has been created.
                   type: string
-                  format: date-time 
+                  format: date-time
           - type: object
             description: Preconditioning the vehicle for driver and passenger.
             properties:
@@ -2114,7 +2112,7 @@ components:
                   description: >
                       Determines whether this result set (page) has been reduced due to path simplifying (by providing a tolerance factor). 
                        ### Note: 
-                       The number of results may be lower than the specified page 'size' due to the applying of the path simplifying after resolving the page resultset.
+                       The number of results may be lower than the specified page 'size' due to the applying of the path simplifying after resolving the page result set.
                   type: boolean
                   deprecated: true
                 positions:
@@ -2318,14 +2316,14 @@ components:
                 default: 3
                 minimum: 1
             retryDelay:
-                description: Time to wait (expressed in seconds) befor retrying to push a notification (ignored if retryPolicy is set to ```None```).
+                description: Time to wait (expressed in seconds) before retrying to push a notification (ignored if retryPolicy is set to ```None```).
                 type: integer
                 default: 10
                 minimum: 1 
         batchNotify:
                 description: |
 
-                  Notification batch of events defined by a time window and batch size. If this field is not set, the callbak will post only one event by call.
+                  Notification batch of events defined by a time window and batch size. If this field is not set, the callback will post only one event by call.
 
                     * **At least, the ```size``` parameter should be provided.**
                     * **If the time window is not set then the default value will be applied.**
@@ -2377,7 +2375,7 @@ components:
       properties:
             label:
               type: string
-              description: Monitor lablel (usually its name). 
+              description: Monitor label (usually its name). 
             locale:
               type: string
               pattern: \w(-\w)?
@@ -2391,17 +2389,17 @@ components:
                  enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts]
               description: | 
                             Allow to set extra vehicle data (defined in data model) to add to the monitor event
-                            when publishing. The possible values are
+                            when publishing. The possible values are :
                             
                             
                             |value|description|Related model |
                             |----------|:-------------|------:|
-                            |vehicle.doorsState|Latest know door state (timestamped)|DoorState|
-                            |vehicle.status|Latest know vehicle status (timestamped)|Status|
-                            |vehicle.maintenance|Latest know maintenance(timestamped)|Maintenance|
-                            |vehicle.position|Last vehicle position (timestamped)|Position|
-                            |vehicle.telemetry${.TelemetryEnum}|Latest known telemetry (timestamped). |Telemetry
-                            |vehicle.alerts|List of active alerts|Alert|
+                            |vehicle.doorsState|Latest known door state (timestamped) before the eventDate|DoorState|
+                            |vehicle.status|Latest known vehicle status (timestamped) before the eventDate|Status|
+                            |vehicle.maintenance|Latest known maintenance(timestamped) before the eventDate|Maintenance|
+                            |vehicle.position|Last vehicle position (timestamped) before the eventDate|Position|
+                            |vehicle.telemetry${.TelemetryEnum} |Latest known telemetry (timestamped) before the eventDate filtered with type|Telemetry
+                            |vehicle.alerts|List of active alerts at the eventDate|Alert|
 
                             
                             * For telemetry extension:  
@@ -2484,7 +2482,8 @@ components:
         Monitor trigger.```Only one```of *Zone, Time or Data* is supported at a time. Otherwise it would cause a bad request response.  
       properties:
         name: 
-          description: The trigger name(should be uniq)
+          description: 'The trigger name must be uniq and respect the following pattern'
+          pattern: "\"[a-zA-Z]+[.-_]?[0-9]*\""
           type: string
         zone: 
              $ref: '#/components/schemas/ZoneTrigger'
@@ -2591,11 +2590,11 @@ components:
             | vehicle.kinetic.moving| Boolean | onChange/equalsTo | Value (true/false) |
             | vehicle.kinetic.speed | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.trip| Literal | onChange| Value(IDTRIP) |
-            | vehicle.maintenance.daysBeforeMaintenance, | Number | onChange/equalsTo/ greaterThan/ lowerThan/ | Value |
-            | vehicle.maintenance.mileageBeforeMaintenance| Number | onChange/equalsTo/ greaterThan/ lowerThan/ | Value |
+            | vehicle.maintenance.daysBeforeMaintenance, | Number | equalsTo/ greaterThan/ lowerThan/ | Value |
+            | vehicle.maintenance.mileageBeforeMaintenance| Number | equalsTo/ greaterThan/ lowerThan/ | Value |
             | vehicle.safety.beltWarning | Enum(beltWarning) | onChange/equalsTo | Value |
             | environment.air.temp | Number | equalsTo/greaterThan/lowerThan/ | Value |
-            | privacy.state | Enum(Privacy) | equalsTo / onChange/includedIN | Value |
+            | privacy.state | Enum(Privacy) | equalsTo / onChange/includedIn | Value |
 
                         
             The right operand  (value) argument depends on the type of operation (OP) as following:
@@ -2701,11 +2700,12 @@ components:
                   description: Remote electric battery charging action.
                   properties:
                     nextDelayedTime:
-                      description:  Timestamp (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) of the next battery charging time.
+                      description:  Duration (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) until the next battery charging.
                       type: string
                     immediate:
                       type: boolean
                       description :  Determines if the charging will start immediately(```true```) or not.
+                  required: [nextDelayedTime]
     
     RemoteSetStolen:
                   type: object
@@ -3274,7 +3274,7 @@ components:
                   createdAt:
                     description: Date when the resource has been created.
                     type: string
-                    format: date-time 
+                    format: date-time
             - $ref: '#/components/schemas/EngineBase'
             
                  
@@ -3426,7 +3426,7 @@ components:
                   createdAt:
                     description: Date when the resource has been created.
                     type: string
-                    format: date-time 
+                    format: date-time
             - $ref: '#/components/schemas/BasicKinetic'
          
     BrakingSystem:
@@ -3828,7 +3828,7 @@ components:
     tolerence:
       name: tolerance
       description: >
-          Tolerance factor is expressed in length km unit and is used to simplify path by reducing the total number of points by is using Douglas-Peucker algorithme to find a similar curve with fewer points (find more info here: [Ramer_Douglas_Peucker_algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm#Algorithm) ).
+          Tolerance factor is expressed in length km unit and is used to simplify path by reducing the total number of points by is using Douglas-Peucker algorithm to find a similar curve with fewer points (find more info here: [Ramer_Douglas_Peucker_algorithm](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm#Algorithm) ).
       in: query
       schema:
         type: number
