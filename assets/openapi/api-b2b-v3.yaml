@@ -1363,7 +1363,7 @@ components:
               createdAt:
                 description: Date when the resource has been created.
                 type: string
-                format: date-time 
+                format: date-time
         - description:
             Expresses next Maintenance destails. Such as number of days and the
             mileage till the next Maintenance.
@@ -1486,8 +1486,8 @@ components:
         allOf:
           - type: object
             properties:
-                createdAt:
-                  description: Date when the resource has been created.
+              updatedAt:
+                  description: Date when the resource has been updated.
                   type: string
                   format: date-time
           - $ref: '#/components/schemas/DoorsStateBase'
@@ -1658,8 +1658,8 @@ components:
       allOf:
           - type: object
             properties:
-                createdAt:
-                  description: Date when the resource has been created.
+              updatedAt:
+                  description: Date when the resource has been updated.
                   type: string
                   format: date-time
           - $ref: '#/components/schemas/EnergyBase'
@@ -2201,7 +2201,9 @@ components:
               key:
                 type: string
               value:
-                    type: string
+                oneOf:
+                  - type: string
+                  - type: string
                     enum: [vin,monitorID,fleetID]
                     description: |
                       A value  that will be associated with the provided key as is if expressed as literal value or  contextually valued if prefixed with the dollar sign ($).  
@@ -2233,7 +2235,9 @@ components:
         - $ref: '#/components/schemas/Attribute'
         - properties:
               value:
-                    type: string
+                oneOf:
+                  - type: string
+                  - type: string
                     enum: [vin,callbackID,remoteType,fleetID] 
                     description: |
                       Set of variables that will be contextually valued and used as attribute value. To reference the variable, prefix its name with the dollar sign ($)  
