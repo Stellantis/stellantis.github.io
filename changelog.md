@@ -60,8 +60,7 @@ Version|Name
 {% include published_on.html date='11 Feb 2021' %}
 
 **Fix Web API B2B**
-- v2.0.5
-- v3.0.6
+- v3.0.6 : Fix *createdAt* instead of *updatedAt* in model DoorsState & Battery
 
 <hr>
 
