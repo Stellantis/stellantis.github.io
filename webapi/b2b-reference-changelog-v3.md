@@ -29,8 +29,6 @@ Version|Name
 - Add NextDelayedTime as mandatory for remote Charging
 - Add RemoteType WakeUp
 - Add 2 new enum for lockedState
-- Refactoring callback for remote & monitor
-
 
 <hr>
 

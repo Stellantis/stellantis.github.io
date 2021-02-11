@@ -10,6 +10,7 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
+[6.2.1](#621) | Fix WEB API B2B specification update v2.0.5 / v3.0.6
 [6.2.0](#620) | WEB API B2B specification update v2.0.5 / v3.0.6
 [6.1.0](#610) | WEB API B2B v2 / v3 : Production URL
 [6.0.0](#600) | Connected-Vehicles>APIs + layouts + components
@@ -53,6 +54,15 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+## 6.2.1
+
+{% include published_on.html date='11 Feb 2021' %}
+
+**Fix Web API B2B**
+- v3.0.6 : Fix *createdAt* instead of *updatedAt* in model DoorsState & Battery
+
+<hr>
 
 ## 6.2.0
 
