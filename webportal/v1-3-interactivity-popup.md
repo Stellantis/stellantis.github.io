@@ -3,7 +3,7 @@ layout: doc-article
 permalink: /webportal/v1/interactivity/popup/
 section: webportal
 subsection: v1
-categorie: interactivity
+categorie: Interactivity
 title: Popup
 description: "Follow this example to open a native popup from your app."
 ---

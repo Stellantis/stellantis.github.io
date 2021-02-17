@@ -1,10 +1,13 @@
 ---
 layout: doc-article
-permalink: /webapi/b2b/api-reference/changelog-v3/
+permalink: /webapi/b2b/api-reference-v3/changelog/
 section: webapi
+redirect_from: 
+    - /webapi/b2b/api-reference/specification-v3/
+    - /webapi/b2b/api-reference-v3/
 subsection: b2b
-categorie: api reference 
-title: Changelog v3
+categorie: API Reference v3 
+title: Changelog
 ---
 
 

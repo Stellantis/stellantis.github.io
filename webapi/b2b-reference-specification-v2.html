@@ -1,11 +1,14 @@
 ---
 layout: empty-content
-permalink: /webapi/b2b/api-reference/specification-v2/
+permalink: /webapi/b2b/api-reference-v2/specification/
 section: webapi
 subsection: b2b
-categorie: api reference 
+redirect_from: 
+    - /webapi/b2b/api-reference/specification-v2/
+    - /webapi/b2b/api-reference-v2/
+categorie: API Reference v2
 require: redoc webapi-reference-specification
-title: Specification v2
+title: Specification
 description: "Groupe PSA Web API B2B v2 Reference: list of endpoints of our REST API for Fleet Owner."
 gitHubPath: assets/openapi/api-b2b-v2.yaml
 ---
@@ -13,6 +16,14 @@ gitHubPath: assets/openapi/api-b2b-v2.yaml
 {% assign urlReference = "/assets/openapi/api-b2b-v2.yaml" %}
 <div class="content">
     {% include content-header.html %}
+    <a class="notification-link" href="{{site.baseurl}}/webapi/b2b/api-reference-v2/changelog/#article">
+        <div class="notification page-disclaimer">
+            <p><strong>Changelog:</strong> history and versioning of WEB API Fleet-Owner v2.</p>
+            <span class="icon is-white">
+                <i class="fas fa-external-link-square-alt"></i>
+            </span>
+        </div>
+    </a>
 </div>
 <div class="is-spec-content">
     <div class="buttons has-addons">

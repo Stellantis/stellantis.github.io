@@ -1,28 +1,25 @@
 ---
 layout: doc-article
-permalink: /webapi/b2b/api-reference/about-versions/
+permalink: /webapi/b2b/overview/about-versions/
 section: webapi
 subsection: b2b
-categorie: api reference 
+categorie: Overview
 title: About Versions
 description: "About v2 & v3 versions of Groupe PSA WEB API B2B."
 redirect_from: 
     - /webapi/b2b/changelog/
     - /webapi/b2b/api-reference/
     - /webapi/b2b/reference/
-    - /webapi/b2b/reference/specification-v2/
-    - /webapi/b2b/reference/specification-v1/
-    - /webapi/b2b/reference/changelog-v2/
-    - /webapi/b2b/reference/changelog-v1/
     - /webapi/b2b/api-reference/specification/
     - /webapi/b2b/api-reference/changelog/
+    - /webapi/b2b/api-reference/about-versions/
 ---
 
 ## Versions
 
 <div class="tile is-ancestor" style="margin-top: 2rem; margin-bottom: 2rem;">
     <div class="tile is-parent">
-        <a href="{{site.baseurl}}/webapi/b2b/api-reference/specification-v2/#article" class="tile is-child button is-psablue is-medium select-url">
+        <a href="{{site.baseurl}}/webapi/b2b/api-reference-v2/specification/#article" class="tile is-child button is-psablue is-medium select-url">
             <span>
                 Specification API
                 <br> 
@@ -32,7 +29,7 @@ redirect_from:
         </a>
     </div>
     <div class="tile is-parent">
-        <a href="{{site.baseurl}}/webapi/b2b/api-reference/specification-v3/#article" class="tile is-child button is-psablue is-medium select-url">
+        <a href="{{site.baseurl}}/webapi/b2b/api-reference-v3/specification/#article" class="tile is-child button is-psablue is-medium select-url">
             <span>
                 Specification API 
                 <br>

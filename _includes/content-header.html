@@ -33,10 +33,12 @@
                                     {% assign currentSubSectionPath = subsection.path %}
 
                                         {% for categorie in subsection.categories %}
+                                        {% if page.categorie == categorie.name %}
 
                                         {% assign currentCategorieName = categorie.name %}
                                         {% assign currentCategoriePath = categorie.path %}
-
+                                        
+                                        {% endif %}
 
                                         <optgroup label="{{categorie.name}}">
                                             {% for p in categorie.pages %}
