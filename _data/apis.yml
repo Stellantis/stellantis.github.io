@@ -1,13 +1,13 @@
 - tag: webapi-b2b-v2
   home-path: /webapi/b2b/overview/about/#article
-  reference-path: /webapi/b2b/api-reference/specification-v2/
+  reference-path: /webapi/b2b/api-reference-v2/specification/
   full-name: Web API Fleet-Owner Version 2
   short-name: Web API Fleet-Owner v2
   icon: fas fa-cloud
   description: "API Fleet-Owner v2 allows retrieving data with the following subscribtions: <em>connected fleet</em> / <em>TMTS</em> / <em>UBI</em>."
 - tag: webapi-b2b-v3
   home-path: /webapi/b2b/overview/about/#article
-  reference-path: /webapi/b2b/api-reference/specification-v3/
+  reference-path: /webapi/b2b/api-reference-v3/specification/
   full-name: Web API Fleet-Owner Version 3
   short-name: Web API Fleet-Owner v3
   icon: fas fa-cloud

@@ -68,6 +68,8 @@
               path: standards/
             - name: Try it Out!
               path: demo/
+            - name: About Versions
+              path: about-versions/
         - name: Quickstart
           path: quickstart/
           pages:
@@ -95,19 +97,20 @@
               path: set-up/
             - name: Webhook References
               path: webhook/
-        - name: API Reference
-          path: api-reference/
+        - name: API Reference v2
+          path: api-reference-v2/
           pages:
-            - name: About Versions
-              path: about-versions/
             - name: Specification Version 2
-              path: specification-v2/
-            - name: Specification Version 3
-              path: specification-v3/
+              path: specification/
             - name: Changelog Version 2
-              path: changelog-v2/
+              path: changelog/
+        - name: API Reference v3
+          path: api-reference-v3/
+          pages:
+            - name: Specification Version 3
+              path: specification/
             - name: Changelog Version 3
-              path: changelog-v3/
+              path: changelog/
     - tag: b2c
       path: b2c/
       name: End User

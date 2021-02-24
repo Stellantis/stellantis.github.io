@@ -38,6 +38,18 @@ h1, h2, h3, h4, h5 {
   padding-right: 7.5%;
 }
 
+.content .notification-link {
+  .notification {
+     margin-bottom: .55rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+  }    
+  p {margin: 0;}
+ .fa-external-link-square-alt {
+     font-size: 1.15rem;
+ }
+}
 
 @media screen and (max-width: 650px) {
   .spec-background{

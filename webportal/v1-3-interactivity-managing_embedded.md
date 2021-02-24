@@ -3,7 +3,7 @@ layout: doc-article
 permalink: /webportal/v1/interactivity/managing-embedded/
 section: webportal
 subsection: v1
-categorie: interactivity
+categorie: Interactivity
 title: Managing Embedded
 description: "This tutorial details advanced features of Webportal like interacting with embedded software."
 redirect_from:

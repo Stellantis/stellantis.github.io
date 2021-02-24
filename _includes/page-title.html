@@ -1,42 +1,33 @@
-{%- for section in site.data.sections -%}
-    {%- if page.section == section.tag -%}
-        {%- assign sectionName = section.name-%}
-        {%- for subsection in section.subsections -%}
-            {%- if page.subsection == subsection.tag -%}
-                {%- assign subsectionName = subsection.name -%}
-            {%- endif -%}
-        {%- endfor -%}
-    {%- endif -%}
-{%- endfor -%}
-
-{%- if page.categorie -%}
-    {%- if page.categorie contains "verview" -%}
-        {%- if page.title contains "bout" -%}
-            {{page.section | capitalize}} {{page.subsection | upcase}}
-        {%- else -%}
-            {{page.title}} | {{page.subsection | upcase}} {{page.section | capitalize}} 
-        {%- endif -%}
-    {%- else -%}
-    {{page.title}} {{page.categorie}} | {{page.subsection | upcase}} {{page.section | capitalize}} 
-    {%- endif -%}
-{%- elsif page.subsection -%}
-    {%- if page.title contains "bout" -%}
-    {{subsectionName}} {{sectionName}} 
-    {%- else -%}
-    {{page.title}} | {{subsectionName}} {{sectionName}} 
-    {%- endif -%}
-{%- elsif page.section -%}
-    {%- if page.title -%}
-        {%- if page.title contains "bout" -%}
-        {{sectionName}}
-        {%- else -%}
-        {{page.title}} | {{sectionName}}
-        {%- endif -%}
-    {%- else -%}
-        {{sectionName}} | {{site.title}}
-    {%- endif -%}
-{%- elsif page.title -%}
+{%- if page.title -%}
+    {% if page.title == "404" %}
         {{page.title}} | {{site.title}}
+        {% else %}
+        {%- if page.categorie -%}
+            {{page.title }}{{page.categorie | capitalize| prepend: " | " }}
+            {%- if page.section -%}
+                    {{page.section | capitalize| prepend: " | " }}
+            {%- endif -%}
+            {%- if page.subsection -%}
+                {{page.subsection | upcase | prepend: " " }}
+            {%- endif -%}
+        {%- else -%}
+            {{page.title }}
+            {%- if page.subsection -%}
+                {%- if page.subsection == "api-data" -%}
+                    {{"API Features" | prepend: " | "}}
+                {%- else -%}
+                    {{page.subsection | capitalize | prepend: " | " }}
+                {%- endif -%}
+            {%- endif -%}
+            {%- if page.section -%}
+                {%- if page.section == "other" -%}
+                {{site.title | prepend: " | "}}
+                {%- else -%}
+                {{page.section | capitalize| prepend: " | " }}
+                {%- endif -%}            
+            {%- endif -%}            
+        {%- endif -%}
+    {% endif %}
 {%- else -%}
     {{site.title}}
 {%- endif -%}

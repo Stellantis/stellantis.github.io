@@ -307,7 +307,8 @@ table code {
         min-width: 115px;
     }
     #article.unboxed, #article.unboxed + .footer {
-        padding: 0 10px;
+        padding-right: 10px;
+        padding-left: 10px;
     }
 }
 
@@ -350,6 +351,29 @@ table code {
     
 }
 
+@media screen and (max-width: 650px) {
+    .unboxed-page-title {
+        font-size: 3rem;
+    }
+
+    .unboxed-page-title-container .icon {
+        font-size: 2.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .unboxed-page-title {
+        font-size: 2rem;
+    }
+
+    .unboxed-page-title-container .icon {
+        font-size: 1.65rem;
+        width: 1.65rem;
+        height: 1.65rem;
+    }
+}
 .unboxed-page-subtext {
     margin-top: 1.5rem;
     font-size: 1.4rem;

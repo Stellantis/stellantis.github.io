@@ -1,12 +1,11 @@
 openapi: 3.0.0
-#Version 2.0.5
 servers:
   - url: 'https://api-cert.groupe-psa.com/connectedcar/v2'
 security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '2.0.5'
+  version: '2.0.6'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -327,29 +326,29 @@ paths:
         default:
           $ref: '#/components/responses/AlertFailedResponse'
 
-  '/fleets/{fid}/telemetries':
-    get:
-      tags:
-        - Fleet
-      summary: Telemetry list of the fleet.
-      description: Returns vehicles' telemetry list of a given fleet that occurred during a selective timestamp-ranges and bounded by an index range.
-      operationId: getFleetTelemetriesList
-      parameters:
+  #'/fleets/{fid}/telemetries':
+   # get:
+    #  tags:
+    #    - Fleet
+    #  summary: Telemetry list of the fleet.
+    #  description: Returns vehicles' telemetry list of a given fleet that occurred during a selective timestamp-ranges and bounded by an index range.
+    #  operationId: getFleetTelemetriesList
+    #  parameters:
         
-        - $ref: '#/components/parameters/fleetId'
+    #    - $ref: '#/components/parameters/fleetId'
         
         
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/telemetryExtension'
-      responses:
-        200:
-          $ref: '#/components/responses/TelemetrySuccessResponse'
-        default:
-          $ref: '#/components/responses/TelemetryFailedResponse'
+    #    - $ref: '#/components/parameters/timestamps'
+    #    - $ref: '#/components/parameters/indexRange'
+    #    - $ref: '#/components/parameters/pageSize'
+    #    - $ref: '#/components/parameters/pageToken'
+    #    - $ref: '#/components/parameters/locale'
+    #    - $ref: '#/components/parameters/telemetryExtension'
+    #  responses:
+    #    200:
+    #      $ref: '#/components/responses/TelemetrySuccessResponse'
+    #    default:
+    #      $ref: '#/components/responses/TelemetryFailedResponse'
    
           
   #'/fleets/{fid}/alerts/{aid}':

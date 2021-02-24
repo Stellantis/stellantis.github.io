@@ -1,15 +1,18 @@
 ---
 layout: doc-article
-permalink: /webapi/b2b/api-reference/changelog-v2/
+permalink: /webapi/b2b/api-reference-v2/changelog/
 section: webapi
 subsection: b2b
-categorie: api reference 
-title: Changelog v2
+redirect_from: 
+    - /webapi/b2b/api-reference/specification-v2/
+categorie: API Reference v2
+title: Changelog
 ---
 
 
 Version|Name
 -|-
+[b2b_v2.0.6](#b2b_v206) | 2.0.6
 [b2b_v2.0.5](#b2b_v205) | 2.0.5
 [b2b_v2.0.3-P6](#b2b_v203-p6) | Fix naming & enums
 [b2b_v2.0.3-P5](#b2b_v203-p5) | Misprints & Missing format & Remove collision + profile 
@@ -18,9 +21,15 @@ Version|Name
 [b2b_v2.0.3](#b2b_v203) | Candiate version
 
 
+## b2b_v2.0.6
+
+{% include published_on.html date='24 Feb 2021' %}
+
+- Remove fleet/{fid}/telemetries API
+
 ## b2b_v2.0.5
 
-<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Tue Feb 9 2021</span></div>
+{% include published_on.html date='9 Feb 2021' %}
 
 
 - Update Typo (Descriptions, Patterns...)
@@ -30,7 +39,7 @@ Version|Name
 
 ## b2b_v2.0.3-P6
 
-<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Wed Jan 6 2021</span></div>
+{% include published_on.html date='6 Jan 2021' %}
 
 
 - Fix door.states enum by vehicle.doorsStates in extendedEventParam object
@@ -42,7 +51,7 @@ Version|Name
 
 ## b2b_v2.0.3-P5
 
-<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Tue Nov 10 2020</span></div>
+{% include published_on.html date='10 Nov 2020' %}
 
 
 - Delete `createdAt` from odemeter object
@@ -58,7 +67,7 @@ Version|Name
 
 ## b2b_v2.0.3-P4
 
-<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Wed Oct 14 2020</span></div>
+{% include published_on.html date='14 Oct 2020' %}
 
 - Add Open API SPEC (V3) security schemes support.
 - Temporarily remove time repeat feature in time stamps spec.
@@ -66,7 +75,7 @@ Version|Name
 
 ## b2b_v2.0.3-P3
 
-<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Mon Sep 21 2020</span></div>
+{% include published_on.html date='21 Sep 2020' %}
 
 #### `Align API B2B v2 with API B2B v2`
 Spec version : b2b_v2.0.3-P3
@@ -74,7 +83,7 @@ Spec version : b2b_v2.0.3-P3
 
 ## b2b_v2.0.3
 
-<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Mon Sep 02 2019</span></div>
+{% include published_on.html date='02 Sep 2019' %}
 
 
 #### `Candiate version`
