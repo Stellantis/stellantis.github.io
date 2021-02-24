@@ -1,5 +1,27 @@
 {%- if page.title -%}
-    {{page.title | append: " |"}}{{page.categorie | prepend: " " }}{{page.section | prepend: " "}}{{page.subsection | prepend: " "}}
+    {% if page.title == "404" %}
+        {{page.title}} | {{site.title}}
+        {% else %}
+        {%- if page.categorie -%}
+            {{page.title }}{{page.categorie | capitalize| prepend: " | " }}
+            {%- if page.section -%}
+            {{page.section | capitalize| prepend: " | " }}
+            {%- endif -%}
+            {%- if page.subsection -%}
+                {{page.subsection | upcase | prepend: " " }}
+            {%- endif -%}
+        {%- else -%}
+            {{page.title }}
+            {%- if page.subsection -%}
+                {%- if page.subsection == "api-data" -%}
+                    {{"API Features" | prepend: " | "}}
+                {%- else -%}
+                    {{page.subsection | capitalize | prepend: " " }}
+                {%- endif -%}
+            {%- endif -%}
+            {%- if page.section -%}{{page.section | capitalize| prepend: " | " }}{%- endif -%}            
+        {%- endif -%}
+    {% endif %}
 {%- else -%}
     {{site.title}}
 {%- endif -%}
