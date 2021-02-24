@@ -635,3 +635,10 @@ Version|Name
 **Embedded Webportal**
 
 - Add section Embedded Webportal.
+
+
+<style>
+    nav.breadcrumb {
+        display: none;
+    }
+</style>

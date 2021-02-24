@@ -5,7 +5,7 @@
         {%- if page.categorie -%}
             {{page.title }}{{page.categorie | capitalize| prepend: " | " }}
             {%- if page.section -%}
-            {{page.section | capitalize| prepend: " | " }}
+                    {{page.section | capitalize| prepend: " | " }}
             {%- endif -%}
             {%- if page.subsection -%}
                 {{page.subsection | upcase | prepend: " " }}
@@ -16,10 +16,16 @@
                 {%- if page.subsection == "api-data" -%}
                     {{"API Features" | prepend: " | "}}
                 {%- else -%}
-                    {{page.subsection | capitalize | prepend: " " }}
+                    {{page.subsection | capitalize | prepend: " | " }}
                 {%- endif -%}
             {%- endif -%}
-            {%- if page.section -%}{{page.section | capitalize| prepend: " | " }}{%- endif -%}            
+            {%- if page.section -%}
+                {%- if page.section == "other" -%}
+                {{site.title | prepend: " | "}}
+                {%- else -%}
+                {{page.section | capitalize| prepend: " | " }}
+                {%- endif -%}            
+            {%- endif -%}            
         {%- endif -%}
     {% endif %}
 {%- else -%}
