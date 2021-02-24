@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.0.6'
+  version: '3.0.7'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -373,30 +373,30 @@ paths:
         default:
           $ref: '#/components/responses/AlertFailedResponse'
 
-  '/fleets/{fid}/telemetries':
-    get:
-      tags:
-        - Fleet
-      summary: Telemetry list of the fleet.
-      description: >-
-        Returns the latest Telemetry messages that occurred during a selective timestamp-ranges and bounded by an index range.
-      operationId: getFleetTelemetriesList
-      parameters:
-        
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/telemetryType'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/locale'
-        - $ref: '#/components/parameters/telemetryExtension'
-      responses:
-        200:
-          $ref: '#/components/responses/TelemetrySuccessResponse'
-        default:
-          $ref: '#/components/responses/TelemetryFailedResponse'
+  #'/fleets/{fid}/telemetries':
+   # get:
+    #  tags:
+    #    - Fleet
+    #  summary: Telemetry list of the fleet.
+    #  description: >-
+     #   Returns the latest Telemetry messages that occurred during a selective timestamp-ranges and bounded by an index range.
+    #  operationId: getFleetTelemetriesList
+    #  parameters:
+     #   
+      #  - $ref: '#/components/parameters/fleetId'
+      #  - $ref: '#/components/parameters/profile'
+      #  - $ref: '#/components/parameters/telemetryType'
+      #  - $ref: '#/components/parameters/timestamps'
+      #  - $ref: '#/components/parameters/indexRange'
+      #  - $ref: '#/components/parameters/pageSize'
+      #  - $ref: '#/components/parameters/pageToken'
+      #  - $ref: '#/components/parameters/locale'
+      #  - $ref: '#/components/parameters/telemetryExtension'
+    #  responses:
+     #   200:
+    #      $ref: '#/components/responses/TelemetrySuccessResponse'
+    #    default:
+    #      $ref: '#/components/responses/TelemetryFailedResponse'
    
           
   #'/fleets/{fid}/alerts/{aid}':
@@ -1364,7 +1364,7 @@ components:
                 description: Date when the resource has been created.
                 type: string
                 format: date-time
-        - description:
+        - description: >-
             Expresses next Maintenance destails. Such as number of days and the
             mileage till the next Maintenance.
           type: object
@@ -1406,7 +1406,7 @@ components:
               createdAt:
                 description: Date when the resource has been created.
                 type: string
-                format: date-time  
+                format: date-time 
         - $ref: '#/components/schemas/IgnitionBase'
         
     IgnitionBase:
@@ -1840,6 +1840,7 @@ components:
                   format: date-time
           - type: object
             description: Preconditioning the vehicle for driver and passenger.
+			
             properties:
               airConditioning:
                 type : object
