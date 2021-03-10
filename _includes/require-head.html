@@ -21,6 +21,8 @@
     {%- comment -%} DATA-CATALOG {%- endcomment -%}
     {% if page.require contains "data-catalog" or page.layout == "api-data" %}
     <link rel="stylesheet" href="{{ 'data-catalog.css' |  prepend: modules_path| prepend: site.baseurl }}">
+    <link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/bulma/tabulator_bulma.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
     {% endif %}
     {%- comment -%} WEBAPI-DEMO {%- endcomment -%}
     {% if page.require contains "webapi-demo" %}
