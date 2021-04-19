@@ -11,6 +11,7 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v3.0.8](#b2b_v308) | 3.0.8
 [b2b_v3.0.7](#b2b_v307) | 3.0.7
 [b2b_v3.0.6](#b2b_v306) | 3.0.6
 [b2b_v3.0.5](#b2b_v305) | 3.0.5
@@ -18,6 +19,19 @@ Version|Name
 [b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
 
+## b2b_v3.0.8
+
+{% include published_on.html date='19 Apr 2021' %}
+
+- Update FailureCause for remote callbacks
+- Add "forced" parameter for doors remotes
+- Update lockedStates format for remotes
+- Update pattern for trigger names
+- Remove telemetry Links for fleets
+- Correct wakeUp for remote actions
+- Remove label for GET /Vehicles
+- Update alert vehicle list
+- Add slot parameter as mandatory for remote preconditionning command
 
 ## b2b_v3.0.7
 

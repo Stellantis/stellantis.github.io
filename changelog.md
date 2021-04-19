@@ -6,9 +6,21 @@ menu: false
 section: other
 description: "PSA Groupe developer portal's version changelog."
 ---
+<div class="notification page-disclaimer">
+<p>
+    <strong>Changelogs:</strong> This changelog details the history of modifications of this website. 
+    You might also be interessted in the changelogs of <a href="{{site.baseurl}}/webapi/b2b/api-reference-v2/changelog/#article">web API B2B v2</a>, and <a href="{{site.baseurl}}/webapi/b2b/api-reference-v3/changelog/#article"> web API B2B v3</a>.</p>
+</div>
+
+<style>
+    nav.breadcrumb {
+        display: none;
+    }
+</style>
 
 Version|Name
 -|-
+[6.5.0](#650) | WEB API B2B v2.0.7 & v3.0.8
 [6.4.0](#640) | Update data catalog: data & layout & filters
 [6.3.0](#630) | WEB API B2B v2.0.6 & v3.0.7 / Update Menu & page title / Matomo
 [6.2.1](#621) | Fix WEB API B2B specification update v2.0.5 / v3.0.6
@@ -55,6 +67,16 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+## 6.5.0
+
+{% include published_on.html date='19 Apr 2021' %}
+
+**Web API B2B**
+- v2.0.6
+- v3.0.7
+
+<hr>
 
 ## 6.4.0
 
@@ -650,8 +672,3 @@ Version|Name
 - Add section Embedded Webportal.
 
 
-<style>
-    nav.breadcrumb {
-        display: none;
-    }
-</style>

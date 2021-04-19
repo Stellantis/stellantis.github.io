@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '3.0.7'
+  version: '3.0.8'
   title: Groupe PSA Connected Car B2B API
   description: | 
 
@@ -296,7 +296,9 @@ components:
       type: string    
       enum: 
             - Success
-            - SuccessCauseAlreadyReached
+            - AlreadyDone
+            - Failed
+            
     RemotePendingEventStatus:
       description: | 
         The processing event status. 
@@ -309,23 +311,32 @@ components:
             - SentToVehicle
             - VehicleBatteryChargeTooLow
             - TooManyWakeUpsOverMonth
+            
     RemoteFailedEventStatus:
       description: | 
-        The failure cause for event with failed status. This field is filled only is faillure state. 
+        The failure cause for event with failed status. This field is filled only is failure state. 
          
       type: string    
       enum: 
             - GeneralError
             - VehicleError
+            - WrongCommand
             - VehicleConnectionTimeout
             - MissingRights
-            - MissingRightsDueToVehiclePrivacyLevel
-            - MissingRightsDueToVehicleBatteryLevel
-            - MissingVehicleKeyRights
+            - NotPossibleDueToVehicleBatteryLevel
+            - NotPossibleDueToVehiclePrivacyLevel
+            - TooManyWakeUpsOverMonth
+            - TooManyRequestInShortTime
             - SameActionInProgress
-            - VehicleRunning
-            - NotStolen
-            - MaxActionNumberReached       
+            - NotPossibleDueToVehicleStolenState
+            - VehicleInUse
+            - TooManyRequestSent 
+            - DoorsOpen
+            - VehicleErrorOrCidInside
+            - CidInside
+            - ExternalChargingSystemError
+            - VehicleChargingSystemError
+            - VehicleIsNotLocked      
       
     RemoteEventStatus:
               type: object
