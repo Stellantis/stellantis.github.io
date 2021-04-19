@@ -84,6 +84,8 @@
               path: about/
             - name: Set Up
               path: set-up/
+            - name: Retry Policy
+              path: retry-policy/
             - name: Webhook References v2
               path: webhook-v2/
             - name: Webhook References v3
@@ -95,6 +97,8 @@
               path: about/
             - name: Set Up
               path: set-up/
+            - name: Retry Policy
+              path: retry-policy/
             - name: Webhook References
               path: webhook/
         - name: API Reference v2
@@ -139,6 +143,8 @@
               path: about/
             - name: Set Up
               path: set-up/
+            - name: Retry Policy
+              path: retry-policy/
             - name: Webhook References
               path: webhook/
         - name: API Reference
