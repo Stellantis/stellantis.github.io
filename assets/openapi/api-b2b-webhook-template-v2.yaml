@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '2.0.6'
+  version: '2.0.7'
   title: Groupe PSA Connected Car B2B API
   description: | 
 
@@ -14,7 +14,7 @@ info:
               [Swagger](http://swagger.io).
 
 
-    
+              
   license:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'

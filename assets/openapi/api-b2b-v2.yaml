@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '2.0.6'
+  version: '2.0.7'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -187,6 +187,7 @@ paths:
         
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/locale'
    
       responses:
         200:
@@ -194,7 +195,9 @@ paths:
           content:
             'application/hal+json ':
               schema:
-                $ref: '#/components/schemas/Vehicle'
+                allOf:
+                  - $ref: '#/components/schemas/VehicleLabel'
+                  - $ref: '#/components/schemas/Vehicle'
         default:
           description: Vehicle not found
           $ref: '#/x-fragment/general_error_fragment'
@@ -301,7 +304,6 @@ paths:
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/locale'
       responses:
         200:
           $ref: '#/components/responses/AlertsuccessResponses'
@@ -407,7 +409,6 @@ paths:
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/locale'
       responses:
         200:
           $ref: '#/components/responses/AlertsuccessResponses'
@@ -427,7 +428,6 @@ paths:
         - $ref: '#/components/parameters/vehicleId'
         
         - $ref: '#/components/parameters/alertId'
-        - $ref: '#/components/parameters/locale'
       responses:
         200:
           $ref: '#/components/responses/AlertsuccessResponse'
@@ -451,7 +451,6 @@ paths:
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/locale'
         
         - $ref: '#/components/parameters/telemetryExtension'
       responses:
@@ -661,7 +660,6 @@ paths:
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/locale'
         
 
       responses:
@@ -686,7 +684,6 @@ paths:
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/locale'
         
 
       responses:
@@ -709,7 +706,6 @@ paths:
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/alertId'
-        - $ref: '#/components/parameters/locale'
         
 
       responses:
@@ -730,7 +726,6 @@ paths:
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/alertId'
-        - $ref: '#/components/parameters/locale'
         
 
       responses:
@@ -806,7 +801,6 @@ paths:
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/locale'
         
         - $ref: '#/components/parameters/telemetryExtension'
       responses:
@@ -880,9 +874,6 @@ components:
                   $ref: '#/components/schemas/Link'
                 trips:
                   $ref: '#/components/schemas/Link'
-            label: 
-              type: string
-              description: The label that describes what happened to raise this alert.
             id:
               type: string
             vin:
@@ -988,9 +979,7 @@ components:
     MaintenanceObj:
      allOf:
         - $ref: '#/components/schemas/TimeStamped'
-        - description: >-
-            Expresses next Maintenance destails. Such as number of days and the
-            mileage till the next Maintenance.
+        - description: Expresses next Maintenance details. Such as number of days and the mileage until the next Maintenance. The value is negative if the next maintenance (day or mileage) is already passed.
           type: object
           title: Maintenance
           properties:
@@ -1262,6 +1251,7 @@ components:
             level:
               type: number
               format: float
+              description: Percentage of remaining energy (Fuel or electric) level. Expressed with a precision of 0.1%.
               minimum: 0
               maximum: 100
             autonomy:
@@ -1517,8 +1507,6 @@ components:
               $ref: '#/components/schemas/Link'
             trips:
               $ref: '#/components/schemas/Link'
-            telemetries:
-              $ref: '#/components/schemas/Link'
             monitors:
               $ref: '#/components/schemas/Link'  
         name:
@@ -1592,9 +1580,6 @@ components:
                   - Gasoil
                   - Petrol
                   - Biologic
-        label:
-          description: Version of a vehicle
-          type: string
         pictures:
           description: With the links it's possible to see the pictures of the vehicle 
           type: array
@@ -1612,7 +1597,13 @@ components:
           format: date-time
         _embedded:
           type: object
-          
+    
+    VehicleLabel:
+        properties:
+            label:
+                type: string
+                description: Version of a vehicle
+
     CollectionResult:
       type: object
       properties:
@@ -1907,11 +1898,6 @@ components:
             label:
               type: string
               description: Monitor label (usually its name). 
-            locale:
-              type: string
-              pattern: \w(-\w)?
-              description: |
-                Locale is used for rendering text according to language and country. It should match the  REGEX ```\w(-\w)?```. For more details about possible standard values, please refer to [locals list](https://en.wikipedia.org/wiki/Language_localisation).
             subscribeParam:
               $ref: '#/components/schemas/MonitorCallbackSubscribe'
             extendedEventParam:
@@ -2220,88 +2206,115 @@ components:
       enum:  [Disconnected, InProgress, Failure, Stopped, Finished]
       
     AlertMsgEnum:
-      type: string    
+      type: string   
+      description: MPH alert list 
       enum:
-        - alertOilPressure
-        - alertCoolantTemp
-        - chargingSystemFault
-        - alertBrakeFluid
-        - steeringFault
-        - alertCoolantLevel
-        - laneDepartureWarningSystemFault
-        - frontLeftDoorOpenHighSpeed
-        - frontRightDoorOpenHighSpeed
-        - rearLeftDoorOpenHighSpeed
-        - rearRightDoorOpenHighSpeed
-        - trunkOpenHighSpeed
-        - trunkWindowOpen
-        - espFault
-        - batteryLevelFault
-        - waterInGasoil
-        - padWearFault
-        - fuelLevelAlarm
-        - airbagOrSeatbeltFault
-        - engineFault
-        - absFault
-        - riskOfParticleFilterBlockage
-        - particleFilterAdditiveTooLow
-        - suspensionFault
-        - preaheatingDeactivatedBatteryTooLow
-        - preaheatingDeactivatedFuelLevelTooLow
-        - checkTheBrakeLamp
-        - retractableRoofMechanismFault
-        - alertSteeringLock
-        - electronicImmobiliserFault
-        - roofOperationImpossibleTemperatureTooHigh
-        - roofOperationImpossibleStartEngine
-        - roofOperationImpossibleApplyParkingBreak
-        - hybridSystemFault
-        - automaticHeadlampFault
-        - hybridSystemFaultRepairedTheVehicle
-        - washerLevelAlarm
-        - batteryKeyAlarm
-        - preaheatingDeactivatedSetTheClock
-        - trailerConnectionFault
-        - underInflationTyreFault
-        - limitedVisibilityAidsCamera
-        - electricModeNotAvailable
-        - wheelPressureFault
-        - checkSideLamps
-        - checkRightBrakeLamp
-        - checkLeftBrakeLamp
-        - frontFoglightFault
-        - rearFoglightFault
-        - checkDirectionIndicator
-        - checkReversingLamp
-        - parkingAssistanceFault
-        - adjustTyrePressure
-        - antipollutionFault
-        - placeGearBoxToP
-        - riskOfIce
-        - frontRightDoorOpen
-        - frontLeftDoorOpen
-        - rearRightDoorOpen
-        - rearLeftDoorOpen
-        - trunkOpen
-        - bootOpen
-        - rearScreenOpen
-        - parkingBreakFault
-        - activeSpoilerFault
-        - automaticBreakingSystemFault
-        - directionalHeadlampsFault
-        - automaticGearboxFault
-        - suspensionFaultLimitTo90km
-        - frontLeftTyreNotMonitored
-        - frontRightTyreNotMonitored
-        - rearRightTyreNotMonitored
-        - rearLeftTyreNotMonitored
-        - powerSteeringFault
-        - laneDepartureFault
-        - tyreUnderInflation
-        - spareWheelFittedDrivingAidsDeactivated
-        - automaticBreakingDeactived
-        - topUpAdBlue
-        - longPushToUnlockTankFault
+            - AbsBrakingSystemFault    
+            - ActiveSpoilerFault    
+            - AdBlueFault     
+            - AdBlueFaultStartingImpossible   
+            - AdBlueFaultStartingImpossibleSoon  
+            - AddWasherFluid     
+            - AirbagOrSeatBeltPretensionerOrActiveHoodFailure 
+            - AssistanceButtonFault    
+            - AutomaticBrakingDeactivated   
+            - AutomaticHeadlightAdjustmentFault   
+            - BatteryChargeOrElectricalCircuitSystemFailure 
+            - BrakingSystemFailure    
+            - ChargingFailure     
+            - CheckTheCenterBrakeLamp    
+            - CollisionDetectionSystemFault   
+            - CollisionMitigationSystemFault   
+            - CoolantLevellow     
+            - DrivingAssistanceSensorBlind   
+            - ElectricTractionSystemFailureLimitSpeed
+            - ElectricTractionSystemFailureStopVehicle
+            - ElectricTractionSystemFault
+            - ElectronicImmobiliserFault    
+            - EmissionSystemOrAdBlueQualityFailueStartingImpossible
+            - EmissionSystemOrAdBlueQualityFailueStartingImpossibleSoon
+            - EmissionSystemOrAdBlueQualityFailure  
+            - EngineFailure     
+            - EngineFault
+            - EngineMisfiringFuel
+            - EngineOilPressureFailure    
+            - EngineTemperatureFailure    
+            - EspAsrSystemFault     
+            - FrontLeftFlashingIndicatorFault   
+            - FrontLeftFogLampsFault     
+            - FrontLeftParkingLampsFault     
+            - FrontRightFlashingIndicatorFault   
+            - FrontRightFogLampsFault     
+            - FrontRightParkingLampsFault     
+            - FuelLevelLow     
+            - GearboxFault     
+            - HeadlightsFault     
+            - InstalledSpareWheelFault   
+            - InterVehicleTimeMeasurementFault  
+            - LaneChangeAssistanceFault     
+            - LaneDepartureWarningSystemFault   
+            - LeftBrakeLampFault  
+            - LeftFrontDoorOpen     
+            - LeftFrontDoorOpenLowSpeed 
+            - LeftFrontTirePressurSensorFault   
+            - LeftFrontTirePuncture    
+            - LeftFrontTireUnderInflated    
+            - LeftRearDoorOpen     
+            - LeftRearDoorOpenLowSpeed
+            - LeftRearTirePressurSensorFault   
+            - LeftRearTirePuncture    
+            - LeftRearTireUnderInflated    
+            - LeftReverseLampFault     
+            - OilLevelLow      
+            - ParkAssistSystemFault    
+            - ParkingBrakeOrHillStartSystemFailure  
+            - ParticleFilterAdditiveLevelTooLow   
+            - ParticleFilterFull     
+            - ParticleFilterRegenerating    
+            - PowerSteeringFailure    
+            - PowerSteeringFault    
+            - PreheatingPreventilationDeactivatedBatteryLow 
+            - PreheatingPreventilationDeactivatedClockUnset 
+            - PreheatingPreventilationDeactivatedFuelLevelLow 
+            - RearLeftFlashingIndicatorFault   
+            - RearLeftFogLampsFault     
+            - RearLeftParkingLampsFault     
+            - RearRightFlashingIndicatorFault   
+            - RearRightFogLampsFault     
+            - RearRightParkingLampsFault     
+            - RearWindowOpen     
+            - RearWindowOpenLowSpeed
+            - ReplaceBrakePads     
+            - ReplaceTheRemoteControlBattery   
+            - RetractableRoofMechanismFault   
+            - RightBrakeLampFault     
+            - RightFrontDoorOpenLowSpeed    
+            - RightFrontDoorpen     
+            - RightFrontTirePressurSensorFault  
+            - RightFrontTirePuncture    
+            - RightFrontTireUnderInflated    
+            - RightRearDoorOpen     
+            - RightRearDoorOpenLowSpeed 
+            - RightRearTirePressurSensorFault   
+            - RightRearTirePuncture    
+            - RightRearTireUnderInflated    
+            - RightReverseLampFault     
+            - RiskOfIce     
+            - RoofOperationNotPossibleSpeedUnknown
+            - RoofOperationNotPossibleTooHighTemp
+            - ShiftToPark     
+            - SteeringLockFault     
+            - SuspensionFault     
+            - SuspensionFaultLimitSpeed
+            - SuspensionFaultRepaireVehicle
+            - TireUnderInflationDetectionSystemFault  
+            - TireUnderInflationDetectionSystemFault  
+            - TooManyRoofOperation
+            - TrailerConnectionFault    
+            - TrunkOrHoodOpen     
+            - TrunkOrHoodOpenLowSpeed
+            - WaterInTheDieselFuelFilter  
+
         
     BoundedProgram:
       allOf:
@@ -2815,47 +2828,24 @@ components:
     timestamps:
       name: timestamps
       in: query
-      description: >-
-        Array of **"Times range"**. Results will contain results whose
-        timestamps are included in those date-time ranges (see **timestamp**
-        data  model).**"timestamp"** items should be expressed as in
-        '[RFC3339](https://www.ietf.org/rfc/rfc3339.txt)'.
-                
-        
-        Times range is the time intervening between two times. The range can be
-            expressed by two times Points (start and end *Timestamp*s) or by a start
-            *Timestamp* Point and a *Duration* . All of
-            them  should be expressed using the 
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) and the interval format
-            is based on
-            [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals)
-    
-
-              * 'T1/T2' interval time from low limit T1 to hight T2
-
-              * 'T1/D' interval time from low limit T1 with duration = D ( T2=T1+D)
-
-
-              * 'T/' endless range, known start Timestamp but no end Timestamp. The current time  will be used as the high time limit.
-
-
-              * '/T' startless range, known end date but no start date. No lower limit
-                will be used to retrieve results.
-
-
-
-                *T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).*
-
-
-                Example: 
-
-
-                *  *2018-01-01T09:00:00+01:00/2018-01-01T12:00:00+01:00* known low and hight
-                  limits.
-
-                *  *2018-01-03T12:00:00+01:00/P3Y6M4DT12H30M5S*  known low limit, hight limit = start + duration.
-
-                *  *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
+      description: |
+          Array of  **"timestamp"** ranges. Results will contain results whose
+          timestamps are included in those date-time ranges (see **timestamp**
+          data  model).**"timestamp"** items should be expressed as in
+          '[RFC3339](https://www.ietf.org/rfc/rfc3339.txt)'. Each element of the array expresses a time range (with the pattern ```\w?/\w?``` or ```R\d?/w/w(/w)?```) which is the period between two or more times. The range can be expressed by two times Points (start and end *Timestamp*s), by a start
+          *Timestamp* Point and a *Duration* or as a repeating interval. All of them  should be expressed using the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) and the interval format
+          is based on [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals)
+          - 'T1/T2' interval time from low limit T1 to hight T2
+          - 'T1/D' interval time from low limit T1 with duration = D ( T2=T1+D)
+          - 'T/' endless range, known start Timestamp but no end Timestamp. The current time  will be used as the high time limit.
+          - '/T' startless range, known end date but no start date. No lower limit will be used to retrieve results.
+          - Rn/T/D/[d]  repeat the interval of D **n** times starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H 
+          - R/T/D/[d] unbounded number of repetitions starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H.
+            - T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).*
+            - 2018-01-01T09:00:00+01:00/2018-01-01T12:00:00+01:00* known low and hight limits.
+            - *2018-01-03T12:00:00+01:00/P3Y6M4DT12H30M5S*  known low limit, hight limit = start + duration.
+            - *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
+            - *R5/2018-01-03T12:00:00Z/P6H/P2H* repeate duration 6H wiht interval period of 2H for 5 times starting at 2018-01-03T12:00:00Z.
       required: false
       schema:
         type: array

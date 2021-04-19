@@ -12,6 +12,7 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v2.0.7](#b2b_v207) | 2.0.7
 [b2b_v2.0.6](#b2b_v206) | 2.0.6
 [b2b_v2.0.5](#b2b_v205) | 2.0.5
 [b2b_v2.0.3-P6](#b2b_v203-p6) | Fix naming & enums
@@ -20,6 +21,14 @@ Version|Name
 [b2b_v2.0.3-P3](#b2b_v203-p3) | Align with v3
 [b2b_v2.0.3](#b2b_v203) | Candiate version
 
+## b2b_v2.0.7
+
+{% include published_on.html date='19 Apr 2021' %}
+
+- Update pattern for trigger names
+- Remove telemetry Links for fleets
+- Remove label for GET /Vehicles
+- Update alert vehicle list
 
 ## b2b_v2.0.6
 
