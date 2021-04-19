@@ -12,6 +12,11 @@ description: "PSA Groupe developer portal's version changelog."
     You might also be interessted in the changelogs of <a href="{{site.baseurl}}/webapi/b2b/api-reference-v2/changelog/#article">web API B2B v2</a>, and <a href="{{site.baseurl}}/webapi/b2b/api-reference-v3/changelog/#article"> web API B2B v3</a>.</p>
 </div>
 
+<style>
+    nav.breadcrumb {
+        display: none;
+    }
+</style>
 
 Version|Name
 -|-
@@ -665,3 +670,5 @@ Version|Name
 **Embedded Webportal**
 
 - Add section Embedded Webportal.
+
+
