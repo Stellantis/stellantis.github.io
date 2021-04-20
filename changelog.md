@@ -20,6 +20,7 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
+[6.6.0](#660) | WEB API: Add retry policy page 
 [6.5.0](#650) | WEB API B2B v2.0.7 & v3.0.8
 [6.4.0](#640) | Update data catalog: data & layout & filters
 [6.3.0](#630) | WEB API B2B v2.0.6 & v3.0.7 / Update Menu & page title / Matomo
@@ -67,6 +68,15 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+## 6.6.0
+
+{% include published_on.html date='20 Apr 2021' %}
+
+**Web API**
+- add a page explaining retry policy for monitor & remote
+
+<hr>
 
 ## 6.5.0
 

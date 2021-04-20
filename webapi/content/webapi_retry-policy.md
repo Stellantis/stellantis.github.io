@@ -54,7 +54,7 @@ In this case the notification will be stored & we will retry to send the notific
 
 When the retry policy is set to *None* or *Bounded*, if the notification is not received on your side, the message will be sent:
 - `None`: only one single retry.
-- `Bounded`: with a limited number of retries set with `retryNumber` & `retryDelay`.
+- `Bounded`: with a limited number of retries set with `retryNumber` & `retryDelay`. There is a **[limit](#limitation) of retries** as explained below.
 
 ##### ALWAYS
 
@@ -119,10 +119,10 @@ That's why a **limitation process** is triggered on you {{page.categorie | downc
 #### ENTER IN LIMITATION
 
 When an event failed to being sent to your server, the limitation process will be triggered: 
-- If it's the {{page.categorie | downcase}} **was not under limitation**, level 1 or 2 will be assigned depending on the HTTP error code (or time-out).
+- If the {{page.categorie | downcase}} **was not under limitation**, level 1 or 2 will be assigned depending on the HTTP error code (or time-out).
 - If it **was already limited**, one attempt will be added (only if the failed attempt occurred after the end of the current level refresh, *see [level](#limitation)*) to the count of failed attempt and eventually progress to the next level.
 
-If it's not receveid the event notification is stored in our database, and when your server will not be under limitation (*see [getting out of limitation](#get-out-limitation)*) it will be sent again to your server.
+If it's not receveid the event notification is stored in our database, and when your server will not be under limitation (*see [getting out of limitation](#get-out-of-limitation)*) it will be sent again to your server.
 
 If your {{page.categorie | downcase}} reach level 3 + 10 failed attempts, the event will not be sent anymore. This is to ensure the reliability of the {{page.categorie | downcase}} service. <br>*However, it's still  possible to retrieve data about a vehicle using the **REST API**, all data are available during 2 months*.
 
