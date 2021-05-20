@@ -1,7 +1,11 @@
-
 # WEBHOOK TEMPLATE
 
 What we offer with monitor is a simple way to process large amount of vehicle data. Although, you have to develop on your side a **dedicated webhook** able to receive our events.
+### RESPONSE TO NOTIFICATION
+
+{% include_relative /content/webapi-response_to_notification.md %}
+
+### WEBHOOK SPECIFICATION
 
 This web server needs to be configured to read & process our events in order that you get informed about what's happening to your vehicles in real time. Below is the webhook template specification, it describes the HTTP callback you will receive.
 
