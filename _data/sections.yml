@@ -99,6 +99,8 @@
               path: set-up/
             - name: Retry Policy
               path: retry-policy/
+            - name: Notifications and Errors
+              path: notifications-errors/
             - name: Webhook References
               path: webhook/
         - name: API Reference v2

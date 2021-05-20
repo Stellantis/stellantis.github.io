@@ -1624,6 +1624,20 @@ margin-right: 0 !important;}
   padding-bottom: 2rem;
 }
 
+.content .content-img-float-right {
+    width: 450px; 
+    float: right; 
+    margin-left: 2.5rem; 
+    padding-top: 0; 
+}
+
+@media screen and (max-width: 1285px) {
+    .content img.content-img-float-right {
+        float:none;
+        margin-left: auto;
+    }
+}
+
 @media screen and (max-width: 915px) {
 
     .content img{
