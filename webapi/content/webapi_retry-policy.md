@@ -95,7 +95,7 @@ After the first message not processed on your side, **other notification** messa
 However, after 3 days, it's still possible to retrieve data using the REST API within the normal period of 2 months.
 
 > **Info:** The retry policy impact the notification message, not the [callback]({{callbackLink}}). Others {{page.categorie | downcase }} related to a callback are not affected by the retry policy. 
-It means also that your server need to respond a 2XX to a message send for this particular {{page.categorie | downcase }}.
+It means also that your server needs to respond a 2XX to a message send for this particular {{page.categorie | downcase }} in order to get out of the retry policy.
 
 ## ENTER IN RETRY POLICY
 
