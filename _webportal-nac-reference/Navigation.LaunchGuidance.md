@@ -59,30 +59,4 @@ if ( Navigation.LaunchGuidance(Description, DestinationLongitude, DestinationLat
 
 >**Note 3:** The Navigation events are triggered only if the Navigation was launched using either `LaunchGuidance` or `LaunchGuidanceWaypoints`.
 
-
->**Important:** In order to verify if you can use the new API `Navigation.LaunchGuidanceWaypoints` or the old one `Navigation.LaunchGuidance`, you can check the existence of one of the following JS events:
->- *Navigation.InvalidCoordinates*
->- *Navigation.RouteCalculationSuccessful*
->- *Navigation.RouteCalculationCanceled*
->- *Navigation.RouteCalculationFailed*
->
->```javascript
->function() {
->    try{
->      if('undefined' != typeof Navigation)
->      {
->        if(Navigation.hasOwnProperty('InvalidCoordinates'))
->        {
->          this.newInterface = true
->        }
->      }      
->    } catch (e)
->    {
->      this.newInterface = false
->    }
->  }
->```
->
 >If newInterface is false then you should use the old one `Navigation.LaunchGuidance`
-
-*Appeared in Software version 40.03.42.30*

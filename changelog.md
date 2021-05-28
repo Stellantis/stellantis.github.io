@@ -20,6 +20,7 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
+[6.8.0](#680) | WEB API: Update Retry Policy (TTL 3 days)
 [6.7.0](#670) | WEB API: ADD notifications & error page + response to notif 
 [6.6.0](#660) | WEB API: Add retry policy page 
 [6.5.0](#650) | WEB API B2B v2.0.7 & v3.0.8
@@ -69,6 +70,16 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+## 6.8.0
+
+{% include published_on.html date='28 May 2021' %}
+
+**Web API**
+- retry policy: remove old algorithm explanation and add the 3 days TTL notice
+
+
+<hr>
 
 ## 6.7.0
 
