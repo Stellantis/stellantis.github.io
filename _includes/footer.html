@@ -4,10 +4,11 @@
     <div class="footer-item">
       <p class="footer-heading">THIS WEBSITE</p>
       <div class="footer-links">
-        <span class="footer-link">Version&nbsp;<a href="{{site.baseurl}}/changelog/#{{site.doc-version | remove: '.'}}">{{site.doc-version}}</a></span>
-        <a class="footer-link" href="{{site.baseurl}}/changelog/">Changelog</a>
+        <a class="footer-link" href="{{site.baseurl}}/changelog/#{{site.doc-version | remove: '.'}}">Doc v{{site.doc-version}}</a>
         <a class="footer-link" href="{{site.baseurl}}/credits/">Credits</a>
-        <a class="footer-link" href="{{site.baseurl}}/sitemap.xml">Sitemap</a>
+        <a class="footer-link" href="{{site.baseurl}}/contact-us/">
+            Contact Us
+        </a>
         <span class="footer-link">© Groupe PSA {{ 'now' | date: "%Y" }}</span>
       </div>
     </div>
@@ -38,14 +39,6 @@
     <div class="footer-item">
       <p class="footer-heading">SOCIAL</p>
       <div class="footer-links">
-        <a class="footer-link" href="mailto:connectedcar@mpsa.com" target="_blank">
-          <span class="icon is-white">
-            <i class="fas fa-at"></i>
-          </span>
-          <span>
-            Email
-          </span>
-        </a>
         <a class="footer-link" href="https://twitter.com/groupePSA" target="_blank">
           <span class="icon is-white">
             <i class="fab fa-twitter"></i>

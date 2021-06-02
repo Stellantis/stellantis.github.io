@@ -20,6 +20,7 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
+[6.8.1](#681) | Website: Add Contact Form
 [6.8.0](#680) | WEB API: Update Retry Policy (TTL 3 days)
 [6.7.0](#670) | WEB API: ADD notifications & error page + response to notif 
 [6.6.0](#660) | WEB API: Add retry policy page 
@@ -70,6 +71,16 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+## 6.8.1
+
+{% include published_on.html date='2 June 2021' %}
+
+**Website**
+- add [contact form]({{site.baseur}}/contact-us/)
+
+
+<hr>
 
 ## 6.8.0
 
