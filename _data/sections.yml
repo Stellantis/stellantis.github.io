@@ -17,6 +17,10 @@
               path: connected-services/
             - name: Privacy Settings
               path: privacy/
+            - name: Remotes Control
+              path: remotes/
+            - name: Monitoring & Notification
+              path: monitors/
             - name: Data Catalog
               path: data-catalog/
     - tag: api-data

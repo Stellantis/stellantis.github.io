@@ -1,0 +1,46 @@
+---
+# In order to import this stlye, import it with 'require: cta' in the page front matter.
+---
+
+.cta {
+    padding: 1rem 1.2rem;
+    font-size: 1.3rem;
+    line-height: 1.25rem;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: transform .2s ease;
+    font-weight: 500;
+    border: 3px solid white;
+    width: 350px;
+    background-color: transparent;
+    box-shadow: 0px 0px 16px 1px rgb(22, 22, 22);
+    text-shadow: 2px 2px 4px rgb(22, 22, 22);
+    display: flex;
+    justify-content: center;
+    align-content: baseline;
+}
+
+.cta .cta-arrow{
+    fill: #ff4238;
+    margin-left: 1.5rem;
+    height: 20px;
+    width: 30px;
+}
+
+.cta:hover {
+    border: 3px solid #ff4238;
+    background-color: #ff4238;
+    color: white;
+}
+
+.cta:hover .cta-arrow {
+    transform: translateX(8px);
+    fill: white;
+}
+
+.cta-container {
+    justify-content: center;
+    display: flex;
+}
