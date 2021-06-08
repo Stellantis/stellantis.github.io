@@ -20,6 +20,7 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
+[6.9.0](#690) | Add Remote Nav + Add Monitor & Remote in connected vehicle 
 [6.8.1](#681) | Website: Add Contact Form
 [6.8.0](#680) | WEB API: Update Retry Policy (TTL 3 days)
 [6.7.0](#670) | WEB API: ADD notifications & error page + response to notif 
@@ -71,6 +72,22 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+## 6.9.0
+
+{% include published_on.html date='8 June 2021' %}
+
+**Connected Vehicle**
+- Monitor page
+- Remote page
+
+**Webapi:**
+- Add remote navigation feature
+
+**Webportal:**
+- fix navigation.LaunchGuidanceWaypoints (waypoints array is optional)
+
+<hr>
 
 ## 6.8.1
 

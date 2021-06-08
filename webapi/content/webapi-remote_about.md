@@ -2,7 +2,7 @@
 
 With our APIs, you are able to {% if page.subsection == 'b2b' %}[browse data]({{site.baseurl}}/webapi/b2b/overview/standards/){% elsif page.subsection == 'b2c' %}[browse datas]({{site.baseurl}}/webapi/b2c/overview/standards/){% endif %} about vehicles and receive {% if page.subsection == 'b2b' %}[custom notifications]({{site.baseurl}}/webapi/b2b/monitor/about){% elsif page.subsection == 'b2c' %}[custom notifications]({{site.baseurl}}/webapi/b2c/monitor/about){% endif %}. Now, the remote APIs allow you to send online commands to connected vehicles.
 
-> **Note:** Remote control is only available with WEB API V3.
+> **Note:** Remote control is only available within [WEB API V3]({{site.baseurl}}/webapi/b2b/api-reference-v3/specification/#article).
 
 <img src="{{site.baseurl}}/assets/images/remote-features.png" alt="remote-features" style="width: 580px">
 
@@ -14,8 +14,9 @@ With our APIs, you are able to {% if page.subsection == 'b2b' %}[browse data]({{
 - **State**: Refresh and retrieve vehicle status info.
 - **Preconditioning**: Program heater or AC before the vehicle is being used.
 - **DoorsState**: Lock/unlock the doors remotely.
-- **Horn**: Honk the horn, maybe you will be able to find your car in the car-park this time.
+- **Horn**: Honk the horn remotely.
 - **Immobilization**:  Immobilize the vehicle until you let it go again.
+- **Navigation**: Send a remote navigation in the vehicle guidance system.
 
 # HOW DOES IT WORK?
 
@@ -44,3 +45,5 @@ While the command is being processed by the vehicle, you will receive callback r
 When you send a remote action to a vehicle, you will receive **several notifications** as the action is processing: 
 - Pending: The remote action is in process (*Accepted*, *Waking-Up*, *Send* etc). You can receive several pending events.
 - Done: The remote action is complete (*Success*, *Failure* etc).
+
+Read this [page]({{site.baseurl}}/webapi/{{page.subsection | downcase}}/remote/notifications-errors/) more info about these notifications (and related errors).

@@ -4,12 +4,31 @@
     <div class="footer-item">
       <p class="footer-heading">THIS WEBSITE</p>
       <div class="footer-links">
-        <a class="footer-link" href="{{site.baseurl}}/changelog/#{{site.doc-version | remove: '.'}}">Doc v{{site.doc-version}}</a>
-        <a class="footer-link" href="{{site.baseurl}}/credits/">Credits</a>
-        <a class="footer-link" href="{{site.baseurl}}/contact-us/">
-            Contact Us
+        <a class="footer-link" href="{{site.baseurl}}/changelog/#page-title">
+          <span class="icon is-white">
+            <i class="fas fa-code-branch"></i>
+          </span>
+          Website v{{site.doc-version}}
         </a>
-        <span class="footer-link">© Groupe PSA {{ 'now' | date: "%Y" }}</span>
+        <a class="footer-link" href="{{site.baseurl}}/credits/">
+          <span class="icon is-white">
+            <i class="fas fa-paperclip"></i>
+          </span>
+            Credits</a>
+        <a class="footer-link" href="{{site.baseurl}}/contact-us/">
+          <span class="icon is-white">
+            <i class="far fa-envelope"></i>
+          </span>
+          <span>
+            Contact Us!
+          </span>
+        </a>
+        <span class="footer-link">
+          <span class="icon is-white">
+            <i class="far fa-copyright"></i>
+          </span>
+          Groupe PSA {{ 'now' | date: "%Y" }}
+        </span>
       </div>
     </div>
     <!-- /THIS WEBSITE -->

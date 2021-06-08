@@ -65,6 +65,8 @@ When you attempt to send a remote action to a vehicle, one or many notification(
 This page describes only `eventStatus` object, if you need the full response specification, please refer to the [webhook reference]({{site.baseurl}}/webapi/{{page.subsection | downcase}}/remote/webhook/#/article).
 
 
+> **Info:** In the case of sending a remote navigation (RemoteNavigation), you'll **NOT** receive the following events : `"RemotePendingEventStatus": "Accepted"` & `"RemotePendingEventStatus": "WakingUpVehicle"`.
+
 ### MESSAGES DESCRIPTION
 
 - ***Vehicle Sleep:*** if the vehicle is stopped, it stays awake during 3min, when a message is sent to the vehicle, it will stays awake 3 min more. Otherwise, if a vehicle is sleeping, we will to send a special command to awake it. In this case you are notified by a `WakingUpVehicle` because the delay to apply the remote action could be longer.
