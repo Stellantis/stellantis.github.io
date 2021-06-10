@@ -12,6 +12,7 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v2.0.8](#b2b_v208) | 2.0.8
 [b2b_v2.0.7](#b2b_v207) | 2.0.7
 [b2b_v2.0.6](#b2b_v206) | 2.0.6
 [b2b_v2.0.5](#b2b_v205) | 2.0.5
@@ -20,6 +21,13 @@ Version|Name
 [b2b_v2.0.3-P4](#b2b_v203-p4) | Security & TimeStamp
 [b2b_v2.0.3-P3](#b2b_v203-p3) | Align with v3
 [b2b_v2.0.3](#b2b_v203) | Candiate version
+
+## b2b_v2.0.8
+
+{% include published_on.html date='25 Jun 2021' %}
+
+- Refactoring of the vehicle structure (Removing unused embedded)
+- Update alertEnum
 
 ## b2b_v2.0.7
 

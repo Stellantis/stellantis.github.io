@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '3.0.8'
+  version: '3.0.9'
   title: Groupe PSA Connected Car B2B API
   description: | 
 
@@ -278,6 +278,7 @@ components:
             - VehicleState
             - ChargingState
             - WakeUp
+            - Navigation
     RemoteEventType:
       description: | 
         The event type. See```status```for event sate.

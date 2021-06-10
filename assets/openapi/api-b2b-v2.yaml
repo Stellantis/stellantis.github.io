@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '2.0.7'
+  version: '2.0.8'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -1040,6 +1040,7 @@ components:
               properties:
                 voltage:
                   type: number
+                  description: Auxiliary battery (12V) state of health in %
                   format: float
                 current:
                   type: number
@@ -1595,8 +1596,6 @@ components:
           description: Date when the vehicle has been updated
           type: string
           format: date-time
-        _embedded:
-          type: object
     
     VehicleLabel:
         properties:
@@ -1959,23 +1958,6 @@ components:
                   $ref: '#/components/schemas/MonitorId'
                 status:
                   $ref: '#/components/schemas/MonitorStatus'
-    
-    MonitorTrigger:
-      title: MonitorTrigger  
-      description: >
-        Monitor trigger.```Only one```of *Zone, Time or Data* is supported at a time. Otherwise it would cause a bad request response.  
-      properties:
-        name: 
-          description: 'The trigger name must be uniq and respect the following pattern'
-          pattern: "\"[a-zA-Z]+[.-_]?[0-9]*\""
-          type: string
-        zone: 
-             $ref: '#/components/schemas/ZoneTrigger'
-        time: 
-             $ref: '#/components/schemas/TimeTrigger'
-        data: 
-             $ref: '#/components/schemas/DataTrigger'     
-      required: [name]  
                  
     ZoneTrigger:
       title: ZoneTrigger
@@ -2289,7 +2271,7 @@ components:
             - RetractableRoofMechanismFault   
             - RightBrakeLampFault     
             - RightFrontDoorOpenLowSpeed    
-            - RightFrontDoorpen     
+            - RightFrontDoorOpen     
             - RightFrontTirePressurSensorFault  
             - RightFrontTirePuncture    
             - RightFrontTireUnderInflated    
@@ -2828,24 +2810,47 @@ components:
     timestamps:
       name: timestamps
       in: query
-      description: |
-          Array of  **"timestamp"** ranges. Results will contain results whose
-          timestamps are included in those date-time ranges (see **timestamp**
-          data  model).**"timestamp"** items should be expressed as in
-          '[RFC3339](https://www.ietf.org/rfc/rfc3339.txt)'. Each element of the array expresses a time range (with the pattern ```\w?/\w?``` or ```R\d?/w/w(/w)?```) which is the period between two or more times. The range can be expressed by two times Points (start and end *Timestamp*s), by a start
-          *Timestamp* Point and a *Duration* or as a repeating interval. All of them  should be expressed using the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) and the interval format
-          is based on [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals)
-          - 'T1/T2' interval time from low limit T1 to hight T2
-          - 'T1/D' interval time from low limit T1 with duration = D ( T2=T1+D)
-          - 'T/' endless range, known start Timestamp but no end Timestamp. The current time  will be used as the high time limit.
-          - '/T' startless range, known end date but no start date. No lower limit will be used to retrieve results.
-          - Rn/T/D/[d]  repeat the interval of D **n** times starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H 
-          - R/T/D/[d] unbounded number of repetitions starting at T using **d** (extension of the standard and not mandatory) as range duration. The default (duration) value of d is 24 H.
-            - T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).*
-            - 2018-01-01T09:00:00+01:00/2018-01-01T12:00:00+01:00* known low and hight limits.
-            - *2018-01-03T12:00:00+01:00/P3Y6M4DT12H30M5S*  known low limit, hight limit = start + duration.
-            - *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
-            - *R5/2018-01-03T12:00:00Z/P6H/P2H* repeate duration 6H wiht interval period of 2H for 5 times starting at 2018-01-03T12:00:00Z.
+      description: >-
+        Array of **"Times range"**. Results will contain results whose
+        timestamps are included in those date-time ranges (see **timestamp**
+        data  model).**"timestamp"** items should be expressed as in
+        '[RFC3339](https://www.ietf.org/rfc/rfc3339.txt)'.
+                
+        
+        Times range is the time intervening between two times. The range can be
+            expressed by two times Points (start and end *Timestamp*s) or by a start
+            *Timestamp* Point and a *Duration* . All of
+            them  should be expressed using the 
+            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) and the interval format
+            is based on
+            [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals)
+    
+
+              * 'T1/T2' interval time from low limit T1 to hight T2
+
+              * 'T1/D' interval time from low limit T1 with duration = D ( T2=T1+D)
+
+
+              * 'T/' endless range, known start Timestamp but no end Timestamp. The current time  will be used as the high time limit.
+
+
+              * '/T' startless range, known end date but no start date. No lower limit
+                will be used to retrieve results.
+
+
+
+                *T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).*
+
+
+                Example: 
+
+
+                *  *2018-01-01T09:00:00+01:00/2018-01-01T12:00:00+01:00* known low and hight
+                  limits.
+
+                *  *2018-01-03T12:00:00+01:00/P3Y6M4DT12H30M5S*  known low limit, hight limit = start + duration.
+
+                *  *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
       required: false
       schema:
         type: array

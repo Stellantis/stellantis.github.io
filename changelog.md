@@ -75,14 +75,15 @@ Version|Name
 
 ## 6.9.0
 
-{% include published_on.html date='8 June 2021' %}
+{% include published_on.html date='25 Jun 2021' %}
 
 **Connected Vehicle**
 - Monitor page
 - Remote page
 
 **Webapi:**
-- Add remote navigation feature
+- v2.0.8
+- v3.0.9: Add remote navigation feature
 
 **Webportal:**
 - fix navigation.LaunchGuidanceWaypoints (waypoints array is optional)

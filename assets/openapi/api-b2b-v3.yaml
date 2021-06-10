@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.0.8'
+  version: '3.0.9'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -1432,6 +1432,7 @@ components:
                 properties:
                   voltage:
                     type: number
+                    description: Auxiliary battery (12V) state of health in %
                     format: float
                   current:
                     type: number
@@ -1567,9 +1568,8 @@ components:
       title: Geometry
       type: object
       description: >-
-        This object expresses the Geometry as specified by
-        [rfc7946](https://tools.ietf.org/html/rfc7946#section-3.1). It is also
-        the root of the Geometry objects (Point, cicle, poygon)
+            This object expresses a GeoJSON Point as specified by
+            [rfc7946](https://tools.ietf.org/html/rfc7946#section-3.1.2).
       properties:
         coordinates:
           title: Coordinates
@@ -1585,25 +1585,30 @@ components:
         - $ref: '#/components/schemas/Geometry'
         - title: Point
         - description: >-
-            This object expresses the Geometry as specified by
-            [rfc7946](https://tools.ietf.org/html/rfc7946#section-3.1). It is also
-            the root of the Geometry objects (Point, cicle, poygon)
-          required: [type,coordinates]
-          properties:
+            This object expresses a GeoJSON Point as specified by
+            [rfc7946](https://tools.ietf.org/html/rfc7946#section-3.1.2).
+        - properties:
             type:
-              type: string
-              default: Point
-              enum:
-                - Point
+                type: string
+                default: Point
+                enum:
+                    - Point
             coordinates:
-              description: >-
-                This is a simple 2 (or more) number vector used to define Geometry
-                objects.
-              type: array
-              items:
-                type: number
-                format: float
-                minItems: 2
+                description: >-
+                    This is a simple 2 (or more) numbers vector used to define Geometry
+                    Point objects.
+                type: array
+                items:
+                    type: number
+                    format: float
+                    minItems: 2
+
+        - required: [type,coordinates]
+        - example: 
+            type: Point
+            coordinates:
+              - 5.970338 
+              - -62.536239
                   
     Position:
       allOf:
@@ -1833,7 +1838,7 @@ components:
                   format: date-time
           - type: object
             description: Preconditioning the vehicle for driver and passenger.
-
+			
             properties:
               airConditioning:
                 type : object
@@ -2024,8 +2029,6 @@ components:
           description: Date when the vehicle has been updated
           type: string
           format: date-time
-        _embedded:
-          type: object
           
     VehicleLabel:
         properties:
@@ -2477,7 +2480,7 @@ components:
       properties:
         name: 
           description: 'The trigger name must be uniq and respect the following pattern'
-          pattern: "\"[a-zA-Z]+(.|_)?[0-9]*\""
+          pattern: "\"[a-zA-Z]+[._]?[0-9]*\""
           type: string
         zone: 
              $ref: '#/components/schemas/ZoneTrigger'
@@ -2681,6 +2684,7 @@ components:
             - Immobilization
             - Stolen
             - WakeUp
+            - Navigation
     
 
     RemoteTypes:
@@ -2691,16 +2695,16 @@ components:
 
     RemoteCharging:
                   type: object
-                  description: Remote electric battery charging action.
+                  description: Remote electric battery charging action. At least one of the following parameters must be provided.
                   properties:
                     nextDelayedTime:
                       description:  Duration (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) until the next battery charging.
                       type: string
                     immediate:
                       type: boolean
-                      description :  Determines if the charging will start immediately(```true```) or not.
-                  required: [nextDelayedTime]
-    
+                      default: true
+                      description :  Determines if the charging will start immediately(```true```) or not. Set to "true" by default.
+                      
     RemoteSetStolen:
                   type: object
                   description: Remote to set the vehicle in stolen state.
@@ -2737,6 +2741,22 @@ components:
                       example: WakeUp
                       items:
                         enum: [WakeUp]
+
+    RemoteNavigation:
+                  type: object
+                  description: A remote to share GPS positions with the vehicle so it can navigate through those positions by driving from start (1st) to end (last) position. It can include only 9 points + the destination.
+                  properties:
+                    driverApproval:
+                        description: Whether sharing position with vehicle requires driver approval or not. 
+                        type: boolean
+                    positions:
+                        type: array
+                        minItems: 1
+                        maxItems: 10
+                        items:
+                            $ref: '#/components/schemas/Point'   
+                  required: [positions, driverApproval]
+
                       
     RemotePreconditioning:
       type: object
@@ -2748,7 +2768,8 @@ components:
           properties:
             immediate:
               type: boolean
-              description :  Determines whether air conditioning will start immediately or not independently if scheduled ```programs``` are set or not.
+              default: false
+              description :  Determines whether air conditioning will start immediately or not independently if scheduled ```programs``` are set or not. Set to "false" by default.
             programs:
               description : List of air conditioning programs to schedule on vehicle.
               type: array
@@ -2816,6 +2837,8 @@ components:
           $ref: '#/components/schemas/RemoteLights'
         wakeUp: 
           $ref: '#/components/schemas/RemoteWakeUp'
+        navigation: 
+          $ref: '#/components/schemas/RemoteNavigation'
         
     CallbackRef: 
       type: object
@@ -3143,7 +3166,7 @@ components:
             - RetractableRoofMechanismFault   
             - RightBrakeLampFault     
             - RightFrontDoorOpenLowSpeed    
-            - RightFrontDoorpen     
+            - RightFrontDoorOpen     
             - RightFrontTirePressurSensorFault  
             - RightFrontTirePuncture    
             - RightFrontTireUnderInflated    
@@ -3812,7 +3835,6 @@ components:
             - *2018-01-03T12:00:00+01:00/P3Y6M4DT12H30M5S*  known low limit, hight limit = start + duration.
             - *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
             - *R5/2018-01-03T12:00:00Z/P6H/P2H* repeate duration 6H wiht interval period of 2H for 5 times starting at 2018-01-03T12:00:00Z.
-
       required: false
       schema:
         type: array
