@@ -12,14 +12,10 @@ description: "PSA Groupe developer portal's version changelog."
     You might also be interessted in the changelogs of <a href="{{site.baseurl}}/webapi/b2b/api-reference-v2/changelog/#article">web API B2B v2</a>, and <a href="{{site.baseurl}}/webapi/b2b/api-reference-v3/changelog/#article"> web API B2B v3</a>.</p>
 </div>
 
-<style>
-    nav.breadcrumb {
-        display: none;
-    }
-</style>
 
 Version|Name
 -|-
+[6.9.1](#691) | WEB API B2B v2.0.8 & v3.0.9
 [6.9.0](#690) | Add Remote Nav + Add Monitor & Remote in connected vehicle 
 [6.8.1](#681) | Website: Add Contact Form
 [6.8.0](#680) | WEB API: Update Retry Policy (TTL 3 days)
@@ -73,9 +69,20 @@ Version|Name
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
 
+
+## 6.9.1
+
+{% include published_on.html date='25 Jun 2021' %}
+
+**Webapi:**
+- v2.0.8
+- v3.0.9
+
+<hr>
+
 ## 6.9.0
 
-{% include published_on.html date='8 June 2021' %}
+{% include published_on.html date='8 Jun 2021' %}
 
 **Connected Vehicle**
 - Monitor page
@@ -83,18 +90,6 @@ Version|Name
 
 **Webapi:**
 - Add remote navigation feature
-
-**Webportal:**
-- fix navigation.LaunchGuidanceWaypoints (waypoints array is optional)
-
-<hr>
-
-## 6.8.1
-
-{% include published_on.html date='2 June 2021' %}
-
-**Website**
-- add [contact form]({{site.baseur}}/contact-us/)
 
 
 <hr>
@@ -730,5 +725,3 @@ Version|Name
 **Embedded Webportal**
 
 - Add section Embedded Webportal.
-
-
