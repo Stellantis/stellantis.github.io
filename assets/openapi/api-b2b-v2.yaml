@@ -1464,7 +1464,7 @@ components:
           description: Date & Time when the trip stopped
         duration:
           type: string
-          description: Duration of the trip
+          description: Duration in seconds of the trip
         distance:
           type: number
           format: float
@@ -2571,9 +2571,9 @@ components:
                 speed:
                   type: number
                   format: float
-                  description:  Vehicle speed (expressed in m/s)
+                  description:  Vehicle speed (expressed in km/h)
                 pace:
-                  description:  Vehicle pace (expressed in m/s)
+                  description:  Vehicle estimated distance (expressed in m)
                   type: number
                   format: float
                 moving:

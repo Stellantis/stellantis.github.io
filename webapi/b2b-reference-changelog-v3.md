@@ -17,7 +17,7 @@ Version|Name
 [b2b_v3.0.6](#b2b_v306) | 3.0.6
 [b2b_v3.0.5](#b2b_v305) | 3.0.5
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
-[b2b_v3.0.3](#b2b_v303) | 3.0.3
+[b2b_v3.0.3](#b2b_v303) | 3.0.3 
 [b2b_v3.0.0](#b2b_v300) | Candiate version
 
 ## b2b_v3.0.9
@@ -29,6 +29,7 @@ Version|Name
 - Update charging & preconditionning remote command
 - Update alertEnum
 - Add remote navigation command
+- Update Kinetic bloc
 
 ## b2b_v3.0.8
 
@@ -43,6 +44,7 @@ Version|Name
 - Remove label for GET /Vehicles
 - Update alert vehicle list
 - Add slot parameter as mandatory for remote preconditionning command
+
 
 ## b2b_v3.0.7
 
@@ -107,4 +109,3 @@ Version|Name
 
 #### `Candiate version`
 Spec version : b2b_v3.0.0
-
