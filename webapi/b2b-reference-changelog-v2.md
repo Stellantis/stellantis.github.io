@@ -28,6 +28,7 @@ Version|Name
 
 - Refactoring of the vehicle structure (Removing unused embedded)
 - Update alertEnum
+- Update kinetic bloc
 
 ## b2b_v2.0.7
 

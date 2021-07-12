@@ -1893,7 +1893,7 @@ components:
           description: Date & Time when the trip stopped
         duration:
           type: string
-          description: Duration of the trip
+          description: Duration in seconds of the trip
         distance:
           type: number
           format: float
@@ -2747,12 +2747,10 @@ components:
                   description: A remote to share GPS positions with the vehicle so it can navigate through those positions by driving from start (1st) to end (last) position. It can include only 9 points + the destination.
                   properties:
                     driverApproval:
-                        description: Whether sharing position with vehicle requires driver approval or not. 
+                        description: Whether sharing position with vehicle requires driver approval or not.
                         type: boolean
                     positions:
                         type: array
-                        minItems: 1
-                        maxItems: 10
                         items:
                             $ref: '#/components/schemas/Point'   
                   required: [positions, driverApproval]
@@ -3487,10 +3485,6 @@ components:
                   type: number
                   format: float
                   description:  Vehicle speed (expressed in m/s)
-                pace:
-                  description:  Vehicle pace (expressed in m/s)
-                  type: number
-                  format: float
                 moving:
                   type: boolean 
     
@@ -3671,7 +3665,7 @@ components:
                             createdAt:
                               description: Date when the resource has been created.
                               type: string
-                              format: date-time 
+                              format: date-time
                       - $ref: '#/components/schemas/LuminosityBase'
     LuminosityBase:
                     allOf:
