@@ -23,36 +23,6 @@
               path: monitors/
             - name: Data Catalog
               path: data-catalog/
-    - tag: api-data
-      path: api-data/
-      name: Features
-      nameUpcase: FEATURES
-      categories:
-      - name: 
-        path:
-        pages:
-        - name: Alerts
-          path: alerts/
-        - name: Collisions
-          path: collisions/
-        - name: Location
-          path: location/
-        - name: Maintenance
-          path: maintenance/
-        - name: Monitors
-          path: monitors/
-        - name: Pictures
-          path: pictures/
-        - name: Remotes
-          path: remotes/
-        - name: Telemetries
-          path: telemetries/
-        - name: Trips
-          path: trips/
-        - name: Vehicle Info
-          path: vehicle-info/
-        - name: HMI
-          path: hmi/
 - tag: webapi
   path: /webapi/
   name: Web API
