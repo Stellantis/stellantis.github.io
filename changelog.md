@@ -15,6 +15,8 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
+[6.9.4](#694) | Data catalog: update pace & speed units
+[6.9.3](#693) | WEBAPI: rate limit info
 [6.9.2](#692) | WEB API B2B v2.0.8 & v3.0.9: fix swagger
 [6.9.1](#691) | WEB API B2B v2.0.8 & v3.0.9
 [6.9.0](#690) | Add Remote Nav + Add Monitor & Remote in connected vehicle 
@@ -70,6 +72,25 @@ Version|Name
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
 
+## 6.9.4
+
+{% include published_on.html date='19 Jul 2021' %}
+
+**Data Catalog**
+- update speed & pace units
+
+<hr>
+
+## 6.9.3
+
+{% include published_on.html date='13 Jul 2021' %}
+
+**Webapi:**
+- add info about rate limit
+
+
+<hr>
+
 ## 6.9.2
 
 {% include published_on.html date='7 Jul 2021' %}
@@ -109,7 +130,7 @@ Version|Name
 {% include published_on.html date='2 Jun 2021' %}
 
 **Website**
-- add [contact form]({{site.baseur}}/contact-us/)
+- add [contact form]({{site.baseurl}}/contact-us/)
 
 
 <hr>
