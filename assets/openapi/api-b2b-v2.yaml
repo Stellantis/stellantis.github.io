@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '2.0.8'
+  version: '2.1.0'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -446,10 +446,10 @@ paths:
         
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
-        
+        - $ref: '#/components/parameters/telemetryType'
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageSizeHighFrequency'
         - $ref: '#/components/parameters/pageToken'
         
         - $ref: '#/components/parameters/telemetryExtension'
@@ -744,6 +744,8 @@ paths:
         
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/pageSizeHighFrequency'
+        - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/tolerence'
@@ -769,6 +771,8 @@ paths:
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/pageSizeHighFrequency'
+        - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/tolerence'
@@ -799,8 +803,9 @@ paths:
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageSizeHighFrequency'
         - $ref: '#/components/parameters/pageToken'
+        - $ref: '#/components/parameters/telemetryType'
         
         - $ref: '#/components/parameters/telemetryExtension'
       responses:
@@ -826,9 +831,10 @@ paths:
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/timestamps'
         - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageSizeHighFrequency'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/telemetryExtension'
+        - $ref: '#/components/parameters/telemetryType'
       responses:
         200:
           $ref: '#/components/responses/TelemetrySuccessResponse'
@@ -1133,8 +1139,17 @@ components:
                   $ref: '#/components/schemas/ServiceType'
             safety:  
                   $ref: '#/components/schemas/Safety'
+            odometer: 
+                  $ref: '#/components/schemas/VehicleOdometer'
+            kinetic :
+                  $ref: '#/components/schemas/Kinetic'
             environment: 
                   $ref: '#/components/schemas/Environment'
+            drivingBehavior:
+                  description: Describe the behavior of the driver
+                  allOf:
+                    - $ref: '#/components/schemas/UpdatedAtField'
+                    - $ref: '#/components/schemas/DrivingBehaviorBase'
             _embedded:
               type: object
               properties:
@@ -1151,6 +1166,16 @@ components:
                       format: date-time
                     state:
                       type: string
+                      description: Depracted, use driverRequestState and serviceState instead
+                      deprecated: true
+                      enum: [None, Geolocation, Full]
+                    driverRequestState:
+                      type: string
+                      description: Privacy selected by the driver. Partners are responsible of the end-user data access when it do not match the partner privacy (serviceState). 
+                      enum: [None, Geolocation, Full]
+                    serviceState:
+                      type: string
+                      description: Privacy of the partner used to restitute all services. Partners are responsible of the end-user data access when it do not match the driver privacy (driverRequestState). 
                       enum: [None, Geolocation, Full]
                       
     Geometry:
@@ -2058,7 +2083,9 @@ components:
             | vehicle.maintenance.mileageBeforeMaintenance| Number | equalsTo/ greaterThan/ lowerThan/ | Value |
             | vehicle.safety.beltWarning | Enum(beltWarning) | onChange/equalsTo | Value |
             | environment.air.temp | Number | equalsTo/greaterThan/lowerThan/ | Value |
-            | privacy.state | Enum(Privacy) | equalsTo / onChange/includedIn | Value |
+            | privacy.state (DEPRECATED) | Enum(Privacy) | equalsTo / onChange/includedIn | Value |
+            | privacy.driverRequestState | Enum(Privacy) | equalsTo / onChange/includedIn | Value |
+            | vehicle.drivingBehavior.mode | Enum(drivingBehavior.mode) | equalsTo / onChange/includedIn | Value |  
                 
                         
             The right operand  (value) argument depends on the type of operation (OP) as following:
@@ -2088,6 +2115,9 @@ components:
             - vehicle.safety.beltWarning
             - environment.air.temp
             - privacy.state
+            - privacy.driverRequestState
+            - vehicle.drivingBehavior.mode
+
         op:
             description: The operator of the trigger function.                          
             type: string
@@ -2480,7 +2510,18 @@ components:
                   eCallTriggeringRequest:
                     type: string
                     enum: [AirbagUnabled, NoRequest, Requested]
-        
+            odometer: 
+                type: object
+                properties:
+                  mileage:
+                        description: Vehicle mileage expressed in KM.
+                        type: number
+                        format: float
+            kinetic :
+                  $ref: '#/components/schemas/BasicKinetic'
+            drivingBehavior:
+              description: Describe the behavior of the driver
+              $ref: '#/components/schemas/DrivingBehaviorBase'
         environment:
           $ref: '#/components/schemas/Environment'
          
@@ -2562,7 +2603,6 @@ components:
     BasicKinetic:
             description: |
                           Everything related to the movement of the vehicle. Speed, acceleration..
-                            * _Disclaimer_:  ```speed``` or ```acceleration``` (fileds) are never returned at the same time as the odometer (even if compounded with another data object)
             properties:
                 acceleration:
                   type: number
@@ -2592,6 +2632,29 @@ components:
               properties:
                 parking:
                   type: boolean
+                  
+    DrivingBehaviorBase:
+        type: object
+        properties:
+            mode:
+                description : Driving mode by driver selection
+                type : string
+                enum:
+                    - Normal
+                    - Sport
+                    - Confort
+                    - Eco
+                    - Sand
+                    - Mud
+                    - Snow
+                    - ZEV
+                    - Hybrid
+                    - ZEVEco
+                    - HybridEco
+                    - EcoPlus
+                    - eAWD
+                    - 4AWD
+                    - ReinforcedLoad
     
     Transmission:
               type: object
@@ -2613,6 +2676,8 @@ components:
                       type: object
                       properties:
                         automatic:
+                          type: boolean
+                        sequential:
                           type: boolean
                         sport:
                           type: boolean
@@ -2748,7 +2813,43 @@ components:
                     type: number
                     format: float
     
-          
+    TelemetryEnum:
+      type: array
+      minItems: 1
+      maxItems: 10
+      items:
+        type: string
+        enum:
+          - environment
+          - privacy
+          - vehicle
+          - vehicle.adas
+          - vehicle.battery
+          - vehicle.brakingSystem
+          - vehicle.doorsState
+          - vehicle.energies
+          - vehicle.engines
+          - vehicle.ignition
+          - vehicle.lighting
+          - vehicle.safety
+          - vehicle.transmission
+          - vehicle.drivingBehavior
+    
+    UpdatedAtField:
+      type: object
+      properties:
+       updatedAt:
+          description: Date when the resource has been updated.
+          type: string
+          format: date-time
+    CreatedAtField:
+      type: object
+      properties:
+          createdAt:
+            description: Date when the resource has been created.
+            type: string
+            format: date-time 
+
   ############################ PARAMETERS ################################        
   parameters:  
     fleetId:
@@ -2865,13 +2966,29 @@ components:
       name: pageSize
       in: query
       schema:
-        type: integer
+        type: number
+        format: int
         default: 60
+        maximum: 60
         minimum: 1
       required: false
       description: >-
         The maximum number of results (for a collection results response) to
         return per page. When not set, at most 60 results will be returned. 
+        
+    pageSizeHighFrequency:
+      name: pageSize
+      in: query
+      schema:
+        type: number
+        format: int
+        minimum: 1
+        maximum: 2000
+        default: 60
+      required: false
+      description: >-
+        The maximum number of results (for a collection results response) to
+        return per page for high frequency data upload. When not set, at most 60 results will be returned. 
     
     pageToken:
       name: pageToken
@@ -2905,14 +3022,25 @@ components:
         type: number
         format: float
         
+    telemetryType:
+      name: type
+      in: query
+      description: >-
+        Results will only contain Telemetry messages of this kind. You can add
+        more than one message type. By default, if no type is selected then all telemetries will be taken ```(the number of elements in this array must be between 1 and 10)```.
+      required: false
+      schema:
+        $ref: '#/components/schemas/TelemetryEnum'
+        
     statusExtension: 
       name: extension
       in: query
       description: >-
         Additional data set that will be included in embedded field 
         
-         * _Disclaimer_:  **Enabling ```odometer``` extension will automatically disable ```kinetic``` status message**
+         * _Disclaimer_:  ** ```odometer``` and ```kinetic``` are deprecated here and move inside status object**
       required: false
+      deprecated: true
       schema:
         $ref: '#/components/schemas/StatusExtensionType'  
     
@@ -2924,7 +3052,7 @@ components:
       description: >-
         Additional data set that will be included in embedded field```(the number of elements in this array must be between 1 and 4)```.
         
-         * _Disclaimer_:  **Enabling ```odometer``` extension will automatically disable ```kinetic``` telemetry message**
+        * _Disclaimer_:  ** ```odometer``` and ```kinetic``` are deprecated here and move inside telemetry object**
       required: false
       schema:
         $ref: '#/components/schemas/TelemetryExtensionType'    
