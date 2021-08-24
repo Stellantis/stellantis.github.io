@@ -12,6 +12,7 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v2.1.0](#b2b_v210) | 2.1.0
 [b2b_v2.0.8](#b2b_v208) | 2.0.8
 [b2b_v2.0.7](#b2b_v207) | 2.0.7
 [b2b_v2.0.6](#b2b_v206) | 2.0.6
@@ -21,6 +22,20 @@ Version|Name
 [b2b_v2.0.3-P4](#b2b_v203-p4) | Security & TimeStamp
 [b2b_v2.0.3-P3](#b2b_v203-p3) | Align with v3
 [b2b_v2.0.3](#b2b_v203) | Candiate version
+
+
+## b2b_v2.1.0
+
+{% include published_on.html date='28 Jul 2021' %}
+
+- Add driving behavior on V2 API & associated monitor
+- Update privacy block for V2
+- Add telemetryType for V2
+- Update remote navigation command (SENDTONAV)
+- Refactoring of odometer & kinetic in telemetry & status
+- Update pageSize & pageToken for telemtry & waypoints
+
+
 
 ## b2b_v2.0.8
 

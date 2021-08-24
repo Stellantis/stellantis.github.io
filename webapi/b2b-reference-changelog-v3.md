@@ -11,14 +11,25 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v3.1.0](#b2b_v310) | 3.1.0
 [b2b_v3.0.9](#b2b_v309) | 3.0.9
 [b2b_v3.0.8](#b2b_v308) | 3.0.8
 [b2b_v3.0.7](#b2b_v307) | 3.0.7
 [b2b_v3.0.6](#b2b_v306) | 3.0.6
 [b2b_v3.0.5](#b2b_v305) | 3.0.5
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
-[b2b_v3.0.3](#b2b_v303) | 3.0.3 
+[b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
+
+## b2b_v3.1.0
+
+{% include published_on.html date='28 Jul 2021' %}
+
+- Update remote navigation command (SENDTONAV)
+- Refactoring of odometer & kinetic in telemetry & status
+- Update pageSize & pageToken for telemtry & waypoints
+
+
 
 ## b2b_v3.0.9
 

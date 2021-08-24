@@ -40,6 +40,8 @@
               path: about/
             - name: Standards
               path: standards/
+            - name: Errors & Rate Limit
+              path: errors/
             - name: Try it Out!
               path: demo/
             - name: About Versions
@@ -103,6 +105,8 @@
               path: about/
             - name: Standards
               path: standards/
+            - name: Errors & Rate Limit
+              path: errors/
             - name: Try it Out!
               path: demo/
         - name: Quickstart
