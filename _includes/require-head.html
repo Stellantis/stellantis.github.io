@@ -40,6 +40,10 @@
     {% if page.require contains "webportal-reference-list" %}
     <link rel="stylesheet" href="{{ 'webportal-reference-list.css' | prepend: modules_path| prepend: site.baseurl }}">
     {% endif %}
+    {%- comment -%} REFERENCE-LIST {%- endcomment -%}
+    {% if page.require contains "reference-list" %}
+    <link rel="stylesheet" href="{{ 'reference-list.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
     {%- comment -%} HIGHLIGHTED-LINK {%- endcomment -%}
     {% if page.require contains "highlighted-link" or page.layout == "use-case" %}
     <link rel="stylesheet" href="{{ 'highlighted-link.css' | prepend: modules_path| prepend: site.baseurl }}">

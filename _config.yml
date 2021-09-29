@@ -11,7 +11,7 @@ gitHubSpecB2B: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/ass
 gitHubSpecB2C: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/assets/openapi/psacc.yaml"
 
 # doc versionning
-doc-version: "6.10.0"
+doc-version: "7.0.0"
 
 # WEB API BaseURI - theses var have to be renamed without prod/preprod (because we display only one at once)
 webapiB2C: "https://api.groupe-psa.com/connectedcar/v4"
@@ -23,6 +23,8 @@ webapiB2Bv2: "https://api-cert.groupe-psa.com/connectedcar/v2"
 
 collections:
   webportal-nac-reference:
+    output: false
+  webportal-ivi-reference:
     output: false
   apis-data:
     output: true

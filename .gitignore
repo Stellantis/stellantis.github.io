@@ -7,3 +7,4 @@ _site
 Gemfile.lock
 .jekyll-cache
 script
+.tool-versions

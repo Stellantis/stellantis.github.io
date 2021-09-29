@@ -9,7 +9,6 @@ description: "WebPortal v1 is the browser allowing users to launch authorized We
 redirect_from:
   - /webportal/v1/
   - /webportal/v1/overview/
-  - /webportal/
 ---
 
 # ABOUT WEBPORTAL

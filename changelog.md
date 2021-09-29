@@ -15,6 +15,7 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
+[7.0.0](#700) | Release Webportal V2 References
 [6.10.0](#6100) | WEB API B2B v2.1.0 & v3.1.0
 [6.9.4](#694) | Data catalog: update pace & speed units
 [6.9.3](#693) | WEBAPI: rate limit info
@@ -72,6 +73,18 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+## 7.0.0
+
+{% include published_on.html date='29 Sep 2021' %}
+
+**Webportal v2:**
+- first release
+
+**Website:**
+- add reference-list (get set subcribe library)
+
+<hr>
 
 ## 6.10.0
 
