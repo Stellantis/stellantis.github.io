@@ -1,0 +1,74 @@
+---
+layout: empty-content
+permalink: /webportal/
+section: webportal
+require: cta
+description: "Welcome to the WebPortal section. Webportal is the browser embedded in Groupe PSA connected vehicles. It allows to build embbeded Applications in the vehicle infotainment system."
+title: Version 1 or 2
+---
+<section class="section" id="article">
+    <div class="container" style="max-width: 960px"> 
+        <h1 class="selection-title" id="page-title">{{page.title}}</h1>
+        <p class="selection-paragraph">
+            Welcome to the WebPortal section. Webportal is the browser embedded in Groupe PSA connected vehicles. It allows to build embbeded Applications in the vehicle infotainment system. 
+
+            This api exists under two different versions, webportal v1 also known as NAC have been implemented in vehicles from february 2017 ; Webportal v2 also call IVI is implemanted in vehicles starting middle 2021. 
+            In both cases, you will be able to <strong>retrieve data</strong>, interact with the vehicle <strong>infotainment system</strong>, <strong>navigation</strong> & <strong>send message</strong> to the vehicle from our back-end. 
+            Choose your version and start your tour by reading the doc!
+        </p>
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <article id="is-fleet_owner" class="tile is-child notif-welcome-text notification">
+                    <p class="title">Webportal Version 1 &nbsp;
+                    </p>
+                    <p class="subtitle"></p>
+                    <p>Embedded apps for vehicles from feb 2017.</p>
+                    <div class="field is-centered is-grouped">
+                        <p class="control">
+                            <a href="{{site.baseurl}}/webportal/v1/overview/about/#article" class="button is-psablue is-medium">
+                                <span class="icon is-large is-white is-hidden-mobile">
+                                    <i class="fas fa-book"></i>
+                                </span>
+                                <span>
+                                    Read the doc
+                                </span></a>
+                        </p>
+                        </div>
+                </article>
+            </div>
+            <div class="is-hidden-mobile tile is-parent is-hidden-mobile">
+                <article id="is-nac-pic" class="notif-welcome-text tile is-child notification">
+                </article>
+            </div>
+        </div>
+        <div class="tile is-ancestor">
+            <div class="is-hidden-mobile tile is-parent is-hidden-mobile">
+                <article id="is-ivi-pic" class="notif-welcome-text tile is-child notification">
+                </article>
+            </div>
+            <div class="tile is-parent">
+                <article id="is-end_user" class="tile is-child notif-welcome-text notification">
+                    <p class="title">Webportal Version 2</p>
+                    <p class="subtitle"></p>
+                    <p>Embedded apps for vehicles from mid 2021.</p>
+                        <div class="field is-centered is-grouped">
+                            <p class="control">
+                                <a href="{{site.baseurl}}/webportal/v2/overview/#article" class="button is-psablue is-medium">
+                                    <span class="icon is-large is-white is-hidden-mobile">
+                                        <i class="fas fa-book"></i>
+                                    </span>
+                                    <span>
+                                        Read the doc
+                                    </span></a>
+                            </p>
+                        </div>
+                </article>
+            </div>
+        </div>
+
+        <div style="margin: 6rem 0 1rem;">
+            {% include cta.html text="CONTACT US" link="/contact-us/" %}
+        </div>
+
+    </div>
+</section>

@@ -195,6 +195,34 @@
               path: list/
             - name: Class
               path: class/
+    - tag: v2
+      path: v2/
+      name: Version 2
+      nameUpcase: VERSION 2
+      categories:
+        - name: Overview
+          path: overview/
+          pages:
+            - name: About
+              path: about/
+            - name: Privacy
+              path: privacy/
+        - name: Quickstart
+          path: quickstart/
+          pages:
+            - name: Get Started
+              path: get-started/
+            - name: Get Set Subscribe
+              path: get-set-subscribe/
+            - name: API Request
+              path: request/
+            - name: API Response
+              path: response/
+        - name: API Reference
+          path: api-reference/
+          pages:
+            - name: References
+              path: list/
 - tag: mobile-sdk
   path: /mobile-sdk/
   name: Mobile SDK
