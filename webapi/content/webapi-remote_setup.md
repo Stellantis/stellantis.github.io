@@ -102,15 +102,17 @@ In this API you have to replace this fields:
 
 You can browse the **{% if page.subsection == 'b2b' %}[Remote Object]({{site.baseurl}}/webapi/b2b/api-reference/specification#model-Remote){% elsif page.subsection == 'b2c' %}[Remote Object]({{site.baseurl}}/webapi/b2c/api-reference/specification/#model-Remote){% endif %}** in the reference section to have more info about how to send a specific remote action:
 
+#### REMOTE ACTIONS
+
 Object Name | Description | Example
 -|-|-
 RemotePreconditioning | Choose between `immediate` preconditionning or not, and set a `program` with `recurrence` or not, `start` time,  `occurence` during the week then, choose to `enable` or not this program. **Note:** Using the key/value `Slot` you can register up to 4 PreconditionPrograms. | ``` {  "label": "string",  "preonditionning": {    "airConditioning": {      "immediate": false,      "programs": [        {          "recurrence": "Daily",          "start": "PT14H30M",          "occurence": {            "day": [              "Mon"            ]          },          "slot": 0,          "enabled": true        }      ]    }  } } ```
 RemoteSetImmobilization | Set to `activate` to true if you need to immobilize a vehicle. You can use this feature in addition to "RemoteSetStolen". | ``` {   "immobilization": {    "activate": true  } }```
 RemoteDoorsState | Set `state` to `Locked` or `Unlocked`. | ``` {  "door": {    "state": "Unlocked"  } }```
-RemoteHorn | Choose the `number` of times the horn will honk and if the remote is `"state": "Activated"` or `"state": "Unactivated"`. | ``` {  "horn": {    "number": 0,    "state": "Activated"  } }```
-RemoteCharging | You can choose between `immediate` recharge or `nextDelayedTime` with a timestamp [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) before the charge activation. | ``` {  "charging": {    "nextDelayedTime": "string",    "immediate": false  } }```
+RemoteHorn | Honk the vehicel horn. | ``` {  "horn": {   "state": "Activated"  } }```
+RemoteCharging | You can choose between `immediate` recharge or `nextDelayedTime` with a timestamp [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) before the charge activation. To **stop** a charge use set `immediate` to `false`. | ``` {  "charging": {    "nextDelayedTime": "string",    "immediate": false  } }```<br> <strong>Stop: </strong>```{  "charging": {"immediate": false} }```
 RemoteSetStolen | Set `stolen` to true if you want the vehicle to be in stolen state. It's mean that it will stay awake and refresh {% if page.subsection == 'b2b' %}[lastPosition]({{site.baseurl}}/webapi/b2b/api-reference/specification#operations-Vehicles-getCarLastPosition){% elsif page.subsection == 'b2c' %}[lastPosition]({{site.baseurl}}/webapi/b2b/api-reference/specification#operations-Vehicles-getCarLastPosition){% endif %} on a regular basis.  | ``` {  "stolen": {    "stolen": true  } }```
-RemoteLights | Set `on` or not the vehicles lights. If you turn it on, you can choose a duration expressed using [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). | ``` {  "ligths": {    "on": true,    "duration": "PT20S"  } }```
+RemoteLights | Set a light blinking. | ```{  "ligths": {    "on": true  } }```
 RemoteState | Set `action: state` to retrieve an updated status of the vehicle. | ``` {  "state": {    "action": "state"  } }``` |
 RemoteNavigation | Set `action: navigation` to send a remote navigation on the guidance system of the vehicle. You can choose to send a notification to the driver through the HMI, before launching the navigation with `"driverApproval": true`. The field `"positions": [...]` is an array of [GeoJSON](https://geojson.org/) points where the last point is the final destination and the other points are waypoints, maximum 10 points. | ``` {"navigation": {  "driverApproval": true,  "positions": [    {      "type": "Point",      "coordinates": [        5.970338,        -62.536239      ]   }  ]}}``` |
 

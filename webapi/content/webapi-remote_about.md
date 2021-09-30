@@ -8,7 +8,7 @@ With our APIs, you are able to {% if page.subsection == 'b2b' %}[browse data]({{
 
 **Available features:**
 
-- **Charging**: Start the recharge of the vehicle.
+- **Charging**: Start and Stop the recharge of the vehicle.
 - **Stolen**: Set the vehicle as stolen.
 - **Lights**: Turn on/off vehicle lights.
 - **State**: Refresh and retrieve vehicle status info.
