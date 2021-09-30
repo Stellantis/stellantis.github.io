@@ -21,7 +21,7 @@ Using this tool, it is possible to add remote control features to your mobile ap
 ### REMOTE FEATURES
 <ul style="list-style: none">
 
-<li><i class="fas fa-plug"></i> Start a charge </li>
+<li><i class="fas fa-plug"></i> Start and stop a charge </li>
 <li><i class="fas fa-user-ninja"></i> Declare your vehicle as stolen </li>
 <li><i class="fas fa-lightbulb"></i> Control the vehicle lights </li>
 <li><i class="far fa-snowflake"></i> program conditioning and heater </li>
@@ -33,7 +33,7 @@ Using this tool, it is possible to add remote control features to your mobile ap
 </ul>
 
 <div>
-    {% include highlighted-link.html link_label="Retrieve the available remote commands!" link_url="/connected-vehicles/data-catalog/?search=132,133,134,135,136,137,138,139&removed_categories=webportal_v1,webportal_v2#page-title" %}
+    {% include highlighted-link.html link_label="Retrieve the remote commands!" link_url="/webapi/b2b/remote/set-up/#remote-actions" %}
 </div>
 
 ### HOW DOES IT WORKS
