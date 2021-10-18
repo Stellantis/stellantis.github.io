@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.1.0'
+  version: '3.1.1'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -230,48 +230,48 @@ paths:
           description: Vehicle not found
           $ref: '#/x-fragment/general_error_fragment'
           
-  # '/fleets/{fid}/vehicles/{vid}/collisions':
-  # get:
-  #       tags:
-  #         - Vehicles
-  #       summary: Collisions happened to a vehicle.
-  #       description: >-
-  #         Returns the set of Collisions that occurred for a given vehicle (id)
-  #        during the timestamp ranges and bounded by an index range.
-  #   operationId: getVehicleCollision
-  #  parameters:
-        
-  #  - $ref: '#/components/parameters/fleetId'
-  # - $ref: '#/components/parameters/vehicleId'
-  # - $ref: '#/components/parameters/profile'
-  # - $ref: '#/components/parameters/timestamps'
-  # - $ref: '#/components/parameters/indexRange'
-  # - $ref: '#/components/parameters/pageSize'
-  # - $ref: '#/components/parameters/pageToken'
-  # responses:
-  # 200:
-  # $ref: '#/components/responses/CollisionsSuccessResponse'
-  # default:
-  # $ref: '#/components/responses/CollisionFailedResponse'
+  '/fleets/{fid}/vehicles/{vid}/collisions':
+     get:
+        tags:
+            - Vehicles
+        summary: Collisions of a vehicle.
+        description: >-
+            Returns the list of Collisions that occurred for a given vehicle (id)
+            during the timestamp ranges and bounded by an index range.
+        operationId: getVehicleCollision
+        parameters:
+
+            - $ref: '#/components/parameters/fleetId'
+            - $ref: '#/components/parameters/vehicleId'
+            - $ref: '#/components/parameters/profile'
+            - $ref: '#/components/parameters/timestamps'
+            - $ref: '#/components/parameters/indexRange'
+            - $ref: '#/components/parameters/pageSize'
+            - $ref: '#/components/parameters/pageToken'
+        responses:
+            200:
+                $ref: '#/components/responses/CollisionsSuccessResponse'
+            default:
+                $ref: '#/components/responses/CollisionFailedResponse'
           
-    # '/fleets/{fid}/vehicles/{vid}/collisions/{cid}':
-      # get:
-        # tags:
-          # - Vehicles
-        # summary: An identified collision that occurred to a vehicle.
-        # description: Returns the Collision that matches the vehicle id and the Collision cid.
-        # operationId: getVehicleCollisionById
-        # parameters:
-        
-        #   - $ref: '#/components/parameters/fleetId'
-          # - $ref: '#/components/parameters/vehicleId'
-          # - $ref: '#/components/parameters/profile'
-          # - $ref: '#/components/parameters/collisionId'
-        # responses:
-          # 200:
-            # $ref: '#/components/responses/CollisionsuccessResponse'
-          # default:
-            # $ref: '#/components/responses/CollisionFailedResponse'
+  '/fleets/{fid}/vehicles/{vid}/collisions/{cid}':
+    get:
+     tags:
+       - Vehicles
+     summary: An identified collision that occurred on a vehicle.
+     description: Returns the Collision that matches the vehicle id and the Collision cid.
+     operationId: getVehicleCollisionById
+     parameters:
+
+       - $ref: '#/components/parameters/fleetId'
+       - $ref: '#/components/parameters/vehicleId'
+       - $ref: '#/components/parameters/profile'
+       - $ref: '#/components/parameters/collisionId'
+     responses:
+       200:
+         $ref: '#/components/responses/CollisionsuccessResponse'
+       default:
+         $ref: '#/components/responses/CollisionFailedResponse'
           
   '/fleets/{fid}/vehicles/{vid}/maintenance':
     get:
@@ -674,69 +674,92 @@ paths:
           $ref: '#/components/responses/TripFailedResponse'
   
 
-    # '/fleets/{fid}/trips/{tid}/collisions':
-     #  get:
-        # tags:
-        #   - Trips
-        # summary: Trips of fleet. 
-        # description: >-
-       #    Returns the set of Collisions that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
-       #  operationId: getTripCollisionsByTrip
-       #  parameters:
-        
-        #   - $ref: '#/components/parameters/fleetId'
-        #   - $ref: '#/components/parameters/pageToken'
-         #  - $ref: '#/components/parameters/tripId'
-         #  - $ref: '#/components/parameters/profile'
-         #  - $ref: '#/components/parameters/timestamps'
-          # - $ref: '#/components/parameters/indexRange'
-          # - $ref: '#/components/parameters/pageSize'
-       #  responses:
-         #  '200':
-            # $ref: '#/components/responses/CollisionsSuccessResponse'
-          # default:
-            # $ref: '#/components/responses/CollisionFailedResponse'
+  '/fleets/{fid}/trips/{tid}/collisions':
+    get:
+     tags:
+       - Trips
+     summary: Trips of fleet. 
+     description: >-
+       Returns the list of Collisions that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
+     operationId: getTripCollisionsByTrip
+     parameters:
+
+       - $ref: '#/components/parameters/fleetId'
+       - $ref: '#/components/parameters/pageToken'
+       - $ref: '#/components/parameters/tripId'
+       - $ref: '#/components/parameters/profile'
+       - $ref: '#/components/parameters/timestamps'
+       - $ref: '#/components/parameters/indexRange'
+       - $ref: '#/components/parameters/pageSize'
+     responses:
+       '200':
+         $ref: '#/components/responses/CollisionsSuccessResponse'
+       default:
+         $ref: '#/components/responses/CollisionFailedResponse'
+         
+  '/fleets/{fid}/vehicles/{vid}/trips/{tid}/collisions':
+    get:
+     tags:
+       - Trips
+     summary: Trip's collisions of vehicle. 
+     description: >-
+       Returns the list of Collisions of a vehicle that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
+     operationId: getTripCollisionsByTripAndVehicle
+     parameters:
+
+       - $ref: '#/components/parameters/vehicleId'
+       - $ref: '#/components/parameters/fleetId'
+       - $ref: '#/components/parameters/pageToken'
+       - $ref: '#/components/parameters/tripId'
+       - $ref: '#/components/parameters/timestamps'
+       - $ref: '#/components/parameters/indexRange'
+       - $ref: '#/components/parameters/pageSize'
+     responses:
+       '200':
+         $ref: '#/components/responses/CollisionsSuccessResponse'
+       default:
+         $ref: '#/components/responses/CollisionFailedResponse'
+         
+  '/fleets/{fid}/collisions':
+    get:
+     tags:
+       - Fleet
+     summary: Collisions of all vehicles' fleet.
+     description: >-
+       Returns the list of Collisions that occured on vehicles' fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
+     operationId: getFleetTripCollisions
+     parameters:
+
+       - $ref: '#/components/parameters/fleetId'
+       - $ref: '#/components/parameters/profile'
+       - $ref: '#/components/parameters/pageToken'
+       - $ref: '#/components/parameters/timestamps'
+       - $ref: '#/components/parameters/indexRange'
+       - $ref: '#/components/parameters/pageSize'      
+     responses:
+       '200':
+         $ref: '#/components/responses/CollisionsSuccessResponse'
+       default:
+         $ref: '#/components/responses/CollisionFailedResponse'
   
-    # '/fleets/{fid}/collisions':
-      # get:
-        # tags:
-         #  - Fleet
-       #  summary: Collisions of all vehicles ofthe fleet.
-        # description: >-
-        #   Returns the set of Collisions of a Fleet of vehicles. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
-       #  operationId: getFleetTripCollisions
-       #  parameters:
-        
-         #  - $ref: '#/components/parameters/fleetId'
-         #  - $ref: '#/components/parameters/profile'
-          # - $ref: '#/components/parameters/pageToken'
-          # - $ref: '#/components/parameters/timestamps'
-          # - $ref: '#/components/parameters/indexRange'
-         #  - $ref: '#/components/parameters/pageSize'      
-        # responses:
-          # '200':
-           #  $ref: '#/components/responses/CollisionsSuccessResponse'
-         #  default:
-            # $ref: '#/components/responses/CollisionFailedResponse'
-  
-    # '/fleets/{fid}/collisions/{cid}':    
-      # get:
-        # tags:
-         #  - Fleet
-        # summary: A single collision f the fleet.
-        # description: >-
-          # Returns the Collision that matches the fleet id and the Collision cid. 
-        # operationId: getCollisionsById
-        # parameters:
-        
-          # - $ref: '#/components/parameters/fleetId'
-          # - $ref: '#/components/parameters/profile'
-          # - $ref: '#/components/parameters/collisionId'      
-        # responses:
-          # '200':
-            # $ref: '#/components/responses/CollisionsSuccessResponse'
-          # default:
-            # $ref: '#/components/responses/CollisionFailedResponse' 
+  '/fleets/{fid}/collisions/{cid}':    
+    get:
+     tags:
+       - Fleet
+     summary: An identified collision that occurred on a fleet.
+     description: >-
+      # Returns the Collision that matches the fleet id and the Collision cid. 
+     operationId: getCollisionsById
+     parameters:
+
+       - $ref: '#/components/parameters/fleetId'
+       - $ref: '#/components/parameters/profile'
+       - $ref: '#/components/parameters/collisionId'      
+     responses:
+       '200':
+         $ref: '#/components/responses/CollisionsuccessResponse'
+       default:
+         $ref: '#/components/responses/CollisionFailedResponse' 
 
   '/fleets/{fid}/trips/{tid}':
     get:
@@ -1261,23 +1284,20 @@ components:
 
     
     CollisionDetails:
-      type: object
-      properties:
+        type : object
+        properties:
           side:
-            type: object
-            properties:
-              id:
-                type: string
-                enum: [Front, Rear, Lateral]
-              type:
-                type: string
-                enum: [Repairability,LowSpeed,MediumSpeedN1,MediumSpeedN2, HighSpeed]
-              info: 
-                  $ref: '#/components/schemas/InfoCollision'
-          tipped:
-              $ref: '#/components/schemas/InfoCollision'
-          pedestrian:
-               $ref: '#/components/schemas/InfoCollision'
+            type: string
+            description: >-
+                Indicates the side of the collision
+            enum: [Front, Rear, Lateral]
+          severity:
+            type: string
+            enum: [Minimal, Minor, Major]
+            description: >-
+                Minimal stands for no emergency system activated during the collision.
+                Minor only pretensioner system activated.
+                Major for airbag and prentensioner activation.
               
     InfoCollision:
       type: string
@@ -1287,13 +1307,10 @@ components:
         - title: Collision
           type: object
           properties:
-            detected:
-              type: boolean
-            ecall:
-              type: string
-              enum: [AirbagShockNotDetected, AutoEcallNotRequested, AutoEcallRequested]
             details:
-              $ref: '#/components/schemas/CollisionDetails'
+                type : array
+                items : 
+                  $ref: '#/components/schemas/CollisionDetails'
            
     
     Collision:
@@ -1303,6 +1320,21 @@ components:
         - title: Collision
           type: object
           properties:
+            id:
+              type: string
+            vin:
+              $ref: '#/components/schemas/Vin'
+            
+            tippedOver:
+              type: boolean
+              description: >-
+                    Indicates if the car tipped over during the collision.
+                    Warning : This information is applicable only on vehicles equipped with dedicated sensor and is optionnal
+            pedestrian:
+              type: boolean
+              description: >-
+                    Indicates if the collision involve a pedestrian.
+                    Warning : This information is applicable only on vehicles equipped with dedicated sensor and is optionnal
             updatedAt:
               type: string
               format: date-time
@@ -1315,6 +1347,7 @@ components:
                   $ref: '#/components/schemas/Link'
                 trip:
                   $ref: '#/components/schemas/Link'
+          required: [ id ]
            
     ECoaching:
       type: object
@@ -1707,26 +1740,6 @@ components:
                             $ref: '#/components/schemas/EnergyBattery'
                           charging:
                             $ref: '#/components/schemas/EnergyCharging'
-                  consumption:
-                     allOf:
-                      - $ref: '#/components/schemas/FuelEnergyConsumption'
-                      - deprecated: true
-                      - description:  Total consumption for thermic vehicle. Expressed L/100Km. Depricated, use extension for this pupose.
-                  residual:		 
-                     allOf:
-                      - $ref: '#/components/schemas/ElectricResidualEnergy'
-                      - deprecated: true
-                      - description: Residual electric energy (KWh). Depricated, use electric extension for this pupose.  
-                  battery:
-                    allOf:
-                      - $ref: '#/components/schemas/EnergyBattery'
-                      - deprecated: true
-                      - description: Charging state is set for electric energy type only. Depricated, use electric extension for this pupose.
-                  charging:
-                    allOf:
-                      - $ref: '#/components/schemas/EnergyCharging'
-                      - deprecated: true
-                      - description: Battery capacity and heath for electric energy type. Depricated, use electric extension for this pupose.
 
           
     FuelEnergyConsumption:
@@ -1846,7 +1859,6 @@ components:
                   format: date-time
           - type: object
             description: Preconditioning the vehicle for driver and passenger.
-			
             properties:
               airConditioning:
                 type : object
@@ -1886,6 +1898,8 @@ components:
               $ref: '#/components/schemas/Link'
             alerts:
               $ref: '#/components/schemas/Link'
+            collisions:
+              $ref: '#/components/schemas/Link' 
         id:
           type: string
           description: Identifier of a trip
@@ -1994,6 +2008,8 @@ components:
               $ref: '#/components/schemas/Link'
             callbacks:
               $ref: '#/components/schemas/Link'
+            collisions:
+              $ref: '#/components/schemas/Link' 
         id:
           type: string
         vin:
@@ -2002,26 +2018,6 @@ components:
         brand:
           description: Brand of a vehicle
           type: string
-        engine:  
-          description: Engine of a vehicle
-          type: array
-          items:
-            type: object
-            properties:
-              class:
-                type: string
-                default: Thermic
-                enum:
-                  - Thermic
-                  - Electric
-              energy:
-                description: Type of energy of a vehicle (Not available for Electric class)
-                type: string
-                enum:
-                  - GPL
-                  - Gasoil
-                  - Petrol
-                  - Biologic
         pictures:
           description: With the links it's possible to see the pictures of the vehicle 
           type: array
@@ -2452,7 +2448,7 @@ components:
   #                          description: | 
   #                            Compound data triggers (will be evaluated with an AND relationship)
   #                            
-  #                            *Note*: ```dataTriggers``` is depricated according the new monitor spec. Please use the new data schema.
+  #                            *Note*: ```dataTriggers``` is deprecated according the new monitor spec. Please use the new data schema.
   #                          type: array
   #                          items:
   #                              $ref: '#/components/schemas/DataTrigger'
@@ -2562,7 +2558,7 @@ components:
       description: |
         Zone & temporal monitor. At least one of the two parameters must be provided. 
         
-        *Note*: TimeZoneTrigger is depricated according the new monitor spec. Please use the new data schema. Predicates within this compound triggers will be evaluated with an AND relationship.  
+        *Note*: TimeZoneTrigger is deprecated according the new monitor spec. Please use the new data schema. Predicates within this compound triggers will be evaluated with an AND relationship.  
       properties:
             zoneTrigger:
                 $ref: '#/components/schemas/ZoneTrigger'
@@ -3321,13 +3317,14 @@ components:
                   oil:
                     type: object 
                     deprecated: true
-                    description: depricated, use extention thermic for such purpose.
+                    description: deprecated, use extention thermic for such purpose.
                     properties:
                       temp:
                         type: number
                         format: float
                   speed:
                     type: number
+                    description: Engine's speed in RPM
                     format: float
                   gmpStatus:
                     type: string
@@ -3712,6 +3709,7 @@ components:
                         type: object
                         properties:
                           temp:
+                            description: Outside air temperature in Celsius degrees
                             type: number                             
     TelemetryEnum:
       type: array
@@ -3873,6 +3871,7 @@ components:
       description: >-
         The maximum number of results (for a collection results response) to
         return per page. When not set, at most 60 results will be returned. 
+        The range for this parameter is [1...60]
         
         
     pageSizeHighFrequency:
@@ -3888,6 +3887,7 @@ components:
       description: >-
         The maximum number of results (for a collection results response) to
         return per page for high frequency data upload. When not set, at most 60 results will be returned. 
+        The range for this parameter is [1...2000]
     
     pageToken:
       name: pageToken

@@ -1,8 +1,9 @@
 openapi: 3.0.0
+
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '2.0.8'
+  version: '2.1.1'
   title: Groupe PSA Connected Car B2B API
   description: | 
 
@@ -132,6 +133,12 @@ components:
                     - vehicle.safety.beltWarning
                     - environment.air.temp
                     - privacy.state
+                    - privacy.driverRequestState
+                    - vehicle.drivingBehavior.mode
+                    - vehicle.collision.side
+                    - vehicle.collision.severity
+                    - vehicle.safety.autoECallTriggering
+
                 
                   description: The monitored data (operand of a trigger).
               value: 
@@ -140,7 +147,7 @@ components:
                 properties:
                       type:
                         type: string
-                        enum: [string, obj.alert]
+                        enum: [string, obj.alert, obj.collision]
                       body:
                         type: object
                         properties:
@@ -152,7 +159,17 @@ components:
                             description: For this object schema definition (based on the type of field), refere to the API Spec definition.
                     
         extensions:
-          description: Defines the extra vehicle data as specified in the monitor extended eventparam file (see Monitor paramaeter objecrt definition in the API Spec)
+          description: |
+              Extended data can be expressed as a list of objects because in some case, a vehicle data state should be expressed as a list of value (such as active alerts at a given time). In this spec, those data are expressed as generic object and the type is provided (see type field) and so  the client application should be aware of that and should convert it regarding this data type.
+                |value|description|Related model |
+                |----------|:-------------|------:|
+                |vehicle.doorsState|Latest know door state (timestamped) before the eventDate|DoorState|
+                |vehicle.status|Latest know vehicle status (timestamped) before the eventDate|Status|
+                |vehicle.maintenance|Latest know maintenance(timestamped) before the eventDate|Maintenance|
+                |vehicle.position|Last vehicle position (timestamped) before the eventDate|Position|
+                |vehicle.telemetry${.TelemetryEnum}|Latest known telemetry (timestamped) before the eventDate filtered with type|Telemetry|
+                |vehicle.alerts|List of active alerts at the eventDate|Alert|
+                |vehicle.collisions|Latest collisions information before or at the eventDate|Collision|
           type: array
           items:
             type: object
@@ -160,7 +177,7 @@ components:
               type:
                 type: string
                 description: Speficies the data type of body items. 
-                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts]
+                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.collisions]
               body:
                 type: array
                 description: 
@@ -188,6 +205,9 @@ components:
                       description: Return all active alerts at the eventDate
                       items:
                         type: object
+                    collisions:
+                      type: object
+                      description: Return the latest collisions (Front/lateral/Rear) status and severity before or at the eventDate
                   
         
         refresh:
@@ -256,10 +276,3 @@ components:
       schema:
         type: string
         pattern: Bearer (\w|-|=)*
-
- 
-  
-    
-   
-  
-    

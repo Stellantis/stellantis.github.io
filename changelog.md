@@ -15,6 +15,7 @@ description: "PSA Groupe developer portal's version changelog."
 
 Version|Name
 -|-
+[7.1.0](#710) | WEB API B2B v2.1.1 & v3.1.1
 [7.0.1](#701) | WEBAPI: Add & fix remotes info (charge, horn, lights)
 [7.0.0](#700) | Release Webportal V2 References
 [6.10.0](#6100) | WEB API B2B v2.1.0 & v3.1.0
@@ -74,6 +75,17 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+## 7.1.0
+
+{% include published_on.html date='18 Oct 2021' %}
+
+**Webapi:**
+- v2.1.1
+- v3.1.1
+- fix missing remotes info
+
+<hr>
 
 ## 7.0.1
 
