@@ -29,7 +29,7 @@ Version|Name
 {% include published_on.html date='18 Oct 2021' %}
 
 - Update typo for "depricated"
-- Remove unused depracated structure in vehicle.energy
+- Remove unused deprecated structure in vehicle.energy
 - Add unit for engine.speed and environment.air.temp
 - Update description for all pageSize parameters
 

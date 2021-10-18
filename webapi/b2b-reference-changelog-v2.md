@@ -33,7 +33,7 @@ Version|Name
 
 - Update typo for "depricated"
 - Add collisions API & associated monitors
-- Remove unused depracated structure in vehicle.energy
+- Remove unused deprecated structure in vehicle.energy
 - Set occurence to mandatory for time trigger
 - Add unit for engine.speed and environment.air.temp
 - Update descirption for all pageSize parameters
