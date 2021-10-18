@@ -1,11 +1,12 @@
 openapi: 3.0.0
+
 servers:
   - url: 'https://api-cert.groupe-psa.com/connectedcar/v2'
 security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '2.1.0'
+  version: '2.1.1'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -841,7 +842,130 @@ paths:
         default:
           $ref: '#/components/responses/TelemetryFailedResponse'
   
-  
+  '/fleets/{fid}/vehicles/{vid}/collisions':
+     get:
+        tags:
+            - Vehicles
+        summary: Collisions of a vehicle.
+        description: >-
+            Returns the list of Collisions that occurred for a given vehicle (id)
+            during the timestamp ranges and bounded by an index range.
+        operationId: getVehicleCollision
+        parameters:
+
+            - $ref: '#/components/parameters/fleetId'
+            - $ref: '#/components/parameters/vehicleId'
+            - $ref: '#/components/parameters/timestamps'
+            - $ref: '#/components/parameters/indexRange'
+            - $ref: '#/components/parameters/pageSize'
+            - $ref: '#/components/parameters/pageToken'
+        responses:
+            200:
+                $ref: '#/components/responses/CollisionsSuccessResponse'
+            default:
+                $ref: '#/components/responses/CollisionFailedResponse'
+          
+  '/fleets/{fid}/vehicles/{vid}/collisions/{cid}':
+    get:
+     tags:
+       - Vehicles
+     summary: An identified collision that occurred on a vehicle.
+     description: Returns the Collision that matches the vehicle id and the Collision cid.
+     operationId: getVehicleCollisionById
+     parameters:
+
+       - $ref: '#/components/parameters/fleetId'
+       - $ref: '#/components/parameters/vehicleId'
+       - $ref: '#/components/parameters/collisionId'
+     responses:
+       200:
+         $ref: '#/components/responses/CollisionsuccessResponse'
+       default:
+         $ref: '#/components/responses/CollisionFailedResponse'
+         
+  '/fleets/{fid}/trips/{tid}/collisions':
+    get:
+     tags:
+       - Trips
+     summary: Trip's collisions of fleet. 
+     description: >-
+       Returns the list of Collisions that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
+     operationId: getTripCollisionsByTrip
+     parameters:
+       
+       - $ref: '#/components/parameters/fleetId'
+       - $ref: '#/components/parameters/pageToken'
+       - $ref: '#/components/parameters/tripId'
+       - $ref: '#/components/parameters/timestamps'
+       - $ref: '#/components/parameters/indexRange'
+       - $ref: '#/components/parameters/pageSize'
+     responses:
+       '200':
+         $ref: '#/components/responses/CollisionsSuccessResponse'
+       default:
+         $ref: '#/components/responses/CollisionFailedResponse'
+
+  '/fleets/{fid}/vehicles/{vid}/trips/{tid}/collisions':
+    get:
+     tags:
+       - Trips
+     summary: Trip's collisions of vehicle. 
+     description: >-
+       Returns the list of Collisions of a vehicle that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
+     operationId: getTripCollisionsByTripAndVehicle
+     parameters:
+
+       - $ref: '#/components/parameters/vehicleId'
+       - $ref: '#/components/parameters/fleetId'
+       - $ref: '#/components/parameters/pageToken'
+       - $ref: '#/components/parameters/tripId'
+       - $ref: '#/components/parameters/timestamps'
+       - $ref: '#/components/parameters/indexRange'
+       - $ref: '#/components/parameters/pageSize'
+     responses:
+       '200':
+         $ref: '#/components/responses/CollisionsSuccessResponse'
+       default:
+         $ref: '#/components/responses/CollisionFailedResponse'           
+         
+  '/fleets/{fid}/collisions':
+    get:
+     tags:
+       - Fleet
+     summary: Collisions of all vehicles' fleet.
+     description: >-
+       Returns the list of Collisions that occured on vehicles' fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
+     operationId: getFleetTripCollisions
+     parameters:
+
+       - $ref: '#/components/parameters/fleetId'
+       - $ref: '#/components/parameters/pageToken'
+       - $ref: '#/components/parameters/timestamps'
+       - $ref: '#/components/parameters/indexRange'
+       - $ref: '#/components/parameters/pageSize'      
+     responses:
+       '200':
+         $ref: '#/components/responses/CollisionsSuccessResponse'
+       default:
+         $ref: '#/components/responses/CollisionFailedResponse'
+         
+  '/fleets/{fid}/collisions/{cid}':    
+    get:
+     tags:
+       - Fleet
+     summary: An identified collision that occurred on a fleet.
+     description: >-
+      # Returns the Collision that matches the fleet id and the Collision cid. 
+     operationId: getCollisionsById
+     parameters:
+
+       - $ref: '#/components/parameters/fleetId'
+       - $ref: '#/components/parameters/collisionId'      
+     responses:
+       '200':
+         $ref: '#/components/responses/CollisionsuccessResponse'
+       default:
+         $ref: '#/components/responses/CollisionFailedResponse' 
 
 components:
   securitySchemes:
@@ -1062,8 +1186,13 @@ components:
                     type: string
                     enum: [Normal, Omission]
                   eCallTriggeringRequest:
+                    deprecated: true
                     type: string
-                    enum: [AirbagUnabled, NoRequest, Requested]              
+                    enum: [AirbagUnabled, NoRequest, Requested]        
+                  autoECallTriggering:
+                    type: string
+                    enum: [NotDetected, Detected]  
+       
     
     ServiceType:
                 type: object
@@ -1302,26 +1431,6 @@ components:
                       $ref: '#/components/schemas/EnergyBattery'
                     charging:
                       $ref: '#/components/schemas/EnergyCharging'
-            consumption:
-               allOf:
-                - $ref: '#/components/schemas/FuelEnergyConsumption'
-                - deprecated: true
-                - description:  Total consumption for thermic vehicle. Expressed L/100Km. Depricated, use electric extension for this pupose.
-            residual:
-               allOf:
-                - $ref: '#/components/schemas/ElectricResidualEnergy'
-                - deprecated: true
-                - description: Residual electric energy (KWh). Depricated, use electric extension for this pupose.  
-            battery:
-              allOf:
-                - $ref: '#/components/schemas/EnergyBattery'
-                - deprecated: true
-                - description: Charging state is set for electric energy type only. Depricated, use electric extension for this pupose.
-            charging:
-              allOf:
-                - $ref: '#/components/schemas/EnergyCharging'
-                - deprecated: true
-                - description: Battery capacity and heath for electric energy type. Depricated, use electric extension for this pupose.
     
     FuelEnergyConsumption:
               description: Total consumption for vehicles for thermic vehicle. Expressed L/100Km
@@ -1474,6 +1583,8 @@ components:
               $ref: '#/components/schemas/Link'
             alerts:
               $ref: '#/components/schemas/Link'
+            collisions:
+              $ref: '#/components/schemas/Link'
         id:
           type: string
           description: Identifier of a trip
@@ -1535,6 +1646,8 @@ components:
               $ref: '#/components/schemas/Link'
             monitors:
               $ref: '#/components/schemas/Link'  
+            collisions:
+              $ref: '#/components/schemas/Link'  
         name:
           description: Name of the Fleet
           type: string
@@ -1578,6 +1691,8 @@ components:
               $ref: '#/components/schemas/Link'
             callbacks:
               $ref: '#/components/schemas/Link'
+            collisions:
+              $ref: '#/components/schemas/Link'  
         id:
           type: string
         vin:
@@ -1586,26 +1701,6 @@ components:
         brand:
           description: Brand of a vehicle
           type: string
-        engine:  
-          description: Engine of a vehicle
-          type: array
-          items:
-            type: object
-            properties:
-              class:
-                type: string
-                default: Thermic
-                enum:
-                  - Thermic
-                  - Electric
-              energy:
-                description: Type of energy of a vehicle (Not available for Electric class)
-                type: string
-                enum:
-                  - GPL
-                  - Gasoil
-                  - Petrol
-                  - Biologic
         pictures:
           description: With the links it's possible to see the pictures of the vehicle 
           type: array
@@ -1679,7 +1774,18 @@ components:
                   items:
                     $ref: '#/components/schemas/Monitor'
                     
-    
+    Collisions:
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - properties:
+            _embedded:
+              type: object
+              properties:
+                Collisions:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Collision'  
+
     WayPoints:
       allOf:
         - $ref: '#/components/schemas/CollectionResult'
@@ -1927,7 +2033,7 @@ components:
             extendedEventParam:
               type: array
               items:
-                 enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts]
+                 enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.collisions]
               description: | 
                             Allow to set extra vehicle data (defined in data model) to add to the monitor event
                             when publishing. The possible values are
@@ -1941,6 +2047,8 @@ components:
                             |vehicle.position|Last vehicle position (timestamped) before the eventDate|Position|
                             |vehicle.telemetry|Latest known telemetry (timestamped) before the eventDate |Telemetry
                             |vehicle.alerts|List of active alerts at the eventDate|Alert|
+                            |vehicle.collisions|Latest known collisions before the eventDate|Collision|
+
  
             triggerParam:
               description: |
@@ -1954,8 +2062,6 @@ components:
                           dataTriggers: 
                             description: | 
                               Compound data triggers (will be evaluated with an AND relationship)
-                              
-                              *Note*: ```dataTriggers``` is depricated according the new monitor spec. Please use the new data schema.
                             type: array
                             items:
                                 $ref: '#/components/schemas/DataTrigger'
@@ -2047,7 +2153,7 @@ components:
       description: |
         Zone & temporal monitor. At least one of the two parameters must be provided. 
         
-        *Note*: TimeZoneTrigger is depricated according the new monitor spec. Please use the new data schema. Predicates within this compound triggers will be evaluated with an AND relationship.  
+        Predicates within this compound triggers will be evaluated with an AND relationship.  
       properties:
             zoneTrigger:
                 $ref: '#/components/schemas/ZoneTrigger'
@@ -2086,6 +2192,10 @@ components:
             | privacy.state (DEPRECATED) | Enum(Privacy) | equalsTo / onChange/includedIn | Value |
             | privacy.driverRequestState | Enum(Privacy) | equalsTo / onChange/includedIn | Value |
             | vehicle.drivingBehavior.mode | Enum(drivingBehavior.mode) | equalsTo / onChange/includedIn | Value |  
+            | vehicle.collision.side | Enum(collision.side) | equalsTo / includedIn | Value |
+            | vehicle.collision.severity | Enum(collision.severity) | equalsTo / includedIn | Value |
+            | vehicle.safety.autoECallTriggering | Enum(safety.autoECallTriggering) | equalsTo / onChange/includedIn | Value |
+
                 
                         
             The right operand  (value) argument depends on the type of operation (OP) as following:
@@ -2117,6 +2227,10 @@ components:
             - privacy.state
             - privacy.driverRequestState
             - vehicle.drivingBehavior.mode
+            - vehicle.collision.side
+            - vehicle.collision.severity
+            - vehicle.safety.autoECallTriggering
+
 
         op:
             description: The operator of the trigger function.                          
@@ -2331,7 +2445,7 @@ components:
     BoundedProgram:
       allOf:
         -  $ref: '#/components/schemas/Program'
-        - required: [start, duration]
+        - required: [start, duration, occurence]
           description: >
            extended program witch specify action duration. The relative start time (to 0h00). 
            
@@ -2430,13 +2544,14 @@ components:
                   oil:
                     type: object 
                     deprecated: true
-                    description: depricated, use extention thermic for such purpose.
+                    description: deprecated, use extention thermic for such purpose.
                     properties:
                       temp:
                         type: number
                         format: float
                   speed:
                     type: number
+                    description: Engine's speed in RPM
                     format: float
                   gmpStatus:
                     type: string
@@ -2508,8 +2623,13 @@ components:
                     type: string
                     enum: [Normal, Omission]
                   eCallTriggeringRequest:
+                    deprecated: true
                     type: string
-                    enum: [AirbagUnabled, NoRequest, Requested]
+                    enum: [AirbagUnabled, NoRequest, Requested]        
+                  autoECallTriggering:
+                    type: string
+                    enum: [NotDetected, Detected] 
+
             odometer: 
                 type: object
                 properties:
@@ -2808,6 +2928,7 @@ components:
                     type: boolean
               air:
                 type: object
+                description: Outside air temperature in Celsius degrees
                 properties:
                   temp:
                     type: number
@@ -2849,6 +2970,72 @@ components:
             description: Date when the resource has been created.
             type: string
             format: date-time 
+
+    CollisionDetails:
+        type : object
+        properties:
+          side:
+            type: string
+            description: >-
+                Indicates the side of the collision
+            enum: [Front, Rear, Lateral]
+          severity:
+            type: string
+            enum: [Minimal, Minor, Major]
+            description: >-
+                Minimal stands for no emergency system activated during the collision.
+                Minor only pretensioner system activated.
+                Major for airbag and prentensioner activation.
+                    
+    InfoCollision:
+      type: string
+      enum: [ NoCrash, CrashDetected]
+
+    CollisionObj:
+     allOf:
+        - title: Collision
+          type: object
+          properties:
+            details:
+                type : array
+                items : 
+                  $ref: '#/components/schemas/CollisionDetails'
+
+
+    Collision:
+     allOf:
+        - $ref: '#/components/schemas/CreatedAtField'
+        - $ref: '#/components/schemas/CollisionObj'
+        - title: Collision
+          type: object
+          properties:
+            id:
+              type: string
+            vin:
+              $ref: '#/components/schemas/Vin'
+            updatedAt:
+              type: string
+              format: date-time
+            tippedOver:
+              type: boolean
+              description: >-
+                    Indicates if the car tipped over during the collision.
+                    Warning : This information is applicable only on vehicles equipped with dedicated sensor and is optionnal
+            pedestrian:
+              type: boolean
+              description: >-
+                Indicates if the collision involve a pedestrian.
+                Warning : This information is applicable only on vehicles equipped with dedicated sensor and is optionnal
+            _links:
+              type: object
+              properties:
+                self:
+                  $ref: '#/components/schemas/Link'
+                vehicle:
+                  $ref: '#/components/schemas/Link'
+                trip:
+                  $ref: '#/components/schemas/Link'
+          required: [ id ]
 
   ############################ PARAMETERS ################################        
   parameters:  
@@ -2917,41 +3104,21 @@ components:
         data  model).**"timestamp"** items should be expressed as in
         '[RFC3339](https://www.ietf.org/rfc/rfc3339.txt)'.
                 
-        
         Times range is the time intervening between two times. The range can be
-            expressed by two times Points (start and end *Timestamp*s) or by a start
-            *Timestamp* Point and a *Duration* . All of
-            them  should be expressed using the 
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) and the interval format
-            is based on
-            [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals)
-    
-
-              * 'T1/T2' interval time from low limit T1 to hight T2
-
-              * 'T1/D' interval time from low limit T1 with duration = D ( T2=T1+D)
-
-
-              * 'T/' endless range, known start Timestamp but no end Timestamp. The current time  will be used as the high time limit.
-
-
-              * '/T' startless range, known end date but no start date. No lower limit
-                will be used to retrieve results.
-
-
-
-                *T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt).*
-
-
-                Example: 
-
-
-                *  *2018-01-01T09:00:00+01:00/2018-01-01T12:00:00+01:00* known low and hight
-                  limits.
-
-                *  *2018-01-03T12:00:00+01:00/P3Y6M4DT12H30M5S*  known low limit, hight limit = start + duration.
-
-                *  *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
+        expressed by two times Points (start and end *Timestamp*s) or by a start
+        *Timestamp* Point and a *Duration* . All of
+        them  should be expressed using the 
+        [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) and the interval format
+        is based on
+        [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals):
+        - 'T1/T2' interval time from low limit T1 to hight T2
+        - 'T1/D' interval time from low limit T1 with duration = D ( T2=T1+D)
+        - 'T/' endless range, known start Timestamp but no end Timestamp. The current time  will be used as the high time limit.
+        - '/T' startless range, known end date but no start date. No lower limit will be used to retrieve results.
+        - T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). Example: 
+          - *2018-01-01T09:00:00+01:00/2018-01-01T12:00:00+01:00* known low and hight limits.
+          - *2018-01-03T12:00:00+01:00/P3Y6M4DT12H30M5S*  known low limit, hight limit = start + duration.
+          - *2018-01-03T12:00:00+01:00/*  known low limit, hight limit = current time.
       required: false
       schema:
         type: array
@@ -2975,6 +3142,7 @@ components:
       description: >-
         The maximum number of results (for a collection results response) to
         return per page. When not set, at most 60 results will be returned. 
+        The range for this parameter is [1...60]
         
     pageSizeHighFrequency:
       name: pageSize
@@ -2988,7 +3156,8 @@ components:
       required: false
       description: >-
         The maximum number of results (for a collection results response) to
-        return per page for high frequency data upload. When not set, at most 60 results will be returned. 
+        return per page for high frequency data upload. When not set, at most 60 results will be returned.
+        The range for this parameter is [1...2000]
     
     pageToken:
       name: pageToken
@@ -3044,7 +3213,13 @@ components:
       schema:
         $ref: '#/components/schemas/StatusExtensionType'  
     
-
+    collisionId:
+      name: cid
+      in: path
+      description: Results will only contain the Collision related to this Collision ID.
+      required: true
+      schema:
+        type: string
     
     telemetryExtension:
       name: extension
@@ -3091,6 +3266,25 @@ components:
     AlertFailedResponse:
       description: Alert request error
       $ref: '#/x-fragment/general_error_fragment'
+      
+    CollisionsuccessResponse:
+      description: Collision response
+      content:
+        application/hal+json:
+          schema:
+            $ref: '#/components/schemas/Collision'
+
+    CollisionsSuccessResponse:
+      description: A list of Collision
+      content:
+        application/hal+json:
+          schema:
+            $ref: '#/components/schemas/Collisions'
+
+    CollisionFailedResponse:
+      description: Collision request error
+      $ref: '#/x-fragment/general_error_fragment'
+
     
     #MonitorId  
     MonitorsuccessResponse:

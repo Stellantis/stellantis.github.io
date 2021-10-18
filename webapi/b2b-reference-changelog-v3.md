@@ -11,6 +11,7 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v3.1.1](#b2b_v311) | 3.1.1
 [b2b_v3.1.0](#b2b_v310) | 3.1.0
 [b2b_v3.0.9](#b2b_v309) | 3.0.9
 [b2b_v3.0.8](#b2b_v308) | 3.0.8
@@ -20,6 +21,19 @@ Version|Name
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
 [b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
+
+<hr>
+
+## b2b_v3.1.1
+
+{% include published_on.html date='18 Oct 2021' %}
+
+- Update typo for "depricated"
+- Remove unused depracated structure in vehicle.energy
+- Add unit for engine.speed and environment.air.temp
+- Update description for all pageSize parameters
+
+<hr>
 
 ## b2b_v3.1.0
 
@@ -31,6 +45,8 @@ Version|Name
 
 
 
+<hr>
+
 ## b2b_v3.0.9
 
 {% include published_on.html date='25 Jun 2021' %}
@@ -41,6 +57,8 @@ Version|Name
 - Update alertEnum
 - Add remote navigation command
 - Update Kinetic bloc
+
+<hr>
 
 ## b2b_v3.0.8
 
@@ -58,12 +76,16 @@ Version|Name
 
 
 ## b2b_v3.0.7
+<hr>
+
 
 
 {% include published_on.html date='24 Feb 2021' %}
 
 - Remove fleet/{fid}/telemetries API
 
+
+<hr>
 
 ## b2b_v3.0.6
 
@@ -76,6 +98,8 @@ Version|Name
 - Add RemoteType WakeUp
 - Add 2 new enum for lockedState
 
+<hr>
+
 ## b2b_v3.0.5
 
 {% include published_on.html date='6 Jan 2021' %}
@@ -85,6 +109,8 @@ Version|Name
 - Replacement OnChange by onChange in monitors descriptions
 - Replacement Estimate enum to Estimated in lastPosition object
 
+
+<hr>
 
 ## b2b_v3.0.4
 
@@ -104,6 +130,8 @@ Version|Name
 - Change extension body type from array to object
 
 
+<hr>
+
 ## b2b_v3.0.3
 
 {% include published_on.html date='14 Oct 2020' %}
@@ -113,6 +141,8 @@ Version|Name
 - Reduce extension enum list for Telemetry API.
 - Add Telemetry Type filtering query parameter to all telemetry getter APIs.
 - Add wakeup remote.
+
+<hr>
 
 ## b2b_v3.0.0
 

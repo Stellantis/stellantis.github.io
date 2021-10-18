@@ -12,6 +12,7 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v2.1.1](#b2b_v211) | 2.1.1
 [b2b_v2.1.0](#b2b_v210) | 2.1.0
 [b2b_v2.0.8](#b2b_v208) | 2.0.8
 [b2b_v2.0.7](#b2b_v207) | 2.0.7
@@ -23,6 +24,21 @@ Version|Name
 [b2b_v2.0.3-P3](#b2b_v203-p3) | Align with v3
 [b2b_v2.0.3](#b2b_v203) | Candiate version
 
+
+<hr>
+
+## b2b_v2.1.1
+
+{% include published_on.html date='18 Oct 2021' %}
+
+- Update typo for "depricated"
+- Add collisions API & associated monitors
+- Remove unused depracated structure in vehicle.energy
+- Set occurence to mandatory for time trigger
+- Add unit for engine.speed and environment.air.temp
+- Update descirption for all pageSize parameters
+
+<hr>
 
 ## b2b_v2.1.0
 
@@ -36,6 +52,7 @@ Version|Name
 - Update pageSize & pageToken for telemtry & waypoints
 
 
+<hr>
 
 ## b2b_v2.0.8
 
@@ -44,6 +61,7 @@ Version|Name
 - Refactoring of the vehicle structure (Removing unused embedded)
 - Update alertEnum
 - Update kinetic bloc
+<hr>
 
 ## b2b_v2.0.7
 
@@ -53,12 +71,14 @@ Version|Name
 - Remove telemetry Links for fleets
 - Remove label for GET /Vehicles
 - Update alert vehicle list
+<hr>
 
 ## b2b_v2.0.6
 
 {% include published_on.html date='24 Feb 2021' %}
 
 - Remove fleet/{fid}/telemetries API
+<hr>
 
 ## b2b_v2.0.5
 
@@ -69,6 +89,7 @@ Version|Name
 - Removing onChange for maintenance monitors
 - Remove indexRange for /fleets & /fleets/{fid}/vehicles
 
+<hr>
 
 ## b2b_v2.0.3-P6
 
@@ -81,6 +102,7 @@ Version|Name
 - Replacement Estimate enum to Estimated in lastPosition object
 
 
+<hr>
 
 ## b2b_v2.0.3-P5
 
@@ -97,6 +119,7 @@ Version|Name
 - Replacement of `startdAt` by startedAt in alerts object
 - Add missing format for `type: number`
 
+<hr>
 
 ## b2b_v2.0.3-P4
 
@@ -105,6 +128,7 @@ Version|Name
 - Add Open API SPEC (V3) security schemes support.
 - Temporarily remove time repeat feature in time stamps spec.
 
+<hr>
 
 ## b2b_v2.0.3-P3
 
@@ -113,6 +137,7 @@ Version|Name
 #### `Align API B2B v2 with API B2B v2`
 Spec version : b2b_v2.0.3-P3
 
+<hr>
 
 ## b2b_v2.0.3
 
