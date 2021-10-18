@@ -10,7 +10,7 @@ With our APIs, you are able to {% if page.subsection == 'b2b' %}[browse data]({{
 
 - **Charging**: Start and Stop the recharge of the vehicle.
 - **Stolen**: Set the vehicle as stolen.
-- **Lights**: Turn on/off vehicle lights.
+- **Lights**: Set a light blinking.
 - **State**: Refresh and retrieve vehicle status info.
 - **Preconditioning**: Program heater or AC before the vehicle is being used.
 - **DoorsState**: Lock/unlock the doors remotely.

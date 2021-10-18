@@ -23,7 +23,7 @@ Using this tool, it is possible to add remote control features to your mobile ap
 
 <li><i class="fas fa-plug"></i> Start and stop a charge </li>
 <li><i class="fas fa-user-ninja"></i> Declare your vehicle as stolen </li>
-<li><i class="fas fa-lightbulb"></i> Control the vehicle lights </li>
+<li><i class="fas fa-lightbulb"></i> Set a light blinking </li>
 <li><i class="far fa-snowflake"></i> program conditioning and heater </li>
 <li><i class="fas fa-door-closed"></i> Control the doors locking </li>
 <li><i class="fas fa-bullhorn"></i> Honk the horn </li>
