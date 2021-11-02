@@ -42,9 +42,9 @@ redirect_from:
 
 Groupe PSA B2B WEB API exists under **two versions**. Depending on which service you have subscribed, you should use v2 or v3 URL.
 
-They are very similar to each other but there are some exceptions:
+They are very similar to each other but they are some exceptions:
 
-- [Monitors]({{site.baseurl}}webapi/b2b/monitor/about/#/article) are only available in the deprecated way in WEB API v2. In WEB API v3 you can choose between the new format and the deprecated one. We strongly recommend you to use the new format.
+- [Monitors]({{site.baseurl}}webapi/b2b/monitor/about/#/article) are only available in the deprecated way in WEB API v2. In WEB API v3 you can choose between the new format and the deprecated one. We strongly recommend to use the new format.
 - [Remotes]({{site.baseurl}}/webapi/b2b/remote/about/#article) are not available in WEB API v2.
 
 ## URL

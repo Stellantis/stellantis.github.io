@@ -5,34 +5,45 @@ section: connected-vehicles
 title: Privacy Settings
 subsection: overview
 description: "Privacy settings are set in the infotainment system by the owner of the vehicle. Find information about these settings here."
-subtitle: "Learn about privacy"
+subtitle: "In Vehicle Privacy"
 ---
 
-# INBOARD
+# INFOTAINMENT SETTINGS
 
-Depending on the [services]({{site.baseurl}}/connected-vehicles/connected-services#car-services) subscribed by the owner of the vehicles, relevant data will be send to Groupe PSA servers throught mobile network.
+{% capture text %}
+Depending on the [services]({{site.baseurl}}/connected-vehicles/access-requirements#connected-vehicle-services) subscribed by the owner of the vehicles, relevant data will be sent to Groupe PSA servers through mobile network.
 
-Within the vehicle infotainment system, the user can select various **privacy settings**:
-- Public: geolocation & subscribed services relevant data's are refreshed
-- Geoloc: subscribed services relevant data's is refreshed but geolocation is not
-- Full: neither data or geolocation are refreshed
+Within the vehicle infotainment system, the user can select between **3 privacy settings**:
+- <strong>Data & Location:</strong> geolocation & subscribed services relevant data are refreshed.
+- <strong>Data:</strong> subscribed services relevant data's is refreshed, but geolocation is not.
+- <strong>Plane Mode:</strong> neither data nor geolocation are refreshed.
 
 This setting will impact your ability to retrieve data in our API.
+{% endcapture %}
 
-<img src="{{site.baseurl}}/assets/images/privacy-selection.jpg" alt="privacy-selection" style="width: 450px">
+<div style="overflow: auto">
 
-## WEBPORTAL
 
-You can access the feature of webportal that are allowed by the privacy mode of the user. That's why your APP needs to handle the privacy settings selected by the user.
+<img src="{{site.baseurl}}/assets/images/privacy-selection.jpg" alt="privacy-selection" class="content-img-float-right">
+<div>
+{{text | markdownify}}
+</div>
+</div>
 
-See this [section]({{site.baseurl}}/webportal/v1/quickstart/#privacy-mode) of webportal tutorial for more info.
+### EFFECT ON WEBPORTAL
 
-## WEB API
+As an embedded application developer (**Webportal v1 & v2**), only APIs that match the current privacy are available. That's why your application needs to handle the privacy settings selected by the user. See [privacy webportal v1]({{site.baseurl}}/webportal/v1/quickstart/#privacy-mode) or [privacy Webportal v2]({{site.baseurl}}/webportal/v2/overview/privacy/#article) for more info.
 
-You are developer for end-user application, you can access data based on the privacy mode of the vehicle.
+You can retrieve required level of privacy of each API in the references: [Webportal v1]({{site.baseurl}}/webportal/v1/api-reference/list/#article) or [Webportal v2]({{site.baseurl}}/webportal/v2/api-reference/list/#article).
 
-If your are a fleet owner you can access your vehicle data. However, in order to be compliant with GDPR, you can use the query parameter `profile` as described [here]({{site.baseurl}}/webapi/b2b/reference/specification#section/API-output:/Data-profile).
+### EFFECT ON WEB API
 
+
+If you are a fleet owner (**WEB API B2B v2 & v3**) you can access your vehicle data. However, in order to be compliant with GDPR, you should use the query parameter `profile` as described [here]({{site.baseurl}}/webapi/b2b/api-reference-v2/specification/#section/API-output:/Data-profile).
+
+If you are developing end-user applications (**Web API B2C v4**), you can only access data that match the current privacy mode of the vehicle.
+
+> **Reminder:** Whatever the privacy selected in the vehicle, you can only access the data allowed in the data scope of the *[Connected Vehicle Services]({{site.baseurl}}/connected-vehicles/access-requirements/#vehicle-connected-services)* your vehicle subscribed.
 
 # SEE ALSO
 
@@ -43,4 +54,4 @@ Look at our [data catalog]({{site.baseurl}}/connected-vehicles/data-catalog/#art
 
 #### CONNECTED SERVICES
 
-See how to access to the APIs with Groupe PSA [connected services]({{site.baseurl}}/connected-vehicles/connected-services).
+See how to access to the APIs with Groupe PSA [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).

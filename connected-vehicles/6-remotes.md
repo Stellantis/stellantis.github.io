@@ -8,7 +8,7 @@ on_this_page: false
 menu: false
 require: highlighted-link
 description: "Send remote command to a vehicle."
-subtitle: Remote control
+subtitle: Remote commands
 ---
 
 With [Groupe PSA's WEB API v3]({{site.baseurl}}/webapi/b2b/remote/about) you are able to send remote control command to your vehicle(s)! 
