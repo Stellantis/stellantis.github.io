@@ -1,4 +1,4 @@
-# [PG4D](https://developer.groupe-psa.io/)
+# PG4D
 
 ![pg4d](/assets/images/build-the-future-pg4d.jpg)
 
@@ -16,20 +16,39 @@ It's a documentation website including references, tutorials and good practices 
 - 🚙 Embedded Webportal v2     [ [Documentation](https://developer.groupe-psa.io/webportal/v2/overview/about/) | [References](https://developer.groupe-psa.io/webportal/v2/api-reference/list/) ]
 - 📱 Mobile SDK *coming soon!*
 
-## Connected Vehicles
+## 🚗 Connected Vehicles
 
 Find more info about Groupe PSA's connected vehicle's browsing our [dedicated section](https://developer.groupe-psa.io/connected-vehicles/about/).
 
 An overview of **data and features** within connected vehicle APIs is available browsing our [data catalog](https://developer.groupe-psa.io/connected-vehicles/data-catalog/).
 
-## Editing this Website
+## ✏️ Contribute to this doc
 
 In case you find anything wrong, a typo or if you don't understand something, you can submit a pull request or open an issue in this repo.
 
 If you need to get in touch with PSA to access B2B APIs, you can use this [contact form](https://developer.groupe-psa.io/contact-us/).
 
-## Changelog
+## 📝 Changelog
 
 This website is often updated, if you want to keep track of these changes you can access the [website changelog](https://developer.groupe-psa.io/changelog/).
 
 Changelog also exists for Web API [B2B v2](https://developer.groupe-psa.io/webapi/b2b/api-reference-v2/changelog/) & [B2B v3](https://developer.groupe-psa.io/webapi/b2b/api-reference-v3/changelog/).
+
+## 🙏 Credits
+
+Media:
+- [Pexel](https://www.pexels.com/)
+- [Fontawesome](https://fontawesome.com/)
+- [OSM](https://www.openstreetmap.org/)
+
+Software
+- [Jekyll](https://jekyllrb.com/)
+- [Bulma](https://bulma.io/)
+- [Lunr with jekyll](https://jekyllcodex.org/without-plugin/search-lunr/)
+- [Swagger UI](https://swagger.io/tools/swagger-ui/)
+- [Redoc](https://github.com/Redocly/redoc)
+- [Leaflet](https://leafletjs.com/)
+- [Typed.js](https://mattboldt.github.io/typed.js/)
+- [AOS](https://michalsnik.github.io/aos/)
+- [Lunr](https://lunrjs.com/)
+- [draw.io](https://draw.io/)
