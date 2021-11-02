@@ -8,7 +8,7 @@ on_this_page: false
 menu: false
 require: highlighted-link
 description: "Create patterns and receive notification when it is triggered."
-subtitle: Monitor your vehicle(s) and get notified
+subtitle: Receive notification
 ---
 
 Using our REST APIs it is possible to monitor your vehicles' activity using our dedicated feature.

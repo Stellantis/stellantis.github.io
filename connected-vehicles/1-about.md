@@ -41,4 +41,4 @@ Our APIs are affected by vehicle privacy settings, see our [dedicated page]({{si
 
 #### CONNECTED SERVICES
 
-See how to access to the APIs with Groupe PSA [connected services]({{site.baseurl}}/connected-vehicles/connected-services).
+See how to access to the APIs with Groupe PSA [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).

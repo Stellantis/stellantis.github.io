@@ -1,41 +1,54 @@
-# [PG4D](https://developer.groupe-psa.io/)
-PG4D is **P**SA **G**roupe **4** **D**eveloppers website. It's a documentation webiste with references, tutorials and good practices for developers using Groupe PSA's APIs.
+# PG4D
 
-# Stack
-PG4D is a [Jekyll](https://github.com/jekyll/jekyll) static website using [Bulma](https://bulma.io/) CSS framework. It is hosted on [GitHub Pages](https://help.github.com/en/github/working-with-github-pages). Search engine is [Lunr.js](https://lunrjs.com/).
+![pg4d](/assets/images/build-the-future-pg4d.jpg)
+
+PG4D stands for **P**SA **G**roupe **4** **D**eveloppers website. 
+
+It's a documentation website including references, tutorials and good practices for developers using Groupe **PSA's APIs for Connected Vehicles**.
 
 
-# For documentation mistakes, misprints...
-You can ["Propose File Change"](https://help.github.com/en/github/managing-files-in-a-repository/editing-files-in-another-users-repository) with GitHub interface.
+## APIs
 
-# Work on this website locally
-- If you don't have one, create an account on [GitHub](https://github.com/).
-- Fork this [repo](https://github.com/GroupePSA/groupepsa.github.io).
-- Pull the forked repo hosted on your account.
-- [Install Ruby & Jekyll](https://jekyllrb.com/).
-- Use `bundle exec jekyll serve` command to browse the website locally.
-- Use git to commit and push your work on the external repo.
-- Go to [github.com](https://github.com/), browse your fork of groupepsa.github.io and click `New pull request`.
-- Give a name to the pull request and click `Create new pull request`.
+- ☁️ Web API B2B v2     [ [Documentation](https://developer.groupe-psa.io/webapi/b2b/overview/about/) | [References](https://developer.groupe-psa.io/webapi/b2b/api-reference-v2/specification/) ]
+- ☁️ Web API B2B v3     [ [Documentation](https://developer.groupe-psa.io/webapi/b2b/overview/about/) | [References](https://developer.groupe-psa.io/webapi/b2b/api-reference-v3/specification/) ]
+- ☁️ Web API B2C v4     [ [Documentation](https://developer.groupe-psa.io/webapi/b2c/overview/about/) | [References](https://developer.groupe-psa.io/webapi/b2c/api-reference/specification/#article) ] *(not publicly available yet)*
+- 🚙 Embedded Webportal v1     [ [Documentation](https://developer.groupe-psa.io/webportal/v1/overview/about/) | [References](https://developer.groupe-psa.io/webportal/v1/api-reference/list/) ]
+- 🚙 Embedded Webportal v2     [ [Documentation](https://developer.groupe-psa.io/webportal/v2/overview/about/) | [References](https://developer.groupe-psa.io/webportal/v2/api-reference/list/) ]
+- 📱 Mobile SDK *coming soon!*
 
-> If the repo as been updated by someone else, this link could help: [https://help.github.com/en/articles/syncing-a-fork](https://help.github.com/en/articles/syncing-a-fork)
+## 🚗 Connected Vehicles
 
-# Structure
-- **includes**: Files that can be included in a page of the website.
-- **layout**: Files that construct the base layout of a page.
-- **sections**: Webapi (b2b/b2c) / webportal. At the moment, mobile-sdk is not realeased.
-- **collections**: Those folders begining with `underscore` are used as lists of files used to create content (like list of functions for sdk)
-- **sass**: The `overide.sass` file is used to update CSS of the framework.
-- **config**: in this config file is also stored the URL of the APIs as variables.
-- **content**: in sections folders there is content folder that store some content of a section. It's a way to maintain only one document and display it in different sections.
-- **lunr.js**: is a js library providing search engine for static website.
-- **swagger UI**: is a javaScript program used to display OpenAPI spec files. Currently, used in Monitor B2B/B2C and Remote B2B.
-- **Redoc**: as swagger UI, Redoc is a program used to display OpenAPI spec in Reference API B2B/B2C.
+Find more info about Groupe PSA's connected vehicle's browsing our [dedicated section](https://developer.groupe-psa.io/connected-vehicles/about/).
 
-# Ressources
+An overview of **data and features** within connected vehicle APIs is available browsing our [data catalog](https://developer.groupe-psa.io/connected-vehicles/data-catalog/).
+
+## ✏️ Contribute to this doc
+
+In case you find anything wrong, a typo or if you don't understand something, you can submit a pull request or open an issue in this repo.
+
+If you need to get in touch with PSA to access B2B APIs, you can use this [contact form](https://developer.groupe-psa.io/contact-us/).
+
+## 📝 Changelog
+
+This website is often updated, if you want to keep track of these changes you can access the [website changelog](https://developer.groupe-psa.io/changelog/).
+
+Changelog also exists for Web API [B2B v2](https://developer.groupe-psa.io/webapi/b2b/api-reference-v2/changelog/) & [B2B v3](https://developer.groupe-psa.io/webapi/b2b/api-reference-v3/changelog/).
+
+## 🙏 Credits
+
+Media:
+- [Pexel](https://www.pexels.com/)
+- [Fontawesome](https://fontawesome.com/)
+- [OSM](https://www.openstreetmap.org/)
+
+Software
 - [Jekyll](https://jekyllrb.com/)
-- [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 - [Bulma](https://bulma.io/)
-- [Liquid](https://shopify.github.io/liquid/)
-- [Redoc](https://github.com/Redocly/redoc)
 - [Lunr with jekyll](https://jekyllcodex.org/without-plugin/search-lunr/)
+- [Swagger UI](https://swagger.io/tools/swagger-ui/)
+- [Redoc](https://github.com/Redocly/redoc)
+- [Leaflet](https://leafletjs.com/)
+- [Typed.js](https://mattboldt.github.io/typed.js/)
+- [AOS](https://michalsnik.github.io/aos/)
+- [Lunr](https://lunrjs.com/)
+- [draw.io](https://draw.io/)

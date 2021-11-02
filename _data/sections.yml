@@ -13,8 +13,8 @@
           pages: 
             - name: About
               path: about/
-            - name: Connected Services
-              path: connected-services/
+            - name: Access Requirements
+              path: access-requirements/
             - name: Privacy Settings
               path: privacy/
             - name: Remotes Control
@@ -46,6 +46,8 @@
               path: demo/
             - name: About Versions
               path: about-versions/
+            - name: Data Scope
+              path: data-scope/
         - name: Quickstart
           path: quickstart/
           pages:
@@ -109,6 +111,8 @@
               path: errors/
             - name: Try it Out!
               path: demo/
+            - name: Data Scope
+              path: data-scope/
         - name: Quickstart
           path: quickstart/
           pages:
