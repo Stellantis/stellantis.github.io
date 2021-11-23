@@ -9,8 +9,12 @@ description: "Follow this example to open a native popup from your app."
 ---
 
 # OPEN POPUP
+Opening a popup allows your application to interact with the user.
+
+![popup-v1]({{site.baseurl}}/assets/images/webportal-v1-popup.jpg)
 
 Follow this example to open a native popup from your app. See [nativePopup]({{site.baseurl}}/webportal/v1/api-reference/list/#api-WebPortal-nativePopup-open) reference.
+
 
 ```javascript
 

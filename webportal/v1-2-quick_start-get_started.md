@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 # APP STRUCTURE 
 
 <img alt="app-structure" src="{{site.baseurl}}/assets/images/the_structure.png" class="smallimg" />
-**This is the file structure your application should use.**
+**This is the file structure your application must use.**
 
 Once development is finish, you have to submit your application to PSA for us to check its behavior before actually deploying it.
 The structure of the file to submit is mostly free with some requirements:
