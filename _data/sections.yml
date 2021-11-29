@@ -110,8 +110,8 @@
             - name: Errors & Rate Limit
               path: errors/
             - name: Try it Out!
-              path: demo/
-            - name: Data Scope
+            #   path: demo/
+            # - name: Data Scope
               path: data-scope/
         - name: Quickstart
           path: quickstart/
