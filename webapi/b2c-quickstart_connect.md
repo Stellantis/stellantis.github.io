@@ -13,7 +13,7 @@ description: "In this tutorial you will find an explanation about connecting you
 
 # CONNECT YOUR APP
 
-*Groupe PSA B2C APIs for connected vehicles* let you access vehicles data of your users. In order to authorize your application and your users, we use open standard [OAuth 2](https://oauth.net/2/). This authentication standard implies that you need bearer token in order to access our connected vehicles API.
+*Groupe PSA B2C API for connected vehicles* let you access vehicles data of your users. In order to authorize your application and your users, we use open standard [OAuth 2](https://oauth.net/2/). This authentication standard implies that you need bearer token in order to access our connected vehicles API.
 
 This step-by-step tutorial explains the flowchart intended to request and obtain a token for *B2C connected vehicle API*. First, you must **identify your app** on our website, then we will see how to get a **bearer token** and finally an example of request with this token.
 
@@ -62,7 +62,7 @@ You can retrieve your `client_id` at any time: go to the *APP tab* > select your
 ## 1.3 SELECT PRODUCTS
 
 Now you have an account hosting your APP:
-- You can browse available APIs on *API Product* tab.
+- You can browse available API on *API Product* tab.
 - Then select *Connected Car - B2C* in the list.
 - Choose a plan by clicking on *subscribe*, select your app and press subscribe again.
 

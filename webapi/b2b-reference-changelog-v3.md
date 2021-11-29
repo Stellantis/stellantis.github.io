@@ -139,7 +139,7 @@ Version|Name
 - Add Open API SPEC (V3) security schemes support.
 - Add TimeStamps (query parameter) extension to support period.
 - Reduce extension enum list for Telemetry API.
-- Add Telemetry Type filtering query parameter to all telemetry getter APIs.
+- Add Telemetry Type filtering query parameter to all telemetry getter API.
 - Add wakeup remote.
 
 <hr>

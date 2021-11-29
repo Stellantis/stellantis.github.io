@@ -1,6 +1,6 @@
 # PSA GROUPE's {% if page.subsection == 'b2b' %}B2B {% elsif page.subsection == 'b2c' %}B2C{% endif %} WEB API
 
-Our REST APIs implements various endpoints to retrieve resources from your Groupe PSA's vehicles. Under certain circumstances you will also be able to remote control some features of your vehicles, like opening the doors or turning AC on! Groupe PSA's APIs are based on open standards: **OpenAPIv3, JSON, GeoJson & HAL**. Using this You will be able to access a lot of your vehicle data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
+Our REST API implements various endpoints to retrieve resources from your Groupe PSA's vehicles. Under certain circumstances you will also be able to remote control some features of your vehicles, like opening the doors or turning AC on! Groupe PSA's API are based on open standards: **OpenAPIv3, JSON, GeoJson & HAL**. Using this You will be able to access a lot of your vehicle data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
 
 <div class="buttons is-centered">
   <a href="{{site.baseurl}}{% if page.subsection == 'b2b' %}/webapi/b2b/overview/demo/ {% elsif page.subsection == 'b2c' %}/webapi/b2c/overview/demo/{% endif %}" class="button is-psablue is-medium">
@@ -16,7 +16,7 @@ Vehicles are using various sensors which aim to improve security and driving exp
 
 Those sensors provide data that are available in the vehicle infotainment system. If you are interested in embedded application development, you can have a look [at this section]({{ site.baseurl }}/webportal/v1) of this documentation website.
 
-Furthermore, our web APIs grants you access to this data even outside the car:
+Furthermore, our web API grants you access to this data even outside the car:
 
 ![presentation-unified]({{ site.baseurl }}/assets/images/presentation-unified.png)
 
@@ -49,15 +49,15 @@ By requesting this api you will have access to various **features**:
 # BROWSING AND ALERTS
 
 Our API allow you two ways to access vehicles data. You can either browse history or monitor data and receive alerts.
-- **Request & Browse**: this the way APIs usually operates. Request/response system allow you to retrieve various data of your fleet vehicles (example: model, fuel consumption history).
+- **Request & Browse**: this the way API usually operates. Request/response system allow you to retrieve various data of your fleet vehicles (example: model, fuel consumption history).
 
-- **Monitoring**: create your own dedicated monitors using our APIs. You will get notified every time a parameter changed as you specified (example: vehicle leaving a defined area). Find out more about how to use and configure monitors on this {% if page.subsection == 'b2b' %}[page]({{site.baseurl}}/webapi/b2b/monitor/about/){% elsif page.subsection == 'b2c' %}[page]({{site.baseurl}}/webapi/b2c/monitor/about/){% endif %}.
+- **Monitoring**: create your own dedicated monitors using our API. You will get notified every time a parameter changed as you specified (example: vehicle leaving a defined area). Find out more about how to use and configure monitors on this {% if page.subsection == 'b2b' %}[page]({{site.baseurl}}/webapi/b2b/monitor/about/){% elsif page.subsection == 'b2c' %}[page]({{site.baseurl}}/webapi/b2c/monitor/about/){% endif %}.
 
 # STANDARDS
 
-We think that accessing easily and efficiently to vehicle's data is important, that's why  we choose to design our APIs with up-to-date **open standards**.
+We think that accessing easily and efficiently to vehicle's data is important, that's why  we choose to design our API with up-to-date **open standards**.
 
-Groupe PSA's web APIs are based on [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles,  data resources are accessed via standard **HTTPS requests in UTF-8 format**. We use **OpenAPI v3** for specification, **JSON** in order to exchange data between you and your cars and [HAL](https://en.wikipedia.org/wiki/Hypertext_Application_Language) for naviguation.
+Groupe PSA's web API are based on [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles,  data resources are accessed via standard **HTTPS requests in UTF-8 format**. We use **OpenAPI v3** for specification, **JSON** in order to exchange data between you and your cars and [HAL](https://en.wikipedia.org/wiki/Hypertext_Application_Language) for naviguation.
 
 Also, we use standards for formating: [GeoJson](https://en.wikipedia.org/wiki/GeoJSON) for geolocation data and [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) for time format.
 

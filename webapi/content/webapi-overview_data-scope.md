@@ -1,8 +1,8 @@
 # AVAILABLE DATA
 
-Groupe PSA WEB APIs are technical interfaces allowing developers to create application that includes connected vehicles data and features.
+Groupe PSA WEB API are technical interfaces allowing developers to create application that includes connected vehicles data and features.
 
-These APIs are scope of possibilities, but to access the data you need authorization (see [access requirements]({{site.baseurl}}/connected-vehicles/access-requirements/)).
+These API are scope of possibilities, but to access the data you need authorization (see [access requirements]({{site.baseurl}}/connected-vehicles/access-requirements/)).
 
 ## DATA SCOPE
 

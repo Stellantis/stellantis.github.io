@@ -11,14 +11,14 @@ description: "Groupe PSA for Developers is the dedicated platform for applicatio
 subtitle: GROUPE PSA FOR DEVELOPERS
 ---
 
-Groupe PSA for Developers is the dedicated platform for application developers working with Groupe PSA's connected vehicles. Here you can find everything about our APIs and SDKs. Whether you are working by yourself or being part of a company, this platform will let you access documentation about our products for connected cars.
+Groupe PSA for Developers is the dedicated platform for application developers working with Groupe PSA's connected vehicles. Here you can find everything about our API and SDKs. Whether you are working by yourself or being part of a company, this platform will let you access documentation about our products for connected cars.
 You will be able to access our **web API** in order to retrieve your vehicle data and send remote commands, develop apps for your vehicles **embedded screen** and use our mobile SDK to **remote control** your car using Bluetooth.
 
 # AVAILABLE FEATURES
 
-### WEB APIs
+### WEB API
 
-Groupe PSA's Web APIs implements all the resources you need to retrieve from your vehicles and remote control. It’s based on standards: OpenAPIv3, JSON & HAL.
+Groupe PSA's Web API implements all the resources you need to retrieve from your vehicles and remote control. It’s based on standards: OpenAPIv3, JSON & HAL.
 
 It's available for [fleet-owner]({{site.baseurl}}/webapi/b2b/overview/about/) and for [end-user]({{site.baseurl}}/webapi/b2c/overview/about/).
 
@@ -37,8 +37,8 @@ The documentation is available for both [Android]({{site.baseurl}}/mobile-sdk/an
 # SEE ALSO
 
 #### PRIVACY
-Our APIs are affected by vehicle privacy settings, see our [dedicated page]({{site.baseurl}}/connected-vehicles/privacy/#article) for more info.
+Our API are affected by vehicle privacy settings, see our [dedicated page]({{site.baseurl}}/connected-vehicles/privacy/#article) for more info.
 
 #### CONNECTED SERVICES
 
-See how to access to the APIs with Groupe PSA [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).
+See how to access to the API with Groupe PSA [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).

@@ -4,10 +4,10 @@
 
 PG4D stands for **P**SA **G**roupe **4** **D**eveloppers website. 
 
-It's a documentation website including references, tutorials and good practices for developers using Groupe **PSA's APIs for Connected Vehicles**.
+It's a documentation website including references, tutorials and good practices for developers using Groupe **PSA's API for Connected Vehicles**.
 
 
-## APIs
+## API
 
 - ☁️ Web API B2B v2     [ [Documentation](https://developer.groupe-psa.io/webapi/b2b/overview/about/) | [References](https://developer.groupe-psa.io/webapi/b2b/api-reference-v2/specification/) ]
 - ☁️ Web API B2B v3     [ [Documentation](https://developer.groupe-psa.io/webapi/b2b/overview/about/) | [References](https://developer.groupe-psa.io/webapi/b2b/api-reference-v3/specification/) ]
@@ -20,13 +20,13 @@ It's a documentation website including references, tutorials and good practices 
 
 Find more info about Groupe PSA's connected vehicle's browsing our [dedicated section](https://developer.groupe-psa.io/connected-vehicles/about/).
 
-An overview of **data and features** within connected vehicle APIs is available browsing our [data catalog](https://developer.groupe-psa.io/connected-vehicles/data-catalog/).
+An overview of **data and features** within connected vehicle API is available browsing our [data catalog](https://developer.groupe-psa.io/connected-vehicles/data-catalog/).
 
 ## ✏️ Contribute to this doc
 
 In case you find anything wrong, a typo or if you don't understand something, you can submit a pull request or open an issue in this repo.
 
-If you need to get in touch with PSA to access B2B APIs, you can use this [contact form](https://developer.groupe-psa.io/contact-us/).
+If you need to get in touch with PSA to access B2B API, you can use this [contact form](https://developer.groupe-psa.io/contact-us/).
 
 ## 📝 Changelog
 

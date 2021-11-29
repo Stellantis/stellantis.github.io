@@ -18,7 +18,7 @@ To make sure your App follow Groupe PSA requirements this page give some good pr
 To be able to deliver your content faster, you should cache files you will reuse multiple times.
 This cache limit is 20MB.
 
-What is more, the following apis use a cache:
+What is more, the following API use a cache:
 - Connectivity.GetInternetStatus()
 - Device.GetSoftwareRelease()
 - Device.GetSupplierId()
@@ -34,7 +34,7 @@ What is more, the following apis use a cache:
 
 Calls between each cached api should wait at least 50 milliseconds.
 
-All other apis should respect an interval of at least 500 milliseconds between each call.
+All other API should respect an interval of at least 500 milliseconds between each call.
 
 
 

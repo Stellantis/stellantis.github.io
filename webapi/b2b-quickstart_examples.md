@@ -6,7 +6,7 @@ subsection: b2b
 categorie: Quickstart
 title: Examples
 gitHubPath: webapi/content/webapi-quickstart_examples.md
-description: "This Quick Start contains examples (single objects, collections, geo-json object) of curl requests to Groupe PSA’s REST B2B APIs."
+description: "This Quick Start contains examples (single objects, collections, geo-json object) of curl requests to Groupe PSA’s REST B2B API."
 redirect_from: 
     - /webapi/b2b/quickstart/
 ---

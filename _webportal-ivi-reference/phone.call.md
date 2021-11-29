@@ -16,7 +16,7 @@ paramsset:
   - name: phoneNumber
     description: >-
       Phone number of the device you want to trigger a call on, it can be
-      retrieve throught **Get** or **Subscribe** APIs.
+      retrieve throught **Get** or **Subscribe** API.
     type: string
     unit-value: phone number
     example: +33 (0)800 424 091
@@ -37,7 +37,7 @@ dataset:
   - name: callId
     description: >-
       Telephone number on which the call was set, it can be retrieve throught
-      **Get** or **Subscribe** APIs.
+      **Get** or **Subscribe** API.
     type: string
     unit-value: phone number
     example: +33 (0)800 424 091

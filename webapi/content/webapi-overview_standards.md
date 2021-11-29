@@ -4,7 +4,7 @@ Our REST api returns type MIME: **application/hal+json**. GeoJson is for geoloca
 
 ## REQUEST
 
-The Groupe PSA's Web APIs are based on **REST** principles. Data resources are accessed via standard **HTTPS requests in UTF-8 format** to an API endpoint. Moreover, the Web API uses appropriate HTTP verbs for each action:
+The Groupe PSA's Web API are based on **REST** principles. Data resources are accessed via standard **HTTPS requests in UTF-8 format** to an API endpoint. Moreover, the Web API uses appropriate HTTP verbs for each action:
 
 
 <table class="largertable">

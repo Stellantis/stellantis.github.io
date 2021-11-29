@@ -21,7 +21,7 @@ Within the vehicle infotainment system HMI, the user/driver can select various *
 
 # WEBPORTAL API
 
-According to this setting some APIs could be available or not within Webportal v2 API.
+According to this setting some API could be available or not within Webportal v2 API.
 
 
 In Webportal v2 [references]({{site.baseurl}}/webportal/v2/api-reference/list/#article), you can find icons related to each API required permission:

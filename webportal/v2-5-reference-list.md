@@ -18,7 +18,7 @@ redirect_from:
 
 
 <div class="notification page-disclaimer">
-   This list of references allows to browse Groupe PSA <strong>Webportal v2 APIs</strong>. These API can be available as  <a href="{{site.baseurl}}/webportal/v2/quickstart/get-set-subscribe/#article">get, set or subscribe</a>:
+   This list of references allows to browse Groupe PSA <strong>Webportal v2 API</strong>. These API can be available as  <a href="{{site.baseurl}}/webportal/v2/quickstart/get-set-subscribe/#article">get, set or subscribe</a>:
   <ul>
     <li>
       <strong>Get</strong> 
@@ -33,7 +33,7 @@ redirect_from:
       receive a notification event in a specific condition.<em> ex: subscribe to navigation.destinationReached will trigger an event when the navigation destination is reached</em>
     </li>
   </ul>
-  Depending of the current <a href="{{site.baseurl}}/webportal/v2/overview/privacy/#article">privacy</a> choosen by the vehicle driver int the HMI, APIs can be available or not:
+  Depending of the current <a href="{{site.baseurl}}/webportal/v2/overview/privacy/#article">privacy</a> choosen by the vehicle driver int the HMI, API can be available or not:
   <ul>
     <li>
       <em>

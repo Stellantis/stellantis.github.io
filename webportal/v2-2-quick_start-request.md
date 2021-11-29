@@ -39,6 +39,6 @@ Name| Value Type| API Type|Value|Description|Required
 `api`|*string*| *Get, Set, Subscribe* |n/a|Name of the API. Find a list [here]({{site.baseurl}}/webportal/v2/api-reference/list/#article)| Yes
 `params`|*string* or *object*| *Get, Set, Subscribe* |n/a|This field is where you will pass the parameters required (or not) for this API. If there is no parameter for this API it should be `null`. | Yes
 `period`|*number*| *Subscribe* |n/a|Period of time in seconds between subscribe's message update.| No
-`tolerance`|*number*| *Subscribe* |n/a|For APIs returning continuous value, this field will set a limit under which you will not be triggered. to be | No
+`tolerance`|*number*| *Subscribe* |n/a|For API returning continuous value, this field will set a limit under which you will not be triggered. to be | No
 
 See how to get the [response]({{site.baseurl}}/webportal/v2/quickstart/response/#article)!

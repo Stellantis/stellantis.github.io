@@ -11,7 +11,7 @@
 
 ## ERROR MESSAGE
 
-Error codes are returned by all APIs when the answer is not HTTP-OK. It's displayed in {% if page.subsection == 'b2b' %}[Reference]({{ site.baseurl }}/webapi/b2b/api-reference/){% elsif page.subsection == "b2c" %}[Reference]({{ site.baseurl }}/webapi/b2c/api-reference/){% endif %} with the **Default** button on the right panel.
+Error codes are returned by all API when the answer is not HTTP-OK. It's displayed in {% if page.subsection == 'b2b' %}[Reference]({{ site.baseurl }}/webapi/b2b/api-reference/){% elsif page.subsection == "b2c" %}[Reference]({{ site.baseurl }}/webapi/b2c/api-reference/){% endif %} with the **Default** button on the right panel.
 
 The structure of the error message will always be like:
 
@@ -33,7 +33,7 @@ The structure of the error message will always be like:
 
 # RATE LIMIT
 
-According to your subscription to Groupe PSA APIs, there are limited amounts of API calls you can send during a period of time:
+According to your subscription to Groupe PSA API, there are limited amounts of API calls you can send during a period of time:
 - The **day** limit is a sliding window of 24 hours.
 - The **burst** limit is a maximum of instantaneous requests during an interval of 1 second.
 

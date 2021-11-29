@@ -8,7 +8,7 @@ section: webapi
 subsection: b2b
 categorie: Quickstart
 title: Authentication
-description: "In this tutorial you will find an explanation about getting your B2B authentication in PSA network. It is required in order to consume Groupe PSA’s APIs."
+description: "In this tutorial you will find an explanation about getting your B2B authentication in PSA network. It is required in order to consume Groupe PSA’s API."
 ---
 {% include  content/get-your-certificate.md %}
 

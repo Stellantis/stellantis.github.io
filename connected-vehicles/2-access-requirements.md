@@ -9,15 +9,15 @@ subtitle: What's Required?
 ---
 
 <div class="notification page-disclaimer">
-    <p><strong>Reminder:</strong> Groupe PSA's End User APIs, Web API B2C-v4, has not yet been published publicly yet.</p>
+    <p><strong>Reminder:</strong> Groupe PSA's End User API, Web API B2C-v4, has not yet been published publicly yet.</p>
 </div>
 
 
-Groupe PSA APIs are the technical interfaces available for **application developers** in order to retrieve data and interact with vehicles. They are made to **provide data and features** related to Groupe PSA's Connected Vehicles.
+Groupe PSA API are the technical interfaces available for **application developers** in order to retrieve data and interact with vehicles. They are made to **provide data and features** related to Groupe PSA's Connected Vehicles.
 
-In order to access & to make these APIs works, it's mandatory to fulfill the **requirements**, especially subscribe to at least one *Connected Vehicle Service*. Each of these services is bind to a *data scope* which gives access to a range of data & features in the API.
+In order to access & to make these API works, it's mandatory to fulfill the **requirements**, especially subscribe to at least one *Connected Vehicle Service*. Each of these services is bind to a *data scope* which gives access to a range of data & features in the API.
 
-Here are the references of these APIs:
+Here are the references of these API:
 - **Web API** [B2B-v2]({{site.baseurl}}/webapi/b2b/api-reference-v2/specification/#article), [B2B-v3]({{site.baseurl}}/webapi/b2b/api-reference-v3/specification/#article) and [B2C-v4]({{site.baseurl}}/webapi/b2c/api-reference/specification/#article).
 - **Embedded Infotainment**, [Webportal v1]({{site.baseurl}}/webportal/v1/api-reference/list/#article) and [Webportal v2]({{site.baseurl}}/webportal/v2/api-reference/list/#article).
 
@@ -25,7 +25,7 @@ Here are the references of these APIs:
 
 # REQUIREMENTS
 
-To access a specific data or feature of these APIs, you need to make sure that these **conditions are fulfilled**: 
+To access a specific data or feature of these API, you need to make sure that these **conditions are fulfilled**: 
 - At least one of the vehicle **[Connected Vehicle Services scope](#connected-vehicle-services)** subscription contains this data.
 - The vehicle **[privacy settings]({{site.baseurl}}/connected-vehicles/privacy/#article)** should not block the refreshment of the data you want to access.
 - Your developer account has subscribed a **[plan (SLA)](#service-level-agreement)** that fits your needs of request.
@@ -42,11 +42,11 @@ To access a specific data or feature of these APIs, you need to make sure that t
 
 ### SERVICE LEVEL AGREEMENT
 
-SLA (Service Level Agreements) are subscriptions to plans that allow access to Groupe PSA APIs. 
+SLA (Service Level Agreements) are subscriptions to plans that allow access to Groupe PSA API. 
 
-Data about your vehicles or your users vehicles are processed and stored in our dedicated system. In order to access our retrieval services APIs, you have to subscribe to an API plan (or SLA), depending on how much request you need.
+Data about your vehicles or your users vehicles are processed and stored in our dedicated system. In order to access our retrieval services API, you have to subscribe to an API plan (or SLA), depending on how much request you need.
 
-![APIs plans]({{site.baseurl}}/assets/images/api-plans.jpg)
+![API plans]({{site.baseurl}}/assets/images/api-plans.jpg)
 
 
 > **API B2B V2 & v3:** subscriptions can be made with your contact person in Groupe PSA.<br>
@@ -66,4 +66,4 @@ Look at our [data catalog]({{site.baseurl}}/connected-vehicles/data-catalog/#art
 
 #### PRIVACY
 
-Our APIs are affected by vehicle privacy settings, see our [dedicated page]({{site.baseurl}}/connected-vehicles/privacy#article) for more info.
+Our API are affected by vehicle privacy settings, see our [dedicated page]({{site.baseurl}}/connected-vehicles/privacy#article) for more info.
