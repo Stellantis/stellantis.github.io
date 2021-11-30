@@ -1084,9 +1084,22 @@ aside#on-this-page {
 #navbarpsa #logoPG4D{
     transition: all 0.3s ease;
     filter: drop-shadow(4px 4px 4px #000);
-    width: 221px;
-    height: 50.4px;
+    width: 325px;
+    // height: 50.4px;
     max-height: 100%;
+    display: flex;
+}
+
+
+@media screen and (max-width: 480px) {
+    #navbarpsa #logoPG4D{
+        width: 260px;
+    }
+}
+@media screen and (max-width: 375px) {
+    #navbarpsa #logoPG4D{
+        width: 230px;
+    }
 }
 
 
