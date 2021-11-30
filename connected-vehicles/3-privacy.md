@@ -11,7 +11,7 @@ subtitle: "In Vehicle Privacy"
 # INFOTAINMENT SETTINGS
 
 {% capture text %}
-Depending on the [services]({{site.baseurl}}/connected-vehicles/access-requirements#connected-vehicle-services) subscribed by the owner of the vehicles, relevant data will be sent to Groupe PSA servers through mobile network.
+Depending on the [services]({{site.baseurl}}/connected-vehicles/access-requirements#connected-vehicle-services) subscribed by the owner of the vehicles, relevant data will be sent to Stellantis servers through mobile network.
 
 Within the vehicle infotainment system, the user can select between **3 privacy settings**:
 - <strong>Data & Location:</strong> geolocation & subscribed services relevant data are refreshed.
@@ -54,4 +54,4 @@ Look at our [data catalog]({{site.baseurl}}/connected-vehicles/data-catalog/#art
 
 #### CONNECTED SERVICES
 
-See how to access to the API with Groupe PSA [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).
+See how to access the API by reading more about [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).

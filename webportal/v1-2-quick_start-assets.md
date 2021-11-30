@@ -118,6 +118,6 @@ Here is a list of fonts available in NAC software version *42.01.70.50_NAC-r0*:
 
 What is more, there are brand-specific fonts:
 - GM Sans UI Global Condensed (for Opel / Vauxhall)
-- Peugeot (for AP/AC/DS)
-- Peugeot Light (similar to Peugeot but thinner)
+- Peugeot (for Peugeot, Citroen and DS)
+- Peugeot Light (similar to PeugeoZt but thinner)
 - DSTACHY

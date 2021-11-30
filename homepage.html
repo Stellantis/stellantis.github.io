@@ -2,8 +2,8 @@
 layout: empty-page
 permalink: /
 require: aos typed card homepage thumbnail cta
-description: "Groupe PSA for Developers is the dedicated platform for application developers working with Groupe PSA's
-connected vehicles API and SDK."
+description: "Stellantis Developers is the dedicated platform for application developers working with Stellantis
+connected vehicles API and SDKs."
 redirect_from:
     - /connected-vehicles/use-case/
 ---
@@ -13,11 +13,11 @@ redirect_from:
     <section class="section">
         <div class="container">
             <h2 class="has-text-centered">
-                Groupe PSA for developers
+                Stellantis for developers
             </h2>
             <p class="has-text-centered is-6 is-light text-compact">
-                Groupe PSA for Developers is the dedicated platform for application developers working with
-                Groupe PSA's connected vehicles.
+                Stellantis for Developers is the dedicated platform for application developers working with
+                Stellantis's connected vehicles.
                 Join us and build the future of connected car together!
             </p>
             <div class="separator is-centered"></div>
@@ -149,7 +149,7 @@ redirect_from:
                 Our API
             </h2>
             <p class="has-text-centered  is-6 is-light  text-compact" style="margin-bottom: 8rem;">
-                Choose which API from Groupe PSA's that you want to explore.
+                Choose which API from Stellantis's that you want to explore.
             </p>
             <!--  / OUR APIs -->
 
@@ -206,7 +206,7 @@ redirect_from:
             Projects
         </h2>
         <p class="has-text-centered  is-6 is-light  text-compact"  style="margin-bottom: 3rem;">
-            See what you can do with Groupe PSA's API.
+            See what you can do with Stellantis's APIs.
         </p>
         <!-- PROJECTS LIST -->
         <div class="projects" data-aos="fade-up">
@@ -260,46 +260,5 @@ redirect_from:
             });
         }
     });
-
-    /*----------- LEAFLET ---------*/
-
-    var map = null;
-    var vehicle = null;
-
-    window.onload = function () {
-
-        //init LEAFLET
-        //set view on velizy
-        var lat = 48.7712;
-        var lon = 2.2263;
-
-        //create map and insert into map html id
-        map = L.map('map', { zoomControl: false }).setView([lat, lon], 15);
-        //openstreetmap maps adress
-        L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-            //set credit to OSM
-            attribution: 'data © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - <a href="//openstreetmap.fr">OSM France</a>',
-            minZoom: 1,
-            maxZoom: 20,
-        }).addTo(map);
-
-        // lock map
-        map.dragging.disable();
-        map.touchZoom.disable();
-        map.doubleClickZoom.disable();
-        map.scrollWheelZoom.disable();
-        map.boxZoom.disable();
-        map.keyboard.disable();
-        if (map.tap) map.tap.disable();
-        document.getElementById('map').style.cursor = 'default';
-
-        //add marker on map
-        vehicle = L.marker([48.772476, 2.2221432]).addTo(map);
-        //add popup to marker with vehicle info
-        vehicle.bindPopup('<img class="image" src="{{site.baseurl}}/assets/images/c3.jpg" alt="No Image Available"><p><b>Id: </b>XA143Z2<br><b> Vin: </b>VF7A12BCDEF3456<br><b>Brand: </b>Citroën<br><b>Label: </b>C3 PureTech<br> <b> LastPosition:</b> <a href="{{site.baseurl}}/connectedcar/v4/user/vehicles/{id}/lastPosition">href</a></p>').openPopup();
-        //set map view above the marker
-        map.setView([48.7775, 2.22232]);
-
-    };
 
 </script>

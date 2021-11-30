@@ -8,7 +8,7 @@ on_this_page: false
 require: reference-list
 categorie: API Reference
 gitHubPath: _webportal-ivi-public-reference/
-description: "Groupe PSA Webportal v2 API Reference: list of API available functions & events."
+description: "Stellantis Embedded Webportal v2 for Citroën, DS, Peugeot, Opel and Vauxhall, API Reference: list of API available functions & events."
 redirect_from:
   - /webportal/v2/api-reference/
   - /webportal/v2/
@@ -18,7 +18,7 @@ redirect_from:
 
 
 <div class="notification page-disclaimer">
-   This list of references allows to browse Groupe PSA <strong>Webportal v2 API</strong>. These API can be available as  <a href="{{site.baseurl}}/webportal/v2/quickstart/get-set-subscribe/#article">get, set or subscribe</a>:
+   This list of references allows to browse Stellantis for Citroën, DS, Peugeot, Opel and Vauxhall: <strong>Webportal v2 API</strong>. These API can be available as  <a href="{{site.baseurl}}/webportal/v2/quickstart/get-set-subscribe/#article">get, set or subscribe</a>:
   <ul>
     <li>
       <strong>Get</strong> 

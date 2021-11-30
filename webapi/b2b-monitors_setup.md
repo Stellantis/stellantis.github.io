@@ -7,6 +7,6 @@ categorie: Monitor
 title: Set Up
 require: swagger
 gitHubPath: webapi/content/webapi-monitor_setup.md
-description: "Learn how to set-up monitors in Groupe PSA B2B WEB API."
+description: "Learn how to set-up monitors in Fleet owner API."
 ---
 {% include_relative content/webapi-monitor_setup.md %}

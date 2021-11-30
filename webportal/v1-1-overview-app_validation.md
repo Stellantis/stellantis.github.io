@@ -5,7 +5,7 @@ section: webportal
 subsection: v1
 categorie: Overview
 title: App Validation
-description: "In order to allow your app in the webportal your app needs to be validated by Groupe PSA."
+description: "In order to allow your app in the webportal your app needs to be validated by Stellantis."
 ---
 
 # APP VALIDATION
@@ -16,10 +16,10 @@ To start developing your Application, you just need some web development skills,
 
 ## VALIDATION 
 
-As Groupe PSA needs to control its [infotainment system]({{site.baseurl}}/webportal/v1/overview/infotainment-system/#article) not evry APPs are allowed on the plateform. 
+As Stellantis needs to control its [infotainment system]({{site.baseurl}}/webportal/v1/overview/infotainment-system/#article) not evry APPs are allowed on the plateform. 
 
 Embedded webportal is not an open plateform as application for smartphone, if you want to start the process of development for Webportal, please contact us to set-up together your project.
 
->Some functionalities are restricted and so may require special permission from PSA in order to be used in your application.
+>Some functionalities are restricted and so may require special permission from Stellantis in order to be used in your application.
 
-After your development process Groupe PSA webportal team will review your App and proceed to deployment in vehicles.
+After your development process Stellatis webportal team will review your App and proceed to deployment in vehicles.

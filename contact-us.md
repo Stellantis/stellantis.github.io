@@ -4,7 +4,7 @@ permalink: /contact-us/
 title: Contact Us!
 on_this_page: false
 menu: false
-description: "PSA Groupe developer portal's Contact Us page."
+description: "Stellantis developer portal's Contact Us page."
 subtitle: Contact Form
 section: other
 ---

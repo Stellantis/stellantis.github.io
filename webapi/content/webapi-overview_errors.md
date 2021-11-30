@@ -24,16 +24,16 @@ The structure of the error message will always be like:
 }
 ```
 
-- `code` is an enhanced HTTP error code (the first 3 digits are HTTP standard error and the 2 last digits are dedicated error code for PSA API). 
+- `code` is an enhanced HTTP error code (the first 3 digits are HTTP standard error and the 2 last digits are dedicated error code for Web API). 
 - `uuid` is the unique identifier of this message. It can be used to get in touch with support and help to understand why this error happened.
 - `message` is a text explaining the nature of the error.
 - `timestamp` is the date and time when the error happened.
 
-> **Note:** If you encounter any unexpected error do not forget to save the error message. Contacting Groupe PSA support with the error message (code, uuid and timestamp), we will be able to investigate on this.
+> **Note:** If you encounter any unexpected error do not forget to save the error message. Contacting Stellantis support with the error message (code, uuid and timestamp), we will be able to investigate on this.
 
 # RATE LIMIT
 
-According to your subscription to Groupe PSA API, there are limited amounts of API calls you can send during a period of time:
+According to your subscription to Stellantis API for Citroën, DS, Peugeot, Opel and Vauxhall, they are limited amounts of API calls you can send during a period of time:
 - The **day** limit is a sliding window of 24 hours.
 - The **burst** limit is a maximum of instantaneous requests during an interval of 1 second.
 
@@ -83,4 +83,4 @@ Field Name | Description
 
 Using these headers, you can wait during the *Reset time* before sending another request to the API.
 
-If the rate limit of your subscription does not fit to your needs, you should contact Groupe PSA in order to increase the ratios.
+If the rate limit of your subscription does not fit to your needs, you should contact Stellantis in order to increase the ratios.

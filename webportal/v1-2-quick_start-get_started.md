@@ -13,7 +13,7 @@ description: "This tutorial explains the basics of creating an app for Webportal
 
 # GETTING STARTED
 
-You will need to contact [PSA Team](mailto:connectedcar@mpsa.com) in order to become a partner and deploy your apps on the Webportal so you should start by doing so.
+You will need to contact [Stellantis Team](mailto:connectedcar@mpsa.com) in order to become a partner and deploy your apps on the Webportal so you should start by doing so.
 The team will also be able to help you with questions you might have.
 
 This tutorial will guide you through the creation of your Application. You can also start by downloading the base of your application directly.
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 <img alt="app-structure" src="{{site.baseurl}}/assets/images/the_structure.png" class="smallimg" />
 **This is the file structure your application must use.**
 
-Once development is finish, you have to submit your application to PSA for us to check its behavior before actually deploying it.
+Once development is finish, you have to submit your application to Stellantis for us to check its behavior before actually deploying it.
 The structure of the file to submit is mostly free with some requirements:
 
 - The files must be sent in a TAR archive compressed via GZIP
@@ -100,7 +100,7 @@ The structure of the file to submit is mostly free with some requirements:
 + **Country scope** The partner must provide the list of countries where the app can be activated for customers, within the list of countries where the WebPortal is available.
 + **Brand scope** The partner must provide the list of brands for which the app can be activated for customers. Today, Peugeot, Citroën, DS, Opel and Vauxhall are available.
 + **Device scope** The partner must provide the list of devices and configurations where the app can be activated for customers. Today NACw2.1, NACw3.1 and NACw4 are available.
-+ **App identifier** To be given by PSA, this App Id is mandatory as it enables us to identify the app in MQTT exchanges and in the process of display in the vehicles.
++ **App identifier** To be given by Stellantis, this App Id is mandatory as it enables us to identify the app in MQTT exchanges and in the process of display in the vehicles.
 + **MQTT partner account**
 
 # APP LIFECYCLE

@@ -9,6 +9,6 @@ subsection: b2b
 categorie: Overview
 title: About
 gitHubPath: webapi/content/webapi-overview_about.md
-description: "Groupe PSA REST B2B API implements various endpoints to retrieve resources from your Groupe PSA’s vehicles."
+description: "Stellantis API for Citroën, DS, Peugeot, Opel and Vauxhall implements various endpoints to retrieve resources from your connected vehicles."
 ---
 {% include_relative content/webapi-overview_about.md %}

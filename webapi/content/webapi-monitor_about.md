@@ -1,5 +1,5 @@
 # FEATURES
-Through Groupe PSA's {% if page.subsection == 'b2b' %}B2B{% elsif page.subsection == 'b2c' %}B2C{% endif %} API you can access and browse data about your vehicles.
+With Stellantis {% if page.subsection == 'b2b' %}Fleet Owner{% elsif page.subsection == 'b2c' %}End User{% endif %} API for Citroën, DS, Peugeot, Opel and Vauxhall, you can access and browse data about your vehicles.
 But moreover our API allow you to set-up **events** that we will track for you.
 Monitors are a way to design events tracking patterns for vehicles.
 When the even is triggered, we will send a notification to your server.

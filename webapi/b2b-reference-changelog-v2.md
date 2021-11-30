@@ -134,7 +134,7 @@ Version|Name
 
 {% include published_on.html date='21 Sep 2020' %}
 
-#### `Align API B2B v2 with API B2B v2`
+#### `Align API B2B v2 with API B2B v3`
 Spec version : b2b_v2.0.3-P3
 
 <hr>

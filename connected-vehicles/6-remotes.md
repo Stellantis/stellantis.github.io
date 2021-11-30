@@ -11,7 +11,7 @@ description: "Send remote command to a vehicle."
 subtitle: Remote commands
 ---
 
-With [Groupe PSA's WEB API v3]({{site.baseurl}}/webapi/b2b/remote/about) you are able to send remote control command to your vehicle(s)! 
+Using [Stellantis API v3 for Citroën, DS, Peugeot, Opel and Vauxhall]({{site.baseurl}}/webapi/b2b/remote/about) you are able to send remote control command to your vehicle(s)! 
 
 The remote feature allows to control your vehicle trough cellular network. 
 

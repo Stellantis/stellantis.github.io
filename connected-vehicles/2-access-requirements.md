@@ -4,16 +4,16 @@ permalink: /connected-vehicles/access-requirements/
 section: connected-vehicles
 title: Access Requirements
 subsection: overview
-description: "Subscribing your vehicle(s) to Groupe PSA's Connected Services is mandatory in order to retrieve data."
+description: "Subscribing your vehicle(s) to Stellantis's Connected Services is mandatory in order to retrieve data."
 subtitle: What's Required?
 ---
 
 <div class="notification page-disclaimer">
-    <p><strong>Reminder:</strong> Groupe PSA's End User API, Web API B2C-v4, has not yet been published publicly yet.</p>
+    <p><strong>Reminder:</strong> Stellantis End User API for Citroën, DS, Peugeot, Opel and Vauxhall, Web API B2C-v4, has not yet been published publicly yet.</p>
 </div>
 
 
-Groupe PSA API are the technical interfaces available for **application developers** in order to retrieve data and interact with vehicles. They are made to **provide data and features** related to Groupe PSA's Connected Vehicles.
+Stellantis API for Citroën, DS, Peugeot, Opel and Vauxhall are the technical interfaces available for **application developers** in order to retrieve data and interact with vehicles. They are made to **provide data and features** related to Stellantis (Citroën, DS, Peugeot, Opel and Vauxhall) Connected Vehicles.
 
 In order to access & to make these API works, it's mandatory to fulfill the **requirements**, especially subscribe to at least one *Connected Vehicle Service*. Each of these services is bind to a *data scope* which gives access to a range of data & features in the API.
 
@@ -42,20 +42,20 @@ To access a specific data or feature of these API, you need to make sure that th
 
 ### SERVICE LEVEL AGREEMENT
 
-SLA (Service Level Agreements) are subscriptions to plans that allow access to Groupe PSA API. 
+SLA (Service Level Agreements) are subscriptions to plans that allow access to Stellantis API for Citroën, DS, Peugeot, Opel and Vauxhall. 
 
 Data about your vehicles or your users vehicles are processed and stored in our dedicated system. In order to access our retrieval services API, you have to subscribe to an API plan (or SLA), depending on how much request you need.
 
 ![API plans]({{site.baseurl}}/assets/images/api-plans.jpg)
 
 
-> **API B2B V2 & v3:** subscriptions can be made with your contact person in Groupe PSA.<br>
+> **API B2B V2 & v3:** subscriptions can be made with your contact person in Stellantis.<br>
 **API B2C v4:** more information in this [tutorial]({{site.baseurl}}/webapi/b2c/quickstart/connect/#article).
 
 ### AUTHORIZATION
 
 In order to access online data about your vehicle, there are two options:
-- You own a fleet of Groupe PSA's vehicles (**Web API B2B** v2 & v3). In this case, you can access your vehicle's data as you wish. This [tutorial]({{site.baseurl}}/webapi/b2b/quickstart/authentication/#article) explains the process of authentication for fleet owner.
+- You own a fleet of Stellantis vehicles (Citroën, DS, Peugeot, Opel and Vauxhall) (**Web API B2B** v2 & v3). In this case, you can access your vehicle's data as you wish. This [tutorial]({{site.baseurl}}/webapi/b2b/quickstart/authentication/#article) explains the process of authentication for fleet owner.
 - You are developing end-users application (**Web API B2C** v4). This [step-by-step]({{site.baseurl}}/webapi/b2c/quickstart/connect/#article) explains connection process. Then you will need to enroll your user using OAuth2 authorization protocol.
 
 # SEE ALSO
