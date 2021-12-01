@@ -13,7 +13,7 @@ description: "This tutorial explains the basics of creating an app for Webportal
 
 # GETTING STARTED
 
-You will need to contact [Stellantis Team](mailto:connectedcar@mpsa.com) in order to become a partner and deploy your apps on the Webportal so you should start by doing so.
+You will need to contact [Stellantis Team]({{site.baseurl}}/contact-us/) in order to become a partner and deploy your apps on the Webportal so you should start by doing so.
 The team will also be able to help you with questions you might have.
 
 This tutorial will guide you through the creation of your Application. You can also start by downloading the base of your application directly.

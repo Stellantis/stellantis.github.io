@@ -17,10 +17,11 @@ At the end of this process you will have everything you need to consume our B2B 
 - `CA Certificate`: Stellantis CA Cert for peer verification.
 
 <img src="{{site.baseurl}}/assets/images/certificate-process.png" alt="certificate-process" style="width: 580px">
+<img src="{{site.baseurl}}/assets/images/client-authentication.svg" alt="client-authentication" style="width: 580px">
 
 ## 1. PARTNER LOGIN
 
-First, you'll need a Stellantis (ex-Groupe PSA) login (ex: MZP123456). If you already have one, you can go to step 2. If you don't, email us with info about the partnership at <connectedcar@mpsa.com> and we will create one for you.
+First, you'll need a Stellantis (ex-Groupe PSA) login (ex: MZP123456). If you already have one, you can go to step 2. If you don't have one, [contact us]({{site.baseurl}}/contact-us/) and we will create one for you.
 
 ## 2. ENCRYPTION KEYS & CSR
 
@@ -119,7 +120,7 @@ $ keytool \
 - `CSRName.csr` will be the name of the CSR
 
 ## 3. SUBMIT CSR
-Once you have created your brand-new CSR file, send it to us via this email: <connectedcar@mpsa.com>.
+Once you have created your brand-new CSR file, send it to your contact in Stellantis.
 At this point we will begin our internal process to sign your certificate.
 
 ## 4. CERTIFICATE & CLIENT ID

@@ -12,7 +12,7 @@ redirect_from:
 
 # GETTING STARTED
 
-You will need to contact [Stellantis Team](mailto:connectedcar@mpsa.com) in order to become a partner and deploy your apps on the Webportal so you should start by doing so.
+You will need to contact [Stellantis Team]({{site.baseurl}}/contact-us/) in order to become a partner and deploy your apps on the Webportal so you should start by doing so.
 The team will also be able to help you with questions you might have.
 
 ## HTML
