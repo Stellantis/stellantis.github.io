@@ -7,6 +7,6 @@ require: swagger
 gitHubPath: webapi/content/webapi-remote_setup.md
 categorie: Remote
 title: Set Up
-description: "Learn how to set-up remotes in Groupe PSA B2B WEB API."
+description: "Learn how to set-up remotes in Fleet Owner API."
 ---
 {% include_relative content/webapi-remote_setup.md %}

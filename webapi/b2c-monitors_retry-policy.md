@@ -6,7 +6,7 @@ subsection: b2c
 categorie: Monitor
 title: Retry Policy
 gitHubPath: webapi/content/retry-policy.md
-description: "Information about Groupe PSA monitors blacklisting policy."
+description: "Information about End User API monitors's blacklisting policy."
 ---
 
 {% include_relative content/webapi_retry-policy.md %}

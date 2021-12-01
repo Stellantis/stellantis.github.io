@@ -1080,13 +1080,34 @@ aside#on-this-page {
     font-style: normal;
     font-weight: 600;
 }
+#navbarpsa #logoPG4D svg{
+    width: 283px;
+    height: 42.7px;
+}
 
 #navbarpsa #logoPG4D{
     transition: all 0.3s ease;
     filter: drop-shadow(4px 4px 4px #000);
-    width: 221px;
-    height: 50.4px;
+    width: 283px;
+    height: 42.7px;
     max-height: 100%;
+    display: flex;
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+    #navbarpsa #logoPG4D{
+        width: 260px;
+        height: 39.2333px;
+    }
+}
+@media screen and (max-width: 375px) {
+    #navbarpsa #logoPG4D{
+        width: 230px;
+        height: 34.7px;
+    }
 }
 
 

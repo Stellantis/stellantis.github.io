@@ -1,6 +1,6 @@
 # EXAMPLES
 
-This Quick Start contains examples of curl requests to Groupe PSA's web api for {% if page.subsection == 'b2b' %}Fleet Owners{% elsif page.subsection == 'b2c' %}End-Users{% endif %}. These examples will show you how to deal with single objects, collections, geo-json objects and an example of POST and DELETE HTTP request.
+This Quick Start contains examples of curl requests to Stellantis {% if page.subsection == 'b2b' %}Fleet Owners{% elsif page.subsection == 'b2c' %}End-Users{% endif %} API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall). These examples will show you how to deal with single objects, collections, geo-json objects and an example of POST and DELETE HTTP request.
 
 To retrieve {% if page.subsection == 'b2b' %} authentication information refer to [this section]({{site.baseurl}}/webapi/b2b/quickstart/authentication).{% elsif page.section == 'b2c' %} connection information refer to [this section]({{site.baseurl}}/webapi/b2c/quickstart/connect).{% endif %}
 
@@ -10,7 +10,7 @@ To retrieve {% if page.subsection == 'b2b' %} authentication information refer t
 <div class="toto">
 </div>
 
-   Web API base endpoint {% if page.subsection == 'b2b' %}'/fleets'{% elsif page.subsection == 'b2c' %}'/user'{% endif %} allow you to retrieve info about your account in Groupe PSA's Network.
+   Web API base endpoint {% if page.subsection == 'b2b' %}'/fleets'{% elsif page.subsection == 'b2c' %}'/user'{% endif %} allow you to retrieve info about your account in Stellantis's Network.
 
    {% include webapi-curl.md apiEndpointB2B='/fleets' apiEndpointB2C='/user' referenceURLResssourceB2C='/#/User/getUser' referenceURLResssourceB2B='/#/Fleet/getFleets' httpVerb='GET' displayApiURL=true %}
 

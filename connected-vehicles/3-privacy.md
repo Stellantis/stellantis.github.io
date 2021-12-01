@@ -11,7 +11,7 @@ subtitle: "In Vehicle Privacy"
 # INFOTAINMENT SETTINGS
 
 {% capture text %}
-Depending on the [services]({{site.baseurl}}/connected-vehicles/access-requirements#connected-vehicle-services) subscribed by the owner of the vehicles, relevant data will be sent to Groupe PSA servers through mobile network.
+Depending on the [services]({{site.baseurl}}/connected-vehicles/access-requirements#connected-vehicle-services) subscribed by the owner of the vehicles, relevant data will be sent to Stellantis servers through mobile network.
 
 Within the vehicle infotainment system, the user can select between **3 privacy settings**:
 - <strong>Data & Location:</strong> geolocation & subscribed services relevant data are refreshed.
@@ -32,7 +32,7 @@ This setting will impact your ability to retrieve data in our API.
 
 ### EFFECT ON WEBPORTAL
 
-As an embedded application developer (**Webportal v1 & v2**), only APIs that match the current privacy are available. That's why your application needs to handle the privacy settings selected by the user. See [privacy webportal v1]({{site.baseurl}}/webportal/v1/quickstart/#privacy-mode) or [privacy Webportal v2]({{site.baseurl}}/webportal/v2/overview/privacy/#article) for more info.
+As an embedded application developer (**Webportal v1 & v2**), only API that match the current privacy are available. That's why your application needs to handle the privacy settings selected by the user. See [privacy webportal v1]({{site.baseurl}}/webportal/v1/quickstart/#privacy-mode) or [privacy Webportal v2]({{site.baseurl}}/webportal/v2/overview/privacy/#article) for more info.
 
 You can retrieve required level of privacy of each API in the references: [Webportal v1]({{site.baseurl}}/webportal/v1/api-reference/list/#article) or [Webportal v2]({{site.baseurl}}/webportal/v2/api-reference/list/#article).
 
@@ -54,4 +54,4 @@ Look at our [data catalog]({{site.baseurl}}/connected-vehicles/data-catalog/#art
 
 #### CONNECTED SERVICES
 
-See how to access to the APIs with Groupe PSA [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).
+See how to access the API by reading more about [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).

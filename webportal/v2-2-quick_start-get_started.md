@@ -12,7 +12,7 @@ redirect_from:
 
 # GETTING STARTED
 
-You will need to contact [PSA Team](mailto:connectedcar@mpsa.com) in order to become a partner and deploy your apps on the Webportal so you should start by doing so.
+You will need to contact [Stellantis Team]({{site.baseurl}}/contact-us/) in order to become a partner and deploy your apps on the Webportal so you should start by doing so.
 The team will also be able to help you with questions you might have.
 
 ## HTML
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 Doing so you inform the parent window (applications portal) that the application is loaded and ready.
 
-To develop Webportal Applications you have to use [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) and [onmessage](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onmessage) browser APIs.
+To develop Webportal Applications you have to use [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) and [onmessage](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onmessage) browser API.
 
 Learn more about the various messages by reading what are [Get, Set & Subscribe]({{site.baseurl}}/webportal/v2/quickstart/get-set-subscribe/#article) verbs.
 

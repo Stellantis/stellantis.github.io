@@ -17,7 +17,7 @@ redirect_from:
 
 ## FEATURES
 
-Here the various features of webportal embedded apps APIs':
+Here the various features of webportal embedded apps API':
 
 - `Apps` Get info related to embedded app execution in webportal.
 - `Browser` Be informed of the browser window settings.

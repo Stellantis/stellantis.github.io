@@ -1,12 +1,12 @@
 # coding: utf-8
 
 Gem::Specification.new do |spec|
-  spec.name          = "PSA-Doc"
-  spec.version       = "0.1.1"
-  spec.authors       = ["PSA"]
-  spec.email         = ["email@psa.com"]
+  spec.name          = "StellantisForDevelopers"
+  spec.version       = "0.2.0"
+  spec.authors       = ["Stellantis"]
+  spec.email         = ["email@stellantis.com"]
 
-  spec.summary       = "The documentation website for PSA"
+  spec.summary       = "The documentation website for Stellantis API"
   spec.homepage      = ""
   spec.license       = ""
 

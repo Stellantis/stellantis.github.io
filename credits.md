@@ -5,7 +5,7 @@ title: Credits
 on_this_page: false
 menu: false
 section: other
-description: "PSA Groupe developer portal's Credits page."
+description: "Stellantis developer portal's Credits page."
 ---
 
 # Media

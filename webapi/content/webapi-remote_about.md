@@ -1,6 +1,6 @@
 # FEATURES
 
-With our APIs, you are able to {% if page.subsection == 'b2b' %}[browse data]({{site.baseurl}}/webapi/b2b/overview/standards/){% elsif page.subsection == 'b2c' %}[browse datas]({{site.baseurl}}/webapi/b2c/overview/standards/){% endif %} about vehicles and receive {% if page.subsection == 'b2b' %}[custom notifications]({{site.baseurl}}/webapi/b2b/monitor/about){% elsif page.subsection == 'b2c' %}[custom notifications]({{site.baseurl}}/webapi/b2c/monitor/about){% endif %}. Now, the remote APIs allow you to send online commands to connected vehicles.
+With our API, you are able to {% if page.subsection == 'b2b' %}[browse data]({{site.baseurl}}/webapi/b2b/overview/standards/){% elsif page.subsection == 'b2c' %}[browse datas]({{site.baseurl}}/webapi/b2c/overview/standards/){% endif %} about vehicles and receive {% if page.subsection == 'b2b' %}[custom notifications]({{site.baseurl}}/webapi/b2b/monitor/about){% elsif page.subsection == 'b2c' %}[custom notifications]({{site.baseurl}}/webapi/b2c/monitor/about){% endif %}. Now, the remote API allow you to send online commands to connected vehicles.
 
 > **Note:** Remote control is only available within [WEB API V3]({{site.baseurl}}/webapi/b2b/api-reference-v3/specification/#article).
 
@@ -37,7 +37,7 @@ It is possible to set a retry policy with a specific number and frequency, it’
 
 **Step2: send a remote action**
 
-Once your callback is created, you will be able to **send remote** request to your vehicle (through Groupe PSA's network).
+Once your callback is created, you will be able to **send remote** request to your vehicle (through Stellantis's network).
 While the command is being processed by the vehicle, you will receive callback reports in your webhook.
 
 ![remote-action-sequence]({{site.baseurl}}/assets/images/remote-action-sequence.png)

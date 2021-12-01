@@ -1,9 +1,9 @@
 ---
 layout: empty-page
 permalink: /
-require: aos leaflet typed card homepage thumbnail cta
-description: "Groupe PSA for Developers is the dedicated platform for application developers working with Groupe PSA's
-connected vehicles APIs and SDKs."
+require: aos typed card homepage thumbnail cta
+description: "Stellantis Developers is the dedicated platform for application developers working with Stellantis
+connected vehicles API and SDKs."
 redirect_from:
     - /connected-vehicles/use-case/
 ---
@@ -13,11 +13,11 @@ redirect_from:
     <section class="section">
         <div class="container">
             <h2 class="has-text-centered">
-                Groupe PSA for developers
+                Stellantis for Developers
             </h2>
             <p class="has-text-centered is-6 is-light text-compact">
-                Groupe PSA for Developers is the dedicated platform for application developers working with
-                Groupe PSA's connected vehicles.
+                Stellantis for Developers is the dedicated platform for application developers working with
+                Stellantis's connected vehicles.
                 Join us and build the future of connected car together!
             </p>
             <div class="separator is-centered"></div>
@@ -29,12 +29,11 @@ redirect_from:
         <div class="container">
             <div class="columns is-vcentered">
                 <div class="column is-half description">
-                    <a href="{{site.baseurl}}/webapi/" data-aos="fade-right" class="landing-text-bloc">
-                        <h3 class="">Retrieve your <br> vehicles data.</h3>
+                    <a href="{{site.baseurl}}/connected-vehicles/data-catalog/" data-aos="fade-right" class="landing-text-bloc">
+                        <h3 class="">Browse our <br>  data catalog.</h3>
                         <div class="separator"></div>
-                        <p class="is-6 is-light  text-compact"> Our REST API allow retrieving everything about
-                            your vehicles. You can access all kind of telemetry, maintenance details,
-                            collisions, position, alerts etc. &nbsp;
+                        <p class="is-6 is-light  text-compact"> Access our data catalog and retrieving everything about
+                            your vehicles. You'll be able to retrieve in which API each data is available! &nbsp;
                             <svg class="link-arrow" viewBox="0 0 25 12">
                                 <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
                             </svg>
@@ -42,10 +41,10 @@ redirect_from:
                     </a>
                 </div>
                 <!-- CODE HIGHLIGHTER -->
-                <div class="column">
-                    <div class="landing-feature is-hidden-mobile">
+                <div class="column is-half">
+                    <div class="landing-feature">
                         <div class="language-json highlighter-rouge">
-                            <div class="highlight">
+                            <!-- <div class="highlight"> -->
                                 <pre class="highlight"><code><span class="mf">HTTP/1.1 200 OK<br/>Content-Type: application/hal+json<br/>Date: Tue, 09 Jun 2020 02:43:42 GMT</span>      
   <span class="p">    </span><span class="w">
   <span class="p">    {</span><span class="w">
@@ -78,7 +77,7 @@ redirect_from:
   </span><span class="p">    }</span>
   <span class="w"></span></code>
                                 </pre>
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
@@ -93,11 +92,11 @@ redirect_from:
             <div class="columns is-vcentered">
                 <!-- PIC WP -->
                 <div class="column is-half">
-                    <img class="rounded landing-feature is-hidden-mobile"
+                    <img class="rounded landing-feature"
                         src="{{site.baseurl}}/assets/images/apps-nac.jpg" style="filter: brightness(85%);">
                 </div>
                 <!-- / PIC WP -->
-                <div class="column description">
+                <div class="column is-half description">
                     <a href="{{site.baseurl}}/webportal/" class="landing-text-bloc" data-aos="fade-left">
                         <h3 class="">Build embedded <br> web APPs.</h3>
                         <div class="separator"></div>
@@ -113,16 +112,15 @@ redirect_from:
         </div>
     </section>
     <!-- / BUILD EMBEDDED APPS -->
-    <!--  REMOTE CONTROL -->
+    <!--  WEB API -->
     <section class="section section-feature">
         <div class="container">
             <div class="columns is-vcentered">
-                <div class="column description">
-                    <a href="{{site.baseurl}}/webapi/b2b/remote/about/"  class="landing-text-bloc" data-aos="fade-right">
-                        <h3 class="">Remote control <br>your vehicle.</h3>
+                <div class="column is-half description">
+                    <a href="{{site.baseurl}}/webapi/#article"  class="landing-text-bloc" data-aos="fade-right">
+                        <h3 class="">Access vehicles <br>data online.</h3>
                         <div class="separator"></div>
-                        <p class="is-6 is-light  text-compact">Remote control your vehicles over Bluetooth or
-                            HTTP: open the doors, precondition temperature, honk the horn and much more...
+                        <p class="is-6 is-light  text-compact"> Our REST API allows to access data, set HTTP callbacks & remote control your vehicles online: speed, maintenance, honk the horn and much more...
                             &nbsp;
                             <svg class="link-arrow" viewBox="0 0 25 12">
                                 <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
@@ -130,41 +128,17 @@ redirect_from:
                         </p>
                     </a>
                 </div>
-                <!-- REMOTE PIC -->
+                <!-- PHONE APP PIC -->
                 <div class="column is-half">
-                    <img class="rounded landing-feature is-hidden-mobile"
+                    <img class="rounded landing-feature"
                         src="{{site.baseurl}}/assets/images/myds.jpg" style="filter: brightness(85%);">
                 </div>
-                <!-- / REMOTE PIC -->
+                <!-- / PHONE APP PIC -->
             </div>
-            <!-- / BUILD EMBEDDED APPS -->
+            <!-- / WEBAPI -->
         </div>
     </section>
     <!--  / REMOTE CONTROL -->
-    <!--  BUILD INTERFACES -->
-    <section class="section section-feature">
-        <div class="container">
-            <div class="columns is-vcentered">
-                <!-- MAP -->
-                <div class="column is-half">
-                    <div class="landing-feature is-hidden-mobile">
-                        <article id="map" style="border-radius: 3px; filter:brightness(85%)"></article>
-                    </div>
-                </div>
-                <!-- / MAP -->
-                <div class="column description">
-                    <div class="landing-text-bloc" data-aos="fade-left">
-                        <h3 class="">Design your own <br>user interface.</h3>
-                        <div class="separator"></div>
-                        <p class="is-6 is-light  text-compact">Use your vehicles data you and build customized
-                            app for your own needs!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- / BUILD INTERFACES -->
-
     <!-- APIs -->
     <section class="section">
         <div class="container our-apis">
@@ -172,17 +146,17 @@ redirect_from:
             <div class="separator is-centered" style="margin-bottom: 3rem;">
             </div>
             <h2 class="has-text-centered">
-                Our APIs
+                Our API
             </h2>
             <p class="has-text-centered  is-6 is-light  text-compact" style="margin-bottom: 8rem;">
-                Choose which API from Groupe PSA's that you want to explore.
+                Choose which API from Stellantis's that you want to explore.
             </p>
             <!--  / OUR APIs -->
 
             <div class="unboxed-content">
                 <div class="cards"> 
 
-                    <div data-aos="zoom-in" data-aos-delay=0" data-aos-easing="ease-out-quart">
+                    <div data-aos="zoom-in" data-aos-delay="0" data-aos-easing="ease-out-quart">
                         {% 
                             include card.html 
                             modifier='card-transparent' 
@@ -212,7 +186,7 @@ redirect_from:
                             modifier='card-transparent' 
                             linkto="/mobile-sdk/"
                             title="SDK Mobile"
-                            text="An iOS and Android SDK for accessing data and remote control over Bluetooth."
+                            text="An iOS and Android SDK for accessing data and remote control over Bluetooth. <br> <em>Available soon.</em>"
                             logo=" fa-mobile"
                             card-arrow="always"
                         %}
@@ -232,7 +206,7 @@ redirect_from:
             Projects
         </h2>
         <p class="has-text-centered  is-6 is-light  text-compact"  style="margin-bottom: 3rem;">
-            See what you can do with Groupe PSA's APIs.
+            See what you can do with Stellantis's APIs.
         </p>
         <!-- PROJECTS LIST -->
         <div class="projects" data-aos="fade-up">
@@ -248,16 +222,9 @@ redirect_from:
                  %}
                  
             {% endfor %}
-            <article class="project-preview">
-                <a class="project-img" href="{{site.baseurl}}/connected-vehicles/about/" style="   
-                                background:  linear-gradient(152deg, rgba(38,51,99,1) 0%, rgba(255,66,56,1) 105%);
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                                justify-content: center;
-                                color: white;
-                                ">
-                    <p style="font-size: 1.5rem;">Why not your App?</p>
+            <article class="project-preview project-cta">
+                <a class="project-img" href="{{site.baseurl}}/connected-vehicles/about/" >
+                    <p>Why not your App?</p>
                 </a>
             </article>
             <!-- FIX Project -->
@@ -269,9 +236,14 @@ redirect_from:
 <!-- / PROJECTS LIST -->
 </div>
 
-<div style="margin: 1rem 0 3rem;">
-    {% include cta.html text="CONTACT US" link="/contact-us/" %}
-</div>
+<!-- CONTACT US CTA -->
+<section class="section landing-page container">
+    <div>
+        {% include cta.html text="CONTACT US" link="/contact-us/" %}
+    </div>
+</section>
+<!-- /CONTACT US CTA -->
+
 
 <script>
     /*----------- TYPED ---------*/
@@ -292,46 +264,5 @@ redirect_from:
             });
         }
     });
-
-    /*----------- LEAFLET ---------*/
-
-    var map = null;
-    var vehicle = null;
-
-    window.onload = function () {
-
-        //init LEAFLET
-        //set view on velizy
-        var lat = 48.7712;
-        var lon = 2.2263;
-
-        //create map and insert into map html id
-        map = L.map('map', { zoomControl: false }).setView([lat, lon], 15);
-        //openstreetmap maps adress
-        L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-            //set credit to OSM
-            attribution: 'data © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - <a href="//openstreetmap.fr">OSM France</a>',
-            minZoom: 1,
-            maxZoom: 20,
-        }).addTo(map);
-
-        // lock map
-        map.dragging.disable();
-        map.touchZoom.disable();
-        map.doubleClickZoom.disable();
-        map.scrollWheelZoom.disable();
-        map.boxZoom.disable();
-        map.keyboard.disable();
-        if (map.tap) map.tap.disable();
-        document.getElementById('map').style.cursor = 'default';
-
-        //add marker on map
-        vehicle = L.marker([48.772476, 2.2221432]).addTo(map);
-        //add popup to marker with vehicle info
-        vehicle.bindPopup('<img class="image" src="{{site.baseurl}}/assets/images/c3.jpg" alt="No Image Available"><p><b>Id: </b>XA143Z2<br><b> Vin: </b>VF7A12BCDEF3456<br><b>Brand: </b>Citroën<br><b>Label: </b>C3 PureTech<br> <b> LastPosition:</b> <a href="{{site.baseurl}}/connectedcar/v4/user/vehicles/{id}/lastPosition">href</a></p>').openPopup();
-        //set map view above the marker
-        map.setView([48.7775, 2.22232]);
-
-    };
 
 </script>

@@ -13,14 +13,14 @@ description: "In this tutorial you will find an explanation about connecting you
 
 # CONNECT YOUR APP
 
-*Groupe PSA B2C APIs for connected vehicles* let you access vehicles data of your users. In order to authorize your application and your users, we use open standard [OAuth 2](https://oauth.net/2/). This authentication standard implies that you need bearer token in order to access our connected vehicles API.
+*Stellantis API End User for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) API for connected vehicles* let you access vehicles data of your users. In order to authorize your application and your users, we use open standard [OAuth 2](https://oauth.net/2/). This authentication standard implies that you need bearer token in order to access our connected vehicles API.
 
 This step-by-step tutorial explains the flowchart intended to request and obtain a token for *B2C connected vehicle API*. First, you must **identify your app** on our website, then we will see how to get a **bearer token** and finally an example of request with this token.
 
 **Required info**:
-- `client_id`: your APP ID in Groupe PSA developer platform.
-- `client_secret`: your APP Secret in Groupe PSA developer platform.
-- `authorization grant`: this grant is your user identification in Groupe PSA system.
+- `client_id`: your APP ID in Stellantis (ex-Groupe PSA) developer platform.
+- `client_secret`: your APP Secret in Stellantis (ex-Groupe PSA) developer platform.
+- `authorization grant`: this grant is your user identification in Stellantis (ex-Groupe PSA) system.
 - `bearer token`: this token allows your app to access vehicle data of one of your users.
 
 At the end of this process you will have everything you need to consume our *B2C API for connected vehicles*.
@@ -47,7 +47,7 @@ On **[developer.groupe-psa.com](https://developer.groupe-psa.com/){:target="_bla
 
 Once your account is created and confirmed, you will be able to login on the website. To do so, click on [login link](https://developer.groupe-psa.com/inc/user/login){:target="_blank"} in the top right corner of PG4D website.
 
-Next step is to create your application. This process will create an identifier for your app in Groupe PSA's information system:
+Next step is to create your application. This process will create an identifier for your app in Stellantis's (ex-Groupe PSA) information system:
 - Please *browse* the [APP](https://developer.groupe-psa.com/inc/application){:target="_blank"} tab in the nav bar.
 - Then choose the *create a new app* button.
 - Choose a *name* (required), type a *description* (optional) and fill the redirect OAuth2 redirection *URI* (you can modify this one later).
@@ -62,7 +62,7 @@ You can retrieve your `client_id` at any time: go to the *APP tab* > select your
 ## 1.3 SELECT PRODUCTS
 
 Now you have an account hosting your APP:
-- You can browse available APIs on *API Product* tab.
+- You can browse available API on *API Product* tab.
 - Then select *Connected Car - B2C* in the list.
 - Choose a plan by clicking on *subscribe*, select your app and press subscribe again.
 
@@ -72,7 +72,7 @@ For your requests to the API, you must use your `client_id`, `client_secret` and
 
 # 2. ACCESS TOKEN
 
-Groupe PSA's WEB API for end-users use authentication based on OAuth2. 
+Stellantis End User API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) use authentication based on OAuth2. 
 The process to connect to the API require that you get an access token in exchange for a Grant of your user.
 
 ## 2.2 REQUEST

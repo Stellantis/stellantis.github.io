@@ -19,7 +19,7 @@ description: "This tutorial details advanced features of Webportal like interact
 
 ## SENDING A MESSAGE
 
-The Application generates a message that is encapsulated inside the *content* field then sent to the WebPortal before being forwarded to the Application server through the PSA Messaging System.
+The Application generates a message that is encapsulated inside the *content* field then sent to the WebPortal before being forwarded to the Application server through the Stellantis Messaging System.
 
 To send a message you can do the following:
 
@@ -50,7 +50,7 @@ The Applicative message lets you send data to your application.
 ```javascript
 {
 	/**
-	 * Your application identifier (provided by PSA)
+	 * Your application identifier (provided by Stellantis)
 	 * @type {string}
 	 */
 	"idApp": "yourAppIdentifier",
@@ -120,7 +120,7 @@ mqttClient.publish(mqttPublishTopic, mqttMessage);
 
 ## RECEIVING AN APPLICATIVE MESSAGE
 
-The Application generates a message that is encapsulated inside the *content* field then sent to the Application server through the PSA Messaging System.
+The Application generates a message that is encapsulated inside the *content* field then sent to the Application server through the Stellantis Messaging System.
 
 ## STRUCTURE OF MQTT MESSAGE
 ```javascript

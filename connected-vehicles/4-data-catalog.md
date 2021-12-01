@@ -7,7 +7,7 @@ subsection: overview
 on_this_page: false
 menu: false
 require: data-catalog
-description: "This table is a data catalog of all info available within Groupe PSA's APIs. Explore this page and retrieve information about everthing you can find in Groupe PSA's APIs."
+description: "This table is a data catalog of all info available within Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)."
 subtitle: Available Data
 ---
 

@@ -1,7 +1,7 @@
 # name of the software
-title: PSA Groupe for developers
-name: PSA Groupe for developers
-description: Groupe PSA for Developers is the dedicated platform for application developers working with Groupe PSA's connected vehicles APIs and SDKs.
+title: Stellantis for Developers
+name: Stellantis for Developers
+description: Stellantis for Developers is the dedicated platform for application developers working with Stellantis's connected vehicles API and SDKs.
 baseurl: "" # the subpath of the site, e.g. /blog
 url: "https://developer.groupe-psa.io" # the base hostname & protocol for the site, e.g. http://example.com
 
@@ -11,7 +11,7 @@ gitHubSpecB2B: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/ass
 gitHubSpecB2C: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/assets/openapi/psacc.yaml"
 
 # doc versionning
-doc-version: "7.2.0"
+doc-version: "8.0.0"
 
 # WEB API BaseURI - theses var have to be renamed without prod/preprod (because we display only one at once)
 webapiB2C: "https://api.groupe-psa.com/connectedcar/v4"

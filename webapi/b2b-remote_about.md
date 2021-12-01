@@ -9,6 +9,6 @@ require: swagger
 gitHubPath: webapi/content/webapi-remote_about.md
 categorie: Remote
 title: About
-description: "Remote APIs allow you to send online commands to your connected vehicles."
+description: "Remote API allow you to send online commands to your connected vehicles."
 ---
 {% include_relative content/webapi-remote_about.md %}

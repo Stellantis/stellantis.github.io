@@ -11,7 +11,7 @@ description: "Create patterns and receive notification when it is triggered."
 subtitle: Receive notification
 ---
 
-Using our REST APIs it is possible to monitor your vehicles' activity using our dedicated feature.
+Using our REST API it is possible to monitor your vehicles' activity using our dedicated feature.
 
 You just have to set up a pattern you want to track.
 

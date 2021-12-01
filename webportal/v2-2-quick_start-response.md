@@ -12,7 +12,7 @@ description: "Tutorial: receive a response from the webportal API."
 
 ## ONMESSAGE
 
-[Onmessage](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onmessage) is a browser API that you need to work with Groupe PSA embedded Webportal response.
+[Onmessage](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onmessage) is a browser API that you need to work with using Stellantis Embedded Webportal for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall).
 
 As your App is a dedicated [Window object](https://developer.mozilla.org/en-US/docs/Web/API/Window), postMessage is a way to receive message from Webportal. Doing so, you're app is able to receive info that you request with [postMessage]({{site.baseurl}}/webportal/v2/quickstart/request/#article)
 
