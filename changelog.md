@@ -15,6 +15,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[8.0.0](#800) | Rename Stellantis for Developers
 [7.2.0](#720) | Connected Vehicles: Add Access Requirements
 [7.1.0](#710) | WEB API B2B v2.1.1 & v3.1.1
 [7.0.1](#701) | WEBAPI: Add & fix remotes info (charge, horn, lights)
@@ -76,6 +77,19 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+## 8.0.0
+
+{% include published_on.html date='2 Nov 2021' %}
+
+**Website:**
+- rename website > "Stellantis for Developer"
+- update landingpage (reponsive)
+
+**Webportal v1:**
+- add popup image
+
+<hr>
 
 ## 7.2.0
 
