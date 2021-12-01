@@ -6,7 +6,7 @@ subsection: v1
 categorie: API Reference 
 title: Class
 gitHubPath: _webportal-nac-reference/
-description: "Stellantis Webportal for Citroën, DS, Peugeot, Opel and Vauxhall, API Class: summary of this API available features."
+description: "Stellantis Webportal for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall), API Class: summary of this API available features."
 redirect_from:
  - /webportal/class/
 ---

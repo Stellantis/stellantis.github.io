@@ -1,6 +1,6 @@
 # AVAILABLE DATA
 
-Stellantis API for Citroën, DS, Peugeot, Opel and Vauxhall are technical interfaces allowing developers to create application that includes connected vehicles data and features.
+Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) are technical interfaces allowing developers to create application that includes connected vehicles data and features.
 
 These API are scope of possibilities, but to access the data you need authorization (see [access requirements]({{site.baseurl}}/connected-vehicles/access-requirements/)).
 

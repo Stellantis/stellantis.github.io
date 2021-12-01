@@ -1,6 +1,6 @@
 # AUTHENTICATION B2B
 
-In this tutorial you will find an explanation about **getting your B2B authentication** in Stellantis network. This authentication is required in order to consume Stellantis API for Citroën, DS, Peugeot, Opel and Vauxhall.
+In this tutorial you will find an explanation about **getting your B2B authentication** in Stellantis network. This authentication is required in order to consume Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall).
 
 This page is dedicated to Stellantis's commercial partners. End-user authentication procedure is different, check this [page]({{site.baseurl}}/webapi/b2c/quickstart/connect).
 

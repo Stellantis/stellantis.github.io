@@ -1,6 +1,6 @@
 # STELLANTIS {% if page.subsection == 'b2b' %}B2B {% elsif page.subsection == 'b2c' %}B2C{% endif %} WEB API FOR CITROËN, DS, PEUGEOT, OPEL AND VAUXHALL
 
-Our REST API implements various endpoints to retrieve resources from your Stellantis vehicle (Citroën, DS, Peugeot, Opel and Vauxhall). Under certain circumstances you will also be able to remote control some features of your vehicles, like opening the doors or turning AC on! Stellantis API for Citroën, DS, Peugeot, Opel and Vauxhall are based on open standards: **OpenAPIv3, JSON, GeoJson & HAL**. Using this You will be able to access a lot of your vehicle data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
+Our REST API implements various endpoints to retrieve resources from your Stellantis vehicle (ex Groupe PSA brands: Citroën, DS, Peugeot, Opel and Vauxhall). Under certain circumstances you will also be able to remote control some features of your vehicles, like opening the doors or turning AC on! Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) are based on open standards: **OpenAPIv3, JSON, GeoJson & HAL**. Using this You will be able to access a lot of your vehicle data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
 
 <div class="buttons is-centered">
   <a href="{{site.baseurl}}{% if page.subsection == 'b2b' %}/webapi/b2b/overview/demo/ {% elsif page.subsection == 'b2c' %}/webapi/b2c/overview/demo/{% endif %}" class="button is-psablue is-medium">
@@ -57,7 +57,7 @@ Our API allow you two ways to access vehicles data. You can either browse histor
 
 We think that accessing easily and efficiently to vehicle's data is important, that's why  we choose to design our API with up-to-date **open standards**.
 
-Stellantis API for Citroën, DS, Peugeot, Opel and Vauxhall are based on [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles,  data resources are accessed via standard **HTTPS requests in UTF-8 format**. We use **OpenAPI v3** for specification, **JSON** in order to exchange data between you and your cars and [HAL](https://en.wikipedia.org/wiki/Hypertext_Application_Language) for naviguation.
+Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) are based on [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles,  data resources are accessed via standard **HTTPS requests in UTF-8 format**. We use **OpenAPI v3** for specification, **JSON** in order to exchange data between you and your cars and [HAL](https://en.wikipedia.org/wiki/Hypertext_Application_Language) for naviguation.
 
 Also, we use standards for formating: [GeoJson](https://en.wikipedia.org/wiki/GeoJSON) for geolocation data and [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) for time format.
 

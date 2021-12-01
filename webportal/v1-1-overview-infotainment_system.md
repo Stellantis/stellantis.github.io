@@ -5,12 +5,12 @@ section: webportal
 subsection: v1
 categorie: Overview
 title: Infotainment System
-description: "The NAC is the vehicle infotainment system in Stellantis vehicles(Citroën, DS, Peugeot, Opel and Vauxhall). This page explains some features of the NAC."
+description: "The NAC is the vehicle infotainment system in Stellantis vehicles(ex Groupe PSA brands: Citroën, DS, Peugeot, Opel and Vauxhall). This page explains some features of the NAC."
 ---
 # NAC
 
 The NAC, from the french "NAvigation Connectée" - Connected Navigation, is the infotainment system 
-in Stellantis vehicles(Citroën, DS, Peugeot, Opel and Vauxhall). It allows to use navigation, browse media player, customize interior, choose driving mode...
+in Stellantis vehicles(ex Groupe PSA brands: Citroën, DS, Peugeot, Opel and Vauxhall). It allows to use navigation, browse media player, customize interior, choose driving mode...
 
 Driver interacts with the NAC through a capacitive touchscreen. Webportal Embedded Apps are also displayed on this same screen! 
 

@@ -1,6 +1,6 @@
 # EXAMPLES
 
-This Quick Start contains examples of curl requests to Stellantis {% if page.subsection == 'b2b' %}Fleet Owners{% elsif page.subsection == 'b2c' %}End-Users{% endif %} API for Citroën, DS, Peugeot, Opel and Vauxhall. These examples will show you how to deal with single objects, collections, geo-json objects and an example of POST and DELETE HTTP request.
+This Quick Start contains examples of curl requests to Stellantis {% if page.subsection == 'b2b' %}Fleet Owners{% elsif page.subsection == 'b2c' %}End-Users{% endif %} API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall). These examples will show you how to deal with single objects, collections, geo-json objects and an example of POST and DELETE HTTP request.
 
 To retrieve {% if page.subsection == 'b2b' %} authentication information refer to [this section]({{site.baseurl}}/webapi/b2b/quickstart/authentication).{% elsif page.section == 'b2c' %} connection information refer to [this section]({{site.baseurl}}/webapi/b2c/quickstart/connect).{% endif %}
 

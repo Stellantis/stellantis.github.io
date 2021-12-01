@@ -1,4 +1,4 @@
-# Stellantis API for Citroën, DS, Peugeot, Opel and Vauxhall
+# Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)
 
 ![pg4d](/assets/images/build-the-future-pg4d.jpg)
 

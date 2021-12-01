@@ -33,7 +33,7 @@ The structure of the error message will always be like:
 
 # RATE LIMIT
 
-According to your subscription to Stellantis API for Citroën, DS, Peugeot, Opel and Vauxhall, they are limited amounts of API calls you can send during a period of time:
+According to your subscription to Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall), they are limited amounts of API calls you can send during a period of time:
 - The **day** limit is a sliding window of 24 hours.
 - The **burst** limit is a maximum of instantaneous requests during an interval of 1 second.
 

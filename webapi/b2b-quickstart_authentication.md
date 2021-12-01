@@ -8,12 +8,12 @@ section: webapi
 subsection: b2b
 categorie: Quickstart
 title: Authentication
-description: "Getting B2B authentication in Stellantis network is required in order to consume Stellantis Fleet owner API for Citroën, DS, Peugeot, Opel and Vauxhall."
+description: "Getting B2B authentication in Stellantis network is required in order to consume Stellantis Fleet owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)."
 ---
 {% include  content/get-your-certificate.md %}
 
 # 5. REQUEST EXAMPLE
-In order to use Stellantis Fleet owner API for Citroën, DS, Peugeot, Opel and Vauxhall, you must authenticate yourself as a partner in Stellantis's network! Look further for more info about [B2B authentication](#authentication-b2b).
+In order to use Stellantis Fleet owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall), you must authenticate yourself as a partner in Stellantis's network! Look further for more info about [B2B authentication](#authentication-b2b).
 Once you get what you need for authentication, you can try to send your first request to Stellantis's API.
 
 Here is an example with cURL:

@@ -9,7 +9,7 @@ subsection: b2c
 categorie: Overview
 title: About
 gitHubPath: webapi/content/webapi-overview_about.md
-description: "Stellantis End User API for Citroën, DS, Peugeot, Opel and Vauxhall implements various endpoints to retrieve resources from your Stellantis Vehicles (Citroën, DS, Peugeot, Opel and Vauxhall)."
+description: "Stellantis End User API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) implements various endpoints to retrieve resources from your Stellantis Vehicles (ex Groupe PSA brands: Citroën, DS, Peugeot, Opel and Vauxhall)."
 ---
 
 {% include_relative content/webapi-overview_about.md %}

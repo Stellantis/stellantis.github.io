@@ -13,7 +13,7 @@ description: "In this tutorial you will find an explanation about connecting you
 
 # CONNECT YOUR APP
 
-*Stellantis API End User for Citroën, DS, Peugeot, Opel and Vauxhall API for connected vehicles* let you access vehicles data of your users. In order to authorize your application and your users, we use open standard [OAuth 2](https://oauth.net/2/). This authentication standard implies that you need bearer token in order to access our connected vehicles API.
+*Stellantis API End User for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) API for connected vehicles* let you access vehicles data of your users. In order to authorize your application and your users, we use open standard [OAuth 2](https://oauth.net/2/). This authentication standard implies that you need bearer token in order to access our connected vehicles API.
 
 This step-by-step tutorial explains the flowchart intended to request and obtain a token for *B2C connected vehicle API*. First, you must **identify your app** on our website, then we will see how to get a **bearer token** and finally an example of request with this token.
 
@@ -72,7 +72,7 @@ For your requests to the API, you must use your `client_id`, `client_secret` and
 
 # 2. ACCESS TOKEN
 
-Stellantis End User API for Citroën, DS, Peugeot, Opel and Vauxhall use authentication based on OAuth2. 
+Stellantis End User API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) use authentication based on OAuth2. 
 The process to connect to the API require that you get an access token in exchange for a Grant of your user.
 
 ## 2.2 REQUEST

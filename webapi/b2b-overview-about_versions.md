@@ -5,7 +5,7 @@ section: webapi
 subsection: b2b
 categorie: Overview
 title: About Versions
-description: "About v2 & v3 versions of Stellantis Fleet owner API for Citroën, DS, Peugeot, Opel and Vauxhall."
+description: "About v2 & v3 versions of Stellantis Fleet owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)."
 redirect_from: 
     - /webapi/b2b/changelog/
     - /webapi/b2b/api-reference/
@@ -40,7 +40,7 @@ redirect_from:
     </div>
 </div>
 
-Stellantis Fleet owner API for Citroën, DS, Peugeot, Opel and Vauxhall exists under **two versions**. Depending on which service you have subscribed, you should use v2 or v3 URL.
+Stellantis Fleet owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) exists under **two versions**. Depending on which service you have subscribed, you should use v2 or v3 URL.
 
 They are very similar to each other but they are some exceptions:
 
