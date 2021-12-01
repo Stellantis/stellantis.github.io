@@ -1,6 +1,6 @@
-# PSA GROUPE's {% if page.subsection == 'b2b' %}B2B {% elsif page.subsection == 'b2c' %}B2C{% endif %} WEB API
+# STELLANTIS {% if page.subsection == 'b2b' %}B2B {% elsif page.subsection == 'b2c' %}B2C{% endif %} WEB API FOR CITROËN, DS, PEUGEOT, OPEL AND VAUXHALL
 
-Our REST API implements various endpoints to retrieve resources from your Groupe PSA's vehicles. Under certain circumstances you will also be able to remote control some features of your vehicles, like opening the doors or turning AC on! Groupe PSA's API are based on open standards: **OpenAPIv3, JSON, GeoJson & HAL**. Using this You will be able to access a lot of your vehicle data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
+Our REST API implements various endpoints to retrieve resources from your Stellantis vehicle (ex Groupe PSA brands: Citroën, DS, Peugeot, Opel and Vauxhall). Under certain circumstances you will also be able to remote control some features of your vehicles, like opening the doors or turning AC on! Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) are based on open standards: **OpenAPIv3, JSON, GeoJson & HAL**. Using this You will be able to access a lot of your vehicle data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
 
 <div class="buttons is-centered">
   <a href="{{site.baseurl}}{% if page.subsection == 'b2b' %}/webapi/b2b/overview/demo/ {% elsif page.subsection == 'b2c' %}/webapi/b2c/overview/demo/{% endif %}" class="button is-psablue is-medium">
@@ -20,9 +20,9 @@ Furthermore, our web API grants you access to this data even outside the car:
 
 ![presentation-unified]({{ site.baseurl }}/assets/images/presentation-unified.png)
 
-Sensors are collecting data inside the vehicle and send them to Groupe PSA via mobile network. Our servers will then **process** these raw data into **unified** and understandable info. Furthermore, cloud storage allow you to access your data at any time even though the vehicle is turned-off.
+Sensors are collecting data inside the vehicle and send them to Stellantis via mobile network. Our servers will then **process** these raw data into **unified** and understandable info. Furthermore, cloud storage allow you to access your data at any time even though the vehicle is turned-off.
 
-Everything is processed on our side **(Groupe PSA)** in order to provide you {% if page.subsection == 'b2b' %}**(Partner)**{% elsif page.subsection == 'b2c' %}**(Developer)**{% endif %} the **same standard data, whatever the type of vehicles** (brand new or older, regular fuel or electric consumption).
+Everything is processed on our side **(Stellantis)** in order to provide you {% if page.subsection == 'b2b' %}**(Partner)**{% elsif page.subsection == 'b2c' %}**(Developer)**{% endif %} the **same standard data, whatever the type of vehicles** (brand new or older, regular fuel or electric consumption).
 
 # FEATURES
 
@@ -57,7 +57,7 @@ Our API allow you two ways to access vehicles data. You can either browse histor
 
 We think that accessing easily and efficiently to vehicle's data is important, that's why  we choose to design our API with up-to-date **open standards**.
 
-Groupe PSA's web API are based on [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles,  data resources are accessed via standard **HTTPS requests in UTF-8 format**. We use **OpenAPI v3** for specification, **JSON** in order to exchange data between you and your cars and [HAL](https://en.wikipedia.org/wiki/Hypertext_Application_Language) for naviguation.
+Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) are based on [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles,  data resources are accessed via standard **HTTPS requests in UTF-8 format**. We use **OpenAPI v3** for specification, **JSON** in order to exchange data between you and your cars and [HAL](https://en.wikipedia.org/wiki/Hypertext_Application_Language) for naviguation.
 
 Also, we use standards for formating: [GeoJson](https://en.wikipedia.org/wiki/GeoJSON) for geolocation data and [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) for time format.
 
@@ -65,7 +65,7 @@ Click {% if page.subsection == 'b2b' %}[here]({{ site.baseurl }}/webapi/b2b/over
 
 # DATA REFRESHMENT
 
-Sensors are gathering all types of interesting data inside cars. First, these data are collected in a dedicated embedded hardware in the vehicle. Then data are sent to Groupe PSA's cloud via mobile network:
+Sensors are gathering all types of interesting data inside cars. First, these data are collected in a dedicated embedded hardware in the vehicle. Then data are sent to Stellantis's cloud via mobile network:
 - **Regular refreshment**:  data are refreshed on a regular basis depending on sensor class and vehicle manufacturing date.
 - **Event refreshment**: internal events happening in the vehicle could lead to a refreshment of some data, for example turn on the car.
 

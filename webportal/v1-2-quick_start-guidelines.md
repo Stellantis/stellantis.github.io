@@ -11,7 +11,7 @@ description: "WebPortal is based on web technologies however, there are some spe
 # BEST PRACTICES 
 
 WebPortal is based on web technologies however, there are some specificities that you need to consider in order to optimize your app.
-To make sure your App follow Groupe PSA requirements this page give some good practices for development on webportal:
+To make sure your App follow Stellantis requirements this page give some good practices for development on webportal:
 
 ## USING CACHE
 

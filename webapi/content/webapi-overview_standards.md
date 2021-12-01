@@ -4,7 +4,7 @@ Our REST api returns type MIME: **application/hal+json**. GeoJson is for geoloca
 
 ## REQUEST
 
-The Groupe PSA's Web API are based on **REST** principles. Data resources are accessed via standard **HTTPS requests in UTF-8 format** to an API endpoint. Moreover, the Web API uses appropriate HTTP verbs for each action:
+The Stellantis WEB API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) are based on **REST** principles. Data resources are accessed via standard **HTTPS requests in UTF-8 format** to an API endpoint. Moreover, the Web API uses appropriate HTTP verbs for each action:
 
 
 <table class="largertable">
@@ -296,13 +296,13 @@ And then here is a list of JSON data that your application should be able to han
 {% if page.subsection == 'b2b' %}
 ##### AUTHENTICATION
 
-Groupe PSA's web API for fleet owner utilizes mutual authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/webapi/b2b/quickstart/authentication/) and obtain your own certificate.
+Stellantis Fleet Owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) utilizes mutual authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/webapi/b2b/quickstart/authentication/) and obtain your own certificate.
 {% elsif page.subsection == 'b2c' %}
 
 ##### CONNECT
 
-Groupe PSA's web API for end-users utilizes OAuth2 connection, follow this [link]({{site.baseurl}}//connect/) for connection tutorial. {% endif %}
+Stellantis End User API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) utilizes OAuth2 connection, follow this [link]({{site.baseurl}}//connect/) for connection tutorial. {% endif %}
 
 ##### MONITORS
 
-Groupe PSA's web api offer you Big Data features ! Look at {% if page.subsection == 'b2b' %}[Monitors]({{ site.baseurl }}/webapi/b2b/monitor/about/){% elsif page.subsection == 'b2c' %}[Monitors]({{ site.baseurl }}//monitor/about/){% endif %}.
+Stellantis WEB API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) offer you Big Data features ! Look at {% if page.subsection == 'b2b' %}[Monitors]({{ site.baseurl }}/webapi/b2b/monitor/about/){% elsif page.subsection == 'b2c' %}[Monitors]({{ site.baseurl }}//monitor/about/){% endif %}.

@@ -4,7 +4,7 @@ permalink: /changelog/
 title: Changelog
 menu: false
 section: other
-description: "PSA Groupe developer portal's version changelog."
+description: "Stellantis developer portal's version changelog."
 ---
 <div class="notification page-disclaimer">
 <p>

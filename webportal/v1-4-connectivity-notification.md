@@ -42,7 +42,7 @@ The action done by the user is transferred to the embedded Application for it to
 ```javascript
 {
 	/**
-	 * Your application identifier (provided by PSA)
+	 * Your application identifier (provided by Stellantis)
 	 * @type {string}
 	 */
 	"idApp": "yourAppIdentifier",

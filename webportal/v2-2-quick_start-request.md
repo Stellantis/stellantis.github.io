@@ -12,7 +12,7 @@ description: "Tutorial: send a request to the webportal API."
 
 ## POSTMESSAGE
 
-Postmessage [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) is a browser API that you need to work with Groupe PSA embedded Webportal.
+Postmessage [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) is a browser API that you need to work with while using Stellantis Embedded Webportal for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall).
 
 As your App is a dedicated [Window object](https://developer.mozilla.org/en-US/docs/Web/API/Window), postMessage is a way to communicate with webportal. Doing so, you're app is able to request info about the vehicle as well as sending data to it!
 

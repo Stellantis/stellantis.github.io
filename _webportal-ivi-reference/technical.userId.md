@@ -15,5 +15,5 @@ data:
 short: This access the user identifier (user ID) sent by the smartdevice..
 ---
 
-**Note:** In order for this API to work as intended, the smartdevice shall initially  authentified the user and retrieved its unique identifier from offboard PSA database.
+**Note:** In order for this API to work as intended, the smartdevice shall initially  authentified the user and retrieved its unique identifier from offboard Stellantis database.
 This API gives access to the result of this authentication process done by the smartdevice itself (mostly but not only, by a mobile phone application).

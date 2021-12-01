@@ -37,7 +37,7 @@ It is possible to set a retry policy with a specific number and frequency, it’
 
 **Step2: send a remote action**
 
-Once your callback is created, you will be able to **send remote** request to your vehicle (through Groupe PSA's network).
+Once your callback is created, you will be able to **send remote** request to your vehicle (through Stellantis's network).
 While the command is being processed by the vehicle, you will receive callback reports in your webhook.
 
 ![remote-action-sequence]({{site.baseurl}}/assets/images/remote-action-sequence.png)

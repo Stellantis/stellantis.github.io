@@ -6,7 +6,7 @@ subsection: b2b
 categorie: Remote
 title: Retry Policy
 gitHubPath: webapi/content/retry-policy.md
-description: "Information about Groupe PSA remotes blacklisting policy."
+description: "Information about Fleet Owner API remotes blacklisting policy."
 ---
 
 {% include_relative content/webapi_retry-policy.md %}

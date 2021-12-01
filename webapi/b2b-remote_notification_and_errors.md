@@ -5,7 +5,7 @@ section: webapi
 subsection: b2b
 categorie: Remote
 title: Notifications & Errors
-description: "Information about Groupe PSA remotes notification & errors."
+description: "Information about Fleet Owner API remotes notification & errors."
 ---
 # BEING NOTIFIED
 

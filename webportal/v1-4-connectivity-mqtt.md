@@ -33,7 +33,7 @@ Where:
 - Your SSL client certificate to secure the connection
 - Your credentials: login (UID) and MQTT password
 
-They will be created by PSA and given to you.
+They will be created by Stellantis and given to you.
 
 ## WHAT YOU NEED TO DO
 

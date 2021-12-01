@@ -1,10 +1,9 @@
-# PG4D
+# Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)
 
 ![pg4d](/assets/images/build-the-future-pg4d.jpg)
 
-PG4D stands for **P**SA **G**roupe **4** **D**eveloppers website. 
 
-It's a documentation website including references, tutorials and good practices for developers using Groupe **PSA's API for Connected Vehicles**.
+This website is documentation portal including references, tutorials and good practices for developers using **Stellantis's API for Connected Vehicles**.
 
 
 ## API
@@ -18,7 +17,7 @@ It's a documentation website including references, tutorials and good practices 
 
 ## 🚗 Connected Vehicles
 
-Find more info about Groupe PSA's connected vehicle's browsing our [dedicated section](https://developer.groupe-psa.io/connected-vehicles/about/).
+Find more info about Stellantis's connected vehicle's browsing our [dedicated section](https://developer.groupe-psa.io/connected-vehicles/about/).
 
 An overview of **data and features** within connected vehicle API is available browsing our [data catalog](https://developer.groupe-psa.io/connected-vehicles/data-catalog/).
 
