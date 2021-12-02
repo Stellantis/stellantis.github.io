@@ -15,6 +15,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[8.0.1](#801) | Remove 404 page from sitemap
 [8.0.0](#800) | Rename Stellantis for Developers
 [7.2.0](#720) | Connected Vehicles: Add Access Requirements
 [7.1.0](#710) | WEB API B2B v2.1.1 & v3.1.1
@@ -78,9 +79,18 @@ Version|Name
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
 
+## 8.0.1
+
+{% include published_on.html date='2 Dec 2021' %}
+
+**Website:**
+- remove 404 page from site map (google console)
+
+<hr>
+
 ## 8.0.0
 
-{% include published_on.html date='2 Nov 2021' %}
+{% include published_on.html date='1 Dec 2021' %}
 
 **Website:**
 - rename website > "Stellantis for Developer"
