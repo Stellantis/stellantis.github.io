@@ -11,6 +11,7 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v3.2.0](#b2b_v320) | 3.2.0
 [b2b_v3.1.1](#b2b_v311) | 3.1.1
 [b2b_v3.1.0](#b2b_v310) | 3.1.0
 [b2b_v3.0.9](#b2b_v309) | 3.0.9
@@ -22,7 +23,21 @@ Version|Name
 [b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
 
+
 <hr>
+
+## b2b_v3.2.0
+
+{% include published_on.html date='27 Jan 2022' %}
+
+- Add monitor airConditioning
+- Add remote failureCause : CanceledByDriver
+- driver approval deprecated
+- Add remote precond prog delete features
+- Remote doors: Forced field deprecedated
+
+<hr>
+
 
 ## b2b_v3.1.1
 
