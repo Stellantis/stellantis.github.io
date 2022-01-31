@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '3.1.1'
+  version: '3.2.0'
   title: Groupe PSA Connected Car B2B API
   description: | 
 
@@ -159,6 +159,10 @@ components:
                   - vehicle.safety.beltWarning
                   - environment.air.temp
                   - privacy.state
+                  - vehicle.collision.side
+                  - vehicle.collision.severity
+                  - vehicle.safety.autoECallTriggering
+                  - vehicle.preconditioning.airConditioning
                 
                   description: The monitored data (operand of a trigger).
               value: 
@@ -167,7 +171,7 @@ components:
                 properties:
                       type:
                         type: string
-                        enum: [string, obj.alert]
+                        enum: [string, obj.alert, obj.collision]
                       body:
                         type: object
                         properties:
@@ -190,7 +194,7 @@ components:
               type:
                 type: string
                 description: Speficies the data type of body items. 
-                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts]
+                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.collisions]
               body:
                
                   description: >
@@ -205,6 +209,7 @@ components:
                     |vehicle.position|Last vehicle position (timestamped) before the eventDate|Position|
                     |vehicle.telemetry${.TelemetryEnum}|Latest known telemetry (timestamped) before the eventDate filtered with type|Telemetry
                     |vehicle.alerts|List of active alerts at the eventDate|Alert|
+                    |vehicle.collisions|Latest collisions information before or at the eventDate|Collision|
 
 
                    
@@ -230,6 +235,9 @@ components:
                       description: Return all active alerts at the eventDate
                       items:
                         type: object
+                    collisions:
+                      type: object
+                      description: Return the latest collisions (Front/lateral/Rear) status and severity before or at the eventDate
                   
         
         refresh:
@@ -337,8 +345,23 @@ components:
             - CidInside
             - ExternalChargingSystemError
             - VehicleChargingSystemError
-            - VehicleIsNotLocked      
-      
+            - VehicleIsNotLocked
+            - CanceledByDriver
+
+    RemoteEventFeedbackDetail:
+      description: | 
+        Additionnal detail in case of success on some specific behavior :
+        
+        |Feature|Description|Behavior|
+        |----------|:-------------|------:|
+        |Lock Doors|Send a lock doors by force|NoCIDBlacklisted if lock is OK but IML not blacklisted, CIDBlacklisted is when the doors are locked and the IML is well blacklisted|
+
+        
+      type: string
+      enum:
+            - NoCIDBlacklisted
+            - CIDBlacklisted
+    
     RemoteEventStatus:
               type: object
               properties:
@@ -350,7 +373,8 @@ components:
                     - $ref: '#/components/schemas/RemotePendingEventStatus'
                 failureCause:   
                   $ref: '#/components/schemas/RemoteFailedEventStatus'
-               
+                feedbackDetail:
+                  $ref: '#/components/schemas/RemoteEventFeedbackDetail'
               required: [type,status]
               
     
