@@ -79,11 +79,12 @@ Once development is finish, you have to submit your application to Stellantis fo
 The structure of the file to submit is mostly free with some requirements:
 
 - The files must be sent in a TAR archive compressed via GZIP
-- The *.md5* file is required in order to perform an integrity check
+- The *.md5* file is required in order to perform an integrity check, see [md5 file requirements](#md5-file-requirements)
 - An *index.html* file must be present at the root of the project and is the starting point of the application
 - The logo for the application: *icon-100x100.png* (15kB max) and *icon-136x136.png* (21kB max) must be present at the root of the project for the different screen sizes (respectively for SD devices and WHD devices).
 - JavaScript functions must be executed when the DOM is ready
 - It is required to add a version file in the root directory of the app, named info.json and containing the following information:
+
 
 ```json
 {
@@ -102,6 +103,27 @@ The structure of the file to submit is mostly free with some requirements:
 + **Device scope** The partner must provide the list of devices and configurations where the app can be activated for customers. Today NACw2.1, NACw3.1 and NACw4 are available.
 + **App identifier** To be given by Stellantis, this App Id is mandatory as it enables us to identify the app in MQTT exchanges and in the process of display in the vehicles.
 + **MQTT partner account**
+
+## Naming and md5 file
+
+
+- **File name** must be app package filename with suffix .tar.gz replaced by .md5, example:
+    - package filename: `app<APPID>-v<X.Y.Z>_<YYYYMMDD>.tar.gz`
+    - integrity filename: `app<APPID>-v<X.Y.Z>_<YYYYMMDD>.md5`
+- **File content**:
+  - must be in the following format: <br> `<MD5_hash_lowercase> app<APPID>-v<X.Y.Z>_<YYYYMMDD>.tar.gz`
+  - must be newline terminated: `\n`
+
+Example for a package: 
+  - in version **1.2.6**,
+  - released on the **17th January 2022**,
+  - with **testIVI** appId,
+Package name will be: `app_testIVI_v1.2.6_20220117.tar.gz`, and MD5 file content could be:
+ 
+```
+098f6bcd4621d373cade4e832627b4f6 app_testIVI_v1.2.6_20220117.tar.gz
+
+```
 
 # APP LIFECYCLE
 

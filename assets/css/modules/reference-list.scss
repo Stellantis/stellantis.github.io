@@ -319,6 +319,10 @@ hr {
     font-size: 1.5rem;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
+    color: inherit;
+    &:hover {
+        color: #2689b5;
+    }
 }
 
 .api-content-tag {
@@ -326,6 +330,7 @@ hr {
     color: white;
     border-radius: 2px;
     margin-right: 1rem;
+    display: inline-block;
     &:hover {
         color: white;
     }

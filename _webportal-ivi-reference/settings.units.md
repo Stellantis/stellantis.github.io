@@ -3,7 +3,6 @@ name: settings.units
 domain: settings
 type:
   - get
-  - set
   - subscribe
 privacy: Public
 data:
@@ -41,4 +40,6 @@ data:
     example: mph
 short: This API allows to retrieve HMI units.
 ---
+
+Using [configuration.consumptionUnit](#api-configuration-consumptionUnit) you are able to change system units.
 

@@ -153,10 +153,17 @@
 
         {%- comment -%} API CONTENT HEADER {%- endcomment -%}
         <div class="api-content-header">
-            <div class="api-content-name">
-                <a href="{{site.baseurl}}/webportal/v2/quickstart/get-set-subscribe/{% if t contains "get" %}#get{% elsif t contains "set" %}#set{% elsif t contains "subscribe" %}#subscribe{% endif %}" class="api-content-tag">
-                {{t|upcase}}</a>{{api.name }}
-            </div>
+            <a 
+                class="api-content-name"
+                href="#api-{{ api.name | replace: '.', '-' | remove: '()'}}{% if api.subname %}-{{api.subname | slugify}}{% endif %}"
+            >
+                <div 
+                    class="api-content-tag"
+                >
+                    {{t|upcase}}
+                </div>
+                {{api.name }}{% if api.subname %}<em> - {{api.subname}}</em>{% endif %}
+            </a>
             <div>
                 <a href="{{site.gitHubURL}}{{api.path}}" class=" edit-page icon-button" target="_blank" title="Edit this page on GitHub">
                         <span class="icon">

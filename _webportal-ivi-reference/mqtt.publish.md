@@ -12,6 +12,12 @@ paramsset:
     unit-value: n/a
     example: my data
     required: true
+  - name: subtopic
+    type: string
+    description: Name of the subtopic.
+    unit-value: n/a
+    example: SectionA
+    required: false
 dataset:
   - name: messageId
     type: int

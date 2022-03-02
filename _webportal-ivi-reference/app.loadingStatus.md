@@ -5,12 +5,6 @@ domain: app
 type:
   - set
 params:
-  - name: appId
-    description: Name of your App.
-    type: string
-    unit-value: tld.domain.subdomain
-    example: com.example.app
-    required: true
   - name: status
     description: New status.
     type: Enum of strings

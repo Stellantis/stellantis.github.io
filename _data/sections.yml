@@ -211,6 +211,8 @@
               path: about/
             - name: Privacy
               path: privacy/
+            - name: Infotainment System
+              path: infotainment-system/
         - name: Quickstart
           path: quickstart/
           pages:
@@ -222,6 +224,8 @@
               path: request/
             - name: API Response
               path: response/
+            - name: Guidelines
+              path: guidelines/
         - name: API Reference
           path: api-reference/
           pages:
