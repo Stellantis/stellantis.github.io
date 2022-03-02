@@ -15,6 +15,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[8.1.1](#811) | Webportal Updates Ref & Articles v1/v2
 [8.1.0](#810) | WEB API B2B v3.2.0
 [8.0.1](#801) | Remove 404 page from sitemap
 [8.0.0](#800) | Rename Stellantis for Developers
@@ -79,6 +80,31 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+<hr>
+
+## 8.1.1
+
+{% include published_on.html date='02 Mar 2022' %}
+
+**Webportal v1:**
+- get started: Update app structure  & md5
+- fix references:
+    - Device.GetCarBrand
+
+**Webportal v2:**
+- add page infotainment system (screen sizes)
+- add page guidelines (icon sizes)
+- fix references:
+    - app.loadingStatus
+    - app.visibilityState
+    - engine.batteryPercentageOfTripMileage > engine.batteryTripMileage
+    - engine.tripBatteryConsumptionAverage > engine.tripBatteryConsumption
+    - mqtt.publish
+    - settings.units
+
+**Website:**
+- add anchors link in reference list
 
 <hr>
 

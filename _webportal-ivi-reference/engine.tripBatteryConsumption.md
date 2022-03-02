@@ -1,5 +1,5 @@
 ---
-name: engine.tripBatteryConsumptionAverage
+name: engine.tripBatteryConsumption
 privacy: Geolocation Private
 domain: engine
 type:
@@ -7,7 +7,7 @@ type:
   - subscribe
 params: none
 data:
-  - name: tripBatteryConsumptionAverage
+  - name: tripBatteryConsumption
     description: Average battery consumption of the vehicle during the current trip.
     type: number
     unit-value: KWatt/km

@@ -1,5 +1,5 @@
 ---
-name: engine.batteryPercentageOfTripMileage
+name: engine.batteryTripMileage
 privacy: Geolocation Private
 domain: engine
 type:
@@ -7,7 +7,7 @@ type:
   - subscribe
 params: none
 data:
-  - name: batteryPercentageOfTripMileage
+  - name: batteryTripMileage
     description: Percentage of the current trip spent with electrical energy.
     type: int
     unit-value: '%'

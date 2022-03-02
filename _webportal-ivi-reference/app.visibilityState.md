@@ -21,7 +21,6 @@ data_example: |-
         "visibilityState": "hidden"
       }
     }
-params: []
 short: This API allows to work with app going background/foreground.
 ---
 
