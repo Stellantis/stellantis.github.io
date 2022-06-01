@@ -214,5 +214,9 @@ textset: >-
 short: >-
   This API allows to work with the navigation guidance feature of the
   infotainment system.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

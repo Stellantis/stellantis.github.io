@@ -27,6 +27,7 @@ paramsset:
   - name: actionList
     description: ' '
     type: Array of Objects
+    required: true
     fields:
       - name: id
         type: string
@@ -124,6 +125,10 @@ datasubscribe:
     unit-value: n/a
     example: ghi
 short: This API allows to interact with the HMI *actionListDialog* element.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 <!-- <img src="{{site.baseurl}}/assets/images/webportal-v2-toast.png" alt="webportal-v2-toast" style="width: 400px"> -->

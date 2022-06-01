@@ -17,5 +17,9 @@ data:
       - '5: ''Vauxhall'''
     example: '1'
 short: This API allows to retrieve vehicle brand.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

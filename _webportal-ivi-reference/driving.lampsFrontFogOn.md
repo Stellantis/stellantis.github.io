@@ -14,6 +14,10 @@ data:
       - '`1`:fog light on'
     example: 1
 short: This API allows to retrieve the front fog light status.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
  

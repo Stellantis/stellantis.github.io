@@ -26,5 +26,9 @@ data:
       - 'false: mute is desactivated'
     example: false
 short: This API allows to work with the mute setting.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

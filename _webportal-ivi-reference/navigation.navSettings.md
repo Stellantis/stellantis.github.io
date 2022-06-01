@@ -10,18 +10,24 @@ params: none
 data:
   - name: guidanceViewMode
     type: boolean
-    unit-value: n/a
-    description: Guidance view mode.
+    unit-value:
+      - '0: 3D view'
+      - '1: 2D view direction up'
+      - '2: 2D view direction north'
+    description: Select guidance view mode.
     example: 0
   - name: autoMapZoomMode
     type: boolean
-    unit-value: n/a
-    description: Auto zoom on map mode.
+    unit-value:
+      - '0: Zoom based on the next instruction'
+      - '1: Zoom based on route type'
+      - '2: No auto zoom'
+    description: Select 'auto zoom on map' mode.
     example: 0
   - name: safetyAlertsDangerZones
     type: boolean
     unit-value: n/a
-    description: Notify danger zones?
+    description: Notify danger zones.
     example: true
   - name: safetyAlertsRiskZones
     type: boolean
@@ -31,17 +37,17 @@ data:
   - name: laneGuidanceOnMotorways
     type: boolean
     unit-value: n/a
-    description: Enable lane guidance on motorways?
+    description: Enable lane guidance on motorways.
     example: true
   - name: liveTrafficOnMap
     type: boolean
     unit-value: n/a
-    description: Notify live traffic?
+    description: Notify live traffic.
     example: true
   - name: nightMode
     type: boolean
     unit-value: n/a
-    description: Enable night mode?
+    description: Enable night mode.
     example: true
   - name: voiceGuidanceStatus
     type: boolean
@@ -59,5 +65,9 @@ paramsset:
 paramsset_example: |
   "voiceGuidanceStatus": false
 short: This API allows to interact with navigation settings.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

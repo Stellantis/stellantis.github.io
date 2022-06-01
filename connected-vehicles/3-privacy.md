@@ -8,7 +8,7 @@ description: "Privacy settings are set in the infotainment system by the owner o
 subtitle: "In Vehicle Privacy"
 ---
 
-# INFOTAINMENT SETTINGS
+# Infotainment Settings
 
 {% capture text %}
 Depending on the [services]({{site.baseurl}}/connected-vehicles/access-requirements#connected-vehicle-services) subscribed by the owner of the vehicles, relevant data will be sent to Stellantis servers through mobile network.
@@ -30,13 +30,13 @@ This setting will impact your ability to retrieve data in our API.
 </div>
 </div>
 
-### EFFECT ON WEBPORTAL
+### Effect on WebPortal
 
 As an embedded application developer (**Webportal v1 & v2**), only API that match the current privacy are available. That's why your application needs to handle the privacy settings selected by the user. See [privacy webportal v1]({{site.baseurl}}/webportal/v1/quickstart/#privacy-mode) or [privacy Webportal v2]({{site.baseurl}}/webportal/v2/overview/privacy/#article) for more info.
 
 You can retrieve required level of privacy of each API in the references: [Webportal v1]({{site.baseurl}}/webportal/v1/api-reference/list/#article) or [Webportal v2]({{site.baseurl}}/webportal/v2/api-reference/list/#article).
 
-### EFFECT ON WEB API
+### Effect on Web API
 
 
 If you are a fleet owner (**WEB API B2B v2 & v3**) you can access your vehicle data. However, in order to be compliant with GDPR, you should use the query parameter `profile` as described [here]({{site.baseurl}}/webapi/b2b/api-reference-v2/specification/#section/API-output:/Data-profile).
@@ -45,13 +45,13 @@ If you are developing end-user applications (**Web API B2C v4**), you can only a
 
 > **Reminder:** Whatever the privacy selected in the vehicle, you can only access the data allowed in the data scope of the *[Connected Vehicle Services]({{site.baseurl}}/connected-vehicles/access-requirements/#vehicle-connected-services)* your vehicle subscribed.
 
-# SEE ALSO
+# See Also
 
-#### DATA CATALOG
+#### Data Catalog
 
 Look at our [data catalog]({{site.baseurl}}/connected-vehicles/data-catalog/#article) to find what kind of information are available in the API.
 
 
-#### CONNECTED SERVICES
+#### Connected Services
 
 See how to access the API by reading more about [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).

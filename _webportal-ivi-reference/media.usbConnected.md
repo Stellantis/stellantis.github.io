@@ -12,5 +12,9 @@ data:
     unit-value: n/a
     example: true
 short: This API allows to retrieve if a USB media is connected.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

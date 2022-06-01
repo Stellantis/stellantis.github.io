@@ -15,5 +15,9 @@ data:
 short: >-
   This API allows to know the average battery consumption during the current
   trip.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

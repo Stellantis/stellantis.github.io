@@ -18,7 +18,7 @@ The remote feature allows to control your vehicle trough cellular network.
 Using this tool, it is possible to add remote control features to your mobile application or web application.
 
 
-### REMOTE FEATURES
+### Remote Features
 <ul style="list-style: none">
 
 <li><i class="fas fa-plug"></i> Start and stop a charge </li>
@@ -36,7 +36,7 @@ Using this tool, it is possible to add remote control features to your mobile ap
     {% include highlighted-link.html link_label="Retrieve the remote commands!" link_url="/webapi/b2b/remote/set-up/#remote-actions" %}
 </div>
 
-### HOW DOES IT WORKS
+### How Does it Works?
 
 This feature is fully compatible with our REST API, it means that you can configure all your remote action using simple HTTP request. 
 

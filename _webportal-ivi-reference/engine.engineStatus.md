@@ -17,5 +17,9 @@ data:
       - 3 = Engine stopped in stop phase
     example: 1
 short: This API allows to know the current status of the engine.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

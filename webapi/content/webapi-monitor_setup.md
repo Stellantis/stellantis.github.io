@@ -1,6 +1,6 @@
-# POST MONITOR REQUEST
+# Post Monitor Request
 
-## 1. OVERVIEW
+## 1. Overview
 
 Here is an overview of an **HTTP request** intended to create a monitor.
 
@@ -21,7 +21,7 @@ At the end we will see **examples** of monitor configuration.
 
 {% if page.subsection == 'b2b' %}> **Note:** one monitor is for one fleet only. Indeed you can creat multpile monitors for multiple fleets. {% endif %}
 
-## 2. CALLBACK CONFIGURATION
+## 2. Callback Configuration
 
 Firstly, you have to configure your monitor to send an **HTTP callback** to your webhook when it is triggered.
 This is the models explaining how to configure the callback:
@@ -76,9 +76,9 @@ Below is a description of the JSON models explaining how to configure the callba
    - **refreshEvent**: if the trigger is satisfied, refreshEvent define the period between two re-checking.
    - **extendedEventParam**: this events table allow you to send extra vehicle data in the notification.
 
-## 3. EVENT TRIGGERRING
+## 3. Event Triggering
 
-### 3.1 TRIGGERS
+### 3.1 Triggers
 
 Let's have a look at how to create monitor triggers.
 First, you have to decide what will be the triggers of your monitor. 
@@ -149,7 +149,7 @@ This is where you can find the **entire list of available triggers**.
 <em>MonitorParameter>triggerParam>timeZoneTrigger</em> and <em>MonitorParameter>triggerParam>dataTriggers</em> are deprecated according to the most up to date specification. 
 </p>
 <p>
-This is the old way of setting a triggering policy, it'is less performant as it allow only "AND relationship" between triggers. Because of retro-compatibility purposes it's still available, but we recommend you strongly to use the new data schema.
+This is the old way of setting a triggering policy, it'is less performant as it allows only "AND relationship" between triggers. Because of retro-compatibility purposes it's still available, but we recommend you strongly to use the new data schema.
 </p>
 </div>
 
@@ -157,7 +157,7 @@ This is the old way of setting a triggering policy, it'is less performant as it 
 <strong>Warning:</strong> If you are using <strong>WEB API V2</strong>, you have to use the deprecated way with timeZoneTrigger and dataTrigger.
 </div>
 
-### 3.2 BOOLEAN EXPRESSION
+### 3.2 Boolean Expression
 
 Once you have selected your triggers, you'll have to combine them together to create a **triggering policy**. To do so, you will use boolean expression. Using boolean expression allow you to have various triggering policies in one monitor.
 
@@ -195,9 +195,9 @@ In this boolean expression, the monitor will notify your webhook in all these si
 - *(o2 & (z1 &#124; t2))* = **o2** is triggered *AND* either **z1** *OR* **t2** is triggered
 - *(o3 & (z1 &#124; z2))* = **o3** is triggered *AND* either **z1** *OR* **z2** is triggered
 
-## 4. EXAMPLES
+## 4. Examples
 
-### 4.1 AUTONOMY
+### 4.1 Autonomy
 
 This request ask to **create** an "IDF Zone monitor With Data Triggering:[vehicle.energy.electric.level]" monitor with the following parameters:
 - It will be **refreshed** every 600s if the event is still triggered. 
@@ -287,7 +287,7 @@ This request ask to **create** an "IDF Zone monitor With Data Triggering:[vehicl
 }
 ```
 
-### 4.2 HEATWAVE
+### 4.2 Heatwave
 
 Another example monitor to detect heatwave:
 
@@ -357,7 +357,7 @@ Another example monitor to detect heatwave:
 
 This request ask to **create** a heatwave monitor **triggered** inside the city of Paris, if the temperature is greater than 30 °C.
 
-### 4.3 MERGE MONITORS
+### 4.3 Merge Monitors
 
 In place of having two monitors like example **4.1** and **4.2** you can use boolean expression to merge those 2 examples in only one monitor:
 
@@ -377,7 +377,7 @@ In place of having two monitors like example **4.1** and **4.2** you can use boo
 }
 ```
 
-# POST MONITOR RESPONSE
+# Post Monitor Response
 
 Here is an example of HTTP response after POSTING a new monitor.
 

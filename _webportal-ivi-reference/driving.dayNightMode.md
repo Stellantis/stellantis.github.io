@@ -15,5 +15,9 @@ data:
       - '1: Night mode'
     example: 1
 short: This API allows to know the status of the Day/Night mode parameter.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

@@ -171,6 +171,7 @@ paramsset:
   - name: location
     description: Location Object to remove. Only if `action = remove`
     type: Object
+    required: false
     fields:
       - name: name
         type: string
@@ -181,6 +182,7 @@ paramsset:
   - name: location
     description: Location Object to add/change. Only if `action = add` or `action = change`
     type: Object
+    required: true
     fields:
       - name: name
         type: string
@@ -233,5 +235,9 @@ textset: >
   Providing Address & Coordinates together will produce a 400 Bad Request error
   (provide only one!)
 short: This API allows to manage favorite location.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

@@ -13,6 +13,10 @@ data:
     unit-value: n/a
     example: 7473a16f-9f4f-46c9-85a7-5291e35f1ba0
 short: This access the user identifier (user ID) sent by the smartdevice..
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 **Note:** In order for this API to work as intended, the smartdevice shall initially  authentified the user and retrieved its unique identifier from offboard Stellantis database.

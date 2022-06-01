@@ -27,5 +27,9 @@ paramsset:
     example: 3
     required: true
 short: This API allows to manage vehicle audio balance setting.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

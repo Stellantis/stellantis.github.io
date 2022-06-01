@@ -31,5 +31,9 @@ textset: >-
   `status: 400` if disabling ducking isn't supported.<br>
 textsubscribe: SUBSCRIBE would trigger when the song has been fully played.
 short: This API allows to work with the previous song or radio station function.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

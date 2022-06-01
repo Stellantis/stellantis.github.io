@@ -17,5 +17,9 @@ data:
       - cellular
     example: cellular
 short: This API allows to retrieve head-unit internet connectivity type.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

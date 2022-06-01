@@ -110,6 +110,10 @@ datasubscribe_example: |-
         }
     }
 short: This API allows to create and interact with the HMI *notification center*.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 <img src="{{site.baseurl}}/assets/images/webportal-v2-notification.png" alt="webportal-v2-notification" style="width: 400px">

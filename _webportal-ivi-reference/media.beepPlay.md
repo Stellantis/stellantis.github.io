@@ -35,5 +35,9 @@ params:
     example: 9
     required: true
 short: This API allows to play a beep sound.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

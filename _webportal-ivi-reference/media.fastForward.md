@@ -14,5 +14,9 @@ params:
     example: true
     required: true
 short: This API allows to work with fast forward within the media player.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

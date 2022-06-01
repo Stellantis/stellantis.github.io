@@ -46,7 +46,7 @@ data_example: |-
           "longitude": 7.691179283428212
       }
     ]
-textget: 'If no active guidance, data should be an empty array : `''data'': []`.'
+textget: '"If no active guidance, data should be an empty array : `''data'': []`."'
 textsubscribe: >-
   This event is triggered when the waypoints or destination are changed AND when
   the navigation destination is reached.
@@ -56,5 +56,9 @@ textsubscribe: >-
 short: >-
   This API allows to retrieve list of waypoints & destination's coordinates of
   the current navigation.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

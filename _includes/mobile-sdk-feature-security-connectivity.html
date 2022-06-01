@@ -1,0 +1,48 @@
+
+{% for component in site.data.mobile-sdk-components %}
+{% if page.mobile-sdk-component == component.tag %}
+
+{% capture notif_auth %}
+
+{% if component.security %}
+**Security:** {{page.title | append:" "}}
+{%-if component.security == "none" -%}
+  does not require any [security schemes]({{site.baseurl}}/mobile-sdk/security/security-schemes/#article) because its does not access the user online account.
+{%- else -%} 
+  require the following [security schemes]({{site.baseurl}}/mobile-sdk/security/security-schemes/#article) to be valid
+  {% if component.security == "authentication" %}
+- 🔓 [Authentication]({{site.baseurl}}/mobile-sdk/security/authentication/#article)
+  {% elsif component.security == "subscription" %}
+- 🔓 [Authentication]({{site.baseurl}}/mobile-sdk/security/authentication/#article)
+- 📑 [Activation Steps]({{site.baseurl}}/mobile-sdk/security/service-activation-steps/#article)
+
+  {% endif %}
+{%- endif -%}
+{% endif %}
+
+{% if component.connectivity %}
+**Connectivity:** this feature is available using 
+{%- if component.connectivity == "bluetooth" and page.title == "AMI & Rocks-e" -%}
+<span class="icon"><i class="fab fa-bluetooth"></i></span>**Bluetooth Low Energy** (BLE) connectivity
+  - 🔌 The Bluetooth **dongle** should have been installed in the vehicle.
+  - 🤳🏼 The user must stand **inside or close** to the vehicle and the device should support **BLE**.
+{%- elsif component.connectivity == "bluetooth" -%}
+<span class="icon"><i class="fab fa-bluetooth"></i></span>**Bluetooth** connectivity
+  - 👨‍❤️‍👨 The vehicle & the device must be **paired** with Bluetooth.
+  - 🤳🏼 The user must stand **inside or close** to the vehicle.
+{%-elsif component.connectivity == "internet" -%}
+&nbsp;📡 **Cellular** network over-the-air
+  - 🚗 The vehicle should be able to **access internet**.
+  - 📱 The device should be able to **access internet**.
+{%- endif -%}
+{% endif %}
+
+
+{% endcapture %}
+
+{% endif %}
+{% endfor %}
+
+<div class="notification page-disclaimer">
+{{notif_auth | markdownify}}
+</div>

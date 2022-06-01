@@ -1,4 +1,4 @@
-# AUTHENTICATION B2B
+# Authentication B2B
 
 In this tutorial you will find an explanation about **getting your B2B authentication** in Stellantis network. This authentication is required in order to consume Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall).
 
@@ -16,14 +16,13 @@ At the end of this process you will have everything you need to consume our B2B 
 - `Private Key`: Your Private Key file.
 - `CA Certificate`: Stellantis CA Cert for peer verification.
 
-<img src="{{site.baseurl}}/assets/images/certificate-process.png" alt="certificate-process" style="width: 580px">
 <img src="{{site.baseurl}}/assets/images/client-authentication.svg" alt="client-authentication" style="width: 580px">
 
-## 1. PARTNER LOGIN
+## 1. Partner Login
 
 First, you'll need a Stellantis (ex-Groupe PSA) login (ex: MZP123456). If you already have one, you can go to step 2. If you don't have one, [contact us]({{site.baseurl}}/contact-us/) and we will create one for you.
 
-## 2. ENCRYPTION KEYS & CSR
+## 2. Encryption Keys & CSR
 
 Once you have received MZP login, next step is to produce SSL keys and CSR. These keys will allow encrypted communication between you and Stellantis:
 - **Public key** will be used by Stellantis to encrypt messages.
@@ -44,7 +43,7 @@ In order to ensure your identity we have to perform signing process of your publ
 
 Producing encryption keys and CSR have to be done with a dedicated software. Here is **examples with two of them**:
 
-### 2.1 WITH OPENSSL
+### 2.1 With OpenSSL
 **OpenSSL** is an open-source software library for encryption purpose. It is widely used in internet security. You can download and install Open SSL using this [link](https://slproweb.com/products/Win32OpenSSL.html) (Windows).
 
 With OpenSLL producing key and creating CSR can be performed in one step. Create a directory with text configuration file named like 'CSRConfig.conf' and copy/past this text into it:
@@ -81,7 +80,7 @@ $ openssl req \
 
 You will be requested for info incorporated in your CSR. Once you fill it you will get your CSR and Keyfile in your directory.
 
-### 2.2 WITH KEYTOOL
+### 2.2 With Keytool
 Keytool comes with Java Devlopment Kit. Like OpenSSL, it can be used to produce keys (in a file name keystore) and CSR.
 
 Produce your keys using this command:
@@ -119,10 +118,10 @@ $ keytool \
 - `KeyStoreName.jks` is the name of your keystore
 - `CSRName.csr` will be the name of the CSR
 
-## 3. SUBMIT CSR
+## 3. Submit CSR
 Once you have created your brand-new CSR file, send it to your contact in Stellantis.
 At this point we will begin our internal process to sign your certificate.
 
-## 4. CERTIFICATE & CLIENT ID
+## 4. Certificate & Client ID
 If everything is ok, our certification authority will accept your Certificate Signing Request. Then you'll receive an email at the adress you specified. This email contains: **link to download your certificate & Stellantis CA certificate** + **Client ID** (= application id).
 Download your signed certificate and keep carefully your client ID.

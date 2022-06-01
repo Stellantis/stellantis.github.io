@@ -56,5 +56,9 @@ datasubscribe_example: |-
 short: >-
   This API allows to retrieve the list of smartdevices paired with the current
   profile.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

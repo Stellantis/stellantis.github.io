@@ -24,5 +24,9 @@ paramsset:
     required: true
 dataset: none
 short: This API allows to manage vehicle audio fader setting.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

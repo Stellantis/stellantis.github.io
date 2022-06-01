@@ -5,7 +5,6 @@ type:
   - get
   - subscribe
 domain: settings
-params: none
 dataget:
   - name: language
     description: >-
@@ -30,6 +29,18 @@ datasubscribe:
     unit-value: RFC 3066
     example: fr-FR
 short: This API allows read the HMI configured language.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
+dataset:
+  - name: regionSubtag
+    description: Force region subtag for all languages. For example `it` becomes `IT-it`.
+    type: boolean
+    unit-value:
+      - 'true': forced region subtags
+      - 'false': region subtags only when relevant
+    example: true
 ---
 
 **Note:** Subscribing to `settings.language` does not allow to use `tolerance` & `period` default [subscribe behavior]({{site.baseurl}}/webportal/v2/quickstart/request/#message-format). Indeed the event is triggered only if the date, time or timezone is changed by the user.

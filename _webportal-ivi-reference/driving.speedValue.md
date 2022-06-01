@@ -15,5 +15,9 @@ data:
       255.
     example: 15
 short: This API allows to retrieve the current speed of a vehicle.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

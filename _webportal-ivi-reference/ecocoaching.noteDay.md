@@ -65,5 +65,9 @@ data:
 short: >-
   This API allows to retrieve the eco coaching weeks note, providing global
   notes of every day's trips.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

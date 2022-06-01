@@ -14,6 +14,7 @@
     <div class="navbar-menu" id="navMenu">
         <div class="navbar-start">
             {% for section in site.data.sections %}
+                {% unless section.tag == "other" %}
                 <div class="navbar-item menu has-dropdown is-hoverable">
                     <a class="textnavbar navbar-link {% if page.permalink contains section.tag %}is-active{% endif %}" href="{{site.baseurl | append: section.path }}">
                         <span class="icon is-large is-white">
@@ -37,35 +38,27 @@
                             </p>
                             {% endif %}
                             {% for categorie in subsection.categories %}
-                                {%- if subsection.tag -%}
-                                        {%- if categorie.name -%}
-                                            {%- assign page_link = section.path | append: subsection.path | append: categorie.path -%}
-                                            <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: categorie.pages[0].path}}#article">
-                                                {{categorie.name }}
-                                            </a>
-                                        {%- else -%}
-                                            {% for p in categorie.pages %}
-                                                {%- assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path -%}
-                                                <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: p.path}}#article">
-                                                    {{p.name }}
-                                                </a>
-                                            {% endfor %}
-                                        {%- endif -%}
+                                {%- if categorie.name -%}
+                                    {%- assign page_link = section.path | append: subsection.path | append: categorie.path -%}
+                                    <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: categorie.pages[0].path}}#article">
+                                        {{categorie.name }}
+                                    </a>
                                 {%- else -%}
                                     {% for p in categorie.pages %}
                                         {%- assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path -%}
                                         <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: p.path}}#article">
-                                            {{p.name}}
+                                            {{p.name }}
                                         </a>
                                     {% endfor %}
                                 {%- endif -%}
                             {%- endfor -%}
-                                {%- if forloop.last == false -%}
-                                    <hr class="navbar-divider">
-                                {%- endif -%}
+                            {%- if forloop.last == false -%}
+                                <hr class="navbar-divider">
+                            {%- endif -%}
                         {%- endfor -%}
                     </div>
                 </div>
+                {% endunless %}
             {% endfor %}
         </div>
         <!-- SEARCH -->
@@ -137,8 +130,3 @@ else {
     } 
 }
 </script>
-<style>
-    .navbar-item .textnavbar.navbar-link[href='/mobile-sdk/']~#dropdownAPI{
-        display:none
-    }
-</style>

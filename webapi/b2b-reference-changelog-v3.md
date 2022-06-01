@@ -90,8 +90,9 @@ Version|Name
 - Add slot parameter as mandatory for remote preconditionning command
 
 
-## b2b_v3.0.7
 <hr>
+
+## b2b_v3.0.7
 
 
 

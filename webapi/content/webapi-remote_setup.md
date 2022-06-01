@@ -1,7 +1,7 @@
 
-# 1. POST REMOTE CALLBACK
+# 1. Post Remote CallBack
 
-### CALLBACK REQUEST
+### Callback Request
 
 Before being able to send a remote action, you have to configure the **HTTP callback** that will be sent to your webhook. 
 
@@ -65,7 +65,7 @@ This request ask to **create** a callback named "my-post-callback" with the foll
 }
 ```
 
-### CALLBACK RESPONSE
+### Callback Response
 
 Here is an example of HTTP response after POSTING a new remote callback.
 
@@ -81,9 +81,9 @@ The callback have been created with `id=c7eeaafdf0ab9683d5a1b8d51572014996540m00
 
 > **Important:** You will need this ID to POST a remote action to a vehicle with this callback.
 
-# 2. POST REMOTE ACTION
+# 2. Post Remote Action
 
-### REMOTE REQUEST
+### Remote Request
 
 Once you have a dedicated callback, you are able to POST a remote action to a vehicle.
 Choose a vehicle id (you can retrieve it with the API status), then send this kind of request:
@@ -102,7 +102,7 @@ In this API you have to replace this fields:
 
 You can browse the **{% if page.subsection == 'b2b' %}[Remote Object]({{site.baseurl}}/webapi/b2b/api-reference/specification#model-Remote){% elsif page.subsection == 'b2c' %}[Remote Object]({{site.baseurl}}/webapi/b2c/api-reference/specification/#model-Remote){% endif %}** in the reference section to have more info about how to send a specific remote action:
 
-#### REMOTE ACTIONS
+#### Remote Actions
 
 Object Name | Description | Example
 -|-|-
@@ -119,7 +119,7 @@ RemoteNavigation | Set `action: navigation` to send a remote navigation on the g
 
 > **Be careful:** you can send **only one** Remote Action at once. If you need to send several Remote Actions you have to send several HTTP POST requests to {% if page.subsection == 'b2b' %}*/fleets/{fid}/vehicles/{vid}/callbacks/{cbid}/remotes*{% elsif page.subsection == 'b2c' %}*/user/vehicles/{vid}/callbacks/{cbid}/remotes*{% endif %}. However, you can use the same callback for those Remote Action.
 
-### REMOTE RESPONSE
+### Remote Response
 
 This is an example of HTTP response when you POST remote action:
 

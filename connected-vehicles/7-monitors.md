@@ -23,7 +23,7 @@ It could be the modification of a **vehicle data** (% of battery, engine alert, 
     {% include highlighted-link.html link_label="Learn how to use the monitors!" link_url="/webapi/b2b/monitor/about/#article" %}
 </div>
 
-## USE CASE EXAMPLE
+## Use Case Example
 
 Let's imagine a car rental company owning electric cars. It is possible for each local agency to map the charging station in the area, it would be useful in order to inform the customers...
 

@@ -24,6 +24,10 @@ textsubscribe: >-
 short: >-
   This API allows to work with infotainment date & time according to the current
   timezone in the HMI.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 **Note:** This API allows to retrieve date & time according to the **current timezone**. See [system.datetime](#api-settings-datetime) if you want date time without timezone.

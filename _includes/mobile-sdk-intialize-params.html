@@ -1,0 +1,656 @@
+<div class="apis" style="box-shadow: none; margin: 0">
+  <div class="api is-open" style="box-shadow: none; border: none">
+    <div class="api-content" style="margin: 0; border: none; padding-top:0 ;">
+      <div class="api-table">
+        <table>
+          <thead>
+            <tr>
+              <th colspan="6" class="api-table-header api-params" style="background: rgb(147, 147, 147)"> Initialize
+                SDK: Parameters</th>
+            </tr>
+            <tr class="api-col-title">
+              <th>
+                Param name
+              </th>
+              <th>
+                Description
+              </th>
+              <th>
+                Type
+              </th>
+              <th>
+                Unit/Values
+              </th>
+              <th>
+                Example
+              </th>
+              <th>
+                Required
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+
+
+
+            <tr class="">
+
+              <td class="api-table-name">
+
+                <span class="last-object-level">environnement</span>
+
+              </td>
+              <td>
+                <p>Environnement value.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            -&nbsp;Production<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;Preproduction<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;development
+        </code>
+
+
+
+              </td>
+              <td>
+                <code>Preproduction</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="">
+
+              <td class="api-table-name">
+
+                <span class="last-object-level">mode</span>
+
+              </td>
+              <td>
+                <p>Mode value.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            -&nbsp;B2C<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;B2B
+        </code>
+
+
+
+              </td>
+              <td>
+                <code>B2C</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="parent" parent="monitoring">
+
+              <td class="api-table-name">
+
+                <span class="last-object-level">monitoring</span>
+
+              </td>
+              <td>
+                <p>Monitoring informations.</p>
+              </td>
+              <td><em>
+                  <p>Object</p>
+                </em></td>
+
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td>
+                <div class="api-table-parent-dropdown">
+                  <span class="icon arrow">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </div>
+              </td>
+
+            </tr>
+
+            <tr class="nested" nested="monitoring" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">monitoring</span>
+
+
+
+                <br>&nbsp;<span class="last-object-level">.logLevel</span>
+
+
+              </td>
+              <td>
+                <p>Log level value.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            -&nbsp;none<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;low<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;medium<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;high
+        </code>
+
+
+
+              </td>
+              <td>
+                <code>medium</code>
+              </td>
+              <td><code>false</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="monitoring" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">monitoring</span>
+
+
+
+                <br>&nbsp;<span class="last-object-level">.newLogFile</span>
+
+
+              </td>
+              <td>
+                <p>New log file mode.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            -&nbsp;appLaunch: creates new log file for every app launch<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;day: creates new log file every day<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;duration: creates new log file every newLogTimeDuration
+        </code>
+
+
+
+              </td>
+              <td>
+                <code>duration</code>
+              </td>
+              <td><code>false</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="monitoring" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">monitoring</span>
+
+
+
+                <br>&nbsp;<span class="last-object-level">.newLogTimeDuration</span>
+
+
+              </td>
+              <td>
+                <p>Duration before 2 log file creation. Manadatory only if <code
+                    class="language-plaintext highlighter-rouge">newLogFile==duration</code></p>
+              </td>
+              <td><em>
+                  <p>Integer</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>Between 5 and 1440.</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>42</code>
+              </td>
+              <td><code>false</code></td>
+
+            </tr>
+
+            <tr class="parent" parent="credential">
+
+              <td class="api-table-name">
+
+                <span class="last-object-level">credential</span>
+
+              </td>
+              <td>
+                <p>Credential informations.</p>
+              </td>
+              <td><em>
+                  <p>Object</p>
+                </em></td>
+
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td>
+                <div class="api-table-parent-dropdown">
+                  <span class="icon arrow">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </div>
+              </td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br>&nbsp;<span class="last-object-level">.clientId</span>
+
+
+              </td>
+              <td>
+                <p>Client ID CVS Server.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>6779ef20e75817b79602</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br>&nbsp;<span class="last-object-level">.clientSecret</span>
+
+
+              </td>
+              <td>
+                <p>Client Secret CVS Server.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>865333ef347etr</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br>&nbsp;<span class="last-object-level">.macID</span>
+
+
+              </td>
+              <td>
+                <p>MAC id value of inwebo SDK.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code> </code>
+              </td>
+              <td><code>false</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br>&nbsp;<span class="last-object-level">.inWeboURL</span>
+
+
+              </td>
+              <td>
+                <p>Server url of inwebo SDK.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>https://address.tld</code>
+              </td>
+              <td><code>false</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br>&nbsp;<span class="last-object-level">.webviewsRedirectURI</span>
+
+
+              </td>
+              <td>
+                <p>Webviews redirecURI.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>https://address.tld</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br>&nbsp;<span class="last-object-level">.loginRedirectURI</span>
+
+
+              </td>
+              <td>
+                <p>Login redirect URI.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>https://address.tld</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="parent" parent="profile">
+
+              <td class="api-table-name">
+
+                <span class="last-object-level">profile</span>
+
+              </td>
+              <td>
+                <p>Profile informations.</p>
+              </td>
+              <td><em>
+                  <p>Object</p>
+                </em></td>
+
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td>
+                <div class="api-table-parent-dropdown">
+                  <span class="icon arrow">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </div>
+              </td>
+
+            </tr>
+
+            <tr class="nested" nested="profile" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">profile</span>
+
+
+
+                <br>&nbsp;<span class="last-object-level">.brand</span>
+
+
+              </td>
+              <td>
+                <p>Brand value.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            -&nbsp;Peugeot<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;Citroen<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;Ds<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;Opel<br>
+        </code>
+                <hr style="margin: .25rem; height: 1px; background: #dfdfdf">
+
+
+
+                <code>
+            -&nbsp;Vauxhall
+        </code>
+
+
+
+              </td>
+              <td>
+                <code>opel</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,6 +15,10 @@ data:
     unit-value: 'ISO-8601: YYYY-MM-DDThh:mm:ss.sTZD'
     example: '2020-01-22T10:59:10.537Z'
 short: This API allows to work with head-unit date & time.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 **Note:** This API allows to retrive raw date & time, [settings.datetime](#api-system-datetime) takes timezone into account .

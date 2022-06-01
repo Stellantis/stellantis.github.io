@@ -15,6 +15,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[9.0.0](#900) | Mobile SDK
 [8.1.1](#811) | Webportal Updates Ref & Articles v1/v2
 [8.1.0](#810) | WEB API B2B v3.2.0
 [8.0.1](#801) | Remove 404 page from sitemap
@@ -83,6 +84,30 @@ Version|Name
 
 <hr>
 
+## 9.0.0
+
+{% include published_on.html date='01 Jun 2022' %}
+
+**Mobile SDK:**
+- documentation first release
+- ref v2.0.X
+- tutorials: overview, security, features (vhcl status, remote commands, trips, send nav, ami&rocks-e)
+
+**Website:**
+- font size weight case in menu & nav
+- output ref in dedicated pages (mobile sdk & webportal)
+- add lines number in code blocks
+
+**Webportal v1:**
+- Device.GetCarBrand values
+
+**Webportal v2:**
+- driving.currentGear version
+- settings.language add params regionSubtag
+- code examples in ref
+
+<hr>
+
 ## 8.1.1
 
 {% include published_on.html date='02 Mar 2022' %}
@@ -105,6 +130,7 @@ Version|Name
 
 **Website:**
 - add anchors link in reference list
+
 
 <hr>
 

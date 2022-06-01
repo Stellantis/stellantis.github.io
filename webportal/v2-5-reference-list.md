@@ -18,7 +18,7 @@ redirect_from:
 
 
 <div class="notification page-disclaimer">
-   This list of references allows to browse Stellantis for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall): <strong>Webportal v2 API</strong>. These API can be available as  <a href="{{site.baseurl}}/webportal/v2/quickstart/get-set-subscribe/#article">get, set or subscribe</a>:
+   This list of references allows browsing Stellantis for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall): <strong>Webportal v2 API</strong>. These API can be available as  <a href="{{site.baseurl}}/webportal/v2/quickstart/get-set-subscribe/#article">get, set or subscribe</a>:
   <ul>
     <li>
       <strong>Get</strong> 
@@ -65,6 +65,9 @@ redirect_from:
       &nbsp; this API require at least location to be activated.
     </li>
     <li>
+      <span class="icon is-white" style="font-size: .9rem;">
+        <i class="fas fa-lock-open"></i>
+      </span>
       <em>
         None:
       </em>
@@ -74,6 +77,13 @@ redirect_from:
 </div>
 <hr>
 
-{% include reference-list.html 
-sdkName="webportal_v2"  githubFolder="_webportal-ivi-reference/"
-%}
+<div class="reference-domain">
+
+  {% include 
+    api-reference-list.html 
+    sdk_name="webportalv2"
+    githubFolder="_webportal-ivi-reference/"
+    apis=site.webportal-ivi-reference
+  %}
+
+</div>

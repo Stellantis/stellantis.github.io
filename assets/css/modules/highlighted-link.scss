@@ -17,6 +17,10 @@
     border-color: darkgrey;
 }
 
+.highlighted-link-icon {
+    padding: 0 1rem;
+}
+
 
 .highlighted-link-label {
     transition: all .2s ease;
@@ -58,3 +62,32 @@
     margin-top: 0;
     border-top: none;
 }
+
+// ----- UNBOXED & CENTERED -----
+.unboxed-text.centered-link {
+    margin-left: 0;
+    margin-right:0 ;
+    text-align: center;
+    width: 100%;
+}
+
+// INVERTED
+.highlighted-link-inverted {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: start;
+    .link-arrow {
+        transform-origin: center;
+        margin-left: 0;
+        margin-right: .5rem;
+        transform: scale(-1, 1);
+        &:hover {
+            transform: scale(-1, 1) translateX(7px);
+        }
+    }
+}
+.highlighted-link-inverted:hover .link-arrow {
+    transform: scale(-1, 1) translateX(7px);
+}
+

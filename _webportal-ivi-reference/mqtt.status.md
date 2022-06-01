@@ -5,18 +5,22 @@ type:
   - subscribe
 name: MQTT.status
 domain: MQTT
-data: 
+data:
   - name: connection
-    description: "MQTT connection status."
+    description: MQTT connection status.
     type: Enum of strings
-    unit-value: 
+    unit-value:
       - idle
       - connecting
       - connected
       - disconnected
-    example: "connected"
+    example: connected
 short: >-
   This API allows to retrieve status information about the head-unit's MQTT
   client.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

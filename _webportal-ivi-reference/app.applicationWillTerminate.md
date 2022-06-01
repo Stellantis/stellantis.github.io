@@ -12,6 +12,10 @@ data:
     unit-value: tld.domain.subdomain
     example: com.example.app
 short: This API allows to be notified when an App is being closed.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
                      
 When this event is triggered, an application is about to be closed by the infotainment system. 

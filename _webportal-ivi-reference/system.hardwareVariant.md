@@ -14,5 +14,9 @@ data:
       - '1: ''hight'''
     example: 1
 short: This API allows to retrieve HMI hardware variant.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

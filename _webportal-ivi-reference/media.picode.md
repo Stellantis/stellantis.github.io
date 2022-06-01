@@ -16,5 +16,9 @@ data:
     unit-value: n/a
     example: '58645'
 short: This API allows to work with the previous song or radio station function.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

@@ -16,5 +16,9 @@ data:
       - '3: ''adaptative Cruise Control'''
     example: '0'
 short: This API allows to retrieve cruise or limit controler values.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

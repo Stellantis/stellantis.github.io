@@ -15,5 +15,9 @@ data:
       - '`15: ''Invalid'''
     example: 8
 short: This API allows to retrieve the eco coaching Global note in EcoCoaching trip.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

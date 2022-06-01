@@ -1,0 +1,77 @@
+- tag: BasicAuthentication
+  name: Authentication
+  type: domain
+  category: security
+  domain: authentication
+  security: authentication
+  tutorial:
+    - /mobile-sdk/security/authentication/
+    - /mobile-sdk/security/token/
+- tag: StrongAuthentication
+  name: Enrollment
+  type: domain
+  category: security
+  domain: authentication
+  security: authentication
+  tutorial:
+    - /mobile-sdk/security/device-enrollment/
+    - /mobile-sdk/security/otp/
+- tag: Carkey
+  name: CarKey
+  type: domain
+  category: security
+  domain: vehicle
+  security: authentication
+  tutorial:
+    - /mobile-sdk/security/carkey/
+- tag: UserVehicleSteps
+  name: Steps
+  type: domain
+  category: security
+  domain: subscription
+  security: authentication
+  tutorial:
+    - /mobile-sdk/security/service-activation-steps/
+- tag: SDK
+  name: SDK
+  type: domain
+  category: overview
+  domain: sdk
+  security: none
+- tag: O2X
+  name: AMI & Rocks-e (O2X)
+  type: domain
+  category: feature
+  connectivity: bluetooth
+  security: none
+  domain: vehicle
+  tutorial:
+    - /mobile-sdk/sdk-features/ami&rocks-e/#article
+- tag: SendToNav
+  name: Send Navigation
+  type: domain
+  category: feature
+  connectivity: bluetooth
+  security: authentication
+  domain: vehicle
+  tutorial: 
+    - /mobile-sdk/sdk-features/send-navigation/
+- tag: LongRangeRemote
+  name: Vehicle Status & Remote Command
+  type: domain
+  domain: vehicle
+  category: feature
+  connectivity: internet
+  security: subscription
+  tutorial:
+    - /mobile-sdk/sdk-features/remote-commands/
+    - /mobile-sdk/sdk-features/vehicle-status/
+- tag: TripNDrive
+  name: Trips
+  type: domain
+  category: feature
+  connectivity: bluetooth
+  security: authentication
+  domain: vehicle
+  tutorial:
+    - mobile-sdk/sdk-features/trips/

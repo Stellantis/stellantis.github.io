@@ -1,0 +1,8 @@
+- tag: authentication
+  name: pims.authentication
+- tag: sdk
+  name: pims.sdk
+- tag: subscription
+  name: pims.subscription
+- tag: vehicle
+  name: pims.vehicle

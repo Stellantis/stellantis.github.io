@@ -17,5 +17,9 @@ data:
 short: >-
   This API allows to work with the fuel unit in which fuel is displayed in the
   infotainment system (liter, gallon etc.).
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

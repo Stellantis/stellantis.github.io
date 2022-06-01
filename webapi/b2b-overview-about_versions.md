@@ -10,6 +10,10 @@ redirect_from:
     - /webapi/b2b/changelog/
     - /webapi/b2b/api-reference/
     - /webapi/b2b/reference/
+    - /webapi/b2b/reference/specification-v2/
+    - /webapi/b2b/reference/specification-v1/
+    - /webapi/b2b/reference/changelog-v2/
+    - /webapi/b2b/reference/changelog-v1/
     - /webapi/b2b/api-reference/specification/
     - /webapi/b2b/api-reference/changelog/
     - /webapi/b2b/api-reference/about-versions/

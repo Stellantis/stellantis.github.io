@@ -25,5 +25,9 @@ data:
       - 'false: mode auto off'
     example: true
 short: This API allows to work with the AC Mode Auto.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

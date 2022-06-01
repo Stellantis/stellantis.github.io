@@ -20,5 +20,9 @@ data:
       - '7: ''Faul'''
     example: '2'
 short: This API allows to retrieve cruise or limit controler status.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

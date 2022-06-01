@@ -16,5 +16,9 @@ params:
     example: 1
     required: true
 short: This API allows to set the climate values.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

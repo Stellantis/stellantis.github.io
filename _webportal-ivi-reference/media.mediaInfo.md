@@ -65,5 +65,9 @@ data:
     unit-value: n/a
     example: 'data:image/png;base64,...'
 short: This API allows to retrieve the current media info.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

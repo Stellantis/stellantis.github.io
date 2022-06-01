@@ -92,5 +92,9 @@ datasubscribe:
 short: >-
   This API allows to use the HMI *dialog window* element (popup) in order to
   send a message to the user.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 <img src="{{site.baseurl}}/assets/images/webportal-v2-dialog-window.png" alt="webportal-v2-dialog-window" style="width: 400px">

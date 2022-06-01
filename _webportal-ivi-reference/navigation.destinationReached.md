@@ -20,5 +20,9 @@ data:
     unit-value: timestamp
     example: '1577833200'
 short: This API allows to work with reached navigation event.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

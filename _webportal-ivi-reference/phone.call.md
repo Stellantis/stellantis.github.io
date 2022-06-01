@@ -159,5 +159,9 @@ dataget_example: |-
       ]
     }
 short: This API allows use phone functionnility of the webportal.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

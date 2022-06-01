@@ -1,5 +1,6 @@
 ---
 privacy: Geolocation Private
+availability: sdkOnly
 type:
   - set
   - subscribe
@@ -38,5 +39,9 @@ datasubscribe:
     example: delivered
     description: Delivery status.
 short: This API allows publish data to your offboard system.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

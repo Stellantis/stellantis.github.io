@@ -1,5 +1,5 @@
 
-# HTTP ERROR CODES
+# HTTP Error Codes
 
 |Response Code| Meaning|
 |----|----|
@@ -9,7 +9,7 @@
 |`429`| Too Many Requests. The limit of requests have been exceed, see [rate limit](#rate-limit). |
 |`500`| Internal server error. Sounds like there's a problem on the server. Take it easy, we're on it ;)|
 
-## ERROR MESSAGE
+## Error Message
 
 Error codes are returned by all API when the answer is not HTTP-OK. It's displayed in {% if page.subsection == 'b2b' %}[Reference]({{ site.baseurl }}/webapi/b2b/api-reference/){% elsif page.subsection == "b2c" %}[Reference]({{ site.baseurl }}/webapi/b2c/api-reference/){% endif %} with the **Default** button on the right panel.
 
@@ -31,13 +31,13 @@ The structure of the error message will always be like:
 
 > **Note:** If you encounter any unexpected error do not forget to save the error message. Contacting Stellantis support with the error message (code, uuid and timestamp), we will be able to investigate on this.
 
-# RATE LIMIT
+# Rate Limit
 
 According to your subscription to Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall), they are limited amounts of API calls you can send during a period of time:
 - The **day** limit is a sliding window of 24 hours.
 - The **burst** limit is a maximum of instantaneous requests during an interval of 1 second.
 
-## PREVENT LIMITING
+## Prevent Limiting
 
 The rate limit of your subscription should be sized to your need in terms of requests (burst & daily). 
 
@@ -58,7 +58,7 @@ Field Name | Description
 **X-RateLimit-Remaining-1**  | Number of calls remaining before reaching the day limit. Equals to 0 when the limit is reached.
 **X-RateLimit-Remaining-2**  | Number of calls remaining before reaching the burst limit. Equals to 0 when the limit is reached.
 
-## REACHING THE LIMIT
+## Reaching The Limit
 
 When you reach the limit, you will not be able to receive normal information from the API, you will only receive *HTTP 429* responses with the following HTTP headers:
 

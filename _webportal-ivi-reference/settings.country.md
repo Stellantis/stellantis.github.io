@@ -33,5 +33,9 @@ datasubscribe:
     unit-value: ISO 3166-1 alpha-2
     example: FR
 short: This API allows to work with country selection in the infotainment system.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

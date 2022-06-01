@@ -14,7 +14,7 @@ privacy: Full
 |**Type**| `postMessage` command. See [implementation tutorial]({{site.baseurl}}/webportal/v1/quickstart/#webportal-events) for post message commands. |
 | **Parameter** | *None* |
 
-### SEE ALSO
+### See Also
 
 - Full implementation [example]({{site.baseurl}}/webportal/v1/interactivity/popup/#article) of this popup.
 - Event: [OK button](#event-WebPortal-nativePopup-evt-ok).

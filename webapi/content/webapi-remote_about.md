@@ -1,4 +1,4 @@
-# FEATURES
+# Features
 
 With our API, you are able to {% if page.subsection == 'b2b' %}[browse data]({{site.baseurl}}/webapi/b2b/overview/standards/){% elsif page.subsection == 'b2c' %}[browse datas]({{site.baseurl}}/webapi/b2c/overview/standards/){% endif %} about vehicles and receive {% if page.subsection == 'b2b' %}[custom notifications]({{site.baseurl}}/webapi/b2b/monitor/about){% elsif page.subsection == 'b2c' %}[custom notifications]({{site.baseurl}}/webapi/b2c/monitor/about){% endif %}. Now, the remote API allow you to send online commands to connected vehicles.
 
@@ -18,7 +18,7 @@ With our API, you are able to {% if page.subsection == 'b2b' %}[browse data]({{s
 - **Immobilization**:  Immobilize the vehicle until you let it go again.
 - **Navigation**: Send a remote navigation in the vehicle guidance system.
 
-# HOW DOES IT WORK?
+# How does it works?
 
 **Step1: create a callback**
 

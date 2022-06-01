@@ -17,5 +17,9 @@ data:
 short: >-
   This API allows to retrieve the eco coaching AC note, providing instant AC
   system ranking in EcoCoaching trip.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

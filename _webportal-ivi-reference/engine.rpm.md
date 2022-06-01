@@ -12,5 +12,9 @@ dataget:
     unit-value: RPM
     example: 1147
 short: This API allows to retrieve engine RPM value.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

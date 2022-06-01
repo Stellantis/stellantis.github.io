@@ -17,6 +17,10 @@ params:
     example: connection_impossible
     required: true
 short: This API allows to work with status of your app in the infotainment system.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 Status | Description

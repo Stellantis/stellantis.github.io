@@ -80,8 +80,26 @@ hr {
 //                                            
 // -----------------------------------------  
 
+@media screen and (min-width: 769px) {
+    main.column {
+        width: 0;
+    }
+}
+
 #article, .footer-items {
     margin: 0 5% 0;
+}
+
+.references-nac {
+    .api-title {
+        h2 {
+            margin-bottom: 0;
+        }
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: .75rem;
+    }
 }
 
 
@@ -103,7 +121,7 @@ margin: 3rem auto 0;
 }
 
 .content h1 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
 }
 .content h2 {
     font-size: 1.6rem;
@@ -115,7 +133,7 @@ margin: 3rem auto 0;
     font-size: 1.2rem;
 }
 .content h5 {
-    font-size: 1rem;
+    font-size: 1.05rem;
 }
 
 
@@ -138,6 +156,10 @@ table {
     overflow-x: scroll;
 }
 
+table.rouge-table {
+    overflow-x: unset;
+}
+
 table code {
     word-wrap: anywhere;
 }
@@ -151,14 +173,12 @@ table code {
     flex-grow: 1;
     flex-shrink: 1;
     min-height: 100%;
-
     font-size: 1.05rem;
 }
 .content #page-title{
     color: #131313;
-    font-size: 2.2rem;
+    font-size: 1.9rem;
     line-height: 3.5rem;
-    text-transform: uppercase;
     font-style: normal;
     letter-spacing: -0.01rem;
     font-family: 'Roboto', sans-serif;
@@ -176,6 +196,15 @@ table code {
 
 .edit-page{
     color: #4A4A4A;
+    &:not(:last-of-type) {
+        margin-right: .75rem;
+    }
+    &:first-of-type { 
+        margin-left: .25rem;
+    }
+    &:hover {
+        color: #2689b5;
+    }
 }
 
 .select.page-select select {
@@ -232,6 +261,12 @@ table code {
 
 .content .notification.page-disclaimer {
     margin-top: 1.5rem;
+    p {
+        margin-bottom: .25rem;
+    }
+    ul {
+        margin-top: .25rem;
+    }
 }
 
 .content .container {
@@ -289,10 +324,38 @@ table code {
     padding: 3.5rem 8% 4rem;
 }
 
+.unboxed-text {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 1rem 8% 0;
+    color: white;
+    // font-family: 'Montserrat', sans-serif;
+
+    .link-arrow {
+        margin-left: .3rem;
+    }
+
+    &:hover {
+        color: #2689b5;
+        .link-arrow {
+            webkit-transform: translateX(8px);
+            -ms-transform: translateX(8px);
+            transform: translateX(8px);
+        }
+    }
+}
+
+.unboxed-bloc.unboxed-methods {
+    padding-top: 0;
+    padding-bottom: 7rem;
+}
+
+
 #article.unboxed, #article.unboxed + .footer {
     padding-left: 7.5%;
     padding-right: 7.5%;
-    max-width: 1400px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 #article.unboxed + .footer .footer-items {
@@ -374,9 +437,10 @@ table code {
         height: 1.65rem;
     }
 }
+
 .unboxed-page-subtext {
     margin-top: 1.5rem;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 2.1rem;
 
     strong {
@@ -418,17 +482,7 @@ h2.unboxed-title {
     line-height: 1.7rem;
 }
 
-.unboxed-list {
-    padding: 0 0 3rem;
-    display: flex;
-}
 
-.unboxed-list p {
-    font-size: 1.5rem;
-    font-weight: 500;
-    width: 150px;
-    min-width: 150px;
-}
 
 .unboxed-content ul {
     font-size: 1.1rem;
@@ -555,24 +609,30 @@ h2.unboxed-title {
 // ---------------------------------------------------------------
 
 .highlighter-rouge {
-margin: 1.5rem 0;
+    margin: 1.5rem 0;
+    font-size: .875rem;
 }
 
 code {
-    font-family: 'Inconsolata', monospace;
+    font-family: monospace;
 }
 
 .highlight{
-    max-height: 50vh;
+    // max-height: 50vh;
     border-radius: 2px;
 }
 
 //fixing higlhith bottom margin
 .highlight  pre  {
     margin-bottom: 0rem;
-    word-break: break-word;
-    white-space: pre-wrap;  
+    font-family: monospace;
+    font-weight: 500;
 }
+
+
+
+
+
 
 //  ------------------ MODULES-------------------
 //   __  __  ___  ____  _   _ _     _____ ____  
@@ -716,7 +776,7 @@ aside.menu{
     box-shadow: inset 0px 0px 6px 1px rgba(0, 0, 0, 0.03);
     background: #fafafa;
     color: $psa-dark-blue;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 400;
     line-height: 1.5rem;
     padding-top: 55px;;
@@ -736,8 +796,6 @@ aside.menu .menu-title{
     margin-bottom: 20px;
     font-size: 1.15rem;
     font-weight: 500;
-    text-transform: uppercase;
-    // font-family:"Montserrat", sans-serif;
     color: #131313;
     letter-spacing: -0.03rem;
 }
@@ -753,6 +811,7 @@ aside.menu .menu-label {
     display: flex; 
     align-items: baseline;
     justify-content: space-between;
+    text-transform: none;
 }
 aside.menu .menu-label:first-of-type, aside.menu .menu-label.has-list:first-of-type {
     margin-top: 12px;
@@ -876,7 +935,7 @@ aside#on-this-page {
     height: calc(100vh - 67px);
     overflow-y: auto;
     background: #fafafa;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
 }
 
  #anchors  {
@@ -936,12 +995,9 @@ aside#on-this-page {
     padding-top: 50px;
     padding-bottom: 22px;
     line-height: 1.75rem;
-    text-transform: uppercase;
-    font-family: "Montserrat", sans-serif;
     color: #131313 ;
-    font-weight: 600 ;
+    font-weight: 500 ;
     font-size: 1.15rem ; 
-    letter-spacing: -0.05rem;
 }
 
 .bd-anchors-list {
@@ -1080,6 +1136,7 @@ aside#on-this-page {
     font-style: normal;
     font-weight: 600;
 }
+
 #navbarpsa #logoPG4D svg{
     width: 283px;
     height: 42.7px;
@@ -1109,7 +1166,6 @@ aside#on-this-page {
         height: 34.7px;
     }
 }
-
 
 #navbarpsa .textnavbar{
   text-shadow: 1px 1px 4px #000000;
@@ -1458,7 +1514,7 @@ margin-bottom: 2rem;
     font-weight: 700;
     color: white;
     line-height: 30px;
-    font-size: 16px;    
+    font-size: 16px;
 }
 
 .notif-welcome-text {
@@ -1593,8 +1649,6 @@ a.footer-link:hover, .footer-link a:hover{
     display: block;
     line-height: 1.7;
     text-shadow: 1px 1px 3px #000000;
-    display: flex;
-    align-items: center;
 }
 
 
@@ -1604,15 +1658,116 @@ a.footer-link:hover, .footer-link a:hover{
 }
 
 @media screen and (max-width: 840px) {
-    .footer-items, #article.unboxed + footer.footer div.footer-items {
-        display: block;
-        margin: 0 auto;
-        width: 200px;
+        .footer-items {
+            padding: 0 75px;
+        }
+        .footer-item {
+            width: 50%;
+        }
+        .footer-item:nth-child(even) {
+            text-align: end;
+        }
+        .footer-item:last-of-type {
+            padding-right: 0;
+        }
+}
+
+@media screen and (max-width: 500px) {
+        .footer-item {
+            display: block;
+            width: 200px;
+            margin: 0 auto 2rem;
+        }
+        .footer-item:last-of-type {
+            margin-bottom: 0;
+        }
+        .footer-item:nth-child(even) {
+            text-align: start;
+        }
+}
+
+
+// ---- MODAL ----
+
+.modal-close-btn {
+    &:hover {
+        cursor: pointer;
     }
-    .footer-item:last-of-type {
-        padding-right: 0;
+}
+
+.modal .modal-card-title .icon {
+    font-size: 1.3rem;
+    padding-left: 1rem
+}
+
+.modal-background {
+    background-color: rgba(10, 10, 10, 0.92);
+}
+
+.modal-content {
+    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.726);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+
+.modal-card-head {
+    background-color: $psa-dark-blue;
+    color: white;
+    padding: 1.5rem 2rem;
+}
+
+.modal-card-title {
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.modal-card-title:hover {
+    color: #2689b5;
+}
+
+.modal-card-body {
+    padding: 2rem;
+}
+
+.modal-paragraph {
+    display: flex;
+    padding-bottom: .5rem;
+    justify-content: space-between;
+}
+
+.modal-text {
+    text-align: justify;
+}
+
+
+.modal-icon {
+    margin: auto 0;
+    height: 90px;
+    min-width: 110px;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+    float: right;
+    i {
+        font-size: 4.25rem;
+        color: rgb(59, 59, 59);
     }
- }
+}
+
+
+.data-info {
+    padding-bottom: .35rem;
+    text-align: justify;
+}
+
+.data-title {
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+}
+
 
 //  ------------- IMAGE ------------
 //   ___ __  __    _    ____ _____ 
@@ -1659,6 +1814,7 @@ margin-right: 0 !important;}
     }
 }
 
+
 @media screen and (max-width: 915px) {
 
     .content img{
@@ -1697,17 +1853,16 @@ h1.use-case-subtitle {
     background-size: cover;
     background-position: center center;
     border-radius: 3px;
+    margin-bottom: 7rem;
 }
 
 
 .availability h3.unboxed-title{
     font-size: 1.6rem;
-    padding: 4rem 0 2.5rem;
+    padding: 4rem 8% 2.5rem;
     margin: 0;
     font-weight: 700;
 }
-
-
 
 .availability {
     display: flex;
@@ -1715,6 +1870,57 @@ h1.use-case-subtitle {
     flex-wrap: wrap;
     max-width: 100%;
     overflow: hidden;
+    flex-direction: column;
+    .unboxed-content {
+        display: flex;
+    }
+}
+
+.availability .unboxed-content {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 3rem 12%;
+}
+
+.unboxed-list {
+    width: 350px;
+    padding: 0 0 3rem;
+    display: flex;
+}
+.unboxed-list.col-list {
+    width: 100%;
+}
+.unboxed-list-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.unboxed-list-ul {
+    width: 30%;
+    min-width: 150px
+}
+
+.unboxed-content .col-list ul {
+    padding-bottom: 0;
+}
+
+
+.unboxed-list p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    width: 150px;
+    min-width: 150px;
+}
+
+.link-arrow {
+    transform-origin: top left;
+    width: 25px;
+    height: 12px;
+    transition: all .2s ease;
+    fill: #ff4238;
+    bottom: 1.5rem;
+    left: 1.5rem;
 }
 
 
@@ -1740,12 +1946,73 @@ h1.use-case-subtitle {
     color: #4b4b4b
 }
 
+.centered-table.table-small table td, .centered-table.table-small table th {
+    padding: 0.2rem 0.4rem;
+}
+
+.table-small .centered-table-title p {
+    text-align: left;
+}
+
 .centered-table .centered-table-title {
     text-align: center;
     padding-right: 2rem;
     padding-left: 2rem;
 }
 
+.centered-table .centered-table-title.centered-table-title-long {
+    padding: 1.25rem .5rem 1rem;
+    .table-title {
+        width: 200px;
+        height: 70px;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+// USE CASE NOT AVAILABLE
+
+.centered-table-title-not-available {
+    background: lightgray ;
+    color: grey !important;
+    .table-title {
+        color: grey;
+    }
+    .button {
+        display:none;
+    }
+}
+
+.centered-table-package-not-available {
+    background: lightgray ;
+    color: grey;
+    // border: none !important;
+    strong {
+        color: grey;
+        font-weight: 400
+    }
+    .has-text-grey-darker {
+        color: rgb(161, 161, 161) !important;
+    }
+}
+
+.centered-table .centered-table-title.centered-table-title-long {
+    padding-top: 3rem; 
+    padding-bottom: 3rem; 
+}
+
+.light-table .centered-table-package-not-available {
+    border: none;
+    &:last-of-type { 
+        border: none;
+    }
+    &:not(:last-of-type) {
+        border: none;
+        border-right: 1px solid darkgray;
+}
+}
+
+// end USE CASE NOT AVAILABLE
 .centered-table-title .icon {
     margin: 1rem;
 }
@@ -1760,6 +2027,12 @@ h1.use-case-subtitle {
     font-weight: 400;
 }
 
+.centered-table-normal-name {
+    font-size: .9rem;
+    vertical-align: middle !important;
+    font-weight: 400;
+}
+
 .centered-table .centered-table-uc-name, .centered-table .verb-title-use-case {
     text-align: left;
     padding: 0.5rem 0.75rem;
@@ -1767,7 +2040,7 @@ h1.use-case-subtitle {
 
 .centered-table-availability {
     text-align: center;
-
+    font-size: .8rem;
 } 
 
 .centered-table ul {
@@ -1777,6 +2050,23 @@ h1.use-case-subtitle {
 
 .centered-table li {
     margin: 0;
+}
+
+@media screen and (min-width: 1400px) {
+    .centered-table.table-small {
+        .centered-table-title p {
+            font-size: 1.3rem;
+        }
+        .centered-table-title .tag:not(body) {
+            font-size: .95rem;
+        }
+        .centered-table-normal-name {
+            font-size: 1.1rem;
+        }
+        table td, table th {
+            padding: 0.5rem 0.75rem;
+        }
+    } 
 }
 
 .unboxed-bloc .centered-table  {
@@ -1793,12 +2083,7 @@ h1.use-case-subtitle {
     .centered-table-uc-name {
         padding: 0.75rem 2.5rem 0.75rem 2rem
     }
-    a {
-        color: white;
-        &:hover {
-            color: #2689b5;
-        }
-    }
+
     td ul {
         font-size: 1.3rem;
     }
@@ -1819,6 +2104,96 @@ h1.use-case-subtitle {
         border-right: 1px solid white;   
     }
 }
+
+.light-table {
+
+     table thead td, table thead th {
+        border: 1px solid #e5e5e5;
+    }
+    
+    table td, table th, table tbody tr:last-child td, table tbody tr:last-child th {
+        border: 1px solid #e5e5e5;
+
+    }
+}
+
+// --- compare package table ---
+
+.content .table-highlighted-row,  .table-highlighted-row {
+    background-color: rgb(228, 228, 228);
+    color: #363636;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.1rem;
+    border: none;
+    padding: 0.425rem 0.4rem;
+}
+
+.table-help-name a{
+    cursor: help; 
+    border-bottom: 1px dashed black;
+    color: #363636;
+    &:hover {
+        color: #2689b5;
+    }
+}
+
+.table-method .table-help-name a{ 
+    border-bottom: 1px dashed #83786f;
+}
+
+.table-clickable-row {
+    transition: 0.1s ease-in;
+    &:hover {
+        background-color: whitesmoke;
+        cursor: help;
+    }
+}
+
+.centered-table-title .button.is-info {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    background-color: $psa-light-blue;
+    border-color: $psa-light-blue;
+    color: #fff;
+    &:hover {
+        color: $psa-light-blue;
+        border-color: $psa-light-blue;
+        background-color: transparent;
+    }
+}
+
+
+.table-title-and-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    a {color: #83786f; font-weight: 500;}
+    .icon {
+        color: #83786f;
+    }
+}
+
+.content .table-method td {
+    padding-top: .675rem;
+    padding-bottom: .675rem;
+}
+.content .table-data td {
+    padding-top: .475rem;
+    padding-bottom: .475rem;
+}
+
+
+@media screen and (min-width: 1135px) {
+    .centered-table.light-table table{
+        overflow-x: hidden;
+    }
+}
+
+
+// --- end compare package table ---
+
+
 
 //  ------------- MOBILE -------------
 //   __  __  ___  ____ ___ _     _____ 
@@ -1842,7 +2217,7 @@ h1.use-case-subtitle {
 @media screen and (max-width: 1087px) {
 
      .content-header #page-title{
-        font-size: 2rem;
+        font-size: 1.85rem;
         line-height: 2.25rem;
     } 
     .content img {
@@ -1879,6 +2254,11 @@ h1.use-case-subtitle {
 
     #page-title {
         display: none;
+    }
+}
+@media screen and (max-width: 370px) {
+    .menu-select {
+        max-width: 11rem;
     }
 }
 

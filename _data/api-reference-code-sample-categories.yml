@@ -1,0 +1,37 @@
+- tag: webportalv2
+  request:
+    examples:
+      - tag: sdk
+        name: Request SDK
+        icon: fas fa-long-arrow-alt-up
+      - tag: natif
+        name: Request Natif JS
+        icon: fas fa-long-arrow-alt-up
+  response:
+    examples:
+      - tag: reply
+        name: Reply
+        icon: fas fa-long-arrow-alt-down
+      - tag: notify
+        name: Notify
+        icon: fas fa-bell
+- tag: mobile-sdk
+  request:
+    examples:
+      - tag: kotlin
+        name: Request Kotlin
+        icon: fas fa-long-arrow-alt-up
+      - tag: swift
+        name: Request Swift
+        icon: fas fa-long-arrow-alt-up
+  response:
+    examples:
+      - tag: succeeded
+        name: Succeeded
+        icon: fas fa-long-arrow-alt-down
+      - tag: result
+        name: Result
+        icon: fas fa-bell
+      - tag: failed
+        name: Failed
+        icon: fas fa-exclamation

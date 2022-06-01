@@ -34,6 +34,10 @@ datasubscribe:
     example: null
 textset: '`"status": 500, if the an error happend with speech regonition.'
 short: This API allows to work with speech recognition function of the vehicle.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 This API is not currently available in Europe.

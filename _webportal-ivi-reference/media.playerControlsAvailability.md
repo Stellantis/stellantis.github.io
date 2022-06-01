@@ -63,5 +63,9 @@ paramsset:
 short: >-
   This API allows to check the availability of a Media Player function and
   enable or disable it's availability.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

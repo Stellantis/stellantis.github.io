@@ -14,14 +14,18 @@ data:
     unit-value:
       - visbile
       - hidden
-    example: '''appName'' { ''visibilityState'': ''hidden''}'
+    example: '"<appId>": {"visibilityState": "hidden"}'
 data_example: |-
   {
-      "<appName>": {
+      "<appId>": {
         "visibilityState": "hidden"
       }
     }
 short: This API allows to work with app going background/foreground.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 **Info:**

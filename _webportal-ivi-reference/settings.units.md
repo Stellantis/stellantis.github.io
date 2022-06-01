@@ -1,6 +1,7 @@
 ---
 name: settings.units
 domain: settings
+availability: sdkOnly
 type:
   - get
   - subscribe
@@ -39,6 +40,10 @@ data:
       - mph
     example: mph
 short: This API allows to retrieve HMI units.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 Using [configuration.consumptionUnit](#api-configuration-consumptionUnit) you are able to change system units.
