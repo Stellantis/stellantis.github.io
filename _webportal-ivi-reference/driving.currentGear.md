@@ -25,5 +25,10 @@ data:
       - '12: ''7th gear'''
     example: '12'
 short: This API allows to retrieve current gear engaged.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
+This API is available starting software *20.60*.

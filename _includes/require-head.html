@@ -1,9 +1,5 @@
 
-    {% if page.require contains "font-lora" or page.layout == "use-case" %}
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-    {% else %}
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    {% endif%}
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
 {%- comment -%} ---------------------------- {%- endcomment -%}
 {%- comment -%} -------- COMPONENTS -------- {%- endcomment -%}
@@ -11,7 +7,7 @@
 {% assign modules_path="/assets/css/modules/" %}
     <!-- COMPONENTs CSS -->
     {%- comment -%} CARD {%- endcomment -%}
-    {% if page.require contains "card" or page.layout == "use-case" or page.layout == "api-data" %}
+    {% if page.require contains "card" or page.layout == "use-case" or page.layout == "package" or page.layout == "api-data" %}
     <link rel="stylesheet" href="{{ 'card.css' | prepend: modules_path| prepend: site.baseurl }}">
     {% endif %}
     {%- comment -%} CTA {%- endcomment -%}
@@ -36,28 +32,24 @@
     {% if page.require contains "webapi-reference-specification" %}
     <link rel="stylesheet" href="{{ 'webapi-reference-specification.css' | prepend: modules_path| prepend: site.baseurl }}">
     {% endif %}
-    {%- comment -%} WEBPORTAL-REFERENCE-LIST {%- endcomment -%}
-    {% if page.require contains "webportal-reference-list" %}
-    <link rel="stylesheet" href="{{ 'webportal-reference-list.css' | prepend: modules_path| prepend: site.baseurl }}">
-    {% endif %}
     {%- comment -%} REFERENCE-LIST {%- endcomment -%}
     {% if page.require contains "reference-list" %}
     <link rel="stylesheet" href="{{ 'reference-list.css' | prepend: modules_path| prepend: site.baseurl }}">
     {% endif %}
-    {%- comment -%} HIGHLIGHTED-LINK {%- endcomment -%}
-    {% if page.require contains "highlighted-link" or page.layout == "use-case" %}
-    <link rel="stylesheet" href="{{ 'highlighted-link.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {%- comment -%} API-REFERENCE {%- endcomment -%}
+    {% if page.require contains "api-reference" or page.layout == "api-reference" %}
+    <link rel="stylesheet" href="{{ 'api-reference.css' | prepend: modules_path| prepend: site.baseurl }}">
     {% endif %}
-    {%- comment -%} USER-STORY {%- endcomment -%}
-    {% if page.require contains "user-story" or page.layout == "use-case" %}
-    <link rel="stylesheet" href="{{ 'user-story.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {%- comment -%} HIGHLIGHTED-LINK {%- endcomment -%}
+    {% if page.require contains "highlighted-link" or page.layout == "use-case" or page.layout == "package" or page.layout == "compare-packages" %}
+    <link rel="stylesheet" href="{{ 'highlighted-link.css' | prepend: modules_path| prepend: site.baseurl }}">
     {% endif %}
     {%- comment -%} DROPDOWN-CONTENT {%- endcomment -%}
     {% if page.require contains "dropdown-content" or page.layout == "api-data" %}
     <link rel="stylesheet" href="{{ 'dropdown-content.css' | prepend: modules_path| prepend: site.baseurl }}">
     {% endif %}
     {%- comment -%} API-VERBS {%- endcomment -%}
-    {% if page.require contains "api-verbs" or page.layout == "use-case" %}
+    {% if page.require contains "api-verbs" or page.layout == "use-case" or page.layout == "package" %}
     <link rel="stylesheet" href="{{ 'api-verbs.css' | prepend: modules_path| prepend: site.baseurl }}">
     {% endif %}
     {%- comment -%} THUMBNAIL {%- endcomment -%}
@@ -72,15 +64,13 @@
 {%- comment -%} REDOC {%- endcomment -%}
     {% if page.require contains "redoc" %}
     <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
-    {%- comment -%} <script src="{{ '/assets/js/swagger-ui-bundle.js' | prepend: site.baseurl | prepend: site.url }}"> </script>
-    <script src="{{ '/assets/js/swagger-ui-standalone-preset.js' | prepend: site.baseurl | prepend: site.url }}"> </script> {%- endcomment -%}
     {% endif %}
     {%- comment -%} SWAGGER UI {%- endcomment -%}
     {% if page.require contains "swagger" %}
     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/swagger-ui.css' | prepend: site.baseurl }}">
     <link href="{{ '/assets/css/swagger-ui-overrides.css' | prepend: site.baseurl }}" rel='stylesheet' type='text/css'>
-    <script src="{{ '/assets/js/swagger-ui-bundle.js' | prepend: site.baseurl | prepend: site.url }}"> </script>
-    <script src="{{ '/assets/js/swagger-ui-standalone-preset.js' | prepend: site.baseurl | prepend: site.url }}"> </script>
+    <script src="{{ '/assets/js/swagger-ui-bundle.js' | prepend: site.baseurl }}"> </script>
+    <script src="{{ '/assets/js/swagger-ui-standalone-preset.js' | prepend: site.baseurl }}"> </script>
     {% endif %}
     {%- comment -%}LEAFLET{%- endcomment -%}
     {% if page.require contains "leaflet" %}
@@ -92,7 +82,7 @@
     crossorigin=""></script>
     {% endif %}
     {%- comment -%} AOS {%- endcomment -%}
-    {% if page.require contains "aos" or page.layout == "use-case" %}
+    {% if page.require contains "aos" or page.layout == "use-case" or page.layout == "package" %}
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     {% endif %}

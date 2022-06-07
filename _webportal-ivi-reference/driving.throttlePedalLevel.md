@@ -12,5 +12,9 @@ data:
     unit-value: '%'
     example: 30%
 short: This API allows to retrieve the level value of the throttle pedal.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

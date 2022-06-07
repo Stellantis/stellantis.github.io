@@ -119,6 +119,10 @@ data_example: |-
         }
       }
     }
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 **Info:**  Application is recommended to use the signal strength/service table to display WiFi signal indicator on HMI:

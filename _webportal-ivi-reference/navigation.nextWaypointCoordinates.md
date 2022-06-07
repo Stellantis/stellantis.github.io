@@ -22,5 +22,9 @@ data:
     example: 2.2151043
     unit-value: n/a
 short: This api allows to retrieve the navigation waypoint coordinates.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

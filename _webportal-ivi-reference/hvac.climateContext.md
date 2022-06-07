@@ -48,5 +48,9 @@ data:
     unit-value: n/a
     example: 1
 short: This API allows to retrieve the current climate context.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

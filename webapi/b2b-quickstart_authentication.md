@@ -12,7 +12,7 @@ description: "Getting B2B authentication in Stellantis network is required in or
 ---
 {% include  content/get-your-certificate.md %}
 
-# 5. REQUEST EXAMPLE
+# 5. Request Example
 In order to use Stellantis Fleet owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall), you must authenticate yourself as a partner in Stellantis's network! Look further for more info about [B2B authentication](#authentication-b2b).
 Once you get what you need for authentication, you can try to send your first request to Stellantis's API.
 
@@ -35,12 +35,12 @@ Header|`accept`|`application/json`| Advertises that you accept JSON content type
 Header|`authorization`|`Basic <BASIC_AUTH> `|Indicate that authentication is Basic Auth and *&lt;BASIC_AUTH&gt;* is *user:password* in Base64.  |Yes
 
 
-# SEE ALSO
+# See Also
 
-##### TUTORIAL
+##### Tutorial
 
 A [Quick Start guide]({{ site.baseurl }}/webapi/b2b/quickstart/examples/) is provided to help you understand the basics and get started.
 
-##### TESTING THE API
+##### Testing the API
 
 To test the API you can check the [API List]({{ site.baseurl }}/webapi/b2b/api-reference/specification/) directly.

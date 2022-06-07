@@ -16,5 +16,9 @@ data:
 short: >-
   This API allows to retrieve rear right indication of obstacle visual distance
   (parking sensor).
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

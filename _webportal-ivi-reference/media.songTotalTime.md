@@ -33,5 +33,9 @@ paramsset:
 short: >-
   This API allows to synchronize the Media Player total time setting of the
   playing song.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

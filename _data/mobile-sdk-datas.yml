@@ -1,0 +1,579 @@
+- ref: vin
+  description: Vehicle Identification Number 
+  type: String
+  unit-value: n/a
+  example: VR1AB12C3D4567890
+- ref: vehicle
+  type: Object
+  fields:
+  - name: ressources
+    description: Ressources informations.
+    type: Object
+    fields:
+    - name: status
+      description: Status informations.
+      type: Object
+      fields:
+      - name: autonomy
+        type: Double
+        description: Autonomy value.
+        unit-value: n/a
+        example: 130.0
+      - name: lastUpdate
+        type: String
+        description: The last update of vehicle information.
+        unit-value: n/a
+        example: '2021-07-29T22:25:09.898Z'
+      # - name: ignition
+      #   type: String
+      #   description: Ignition value.
+      #   unit-value: 
+      #     - Unknown
+      #     - Stop
+      #     - StartUp
+      #     - Start
+      #     - Free
+      #   example: Stop
+      - name: fuelInformation
+        description: Fuel Information.
+        type: Object
+        fields:
+        - name: autonomy
+          type: Double
+          description: Autonomy value.
+          unit-value: n/a
+          example: 130.0
+        # - name: chargingInformation
+        #   description: Charging Information.
+        #   type: Object
+        #   fields:
+        - name: chargingLevel
+          type: Double
+          description: The charging level value.
+          unit-value: percentage
+          example: 100.0
+        - name: lastUpdate
+          type: String
+          description: The last update of preconditioning information.
+          unit-value: date time
+          example: 2021-07-29T22:25:09.898Z 
+        - name: consumption
+          type: Double
+          description: The consumption value.
+          unit-value: n/a
+          example: 23.0
+        - name: type
+          type: Enum of Strings
+          description: The energy information type.
+          unit-value:
+            - electric
+            - fuel
+          example: fuel
+      - name: doorStateInformation
+        description: Door State Information.
+        type: Object
+        fields:
+        - name: isRearRightDoorOpened
+          type: Boolean
+          description: True if rear right door opened false otherwise.
+          unit-value: n/a
+          example: true
+        - name: isTrunkDoorOpened
+          type: Boolean
+          description: True if trunk opened false otherwise.
+          unit-value: n/a
+          example: true
+        - name: isLocked
+          type: Boolean
+          description: True if vehicle is locked, false otherwise.
+          unit-value: n/a
+          example: true
+        - name: isRearWindowDoorOpened
+          type: Boolean
+          description: True if rear window is opened false otherwise.
+          unit-value: n/a
+          example: true
+        - name: isPassengerDoorOpened
+          type: Boolean
+          description: True if passenger door opened false otherwise.
+          unit-value: n/a
+          example: true
+        - name: isRearLeftDoorOpened
+          type: Boolean
+          description: True if rear left door opened false otherwise.
+          unit-value: n/a
+          example: true
+        - name: state
+          type: Array of String
+          description: The door status.
+          unit-value: 
+            - unlocked
+            - locked
+            - superLocked
+            - driverDoorUnlocked
+            - cabinDoorsUnlocked
+            - cargoDoorsLocked
+            - cargoDoorsUnlocked
+            - rearDoorsUnlocked
+            - rearDoorsLocked
+            - trunkLocked
+          example: Unlocked
+        - name: isDriverDoorOpened
+          type: Boolean
+          description: True if driver door opened false otherwise.
+          unit-value: n/a
+          example: true
+      - name: precondInformation
+        description: Preconditioning Information.
+        type: Object
+        fields:
+        - name: lastUpdate
+          type: String
+          description: The last update of preconditioning information.
+          unit-value: date time
+          example: "2021-07-29T22:25:09.898Z"
+        - name: PrecondScheduling
+          description: Preconditioning Scheduling Information.
+          type: Object
+          fields:
+          - name: hour
+            type: Integer
+            description: The hour of the preconditioning program.
+            unit-value: Hour
+            example: 16
+          - name: isEnabled
+            type: Boolean
+            description: true if preconditioning program is enabled, false otherwis.
+            unit-value: n/a
+            example: true
+          - name: occurrence
+            type: List
+            description: The days of preconditioning program.
+            unit-value:
+              - mon
+              - tue
+              - wed
+              - thu
+              - fri
+              - sat
+              - sun
+            example: '["mon", "fri", "sat"]'
+          - name: slot
+            type: Integer
+            description: Slot of the preconditionning program.
+            unit-value: n/a
+            example: 1
+          - name: minute
+            type: Integer
+            description: The minute of the preconditioning program.
+            unit-value: minutes
+            example: 25
+        - name: status
+          type: String
+          description: The status of preconditioning.
+          unit-value: 
+            - Unknown
+            - Disabled
+            - Enabled
+            - Finished
+            - Failure 
+          example: Enabled
+      - name: electricInformation
+        description: Electric Information.
+        type: Object
+        fields:
+        - name: autonomy
+          type: Integer
+          description: The autonomy value.
+          unit-value: n/a
+          example: 22
+        - name: ChargingInfo
+          description: Charging Information.
+          type: Object
+          fields:
+          - name: chargingMode
+            type: Enum
+            description: The charging mode.
+            unit-value:
+              - SLOW
+              - QUICK
+              - NO
+              - UNKNOWN
+            example: QUICK
+          - name: chargingRate
+            type: Double
+            description: The charge rating value.
+            example: 90.0
+            unit-value: percentage
+          - name: isPlugged
+            type: Boolean
+            description: "`true` if vehicle is plugged, `false` otherwise." 
+            unit-value: n/a
+            example: true
+          - name: nextDeferredChargingDate
+            type: String
+            description: Date of next deferred charge.
+            unit-value: duration
+            example:
+          - name: chargingState
+            type: Enum of Strings
+            description: The charging state.
+            unit-value:
+              - DISCONNECTED
+              - INPROGRESS
+              - FAILURE
+              - STOPPED
+              - FINISHED
+              - UNKNOWN
+            example: DISCONNECTED 
+          - name: remainingTime
+            type: Long
+            description: The time remaining for the full charg.
+            unit-value: time
+            example: PT0S
+        - name: chargingLevel
+          type: Double
+          description: The charging level value.
+          unit-value: percentage
+          example: 100.0
+        - name: lastUpdate
+          description: The last update of preconditioning information.
+          type: String
+          unit-value: date time
+          example: "2021-07-29T22:25:09.898Z"
+        - name: consumption
+          type: Double
+          description: The consumption value.
+          unit-value: n/a
+          example: 23.0
+        - name: type
+          description: The energy information type.
+          type: String
+          unit-value: 
+            - electric
+            - fuel
+          example: electric
+      - name: vehicleType
+        description: Propulsion type of the vehicle.
+        type: string
+        unit-value:
+          - hybrid
+        example: hybrid
+  - name: attributes
+    description: Attributes informations.
+    type: Object
+    fields:
+      - name: engine
+        type: String
+        description: Vehicle engine type.
+        unit-value:
+          - bev
+          - phev
+          - thermal
+        example: bev
+      - ref: vin
+        required: true
+        type: String
+        unit-value: n/a
+        description: Vehicle's VIN.
+        example: VR1AB12C3D45678909
+      - name: brand
+        type: String
+        description: Name of the vehicle brand.
+        unit-value:
+          - peugeot
+          - citroen
+          - opel
+          - vauxhall
+        example: opel
+- ref: trip
+  type: Object
+  fields:
+  - name: alerts
+    required: true
+    type: List
+    unit-value: n/a
+    description: List of JDA alerts actives during trip
+    example: [2, 59, 70]
+  - name: category
+    required: 
+    type: String
+    unit-value: n/a
+    description: Trip Category
+    example: WORK
+  - name: createdAt
+    required: true
+    type: String
+    unit-value: date `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`
+    description: Date (on UTC) of trip recovery
+    example: "2021-03-30T08:18:20.143Z"
+  - name: daysUntilNextMaintenance
+    required: true
+    type: Number
+    unit-value: n/a
+    description: Day until next maintenance alert
+    example: 27
+  - ref: location
+    name: destination
+    required: true
+    description: Location setted on the Navigation system.
+  - name: distance
+    required: true
+    type: Number
+    unit-value: km
+    description: Trip distance.
+    example: 42
+  - name: distanceToNextMaintenance
+    required: true
+    type: Number
+    unit-value: km
+    description: Distance until next maintenance alert.
+    example: 596
+  - ref: location
+    required: true
+    name: end
+    description: Location at the end of the trip.
+  - name: fuelAutonomy
+    required: true
+    type: Number
+    unit-value: km
+    description: Automony for fuel engine.
+    example: 150
+  - name: fuelConsumption
+    required: true
+    type: Number
+    unit-value: mm3
+    description: Consumption for fuel engine in mm3 (10e6 mm3 = 1 liter).
+    example: 3242500
+  - name: fuelLevel
+    required: true
+    type: Number
+    unit-value: "%"
+    description: Percentage of fuel engine level.
+    example: 84
+  - name: id
+    required: true
+    type: Number
+    unit-value: n/a
+    description: Trip identifier (generated by the database).
+    example: 71
+  - name: maintenancePassed
+    required: true
+    type: Boolean
+    unit-value: n/a
+    description: Maintenance indicators (days or distance) have been exceeded.
+    example: true
+  - name: mergedIds
+    required: false
+    type: List of Number
+    unit-value: n/a
+    description: List of trips composing the merged trip. Field present only if `source` is `Merged`.
+    example: "[2, 59, 70]"
+  - name: otherEnergyAutonomy
+    required: true
+    type: Number
+    unit-value: km
+    description: Automony for electric engine.
+    example: 98
+  - name: otherEnergyConsumption
+    required: true
+    type: Number
+    unit-value: n/a
+    description: Consumption for electric engine.
+    example: 817
+  - name: otherEnergyDistance
+    required: true
+    type: Number
+    unit-value: km
+    description: Distance done with electric engine.
+    example: 48
+  - name: otherEnergyLevel
+    required: true
+    type: Number
+    unit-value: "%"
+    description: Percentage of electric engine level.
+    example: 20
+  - name: otherEnergyType
+    required: true
+    type: Enum of Number
+    unit-value:
+      - "0: Trip was done with a vehicle without electric engine."
+      - "1: Trip was done with a vehicle with electric engine. "
+    description: Energy Type used for the trip.
+    example: 1
+  - name: priceElectric
+    required: true
+    type: Number
+    unit-value: n/a
+    description: Price set for electricity.
+    example: 0.85
+  - name: priceFuel
+    required: true
+    type: Number
+    unit-value: n/a
+    description: Price set for fuel.
+    example: 1.27
+  - name: source
+    required: true
+    type: Enum of String
+    unit-value: 
+      - BTA
+      - Altran
+      - CEA
+      - Merge
+      - Unknown
+    description: Source of the trip.
+    example: CEA
+  - ref: location
+    name: start
+    required: true
+    description: Location at the begining of the trip.
+  - name: travelTime
+    required: true
+    type: Number
+    unit-value: n/a
+    description: Duration on seconds of the trip.
+    example: 748
+  - name: tripNumber
+    required: true
+    type: Number
+    unit-value: n/a
+    description: Trip number on the vehicle.
+    example: 7
+  - name: updatedAt
+    required: true
+    type: String
+    unit-value: Date UTC yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+    description: Date (on UTC) of trip update.
+    example: 2021-03-31T18:07:01.737Z
+  - name: user
+    required: true
+    type: String 
+    unit-value: email
+    description: User's email.
+    example: uzumaqui.naruto@stellantis.com
+  - ref: vin
+    required: true
+    type: String
+    unit-value: n/a
+    description: Vehicle's VIN.
+    example: VR1AB12C3D45678909
+- ref: location
+  type: Object
+  fields:
+  - name: altitude
+    required: true
+    type: Number
+    unit-value: m
+    description: Altitude elevation.
+    example: 1034
+  - name: city
+    required: true
+    type: String
+    unit-value: n/a
+    description: City name.
+    example: Paris
+  - name: country
+    required: true
+    type: String
+    unit-value: n/a
+    description: Country name.
+    example: France
+  - name: date
+    required: true
+    type: String
+    unit-value: date yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+    description: Date when the location has been recovered.
+    example: "2020-11-02T02:50:12.208Z"
+  - name: intersection
+    required: true
+    type: String
+    unit-value: n/a
+    description: Intersection.
+    example: "Rue de Rennes, Boulevard Saint-Germain"
+  - name: latitude
+    required: true
+    type: Number
+    unit-value: n/a
+    description: Latitude.
+    example: 8.74301
+  - name: longitude
+    required: true
+    type: Number
+    unit-value: n/a
+    description: Longitude.
+    example: 8.74301
+  - name: mileage
+    required: true
+    type: Number
+    unit-value: km
+    description: Mileage at moment location has been recovered.
+    example: 10762
+  - name: postalCode
+    required: true
+    type: String
+    unit-value: n/a
+    description: Postal code.
+    example: 75019
+  - name: quality
+    required: true
+    type: Number
+    unit-value: n/a
+    description: GPS signal quality. 
+    example: " " #TODO
+  - name: street
+    required: true
+    type: String
+    unit-value: n/a
+    description: Street name.
+    example: Rue de Rennes
+  - name: streetNumber
+    required: true
+    type: String
+    unit-value: n/a
+    description: Street number.
+    example: "16 Bis"
+- ref: locationCoordinates
+  type: Object
+  fields:
+    - name: latitude
+      description: latitude value
+      type: Double
+      unit-value: n/a
+      example: 48.77232
+    - name: longitude 
+      description: longitude value
+      type: Double
+      unit-value: n/a
+      example: 2.2151043
+    - name: address
+      description: address value
+      type: String
+      unit-value: n/a
+      example: Rte de Gisy, 78140 Vélizy-Villacoublay
+- ref: step
+  type: Object
+  fields:
+    - name: name
+      type: String
+      description: Step name value.
+      unit-value: 
+        - trustedPhone
+        - deviceActivation
+        - mediumCarKey
+      example: trustedphone
+    - name: status
+      type: String
+      description: Status of the step.
+      unit-value: 
+        - todo
+        - alreadyDone
+      example: todo
+    - name: order
+      type: Integer
+      description: Order of the steps.
+      unit-value: 
+        - 1
+        - 2
+        - 3
+      example: 2

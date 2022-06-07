@@ -15,5 +15,9 @@ data:
 short: >-
   This API allows to work with the estimated vehicle autonomy at the end of the
   trip.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

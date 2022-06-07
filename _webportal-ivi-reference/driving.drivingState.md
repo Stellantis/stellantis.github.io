@@ -15,6 +15,10 @@ data:
     unit-value: n/a
     example: true
 short: This API allows to work with driver distraction status.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 You can retrieve driver distraction disclaimer text with [this API]({{site.baseurl}}/webportal/v2/reference/list/#api-HMI-driverDistractionText).

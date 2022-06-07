@@ -1,7 +1,6 @@
 ---
-# In order to import this stlye, import it with 'require: reference-list' in the page front matter.
+# In order to import this stlye, import it with 'require: api-reference' in the page front matter.
 ---
-
 
 $get-color: #61affe;
 $get-light-color: #61b0feda;
@@ -29,22 +28,8 @@ hr {
     margin: 0rem auto;
 }
 
-.api{
-    transition: all 0.3s ease-in;
-    &:last-of-type{
-        margin-bottom: 3rem;
-        .api-header {
-            border-bottom-left-radius: 3px;
-            border-bottom-right-radius: 3px;
-            border-bottom: 1px solid lightgrey;
-        }
-    }
-    &:first-of-type{
-        .api-header {
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
-        }
-    }
+.reference-domain .apis:last-of-type {
+    border-bottom: 1px solid lightgrey;
 }
 
 .api-title{
@@ -53,14 +38,18 @@ hr {
         &:hover {
             background-color: rgb(235, 235, 235);
         }
+        
     }
+    
     .api-name {
+        display: block;
+        padding-top: 5rem;
+        margin-top: calc(-5rem + 13px);
         font-weight: 600;
         font-size: 1.3rem;
     }
-    .api-privacy {
+    .api-requirement {
         font-weight: 400;
-        font-style: italic;
     }
     .api-type {
         color: #323a58;
@@ -68,15 +57,40 @@ hr {
     }
 }
 
+.api:not(.api-title) {
+    position: relative;
+    z-index: 2;
+}
+
 .api-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.3s ease-out;
     border: 1px solid lightgrey;
     border-bottom: none;
-    padding: 13px 30px;
     background-color: #fafafa;
+    &:hover {
+        background-color: #f2f2f2;
+    }
+}
+
+.api-name, .api-available {
+    padding: 13px 30px;
+}
+.api-available {
+    padding-left: 0px;
+}
+
+.api-available{
+    .api-requirement {
+        font-size: .9rem;
+        .icon {
+            width: 13px;
+            i {
+                font-size: .7rem;
+            }
+    }
+    }
 }
 
 .api-header-domain{
@@ -85,193 +99,127 @@ hr {
     }
 }
 
-.api-verb-get.is-active, .api-verb-get:hover  {
+.api-verb-get:hover  {
     background-color:  $get-color;
     border-color:  $get-color;
     color: white;
 }
     
-.api-verb-set.is-active, .api-verb-set:hover  {
+.api-verb-set:hover  {
     background-color: $set-color;
     border-color: $set-color;
     color: white;
 }
 
-.api-verb-subscribe.is-active, .api-verb-subscribe:hover  {
+.api-verb-subscribe:hover  {
     background-color: $subscribe-color;
     border-color: $subscribe-color;
     color: white;
 }
 
-.api.is-open {
-    box-shadow: 0px 0px 4px 1px #0000002e;
-    z-index: 2;
-    position: relative;
-    border-radius: 2px;
-    border: 1px solid #7b7b7b;
-    .api-header {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border: none;
-        border-bottom: none;
-        background-color: transparent;
-    }
-
-    .privacy-name{
-        display: block;
-    }
-
-    .api-type.is-active {
-        .arrow {
-            color: white;
-            transform: rotateZ(90deg);
-        }
-    }
-    & + .api .api-header{
-        border-top: none;
-    }   
-}
-
-
-.dropdown-api-get .api-content  {
-    .api-content-tag {
-        background-color: $get-color;
-    }
-    .api-table-header, .api-code-header{
-        background-color: $get-color;
-    }
-}
-
-.dropdown-api-set .api-content {
-    
-    .api-content-tag {
-        background-color: $set-color;
-    }
-    .api-table-header, .api-code-header{
-        background-color: $set-color;
-    }
-
-}
-
-.dropdown-api-subscribe .api-content {
-    .api-content-tag {
-        background-color: $subscribe-color;
-    }
-    .api-table-header, .api-code-header{
-        background-color: $subscribe-color;
-    }
-}
-
-
 .api-name {
-    transition: all 0.3s ease-in;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding-top: 5rem;
-    margin-top: -5rem;
-    &:target {
-        font-weight: 600;
-        font-size: 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    width: 100%;
+    display: block;
+    
+    em {
+        font-weight: 400;
+        font-size: .8rem
     }
-} 
+    &:hover {
+        color: #2689b5;
+        cursor: pointer;
+    }
+}
 
-.api-name, .api-privacy, .api-content {
+.api-header-icon-link {
+    display: none;
+    font-size: .75rem;
+    margin-left: .25rem;
+    color: #2689b5;
+}
+.api-name:hover + .api-header-icon-link {
+    display: block;
+
+}
+
+
+.api-name, .api-requirement, .api-content {
     color: #323a58;
 }
 
-.api-content .api-short {
-    font-size: 1rem;
-    padding:  .75rem .25rem 1rem;
-    margin: 0;
-    p {
-        margin: 0;
-    }
-}
-
-.api-privacy  {
+.api-requirement  {
     display: flex;
     align-items: center;
-    transition: all 0.3s ease-in;
     font-size: 0.9rem;
     font-weight: 400;
     margin-bottom: 0;
     margin-right: 40px;
 }
 
-.api:not(.api-title) .api-privacy:hover { 
-        transition: none;
-        color: #2689b5;
-}
-
-.privacy-name {
-    display: none;
-    span {
-        font-weight: 400;
-        font-style: italic;
-    }
-}
 
 .api-available{
     display:flex;
     align-items: center;
     .icon i {
-        font-size: .9rem;
+        font-size: .65rem;
     }
 }
 
 .api-types{
     display:flex;
-    width: 375px;
+    width: 305px;
     justify-content: space-around;
 }
 
 .api-type {
-    transition: all 0.3s ease-out;
+    font-size: 0.85rem;
     border-radius: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 110px;
-    font-size: 0.925rem;
-    height: 2.15em;
+    width: 83px;
     background-color: transparent;
     border-width: 1px;
     border-style: solid;
-    font-weight: 500;
+    height: 2em;
+    font-weight: 400;
+    .icon { 
+        font-size: 0.75rem;
+        display: none
+    }
+    .api-type-text {
+        font-size: 0.80rem;
+    }
     &:hover {
-        .arrow {
-            color: white;
+        .icon {
+            display: flex;
         }
     }
 }
 
-.arrow {
-    transition: all 0.3s ease-out;
-    width: 18px;
+.api-type:not(.api-type.api-verb-unavailable):hover {
+    font-weight: 500;
+    text-decoration: underline;
 }
 
+.api-type.api-verb-unavailable {
+    cursor: not-allowed;
+}
 .api-verb-get {
     border-color:  $get-light-color;
     color: $get-color;
-    .arrow {
-        fill: $get-color;
-    }
 }
 
 .api-verb-set {
     border-color: $set-light-color;
     color:  $set-color;
-    .arrow {
-        fill: $set-color;
-    }
 }
 
 .api-verb-subscribe {
     border-color: $subscribe-light-color;
     color: $subscribe-color;
-    .arrow {
-        fill: $subscribe-color;
-    }
 }
 
 
@@ -284,273 +232,15 @@ hr {
     background-color: transparent;
     color: lightgrey;
     border-color: lightgrey;
+    &:hover {
+        color: lightgrey;
+    }
 }
 
 .dropdown-api{
-    transition: height 0.6s ease-out;
     height: 0;
     overflow: hidden;
 }
-
-.dropdown-api.is-active{
-    height: 100%;
-}
-
-
-.api-content{
-    border-top: 1px solid lightgrey;
-    margin: 0 3.5rem 3rem;
-}
-
-.api-content-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding-top: 1.5rem;
-    padding-bottom: .625rem;
-    .icon-button {
-        font-size: 1rem;
-        color: #323a58;
-    }
-}
-
-.api-content-name {
-    font-weight: 500;
-    font-size: 1.5rem;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    color: inherit;
-    &:hover {
-        color: #2689b5;
-    }
-}
-
-.api-content-tag {
-    padding: .325rem 1.125rem;
-    color: white;
-    border-radius: 2px;
-    margin-right: 1rem;
-    display: inline-block;
-    &:hover {
-        color: white;
-    }
-}
-
-.api-content ul {
-font-size: 1rem;
-}
-
-.api-table-unit-value-code code {
-    padding-right: 0;
-    padding-left: 0;
-}
-
-.api-content .api-table {
-    overflow-x: auto;
-    
-    table, tr, tbody, thead, td, th {
-        transition: all 2s ease;
-    }
-
-
-    &:not(.api-table-error) table {
-        table-layout: fixed;
-    }
-
-    table {
-        font-size: 0.94rem;
-        display: table;
-    
-        p {
-            font-size: .94rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        .api-table-name {
-            word-wrap: break-word;
-        }
-    
-        .not-last-object-level {
-            font-style: italic;
-            color: rgb(122, 122, 122);
-        }
-        .last-object-level {
-            font-weight: 500;
-        }
-    
-        .api-table-header {
-            font-weight: 600;
-            color: white;
-        }
-    
-        tr.nested {
-            display: none;
-        }
-    
-        tr.parent {
-            cursor: pointer;
-            td {
-                background-color: #ebebeb;
-            }
-            .api-table-parent-dropdown {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 1.15rem;
-            }
-        }
-        tr.parent-open {
-            
-            .api-table-parent-dropdown {
-                .arrow {
-                    transform: rotateZ(90deg);
-                }
-            }
-        }
-        
-        th {
-            font-weight: 600;
-        }
-        td, th {
-            border: none;
-            background-color: whitesmoke;
-        }
-        tbody tr, thead tr:not(:first-of-type) {
-            border-bottom: 1px solid rgb(223, 223, 223);
-        }
-        
-        tbody tr:last-of-type {
-            border-bottom-left-radius: 2px;
-            border-bottom-right-radius: 2px;
-        }
-        
-        &:not(:last-child){
-            margin-bottom: 2rem;
-        }
-        
-        thead tr.api-col-title {
-            border-bottom: 1px solid rgb(199, 199, 199);
-            th {
-                font-style: italic;
-            }
-        }
-    
-    }
-
-} 
-
-
-.api-code-header, .api-table-header {
-    border-top-left-radius: 2px ;
-    border-top-right-radius: 2px ;
-}
-
-.api-code-header {
-    font-weight: 600;
-    color: white;
-    font-size: .94rem;
-    
-    // --- API CODE TABS TEST ---
-    justify-content: space-between;
-    
-    .api-code-header-text {
-        padding: 0.5em 0.75em;
-        display: block;
-    }
-    .api-code-tabs-container {
-        padding: .7rem .75em .5rem;
-        background-color: #1e2336;
-    }
-    
-    .api-code-tabs {
-        font-size: .8rem;
-        background-color: #1e2336;
-        display: flex;
-        align-items: end;
-        align-items: baseline;
-        border-bottom: 1px solid darkgrey;
-        padding: 0 .35rem .5rem;
-    }
-
-    .api-code-tab {
-        transition: all .1s ease;
-        color: #959595;
-        margin-right: 2rem;
-        display: flex;
-        align-items: baseline;
-        cursor: pointer;
-        font-weight: 400;
-        ::after {
-            transition: all .1s ease;
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            height: 3px;
-            width: 100%;
-            background-color: transparent;
-        }
-    }
-    .api-code-tab-icon {
-        margin-right: .4rem;
-        .fa-exclamation {
-            font-size: 90%;
-        }
-    }
-}
-
-.api-content-code-req .api-code-tab-req,
-.api-content-code-req-kotlin .api-code-tab-req-kotlin,
-.api-content-code-req-swift .api-code-tab-req-swift,
-.api-content-code-res .api-code-tab-res,
-.api-content-code-err .api-code-tab-err,
-.api-content-code-notif .api-code-tab-notif {
-    font-weight: 600;
-    color: whitesmoke;
-    position: relative;
-    ::after {
-        background-color: #e6e6e6;
-    }
-}
-
-.api-content-code-example {
-    display: none;
-    transition: all .2s ease;
-}
-
-.api-content-code.api-content-code-req > .api-content-code-example-req,
-.api-content-code.api-content-code-req-kotlin > .api-content-code-example-req-kotlin,
-.api-content-code.api-content-code-req-swift > .api-content-code-example-req-swift,
-.api-content-code.api-content-code-res > .api-content-code-example-res,
-.api-content-code.api-content-code-err > .api-content-code-example-err,
-.api-content-code.api-content-code-notif > .api-content-code-example-notif {
-    display: block;
-}
-
-// --- END API CODE TABS TEST ---
-
-.api-content-code {
-    .highlighter-rouge {
-        margin: 0;
-        .highlight {
-            border-top-left-radius: 0px ;
-            border-top-right-radius: 0px ;
-            height: 275px;
-        }
-    }
-}
-
-
-.api-content p {
-    margin-left: 10px;
-    font-size: 1rem;
-}
-
-.api-content pre code {
-    font-size: 0.8rem;
-}
-
 
 
 @media screen and (max-width: 1500px) {
@@ -571,45 +261,18 @@ font-size: 1rem;
         width: 230px;
         .api-type {
             width: 65px;
-            font-size: .65rem;
-            .icon.arrow {
+            .api-type-text {
+                font-size: .65rem;
+            }
+            .icon {
                 display: none;
             }
         }
     }
-    .api-available{
-        .api-privacy {
-            font-size: .9rem;
-            .icon {
-                width: 13px;
-                i {
-                    font-size: .7rem;
-                }
-        }
-        }
-    }
-    .api-content {
-        .api-content-name {
+
+    .api-title {
+        .api-name {
             font-size: 1rem;
-        }
-        .icon-button {
-            font-size: .8rem;
-        }
-
-        .api-short, .api-short p, .api-short ul{
-            font-size: .8rem;
-        }
-
-        .api-table table, .api-table table p {
-            font-size: .8rem;   
-        }
-        
-        .api-code-header {
-            font-size: .8rem;
-        }
-
-        .highlight code {
-            font-size: .7rem;
         }
     }
     
@@ -624,11 +287,13 @@ font-size: 1rem;
         width: 180px;
         .api-type {
             width: 55px;
-            font-size: .6rem;
+            .api-type-text {
+                font-size: .6rem;
+            }
         }
     }
     .api-available{
-        .api-privacy {
+        .api-requirement {
             font-size: .8rem;
             margin-right: 5px;
             .icon {
@@ -639,35 +304,15 @@ font-size: 1rem;
         }
         }
     }
-    .api-content {
-        .api-content-name {
-            font-size: .9rem;
-        }
-        .api-short, .api-short p, .api-short ul{
-            font-size: .7rem;
-        }
-
-        .api-table table, .api-table table p {
-            font-size: .7rem;   
-        }
-        
-        .api-code-header {
-            font-size: .7rem;
-        }
-
-        .highlight code {
-            font-size: .65rem;
-        }
-    }
     
 }
 
 
 @media screen and (max-width: 500px) {
     .api-header {
-        padding-right: 7.5%;
-        padding-left: 7.5%;
+        padding: .65rem 7.5%;
         display: block;
+        
         .api-name {
             margin-bottom: .4rem;
         }
@@ -677,24 +322,10 @@ font-size: 1rem;
         }
     }
 
-    .api-content {
-        margin: 0 2.25rem 1.5rem;
-    }
-
     .api-content-header {
         // justify-content: flex-end;
         float: right;
         padding: .75rem .25rem 0;
-    }
-
-    .api-content-name {
-        display: none;
-    }
-    .edit-page-text{
-        display: block;
-    } 
-    .edit-page.icon-button {
-        font-size: .7rem;
     }
     
     .api-name {
@@ -704,11 +335,13 @@ font-size: 1rem;
         width: 180px;
         .api-type {
             width: 55px;
-            font-size: .6rem;
+            .api-type-text {
+                font-size: .6rem;
+            }
         }
     }
     .api-available{
-        .api-privacy {
+        .api-requirement {
             font-size: rem;
             margin-right: 5px;
             .icon {
@@ -722,12 +355,16 @@ font-size: 1rem;
     .api-name {
         font-size: 1rem;
     }
-    .api-types {
-        width: 250px;
-        .api-type {
-            width: 75px;
-            font-size: .8rem;
+
+
+    .api-title {
+        .api-name {
+            font-size: .85rem;
         }
     }
     
+    .api-name, .api-available {
+        padding: 0;
+        margin: 0;
     }
+}

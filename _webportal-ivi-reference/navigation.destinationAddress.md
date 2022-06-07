@@ -73,5 +73,9 @@ data:
     unit-value: n/a
     example: '111 5th Avenue, New York, NY'
 short: This API allows to destination adress of the current navigation.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

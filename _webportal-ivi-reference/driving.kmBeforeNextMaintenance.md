@@ -15,5 +15,9 @@ data:
 short: >-
   This API allows to retrieve the distance in mileage that the vehicle can
   travel before next maintenance.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

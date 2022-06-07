@@ -13,5 +13,9 @@ data:
     unit-value: Percentage
     example: 72
 short: This API allows to work with vehicle fuel autonomy in percentage.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

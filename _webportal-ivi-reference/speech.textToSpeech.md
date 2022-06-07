@@ -42,6 +42,10 @@ textset: '`"status": 500, if the an error happend with TTS. Plus "TTSERROR" code
 short: >-
   This API allows to use embedded TTS (Text-To-Speech) engine to send vocal
   instructions to the user.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 {%- comment -%} This API is not currently available in Europe. {%- endcomment -%}

@@ -17,5 +17,9 @@ data:
 short: >-
   This API allows to work with the remaining travel time of the navigation
   feature within the infotainment system.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

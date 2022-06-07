@@ -16,5 +16,9 @@ short: >-
   This API allows to know the Battery trip mileage in % of the current trip.
   **Example:** for a 100km trip, if 34km is done with electric energy, the API
   will return **34**.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

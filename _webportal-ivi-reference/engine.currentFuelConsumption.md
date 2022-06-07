@@ -13,5 +13,9 @@ data:
     unit-value: l/100 km
     example: 5.3
 short: This API allows to know the instant fuel consumption.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

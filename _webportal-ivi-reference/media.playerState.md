@@ -44,5 +44,9 @@ paramsset:
 short: >-
   This API allows to synchronize the Media Player state. It allows to inform the
   HMI about the media player status according to a song being played.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

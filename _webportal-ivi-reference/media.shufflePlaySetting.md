@@ -24,5 +24,9 @@ paramsset:
     example: song
     required: true
 short: This API allows to synchronize the Media Player shuffle setting.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

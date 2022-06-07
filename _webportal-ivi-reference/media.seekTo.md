@@ -24,5 +24,9 @@ datasubscribe:
     unit-value: second
     example: 67
 short: Seek and play a media at specified time or retrieve events.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

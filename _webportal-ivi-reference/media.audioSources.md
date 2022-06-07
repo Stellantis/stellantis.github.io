@@ -23,6 +23,10 @@ data:
 short: >-
   Read the current active media source or change the current media source (to
   WP, BT, USB, Radio, etc...).
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 This API allows to read or modify the media audio source using IDs.

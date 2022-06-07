@@ -13,5 +13,9 @@ data:
     unit-value: From 0 to 1000km.
     example: 250
 short: This API allows to work with vehicle battery autonomy in km.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

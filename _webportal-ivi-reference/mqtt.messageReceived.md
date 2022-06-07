@@ -1,5 +1,6 @@
 ---
 privacy: Geolocation Private
+availability: sdkOnly
 type:
   - subscribe
 name: MQTT.messageReceived
@@ -12,5 +13,9 @@ data:
     example: '{''myId'': ''123456''}'
     description: Content of the message.
 short: This API allows to retrieve message content.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

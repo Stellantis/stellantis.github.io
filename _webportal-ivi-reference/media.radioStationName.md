@@ -12,5 +12,9 @@ data:
     unit-value: n/a
     example: BBC ONE England
 short: This API allows to retrieve current radio station name.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

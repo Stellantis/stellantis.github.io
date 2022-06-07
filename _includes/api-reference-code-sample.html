@@ -1,0 +1,418 @@
+{%- comment -%} Build Var and Links {%- endcomment -%}
+{% capture sample_id %}{{include.type}}-{{include.name | slugify }}{% if include.subname %}-{{include.subname | slugify}}{% endif %}{% if include.description %}-{{include.description | slugify}}{% endif %}{% endcapture %}
+
+
+{%- comment -%} Capture Code Blocks {%- endcomment -%}
+
+{% if include.sdk_name=="mobile-sdk" %}
+
+{%- comment -%} KOTLIN {%- endcomment -%}
+{% if include.custom_code_sample %}
+{% assign kotlin = include.request_params_kotlin %}
+{% else %}
+{% capture kotlin %}
+```kotlin
+{% if include.type == "subscribe" %}/* Subscribe, see unsubscribe below */{% endif %}
+pims.{{include.type}}( 
+{%- if include.sample_type != "ref" -%}
+  "{{include.name}}"{% if include.request_params_kotlin != "no_params" %},
+  mapOf( /* parameters */
+  {{ include.request_params_kotlin }}
+  )
+{% else %}
+{% endif %}) { message -> /* handle message */ }
+{%- else -%} 
+  "{{include.name}}"{% if params == "none" or params == null %}
+  /* no params */
+  {%- else -%},
+  mapOf( /* parameters */ {% if include.params_example.kotlin %} 
+    {{include.params_example.kotlin}} {% else %} {% for p in include.params %}
+    Pair("{{p.name}}", {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}){% if forloop.last == false %},{% else %}{% endif %}{% endfor %}{% endif %}
+  ) {% endif %}
+) { message -> when (message["status"] as? String) {
+      "SUCCEEDED" -> { }                          // handle succeeded status
+      "FAILED" ->    { }                          // handle failed status{% if include.type == "subscribe" %}
+      "RESULT" ->    {
+        if(message["error"] != null) { }            // handle error event code
+        else { }                                 // handle result event code
+      }{% endif %}
+  } }{% endif %} 
+{%- if include.type == "subscribe" %}
+
+/* Unsubscribe */
+pims.unsubscribe( "{{include.name}}" /* no params */ ){% endif %}
+```
+{% endcapture %}
+{% endif %}
+
+{%- comment -%} SWIFT {%- endcomment -%}
+{% if include.custom_code_sample %}
+{% assign swift = include.request_params_swift %}
+{% else %}
+{% capture swift %}
+```swift
+{% if include.type == "subscribe" %}/* Subscribe, see unsubscribe below */{% endif %}
+pims.{{include.type}}(
+{%- if include.sample_type != "ref" -%}
+  api: "{{include.name}}"{% if include.request_params_swift != "no_params" %}, 
+  parameters: [
+  {{ include.request_params_swift }}
+  ]
+{%else%}
+{% endif %}) { (message) in /* handle message */ }
+{%- else -%}
+  api: "{{include.name}}"{% if params == "none" or params == null %}
+  /* no params */
+  {%- else -%},
+  parameters: [ {% if include.params_example.swift %} 
+  {{include.params_example.swift}} {% else %} {% for p in params %}
+  "{{p.name}}": {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% if forloop.last == false %},{% else %}{% endif %}{% endfor %}
+  {% endif %}]{% endif %}
+  ) { (message) in 
+    if message["status"] == "SUCEEDED"    { }    // handle succeeded status
+    else if message["status"] == "FAILED" { }    // handle failed status{% if include.type == "subscribe" %}
+    else if status == "RESULT" {
+      if !message["error"].isEmpty { }            // handle error event code
+      else { }                                    // handle result event code
+    }{% endif %}
+  } {% endif %}
+{%- if include.type == "subscribe" %}
+
+/* Unsubscribe */
+pims.unsubscribe( api: "{{include.name}}" /* no params */ ){% endif %}
+```
+{%- endcapture -%}
+{% endif %}
+
+{%- comment -%} SUCCEEDED Mobile SDK {%- endcomment -%}
+{% if include.custom_code_sample %}
+{% assign succeeded = include.response %}
+{% else %}
+{% capture succeeded %}
+```js
+// representation of the `succeeded` dictionary object message as JSON
+{
+  "transactionId": "953cfefb-bc72",
+  "status": "SUCCEEDED",
+  "result": {% if include.type == "subscribe" %}null{% else %}{% if include.sample_type == "ref" %}{% if datas == "none" or datas == null %}null{% else%}{% if data_example %}{{data_example}}{% else %}{% for d in datas %}{% if forloop.first %}{ {% endif %}
+  "{{d.name}}": {% if d.type == "int" or d.type == "number" or d.type == "boolean" %}{{d.example}}{% else %}"{{d.example}}"{% endif %}{% unless forloop.last %},{% else %}
+} {% endunless %}{% endfor %}{% endif %}{% endif %}{% elsif include.response %}{{include.response}}{% else %}null{% endif %}{% endif %}
+}
+```
+{% endcapture %}
+{% endif %}
+
+{%- comment -%} RESULT SDK {%- endcomment -%}
+{% if include.type == "subscribe" %}
+{% if include.custom_code_sample %}
+{% assign result = include.notification %}
+{% else %}
+{% capture result %}
+```js
+// representation of the `result` dictionary object message as JSON
+{
+  "transactionId": "953cfefb-bc72",
+  "status": "RESULT",
+  "result": {% if include.sample_type == "ref" %}{% if datas == "none" or datas == null %}null{% else%}{% if data_example %}{{data_example}}{% else %}{% for d in datas %}{% if forloop.first %}{ {% endif %}
+    "{{d.name}}": {% if d.type == "int" or d.type == "number" or d.type == "boolean" %}{{d.example}}{% else %}"{{d.example}}"{% endif %}{% unless forloop.last %},{% else %}
+  } {% endunless %}{% endfor %}{% endif %}{% endif %}{% else %}{{include.notification}}{% endif %}
+}
+```
+{% endcapture %}
+{% endif %}
+{% else %} {% assign result = false %}
+{% endif %}
+
+
+{%- comment -%} FAILED Mobile SDK {%- endcomment -%}
+{% if include.custom_code_sample %}
+{% assign failed = include.failed %}
+{% else %}
+{% if include.errors %}
+{% capture failed %}
+```js
+// representation of the `failed` dictionary objects messages as JSON
+
+{% for errList in site.data.mobile-sdk-errors %}{% for errApi in include.errors %}{% if errList.code == errApi.code %}/* -------- STATUS FAILED: {{errList.code}} -------- */
+{
+  "transactionId": "953cfefb-bc72",
+  "status": "FAILED",
+  "error": {
+    "code": {{errList.code}},
+    "label": "{{errList.label}}"{% if errList.subcode %},
+    "subCode": {
+      "code" : {{errList.subcode}}{% if errList.sublabel %}, 
+      "label" : "{{errList.sublabel}}"{% endif %} 
+    }{% endif %}
+  }
+}
+{% endif -%}{% endfor -%}{% endfor -%}
+```
+{% endcapture %}
+{% else %}{% assign failed = false %}{% endif %}
+{% endif %}
+
+{% elsif include.sdk_name == "webportalv2" %}
+
+{%- comment -%} Request Webportal v2 {%- endcomment -%}
+{% capture sdk %}
+```js
+webportal.{{include.type}}(
+    /* api name */
+    "{{include.name}}",
+    /* parameters */
+    {% if include.params == "none" or params == null %} null{% else %}{% if include.params_example %} {{include.params_example}} {% else %}{% for p in include.params %}{% if forloop.length == 1 %}{% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
+      "{{p.name}}": {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% if forloop.last == false %},{% else %}
+        }{% endif %}{% endif %}{% endfor %}{% endif %}{% endif %}{%- if include.type == "subscribe" -%},
+    /* callback for `NOTIFY` messages */
+    async (notifyMessage) => {
+      if (notifyMessage.status === 200) {
+        /* handle `NOTIFY` response */
+      }
+      else { /*  handle `NOTIFY` error  */ }
+    }
+    {%- endif %}
+  )
+  /* callback for `REPLY` messages */
+  .then((message) => {
+    if (message.status === 200) {
+      /* handle `REPLY` success */
+    }
+    else { /* handle `REPLY` error */ }
+  })
+```
+{% endcapture %}
+
+{% capture natif %}
+```js
+/* Send Request */
+var request_uuid = generateUUID();
+window.idp.process_request('{
+  "id":' + request_uuid +', 
+  "type": "{{include.type | upcase}}", 
+  "api": "{{include.name}}",
+  "params": {% if include.params == "none" or params == null %} null{% else %}{% if include.params_example %} {{include.params_example}} {% else %}{% for p in include.params %}{% if forloop.length == 1 %}{% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
+    "{{p.name}}": {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% if forloop.last == false %},{% else %}
+  }{% endif %}{% endif %}{% endfor %}{% endif %}{% endif %}
+}')
+
+/* Listen to received messages  */
+window.idp.registerCallback(function(message) {
+  message = JSON.parse(message);
+  // Check if the received message match the request
+  if (message.id === request_uuid) {
+    if (message.status === 200 && message.type == "REPLY") {
+       /* handle `REPLY` success */ 
+    }
+    {%- if include.type == "subscribe" %}
+    else if (message.status === 200 && message.type == "NOTIFY") {
+      /* handle `NOTIFY` event */
+    }
+    {%- endif %}
+    else { /* handle error */ }
+  }
+})
+```
+{% endcapture %}
+
+{%- comment -%} REPLY Webportal v2 {%- endcomment -%}
+{% capture reply %}
+```js
+// --- format of the `REPLY` message ---
+{% if include.type contains "subscribe" -%}
+// type: acknowledge the status of the subscription
+// reception: only once after the subscription request
+// contains outputed data: no
+{
+  "id": "7372c16f-5f2f-42c9-84a7-5490e35f1be0",
+  "type": "REPLY",
+  "status": 200,
+  "statusText": "OK"
+}
+{% else %}
+{
+  "id": "7372c16f-5f2f-42c9-84a7-5490e35f1be0",
+  "type": "{% if include.type contains "subscribe" %}NOTIFY{% else %}REPLY{% endif %}",
+  "api": "{{include.name}}",
+  "status": 200,
+  "statusText": "OK"{%- if include.datas == "none" or include.datas == null -%}{% else %}, 
+  {% if include.data_example %}"data": {{include.data_example}} {% else %}"data": {% for d in include.datas %}{% if forloop.length == 1 %}{% if d.type == "int" or d.type == "number" or d.type == "boolean" %}{{d.example}}{% else %}"{{d.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
+    "{{d.name}}": {% if d.type == "int" or d.type == "number" or d.type == "boolean" %}{{d.example}}{% else %}"{{d.example}}"{% endif %}{% unless forloop.last %},{% else %}
+  } {% endunless %}{% endif %}{% endfor %}{%- endif -%}{% endif %}
+}{% endif %}
+```
+{% endcapture %}
+
+{% if include.type contains "subscribe" %}
+
+{%- comment -%} NOTIFY Webportal v2 {%- endcomment -%}
+{% capture notify %}
+```js
+// --- format of the `NOTIFY` message ---
+// type: event message about the subscription
+// reception: each time the conditions of the subscription are met
+// contains outputed data: yes
+{
+  "id": "7372c16f-5f2f-42c9-84a7-5490e35f1be0",
+  "type": "{% if include.type contains "subscribe" %}NOTIFY{% else %}REPLY{% endif %}",
+  "api": "{{include.name}}",
+  "status": 200,
+  "statusText": "OK"{%- if include.datas == "none" or include.datas == null -%}{% else %}, 
+  {% if include.data_example %}"data": {{include.data_example}} {% else %}"data": {% for d in include.datas %}{% if forloop.length == 1 %}{% if d.type == "int" or d.type == "number" or d.type == "boolean" %}{{d.example}}{% else %}"{{d.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
+    "{{d.name}}": {% if d.type == "int" or d.type == "number" or d.type == "boolean" %}{{d.example}}{% else %}"{{d.example}}"{% endif %}{% unless forloop.last %},{% else %}
+  } {% endunless %}{% endif %}{% endfor %}{%- endif -%}{% endif %}
+}
+```
+{% endcapture %}
+{% else %}
+{% assign notify = false %}
+{% endif %}
+
+{% endif %}
+
+{%- comment -%} Header {%- endcomment -%}
+{% capture header_class %}api-code-header-text {% if include.type %}api-code-header-{{include.type}}{%endif%}{% endcapture %}
+{% capture header_text %}
+  {%- if include.sample_type == "ref" -%}
+      Code Example
+  {%- else -%}  
+    {% if include.type %} {{include.type | upcase }} | {% endif %}{{include.name}}{%if include.subname%} - {{include.subname}}{%if include.description %}: {% endif %}{%endif%}{%if include.description%}{%unless include.subname %} - {% endunless %}{{include.description}}{%endif%}
+  {% endif %}
+{% endcapture %}
+
+<div
+  id="{{sample_id}}"
+  class="api-content-code"
+  style="margin-bottom: 1.5rem;"
+>
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    {% if include.no_link or include.sample_type == "ref" %}
+    <div class="{{header_class}}">{{header_text}}</div>
+    {% else %}
+    <a 
+      class="{{header_class}}"
+      href="
+        {%- if include.sdk_name == "mobile-sdk" -%}
+          {{- site.baseurl -}}/mobile-sdk/references/
+          {{- include.name | "slugify" -}}
+          {%- if include.subname -%}-{{- include.subname | "slugify" -}}{%- endif -%}
+          .html#{{include.type}}
+        {%- elsif include.sdk_name == "webportal-v2" -%}
+          {{- site.baseurl -}}/webportal/v2/api-reference/
+          {{- include.name | "slugify" -}}
+          .html#{{include.type}}
+        {%- endif -%}"
+    >{{header_text}}</a>
+    {% endif %}
+    
+  </div>
+    
+  {% for category in site.data.api-reference-code-sample-categories %}
+  {% if category.tag == include.sdk_name %}
+  
+  {%- comment -%} First Block {%- endcomment -%}
+  {% if include.custom_code_sample != true or (include.request_params_swift or include.request_params_kotlin) %}
+  <div class="code-block first-block 
+    {%- if include.sdk_name == "webportalv2" -%}
+    {{" sdk "}}
+    {%- elsif include.sdk_name == "mobile-sdk" -%}
+    {{" kotlin "}}
+    {%- endif -%}"
+  >
+      {%- comment -%} First Block Buttons {%- endcomment -%}
+      <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            {% for button in category.request.examples %}
+            {% if button.tag != "natif" or site.baseurl == "/p4d00/doc" %}
+            <div class="api-code-tab {{button.tag}}">
+              <span class="api-code-tab-icon is-white">
+                <i class="{{button.icon}}"></i>
+              </span>
+              <span class="api-code-tab-text">{{button.name}}</span>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </nav>
+        </div>
+      </div>
+      {%- comment -%} END First Block Buttons {%- endcomment -%}
+      {%- comment -%} First Code Blocks {%- endcomment -%}
+      {% for code_example in category.request.examples %}
+      <div class="api-content-code-example api-content-code-example-req-{{code_example.tag}}">
+        {% if include.sdk_name == "webportalv2" and code_example.tag == "sdk" %}
+          {{sdk | markdownify}}
+        {% elsif include.sdk_name == "webportalv2" and code_example.tag == "natif" %}
+          {{natif | markdownify}}
+        {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "swift" %}
+          {{swift | markdownify}}
+        {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "kotlin" %}
+          {{kotlin | markdownify}}
+        {% endif %}
+      </div>
+      {% endfor %}
+      {%- comment -%} END First Code Blocks {%- endcomment -%}
+    </div>
+    {% endif %}
+    {%- comment -%} END First Block {%- endcomment -%}
+    
+    {%- comment -%} Second Block {%- endcomment -%}
+    {% if include.custom_code_sample != true or (include.response or include.notification or include.failed) %}
+    <div class="code-block second-block
+      {%- if include.sdk_name == "webportalv2" and include.type != "subscribe" -%}
+      {{" reply " }}
+      {%- elsif include.sdk_name == "webportalv2" and include.type == "subscribe" -%}
+      {{" notify " }}
+      {%- elsif include.sdk_name == "mobile-sdk" and include.type != "subscribe" -%}
+      {{" succeeded " }}
+      {%- elsif include.sdk_name == "mobile-sdk" and include.type == "subscribe" -%}
+      {{" result " }}
+      {%- endif -%}
+    ">
+      {%- comment -%} Second Block Buttons {%- endcomment -%}
+      <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            {% for button in category.response.examples %}
+            {% if include.type == "subscribe" or (button.tag != "result" and button.tag != "notify") %}
+            {% if failed or button.tag != "failed" %}
+            <div class="api-code-tab {{button.tag}}">
+              <span class="api-code-tab-icon is-white">
+                <i class="{{button.icon}}"></i>
+              </span>
+              <span class="api-code-tab-text">{{button.name}}</span>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+          </nav>
+        </div>
+      </div>
+      {%- comment -%} END Second Block Buttons {%- endcomment -%}
+      {%- comment -%} Second Code Blocks {%- endcomment -%}
+      {% for code_example in category.response.examples %}
+      <div class="api-content-code-example api-content-code-example-req-{{code_example.tag}}">
+        {% if include.sdk_name == "webportalv2" and code_example.tag == "reply" %}
+          {{reply | markdownify}}
+        {% elsif include.sdk_name == "webportalv2" and code_example.tag == "notify" %}
+          {{notify | markdownify}}
+        {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "succeeded" %}
+          {{succeeded | markdownify}}
+        {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "result" and include.type == "subscribe" %}
+          {{result | markdownify}}
+        {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "failed" %}
+          {{failed | markdownify}}
+        {% endif %}
+      </div>
+      {% endfor %}
+      {%- comment -%} END Second Code Blocks {%- endcomment -%}
+    </div>
+    {%- comment -%} END Second Block {%- endcomment -%}
+    {% endif %}
+
+
+  {% endif %}
+  {% endfor %}
+
+</div>

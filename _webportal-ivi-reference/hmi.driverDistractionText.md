@@ -34,6 +34,10 @@ data:
 short: >-
   This API return the text message send to the user in order to notify driver
   distraction.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 **Note:** All text returned (title, text and buttons) are displayed according to the HMI current language.

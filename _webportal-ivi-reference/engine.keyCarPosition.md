@@ -17,5 +17,9 @@ data:
       - 3 = Free
     example: 1
 short: This API allows to retrieve the key contact position.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

@@ -32,5 +32,9 @@ paramsset:
     example: 1
     required: true
 short: This API allows work with volume level.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

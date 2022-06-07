@@ -12,6 +12,10 @@ data:
     unit-value: seconds
     example: 3952
 short: This API allows to retrieve next waypoint Estimate Time of Arrival (ETA).
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 If no guidance returns: `"status": 403, "statusText": "Forbidden"`.

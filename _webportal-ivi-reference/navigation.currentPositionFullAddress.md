@@ -41,7 +41,11 @@ data:
     description: Current position intersection.
     type: string
     unit-value: n/a
-    example: null
+    example: Boulevard Saint Michel
 short: This API allows to retrieve the current position address.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

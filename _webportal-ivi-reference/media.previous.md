@@ -15,5 +15,9 @@ textsubscribe: >-
   notification when the previous function of the sound system is used to go to
   the previous song or radio station.
 short: This API allows to work with the previous song or radio station function.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

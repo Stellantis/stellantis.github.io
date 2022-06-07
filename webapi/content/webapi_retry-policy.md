@@ -26,7 +26,7 @@ When a {{page.categorie | downcase}} is set up, you have to decide a [retry poli
 **Retry policy** will be triggered when your server is not processing the HTTP notification correctly. It means that your response to the HTTP notification is anything else than an HTTP 2XX.
 
 Retry policy can be set to *none*, *bounded* or *always*, but in any case the maximum period of retry for a notification message is **3 days**. 
-# AVAILABLE POLICIES
+# Available Policies
 
 Retry policy is applied if your server is **not responding** HTTP code `2XX` (for example, *another HTTP code or a time-out*) to a notification send by the {{page.categorie | downcase}}. 
 
@@ -35,7 +35,7 @@ In this case the notification message will be stored & we will try to send it ag
 > **Be careful:** retry policy is not made for data storage use! It is a remedial tool used to help when a service failure (on your side). It has a limited tolerance for unavailability and therefore a limited storage depth. 
 
 
-##### NONE & BOUNDED
+##### None & Bounded
 
 
 <div class="tile is-ancestor">
@@ -63,7 +63,7 @@ When the retry policy is set to *None* or *Bounded*, if the HTTP notification is
 - `Bounded`: with a limited number of retries set with `retryNumber` & `retryDelay` for a maximum of **3 days**.
 
 {% if page.categorie == "Monitor" %}
-##### ALWAYS
+##### Always
 
 <div class="tile is-ancestor">
     <div class="tile is-parent">
@@ -82,7 +82,7 @@ When the retry policy is set to `Always`, if the HTTP notification is not receiv
 The frequency of retry depends on the `retryDelay` parameter.
 
 {% endif %}
-## MAXIMUM OF 3 DAYS
+## Maximum of 3 Days
 
 We can not store your messages forever, because doing so, it would be very likely that the {{page.categorie | downcase }} service would undergo slowdown when too many messages are enqueued.
 
@@ -97,12 +97,12 @@ However, after 3 days, it's still possible to retrieve data using the REST API w
 > **Info:** The retry policy impact the notification message, not the [callback]({{callbackLink}}). Others {{page.categorie | downcase }} related to a callback are not affected by the retry policy. 
 It means also that your server needs to respond a 2XX to a message send for this particular {{page.categorie | downcase }} in order to get out of the retry policy.
 
-## ENTER IN RETRY POLICY
+## Enter in Retry Policy
 
 When an event failed to be processed by your server, the retry policy process will be triggered.
 
 The event HTTP notification is stored in our database, and we will try to send it again according to your [policy](#available-policies).
-## GET OUT OF RETRY POLICY
+## Get Out of Retry Policy
 
 To get out of retry policy your server needs to **respond a 2XX** to any new HTTP notification of this {{page.categorie | downcase}}.
 

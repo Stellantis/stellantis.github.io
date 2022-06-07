@@ -19,6 +19,10 @@ data_example: |-
   {
       "authenticated": true 
     }
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 This API will return `true` when a mobile phone with the manufacter App and a logged profile is synced with the vehicle.

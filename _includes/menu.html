@@ -1,5 +1,16 @@
 <aside class="menu">
-<span class="menu-title">{{page.section}} {% if page.subsection == "b2b" %}Fleet-owner{% elsif page.subsection == "b2c" %}End-user{% else %}{{page.subsection}}{% endif %}</span>
+<span class="menu-title">
+    {% for section in site.data.sections %}
+        {% if page.section == section.tag %}
+        {{section.name}}
+        {% endif %}
+        {% for subsection in section.subsections %}
+        {% if subsection.tag==page.subsection and page.subsection %}
+        - {{subsection.name}}
+        {% endif %}
+        {% endfor %}
+    {% endfor %}
+</span>
 {%- if page.categorie -%}
     {%- for section in site.data.sections -%}
         {%- if section.subsections -%}
@@ -15,8 +26,8 @@
                         {% for p in categorie.pages %}
                         {%- assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path -%}
                         <li>
-                            <a {% if page.permalink contains page_link %}class="is-active"{% endif %} href="{{site.baseurl}}{{page_link}}#article">
-                                {{p.name}}
+                            <a {% if page.permalink contains page_link %}class="is-active"{% endif %} href="{{site.baseurl}}{{page_link}}{% unless page_link contains "#" %}#article{% endunless %}">
+                                {{p.name}} 
                             </a>
                         </li>
                         {% endfor %}

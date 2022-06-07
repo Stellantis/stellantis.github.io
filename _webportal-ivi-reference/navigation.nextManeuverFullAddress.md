@@ -175,6 +175,10 @@ data_example: |-
     "intersectionName": "Stellantis Cross-road"
   }
 short: This API allows to retrieve next maneuver address.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 List of `instructionDirection` values: 

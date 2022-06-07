@@ -15,5 +15,9 @@ textsubscribe: >-
   when the next function of the sound system is used to go to the next song or
   radio station.
 short: This API allows to work with the next song or radio station function.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

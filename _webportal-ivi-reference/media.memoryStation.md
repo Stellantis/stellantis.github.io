@@ -18,5 +18,9 @@ params:
     example: 134
     required: true
 short: This API allows to change the value of a radio preset.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

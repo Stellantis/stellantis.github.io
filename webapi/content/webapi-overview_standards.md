@@ -1,8 +1,8 @@
-# WHAT DOES ITS LOOK LIKE?
+# What does its look like?
 
 Our REST api returns type MIME: **application/hal+json**. GeoJson is for geolocation and time format is RFC3339.
 
-## REQUEST
+## Request
 
 The Stellantis WEB API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) are based on **REST** principles. Data resources are accessed via standard **HTTPS requests in UTF-8 format** to an API endpoint. Moreover, the Web API uses appropriate HTTP verbs for each action:
 
@@ -34,7 +34,7 @@ The Stellantis WEB API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and
   </tbody>
 </table>
 
-## RESPONSE
+## Response
 
 |Response Code| Meaning|
 |----|----|
@@ -47,7 +47,7 @@ The Stellantis WEB API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and
 
 > See [this page]({{site.baseurl}}/webapi/{{page.subsection}}/overview/errors) for more information about errors & rate limit.
 
-## SINGLE OBJECT
+## Single Object
 
 When you call for a resource with an id you will retrieve a single object. Every resource which respond with a single object respect the following generic schema:
 
@@ -77,7 +77,7 @@ When you call for a resource with an id you will retrieve a single object. Every
 |`updatedAt`|	date| Last update date|
 |`_embedded`|	object|	This property contains commonly related objects to the current object. It can be empty.|
 
-## COLLECTION
+## Collection
 
 When you call an api with a plural noun you will receive an array of objects. Every resource which responds with a list of object respect the following generic schema.
 
@@ -158,7 +158,7 @@ When you call an api with a plural noun you will receive an array of objects. Ev
 
 
 
-## PAGINATION
+## Pagination
 Every collection in the API are browsable. Links provided in the response will let you navigate in the API endpoints like in a website.
 
 First, collections comes with a **pagination system**. In your request you can add optional parameters:
@@ -181,7 +181,7 @@ As you can see in the previous example there is a `_links` object at the top of 
 |`total`|	integer|	Total number of elements in the array. Depends on the filters applied to the search.|
 |`_embedded`|	object| This property contains commonly related objects to the current object. |
 
-## DISCOVERING RESOURCES
+## Discovering Resources
 
 Resources in the API are using HAL for **HATEOAS integration**. It allows interaction inside the api resources. The purpose is to access and discover the API like you browse a website: navigating from one page to another. Links are named with the idea that you can understand easily what they are about.
 
@@ -240,7 +240,7 @@ Furthermore, there is a `_links` object embedded in the status object. These lin
 - `"self"`: pointing to the actual resource.
 - `"vehicles"`:  pointing to the vehicle this status is about.
 
-## EXPECTED JSON DATA
+## Expected JSON Data
 
 **Be careful**, this API is very likely to have updates in the future, that's why your application have to support evolution regarding the schema of exposed data.
 
@@ -250,7 +250,7 @@ However, it's possible that we choose to **add a new field** in a JSON response 
 
 Furthermore, regarding the nature of this API, it could append that some **fields are missing** in the JSON response body. In this case, your application should be able to manage with the absence of the field and not cause an error.
 
-#### EXAMPLE
+#### Example
 
 This is an example of an exposed resource data schema:
 
@@ -291,18 +291,18 @@ And then here is a list of JSON data that your application should be able to han
 ```
 
 
-# SEE ALSO
+# See Also
 
 {% if page.subsection == 'b2b' %}
-##### AUTHENTICATION
+##### Authentication
 
 Stellantis Fleet Owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) utilizes mutual authentication. Follow this step-by-step [tutorial]({{site.baseurl}}/webapi/b2b/quickstart/authentication/) and obtain your own certificate.
 {% elsif page.subsection == 'b2c' %}
 
-##### CONNECT
+##### Connect
 
 Stellantis End User API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) utilizes OAuth2 connection, follow this [link]({{site.baseurl}}//connect/) for connection tutorial. {% endif %}
 
-##### MONITORS
+##### Monitors
 
 Stellantis WEB API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) offer you Big Data features ! Look at {% if page.subsection == 'b2b' %}[Monitors]({{ site.baseurl }}/webapi/b2b/monitor/about/){% elsif page.subsection == 'b2c' %}[Monitors]({{ site.baseurl }}//monitor/about/){% endif %}.

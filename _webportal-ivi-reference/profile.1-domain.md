@@ -1,5 +1,9 @@
 ---
 type: domain
-name: Profile
+name: profile
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

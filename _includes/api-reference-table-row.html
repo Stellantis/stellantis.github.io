@@ -1,0 +1,162 @@
+{% if include.sdk_name == "mobile-sdk" %}
+    {% if include.rowType == "data" %}
+        {% assign referencedDatas = site.data.mobile-sdk-datas %}
+    {% elsif include.rowType == "param" %}
+        {% assign referencedDatas = site.data.mobile-sdk-params %}
+    {% endif %}
+{% elsif include.sdk_name == "webportalv2" %}
+    {% if include.rowType == "data" %}
+        {% assign referencedDatas = site.data.webportal-v2-datas %}
+    {% elsif include.rowType == "param" %}
+        {% assign referencedDatas = site.data.webportal-v2-params %}
+    {% endif %}
+{% endif %}
+
+{% if include.ref %}
+    {% for refData in referencedDatas %}
+        {% if include.ref == refData.ref %}
+            {% if refData.fields %}
+                {% include api-reference-table-row.html
+                    rowType=include.rowType
+                    name=include.name
+                    description=include.description
+                    required=include.required
+                    parent=include.name
+                    type=refData.type
+                    nested=include.nested
+                    nestingDeep=include.nestingDeep
+                    %}
+                {% for rD in refData.fields %}
+                    {% assign fullName = rD.name | prepend: "." | prepend: include.name %}
+                    {% if include.nestingDeep %}
+                        {% assign incrementedNestingDeep = include.nestingDeep | plus:1 %}
+                    {% else %}
+                        {% assign incrementedNestingDeep = 1 %}
+                    {% endif %}
+                    {% include api-reference-table-row.html
+                        rowType=include.rowType
+                        ref=rD.ref
+                        name=fullName
+                        description=rD.description
+                        type=rD.type
+                        required=rD.required
+                        unit-value=rD.unit-value
+                        example=rD.example
+                        nested=include.name
+                        nestingDeep=incrementedNestingDeep
+                        fields=rD.fields
+                        %}
+                {% endfor %}
+            {% else %}
+                {% include api-reference-table-row.html
+                    rowType=include.rowType
+                    ref=rd.ref
+                    name=include.ref
+                    required=refData.required
+                    description=refData.description
+                    type=refData.type
+                    unit-value=refData.unit-value
+                    example=refData.example
+                    nested=include.name
+                    nestingDeep=include.nestingDeep
+                %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% elsif include.fields %}
+    {% include api-reference-table-row.html
+        rowType=include.rowType
+        name=include.name
+        description=include.description
+        required=include.required
+        parent=include.name
+        type=include.type
+        nested=include.nested
+        nestingDeep=include.nestingDeep
+        %}
+    {% for field in include.fields %}
+        {% assign fullName = field.name | prepend: "." | prepend: include.name %}
+        {% if include.nestingDeep %}
+            {% assign incrementedNestingDeep = include.nestingDeep | plus:1 %}
+        {% else %}
+            {% assign incrementedNestingDeep = 1 %}
+        {% endif %}
+        {% include api-reference-table-row.html
+            rowType=include.rowType
+            ref=field.ref
+            name=fullName
+            description=field.description
+            type=field.type
+            required=field.required
+            unit-value=field.unit-value
+            example=field.example
+            nested=include.name
+            nestingDeep=incrementedNestingDeep
+            fields=field.fields
+            %}
+    {% endfor %}
+{% else %}
+
+<tr 
+    class="{% if include.nested %}nested{% endif%}{% if include.parent %} parent{% endif %}"
+    {% if include.nested %}nested="{{include.nested | slugify }}"{% endif%}
+    {% if include.parent %}parent="{{include.parent | slugify }}"{% endif %}
+    {% if include.nestingDeep %}style="border-left: {{include.nestingDeep | times: 25}}px solid white"{% endif %}
+    >
+    
+    <td class="api-table-name">
+        {% if include.name contains "." %}
+            {% assign dataNameArray = include.name  | split:"." %}
+            {% for namePart in dataNameArray %}
+                {% if forloop.first %}
+                    <span class="not-last-object-level">{{namePart}}</span>
+                {% else %}
+                    <br>
+                    {%- for i in (1..forloop.index0) -%}
+                        &nbsp;
+                    {%- endfor -%}
+                    {%- if forloop.last != true -%}
+                        <span class="not-last-object-level">{{namePart | prepend: "."}}</span>
+                    {%- elsif forloop.last -%}
+                        <span class="last-object-level">{{namePart | prepend: "."}}</span>
+                    {%- endif -%}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <span class="last-object-level">{{include.name}}</span>
+        {% endif %}
+    </td>
+    <td>{{include.description | markdownify}}</td>
+    <td><em>{{include.type | markdownify}}</em></td>
+    {% if include.parent %}
+    {% if include.rowType == "param" %}<td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>{% endif %}
+    <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+    <td>
+        <div class="api-table-parent-dropdown">
+            <span class="icon arrow">
+                <i class="fas fa-angle-right"></i>
+            </span>
+        </div>
+    </td>
+    {% else %}
+    <td class="api-table-unit-value-code">
+        {% for uv in include.unit-value %}
+        {% if forloop.length == 1 %}
+        <code>
+            {{uv | markdownify}}
+        </code>
+        {% else %}
+        <code>
+            -&nbsp;{{uv}}{% unless forloop.last %}<br>{% endunless %}
+        </code>
+        {% unless forloop.last %}<hr style="margin: .25rem; height: 1px; background: #dfdfdf">{% endunless %}
+        {% endif %}
+        {% endfor %}
+    </td>
+    <td>
+        <code>{{include.example}}</code>
+    </td>
+    {% if include.rowType == "param" %}<td><code>{{include.required}}</code></td>{% endif %}
+    {% endif %}
+</tr>
+{% endif %}

@@ -12,5 +12,9 @@ data:
     unit-value: degree
     example: 10
 short: This API allows to retrieve the steering wheel angle.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

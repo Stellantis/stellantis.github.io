@@ -28,5 +28,9 @@ textset: Calling **SET** will change the current radio frequency/channel.
 textsubscribe: >-
   Calling **SUBSCRIBE** will return the radio frequency/channel when the value
   is changed.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

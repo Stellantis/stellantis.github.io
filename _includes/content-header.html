@@ -1,17 +1,29 @@
-{% assign no_edit_layouts = "simple-article simple-article-large api-data use-case" %}
+{% assign no_edit_layouts = "simple-article simple-article-large api-data use-case compare-packages packages" %}
 
 <div class="content-header" >
     <div class="page-title-container">
 
     {%-  comment -%}---PAGE TITLE---{%-  endcomment -%}
         <h1 id="page-title">
+        {% if no_edit_layouts contains page.layout %}
             <span>
-                {% if no_edit_layouts contains page.layout %}
-                    {{page.subtitle}}
-                {% else %}
-                    {% if page.categorie %}{{page.categorie}} - {% endif %}{{page.title}}
-                {% endif %}
+                {{page.subtitle}}
             </span>
+        {% elsif page.layout == "api-reference" and page.type %}
+            <span style="font-size: 1.35rem">
+                {{page.categorie}} - {{page.name}}
+                {%- if page.subname -%}
+                    -{{page.subname}}
+                {%- endif%}
+            </span>
+        {% else %}
+            <span>
+                {% if page.categorie %}
+                    {{page.categorie}} - 
+                {% endif %}
+                    {{page.title}}
+            </span>
+        {% endif %}
         </h1>
     {%- comment -%}---END PAGE TITLE---{%- endcomment -%}
 
@@ -33,27 +45,27 @@
                                     {% assign currentSubSectionPath = subsection.path %}
 
                                         {% for categorie in subsection.categories %}
-                                        {% if page.categorie == categorie.name %}
+                                            {% if page.categorie == categorie.name %}
 
-                                        {% assign currentCategorieName = categorie.name %}
-                                        {% assign currentCategoriePath = categorie.path %}
-                                        
-                                        {% endif %}
+                                                {% assign currentCategorieName = categorie.name %}
+                                                {% assign currentCategoriePath = categorie.path %}
 
-                                        <optgroup label="{{categorie.name}}">
-                                            {% for p in categorie.pages %}
+                                            {% endif %}
 
-                                                {% assign currentPath = section.path | append: subsection.path | append: categorie.path | append:p.path %}
+                                                <optgroup label="{{categorie.name}}">
+                                                    {% for p in categorie.pages %}
 
-                                                <option 
-                                                    value="{{currentPath}}#article" 
-                                                    {% if currentPath == page.permalink %}selected{% endif %}>
-                                                        {{p.name}}
-                                                </option>
+                                                        {% assign currentPath = section.path | append: subsection.path | append: categorie.path | append:p.path %}
 
-                                            {% endfor %}
-                                        </optgroup>
+                                                        <option 
+                                                            value="{{currentPath}}#article" 
+                                                            {% if currentPath == page.permalink %}selected{% endif %}>
+                                                                {{p.name}}
+                                                        </option>
 
+                                                    {% endfor %}
+                                                </optgroup>
+                                            
                                         {% endfor %}
                                     {%- endif -%}
                                 {%- endfor -%}
@@ -112,28 +124,32 @@
     {%-  comment -%}---END SELECT MENU ---{%-  endcomment -%}
 
     {%-  comment -%}---EDIT WITH GITHUB---{%-  endcomment -%}
-        {% if no_edit_layout contains page.layout  %}
-            <a 
-                {% if page.gitHubPath %}
-                href="{{site.gitHubURL}}{{page.gitHubPath}}"
-                {% elsif page.title == "Specification" and page.subsection == "b2b" %}
-                href="{{site.gitHubSpecB2B}}"
-                {% elsif page.title == "Specification" and page.subsection == 'b2c' %}
-                href="{{site.gitHubSpecB2C}}"
-                {% else %}
-                href="{{site.gitHubURL}}{{ page.path }}"
-                {% endif %} 
-                class="button edit-page icon-button is-outlined is-pulled-right" 
-                target="_blank" 
-                title="Edit this page on GitHub">
-                    <span class="icon">
-                        <i  class="far fa-edit"></i> 
-                    </span>
-                    <span class="edit-page-text">
-                        Edit this Page
-                    </span>
-            </a>
-        {% endif %}
+    <div class="is-flex is-justify-content-center is-align-items-baseline">
+        {% unless no_edit_layouts contains page.layout %}
+        <a 
+            {% if page.gitHubPath %}
+            href="{{site.gitHubURL}}{{page.gitHubPath}}"
+            {% elsif page.title == "Specification" and page.subsection == "b2b" %}
+            href="{{site.gitHubSpecB2B}}"
+            {% elsif page.title == "Specification" and page.subsection == 'b2c' %}
+            href="{{site.gitHubSpecB2C}}"
+            {% else %}
+            href="{{site.gitHubURL}}{{ page.path }}"
+            {% endif %} 
+            class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+            target="_blank" 
+            title="Edit this page on GitHub">
+                <span class="icon">
+                    <i  class="fab fa-github"></i> 
+                </span>
+                <span class="edit-page-text">
+                    Edit
+                </span>
+        </a>
+        {% endunless %}
+    
+    </div>
+
     {%-  comment -%}---END EDIT WITH GITHUB---{%-  endcomment -%}
 
     </div>
@@ -161,7 +177,9 @@
             </li>
             {% endif %}
             <li>
-                <a href="#article" aria-current="page">{{page.title | capitalize}}</a>
+                <a href="#article" aria-current="page">
+                    {{page.title}}
+                </a>
             </li>
         </ul>
     </nav>

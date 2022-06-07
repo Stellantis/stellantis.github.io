@@ -1,0 +1,27 @@
+<nav class="bd-anchors api-types-aside" id="anchors">
+  
+  <div class="bd-anchors-title bd-anchors-api-name">
+    <a href="#article">
+      {{page.name}}{%-if page.subname-%}&nbsp;-&nbsp;{{page.subname}}{% endif %}
+    </a>
+  </div>
+
+  <div class="bd-anchors-title bd-anchors-api-name">
+      <ul class="bd-anchors-list">
+        {% for type in page.type %}
+        <li>
+          <a href="#{{type}}">
+            <span class="icon">
+              <i class="fas fa-link"></i>
+            </span>
+            <span>
+              {{type | upcase }}
+            </span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+
+</nav>

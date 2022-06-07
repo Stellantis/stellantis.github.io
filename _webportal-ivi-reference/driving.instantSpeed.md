@@ -12,6 +12,10 @@ data:
     unit-value: km/h
     example: 90
 short: This API allows to retrieve the vehicle current speed.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 Resolution: 0.01 km/h

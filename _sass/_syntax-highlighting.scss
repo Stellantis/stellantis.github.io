@@ -1,5 +1,34 @@
+// --- lineo psa blue fix ---
+.highlight table td {
+  padding: 0;
+}
 
-  .highlight table td { padding: 5px; }
+.rouge-gutter .lineno, .rouge-code pre, pre.highlight .gl {
+  background-color: unset;
+}
+
+.rouge-code pre {
+  color: white;
+}
+.rouge-gutter .lineno {
+  color: #959595;
+}
+
+.rouge-gutter .lineno {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.rouge-gutter .lineno, .rouge-code pre {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// --- end lineo fix---
+
+
+
+.highlight table td { padding: 0px; }
 .highlight table pre { margin: 0; }
 .highlight {
   color: #FFFFFF;
@@ -257,3 +286,4 @@
   .highlight .ss {
     color: #90a959;
   }
+

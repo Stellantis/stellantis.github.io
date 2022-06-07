@@ -12,5 +12,9 @@ params:
     example: 4
     required: true
 short: This API allows to load a station saved in a preset.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

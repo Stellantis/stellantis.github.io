@@ -17,5 +17,9 @@ data:
 short: >-
   This API allows to retrieve the eco coaching Cold Engine note, providing
   instant Cold Engine ranking in EcoCoaching trip.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

@@ -19,5 +19,9 @@ data:
       - engineering
     example: production
 short: This API allows to retrieve infotainment system software release.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

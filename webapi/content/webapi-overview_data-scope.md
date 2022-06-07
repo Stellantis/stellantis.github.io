@@ -1,10 +1,10 @@
-# AVAILABLE DATA
+# Available Data
 
 Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) are technical interfaces allowing developers to create application that includes connected vehicles data and features.
 
 These API are scope of possibilities, but to access the data you need authorization (see [access requirements]({{site.baseurl}}/connected-vehicles/access-requirements/)).
 
-## DATA SCOPE
+## Data Scope
 
 A vehicle is able to subscribe *connected vehicle services*. These services are sets of data and features. Without subscribing to the relevant data scope, the API will not return the data you are looking for.
 
@@ -15,7 +15,7 @@ Let's take the example of TMTS (tele maintenance tele service), this *connected 
 > **Note:** if the data you are looking for is not part of any *connected vehicle service* data scope, then it's not currently available for use.
 
 
-##  DATA MINIMIZATION
+## Data Minimization
 
 *Connected Vehicle Services* are designed to achieve a specific goal. Like TMTS for maintenance or E-Remote Control for remote charging.
 

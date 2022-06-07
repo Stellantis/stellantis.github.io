@@ -236,9 +236,93 @@
   name: Mobile SDK
   icon: fas fa-mobile
   subsections:
-    - tag: android
-      path: android/
-      name: Android
-    - tag: ios
-      path: ios/
-      name: iOS
+    - tag: 
+      path: 
+      name: 
+      nameUpcase: 
+      categories:
+        - name: Overview
+          path: overview/
+          pages: 
+            - name: About
+              path: about/
+            # - name: Quickstart Android
+            #   path: quickstart-android/
+            # - name: Quickstart iOS
+            #   path: quickstart-ios/
+            - name: Get Started
+              path: get-started/
+            # - name: Service Availability
+            #   path: service-availability/
+        - name: Security
+          path: security/
+          pages: 
+            - name: Security Schemes
+              path: security-schemes/
+            - name: Authentication
+              path: authentication/
+            - name: Service Activation Steps
+              path: service-activation-steps/
+            - name: Device Enrollment & Account Management
+              path: device-enrollment/
+            - name: CarKey Check
+              path: carkey/
+            - name: OTP
+              path: otp/
+        - name: SDK Features
+          path: sdk-features/
+          pages: 
+            - name: Trips
+              path: trips/
+            - name: Send Navigation
+              path: send-navigation/
+            - name: Vehicle Status
+              path: vehicle-status/
+            - name: Remote Commands
+              path: remote-commands/
+            - name: AMI & Rocks-e
+              path: ami&rocks-e/
+        - name: API Reference
+          path: references/
+          pages: 
+            - name: References
+              path: list/
+            - name: "&nbsp;&nbsp;Authentication"
+              path: list/#domain-Authentication
+            - name: "&nbsp;&nbsp;Enrollement"
+              path: list/#domain-Enrollment
+            - name: "&nbsp;&nbsp;CarKey"
+              path: list/#domain-CarKey
+            - name: "&nbsp;&nbsp;Steps"
+              path: list/#domain-Steps
+            - name: "&nbsp;&nbsp;SDK"
+              path: list/#domain-SDK
+            - name: "&nbsp;&nbsp;AMI & Rocks-e (O2X)"
+              path: list/#domain-AMI & Rocks-e (O2X)
+            - name: "&nbsp;&nbsp;Send Navigation"
+              path: list/#domain-Send Navigation
+            - name: "&nbsp;&nbsp;Vehicle Status & Remote Command"
+              path: list/#domain-Vehicle Status & Remote Command
+            - name: "&nbsp;&nbsp;Trips"
+              path: list/#domain-Trips
+            - name: Errors
+              path: errors/
+- tag: other
+  path: /
+  name: Other
+  icon: 
+  subsections:
+    - tag: other
+      path: 
+      name: 
+      nameUpcase: 
+      categories:
+        - name: other
+          path: 
+          pages: 
+            - name: Contact Us
+              path: contact-us/
+            - name: Credits
+              path: credits/
+            - name: Changelog
+              path: changelog/

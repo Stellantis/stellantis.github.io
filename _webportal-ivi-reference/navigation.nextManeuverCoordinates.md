@@ -23,5 +23,9 @@ data:
     unit-value: n/a
     example: 8.74301
 short: This API allows to retrieve next maneuver coordinates.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

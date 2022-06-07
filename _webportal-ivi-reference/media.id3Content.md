@@ -27,5 +27,9 @@ data:
     unit-value: n/a
     example: Starman
 short: This API allows to retrieve the ID3 metadata of the current file playing.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

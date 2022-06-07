@@ -1,4 +1,5 @@
 ---
+availability: sdkOnly
 name: system.uin
 privacy: Full Private
 type:
@@ -18,5 +19,9 @@ data:
     unit-value: n/a
     example: TUlNRS1WZXJzaW9uOiAxLjANCkNvbnRlbnQtRGlz
 short: This API allows to retrieve vehicle UIN. This API is an alias of **cea.uin**.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

@@ -15,5 +15,9 @@ data:
     example: 0
 domain: configuration
 short: 'This API allows to work with the infotainment unit of speed (km/h, MPH).'
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

@@ -35,6 +35,10 @@ data:
       - '6: ''Invalid unit'''
     example: 0
 short: This API allows to work HMI unit of consumption.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 **Info**:

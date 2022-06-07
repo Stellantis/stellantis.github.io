@@ -18,7 +18,7 @@ type: api
 > 1 | Citroen
 > 2 | DS
 > 3 | Toyota
-> 4 | DS
+> 4 | Opel
 > 5 | Vauxhall
 
 | **Parameter**   | *Void*

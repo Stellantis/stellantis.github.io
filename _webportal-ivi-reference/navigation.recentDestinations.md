@@ -74,7 +74,6 @@ datasubscribe:
   - name: action
     unit-value:
       - add
-      - change
       - remove
     type: Enum of strings
     example: add
@@ -142,7 +141,7 @@ dataget_example: |-
       {
         "name": "Kiran's Club",
         "address": {
-          /* ApiKitTypes::SAddress */
+          /* Address */
           },
         "coordinates": {"latitude": 8.74301, "longitude": 8.74301}
         "mapMatchedCoordinates": {"latitude": 8.74301, "longitude": 8.74301}
@@ -150,7 +149,7 @@ dataget_example: |-
       {
         "name": "Vishal's Villa",
         "address": {
-          /* ApiKitTypes::SAddress */
+          /* Address */
           },
         "coordinates": {"latitude": 8.74301, "longitude": 8.74301}
         "mapMatchedCoordinates": {"latitude": 8.74301, "longitude": 8.74301}
@@ -158,16 +157,20 @@ dataget_example: |-
     ]
 datasubscribe_example: |-
   {
-      "action": "change"
+      "action": "add"
       "location": {
           "name": "Kiran's Club",
           "address": {
-            /* ApiKitTypes::SAddress */
+            /* Address */
           },
           "coordinates": {"latitude": 8.74301, "longitude": 8.74301}
           "mapMatchedCoordinates": {"latitude": 8.74301, "longitude": 8.74301}
       }
     }
 short: This API allows to retrieve recent destinations within the navigation system.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

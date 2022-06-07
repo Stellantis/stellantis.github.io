@@ -29,5 +29,9 @@ data:
       - '1: ''MHEV'''
     example: 1
 short: This API allows to work with vehicle energy type.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 

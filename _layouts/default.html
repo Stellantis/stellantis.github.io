@@ -10,12 +10,12 @@
     <meta property="og:image" content="{{ site.url }}{{site.baseurl}}/assets/images/logo-groupe-psa.jpg" />
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="icon" type="image/png" href="{{site.baseurl}}/favicon.png" />
     <!-- TWITTER CARD -->
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="{% include page-title.html %}">
     <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <meta name="twitter:card" content="summary">
-    <link rel="icon" type="image/png" href="{{site.baseurl}}/favicon.png" />
     <meta itemprop="description" name="description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ site.description | truncate: 160  }}{% endif %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
@@ -27,14 +27,17 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     {% include require-head.html %}
     <!-- SCRIPTs-->
-    <script src="{{ '/assets/js/dropdown.js' | prepend: site.baseurl | prepend: site.url }}"></script>
-    <script src="{{ '/assets/js/main.js' | prepend: site.baseurl | prepend: site.url }}"></script>
-    <script src="{{ '/assets/js/lunr.js' | prepend: site.baseurl | prepend: site.url }}"></script>
+    <script src="{{ '/assets/js/dropdown.js' | prepend: site.baseurl }}"></script>
+    <script src="{{ '/assets/js/main.js' | prepend: site.baseurl }}"></script>
+    <script src="{{ '/assets/js/lunr.js' | prepend: site.baseurl }}"></script>
     <!-- Matomo-->
     <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
     <!-- End Matomo Code -->
 </head>
     <body>
+    {% if page.require contains "modal" or page.layout == "compare-packages" %}
+        {% include modal.html %}
+    {% endif %}
     {{content}}
     {% include require-end_body.html %}
     </body>

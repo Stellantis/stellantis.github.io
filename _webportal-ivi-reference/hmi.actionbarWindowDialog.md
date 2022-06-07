@@ -83,6 +83,16 @@ dataset:
     type: int
     unit-value: n/a
     example: 42
+  - name: dialogOpenError
+    description: Error code related to the toast.
+    type: int
+    unit-value:
+      - '0: Dialog successfully openeded.'
+      - '1: Failed, unspecified error happened.'
+      - '2: Failed, invalid parameters were passed.'
+      - '3: Failed, higher priority panel is currently shown on the screen.'
+      - '4: Failed, discarded because incorrect specific conditions.'
+    example: 0
 paramssubscribe:
   - name: dialogId
     description: >-
@@ -132,6 +142,10 @@ datasubscribe:
 short: >-
   This API allows to create and interact with the HMI *actionbarWindowDialog*
   element.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 <!-- <img src="{{site.baseurl}}/assets/images/webportal-v2-toast.png" alt="webportal-v2-toast" style="width: 400px"> -->

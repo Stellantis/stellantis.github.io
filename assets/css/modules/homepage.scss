@@ -157,38 +157,14 @@
     display: flex;
     justify-content: center;
 }
-
-.landing-page .button{
-    color: white;
-    border: none;  
-    margin-top: 1.3rem;
-}
-
-.landing-page .button:hover{
-    background:  linear-gradient(152deg, rgba(38,51,99,1), rgba(255,66,56,1));
-}
 .landing-page .language-json.highlighter-rouge {
     width: 100%;
     margin: unset;
 }
 .landing-page .highlight{
-max-height: 100%;
-}
-.landing-page .highlight pre {
-    overflow: unset;
     padding: 1rem;
-}
-
-.landing-page .button-left{
-    background: linear-gradient(to right, rgba(38,51,99,1), rgba(255,66,56,1));
-}
-
-.landing-page .button-right{
-    background: linear-gradient(to left, rgba(38,51,99,1), rgba(255,66,56,1));
-}
-
-.landing-page .button-middle{
-    background: linear-gradient(to bottom, rgba(38,51,99,1), rgba(255,66,56,1));
+    overflow: scroll;
+    max-height: 100%;
 }
 
 .landing-page .feature-text{
@@ -217,5 +193,137 @@ max-height: 100%;
         max-width: 100% !important;
         width: auto !important;
     }
+}
 
+// MEDIA QUERY HERO TEXT : 4 LIGNS ONLY (until iphone 5)
+
+@media screen and (max-width: 515px) {
+    .hero .section-title, .hero.is-medium .section-title, .home-page.hero .typed-cursor {
+        font-size: 2.5rem;
+    }
+    .landing-page h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .hero .section-title, .hero.is-medium .section-title, .home-page.hero .typed-cursor{
+        font-size: 2rem;
+    }
+    .landing-page h2 {
+        font-size: 1.55rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .hero .section-title, .hero.is-medium .section-title, .home-page.hero .typed-cursor {
+        font-size: 1.73rem;
+    }
+    .landing-page h2 {
+        font-size: 1.3rem;
+    }
+}
+
+// FIX COLUMNS BULMA RESPONSIVE
+// > stay flex
+
+.columns {
+    display: flex;
+}
+
+.column.is-half, .column.is-half-tablet {
+    flex: none;
+    width: 50%;
+}
+
+// 
+
+@media screen and (max-width: 830px) {
+    .landing-page .landing-feature, .landing-page .landing-feature #map {
+        max-height: 185px;
+    }
+    .landing-feature .highlighter-rouge {
+        font-size: .85rem;
+    }
+    .description h3 {
+        font-size: 1.3rem;
+        line-height: 1.3;
+        margin-bottom: .75rem;
+    }
+    .description .text-compact {
+        font-size: .9rem;
+    }
+
+    .separator {
+        margin: 10px 0;
+    }
+    .landing-page .text-compact {
+        font-size: 1rem;
+    }
+    .landing-page h2 {
+        font-size: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 565px) {
+    .landing-page .landing-feature, .landing-page .landing-feature #map {
+        max-height: 185px;
+    }
+    .landing-feature .highlighter-rouge {
+        font-size: .85rem;
+    }
+    .description h3 {
+        font-size: 1.1rem;
+        line-height: 1.3;
+        margin-bottom: .75rem;
+    }
+    .description .text-compact {
+        font-size: .85rem;
+    }
+
+    .separator {
+        margin: 5px 0;
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+    
+    .landing-page .landing-feature, .landing-page .landing-feature #map {
+        max-height: 140px;
+    }
+    .text-compact {
+        display: none;
+    }
+    .description h3 {
+        font-size: 1rem;
+    }
+
+    .columns .separator {
+        display: none;
+    }
+    .description h3::after {
+        content: "\f061";
+        color: #ff4238;
+        display: inline-flex;
+        font-weight: 900;
+        font-family: "Font Awesome 5 Free";
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        margin-left:.5rem
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .landing-page .landing-feature, .landing-page .landing-feature #map {
+        max-height: 120px;
+    }
+    .description h3 {
+        font-size: .9rem;
+    }
 }

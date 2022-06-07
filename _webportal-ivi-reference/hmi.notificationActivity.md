@@ -125,6 +125,10 @@ datasubscribe:
 short: >-
   This API allows to interact with the HMI *notificationActivity UI element*
   element.
+layout: api-reference
+section: webportal
+subsection: v2
+categorie: API Reference
 ---
 
 <!-- <img src="{{site.baseurl}}/assets/images/webportal-v2-toast.png" alt="webportal-v2-toast" style="width: 400px"> -->
