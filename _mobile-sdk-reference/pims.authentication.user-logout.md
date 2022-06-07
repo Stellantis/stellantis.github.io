@@ -17,6 +17,12 @@ params:
   unit-value:
     - logout
   example: logout
+- name: local
+  description : Define the language to use in the external user agent (web view).
+  type : string
+  unit-value: #todo
+  required: false 
+  example: "en"
 - ref: context
 data: none 
 error:
