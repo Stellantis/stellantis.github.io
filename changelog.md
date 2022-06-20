@@ -15,6 +15,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[9.0.2](#902) | WebPortal: v1 share of waves & v2 update setting.language
 [9.0.1](#901) | Mobile SDK: add local in pims.authentication.user
 [9.0.0](#900) | Mobile SDK
 [8.1.1](#811) | Webportal Updates Ref & Articles v1/v2
@@ -82,6 +83,18 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+<hr>
+
+## 9.0.2
+
+{% include published_on.html date='20 Jun 2022' %}
+
+**Webportal v1:**
+- update share of waves tables
+
+**Webportal v2:**
+- update settings.language (regionSubtag)
 
 <hr>
 
