@@ -31,37 +31,11 @@ based on the upstream trunk subversion revision 153112.
 based on the upstream trunk subversion revision 153112.
 
 
-## WAVE 2
-{% assign arrowUp='<span class="icon has-text-success"><i class="fas fa-arrow-up"></i></span>'%}
-{% assign arrowDown='<span class="icon has-text-danger"><i class="fas fa-arrow-down"></i></span>'%}
-{% assign equals='<span class="icon "><i class="fas fa-equals"></i></span>'%}
-
-SW version	| Percentage of vehicles|Build date| Trend of use
--|-|-
-21.07.16.32_NAC-r0 | 26%  |01/04/2018| {{arrowUp}}
-21.07.67.32_NAC-r0 | 17%  |19/06/2019| {{arrowUp}}
-10:90:42 | 12%  |07/09/2017| {{arrowDown}}
-10:47:34 | 11%  |08/03/2018| {{arrowDown}}
-10:82:12 | 6%  || {{arrowDown}}
-10:68:24 | 4%  || {{arrowDown}}
-
-## WAVE 3
-
-SW version	| Percentage of vehicles |Build date | Trend of use
--|-|-
-31.09.46.62_NAC-r0   | 14%  |19/11/2018| {{arrowUp}}
-31.08.05.86_NAC-r0 |3% |15/05/2018  | {{arrowDown}}
-10:50:42 | 1%  | | {{arrowDown}}
-
-
-## WAVE 4
-
-SW version	| Percentage of vehicles|Build date| Trend of use
--|-|-
-42.01.21.42_NAC-r0 | 2% |01/02/2020 | {{arrowUp}}
-40.04.20.22_NAC-r0 | 1%  | | {{arrowUp}}
-42.01.37.32_NAC-r0 | 1% |18/09/2019 | {{arrowUp}}
-40.04.33.12_NAC-r0 | 0%  | | {{arrowUp}}
+SW version	| Percentage of vehicles | 
+-|-
+NAC Wave 2 | 58%
+NAC Wave 3 | 8%
+NAC Wave 4 | 34%
 
 ## SCREEN SIZE
 Usually in-board screen is located on the dashboard of the car between driver and passenger.

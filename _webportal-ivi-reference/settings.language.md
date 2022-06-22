@@ -13,6 +13,13 @@ dataget:
     type: string
     unit-value: RFC 3066
     example: en-GB
+  - name: regionSubtag
+    description: Force region subtag for all languages. For example `it` becomes `IT-it`.
+    type: boolean
+    unit-value:
+      - "true: forced region subtags"
+      - "false: region subtags only when relevant"
+    example: true
 datasubscribe:
   - name: old
     description: >-
@@ -33,14 +40,6 @@ layout: api-reference
 section: webportal
 subsection: v2
 categorie: API Reference
-dataset:
-  - name: regionSubtag
-    description: Force region subtag for all languages. For example `it` becomes `IT-it`.
-    type: boolean
-    unit-value:
-      - 'true': forced region subtags
-      - 'false': region subtags only when relevant
-    example: true
 ---
 
 **Note:** Subscribing to `settings.language` does not allow to use `tolerance` & `period` default [subscribe behavior]({{site.baseurl}}/webportal/v2/quickstart/request/#message-format). Indeed the event is triggered only if the date, time or timezone is changed by the user.
