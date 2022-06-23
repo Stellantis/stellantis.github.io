@@ -11,6 +11,7 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v3.3.0](#b2b_v330) | 3.3.0
 [b2b_v3.2.0](#b2b_v320) | 3.2.0
 [b2b_v3.1.1](#b2b_v311) | 3.1.1
 [b2b_v3.1.0](#b2b_v310) | 3.1.0
@@ -22,6 +23,33 @@ Version|Name
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
 [b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
+
+<hr>
+
+## b2b_v3.3.0
+
+{% include published_on.html date='02 Jun 2022' %}
+
+**API Maintenance**
+- Fix spelling error on data daysBeforeMaintenance
+
+**API Monitor**
+- Add new data trigger monitor : vehicle.trip.start & vehicle.trip.stop
+
+**Fleets API**
+- Add remote/callback link
+
+**Webhook API**
+- Add missing fleetID in monitor event notification
+
+**Others**
+- Add missing link telemetry for vehicles APIs
+- Update swagger structure & commentary
+- Change unit of fuel consumption
+- Add energy type hydrogen
+- Change unit of energy.extension.electric.residual
+- Update energy.type description
+- Delete unused battery.current, lightingSystem.position, engines.extension.thermic.scr data & brakingSystem object
 
 
 <hr>
@@ -37,7 +65,6 @@ Version|Name
 - Remote doors: Forced field deprecedated
 
 <hr>
-
 
 ## b2b_v3.1.1
 
@@ -90,10 +117,10 @@ Version|Name
 - Add slot parameter as mandatory for remote preconditionning command
 
 
+
 <hr>
 
 ## b2b_v3.0.7
-
 
 
 {% include published_on.html date='24 Feb 2021' %}

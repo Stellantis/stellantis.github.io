@@ -5,7 +5,8 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.2.0'
+  version: '3.3.0'
+
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -374,50 +375,7 @@ paths:
           $ref: '#/components/responses/AlertsuccessResponse'
         default:
           $ref: '#/components/responses/AlertFailedResponse'
-
-  #'/fleets/{fid}/telemetries':
-   # get:
-    #  tags:
-    #    - Fleet
-    #  summary: Telemetry list of the fleet.
-    #  description: >-
-     #   Returns the latest Telemetry messages that occurred during a selective timestamp-ranges and bounded by an index range.
-    #  operationId: getFleetTelemetriesList
-    #  parameters:
-     #   
-      #  - $ref: '#/components/parameters/fleetId'
-      #  - $ref: '#/components/parameters/profile'
-      #  - $ref: '#/components/parameters/telemetryType'
-      #  - $ref: '#/components/parameters/timestamps'
-      #  - $ref: '#/components/parameters/indexRange'
-      #  - $ref: '#/components/parameters/pageSize'
-      #  - $ref: '#/components/parameters/pageToken'
-      #  - $ref: '#/components/parameters/locale'
-      #  - $ref: '#/components/parameters/telemetryExtension'
-    #  responses:
-     #   200:
-    #      $ref: '#/components/responses/TelemetrySuccessResponse'
-    #    default:
-    #      $ref: '#/components/responses/TelemetryFailedResponse'
-   
-          
-  #'/fleets/{fid}/alerts/{aid}':
-  #  get:
-  #    tags:
-  #      - Fleet
-  ##    description: Returns the vehicles alert message 
-  #    summary: Fleet Vehicles alert.
-  #    operationId: getFleetAlerById
-  #    parameters:
-  #      - $ref: '#/components/parameters/fleetId'
-  #      - $ref: '#/components/parameters/alertId'
-  #    responses:
-  #      200:
-  #        $ref: '#/components/responses/AlertsuccessResponses'
-  #      default:
-  #        $ref: '#/x-fragment/general_error_fragment'          
  
-          
   '/fleets/{fid}/vehicles/{vid}/status':
     get:
       tags:
@@ -1298,7 +1256,7 @@ components:
                 Minimal stands for no emergency system activated during the collision.
                 Minor only pretensioner system activated.
                 Major for airbag and prentensioner activation.
-              
+      
     InfoCollision:
       type: string
       enum: [ NoCrash, CrashDetected]
@@ -1329,12 +1287,11 @@ components:
               type: boolean
               description: >-
                     Indicates if the car tipped over during the collision.
-                    Warning : This information is applicable only on vehicles equipped with dedicated sensor and is optionnal
+                    Warning : This information is applicable only on vehicles equipped with dedicated sensor and is optionnal.
             pedestrian:
               type: boolean
-              description: >-
-                    Indicates if the collision involve a pedestrian.
-                    Warning : This information is applicable only on vehicles equipped with dedicated sensor and is optionnal
+              description: 'Indicates if the collision involve a pedestrian.
+                           *Warning : This information is applicable only on vehicles equipped with dedicated sensor and is optionnal*'
             updatedAt:
               type: string
               format: date-time
@@ -1388,23 +1345,31 @@ components:
      allOf:
         - type: object
           properties:
-              createdAt:
-                description: Date when the resource has been created.
+            createdAt:
+              description: Date when the resource has been created.
+              type: string
+              format: date-time
+        - type: object
+          properties:
+            updatedAt:
+                description: Date when the resource has been updated.
                 type: string
                 format: date-time
-        - description: Expresses next Maintenance details. Such as number of days and the mileage until the next Maintenance. The value is negative if the next maintenance (day or mileage) is already passed.
+        - description: Expresses next Maintenance details. Such as number of days and the mileage until the next Maintenance. The value is negative if the next maintenance (day or mileage) is already passed. At least one of the following maintenance information will be provided.
           type: object
           title: Maintenance
           properties:
-          
-            daysBeforeMaintenace:
+
+
+            daysBeforeMaintenance:
               type: integer
             mileageBeforeMaintenance:
               type: integer
             updatedAt:
               type: string
               format: date-time
-          required: [daysBeforeMaintenace,mileageBeforeMaintenance,updatedAt]
+          required: [updatedAt]
+
              
     Maintenance:
       allOf:
@@ -1444,15 +1409,18 @@ components:
           required: [type,createdAt]     
 
     VehicleOdometer:
-        type: object
-        properties:
-          mileage:
+      allOf : 
+        - type: object
+          properties:
+              createdAt:
+                description: Date when the resource has been created.
+                type: string
+                format: date-time
+        - type: object
+          properties:
+            mileage:
                 description: Vehicle mileage expressed in KM.
                 type: number
-          createdAt:
-              type: string
-              format: date-time
-
     Battery:  
            allOf:
               - type: object
@@ -1471,23 +1439,50 @@ components:
                     type: number
                     description: Auxiliary battery (12V) state of health in %
                     format: float
-                  current:
-                    type: number
-                    format: float
+
+    BeltStatus:  
+                type: object
+                description: Seat belt condition.
+                properties:
+                  belt: 
+                    description: Belt status. 
+                    type: string
+                    enum: [Normal, Omission]
+                  id: 
+                    description: Seat identifier.
+                    type: string
+                    enum: [Driver, Passenger]  
               
     BaseSafety:  
                 type: object
                 properties:
+                  beltStatus:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BeltStatus'
+                  autoECallTriggering:
+                    type: string
+                    enum: [NotDetected, Detected]
                   beltWarning:
+                    deprecated: true
                     type: string
                     enum: [Normal, Omission]
                   eCallTriggeringRequest:
                     deprecated: true
                     type: string
                     enum: [AirbagUnabled, NoRequest, Requested]        
-                  autoECallTriggering:
+
+    WipingBladesState:  
+                type: object
+                properties:
+                  active: 
+                      description: weither active (true) or not (false).
+                      type: boolean
+                  speed:
+                    description: Wiping speed. This field is present only if active field is set to true.
                     type: string
-                    enum: [NotDetected, Detected]              
+                    enum: [Hight, Low]
+                  
     Safety:  
            allOf:
               - type: object
@@ -1572,6 +1567,8 @@ components:
             preconditioning:
                   $ref: '#/components/schemas/Preconditioning'
             energies:
+              type: array
+              items:
                 $ref: '#/components/schemas/Energy'
             engines:
               type: array
@@ -1593,6 +1590,18 @@ components:
                   $ref: '#/components/schemas/Kinetic'
             environment: 
                   $ref: '#/components/schemas/Environment'
+            drivingBehavior:
+                  description: Describe the behavior of the driver
+                  allOf:
+                    - type: object
+                      properties:
+                        updatedAt:
+                            description: Date when the resource has been updated.
+                            type: string
+                            format: date-time
+                    - $ref: '#/components/schemas/DrivingBehaviorBase'
+            lightingSystem:
+                      $ref: '#/components/schemas/LightingSystem'
             _embedded:
               type: object
               properties:
@@ -1602,14 +1611,18 @@ components:
             - _links
         
     Privacy:
-                  type: object
-                  properties:
-                    createdAt:
-                      type: string
-                      format: date-time
-                    state:
-                      type: string
-                      enum: [None, Geolocation, Full]
+      allOf:
+        - type: object
+          properties:
+              createdAt:
+                description: Date when the resource has been created.
+                type: string
+                format: date-time
+        - type: object
+          properties:
+            state:
+              type: string
+              enum: [None, Geolocation, Full]
                       
     Geometry:
       title: Geometry
@@ -1674,88 +1687,108 @@ components:
             geometry:
               $ref: '#/components/schemas/Point'
             properties:
-              type: object
-              properties:
-                vin:
-                  $ref: '#/components/schemas/Vin'
-                updatedAt:
-                  type: string
-                  format: date-time
-                createdAt:
-                  type: string
-                  format: date-time
-                heading:
-                  type: number
-                  format: float
-                  minimum: 0
-                  maximum: 360
-                signalQuality:
-                    type: number
-                    format: int
-                type:
-                  type: string
-                  enum:
-                    - Estimated
-                    - Acquire
+              allOf : 
+                - type: object
+                  properties:
+                    updatedAt:
+                        description: Date when the resource has been updated.
+                        type: string
+                        format: date-time
+                - type: object
+                  properties:
+                      createdAt:
+                        description: Date when the resource has been created.
+                        type: string
+                        format: date-time      
+                - type: object
+                  properties:
+                    vin:
+                      $ref: '#/components/schemas/Vin'
+                    heading:
+                      type: number
+                      format: float
+                      minimum: 0
+                      maximum: 360
+                    signalQuality:
+                      type: number
+                      format: int
+                    type:
+                      type: string
+                      enum:
+                        - Estimated
+                        - Acquire
     
     Energy:
       allOf:
-          - type: object
-            properties:
-              updatedAt:
-                  description: Date when the resource has been updated.
-                  type: string
-                  format: date-time
-          - $ref: '#/components/schemas/EnergyBase'
+        - type: object
+          properties:
+            updatedAt:
+                description: Date when the resource has been updated.
+                type: string
+                format: date-time
+        - $ref: '#/components/schemas/EnergyBase'
 
     EnergyBase:
-            description: Describe vehicle energy supply for thermic, low emission vehicle or both.
-            type: array
-            items:
-                type: object
-                description: percentage energy.
-                properties :
-                  type:
-                    type: string
-                    enum: [Fuel, Electric]
-                  level:
-                    type: number
-                    format: float
-                    description: Percentage of remaining energy (Fuel or electric) level. Expressed with a precision of 0.1%.
-                    minimum: 0
-                    maximum: 100
-                  autonomy:
-                    description: Vehicle autonomy expressed in km for this energy class.
-                    type: integer
-                  extension:
-                    type: object
-                    properties:
-                      fuel:
-                        description: Specific fuel energy properties.
-                        type: object
-                        properties:
-                           consumption:
-                               $ref: '#/components/schemas/FuelEnergyConsumption'
-                      electric:
-                        description: Specific electric energy parameters.
-                        type: object
-                        properties:
-                          residual:
-                             $ref: '#/components/schemas/ElectricResidualEnergy'
-                          battery:
-                            $ref: '#/components/schemas/EnergyBattery'
-                          charging:
-                            $ref: '#/components/schemas/EnergyCharging'
+      description: Describe vehicle energy supply for thermic, low emission vehicle or both.
+      type: object
+      properties :
+        type:
+          type: string
+          description: Electric and hydrogen type are considered as low emission vehicle whereas fuel is associated to thermic energy.
+          enum: [Fuel, Electric, Hydrogen]
+        level:
+          type: number
+          format: float
+          description: Percentage of remaining energy (Fuel or electric) level. Expressed with a precision of 0.1%.
+          minimum: 0
+          maximum: 100
+        autonomy:
+          description: Vehicle autonomy expressed in km for this energy class.
+          type: integer
+        extension:
+          type: object
+          properties:
+            fuel:
+              description: Specific fuel energy properties.
+              type: object
+              properties:
+                 consumption:
+                     $ref: '#/components/schemas/FuelEnergyConsumption'
+                 consumptions:
+                     $ref: '#/components/schemas/CompositFuelEnergyConsumption'
+            electric:
+              description: Specific electric energy parameters.
+              type: object
+              properties:
+                residual:
+                   $ref: '#/components/schemas/ElectricResidualEnergy'
+                battery:
+                  $ref: '#/components/schemas/EnergyBattery'
+                charging:
+                  $ref: '#/components/schemas/EnergyCharging'
 
           
     FuelEnergyConsumption:
-              description: Total consumption for vehicles for thermic vehicle. Expressed L/100Km
+              description: Total consumption for vehicles for thermic vehicle. Deprecated, use consumptions (CompositFuelEnergyConsumption) instand.
               type: number
               format: float
+              deprecated: true
               minimum: 0
-              
+    CompositFuelEnergyConsumption:
+              description: Fuel consumption.
+              type: object
+              properties:
+                total:
+                  description: Total Fuel consumption expressed in L (Liter).
+                  type: number
+                  format: float
+                  minimum: 0
+                instant:
+                  description: Instant Fuel consumption expressed in L/100Km.
+                  type: number
+                  format: float
     ElectricResidualEnergy:
-                  description: Residual electric energy (KWh)
+                  description: Residual electric energy (Wh)
                   type: number
                   format: float
                   
@@ -1891,155 +1924,152 @@ components:
           #  *  *R5/2018-01-03T12:00:00Z/P6H* repeate duration 6H interval for 5 times starting at 2018-01-03T12:00:00Z.  
         
     Trip:
-      title: Trip 
-      type: object
-      properties:
-        _links:
-          type: object
-          properties:
-            self:
-              $ref: '#/components/schemas/Link'
-            vehicle:
-              $ref: '#/components/schemas/Link'
-            waypoints:
-              $ref: '#/components/schemas/Link'
-            alerts:
-              $ref: '#/components/schemas/Link'
-            collisions:
-              $ref: '#/components/schemas/Link' 
-        id:
-          type: string
-          description: Identifier of a trip
-        vin:
-          $ref: '#/components/schemas/Vin'
-        startedAt:
-          type: string
-          format: date-time
-          description: Date & Time when the trip started
-        stoppedAt:
-          type: string
-          format: date-time
-          description: Date & Time when the trip stopped
-        duration:
-          type: string
-          description: Duration in seconds of the trip
-        distance:
-          type: number
-          format: float
-          description: Distance in km of the trip
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
-        startPosition:
-          $ref: '#/components/schemas/Position'
-        stopPosition:
-          $ref: '#/components/schemas/Position'
-        done:
-          description: Determines whether this trip is finished or not.
-          type: boolean
-        faults:
-          description: The faults of this finished or in progress trip. This means that we lacked data from the vehicle to complete the trip description during one of its step (starting, progressing, or finishing).
-          type: array
-          items:
-            type: string
-            enum: [Unstarted, DataLacking, Unfinished]
+      allOf : 
+          - $ref: '#/components/schemas/UpdatedAtField'
+          - $ref: '#/components/schemas/CreatedAtField'
+          - title: Trip 
+            type: object
+            properties:
+              _links:
+                type: object
+                properties:
+                  self:
+                    $ref: '#/components/schemas/Link'
+                  vehicle:
+                    $ref: '#/components/schemas/Link'
+                  waypoints:
+                    $ref: '#/components/schemas/Link'
+                  alerts:
+                    $ref: '#/components/schemas/Link'
+                  collisions:
+                    $ref: '#/components/schemas/Link'
+                required : [self]
+              id:
+                type: string
+                description: Identifier of a trip
+              vin:
+                $ref: '#/components/schemas/Vin'
+              startedAt:
+                type: string
+                format: date-time
+                description: Date & Time when the trip started
+              stoppedAt:
+                type: string
+                format: date-time
+                description: Date & Time when the trip stopped
+              duration:
+                type: string
+                description: Duration in seconds of the trip
+              distance:
+                type: number
+                format: float
+                description: Distance in km of the trip
+              startPosition:
+                $ref: '#/components/schemas/Position'
+              stopPosition:
+                $ref: '#/components/schemas/Position'
+              done:
+                description: Determines whether this trip is finished or not.
+                type: boolean
+              faults:
+                description: The faults of this finished or in progress trip. This means that we lacked data from the vehicle to complete the trip description during one of its step (starting, progressing, or finishing).
+                type: array
+                items:
+                  type: string
+                  enum: [Unstarted, DataLacking, Unfinished]
+            required : [_links, createdAt, id, vin]
             
     Fleet:
-      title: Fleet Information
-      type: object
-      properties:
-        _links:
+      allOf :
+        - $ref: '#/components/schemas/UpdatedAtField'
+        - $ref: '#/components/schemas/CreatedAtField'
+        - title: Fleet Information
           type: object
           properties:
-            self:
-              $ref: '#/components/schemas/Link'
-            vehicles:
-              $ref: '#/components/schemas/Link'
-            status:
-              $ref: '#/components/schemas/Link'
-            maintenances:
-              $ref: '#/components/schemas/Link'
-            alerts:
-              $ref: '#/components/schemas/Link'
-            trips:
-              $ref: '#/components/schemas/Link'
-            collisions:
-              $ref: '#/components/schemas/Link'
-            monitors:
-              $ref: '#/components/schemas/Link'  
-        name:
-          description: Name of the Fleet
-          type: string
-        id:
-          description: The id of the Fleet
-          type: string  
-        description:
-          description: The description of the Fleet
-          type: string
-        createdAt:
-          description: Date when the fleet has been created
-          type: string
-          format: date-time
-        updatedAt:
-          description: Date when the fleet has been updated
-          type: string
-          format: date-time
+            _links:
+              type: object
+              properties:
+                self:
+                  $ref: '#/components/schemas/Link'
+                vehicles:
+                  $ref: '#/components/schemas/Link'
+                status:
+                  $ref: '#/components/schemas/Link'
+                maintenances:
+                  $ref: '#/components/schemas/Link'
+                alerts:
+                  $ref: '#/components/schemas/Link'
+                trips:
+                  $ref: '#/components/schemas/Link'
+                collisions:
+                  $ref: '#/components/schemas/Link'
+                monitors:
+                  $ref: '#/components/schemas/Link'
+                callbacks:
+                  $ref: '#/components/schemas/Link'
+              required : [self]
+            name:
+              description: Name of the Fleet
+              type: string
+            id:
+              description: The id of the Fleet
+              type: string  
+            description:
+              description: The description of the Fleet
+              type: string
+          required : [_links, id]
        
     Vehicle:
-      title: Vehicle Information
-      type: object
-      properties:
-        _links:
+      allOf:
+        - $ref: '#/components/schemas/UpdatedAtField'
+        - $ref: '#/components/schemas/CreatedAtField'
+        - title: Vehicle Information
           type: object
           properties:
-            self:
-              $ref: '#/components/schemas/Link'
-            fleet:
-              $ref: '#/components/schemas/Link'  
-            lastPosition:
-              $ref: '#/components/schemas/Link'
-            trips:
-              $ref: '#/components/schemas/Link'
-            maintenance:
-              $ref: '#/components/schemas/Link'
-            alerts:
-              $ref: '#/components/schemas/Link'
-            status:
-              $ref: '#/components/schemas/Link'
-            monitors:
-              $ref: '#/components/schemas/Link'
-            remotes:
-              $ref: '#/components/schemas/Link'
-            callbacks:
-              $ref: '#/components/schemas/Link'
-            collisions:
-              $ref: '#/components/schemas/Link' 
-        id:
-          type: string
-        vin:
-          description: Serial number of a vehicle
-          type: string
-        brand:
-          description: Brand of a vehicle
-          type: string
-        pictures:
-          description: With the links it's possible to see the pictures of the vehicle 
-          type: array
-          minItems: 1
-          maxItems: 12
-          items:
-            $ref: '#/components/schemas/Url' 
-        createdAt:
-          description: Date when the vehicle has been created
-          type: string
-          format: date-time
-        updatedAt:
-          description: Date when the vehicle has been updated
-          type: string
-          format: date-time
+            _links:
+              type: object
+              properties:
+                self:
+                  $ref: '#/components/schemas/Link'
+                fleet:
+                  $ref: '#/components/schemas/Link'  
+                lastPosition:
+                  $ref: '#/components/schemas/Link'
+                trips:
+                  $ref: '#/components/schemas/Link'
+                maintenance:
+                  $ref: '#/components/schemas/Link'
+                alerts:
+                  $ref: '#/components/schemas/Link'
+                status:
+                  $ref: '#/components/schemas/Link'
+                telemetry:
+                  $ref: '#/components/schemas/Link'
+                monitors:
+                  $ref: '#/components/schemas/Link'
+                remotes:
+                  $ref: '#/components/schemas/Link'
+                callbacks:
+                  $ref: '#/components/schemas/Link'
+                collisions:
+                  $ref: '#/components/schemas/Link'
+              required : [self]
+            id:
+              type: string
+            vin:
+              description: Serial number of a vehicle
+              type: string
+            brand:
+              description: Brand of a vehicle
+              type: string
+            pictures:
+              description: With the links it's possible to see the pictures of the vehicle 
+              type: array
+              minItems: 1
+              maxItems: 12
+              items:
+                $ref: '#/components/schemas/Url' 
+          required : [_links]
           
     VehicleLabel:
         properties:
@@ -2416,9 +2446,6 @@ components:
                               * Using ```vehicle.telemetry``` without suffix means to include all available telemetries. 
             triggerParam:
               description: Monitor trigger-param that allows to compound triggers by applying a boolean expression to evaluate them.
-                             
-# **Note**: To be compliant with the previous spec version (retro compatibility) this parameter continues to expose ```timeZoneTriggers``` and ```dataTriggers```
-# with only ```AND``` relationship. It is not possible the compound the old and the new triggers *style* (and will result with ```HTTP-400``` error)
               properties:
                           triggers:
                             description: |
@@ -2449,17 +2476,6 @@ components:
                                   we can have a boolean expression such as: : ``` ((z1 & t1) | (z2 & !t1) | (f & z1) | (a & (z1|t))  | (o & (z1 | z2))) ```
                               example :
                                 ((z1 & t1) | (z2 & !t1) | (f & z1) | (a & (z1|t))  | (o & (z1 | z2)))
-  #                        timeZoneTriggers: 
-  #                           $ref: '#/components/schemas/TimeZoneTrigger'
-  #                        dataTriggers: 
-  #                          deprecated: true
-  #                          description: | 
-  #                            Compound data triggers (will be evaluated with an AND relationship)
-  #                            
-  #                            *Note*: ```dataTriggers``` is deprecated according the new monitor spec. Please use the new data schema.
-  #                          type: array
-  #                          items:
-  #                              $ref: '#/components/schemas/DataTrigger'
               required: [triggers,boolExp]
       required: [subscribeParam,triggerParam,label]
     
@@ -2560,18 +2576,6 @@ components:
                   This allows to adapt this trigger to the time change according to local (region/country) criteria/rules.
               example: Europe/Paris
     
-    TimeZoneTrigger:
-      title: TimeZoneTrigger
-      deprecated: true
-      description: |
-        Zone & temporal monitor. At least one of the two parameters must be provided. 
-        
-        *Note*: TimeZoneTrigger is deprecated according the new monitor spec. Please use the new data schema. Predicates within this compound triggers will be evaluated with an AND relationship.  
-      properties:
-            zoneTrigger:
-                $ref: '#/components/schemas/ZoneTrigger'
-            timeTrigger:
-              $ref: '#/components/schemas/TimeTrigger'
             
     DataTrigger:
       title: DataTrigger
@@ -2598,12 +2602,15 @@ components:
             | vehicle.doorsState.opening | N/A | onChange | Value |
             | vehicle.kinetic.moving| Boolean | onChange/equalsTo | Value (true/false) |
             | vehicle.kinetic.speed | Number | equalsTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.trip| Literal | onChange| Value(IDTRIP) |
+            | vehicle.trip (DEPRECATED)| Literal | onChange| Value(IDTRIP) |
+            | vehicle.trip.start| Literal | onChange| Value(IDTRIP) |
+            | vehicle.trip.stop| Literal | onChange| Value(IDTRIP) |
             | vehicle.maintenance.daysBeforeMaintenance, | Number | equalsTo/ greaterThan/ lowerThan/ | Value |
             | vehicle.maintenance.mileageBeforeMaintenance| Number | equalsTo/ greaterThan/ lowerThan/ | Value |
             | vehicle.safety.beltWarning | Enum(beltWarning) | onChange/equalsTo | Value |
             | environment.air.temp | Number | equalsTo/greaterThan/lowerThan/ | Value |
             | privacy.state | Enum(Privacy) | equalsTo / onChange/includedIn | Value |
+            | vehicle.drivingBehavior.mode | Enum(drivingBehavior.mode) | equalsTo / onChange/includedIn | Value |
             | vehicle.collision.side | Enum(collision.side) | equalsTo / includedIn | Value |
             | vehicle.collision.severity | Enum(collision.severity) | equalsTo / includedIn | Value |
             | vehicle.safety.autoECallTriggering | Enum(safety.autoECallTriggering) | equalsTo / onChange/includedIn | Value |
@@ -2633,11 +2640,14 @@ components:
             - vehicle.kinetic.moving
             - vehicle.kinetic.speed
             - vehicle.trip
+            - vehicle.trip.start
+            - vehicle.trip.stop
             - vehicle.maintenance.daysBeforeMaintenance
             - vehicle.maintenance.mileageBeforeMaintenance
             - vehicle.safety.beltWarning
             - environment.air.temp
             - privacy.state
+            - vehicle.drivingBehavior.mode
             - vehicle.collision.side
             - vehicle.collision.severity
             - vehicle.safety.autoECallTriggering
@@ -3365,7 +3375,13 @@ components:
             type: string
             format: date-time      
     
-
+    EngineAir:
+                              type: object
+                              properties:
+                                temp:
+                                  description: Engine air temperature expressed in Celsius degrees.
+                                  type: number
+                                  format: float
     EngineLiquid:
                               type: object
                               properties:
@@ -3416,10 +3432,9 @@ components:
                               allOf:
                                 - description: Engine oil properties.
                                 - $ref: '#/components/schemas/EngineLiquid'
-                            scr:
-                                description: Selective catalytic reduction (SCR) system warning level.
-                                type: string
-                                enum: [ Off, Blinked, On]  
+                            air:
+                              allOf:
+                               - $ref: '#/components/schemas/EngineAir'
 
     Engine:
         allOf:
@@ -3433,7 +3448,6 @@ components:
             
                  
     Telemetry:
-
         allOf:
             - $ref: '#/components/schemas/CreatedAtField'
             - type: object
@@ -3456,16 +3470,18 @@ components:
                       type: array
                       items:
                         $ref: '#/components/schemas/EngineBase'
-                    energy:  
+                    energy:
+                      type: array
+                      items:
                         $ref: '#/components/schemas/EnergyBase'
-                    brakingSystem:
-                      $ref: '#/components/schemas/BrakingSystem'
                     transmission:
                       $ref: '#/components/schemas/Transmission'
                     adas:
                       $ref: '#/components/schemas/Adas'
                     lighting:
-                      $ref: '#/components/schemas/Lighting'
+                      $ref: '#/components/schemas/LightingBase'
+                    lightingSystem:
+                      $ref: '#/components/schemas/LightingSystemBase'  
                     ignition:
                        $ref: '#/components/schemas/IgnitionBase'
                     doorsState:
@@ -3473,7 +3489,9 @@ components:
                     battery:
                       $ref: '#/components/schemas/BatteryBase'
                     safety:  
-                      $ref: '#/components/schemas/BaseSafety'  
+                      $ref: '#/components/schemas/BaseSafety'
+                    wipingBlades:  
+                      $ref: '#/components/schemas/WipingBladesState'  
                     odometer: 
                         type: object
                         properties:
@@ -3483,6 +3501,9 @@ components:
                                 format: float
                     kinetic :
                         $ref: '#/components/schemas/BasicKinetic'
+                    drivingBehavior:
+                      description: Describe the behavior of the driver
+                      $ref: '#/components/schemas/DrivingBehaviorBase'
                 environment:
                   $ref: '#/components/schemas/EnvironmentBase'
                 _embedded:
@@ -3581,11 +3602,29 @@ components:
                     format: date-time
             - $ref: '#/components/schemas/BasicKinetic'
          
-    BrakingSystem:
-              type: object
-              properties:
-                parking:
-                  type: boolean
+                  
+    DrivingBehaviorBase:
+        type: object
+        properties:
+            mode:
+                description : Driving mode by driver selection
+                type : string
+                enum:
+                    - Normal
+                    - Sport
+                    - Confort
+                    - Eco
+                    - Sand
+                    - Mud
+                    - Snow
+                    - ZEV
+                    - Hybrid
+                    - ZEVEco
+                    - HybridEco
+                    - EcoPlus
+                    - eAWD
+                    - 4AWD
+                    - ReinforcedLoad
     
     Transmission:
               type: object
@@ -3612,6 +3651,20 @@ components:
                           type: boolean
                         snow:
                           type: boolean
+                    ratio:
+                      description: Current gear-box ratio.
+                      type: string
+                      enum:
+                            - Ratio1
+                            - Ratio2
+                            - Ratio3
+                            - Ratio4
+                            - Ratio5
+                            - Ratio6
+                            - Ratio7
+                            - Ratio8      
+                            - Neutral
+                            - Reverse
     
     Adas:  
                 type: object
@@ -3712,9 +3765,50 @@ components:
                     description: Lane Keeping Assist left
                     type: string
                     enum: [Authorized, CorrectionInProgress, NotAuthorized, NotSelected]
-         
-    Lighting:  
+
+    
+    Lights:
+        description: Expresses all light, direction (```Left```, ```Right``` ) and status  (```Off```, ```On```), for a category.
+        type: array
+        items:
+          type: object
+          properties:
+            direction:
+              type: string
+              enum: [Left, Right]
+            status:
+              type: string
+              enum: [Off, On]
+          example:
+            -  
+              - direction:left
+              - position: front
+            -  
+              - direction:left
+              - position: rear 
+    LightingSystemBase:
+                description: Expresses the Directional, Fog and the Position vehicle lights.
                 type: object
+                properties:
+                  turn:
+                     $ref: '#/components/schemas/Lights' 
+                  fog:
+                     $ref: '#/components/schemas/Lights'
+              
+    LightingSystem:
+                    allOf:
+                      - type: object
+                        properties:
+                            createdAt:
+                              description: Date when the resource has been created.
+                              type: string
+                              format: date-time  
+                      - $ref: '#/components/schemas/LightingSystemBase'     
+                    
+    LightingBase:  
+                type: object
+                description: Depricated lighting system model. Use LightingSystem instead.
+                deprecated: true
                 properties:
                   turn:
                     type: array
@@ -3726,7 +3820,11 @@ components:
                     items:
                       type: string
                       enum: [Front, Rear]
-    
+                  status:
+                    type: array
+                    items:
+                      type: string
+                      enum: [On, Off]
     Environment: 
               type: object
               properties:
@@ -3789,7 +3887,6 @@ components:
           - vehicle
           - vehicle.adas
           - vehicle.battery
-          - vehicle.brakingSystem
           - vehicle.doorsState
           - vehicle.energies
           - vehicle.engines
@@ -3797,6 +3894,7 @@ components:
           - vehicle.lighting
           - vehicle.safety
           - vehicle.transmission
+          - vehicle.drivingBehavior
           
     DataProfile:
         type: string
