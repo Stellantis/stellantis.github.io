@@ -1,5 +1,0 @@
----
-type: domain
-name: CEA
----
-

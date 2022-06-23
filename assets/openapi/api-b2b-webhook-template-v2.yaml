@@ -3,7 +3,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '2.1.1'
+  version: '2.2.0'
   title: Groupe PSA Connected Car B2B API
   description: | 
 
@@ -14,8 +14,6 @@ info:
               be displayed using [ReDoc](https://github.com/Rebilly/ReDoc) or
               [Swagger](http://swagger.io).
 
-
-    
   license:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'
@@ -92,12 +90,14 @@ components:
       title: MonitorEvent
       type: object
       properties:
-      
+        fleetId:
+          description : Fleet identifier for which the event was raised.
+          type : string
         vin:
           description: Vehicle identifier for which the event was raised.
           type: string  
         eventDate:
-          description: The date on which the event was raised..
+          description: The date on which the event was raised.
           type: string
           format: dateTime
        # position:
@@ -276,3 +276,10 @@ components:
       schema:
         type: string
         pattern: Bearer (\w|-|=)*
+
+ 
+  
+    
+   
+  
+    

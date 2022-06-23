@@ -6,7 +6,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '2.1.1'
+  version: '2.2.0'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -1113,15 +1113,14 @@ components:
           type: object
           title: Maintenance
           properties:
-          
-            daysBeforeMaintenace:
+            daysBeforeMaintenance:
               type: integer
             mileageBeforeMaintenance:
               type: integer
             updatedAt:
               type: string
               format: date-time
-          required: [daysBeforeMaintenace,mileageBeforeMaintenance,updatedAt]
+          required: [daysBeforeMaintenance,mileageBeforeMaintenance,updatedAt]
              
     Maintenance:
       allOf:
@@ -1171,9 +1170,6 @@ components:
                 voltage:
                   type: number
                   description: Auxiliary battery (12V) state of health in %
-                  format: float
-                current:
-                  type: number
                   format: float
                 createdAt:
                   type: string
@@ -1253,6 +1249,8 @@ components:
             preconditioning:
                   $ref: '#/components/schemas/Preconditioning'
             energies:
+              type: array
+              items:
                 $ref: '#/components/schemas/Energy'
             engines:
               type: array
@@ -1392,54 +1390,52 @@ components:
     
     Energy:
       description: Describe vehicle energy supply for thermic, low emission vehicle or both.
-      type: array
-      items:
+      type: object
+      properties :
+        updatedAt:
+          type: string
+          format: date-time
+        type:
+          type: string
+          enum: [Fuel, Electric, Hydrogen]
+        level:
+          type: number
+          format: float
+          description: Percentage of remaining energy (Fuel or electric) level. Expressed with a precision of 0.1%.
+          minimum: 0
+          maximum: 100
+        autonomy:
+          description: Vehicle autonomy expressed in km for this energy class.
+          type: integer
+        extension:
           type: object
-          description: percentage energy.
-          properties :
-            updatedAt:
-              type: string
-              format: date-time
-            type:
-              type: string
-              enum: [Fuel, Electric]
-            level:
-              type: number
-              format: float
-              description: Percentage of remaining energy (Fuel or electric) level. Expressed with a precision of 0.1%.
-              minimum: 0
-              maximum: 100
-            autonomy:
-              description: Vehicle autonomy expressed in km for this energy class.
-              type: integer
-            extension:
+          properties:
+            fuel:
+              description: Specific fuel energy properties.
               type: object
               properties:
-                fuel:
-                  description: Specific fuel energy properties.
-                  type: object
-                  properties:
-                     consumption:
-                         $ref: '#/components/schemas/FuelEnergyConsumption'
-                electric:
-                  description: Specific electric energy parameters.
-                  type: object
-                  properties:
-                    residual:
-                       $ref: '#/components/schemas/ElectricResidualEnergy'
-                    battery:
-                      $ref: '#/components/schemas/EnergyBattery'
-                    charging:
-                      $ref: '#/components/schemas/EnergyCharging'
+                 consumption:
+                     $ref: '#/components/schemas/FuelEnergyConsumption'
+            electric:
+              description: Specific electric energy parameters.
+              type: object
+              properties:
+                residual:
+                   $ref: '#/components/schemas/ElectricResidualEnergy'
+                battery:
+                  $ref: '#/components/schemas/EnergyBattery'
+                charging:
+                  $ref: '#/components/schemas/EnergyCharging'
+
     
     FuelEnergyConsumption:
-              description: Total consumption for vehicles for thermic vehicle. Expressed L/100Km
+              description: Total consumption for vehicles for thermic vehicle. Expressed in cL.
               type: number
               format: float
               minimum: 0
               
     ElectricResidualEnergy:
-                  description: Residual electric energy (KWh)
+                  description: Residual electric energy (Wh)
                   type: number
                   format: float
                   
@@ -1686,6 +1682,8 @@ components:
             alerts:
               $ref: '#/components/schemas/Link'
             status:
+              $ref: '#/components/schemas/Link'
+            telemetry:
               $ref: '#/components/schemas/Link'
             monitors:
               $ref: '#/components/schemas/Link'
@@ -2166,7 +2164,7 @@ components:
       properties:
         data:
           description: | 
-            The left operand of the trigger function. The following Table details for each operand data its type, the supported operator and the possibly retruned value: 
+            The left operand of the trigger function. The following Table details for each operand data its type, the supported operator and the possibly returned value: 
             
             |**Data**|**Type**|**Op**|**Value**|
             |---|---| ---:| ---:|
@@ -2600,9 +2598,9 @@ components:
                 $ref: '#/components/schemas/Engine'
                             #groupe motopropulseur
             energies:  
-                $ref: '#/components/schemas/Energy'
-            brakingSystem:
-              $ref: '#/components/schemas/BrakingSystem'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Energy'
             transmission:
               $ref: '#/components/schemas/Transmission'
             adas:
@@ -2747,11 +2745,6 @@ components:
                       format: date-time
             - $ref: '#/components/schemas/BasicKinetic'
          
-    BrakingSystem:
-              type: object
-              properties:
-                parking:
-                  type: boolean
                   
     DrivingBehaviorBase:
         type: object
@@ -2946,7 +2939,6 @@ components:
           - vehicle
           - vehicle.adas
           - vehicle.battery
-          - vehicle.brakingSystem
           - vehicle.doorsState
           - vehicle.energies
           - vehicle.engines
@@ -3109,12 +3101,16 @@ components:
         *Timestamp* Point and a *Duration* . All of
         them  should be expressed using the 
         [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) and the interval format
-        is based on
-        [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals):
+        is based on [ISO8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals):
+        
         - 'T1/T2' interval time from low limit T1 to hight T2
+        
         - 'T1/D' interval time from low limit T1 with duration = D ( T2=T1+D)
+        
         - 'T/' endless range, known start Timestamp but no end Timestamp. The current time  will be used as the high time limit.
+        
         - '/T' startless range, known end date but no start date. No lower limit will be used to retrieve results.
+        
         - T is a timestamp and D is a duration  as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt). Example: 
           - *2018-01-01T09:00:00+01:00/2018-01-01T12:00:00+01:00* known low and hight limits.
           - *2018-01-03T12:00:00+01:00/P3Y6M4DT12H30M5S*  known low limit, hight limit = start + duration.

@@ -15,6 +15,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[9.1.0](#910) | WEB API: v3.3.0 & v2.2.0
 [9.0.2](#902) | WebPortal: v1 share of waves & v2 update setting.language
 [9.0.1](#901) | Mobile SDK: add local in pims.authentication.user
 [9.0.0](#900) | Mobile SDK
@@ -83,6 +84,19 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+<hr>
+
+## 9.1.0
+
+{% include published_on.html date='23 Jun 2022' %}
+
+**Webapi:**
+- v2.2.0
+- v3.3.0
+
+**Webportal v2:**
+- remove cea.uin
 
 <hr>
 

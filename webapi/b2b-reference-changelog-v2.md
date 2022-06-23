@@ -12,6 +12,7 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v2.2.0](#b2b_v220) | 2.2.0
 [b2b_v2.1.1](#b2b_v211) | 2.1.1
 [b2b_v2.1.0](#b2b_v210) | 2.1.0
 [b2b_v2.0.8](#b2b_v208) | 2.0.8
@@ -24,6 +25,27 @@ Version|Name
 [b2b_v2.0.3-P3](#b2b_v203-p3) | Align with v3
 [b2b_v2.0.3](#b2b_v203) | Candiate version
 
+
+<hr>
+
+## b2b_v2.2.0
+
+{% include published_on.html date='02 Jun 2022' %}
+
+**API Maintenance:**
+- Fix spelling error on data daysBeforeMaintenance
+
+**Webhook API:**
+- Add missing fleetID in monitor event notification
+
+**Others:**
+- Add missing link telemetry for vehicles APIs
+- Update swagger structure & commentary
+- Change unit of fuel consumption
+- Add energy type hydrogen
+- Change unit of energy.extension.electric.residual
+- Update energy.type description
+- Delete unused battery.current, engines.extension.thermic.scr data & brakingSystem object
 
 <hr>
 

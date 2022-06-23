@@ -2,7 +2,8 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '3.2.0'
+  version: '3.3.0'
+
   title: Groupe PSA Connected Car B2B API
   description: | 
 
@@ -117,12 +118,14 @@ components:
       title: MonitorEvent
       type: object
       properties:
-      
+        fleetId : 
+          description : Identifier of the fleet that raises the event. 
+          type : string
         vin:
           description: Identifier of the vehicle that raises the event.
           type: string  
         eventDate:
-          description: The date on which the event was raised..
+          description: The date on which the event was raised.
           type: string
           format: dateTime
        # position:
@@ -154,6 +157,8 @@ components:
                   - vehicle.kinetic.moving
                   - vehicle.kinetic.speed
                   - vehicle.trip
+                  - vehicle.trip.start
+                  - vehicle.trip.stop
                   - vehicle.maintenance.daysBeforeMaintenance
                   - vehicle.maintenance.mileageBeforeMaintenance
                   - vehicle.safety.beltWarning
@@ -186,7 +191,7 @@ components:
                               description: For this object schema definition (based on the type of field), refere to the API Spec definition.
                     
         extensions:
-          description: Defines the extra vehicle data as specified in the monitor extended eventparam file (see Monitor paramaeter object definition in the API Spec)
+          description: Defines the extra vehicle data as specified in the monitor extended eventparam file (see Monitor parameter object definition in the API Spec)
           type: array
           items:
             type: object
