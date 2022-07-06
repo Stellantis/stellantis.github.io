@@ -6,6 +6,7 @@ menu: false
 section: other
 description: "Stellantis developer portal's version changelog."
 ---
+
 <div class="notification page-disclaimer">
 <p>
     <strong>Changelogs:</strong> This changelog details the history of modifications of this website. 
@@ -15,6 +16,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[9.1.1](#911) | Mobile SDK: fix api ref
 [9.1.0](#910) | WEB API: v3.3.0 & v2.2.0
 [9.0.2](#902) | WebPortal: v1 share of waves & v2 update setting.language
 [9.0.1](#901) | Mobile SDK: add local in pims.authentication.user
@@ -84,6 +86,16 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+<hr>
+
+## 9.1.1
+
+{% include published_on.html date='6 Jul 2022' %}
+
+**Mobile SDK:**
+- pims.authentication.account-isaccountblocked: data isAccountBlocked is an enum, not a bool
+- pims.vehicle.destination-coordinate: address is not a valid param
 
 <hr>
 

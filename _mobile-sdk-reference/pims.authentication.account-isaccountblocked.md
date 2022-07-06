@@ -26,10 +26,13 @@ params:
   example: isAccountBlocked
 data:
 - name: isAccountBlocked
-  type: boolean
+  type: Enum of Strings
   description: Indicates if the user account's is blocked or not.
-  unit-value: n/a
-  example: false
+  unit-value: 
+    - Unknown
+    - PinBlocked
+    - NotBlocked
+  example: NotBlocked
 error:
   - code: 2001
   - code: 2101
