@@ -24,11 +24,23 @@ params:
     description: If this parameter is true, the navigation will be send as soon as the vehicle is connected. Otherwise it will only try once.
     unit-value: n/a
     example: true
-  - ref: location
+  - name: location
     type: Object
     required: true
-    name: location
     description: Destination Location.
+    fields:
+      - name: latitude
+        description: latitude value
+        type: Double
+        unit-value: n/a
+        example: 48.77232
+        required: true
+      - name: longitude 
+        description: longitude value
+        type: Double
+        unit-value: n/a
+        example: 2.2151043
+        required: true
 paramsset_example:
   kotlin: |-
     Pair("action", "coordinate"),
@@ -38,8 +50,6 @@ paramsset_example:
           // coordinates
           Pair("latitude", "48.77232"),
           Pair("longitude", "2.2151043"),
-          // or address
-          Pair("address", "Rte de Gisy, 78140 Vélizy-Villacoublay")
         )
   swift: |-
     "action": "coordinate"
@@ -49,8 +59,6 @@ paramsset_example:
           // coordinates
           "latitude": "48.77232",
           "longitude": "2.2151043",
-          // or address
-          "address": "Rte de Gisy, 78140 Vélizy-Villacoublay"
         ]
 data: 
   - name: status
