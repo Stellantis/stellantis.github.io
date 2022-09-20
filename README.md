@@ -13,7 +13,7 @@ This website is documentation portal including references, tutorials and good pr
 - ☁️ Web API B2C v4     [ [Documentation](https://developer.groupe-psa.io/webapi/b2c/overview/about/) | [References](https://developer.groupe-psa.io/webapi/b2c/api-reference/specification/#article) ] *(not publicly available yet)*
 - 🚙 Embedded Webportal v1     [ [Documentation](https://developer.groupe-psa.io/webportal/v1/overview/about/) | [References](https://developer.groupe-psa.io/webportal/v1/api-reference/list/) ]
 - 🚙 Embedded Webportal v2     [ [Documentation](https://developer.groupe-psa.io/webportal/v2/overview/about/) | [References](https://developer.groupe-psa.io/webportal/v2/api-reference/list/) ]
-- 📱 Mobile SDK *coming soon!*
+- 📱 Mobile SDK      [ [Documentation](https://developer.groupe-psa.io/mobile-sdk/overview/about/) | [References](https://developer.groupe-psa.io/mobile-sdk/references/list/) ]
 
 ## 🚗 Connected Vehicles
 
