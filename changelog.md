@@ -16,6 +16,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[9.2.0](#920) | WEB API: v3.5.0
 [9.1.1](#911) | Mobile SDK: fix api ref
 [9.1.0](#910) | WEB API: v3.3.0 & v2.2.0
 [9.0.2](#902) | WebPortal: v1 share of waves & v2 update setting.language
@@ -86,6 +87,15 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+<hr>
+
+## 9.2.0
+
+{% include published_on.html date='14 Oct 2022' %}
+
+**Webapi:**
+- v3.5.0
 
 <hr>
 
