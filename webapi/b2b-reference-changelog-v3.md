@@ -11,6 +11,9 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v3.5.0](#b2b_v350) | 3.5.0
+[b2b_v3.4.1](#b2b_v341) | 3.4.1
+[b2b_v3.4.0](#b2b_v340) | 3.4.0
 [b2b_v3.3.0](#b2b_v330) | 3.3.0
 [b2b_v3.2.0](#b2b_v320) | 3.2.0
 [b2b_v3.1.1](#b2b_v311) | 3.1.1
@@ -23,6 +26,79 @@ Version|Name
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
 [b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
+
+<hr>
+
+## b2b_v3.5.0
+
+{% include published_on.html date='14 Oct 2022' %}
+
+
+**Status & Telemetry API**
+- Update energies object to include hydrogen motorization
+
+**Telemetry API**
+- Add rgi (recommend gear indicator) in adas object
+
+**Monitor API**
+- Update TimeTrigger structure definition
+
+**Others**
+- Specification bugfixing/optimization (add missing unit, swagger improvements)
+
+
+<hr>
+
+## b2b_v3.4.1
+
+{% include published_on.html date='14 Oct 2022' %}
+
+
+**Alerts API**
+- Update description for startPosition & endPosition
+
+**Telemetry API**
+- Update maxItem for telemetry type parameter
+
+**Monitor API**
+- Set AirConditioning in required state for remote preconditioning
+
+**Others**
+- Add a new enum in adas.parkAssist.rear
+
+<hr>
+
+## b2b_v3.4.0
+
+{% include published_on.html date='14 Oct 2022' %}
+
+**Status API**
+- Delete deprecated extensions : odometer & kinetic
+- Delete deprecated data : engines.oil
+- Add vin & createdAt in required state
+
+**Telemetry API**
+- Delete deprecated extensions : odometer & kinetic
+- Delete deprecated data : engines.oil
+- Add vehicle.wipingBlades enum in type parameter
+
+**Webhook & Monitor**
+- Add vehicle.trip in extendedEventParam list enum
+
+**Maintenance API**
+- Add vin in maintenance response and put it in required state
+- Delete required state for daysBeforeMaintenance & mileageBeforeMaintenance
+- Change updatedAt by createdAt in required state
+
+**Others API**
+- Add mapping for the following data/objects : lightingSystem.fog, drivingBehavior, transmission.gearbox.ratio, engines.thermic.extension.thermic.air, wipingBlades, energy.thermic.extension.comsumptions.instant
+- Deprecated energy.thermic.extension.comsumption which is replaced by energy.thermic.extension.comsumptions
+- Add vin & createdAt in required state
+- Update summary description
+- Add vin & createdAt in required state in Alerts API
+- Delete deprecated reduced in Waypoints API
+- Add id data in required state in Fleet API
+- Add vin & createdAt in required state in Collisions API
 
 <hr>
 

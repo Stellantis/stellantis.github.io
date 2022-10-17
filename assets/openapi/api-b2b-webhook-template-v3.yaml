@@ -2,10 +2,10 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '3.3.0'
-
+  version: '3.5.0'
   title: Groupe PSA Connected Car B2B API
   description: | 
+                # <<```PSA API B2B Webhook template```>>
 
                 # Introduction
   
@@ -199,25 +199,23 @@ components:
               type:
                 type: string
                 description: Speficies the data type of body items. 
-                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.collisions]
+                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.collisions, vehicle.trip]
               body:
                
-                  description: >
-                    The body of the extension is made up of one of the fields below. Each one is expressed as a generic object and the type is the same as the related one in [MPH API SPEC](https://developer.groupe-psa.io/assets/openapi/api-b2b-v3.yaml)  (without ```HAL links``` fields).                      
-                      |  Field | MPH API related data model type  |
+                  description: |
+                    The body of the extension is made up of one of the fields below. Each one is expressed as a generic object and the type is the same as the related one in [MPH API SPEC](https://developer.groupe-psa.io/assets/openapi/api-b2b-v3.yaml)  (without ```HAL links``` fields).      
                     
-                    |value|description|Related model |
-                    |----------|:-------------|------:|
-                    |vehicle.doorsState|Latest know door state (timestamped) before the eventDate|DoorState|
-                    |vehicle.status|Latest know vehicle status (timestamped) before the eventDate|Status|
-                    |vehicle.maintenance|Latest know maintenance(timestamped) before the eventDate|Maintenance|
-                    |vehicle.position|Last vehicle position (timestamped) before the eventDate|Position|
-                    |vehicle.telemetry${.TelemetryEnum}|Latest known telemetry (timestamped) before the eventDate filtered with type|Telemetry
-                    |vehicle.alerts|List of active alerts at the eventDate|Alert|
-                    |vehicle.collisions|Latest collisions information before or at the eventDate|Collision|
+                      |**Value**|**Description**|**Related Model**|
+                      |---|---| ---:|
+                      | vehicle.doorsState | Latest know door state (timestamped) before the eventDate | DoorState |
+                      | vehicle.status | Latest know vehicle status (timestamped) before the eventDate | Status |
+                      | vehicle.maintenance | Latest know maintenance(timestamped) before the eventDate | Maintenance |
+                      | vehicle.position | Last vehicle position (timestamped) before the eventDate | Position |
+                      | vehicle.telemetry${.TelemetryEnum} | Latest known telemetry (timestamped) before the eventDate filtered with type | Telemetry
+                      | vehicle.alerts | List of active alerts at the eventDate | Alert |
+                      | vehicle.collisions | Latest collisions information before or at the eventDate | Collision |
+                      | vehicle.trip |  Trip related to the event that triggers the notification | Trip |
 
-
-                   
                   type: object
                   properties:
                     doorState:
@@ -243,6 +241,9 @@ components:
                     collisions:
                       type: object
                       description: Return the latest collisions (Front/lateral/Rear) status and severity before or at the eventDate
+                    trip: 
+                      type : object
+                      description: Return the trip related to this event
                   
         
         refresh:
