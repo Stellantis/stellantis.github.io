@@ -1,5 +1,5 @@
 ---
-layout: doc-article
+layout: simple-article
 permalink: /credits/
 title: Credits
 on_this_page: false
@@ -25,9 +25,3 @@ description: "Stellantis developer portal's Credits page."
 - [AOS](https://michalsnik.github.io/aos/)
 - [Lunr](https://lunrjs.com/)
 - [draw.io](https://draw.io/)
-
-<style>
-    nav.breadcrumb {
-        display: none;
-    }
-</style>

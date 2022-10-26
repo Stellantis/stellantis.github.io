@@ -1,5 +1,11 @@
 ---
-title: WebPortal.onApplicationHide
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: WebPortal.onApplicationHide
+domain: WebPortal
 supported:
   - 2
   - 3
@@ -9,7 +15,7 @@ type: event
 
 Event triggered when the application loses focus.
 
-### EXAMPLE
+### Example
 
 ```javascript
 window.addEventListener("message", function(event){

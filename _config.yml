@@ -2,16 +2,19 @@
 title: Stellantis for Developers
 name: Stellantis for Developers
 description: Stellantis for Developers is the dedicated platform for application developers working with Stellantis's connected vehicles API and SDKs.
-baseurl: "" # the subpath of the site, e.g. /blog
-url: "https://developer.groupe-psa.io" # the base hostname & protocol for the site, e.g. http://example.com
+# url: "https://pages.github.psa-cloud.com" # the subpath of the site, e.g. /blog
+baseurl: "/p4d00/doc" # the subpath of the site, e.g. /blog
+
+# dev/prod
+environment: "prod"
 
 # github links
-gitHubURL: "https://github.com/GroupePSA/groupepsa.github.io/tree/master/"
-gitHubSpecB2B: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/assets/openapi/api-b2b-webhook-template.yaml"
-gitHubSpecB2C: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/assets/openapi/psacc.yaml"
+gitHubURL: "https://github.psa-cloud.com/p4d00/doc/tree/master/"
+gitHubSpecB2B: "https://github.psa-cloud.com/mph00/Spec/blob/master/spec/api/b2b/api-b2b.yaml"
+gitHubSpecB2C: "https://github.psa-cloud.com/mph00/Spec/blob/master/spec/api/b2c/psacc.yaml"
 
 # doc versionning
-doc-version: "9.2.0"
+doc-version: "10.0.0"
 
 # WEB API BaseURI - theses var have to be renamed without prod/preprod (because we display only one at once)
 webapiB2C: "https://api.groupe-psa.com/connectedcar/v4"
@@ -23,10 +26,14 @@ webapiB2Bv2: "https://api-cert.groupe-psa.com/connectedcar/v2"
 
 collections:
   webportal-nac-reference:
-    output: false
-  webportal-ivi-reference:
+    output: true
+    permalink: /webportal/v1/api-reference/:name
+  webportal-ivi-public-reference:
     output: true
     permalink: /webportal/v2/api-reference/:name
+  mobile-sdk-public-reference:
+    output: false
+    permalink: /mobile-sdk/references/:name
   mobile-sdk-reference:
     output: true
     permalink: /mobile-sdk/references/:name
@@ -48,19 +55,18 @@ exclude:
  - "bin/"
  - "README.md"
  - "Rakefile"
- - "terms-of-use.md"
-
+ 
 plugins:
   - jekyll-redirect-from
 
 links:
-    header:
-    footer:
+  header:
+  footer:
 
 ui:
-    header:
-        color1: "#080331"
-        color2: "#673051"
+  header:
+      color1: "#080331"
+      color2: "#673051"
 
 social:
 
@@ -71,6 +77,7 @@ kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: true
+# highlighter: rouge
 
 permalink: pretty
 

@@ -1,8 +1,9 @@
 # What does its look like?
 
-Our REST api returns type MIME: **application/hal+json**. GeoJson is for geolocation and time format is RFC3339.
+Our REST api returns type MIME: **application/hal+json**, [GeoJson](https://en.wikipedia.org/wiki/GeoJSON) for locations data and [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) for time format.
 
-## Request
+
+## HTTP Request Verb
 
 The Stellantis WEB API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) are based on **REST** principles. Data resources are accessed via standard **HTTPS requests in UTF-8 format** to an API endpoint. Moreover, the Web API uses appropriate HTTP verbs for each action:
 
@@ -34,7 +35,7 @@ The Stellantis WEB API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and
   </tbody>
 </table>
 
-## Response
+## HTTP Response
 
 |Response Code| Meaning|
 |----|----|
@@ -46,6 +47,14 @@ The Stellantis WEB API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and
 |`500`| Internal server error. Sounds like there's a problem on the server. Take it easy, we're on it ;)|
 
 > See [this page]({{site.baseurl}}/webapi/{{page.subsection}}/overview/errors) for more information about errors & rate limit.
+
+## HTTP body format
+
+Most of the time, the response format of the HTTP body is `application/hal+json`.
+
+But in the case of the lastPosition endpoint: `/vehicles/{vid}/lastPosition`.<br> The return format is `application/vnd.geo+json`.
+
+In this case the retuned object does not include the regular fields of this API but follow the GeoJSON specification.
 
 ## Single Object
 
@@ -301,7 +310,7 @@ Stellantis Fleet Owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel
 
 ##### Connect
 
-Stellantis End User API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) utilizes OAuth2 connection, follow this [link]({{site.baseurl}}//connect/) for connection tutorial. {% endif %}
+Stellantis End User API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) utilizes OAuth2 connection, follow this [link]({{site.baseurl}}/webapi/b2c/quickstart/get-started) for connection tutorial. {% endif %}
 
 ##### Monitors
 

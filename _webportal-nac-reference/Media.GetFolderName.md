@@ -1,5 +1,11 @@
 ---
-title: Media.GetFolderName()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Media.GetFolderName()
+domain: Media
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *String*  The current folder name < 255 characters.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //Check the state of the media

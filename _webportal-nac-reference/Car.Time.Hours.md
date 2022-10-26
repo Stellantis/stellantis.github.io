@@ -1,5 +1,11 @@
 ---
-title: Car.Time.Hours()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.Time.Hours()
+domain: Car
 supported:
   - 3
   - 4
@@ -12,7 +18,7 @@ type: api
 | **Response** | *Number*  Hour part of the car time.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //Update the time values
@@ -23,7 +29,7 @@ var CurrentHour = Car.Time.Hours()
 // CurrentHour = 13 hours
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** `Car.GetTime` should always be called before reading time values to make sure all the values are synchronized.
 

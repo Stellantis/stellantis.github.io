@@ -1,5 +1,11 @@
 ---
-title: Car.Time.OffsetUTC()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.Time.OffsetUTC()
+domain: Car
 supported:
   - 3
   - 4
@@ -12,7 +18,7 @@ type: api
 | **Response** | *String*  Offset format is `[-]HHMM`. With `HHMM`: Hours and minutes. And `-` is displayed if timezone is negative. If the timezone is positive, only `HHMM` is displayed. See example below. |
 | **Parameter**   | *Void* |
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //Update the time values
@@ -24,7 +30,7 @@ var CurrentOffset = Car.Time.OffsetUTC()
 // Example 2 - Timezone if positive: CurrentOffset = "0100";
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** `Car.GetTime` should always be called before reading time values to make sure all the values are synchronized.
 

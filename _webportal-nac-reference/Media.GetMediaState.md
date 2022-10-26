@@ -1,5 +1,11 @@
 ---
-title: Media.GetMediaState()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Media.GetMediaState()
+domain: Media
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *Number*  State of the media.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //Check the state of the media
@@ -22,7 +28,7 @@ if (Media.GetMediaState() === 2) {
 }
 ```
 	
-#### REMARK
+#### Remark
 
 The possible values returned are the following:
 

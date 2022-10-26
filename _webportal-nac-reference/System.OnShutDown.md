@@ -1,5 +1,11 @@
 ---
-title: System.OnShutDown
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: System.OnShutDown
+domain: System
 supported:
   - 2
   - 3
@@ -10,7 +16,7 @@ Event triggered when the system is being shut down.
 
 >**Note:** This event is triggered 2 seconds before the system is completely shut down.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try{

@@ -9,7 +9,11 @@ This callback specifies your webhook config, a retry policy and a batch notifica
 
 Here is an overview of an **HTTP request** intended to create a remote callback.
 
-{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/remote/callbacks' apiEndpointB2C='/user/remote/callbacks' referenceURLResssourceB2B ='/#/Remote/setFleetVehicleRemote' referenceURLResssourceB2C ='' displayCURL=false displayApiURL=true httpVerb='POST' httpBody='{
+{% include webapi-curl.md
+   apiEndpointB2B='/fleets/{fid}/remote/callbacks'
+   apiEndpointB2C='/user/remote/callbacks' referenceURLResssourceB2B='setFleetVehicleRemote' referenceURLResssourceB2C='sendRemoteToVhl'
+   httpVerb='POST'
+   httpBody='{
   "retryPolicy": { },
   "batchNotify": { },
   "callback": { },
@@ -88,7 +92,12 @@ The callback have been created with `id=c7eeaafdf0ab9683d5a1b8d51572014996540m00
 Once you have a dedicated callback, you are able to POST a remote action to a vehicle.
 Choose a vehicle id (you can retrieve it with the API status), then send this kind of request:
 
-{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles/{vid}/callbacks/{cbid}/remotes' apiEndpointB2C='/user/vehicles/{vid}/callbacks/{cbid}/remotes' referenceURLResssourceB2B ='/#/Remote/sendRemoteToVhl' referenceURLResssourceB2C ='' displayCURL=false httpVerb='POST' httpBody='{
+{% include webapi-curl.md
+   apiEndpointB2B='/fleets/{fid}/vehicles/{vid}/callbacks/{cbid}/remotes'
+   apiEndpointB2C='/user/vehicles/{vid}/callbacks/{cbid}/remotes' referenceURLResssourceB2B='sendRemoteToVhl'
+   referenceURLResssourceB2C='sendRemoteToVhl'
+   httpVerb='POST'
+   httpBody='{
   "label": "remote_name",
   "door": {
     "state": "Unlocked"

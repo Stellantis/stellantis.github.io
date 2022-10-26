@@ -1,5 +1,11 @@
 ---
-title: Device.GetDistanceUnit()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Device.GetDistanceUnit()
+domain: Device
 supported:
   - 2
   - 3
@@ -12,7 +18,7 @@ type: api
 | **Description** | Gets the currently used distance unit.
 | **Response** | *String*  The distance unit, Possible values are: - km, - miles
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var distanceUnit = Device.GetDistanceUnit()

@@ -29,7 +29,7 @@ To access a specific data or feature of these API, you need to make sure that th
 - At least one of the vehicle **[Connected Vehicle Services scope](#connected-vehicle-services)** subscription contains this data.
 - The vehicle **[privacy settings]({{site.baseurl}}/connected-vehicles/privacy/#article)** should not block the refreshment of the data you want to access.
 - Your developer account has subscribed a **[plan (SLA)](#service-level-agreement)** that fits your needs of request.
-- In the case of Web API B2C v4, the application should have **[access to the vehicle]({{site.baseurl}}/webapi/b2c/quickstart/connect/#article)**.
+- In the case of Web API B2C v4, the application should have **[access to the vehicle]({{site.baseurl}}/webapi/b2c/quickstart/get-started/#article)**.
 - You should set-up your **[authorization](#authorization)** access.
 
 ### Connected Vehicles Services
@@ -50,7 +50,7 @@ Data about your vehicles or your users vehicles are processed and stored in our 
 
 
 > **API B2B V2 & v3:** subscriptions can be made with your contact person in Stellantis.<br>
-**API B2C v4:** more information in this [tutorial]({{site.baseurl}}/webapi/b2c/quickstart/connect/#article).
+**API B2C v4:** more information in this [tutorial]({{site.baseurl}}/webapi/b2c/quickstart/get-started/#article).
 
 ### Authorization
 

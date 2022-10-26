@@ -1,5 +1,11 @@
 ---
-title: Device.GetSoftwareRelease()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Device.GetSoftwareRelease()
+domain: Device
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *String*  Software release.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var Soft = Device.GetSoftwareRelease()

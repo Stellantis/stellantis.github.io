@@ -1,5 +1,11 @@
 ---
-title: HMI.homeBtnClick
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: HMI.homeBtnClick
+domain: HMI
 supported:
   - 2
   - 3
@@ -8,7 +14,7 @@ type: event
 ---
 Event triggered whenever the *Home* button is pressed.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try {

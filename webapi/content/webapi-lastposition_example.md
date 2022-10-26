@@ -1,6 +1,7 @@
 <style>
 html {
   background: rgb(35, 35, 39)!important;
+  margin-top: 6rem;
 }
 
 .p {

@@ -1,5 +1,11 @@
 ---
-title: Car.GetVINCode()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetVINCode()
+domain: Car
 supported:
   - 2
   - 3
@@ -14,14 +20,14 @@ privacy: Geoloc
 | **Response** | *String*  The VIN code.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var VINCode = Car.GetVINCode();
 // VINCode = VF7AAAAAA00000001
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** a VIN code is always 17 characters long.
 

@@ -1,15 +1,22 @@
 ---
-title: WebPortal.cancelBtnPopupRequestClicked
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: WebPortal.cancelBtnPopupRequestClicked
+domain: WebPortal
 supported:
   - 2
   - 3
   - 4
 type: event
+deprecated: true
 ---
 
-Event triggered when the *Cancel* popup [MQTT popup]({{site.baseurl}}/webportal/v1/connectivity/notification/#sending-popup) button is clicked.
+Event triggered when the *Cancel* popup **MQTT popup** button is clicked.
 
-> **Be carefull**: To retrieve this event you have to use [WebPortal.getPendingNotifications()]({{site.baseurl}}/webportal/v1/connectivity/message/#receiving-message) method.
+> **Be carefull**: To retrieve this event you have to use [WebPortal.getPendingNotifications()]({{site.baseurl}}/webportal/v1/api-reference/webportal-getpendingnotifications#article) method.
 
 ```javascript
 //Retrieve pending notification

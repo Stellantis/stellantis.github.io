@@ -10,7 +10,6 @@
 // -------------------------------------------------------------------------------
 
 html {
-    scroll-behavior: smooth;
     background-color: $psa-dark-blue;
 }
 
@@ -87,7 +86,13 @@ hr {
 }
 
 #article, .footer-items {
-    margin: 0 5% 0;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+#article {
+    margin-top: -66px;
+    padding-top: 66px;
 }
 
 .references-nac {
@@ -164,11 +169,20 @@ table code {
     word-wrap: anywhere;
 }
 
+.column.content-column {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    .content {
+        max-width: 950px;
+    }
+}
+
 .content {
+    background-color: #ffffff;
     padding: 0rem 5%;
     padding-bottom: 2.6rem;
     padding-top: 2rem;
-    background-color: #ffffff;
     overflow: hidden;
     flex-grow: 1;
     flex-shrink: 1;
@@ -259,7 +273,9 @@ table code {
 }
 
 
-.content .notification.page-disclaimer {
+
+
+.content .notification {
     margin-top: 1.5rem;
     p {
         margin-bottom: .25rem;
@@ -267,6 +283,17 @@ table code {
     ul {
         margin-top: .25rem;
     }
+}
+
+.content .notification.page-disclaimer {
+    font-weight: 300;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    strong {
+        font-weight: 400;
+    }
+    border: 1px solid lightgrey;
+    background-color: transparent;
 }
 
 .content .container {
@@ -387,7 +414,7 @@ table code {
 .unboxed-page-header {
     letter-spacing: .008rem;
     color: white;
-    padding-top: 13rem;
+    padding-top: 9rem;
     padding-bottom: 7rem;
 }
 
@@ -852,11 +879,7 @@ aside.menu .menu-list {
     line-height: 1.5;
 }
 
-aside.menu .menu-list a::before {
-    content:  "~ ";
-    font-size: 1rem;
-    color: transparent;
-}
+
 
 aside.menu .menu-label.has-list {
     font-weight: 500;
@@ -869,23 +892,6 @@ aside.menu .menu-label.has-list:hover {
     background-color: unset;
 }
 
-
-aside.menu .menu-label.is-active.has-list span::before{
-    content: none;
-}
-
-aside.menu .menu-list .is-active::before {
-    content: "~ ";
-    font-size: 1rem;
-    color: inherit;
-}
-
-
-aside.menu .menu-label.is-active span::before{
-    content: "~ ";
-    font-size: 1rem;
-    color: inherit;
-}
 
 aside.menu .menu-label.is-active {
     color: $psa-light-blue;
@@ -923,6 +929,49 @@ aside.menu .menu-list ul > li > a.is-active {
 
 #on-this-page-container {
     max-width: 260px;
+}
+
+.bd-back-to-ref {
+    color: black;
+    display: block;
+}
+.bd-back-to-ref:hover {
+    color:#2689b5;
+}
+
+
+
+#on-this-page {
+
+    .bd-anchors-title.bd-anchors-api-name {
+        font-size: .9rem;
+        font-weight: 500;
+        text-transform: none;
+        font-family: inherit;
+        letter-spacing: normal;
+        padding-top: .5rem;
+        padding-bottom: 0;
+        overflow-wrap: break-word;
+        &:first-of-type {
+            padding-top: 50px;
+        }
+        a {
+            color: inherit;
+        }
+        a:hover {
+            color: #2689b5;
+        }
+
+    }
+    .bd-anchors-list a:hover {
+        color: #2689b5;
+    }
+}
+
+aside#on-this-page .api-types-aside {
+    .bd-anchors-list a{
+        font-size: .85rem;
+    }
 }
 
 aside#on-this-page {
@@ -991,13 +1040,17 @@ aside#on-this-page {
     color: #b5b5b5;
 }
 
-.bd-anchors-title {
+.bd-anchors-title:first-of-type {
     padding-top: 50px;
+}
+
+.bd-anchors-title {
     padding-bottom: 22px;
     line-height: 1.75rem;
     color: #131313 ;
     font-weight: 500 ;
-    font-size: 1.15rem ; 
+    font-size: 1.15rem ;
+    letter-spacing: -0.03rem;
 }
 
 .bd-anchors-list {
@@ -1086,30 +1139,29 @@ aside#on-this-page {
     padding-right: 0.5rem;
 }
 
-#navbarpsa #lunrsearch{
+#navbarpsa #lunrsearch_redirect{
     transition: all 0.3s ease;
     width: 0%;
 }
 
-
-#navbarpsa #lunrsearch:focus {
+#navbarpsa #lunrsearch_redirect:focus {
     transition: all 0.3s ease;
     color: white;
     border: 1px solid white;
     width: 100%;
 }
 
-#navbarpsa #lunrsearch::placeholder, #navbarpsa #lunrsearch {
+#navbarpsa #lunrsearch_redirect::placeholder, #navbarpsa #lunrsearch_redirect {
     color: whitesmoke;
 }
 
-#navbarpsa #lunrsearch{
+#navbarpsa #lunrsearch_redirect{
     background: inherit;
     border: none;
     box-shadow: none;
 }
 
-#navbarpsa #lunrsearch{
+#navbarpsa #lunrsearch_redirect{
     cursor: pointer;
 }
 
@@ -1185,7 +1237,9 @@ aside#on-this-page {
 
 #navbarpsa .navbar-item{
     border-radius: 2px;
-
+    img {
+        max-height: inherit;
+    }
 }
 #navbarpsa .fa-search {
     text-shadow: none;
@@ -1300,7 +1354,8 @@ background-color: inherit;
         padding: 1rem 0.65rem ;
     }
     #article, .footer-items {
-        margin: 0 2%;
+        margin-right: 2%;
+        margin-left: 2%;
     }
     #navbarpsa #dropdownAPI:hover .navbar-item:hover, #navbarpsa #dropdownAPI .dropdown-title{
         color: white;
@@ -1343,9 +1398,7 @@ background-color: inherit;
     #navbarpsa.bluenavbar .fa-search{
         color: white
     }
-    .control.has-icons-left .icon, .control.has-icons-right .icon {
-        color: white
-    }
+
 
     #navbarpsa .icon {
         margin: 0;
@@ -1356,7 +1409,7 @@ background-color: inherit;
         
     }
 
-    #navbarpsa #lunrsearch {
+    #navbarpsa #lunrsearch_redirect {
         border: 1px solid white;
         width: 100%;
     }
@@ -1426,15 +1479,39 @@ background-color: inherit;
 //                                                                  
 //   ---------------------------------------------------------------
 
-#lunr {
-    margin-top: -67px;
-    padding-top: 67px;
+.lunrsearchresult .title {
+    color: #2689b5;
+}
+
+.lunrsearchresult .url {
+    color: silver;
+}
+
+.lunrsearchresult a {
+    display: block;
+    color: #777;
+}
+
+.lunrsearchresult a:hover,
+.lunrsearchresult a:focus {
+    text-decoration: none;
+}
+
+.lunrsearchresult a:hover .title {
+    text-decoration: underline;
 }
 
 #lunrsearchresults {
     margin-top: 0rem;
     background: #fafafa;
     padding: 0 12%;
+    border-radius: 3px;
+    #txtsearchresult {
+        padding-top: 2.5rem;
+    }
+    ul {
+        padding-bottom: 2.5rem;
+    }
 }
 
 #lunr .lunrsearchresult:last-of-type{
@@ -1452,10 +1529,32 @@ background-color: inherit;
 
 #txtsearchresult {
     padding-top: 20px;
-	padding-bottom: 1rem;
+	padding-bottom: 2rem;
 	color: #374063;
-	font-size: 2rem;
+	font-size: 1.2rem;
     font-weight: 600;
+}
+
+
+.search-page {
+    margin: 10rem 3rem 2rem;
+}
+
+.search-page #search-input {
+    margin-bottom: 2rem;
+}
+
+.search-page #lunrsearch, .search-page .control.has-icons-left .icon {
+    height: 3rem;
+    font-size: 125%
+}
+
+@media screen and (max-width: 500px) {
+
+    .search-page{
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+    }
 }
 
 //  -------------- SELECTION / WELCOME PAGE -------------
@@ -2279,9 +2378,9 @@ h1.use-case-subtitle {
 }
 
 @media screen and (max-width: 650px) {
-
     #article{
-        margin: 0;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
@@ -2322,7 +2421,9 @@ h1.use-case-subtitle {
 
     #article, .footer-items {
         max-width: 1500px;
-        margin: 0 auto 0.5rem;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom:  0.5rem;
     }
 
     #navbarpsa {

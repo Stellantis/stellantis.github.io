@@ -1,5 +1,11 @@
 ---
-title: Navigation.InvalidCoordinates
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Navigation.InvalidCoordinates
+domain: Navigation
 supported:
   - 2
   - 4
@@ -7,7 +13,7 @@ type: event
 ---
 Event triggered when at least one of the coordinates used with `Navigation.LaunchGuidance` is invalid, due to: Type, size...
 
-### EXAMPLE
+### Example
 
 ```javascript
 try{	

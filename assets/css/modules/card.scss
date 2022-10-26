@@ -20,14 +20,37 @@
 
 // ---------- CARD-TRANSPARENT ----------
 
+// ---- NOT AVAILABLE ----
+
+.card.card-transparent.not-available {
+    background-color: lightgrey;
+    border: 2px solid lightgrey;
+    color: grey;
+    .card-title, .card-subtext, .card-text {
+        color: grey;
+    }
+    .card-body {
+        cursor:initial;
+    }
+    &:hover {
+        background: lightgrey;
+        .card-title, .card-subtext, .card-text{
+            color: grey;
+        }
+    }
+}
+
+// ---- end NOT AVAILABLE ---- 
+
 .card.card-transparent {
     transition: background-color .5s ease;
     border: 2px solid white;
     background-color: transparent;
-    height: 260px;
     color: white;
+    height: 260px;
     margin: 0 15px 30px 15px;
         
+
     .card-body, .card-content {
         color: inherit;
     }
@@ -70,6 +93,13 @@
         margin-bottom: 0;
         height: unset;
     
+    }
+
+    .card-subtext {
+        position: absolute;
+        left: 1.5rem;
+        bottom: 1rem;
+        font-size: 1.2rem;
     }
 
     .card-arrow {
@@ -266,9 +296,7 @@ h4.card-title {
     color: inherit;
 }
 @media screen and (max-width: 707px) {
-    .card.card-transparent {
-        height: initial;
-    }
+
 } 
 
 @media screen and (max-width: 779px) {
@@ -280,17 +308,20 @@ h4.card-title {
         .card-image {
             display: none;
         }
+
         
         .card-text, .card-category {
             display: none;
         }
+        .card-header {
+            min-height: unset;
+        }
         h4.card-title {
-            font-size: .9rem;
+            font-size: .8rem;
+            line-height: 1.5;
         }
         .card-arrow {
-            position: absolute;
-            right: 10px;
-            bottom: 10px;
+            position: static;
             width: 18.75px;
             height: 9px;
         }
@@ -306,4 +337,28 @@ h4.card-title {
             font-weight: 500;
         }
     }
+
+    .card.card-transparent {
+        height: initial;
+        border: 1px solid white;
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .card-icon {
+            font-size: .9rem
+        }
+        .card-content {
+            font-size: .9rem;
+            padding: .75rem .75rem .4rem;
+        }
+        .card-text {
+            padding: .25rem 0 0 0;
+        }
+        .card-arrow {
+            width: 17.5px;
+            height: 9px;
+        }
+    }
+
 }

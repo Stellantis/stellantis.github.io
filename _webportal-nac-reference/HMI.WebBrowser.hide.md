@@ -1,5 +1,11 @@
 ---
-title: HMI.WebBrowser.hide
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: HMI.WebBrowser.hide
+domain: HMI
 supported:
   - 2
   - 3
@@ -8,7 +14,7 @@ type: event
 ---
 Event triggered when focus is not on WebPortal.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try {

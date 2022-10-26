@@ -6,7 +6,11 @@ categorie: Security
 title: Authentication
 description: "Perform authentication within mobile SDK."
 require: api-reference
+mobile-sdk-component: BasicAuthentication
 ---
+
+{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+
 
 **Authentication** is the first layer of security in this connected vehicle mobile SDK. This layer of security will log in the user using email & password, this will request and store a token required for **most of this SDK APIs**.
 

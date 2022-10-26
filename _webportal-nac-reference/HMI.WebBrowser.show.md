@@ -1,5 +1,11 @@
 ---
-title: HMI.WebBrowser.show
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: HMI.WebBrowser.show
+domain: HMI
 supported:
   - 2
   - 3
@@ -8,7 +14,7 @@ type: event
 ---
 Event triggered when focus is on the WebPortal browser.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try {

@@ -1,12 +1,18 @@
 ---
-title: Navigation.WebDestinationReached
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Navigation.WebDestinationReached
+domain: Navigation
 supported:
   - 4
 type: event
 ---
 Event triggered when a route launched via `Navigation.LaunchGuidance` or `Navigation.LaunchGuidanceWaypoints` has reached the destination.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try{	

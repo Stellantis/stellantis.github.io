@@ -1,0 +1,112 @@
+---
+layout: article
+title: Search
+permalink: /search/
+description: "Stellantis developer portal Search page."
+section: other
+---
+
+<style>
+.unboxed-page-header{
+  display: none;
+}
+
+.navbar-end {
+  visibility: hidden
+}
+
+</style>
+<div class="search-page">
+
+  <form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <div class="field" id="search-input">
+      <p class="control has-icons-left">
+        <input class="input" id="lunrsearch" maxlength="255" name="q" placeholder="Search" type="text" value="" />
+        <span class="icon is-small is-left">
+          <i class="fas fa-search"></i>
+        </span>
+      </p>
+    </div>
+  </form>
+
+
+  <ul id="lunrsearchresults"></ul>
+
+</div>
+
+<script src="{{ '/assets/js/lunr.js' | prepend: site.baseurl }}"></script>
+
+<script>
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split('&');
+
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split('=');
+
+    if (pair[0] === variable) {
+      return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+    }
+  }
+}
+
+var searchTerm = getQueryVariable('q');
+
+const searchField = document.getElementById("lunrsearch");
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  if (searchTerm) {
+    searchField.value = searchTerm;
+    lunr_search(searchTerm);
+  }
+});
+
+{% assign counter = 0 %}
+var searchIndex = [
+  {% for p in site.pages %}{% if p.url contains '.xml' or p.url contains 'assets' or p.url contains 'json' %} {% else %} {
+  "id": {{ counter }},
+  "url": "{{ site.url }}{{site.baseurl}}{{ p.url }}#article",
+  "title": "{% if p.layout == "api-reference" %}{{ p.name | xml_escape }}{% else %}{{ p.title | xml_escape }}{% endif %}",
+  "body": "{{ p.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
+  }, {% endif %} {% endfor %}
+  ];
+
+var idx = lunr(function () {
+  this.ref('id')
+  this.field('title')
+  this.field('body')
+
+  searchIndex.forEach(function (doc) {
+    this.add(doc)
+  }, this)
+});
+function lunr_search(term) {
+  document.getElementById('lunrsearchresults').innerHTML = '<ul></ul>';
+
+  document.location.href = "#lunr";
+  if (term) {
+    document.getElementById('lunrsearchresults').innerHTML = "<p id='txtsearchresult'>Search results for '" + term + "'</p>" + document.getElementById('lunrsearchresults').innerHTML;
+    //put results on the screen.
+    var results = idx.search(term);
+    if (results.length > 0) {
+      //console.log(idx.search(term));
+      //if results
+      for (var i = 0; i < results.length; i++) {
+        // more statements
+        var ref = results[i]['ref'];
+        var url = searchIndex[ref]['url'];
+        var title = searchIndex[ref]['title'];
+        var body = searchIndex[ref]['body'].substring(0, 160) + '...';
+        if (document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML.indexOf(url) !== -1) {
+        } else {
+          document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'><span class='title'>" + title + "</span><br /><span class='body'>" + body + "</span><br /><span class='url'>" + url + "</span></a></li><br />";
+        }
+      }
+      document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML;
+    } else {
+      document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = "<li class='lunrsearchresult'>No results found...</li>";
+    }
+  }
+  return false;
+}
+</script>

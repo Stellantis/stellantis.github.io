@@ -1,5 +1,11 @@
 ---
-title: Navigation.GetDestination()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Navigation.GetDestination()
+domain: Navigation
 supported:
   - 2
   - 3
@@ -14,7 +20,23 @@ privacy: Public
 | **Response** | *Boolean*  `True` if the value is now correctly stored in `Navigation.Destination`, else `False` if the process failed.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+
+*Navigation*
+
+#### Fields
+
+`Navigation.Destination` is the object where are stored the informations about the destination after a successful call to `Navigation.GetDestination`.
+
+- `Navigation.Destination.Latitude`, *Number* in WGS84 Signed Decimal Degrees
+- `Navigation.Destination.Longitude`, *Number* in WGS84 Signed Decimal Degrees
+- `Navigation.Destination.address`, *String*
+- `Navigation.Destination.Town`, *String*
+- `Navigation.Destination.City`, *String*
+- `Navigation.Destination.Province`, *String* 
+- `Navigation.Destination.Country`, *String*
+
+
+#### Example
 
 ```javascript
 if ( Navigation.GetDestination() === false ) {
@@ -30,8 +52,10 @@ if ( Navigation.GetDestination() === false ) {
 }
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** `Navigation.GetDestination` must always be used before accessing the value stored in `Navigation.Destination`.
+
+>**Note 2:** Some fields like `Province` are not used in some countries so its value will stay empty in such a case.
 
 *Appeared in Software version 40.03.42.30*

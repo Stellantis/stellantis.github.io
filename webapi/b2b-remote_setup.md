@@ -8,5 +8,6 @@ gitHubPath: webapi/content/webapi-remote_setup.md
 categorie: Remote
 title: Set Up
 description: "Learn how to set-up remotes in Fleet Owner API."
+require: api-reference
 ---
 {% include_relative content/webapi-remote_setup.md %}

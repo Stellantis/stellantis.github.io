@@ -1,5 +1,11 @@
 ---
-title: Car.GetDayNightStatus()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetDayNightStatus()
+domain: Car
 supported:
   - 4
 type: api
@@ -11,7 +17,7 @@ type: api
 | **Response** | *Integer*  0 for day, 1 for night.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 // It's noon

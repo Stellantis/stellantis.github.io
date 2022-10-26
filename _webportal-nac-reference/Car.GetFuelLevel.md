@@ -1,5 +1,11 @@
 ---
-title: Car.GetFuelLevel()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetFuelLevel()
+domain: Car
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *Number*  The fuel level of the car in percentage.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var fuelLevel = Car.GetFuelLevel()

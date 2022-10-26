@@ -1,0 +1,83 @@
+<p class="bd-anchors-title aside-main-title">
+  <a 
+   class="bd-back-to-ref"
+   href="{{site.baseurl}}/{{page.section}}{% if page.subsection %}/{{page.subsection}}{% endif %}
+   {%- if page.section == "webportal" %}/api-reference/list/
+   {%- elsif page.section == "mobile-sdk" %}/references/list/
+   {%- endif -%}#article
+   ">
+    <span class="icon is-small">
+      <i class="fas fa-xs fa-arrow-left"></i>
+    </span> Back to Ref List 
+  </a>
+</p>
+<hr>
+<p class="bd-anchors-title">
+  Related References
+</p>
+
+<ul class="bd-anchors-list">
+
+  {% if page.section == "webportal" and page.subsection == "v1" %}
+  <li style="font-weight: 500;" >
+    Methods
+  </li>
+  {% endif %}
+
+  {% for api in site[page.collection] %}
+    {% if api.domain == page.domain and page.section == "webportal" and page.subsection == "v1" and api.type == "api" %}
+      <li>
+          <a 
+            {% if page.url == api.url %}
+            style="color: #2689b5;"
+            {% endif %}
+            href="{{site.baseurl}}{{api.url}}.html#article"
+          >
+            {{api.name}} 
+          </a>
+      </li>
+      {% elsif page.section == "webportal" and page.subsection == "v2" and api.domain == page.domain  %}
+      <li>
+        <a 
+          {% if page.url == api.url %}
+          style="color: #2689b5;"
+          {% endif %}
+          href="{{site.baseurl}}{{api.url}}.html#article"
+        >
+          {{api.name}} 
+        </a>
+      </li>
+      {% elsif  page.section == "mobile-sdk" and api.component == page.component %}
+      <li>
+          <a 
+            {% if page.url == api.url %}
+            style="color: #2689b5;"
+            {% endif %}
+            href="{{site.baseurl}}{{api.url}}.html#article"
+          >
+            {%for type in api.type%}{{type|upcase}}&nbsp;|&nbsp;{%endfor%}{{api.name}}{% if api.subname %}-<em>{{api.subname}}</em>{% endif %}
+          </a>
+      </li>
+      {% endif %}
+  {% endfor %}
+  
+  {% if page.section == "webportal" and page.subsection == "v1" %}
+  <li style="font-weight: 500;" >
+    Events
+  </li>
+
+  {% for api in site[page.collection] %}
+    {% if page.section == "webportal" and page.subsection == "v1" and api.domain == page.domain and api.type == "event" %}
+      <li>
+          <a 
+            {%if page.url == api.url %}
+            style="color: #2689b5;"
+            {% endif %}
+            href="{{site.baseurl}}{{api.url}}.html#article"> {{api.name}} 
+          </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+  
+</ul>
+{% endif %}

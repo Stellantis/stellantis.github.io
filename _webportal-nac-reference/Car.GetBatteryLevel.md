@@ -1,5 +1,11 @@
 ---
-title: Car.GetBatteryLevel()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetBatteryLevel()
+domain: Car
 supported:
   - 4
 type: api
@@ -11,7 +17,7 @@ type: api
 | **Response** | *Number*  Remaining battery percentage.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var BatteryLevel = Car.GetLevel();

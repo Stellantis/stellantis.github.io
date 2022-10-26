@@ -1,81 +1,50 @@
-# Stellantis {% if page.subsection == 'b2b' %}B2B {% elsif page.subsection == 'b2c' %}B2C{% endif %} web API for Citroën, DS, Peugeot, Opel and Vauxhall
 
-This REST API implements various endpoints to retrieve resources from your vehicle. Under certain circumstances you will also be able to remote control some features of your vehicles, like opening the doors or turning AC on!
+This REST API implements various endpoints to **retrieve data** from a vehicle. It's also possible to **remote control** some features of the vehicles, like opening the doors or turning AC on.
 
+## Features
 
-Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) are based on open standards: **OpenAPIv3, JSON, GeoJson & HAL**. Using this You will be able to access a lot of your vehicle data like geolocation, fuel consumption, mileage before maintenance or even remaining time of charge.
+By requesting this api you will have access to various **vehicle features**:
+- 🚗 **Car Data**: Get a user or car general info, like brand, model, fuel type, autonomy, open doors etc.
+- 🛠 **Maintenance**: Stay tuned on car maintenance, time and mileage before maintenance.
+- 💥 **Collision**: Be notified of collisions and where it happened.
+- 🏁 **Trips**: Browse into cars trips, departure point, arrival.
+- ⚠️ **Alerts**: Get history of in-car alerts (oil, engine, breaks etc).
+- 📍 **Location**: Access the vehicle position in real time.
+- 📊 **Telemetrics**: Retrieve and track vehicles telemetrics (speed, fuel level, blinking lights etc).
+- 🕹 **Remote control**: Send remote actions to your vehicle (preconditionning, honk, lights, doors...).
 
-<div class="buttons is-centered">
-  <a href="{{site.baseurl}}{% if page.subsection == 'b2b' %}/webapi/b2b/overview/demo/ {% elsif page.subsection == 'b2c' %}/webapi/b2c/overview/demo/{% endif %}" class="button is-psablue is-medium">
-    <span class="icon is-large is-white">
-    <i class="fas fa-code"></i>
-    </span>&nbsp; &nbsp; &nbsp;Discover demo
-  </a>
-</div>
+> **Direct Request** vs **Monitoring:** 
+- As a REST API, this product allow to request all the data above using **HTTP Request**. 
+- It's possible to configure **Monitors** allowing to receive an event from Stellantis when a pattern is triggered.<br> *(ex: oil level is low)*
 
-# How does it works?
+{% if page.subsection == "b2c" %}
 
-Vehicles are using various sensors which aim to improve security and driving experience.
+## End-Users API Roles
 
-Those sensors provide data that are available in the vehicle infotainment system. If you are interested in embedded application development, you can have a look [at this section]({{ site.baseurl }}/webportal/v1) of this documentation website.
+End Users APIs allows **Application Developers** (Accessing Party) to access vehicle data of their **Users** (Resource Owner) owning **Stellantis** vehicles (ex PSA brands: Citroën, DS, Peugeot, Opel and Vauxhall).
 
-Furthermore, our web API grants you access to this data even outside the car:
+Check-out [Get Started]({{site.baseurl}}}/webapi/b2c/quickstart/get-started/#article) for more information about the full process to access the End Users API.
+
+![b2c-actors]({{site.baseurl}}/assets/images/b2c-actors.svg)
+
+{% endif %}
+
+## How does it works?
+
+Vehicles are using various **sensors** which aim to improve security and driving experience in the vehicle, these data are available for the development of [in-vehicle applications]({{ site.baseurl }}/webportal/) but this Web API provide vehicle data from **outside of the vehicle**.
 
 ![presentation-unified]({{ site.baseurl }}/assets/images/presentation-unified.png)
 
-Sensors are collecting data inside the vehicle and send them to Stellantis via mobile network. Our servers will then **process** these raw data into **unified** and understandable info. Furthermore, cloud storage allow you to access your data at any time even though the vehicle is turned-off.
-
-Everything is processed on our side **(Stellantis)** in order to provide you {% if page.subsection == 'b2b' %}**(Partner)**{% elsif page.subsection == 'b2c' %}**(Developer)**{% endif %} the **same standard data, whatever the type of vehicles** (brand new or older, regular fuel or electric consumption).
-
-# Features
-
-By requesting this api you will have access to various **features**:
-
-<img src="{{ site.baseurl }}/assets/images/presentation-features.png" alt="presentation-features" style="width: 580px">
-
-| <img  alt="icon-history" class="is-paddingless is-marginless" src="{{ site.baseurl }}/assets/images/presentation-history.png" style="width: 50px"> | **History**: trips, telemetrics, notifications and collisions are useful data, maybe you will need to retrieve it, that's why we choose to store those data and allow you to access history. |
-
-|Feature|Description|
-|-|-|
-|**General info**|Get a user or car general info, like brand, model, fuel type.|
-|**Maintenance**|Stay tuned on car maintenance, time and mileage before maintenance.|
-|**Collision**|Be notified of collisions and where it happened.|
-|**Trips**|Browse into cars trips, departure point, arrival.|
-|**Alerts**|Get history of in-car alerts (oil, engine, breaks etc).|
-|**Telemetrics**|Retrieve and track vehicles telemetrics (speed*, location, fuel level, blinking lights etc).|
-|**Remote control**|Send remote actions to your vehicle (preconditionning, honk, lights, doors...)|
-|**Monitor**|Configure car monitoring like notification for car leaving defined area. Click {% if page.subsection == 'b2b' %}[here]({{site.baseurl}}/webapi/b2b/monitor/about/){% elsif page.subsection == 'b2c' %}[here]({{site.baseurl}}/webapi/b2c/monitor/about/){% endif %} to learn more about monitors.|
-|**Status**|Retrieve car status like last position, autonomy, open doors.|
-
-*speed: according to country's legislation.
-
-# Browsing and Alerts
-
-Our API allow you two ways to access vehicles data. You can either browse history or monitor data and receive alerts.
-- **Request & Browse**: this the way API usually operates. Request/response system allow you to retrieve various data of your fleet vehicles (example: model, fuel consumption history).
-
-- **Monitoring**: create your own dedicated monitors using our API. You will get notified every time a parameter changed as you specified (example: vehicle leaving a defined area). Find out more about how to use and configure monitors on this {% if page.subsection == 'b2b' %}[page]({{site.baseurl}}/webapi/b2b/monitor/about/){% elsif page.subsection == 'b2c' %}[page]({{site.baseurl}}/webapi/b2c/monitor/about/){% endif %}.
-
-# Standards
-
-We think that accessing easily and efficiently to vehicle's data is important, that's why  we choose to design our API with up-to-date **open standards**.
-
-Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) are based on [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) principles,  data resources are accessed via standard **HTTPS requests in UTF-8 format**. We use **OpenAPI v3** for specification, **JSON** in order to exchange data between you and your cars and [HAL](https://en.wikipedia.org/wiki/Hypertext_Application_Language) for naviguation.
-
-Also, we use standards for formating: [GeoJson](https://en.wikipedia.org/wiki/GeoJSON) for geolocation data and [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) for time format.
-
-Click {% if page.subsection == 'b2b' %}[here]({{ site.baseurl }}/webapi/b2b/overview/standards/){% elsif page.subsection == 'b2c' %}[here]({{ site.baseurl }}/webapi/b2c/overview/standards/){% endif %} and find out more about technicals standards!
-
-# Data Refreshment
-
-Sensors are gathering all types of interesting data inside cars. First, these data are collected in a dedicated embedded hardware in the vehicle. Then data are sent to Stellantis's cloud via mobile network:
-- **Regular refreshment**:  data are refreshed on a regular basis depending on sensor class and vehicle manufacturing date.
-- **Event refreshment**: internal events happening in the vehicle could lead to a refreshment of some data, for example turn on the car.
-
-> Refreshment rates improves with vehicles bought since 2019.
+If an application require info about a vehicle, appropriate data are **collected & sent** to Stellantis servers via cellular network. This make sure that the data are available whether the vehicle is online or not.
 
 
-![presentation-frequency]({{ site.baseurl }}/assets/images/presentation-frequency.png)
+Data are then **unified & processed**, these steps ensure that thedata provided within this API share the same format in spite of the different types of vehicles and generation,
+
+> **Data Scope:** Only required data are available within this API, check out [data scope]({{site.baseurl}}/webapi/b2c/overview/data-scope/#article).
+
+> **Data Refreshment:** data are refreshed from the vehicle to Stellantis on a **regular basis** (every 1 min before 2019, more frequently after) and also on **vehicle events** *(ex: turning on the vehicle)*.
+
+
 
 # See Also
 

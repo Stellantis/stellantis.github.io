@@ -1,5 +1,11 @@
 ---
-title: Navigation.GetCurrentPosition()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Navigation.GetCurrentPosition()
+domain: Navigation
 supported:
   - 2
   - 3
@@ -14,7 +20,17 @@ privacy: Public
 | **Response** | *Boolean*  `True` If the value is now correctly stored in `Navigation.CurrentPosition`, else `False` if the process failed.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Fields
+
+`Navigation.CurrentPosition` is the object where are stored the informations about the current position after a successful call to `Navigation.GetCurrentPosition`.
+
+- `Navigation.CurrentPosition.address`, *String*
+- `Navigation.CurrentPosition.Town`, *String*
+- `Navigation.CurrentPosition.City`, *String*
+- `Navigation.CurrentPosition.Province`, *String* 
+- `Navigation.CurrentPosition.Country`, *String*
+
+#### Example
 
 ```javascript
 if ( Navigation.GetCurrentPosition === false ) {
@@ -28,8 +44,10 @@ if ( Navigation.GetCurrentPosition === false ) {
 }
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** `Navigation.GetCurrentPosition` must always be used before accessing the value stored in `Navigation.CurrentPosition`.
+
+>**Note 2:** Some fields like `Province` are not used in some countries so its value will stay empty in such a case.
 
 *Appeared in Software version 40.03.42.30*

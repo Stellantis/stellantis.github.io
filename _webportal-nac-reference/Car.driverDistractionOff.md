@@ -1,5 +1,11 @@
 ---
-title: Car.driverDistractionOff
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.driverDistractionOff
+domain: Car
 supported:
   - 2
   - 3
@@ -10,7 +16,7 @@ Event triggered when the distraction status is changed to OFF (hide driver distr
 
 >**Note:** This event is triggered when the speed exceeds 5km/h.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try {

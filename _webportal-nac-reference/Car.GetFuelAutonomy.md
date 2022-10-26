@@ -1,5 +1,11 @@
 ---
-title: Car.GetFuelAutonomy()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetFuelAutonomy()
+domain: Car
 supported:
   - 2
   - 3
@@ -13,14 +19,14 @@ type: api
 | **Response** | *Number*  Remaining fuel autonomy.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var FuelAutonomy = Car.GetFuelAutonomy();
 // FuelAutonomy = 2000 km
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** The Fuel Autonomy's max length is 4 characters.
 

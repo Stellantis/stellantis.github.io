@@ -1,15 +1,22 @@
 ---
-title: WebPortal.onApplicationUpdated
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: WebPortal.onApplicationUpdated
+domain: WebPortal
 supported:
   - 2
   - 3
   - 4
 type: event
+deprecated: true
 ---
 
 Event triggered when the application has been updated.
 
-### EXAMPLE
+### Example
 
 ```javascript
 window.addEventListener("message", function(event){

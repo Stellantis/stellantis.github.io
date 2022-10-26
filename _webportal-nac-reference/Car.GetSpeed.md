@@ -1,5 +1,11 @@
 ---
-title: Car.GetSpeed()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetSpeed()
+domain: Car
 supported:
   - 2
   - 3
@@ -14,14 +20,14 @@ privacy: Geoloc
 | **Response** | *Number*  Speed in km/h
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var Speed = Car.GetSpeed();
 // Speed = 117 km/h
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** The speed's max length is 3 characters.
 

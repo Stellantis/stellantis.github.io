@@ -1,5 +1,11 @@
 ---
-title: Phone.LaunchPhoneCall()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Phone.LaunchPhoneCall()
+domain: Phone
 supported:
   - 2
   - 3
@@ -16,7 +22,7 @@ Parameter | Type | Description | Required
 ----|----|----|----
 `phoneNumber` | String | The phone number to be called, Should be comprised of only Digits and have a length < 16 characters. | Required
 
-#### EXAMPLE
+#### Example
 
 The following example tries to call a phone number and then reacts acordingly to the outcome.
 

@@ -1,5 +1,11 @@
 ---
-title: WebPortal.getCountry()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: WebPortal.getCountry()
+domain: WebPortal
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | `String`  The country's name.
 | **Parameter**   | Void 
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var userCountry = WebPortal.getCountry()

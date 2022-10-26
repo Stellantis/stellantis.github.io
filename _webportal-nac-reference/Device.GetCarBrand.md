@@ -1,5 +1,11 @@
 ---
-title: Device.GetCarBrand()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Device.GetCarBrand()
+domain: Device
 supported:
   - 2
   - 3
@@ -23,7 +29,7 @@ type: api
 
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var carBrand = Device.GetCarBrand()

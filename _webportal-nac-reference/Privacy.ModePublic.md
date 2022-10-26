@@ -1,5 +1,11 @@
 ---
-title: Privacy.ModePublic
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Privacy.ModePublic
+domain: Privacy
 supported:
   - 3
   - 4
@@ -7,7 +13,7 @@ type: event
 ---
 Event triggered when the Public privacy mode is selected.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try {

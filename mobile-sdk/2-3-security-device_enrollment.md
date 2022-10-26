@@ -6,13 +6,16 @@ categorie: Security
 title: Device Enrollment & Account Managment
 description: "How to enroll device into connected vehicle mobile SDK."
 require: api-reference
+mobile-sdk-component: StrongAuthentication
 ---
+
+{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
 
 Device Enrollement is required in order to use [remote commands]({{site.baseurl}}/mobile-sdk/sdk-features/remote-commands/#article) & [vehicle status]({{site.baseurl}}/mobile-sdk/sdk-features/vehicle-status/#article). Check out [Service Activation Steps]({{site.baseurl}}/mobile-sdk/security/service-activation-steps/#article) to get assistance accessing remote command.
 
 This page is a tutorial about Enrollment Process & Account Management:
   - First, the steps by steps describes the **[enrollment process](#what-is-device-enrollment)** of a device: **steps with numbers 1️⃣ to 8️⃣**.
-  - Then, information about **[account management](#account-management)** are available under **letters *A to D*** and steps with numbers 1️⃣, 2️⃣, 4️⃣-2️⃣, 6️⃣, 7️⃣.
+  - Then, information about **[account management](#account-management)** are available under **letters *A to E*** and steps with numbers 1️⃣, 2️⃣, 4️⃣-2️⃣, 6️⃣, 7️⃣.
 
 # What is device enrollment?
 
@@ -576,5 +579,29 @@ The user will receive an SMS Code on their phone, then, you should use the follo
   subname="modifyPhoneNumber"
   request_params_swift=setModifyPhoneNumberSwift
   request_params_kotlin=setModifyPhoneNumberKotlin
+  response="null"
+%}
+
+## **E** - Remove Vehicle Association
+
+In case you need to remove the association between the vehicle and the user account, you should use the following API. This could be useful when the vehicle is being sold.
+
+{%- capture setRemovePropertyKotlin -%}
+  Pair("action", "removeProperty"),
+  Pair("vin", "VR1AB12C3D4567890")
+{%- endcapture -%}
+
+{%- capture setRemovePropertySwift -%}
+  "action": "removeProperty",
+  "vin": "VR1AB12C3D4567890"
+{%- endcapture -%}
+
+{% include api-reference-code-sample.html
+  sdk_name=page.section
+  type="set"
+  name="pims.subscription.vehicle"
+  subname="removeProperty"
+  request_params_swift=setRemovePropertySwift
+  request_params_kotlin=setRemovePropertyKotlin
   response="null"
 %}

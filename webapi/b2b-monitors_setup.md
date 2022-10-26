@@ -8,5 +8,6 @@ title: Set Up
 require: swagger
 gitHubPath: webapi/content/webapi-monitor_setup.md
 description: "Learn how to set-up monitors in Fleet owner API."
+require: api-reference
 ---
 {% include_relative content/webapi-monitor_setup.md %}

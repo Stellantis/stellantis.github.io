@@ -23,22 +23,501 @@
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
     <!-- FONTs -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    {% include require-head.html %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+    {%- comment -%} REQUIRE HEAD {%- endcomment -%}
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    {%- comment -%} ---------------------------- {%- endcomment -%}
+    {%- comment -%} -------- COMPONENTS -------- {%- endcomment -%}
+    {%- comment -%} ---------------------------- {%- endcomment -%}
+    {% assign modules_path="/assets/css/modules/" %}
+    <!-- COMPONENTs CSS -->
+    {%- comment -%} CARD {%- endcomment -%}
+    {% if page.require contains "card" or page.layout == "use-case" or page.layout == "package" or page.layout == "api-data" %}
+    <link rel="stylesheet" href="{{ 'card.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} CTA {%- endcomment -%}
+    {% if page.require contains "cta" or page.layout == "package" %}
+    <link rel="stylesheet" href="{{ 'cta.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} HOMEPAGE {%- endcomment -%}
+    {% if page.require contains "homepage" %}
+    <link rel="stylesheet" href="{{ 'homepage.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} DATA-CATALOG {%- endcomment -%}
+    {% if page.require contains "data-catalog" or page.layout == "api-data" %}
+    <link rel="stylesheet" href="{{ 'data-catalog.css' |  prepend: modules_path| prepend: site.baseurl }}">
+    <link href="https://unpkg.com/tabulator-tables@4.6.3/dist/css/bulma/tabulator_bulma.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.6.3/dist/js/tabulator.min.js"></script>
+    {% endif %}
+    {%- comment -%} WEBAPI-DEMO {%- endcomment -%}
+    {% if page.require contains "webapi-demo" %}
+    <link rel="stylesheet" href="{{ 'webapi-demo.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} WEBAPI-REFERENCE-SPECIFICATION {%- endcomment -%}
+    {% if page.require contains "webapi-reference-specification" %}
+    <link rel="stylesheet" href="{{ 'webapi-reference-specification.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} REFERENCE-LIST {%- endcomment -%}
+    {% if page.require contains "reference-list" %}
+    <link rel="stylesheet" href="{{ 'reference-list.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} API-REFERENCE {%- endcomment -%}
+    {% if page.require contains "api-reference" or page.layout == "api-reference" %}
+    <link rel="stylesheet" href="{{ 'api-reference.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} HIGHLIGHTED-LINK {%- endcomment -%}
+    {% if page.require contains "highlighted-link" or page.layout == "use-case" or page.layout == "package" or page.layout == "compare-packages" %}
+    <link rel="stylesheet" href="{{ 'highlighted-link.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} TAB-CONTENT {%- endcomment -%}
+    {% if page.require contains "tab-content"%}
+    <link rel="stylesheet" href="{{ 'tab-content.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} DROPDOWN-CONTENT {%- endcomment -%}
+    {% if page.require contains "dropdown-content" or page.layout == "api-data" %}
+    <link rel="stylesheet" href="{{ 'dropdown-content.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} API-VERBS {%- endcomment -%}
+    {% if page.require contains "api-verbs" or page.layout == "use-case" or page.layout == "package" %}
+    <link rel="stylesheet" href="{{ 'api-verbs.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} THUMBNAIL {%- endcomment -%}
+    {% if page.require contains "thumbnail" %}
+    <link rel="stylesheet" href="{{ 'thumbnail.css' | prepend: modules_path| prepend: site.baseurl }}">
+    {% endif %}
+    {%- comment -%} ------------------------- {%- endcomment -%}
+    {%- comment -%} -------- LIBRARY -------- {%- endcomment -%}
+    {%- comment -%} ------------------------- {%- endcomment -%}
+    <!-- LIBRARIEs -->
+    {%- comment -%} REDOC {%- endcomment -%}
+    {% if page.require contains "redoc" %}
+    <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"> </script>
+    {% endif %}
+    {%- comment -%} SWAGGER UI {%- endcomment -%}
+    {% if page.require contains "swagger" %}
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/css/swagger-ui.css' | prepend: site.baseurl }}">
+    <link href="{{ '/assets/css/swagger-ui-overrides.css' | prepend: site.baseurl }}" rel='stylesheet' type='text/css'>
+    <script src="{{ '/assets/js/swagger-ui-bundle.js' | prepend: site.baseurl }}"> </script>
+    <script src="{{ '/assets/js/swagger-ui-standalone-preset.js' | prepend: site.baseurl }}"> </script>
+    {% endif %}
+    {%- comment -%}LEAFLET{%- endcomment -%}
+    {% if page.require contains "leaflet" %}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    {% endif %}
+    {%- comment -%} AOS {%- endcomment -%}
+    {% if page.require contains "aos" or page.layout == "use-case" or page.layout == "package" %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    {% endif %}
+    {%- comment -%} TYPED {%- endcomment -%}
+    {% if page.require contains "typed" %}
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    {% endif %}
+    {%- comment -%} END REQUIRE HEAD {%- endcomment -%}
+    
+    
     <!-- SCRIPTs-->
     <script src="{{ '/assets/js/dropdown.js' | prepend: site.baseurl }}"></script>
     <script src="{{ '/assets/js/main.js' | prepend: site.baseurl }}"></script>
-    <script src="{{ '/assets/js/lunr.js' | prepend: site.baseurl }}"></script>
+
     <!-- Matomo-->
     <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
     <!-- End Matomo Code -->
-</head>
-    <body>
-    {% if page.require contains "modal" or page.layout == "compare-packages" %}
-        {% include modal.html %}
+
+<body>
+
+    {%- comment -%} HEADER {%- endcomment -%}
+    {% if page.section == "webapi" %}
+        {% if page.subsection == "b2b" %}
+            {% assign hero_classes = "is-medium hero_api" %}
+            {% capture hero_content %}
+            <h1 class="title section-title">WEB API</h1>
+            <h2 class="title">for fleet owner</h2>
+            {% endcapture %}
+        {% elsif page.subsection == "b2c" %}
+            {% assign hero_classes = "is-medium hero_api" %}
+            {% capture hero_content %}
+            <h1 class="title section-title">WEB API</h1>
+            <h2 class="title">for end-users</h2>
+            {% endcapture %}
+        {% else %}
+            {% assign hero_classes = "is-medium hero_api" %}
+            {% capture hero_content %}
+            <h1 class="title section-title">WEB API</h1>
+            <h2 class="title">fleet-owner or end-user</h2>
+            {% endcapture %}
+        {% endif %}
+    {% elsif page.section == "webportal" %}
+        {% if page.subsection == "v1" %}
+            {% assign hero_classes = "is-medium hero_webportal" %}
+            {% capture hero_content %}
+            <h1 class="title section-title section-title">Webportal v1</h1>
+            <h2 class="title">embedded apps</h2>
+            {% endcapture %}
+        {% elsif page.subsection == "v2" %}
+            {% assign hero_classes = "is-medium hero_webportal" %}
+            {% capture hero_content %}
+            <h1 class="title section-title section-title">Webportal v2</h1>
+            <h2 class="title">embedded apps</h2>
+            {% endcapture %}
+        {% else %}
+            {% assign hero_classes = "is-medium hero_webportal" %}
+            {% capture hero_content %}
+            <h1 class="title section-title section-title">Webportal</h1>
+            <h2 class="title">embedded apps</h2>
+            {% endcapture %}
+        {% endif %}
+    {% elsif page.section == "mobile-sdk" %}
+        {% if page.subsection == "ios" %}
+            {% assign hero_classes = "is-medium hero_ios" %}
+            {% capture hero_content %}
+            <h1 class="title section-title">Mobile SDK</h1>
+            <h2 class="title">for iOS</h2>
+            {% endcapture %}
+        {% elsif page.subsection == "android" %}
+            {% assign hero_classes = "is-medium hero_android" %}
+            {% capture hero_content %}
+            <h1 class="title section-title">Mobile SDK</h1>
+            <h2 class="title">for android</h2>
+            {% endcapture %}
+        {% else %}
+            {% assign hero_classes = "is-medium hero_ios" %}
+            {% capture hero_content %}
+            <h1 class="title section-title">Mobile SDK</h1>
+            <h2 class="title">iOS or Android</h2>
+            {% endcapture %}
+        {% endif %}
+    {% elsif page.title == "404" %}
+        {% assign hero_classes = "is-fullheight hero_404" %}
+        {% capture hero_content %}
+        <div class="container">
+            <div class="columns">
+            <div class="column">
+                <h1 class="title section-title">404</h1>
+                <h1 class="title section-title">Page not</h1>
+                <h1 class="title section-title">Found</h1>
+            </div>
+            <div class="column" style="display: flex; flex-direction: column; justify-content: space-evenly;">
+                <p class="hero-para is-size-4" style="text-shadow: 2px 2px 4px #000000">It seems that we are unable to find this page. <br> We apologise for the inconvenience.
+                </p>
+                <a href="{{site.baseurl}}/" class="button is-psablue is-medium">
+                    <span>
+                        BACK TO HOMEPAGE
+                    </span>
+                </a>
+            </div>
+            </div>
+        </div>
+        {% endcapture %}
+    {% elsif page.permalink == "/"  %}
+        {% assign hero_classes = "is-fullheight hero_main home-page"%}
+        {% capture hero_content %}
+            <div class="landing-title">
+                <h1 id="typed-header-1" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
+            </div>
+            <div class="landing-title">
+                <h1 id="typed-header-2" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
+            </div>
+            <div class="landing-title">
+                <h1 id="typed-header-3" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
+            </div>
+            <div class="landing-title">
+                <h1 id="typed-header-4" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
+            </div>
+        {% endcapture %}
+    {% else %}
+        {% assign hero_classes = "no-header-body" %}
     {% endif %}
+    <section class="hero hero-header {{hero_classes}}">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar {% unless page.permalink == "/" or page.name == "404.md" %}is-fixed-top{% endunless %}" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{{site.baseurl}}/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="{{site.baseurl}}/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            {% for section in site.data.sections %}
+                {% unless section.tag == "other" %}
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link {% if page.url contains section.tag  %}is-active{% endif %}" href="{{site.baseurl | append: section.path }}">
+                        <span class="icon is-large is-white">
+                            <i class="{{section.icon}}"></i>
+                        </span>
+                        <span class="section-name">
+                            {{ section.name | replace: " ", "&nbsp;<br class='is-hidden-touch'>" }}
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        {% for subsection in section.subsections %}
+                            {%- if subsection.tag -%}
+                            <p href="{{site.baseurl}}{{section.path}}{{subsection.path}}#article" class="navbar-item dropdown-title {% if subsection.tag == page.subsection %}is-default is-active{% endif %}" id="{{subsection.tag}}" onclick="navClick(document.getElementById('{{subsection.tag}}'), '{{subsection.tag}}');">
+                                <span>
+                                    {% if subsection.tag == "ios" %}iOS{% else %}{{subsection.nameUpcase}}{% endif %}
+                                </span>
+                                <span>
+                                    <svg class="arrow {% if subsection.tag == page.subsection %}arrow-down{% else %}arrow-right{% endif %}" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            {% endif %}
+                            {% for categorie in subsection.categories %}
+                                {%- if categorie.name -%}
+                                    {%- assign page_link = section.path | append: subsection.path | append: categorie.path -%}
+                                    <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: categorie.pages[0].path}}#article">
+                                        {{categorie.name }}
+                                    </a>
+                                {%- else -%}
+                                    {% for p in categorie.pages %}
+                                        {%- assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path -%}
+                                        <a id="{{subsection.tag}}" class="{% if page.subsection == subsection.tag %} is-default-subsection {% endif %} navbar-item {% if page.permalink contains page_link %}is-active{% endif %}" href="{{ site.baseurl | append: section.path | append: subsection.path | append: categorie.path | append: p.path}}#article">
+                                            {{p.name }}
+                                        </a>
+                                    {% endfor %}
+                                {%- endif -%}
+                            {%- endfor -%}
+                            {%- if forloop.last == false -%}
+                                <hr class="navbar-divider">
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </div>
+                </div>
+                {% endunless %}
+            {% endfor %}
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="{{site.baseurl}}/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+{% if page.permalink == "/" %}
+document.querySelector("#navbarpsa .navbar-menu .navbar-start .navbar-item:first-child > a").classList.add("is-active");
+{% endif %}
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    {% unless page.permalink == "/" or page.name == "404.md" %}
+    window.onscroll = function() {scrollFunction()};
+    {% endunless %}
+
+        function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+        document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+        document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+</script>
+
+        </div>
+        {% unless hero_classes=="no-header-body" %}
+        <div class="hero-body">
+            <div class="container">
+            {{hero_content}}
+            </div>
+        </div>
+        {% endunless %}
+    </section>
+    {%- comment -%} END HEADER {%- endcomment -%}
+
     {{content}}
-    {% include require-end_body.html %}
+
+    {%- comment -%} FOOTER {%- endcomment -%}
+    <footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="{{site.baseurl}}/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v{{site.doc-version}}
+            </a>
+            <a class="footer-link" href="{{site.baseurl}}/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="{{site.baseurl}}/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis {{ 'now' | date: "%Y" }}
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="{{site.baseurl}}/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="{{site.baseurl}}/webapi/b2c/">API End User</a>
+            <a class="footer-link" href="{{site.baseurl}}/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="{{site.baseurl}}/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="{{site.baseurl}}/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.groupe-psa.com/en/">PSA Groupe</a>
+            <a class="footer-link" href="https://developer.groupe-psa.com/">API Subscription</a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-twitter"></i>
+            </span>
+            <span>
+                Twitter
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/GroupePSA" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer>
+    {%- comment -%} END FOOTER {%- endcomment -%}
+
+    {%- comment -%} REQUIRE END {%- endcomment -%}
+    {%- comment -%} AOS {%- endcomment -%}
+    {% if page.require contains "aos" or page.layout == "use-case" or page.layout == "package" %}
+    <script src="{{ '/assets/js/aos.js' | prepend: site.baseurl | prepend: site.url }}"></script>
+    {% endif %}
+    {%- comment -%} REFERENCE-LIST {%- endcomment -%}
+    {% if page.require contains "reference-list" %}
+    <script src="{{ '/assets/js/reference-list.js' | prepend: site.baseurl | prepend: site.url }}"> </script>
+    {% endif %}
+    {%- comment -%} API-REFERENCE {%- endcomment -%}
+    {% if page.layout == "api-reference" or page.require contains "api-reference" %}
+    <script type="text/javascript" src="{{ 'api-reference.js' | prepend: "/assets/js/" | prepend: site.baseurl }}"></script>
+    {% endif %}
+    {%- comment -%} END REQUIRE END {%- endcomment -%}
+
     </body>
 </html>

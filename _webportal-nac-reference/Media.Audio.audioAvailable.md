@@ -1,5 +1,11 @@
 ---
-title: Media.Audio.audioAvailable
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Media.Audio.audioAvailable
+domain: Media
 supported:
   - 2
   - 3
@@ -8,7 +14,7 @@ type: event
 ---
 Event triggered when the audio source is connected.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try{

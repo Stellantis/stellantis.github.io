@@ -2,10 +2,10 @@
 # In order to import this stlye, import it with 'require: ' in the page front matter.
 ---
 
-html {
-  scroll-behavior: unset;
+.hero-header {
+  z-index: 2;
+  position: relative;
 }
-
 
 h1, h2, h3, h4, h5 {
   padding-top: inherit;
@@ -96,14 +96,6 @@ font-size: inherit;
     display: inherit;
 }
 
-#lunr {
-    padding-top: 0;
-    margin-top: 0;
-}
-
-#txtsearchresult {
-    padding-top: 80px;
-}
 
 .is-spec-content{
     padding-bottom: 2.5rem;

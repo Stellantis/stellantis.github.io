@@ -4,7 +4,9 @@ layout: article
 
 <div class="content">
     <div>
+        {% unless page.section == "other" %}
         {% include content-header.html %}
+        {% endunless %}
         {{content}}
     </div>
 </div>

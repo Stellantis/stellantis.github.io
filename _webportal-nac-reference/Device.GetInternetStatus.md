@@ -1,5 +1,11 @@
 ---
-title: Device.GetInternetStatus()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Device.GetInternetStatus()
+domain: Device
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *Boolean*  `True` if the connection is up, else `False`.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var Myvar = setInterval(MyFunction,  30000);

@@ -8,10 +8,12 @@
   </ul>
 </div>
 
-{% include data-catalog-table.html %}
-
 <div class="data-header">
-
+  <div class="data-count"> 
+    <span style="color:#102D4F;font-size:12px;font-family:Arial, Helvetica, sans-serif">
+      Showing <span id="search_count"></span> results in total <span id="total_count"></span> 
+    </span>
+  </div>
   <div class="table-header-search-and-reset"> 
     <div class="data-header-search field ">
       <p class="control has-icons-left">
@@ -50,8 +52,7 @@
 
     
     <fieldset class="table-header-versions">
-      
-      <!-- <div class=""> -->
+    
         <div class="table-header-api"> 
           <div class="table-header-api-title">
             <span class="tag">
@@ -64,13 +65,14 @@
             </span>
           </div>
           <div class="table-header-api-available"> 
-            
+
+
             <div class="table-header-version">
-              <input type="checkbox" onclick="handleCheckboxAPI(this);" checked="true" id="webportal_v1" name="api" value="webportal_v1">
+              <input type="checkbox" class="api-version-checkbox" checked="true" id="webportal_v1" name="api" value="webportal_v1">
               <label>Webportal v1</label>
             </div>
             <div class="table-header-version">
-              <input type="checkbox" onclick="handleCheckboxAPI(this);" checked="true" id="webportal_v2" name="api" value="webportal_v2">
+              <input type="checkbox" class="api-version-checkbox" checked="true" id="webportal_v2" name="api" value="webportal_v2">
               <label>Webportal v2</label>
             </div>
           </div>            
@@ -78,7 +80,7 @@
 
 
 
-      <div class="table-header-api"> 
+      <div class="table-header-api">
       
         <div class="table-header-api-title">
           <span class="tag">
@@ -93,15 +95,15 @@
 
         <div class="table-header-api-available">
           <div class="table-header-version">
-            <input type="checkbox" onclick="handleCheckboxAPI(this);" checked="true" id="webapi_b2b_v2" name="api" value="webapi_b2b_v2">
+            <input type="checkbox" class="api-version-checkbox" checked="true" id="webapi_b2b_v2" name="api" value="webapi_b2b_v2">
             <label>Web API B2B v2</label>
           </div>
           <div class="table-header-version">
-            <input type="checkbox" onclick="handleCheckboxAPI(this);" checked="true" id="webapi_b2b_v3" name="api" value="webapi_b2b_v3">
+            <input type="checkbox" class="api-version-checkbox" checked="true" id="webapi_b2b_v3" name="api" value="webapi_b2b_v3">
             <label>Web API B2B v3</label>
           </div>
           <div class="table-header-version">
-            <input type="checkbox" onclick="handleCheckboxAPI(this);" checked="true" id="webapi_b2c_v4" name="api" value="webapi_b2c_v4">
+            <input type="checkbox" class="api-version-checkbox" checked="true" id="webapi_b2c_v4" name="api" value="webapi_b2c_v4">
             <label>Web API B2C v4</label>
           </div>
         </div> 
@@ -118,7 +120,8 @@
 
 
 
-<div id="data-catalog"></div>
+<div id="data-catalog">
+</div>
 
 <script>
 var currentSearchTerm;
@@ -317,20 +320,30 @@ var highlightRow = function(e, row){
     if (currentRow) {
       currentRow.classList.remove("data-item-highlighted");
     }
+    console.log(row.getData().ID)
     currentRow = rowElement;
     currentRow.classList.add("data-item-highlighted");
   }
 }
 
 var table = new Tabulator("#data-catalog", {
-	data:dataCatalog,           //load row data from array
-	movableColumns:false,      //allow column order to be changed
-	resizableRows:false,       //allow row order to be changed
-  resizableColumns:false,       //allow row order to be changed
+	ajaxURL:"{{site.url}}{{site.baseurl}}/assets/data-catalog-table.json",
+  ajaxLoaderLoading:"<progress class='progress is-medium is-dark' max='100'>45%</progress>",
+	movableColumns:false,
+	resizableRows:false, 
+  resizableColumns:false, 
   selectable:false,
   layout:"fitColumns",
   headerSort: false,
   rowClick: highlightRow,
+  dataFiltered: function(filters, rows) {
+    var el = document.getElementById("search_count");
+    el.innerHTML = rows.length;
+  },
+  dataLoaded: function(data) {
+    var el = document.getElementById("total_count");
+    el.innerHTML = data.length;
+  },
   columns:
     [
       {% unless page.subsection == "api-data" %}
@@ -407,16 +420,44 @@ var table = new Tabulator("#data-catalog", {
 table.setFilter("domain", "like", "{{page.search-catalog-keyword}}")
 {% endif %}
 
+const searchField = document.getElementById("data-header-search-area");
 
+// ------- CHECKBOXES FILTER ---------
+var checkboxesState = {
+  "webportal_v1": "#",
+  "webportal_v2": "#",
+  "webapi_b2b_v2": "#",
+  "webapi_b2b_v3": "#",
+  "webapi_b2c_v4": "#"
+},
+currentFilter = false;
 
-function handleCheckboxAPI(api) {
-  if (!api.checked) {
-    table.addFilter(api.value, "=", "");
-  }
-  if (api.checked) {
-    table.removeFilter(api.value, "=", "");
-  }
-}
+document.addEventListener("DOMContentLoaded",  function() {
+  checkboxesElements = document.querySelectorAll(".api-version-checkbox");
+  checkboxesElements.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      if (currentFilter) { table.removeFilter(currentFilter) }
+      if (this.checked) {
+        checkboxesState[this.value] = "#";
+      } else {
+        checkboxesState[this.value] = "@@@@@@";
+      }
+      currentFilter = 
+        [{field:"name",type:"!=",value:""},
+          [
+            {field:"webportal_v1", type:"like", value:checkboxesState["webportal_v1"]},
+            {field:"webportal_v2", type:"like", value:checkboxesState["webportal_v2"]},
+            {field:"webapi_b2b_v2", type:"like", value:checkboxesState["webapi_b2b_v2"]},
+            {field:"webapi_b2b_v3", type:"like", value:checkboxesState["webapi_b2b_v3"]},
+            {field:"webapi_b2c_v4", type:"like", value:checkboxesState["webapi_b2c_v4"]}
+          ]
+        ]
+      table.addFilter(currentFilter)
+    });
+  });
+})
+
+// ------- end CHECKBOXES FILTER ---------
 
 function handleFilterDropdown(dropdown) {
   if (dropdown.classList.contains("table-header-filter-displayed")) {
@@ -434,9 +475,37 @@ function resetTabulatorFilter() {
   document.querySelectorAll(".table-header-version input").forEach(e => {
     e.checked = true;
   });
-
-  document.querySelector("#data-header-search-area").value = null;
+  searchField.placeholder = "Search in table";
+  searchField.value = null;
   table.clearFilter(true);
 }
 
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+var search = urlParams.get('search')
+var categories = urlParams.get('removed_categories');
+
+
+
+if (search) {
+  searchField.placeholder = search;
+  search = search.split(",").map(function(item) {return parseInt(item, 10);});;
+  table.addFilter("ID", "in", search);
+}
+if (categories) {
+  window.addEventListener("DOMContentLoaded", function () {
+      categories = categories.split(",");
+      const dropdownElement = document.querySelector(".table-header-filter-dropdown");
+      categories.forEach(category => {
+        if (categoryElement = document.querySelector("#"+category)) {
+          categoryElement.click();
+        }
+      });
+      if (categories != false) {
+        handleFilterDropdown(dropdownElement);
+      }
+  });
+}
+
 </script>
+

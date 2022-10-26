@@ -1,5 +1,11 @@
 ---
-title: Device.GetSpeedUnit()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Device.GetSpeedUnit()
+domain: Device
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *String*  The speed unit, Possible values are: - km/h, - mph
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var speedUnit = Device.GetSpeedUnit()

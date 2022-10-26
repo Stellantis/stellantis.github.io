@@ -1,5 +1,11 @@
 ---
-title: Car.GetMileage()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetMileage()
+domain: Car
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *Number*  The mileage of the car in kilometers, length is 9 characters max.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var carMileage = Car.GetMileage()

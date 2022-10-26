@@ -1,5 +1,12 @@
 ---
-title: WebPortal.nativePopup.evt.ok
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: WebPortal.nativePopup.evt.ok
+deprecated: true
+domain: WebPortal
 supported:
   - 2
   - 3
@@ -7,9 +14,9 @@ supported:
 type: event
 ---
 
-Event triggered when the *OK* button of the [native popup](#api-WebPortal-nativePopup-open) is clicked.
+Event triggered when the *OK* button of the [ popup]({{site.baseurl}}/webportal/v1/api-reference/webportal-popup-open#article) is clicked.
 
-### EXAMPLE
+### Example
 
 ```javascript
 window.addEventListener("message", function(event){
@@ -21,10 +28,10 @@ window.addEventListener("message", function(event){
 
 	    switch(type){
 
-	    //When the *OK* button of the native popup is clicked.
-	    case "WebPortal.nativePopup.evt.ok":
-		console.log("The *OK* button of the native popup is clicked");
-		alert("The *OK* button of the native popup is clicked");
+	    //When the *OK* button of the  popup is clicked.
+	    case "WebPortal.popup.evt.ok":
+		console.log("The *OK* button of the  popup is clicked");
+		alert("The *OK* button of the  popup is clicked");
 		break;
 
 	    }

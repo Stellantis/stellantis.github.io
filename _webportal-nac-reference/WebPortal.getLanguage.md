@@ -1,5 +1,11 @@
 ---
-title: WebPortal.getLanguage()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: WebPortal.getLanguage()
+domain: WebPortal
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | `String`  The language in the following format: "en-GB".
 | **Parameter**   | Void 
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var userLanguage = WebPortal.getLanguage()

@@ -1,5 +1,11 @@
 ---
-title: Radio.GetFrequency()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Radio.GetFrequency()
+domain: Radio
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *Number*  Frequency currently selected.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //Get the Radio Frequency
@@ -21,7 +27,7 @@ var MyFrequency1 = Radio.GetFrequency()
 // MyFrequency1 = 89800 kHz
 ```
 	
-#### REMARK
+#### Remark
 
 >**Note:** The interval of values returned depends on the band that is being used.
 
