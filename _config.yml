@@ -2,16 +2,13 @@
 title: Stellantis for Developers
 name: Stellantis for Developers
 description: Stellantis for Developers is the dedicated platform for application developers working with Stellantis's connected vehicles API and SDKs.
-# url: "https://pages.github.psa-cloud.com" # the subpath of the site, e.g. /blog
-baseurl: "/p4d00/doc" # the subpath of the site, e.g. /blog
-
-# dev/prod
-environment: "prod"
+baseurl: "" # the subpath of the site, e.g. /blog
+url: "https://developer.groupe-psa.io" # the base hostname & protocol for the site, e.g. http://example.com
 
 # github links
-gitHubURL: "https://github.psa-cloud.com/p4d00/doc/tree/master/"
-gitHubSpecB2B: "https://github.psa-cloud.com/mph00/Spec/blob/master/spec/api/b2b/api-b2b.yaml"
-gitHubSpecB2C: "https://github.psa-cloud.com/mph00/Spec/blob/master/spec/api/b2c/psacc.yaml"
+gitHubURL: "https://github.com/GroupePSA/groupepsa.github.io/tree/master/"
+gitHubSpecB2B: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/assets/openapi/api-b2b-webhook-template.yaml"
+gitHubSpecB2C: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/assets/openapi/psacc.yaml"
 
 # doc versionning
 doc-version: "10.0.0"
