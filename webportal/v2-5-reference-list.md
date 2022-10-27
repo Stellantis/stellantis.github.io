@@ -4,7 +4,6 @@ permalink: /webportal/v2/api-reference/list/
 section: webportal
 subsection: v2
 title: References
-on_this_page: false
 require: reference-list
 categorie: API Reference
 gitHubPath: _webportal-ivi-public-reference/
@@ -16,9 +15,8 @@ redirect_from:
   - /webportal/v2/reference/list/
 ---
 
-
 <div class="notification page-disclaimer">
-   This list of references allows browsing Stellantis for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall): <strong>Webportal v2 API</strong>. These API can be available as  <a href="{{site.baseurl}}/webportal/v2/quickstart/get-set-subscribe/#article">get, set or subscribe</a>:
+   This list of references allows browsing Stellantis for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall): <strong>Webportal v2 API</strong>. These API can be available as  <a href="{{site.baseurl}}/webportal/v2/application/quickstart/#vehicle-apis">get, set or subscribe</a>:
   <ul>
     <li>
       <strong>Get</strong> 
@@ -33,57 +31,16 @@ redirect_from:
       receive a notification event in a specific condition.<em> ex: subscribe to navigation.destinationReached will trigger an event when the navigation destination is reached</em>
     </li>
   </ul>
-  Depending of the current <a href="{{site.baseurl}}/webportal/v2/overview/privacy/#article">privacy</a> choosen by the vehicle driver int the HMI, API can be available or not:
-  <ul>
-    <li>
-      <em>
-        <span class="icon is-white">
-          <i class="fas fa-long-arrow-alt-down" style="font-size: .9rem;"></i>
-          <i class="fas fa-long-arrow-alt-up" style="font-size: .9rem;"></i>
-        </span>
-        <span>
-          Data &amp;
-        </span>
-        <span class="icon is-white" style="font-size: .9rem;">
-          <i class="fas fa-map-marker-alt"></i>
-        </span>
-        <span>
-          Location:
-        </span>
-      </em>  
-      &nbsp; this API require all access to be granted.
-    </li>
-    <li>
-      <em>
-        <span class="icon is-white" style="font-size: .9rem;">
-          <i class="fas fa-map-marker-alt"></i>
-        </span>
-        <span>
-          Location:
-        </span>
-      </em>  
-      &nbsp; this API require at least location to be activated.
-    </li>
-    <li>
-      <span class="icon is-white" style="font-size: .9rem;">
-        <i class="fas fa-lock-open"></i>
-      </span>
-      <em>
-        None:
-      </em>
-      &nbsp; this API is always available even in plane mode.
-    </li>
-  </ul>
+  {% include_relative content/reference-privacy-description.html %}
 </div>
-<hr>
 
 <div class="reference-domain">
 
   {% include 
     api-reference-list.html 
     sdk_name="webportalv2"
-    githubFolder="_webportal-ivi-reference/"
-    apis=site.webportal-ivi-reference
+    githubFolder="_webportal-ivi-public-reference/"
+    apis=site.webportal-ivi-public-reference
   %}
 
 </div>

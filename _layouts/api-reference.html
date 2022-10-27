@@ -3,9 +3,82 @@ layout: doc-article
 ---
 {% assign sdk_name = page.section | append: page.subsection %}
 
-
 {%- comment -%} API {%- endcomment -%}
 <div class="api">
+
+  {% if page.section == "webportal" and page.subsection == "v1" %}
+  {%- comment -%} ------------------------------- {%- endcomment -%}
+  {%- comment -%} -------- NAC REFERENCE -------- {%- endcomment -%}
+  {%- comment -%} ------------------------------- {%- endcomment -%}
+    <div class="api-title">
+      {% assign id = page.name | replace: '.', '-' | remove: '()' %}
+      <h2 id="{{page.type}}-{{id}}">{{ page.name }}</h2>
+    </div>
+    
+    <div class="field is-grouped is-grouped-multiline">
+
+    {% if page.type == "api" or page.type == "event" %}
+      <div class="control">
+        <div class="tags has-addons">
+          <span class="tag is-dark">Type</span>
+          <span class="tag is-success">
+            {% if page.type == "api" %}Method
+            {% elsif page.type == "event" %}Event
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    {% endif %}
+  
+
+      {% if page.type == "api" %}
+        <div class="control">
+          <div class="tags has-addons">
+            <span class="tag is-dark">Min Privacy</span>
+            <span class="tag is-link">
+                {% if page.privacy %}
+                    {{ page.privacy }}
+                {% else %}
+                    Full
+                {% endif %}
+            </span>
+          </div>
+        </div>
+      {% endif %}
+
+
+      {% if page.deprecated == true %}
+      <div class="control">
+        <div class="tags has-addons" title="This API should not be used in a new project.">
+          <span class="tag is-dark">Type</span>
+          <span class="tag is-danger">
+            Deprecated
+          </span>
+        </div>
+      </div>
+      {% endif %}
+
+
+      {% for wave in page.supported %}
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag is-dark">wave</span>
+              <span class="tag is-info">{{ wave }}</span>
+            </div>
+          </div>
+      {% endfor %}
+    
+    </div>
+    <p>
+      {{ page.content | markdownify }}
+    </p>
+    {% if page.deprecated %}<em>This {%if page.type == "api"%}method{%elsif type == "event"%}event{%endif%} is <strong>deprecated</strong>, it should not be used in a new project.</em>{% endif %}
+  {%- comment -%} ------------------------------- {%- endcomment -%}
+  {%- comment -%} ------ END NAC REFERENCE ------ {%- endcomment -%}
+  {%- comment -%} ------------------------------- {%- endcomment -%}
+  {% else %}
+
+
   {%- comment -%} API HEADER {%- endcomment -%}
   <div
     class="api-header"
@@ -13,14 +86,15 @@ layout: doc-article
 
     <div class="api-available">
       
+      
       {%- comment -%} OUTPUT {%- endcomment -%}
       {% if page.url contains "private" %}
       <div class="api-availability api-general-block">
         <span class="privacy-name">
-        This is the <strong>private</strong> version of this API, check out 
-        <a href="{{site.baseurl}}{{page.url | replace: "/api-reference/private/", "/api-reference/"}}#article">
-          public version.
-        </a>
+          This is the <strong>private</strong> version of this API, check out 
+          <a href="{{site.baseurl}}{{page.url | replace: "/api-reference/private/", "/api-reference/"}}#article">
+            public version.
+          </a>
         </span>
       </div>
       {% endif %}
@@ -49,7 +123,7 @@ layout: doc-article
         <span class="privacy-name">
           <span class="api-header-title"> Required Privacy:</span>
         </span>
-        <a class="api-privacy" href="{{site.baseurl}}/webportal/v2/overview/privacy/#article">
+        <a class="api-privacy" href="{{site.baseurl}}/webportal/v2/application/privacy/#article">
           {% if page.privacy == "Full Private" %}
           <span class="icon is-white">
             <i class="fas fa-long-arrow-alt-down"></i>
@@ -99,7 +173,15 @@ layout: doc-article
       {% if page.component %}
       <div class="api-component api-general-block">
         <span class="api-header-title">Component: </span>
-        <span>{{page.component}}</span>
+        {% if page.component.first  %}
+        <ul>
+          {% for compo in page.component %}
+          <li>{{compo}}</li>
+          {% endfor %}
+        </ul>
+        {% elsif page.component %}
+          <span>{{page.component}}</span>
+        {% endif %}
       </div>
       {% endif %}
       {%- comment -%} END COMPONENT {%- endcomment -%}
@@ -108,24 +190,41 @@ layout: doc-article
       {%- if page.section == "mobile-sdk" -%}
         <div class="api-component api-general-block">
           <span class="api-header-title">Security: </span>
-        {%- for component in site.data.mobile-sdk-components -%}
-        {%- if page.component contains component.tag -%}
-          {%- if component.security == "none" or page.security == "none" -%}
-          <span class="icon is-white">
-            <i class="fas fa-lock-open"></i>
-          </span>
-          Authentication is not required.
-          {% elsif component.security == "authentication" or component.security == "subscription" or page.security == "authentication" or page.securtiy == "subscription" %}
-          <a href="{{site.baseurl}}/mobile-sdk/security/authentication/#article">
-          <span class="icon is-white">
-            <i class="fas fa-lock"></i>
-          </span>
-          Authentication
-          </a> 
-          is required.
+          {% if page.security%}
+            {% if page.security == "none" %}
+              <span class="icon is-white">
+                <i class="fas fa-lock-open"></i>
+              </span>
+              Authentication is not required.
+              {% elsif page.security == "authentication" %}
+              <a href="{{site.baseurl}}/mobile-sdk/security/authentication/#article">
+              <span class="icon is-white">
+                <i class="fas fa-lock"></i>
+              </span>
+              Authentication
+              </a> 
+              is required.
+            {% endif %}
+          {% else %}
+            {%- for component in site.data.mobile-sdk-components -%}
+              {%- if page.component contains component.tag -%}
+                {%- if component.security == "none" -%}
+                <span class="icon is-white">
+                  <i class="fas fa-lock-open"></i>
+                </span>
+                Authentication is not required.
+                {% elsif component.security == "authentication" or component.security == "subscription" %}
+                <a href="{{site.baseurl}}/mobile-sdk/security/authentication/#article">
+                <span class="icon is-white">
+                  <i class="fas fa-lock"></i>
+                </span>
+                Authentication
+                </a> 
+                is required.
+                {% endif %}
+              {% endif %}
+            {% endfor %}
           {% endif %}
-        {% endif %}
-        {% endfor %}
         </div>
       {% endif %}
       {%- comment -%} END SECURITY {%- endcomment -%}
@@ -151,6 +250,7 @@ layout: doc-article
       {%- comment -%} END PREREQUISITES {%- endcomment -%}
 
       {%- comment -%} API TYPES {%- endcomment -%}
+      {% if page.type %}
       <div class="api-operations api-general-block">
         <span class="api-header-title"> Operation{% if page.type.size > 1 %}s{% endif %}:</span>
         <div class="api-types">
@@ -171,12 +271,12 @@ layout: doc-article
           </ul>
         </div>
       </div>
+      {% endif %}
       {%- comment -%} END API TYPES {%- endcomment -%}
       
     </div>
   </div>
   {%- comment -%} END API HEADER {%- endcomment -%}
-  
   {% for t in page.type %}
 
     {%- comment -%} ------ ASSIGN DATAs & PARAMs ------ {%- endcomment -%}
@@ -339,7 +439,7 @@ layout: doc-article
             <tbody>
               <tr>
                 <td colspan="6">
-                  <em>No params</em>
+                  <em>No input params</em>
                 </td>
               </tr>
               {% else %}
@@ -394,7 +494,7 @@ layout: doc-article
               <tbody>
                 <tr>
                   <td colspan="5">
-                    <em>No data</em>
+                    <em>No outputted data</em>
                   </td>
                 </tr>
                 {% else %}
@@ -507,7 +607,13 @@ layout: doc-article
   </div>
   </div>
 
-  {% endfor %}
+  {% endfor %} {%- comment -%} end for types {%- endcomment -%}
+  {% endif %} {%- comment -%} end if (nac ref) {%- endcomment -%}
+
+  <div class="api-related">
+    {% include api-reference-related-apis.html  %}
+  </div>
+
 </div>
 
 {%- comment -%} END API {%- endcomment -%}

@@ -1,5 +1,11 @@
 ---
-title: Navigation.GetCurrentPositionLatitude()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Navigation.GetCurrentPositionLatitude()
+domain: Navigation
 supported:
   - 2
   - 3
@@ -14,14 +20,14 @@ privacy: Public
 | **Response** | *Number*  Current position's latitude as WGS Signed Decimal Degrees.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var CurrentLatitude = Navigation.GetCurrentPositionLatitude();
 // CurrentLatitude = 48.866669
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** The returned latitude's length < 11 characters.
 

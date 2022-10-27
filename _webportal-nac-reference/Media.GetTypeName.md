@@ -1,5 +1,11 @@
 ---
-title: Media.GetTypeName()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Media.GetTypeName()
+domain: Media
 supported:
   - 2
   - 3
@@ -46,7 +52,7 @@ Value | Type
 28 | Ext. Voice Recognition by DIPO
 29 | Webbrowser Voice Recognition
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //Get the name of the media

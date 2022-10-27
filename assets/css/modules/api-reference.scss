@@ -11,32 +11,9 @@ $set-light-color: #4aad81da;
 $subscribe-color: #be9046;
 $subscribe-dark-color: #c0872c;
 $subscribe-light-color: #be9046da;
+$delete-color: rgb(223, 59, 59);
 
-#on-this-page {
 
-    .bd-anchors-title.bd-anchors-api-name {
-        font-size: 1rem;
-        font-weight: 500;
-        text-transform: none;
-        font-family: inherit;
-        letter-spacing: normal;
-        padding-top: .5rem;
-        padding-bottom: 0;
-        overflow-wrap: break-word;
-        &:first-of-type {
-            padding-top: 50px;
-        }
-        a {
-            color: inherit;
-        }
-        a:hover {
-            color: #2689b5;
-        }
-        .bd-anchors-list a{
-            font-size: .85rem;
-        }
-    }
-}
 
 .fas.fa-link  {
     font-size: .725rem;
@@ -46,7 +23,35 @@ $subscribe-light-color: #be9046da;
     display: none;
 }
 
+.api-related {
+    display: none;
+}
+@media screen and (max-width: 1087px) {
+    .api-related {
+        display: block;
+        background-color: whitesmoke;
+        border-radius: 4px;
+        border: 1px solid lightgray;
+        padding: .75rem;
+        
+        .bd-anchors-title {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
 
+        ul {
+            list-style: none;
+        }
+
+        .bd-anchors-list li {
+        padding-top: 0;
+        padding-bottom: 0;
+        a:hover {color: #2689b5; font-weight: bold;}
+        }
+
+
+    }
+}
   
 {% for tag in site.data.api-reference-code-sample-categories %}
   {%- for example in tag.request.examples -%}
@@ -94,26 +99,26 @@ cursor: pointer;
 }
 
 .api-code-header-get {
-background-color:  #61affe;
-border-color:  #61affe;
+background-color: $get-color;
+border-color: $get-color;
 }
 
 .api-code-header-set {
-background-color: #4aad81;
-border-color: #4aad81;
+background-color: $set-color;
+border-color: $set-color;
 }
 
 .api-code-header-subscribe {
-background-color: #be9046;
-border-color: #be9046;
+background-color: $subscribe-color;
+border-color: $subscribe-color;
+}
+
+.api-code-header-delete {
+background-color: $delete-color;
+border-color: $delete-color;
 }
 
 //   end fix code sample
-    
-
-.content .notification.page-disclaimer {
-    margin-top: 3rem;
-}
 
 .bd-anchors-list li.is-past a, .bd-category-list li.is-past a, .bd-anchors-list li.is-current a, .bd-category-list li.is-current a{
     color: #131313;
@@ -234,6 +239,9 @@ hr {
 
 .api-available {
     padding: .5rem 0;
+    ul {
+        margin-top: .3rem;
+    }
 }
 
 .api-general-block {
@@ -493,6 +501,19 @@ font-size: 1rem;
     }
 }
 
+.api-code-content-webapi {
+    .api-code-header {
+        background: #939393;
+        color: black;
+        font-weight: 500;
+        font-size: 1rem;
+        strong {
+            font-weight: 600;
+            padding-left: 40px;
+            line-height: 1.75;
+        }
+    }
+}
 
 // --- END API CODE TABS TEST ---
 
@@ -670,3 +691,4 @@ font-size: 1rem;
         font-size: 1rem;
     }
     }
+

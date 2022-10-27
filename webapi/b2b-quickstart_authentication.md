@@ -9,6 +9,7 @@ subsection: b2b
 categorie: Quickstart
 title: Authentication
 description: "Getting B2B authentication in Stellantis network is required in order to consume Stellantis Fleet owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)."
+require: api-reference
 ---
 {% include  content/get-your-certificate.md %}
 

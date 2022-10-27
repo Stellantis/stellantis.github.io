@@ -1,5 +1,11 @@
 ---
-title: Car.GetTime()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetTime()
+domain: Car
 supported:
   - 3
   - 4
@@ -12,7 +18,7 @@ type: api
 | **Response** | *Boolean*  `True` if the time values were synchronized correctly, else `False`.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //If the user goes from one time zone to another the Time.GetTime function will update all time values
@@ -31,7 +37,7 @@ Car.Time.Minutes()
 Car.Time.OffsetUTC()
 ```
 	
-#### REMARK
+#### Remark
 
 >**Note:** `Car.GetTime` should always be called before reading time values to make sure all the values are synchronized.
 

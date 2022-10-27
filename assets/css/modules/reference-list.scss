@@ -9,6 +9,18 @@ $set-light-color: #4aad81da;
 $subscribe-color: #be9046;
 $subscribe-light-color: #be9046da;
 
+// list table menu
+.list-table-container {
+    display: flex;
+    justify-content: center;
+}
+.content .list-table {
+    width: auto;
+}
+.list-table-domain {
+    font-weight: 500;
+}
+// end list table menu
 
 .content .notification.page-disclaimer {
     margin-top: 3rem;
@@ -18,35 +30,58 @@ $subscribe-light-color: #be9046da;
     color: #131313;
 }
 
+.bd-back-to-ref {
+    display: flex;
+    align-items: center;
+}
+
 hr {
     margin: 3rem 0;
 }
 
-.apis {
-    // max-width: 970px;
-    box-shadow: 0px 0px 4px 1px #0000000f;
-    margin: 0rem auto;
+
+
+.reference-domain {
+    
+    margin-top: 8rem;
+    
+    .reference-domain-name {
+        color: #323a58;
+        width: 100%;
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 0;
+        border-bottom: 2px solid #1e2336;
+        padding-bottom: 1rem;
+        position: relative;
+        display: block;
+        padding-top: 5rem;
+        margin-top: -5rem;
+
+        &:hover {
+            color: #2689b5;
+            cursor: pointer;
+        }
+    }
+
 }
 
-.reference-domain .apis:last-of-type {
-    border-bottom: 1px solid lightgrey;
+
+.apis {
+    margin: 0rem 1rem;
 }
 
 .api-title{
-    .api-header {
-        background-color: rgb(235, 235, 235);
-        &:hover {
-            background-color: rgb(235, 235, 235);
-        }
-        
-    }
     
+    margin-top: 2rem;
+    border-bottom: 1px solid grey;
+
     .api-name {
         display: block;
         padding-top: 5rem;
         margin-top: calc(-5rem + 13px);
-        font-weight: 600;
-        font-size: 1.3rem;
+        font-weight: 500;
+        font-size: 1.25rem;
     }
     .api-requirement {
         font-weight: 400;
@@ -55,33 +90,54 @@ hr {
         color: #323a58;
         border: none;
     }
+
+    &:hover {
+        background-color: inherit;
+    }
+    .api-header {
+        border-bottom: none;
+    }
+    .domain-component-tutorial {
+        display: flex;
+        align-items: center;
+        color:#323a58;
+        font-weight: 500;
+        font-size: 1.25rem;
+        .icon {
+            padding-left: .5rem;
+            font-size: .8rem;
+        }
+        &:hover {
+            color: #2689b5;
+        }
+    }
 }
 
 .api:not(.api-title) {
     position: relative;
     z-index: 2;
-}
-
-.api-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid lightgrey;
-    border-bottom: none;
-    background-color: #fafafa;
     &:hover {
-        background-color: #f2f2f2;
+        background-color: #fcfcfc;
     }
 }
 
-.api-name, .api-available {
-    padding: 13px 30px;
+.api-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;
 }
-.api-available {
-    padding-left: 0px;
+
+.api:last-of-type .api-header {
+    border-bottom: none;
+}
+
+.api-name, .api-available {
+    padding: 13px 20px;
 }
 
 .api-available{
+    padding-left: 0px;
     .api-requirement {
         font-size: .9rem;
         .icon {
@@ -94,24 +150,35 @@ hr {
 }
 
 .api-header-domain{
-    .api-name {
+    .api-name, .api-subname {
         font-size: 1.3rem;
     }
 }
 
-.api-verb-get:hover  {
+.api-type, .api-api {
+    cursor: default;
+    .api-type-text {
+        text-decoration: none;
+    }
+    .api-type {
+        border-color: inherit;
+        color: inherit;
+    }
+}
+
+.api-verb-get:hover, .api-types-min .api-verb-get  {
     background-color:  $get-color;
     border-color:  $get-color;
     color: white;
 }
     
-.api-verb-set:hover  {
+.api-verb-set:hover, .api-types-min .api-verb-set, .api-type.api-verb-api {
     background-color: $set-color;
     border-color: $set-color;
     color: white;
 }
 
-.api-verb-subscribe:hover  {
+.api-verb-subscribe:hover, .api-types-min .api-verb-subscribe, .api-type.api-verb-event {
     background-color: $subscribe-color;
     border-color: $subscribe-color;
     color: white;
@@ -122,14 +189,20 @@ hr {
     font-weight: 400;
     width: 100%;
     display: block;
-    
-    em {
-        font-weight: 400;
-        font-size: .8rem
-    }
+
+    word-wrap: anywhere;
+
     &:hover {
         color: #2689b5;
         cursor: pointer;
+    }
+
+    .api-subname {
+        line-height: 1;
+    }
+    .api-name-subname {
+        display:flex;
+        align-items: center;
     }
 }
 
@@ -169,9 +242,44 @@ hr {
 
 .api-types{
     display:flex;
-    width: 305px;
     justify-content: space-around;
 }
+
+.api-types-full {
+    width: 305px;
+}
+
+.api-types-min .api-type.api-verb-unavailable {
+    display:none;
+}
+
+.api-types-min {
+    width: auto !important;
+    margin-right: 2rem;
+}
+.api-types-min+.api-available .api-requirement {
+    margin:0;
+}
+
+.api-name {
+    display: flex;
+    align-items: center;
+}
+
+.api-header-min .api-requirement {
+    margin: 0;
+}
+
+.api-types-min .api-type {
+    width: 60px;
+    height: 1.5em;
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.1);
+    border: none;
+    .api-type-text {
+        font-size: 0.75rem;
+    }
+}
+
 
 .api-type {
     font-size: 0.85rem;
@@ -197,11 +305,6 @@ hr {
             display: flex;
         }
     }
-}
-
-.api-type:not(.api-type.api-verb-unavailable):hover {
-    font-weight: 500;
-    text-decoration: underline;
 }
 
 .api-type.api-verb-unavailable {
@@ -249,11 +352,16 @@ hr {
             display: none;
         }
     }
+    .api-name .api-name-subname {
+        display:block;
+    }
     
 }
 
 @media screen and (max-width: 1180px) {
-    
+    .reference-domain .reference-domain-name {
+        font-size: 1.35rem;
+    }
     .api-name {
         font-size: .9rem;
     }
@@ -280,6 +388,9 @@ hr {
 
 
 @media screen and (max-width: 690px) {
+    .reference-domain .reference-domain-name {
+        font-size: 1.25rem;
+    }
     .api-name {
         font-size: .75rem;
     }
@@ -309,17 +420,19 @@ hr {
 
 
 @media screen and (max-width: 500px) {
+    .reference-domain .reference-domain-name {
+        font-size: 1rem;
+    }
     .api-header {
         padding: .65rem 7.5%;
         display: block;
         
+
         .api-name {
             margin-bottom: .4rem;
         }
         
-        .api-available {
-            justify-content: space-between;
-        }
+
     }
 
     .api-content-header {
@@ -328,7 +441,7 @@ hr {
         padding: .75rem .25rem 0;
     }
     
-    .api-name {
+    .api-name, .api-subname {
         font-size: .75rem;
     }
     .api-types {
@@ -339,6 +452,11 @@ hr {
                 font-size: .6rem;
             }
         }
+    }
+    .api-types-min {
+        margin-right: .75rem;
+        display: block;
+        margin-bottom: .5rem;
     }
     .api-available{
         .api-requirement {
@@ -352,16 +470,14 @@ hr {
         }
         }
     }
-    .api-name {
-        font-size: 1rem;
-    }
 
 
     .api-title {
-        .api-name {
+        .api-name, .api-subname {
             font-size: .85rem;
         }
     }
+
     
     .api-name, .api-available {
         padding: 0;

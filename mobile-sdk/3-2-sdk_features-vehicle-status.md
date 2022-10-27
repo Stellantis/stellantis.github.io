@@ -5,41 +5,47 @@ section: mobile-sdk
 categorie: SDK Features
 title: Vehicle Status
 description: "Retrieve vehicle information with connected vehicle mobile SDK."
-mobile-sdk-component: LongRangeRemote
-emoji: 📡
+mobile-sdk-component: LongRangeRemote(Status)
 require: api-reference
 ---
 
-{% include mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
 
 {%- capture vehicleInfo -%}
-{
-    "resources": {
-      "status": { "autonomy": 145.0, "lastUpdate": "2022-02-14T13':'41':58Z",
-        "fuelInformation": { "autonomy": 145.0, 
-          "chargingInformation": { "chargingMode": null, "chargingRate": 0.0,
-            "isPlugged":false, "chargingState": null, "remainingTime": "PT0S" },
-          "chargingLevel": 42.0, "lastUpdate": "2022-02-14T13':'41':57Z", 
-          "consumption": 0.0, "type": "fuel" },
-        "doorStateInformation": { "isRearRightDoorOpened":false, "isTrunkDoorOpened":false, 
-            "isLocked":true, "isRearWindowDoorOpened":false, "isPassengerDoorOpened":false,
-            "isRearLeftDoorOpened":false, "state": [ "trunkLocked", "locked" ], 
-            "isDriverDoorOpened":false },
-        "precondInformation": { "lastUpdate": "2022-02-14T13':'41':57Z",
-          "precondScheduling": [ 
-            { "hour": 1, "isEnabled":false, "occurrence": [ "mon" ],
-              "slot": 1, "minute": 48 }, { /* another precond program */ } ],
-          "status": "disabled" },
-        "electricInformation": { "autonomy": 0.0,
-          "chargingInformation": { "chargingMode": "no", "chargingRate": 0.0, 
-            "isPlugged":false, "nextDeferredChargingDate": "2022-02-14T18':'00':10.715Z", 
-            "chargingState": "disconnected", "remainingTime": "PT0S" },
-          "chargingLevel": 1.0, "lastUpdate": "2022-02-14T13':'41':57Z", 
-          "consumption": 0.0, "type": "electric" },
-        "vehicleType": "hybrid"
-      } },
-    "attributes": { "engine": "phev", "vin": "VR3ATTENTKY102274", "brand": "peugeot" }
-  }
+  {
+      "resources": {
+        "status": {
+          "lastUpdate": "2022-02-14T13':'41':58Z",
+          "fuelInformation": {
+            "autonomy":145.0,
+            "chargingInformation": {
+              "chargingMode": null, "chargingRate":0.0, "isPlugged":false,
+              "chargingState": null, "remainingTime": "PT0S" },
+            "chargingLevel":42.0, "lastUpdate": "2022-02-14T13':'41':57Z",
+            "consumption":0.0, "type": "fuel" },
+          "doorStateInformation": {
+            "isDriverDoorOpened": false, "isPassengerDoorOpened": false,
+            "isRearLeftDoorOpened": false, "isRearRightDoorOpened": false,
+            "isRearWindowOpened": false, "isRoofWindowOpened": false, "isTrunkOpened": false,
+            "state": [ "Locked" ] },
+          "precondInformation": {
+            "lastUpdate": "2022-02-14T13':'41':57Z", "status": "disabled",
+            "precondScheduling": [
+              { "hour":1, "isEnabled":false, "occurence": ["Mon"],
+                "slot":1, "recurrence": "Daily", "minute":48 },
+              { "hour": 12, "isEnabled": false, "minute": 12,
+                "occurence": ["Wed"], "recurrence": "Daily", "slot": 2 } ] },
+          "electricInformation": { "autonomy":0.0,
+            "chargingInformation": {
+              "chargingMode": "no", "chargingRate":0.0, "isPlugged":false,
+              "nextDeferredChargingDate": "2022-02-14T18':'00':10.715Z",
+              "chargingState": "disconnected", "remainingTime": "PT0S" },
+            "chargingLevel":1.0, "lastUpdate": "2022-02-14T13':'41':57Z", "type": "electric" },
+          "vehicleType": "hybrid", "vin": "VR3ATTENTKY102274" } },
+      "attributes": {
+        "engine": "PHEV", "vin": "VR3ATTENTKY102274", "brand": "peugeot"
+      }
+    }
 {%- endcapture -%}
 
 

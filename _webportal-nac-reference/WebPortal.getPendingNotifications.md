@@ -1,19 +1,26 @@
 ---
-title: WebPortal.getPendingNotifications()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: WebPortal.getPendingNotifications()
+domain: WebPortal
 supported:
   - 2
   - 3
   - 4
 type: api
+deprecated: true
 ---
 
 ### `WebPortal.getPendingNotifications()`
 
-| **Description** | Gets the notifications currently pending. Look at [Tutorial(Advanced)]({{site.baseurl}}/webportal/v1/connectivity/message/#receiving-message) for an integration example.
+| **Description** | Gets the notifications currently pending.
 | **Response** | The Notifications as `Array` (either empty or containing Strings) or `Unrecognised Error` if the application is not fully launched.
 | **Parameter**   | *String* The application ID (AppID).
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var notificationMessages = WebPortal.getPendingNotifications()

@@ -1,5 +1,11 @@
 ---
-title: Car.GetFuelUnit()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetFuelUnit()
+domain: Car
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *String*  The fuel unit, Possible values are: - l, - gal
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 if (Car.GetFuelUnit() === 'l') {

@@ -1,5 +1,11 @@
 ---
-title: Navigation.GetJourneyInfo()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Navigation.GetJourneyInfo()
+domain: Navigation
 supported:
   - 2
   - 3
@@ -14,7 +20,14 @@ privacy: Public
 | **Response** | *Boolean*  `True` if the value is now correctly stored in `Navigation.JourneyInfo`, else `False` if the process failed.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Fields
+
+`Navigation.JourneyInfo` is the object where are stored the informations about the next maneuver to be done after a successful call to `Navigation.GetJourneyInfo`.
+
+- `Navigation.JourneyInfo.estimatedTimeOfarrivalH`, *Number*
+- `Navigation.JourneyInfo.estimatedTimeOfarrivalMin`, *Number*
+
+#### Example
 
 ```javascript
 if ( Navigation.GetJourneyInfo() === false ) {
@@ -25,7 +38,7 @@ if ( Navigation.GetJourneyInfo() === false ) {
 }
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** `Navigation.GetJourneyInfo` must always be used before accessing the value stored in `Navigation.ManeuverInfo`.
 

@@ -1,5 +1,11 @@
 ---
-title: Media.GetArtistName()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Media.GetArtistName()
+domain: Media
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *String*  The current artist's name < 255 characters.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //Check the state of the media

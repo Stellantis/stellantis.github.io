@@ -1,5 +1,9 @@
 <div class="card {{include.modifier}}">
-    <a class="card-body" href="{{site.baseurl}}{{include.linkto}}">
+    <a class="card-body" 
+        {% unless include.modifier contains "not-available" %}
+        href="{{site.baseurl}}{{include.linkto}}"
+        {% endunless %}
+        >
         {% unless include.modifier contains "card-transparent" %}
         <div class="card-image-container">
             <picture class="card-image" style="background-image: url({{site.baseurl}}{{include.picture}});"> </picture>
@@ -18,13 +22,18 @@
                 {% endif %}
             </div>
             <div class="card-text">
-                    {{include.text}}
+                    {{include.text | markdownify}}
             </div>
+            {% if include.subtext %}
+            <div class="card-subtext">{{include.subtext}}</div>
+            {% endif %}
+            {% unless include.modifier contains "not-available" %}
             <svg class="card-arrow" viewBox="0 0 25 12" 
                 {% if include.card-arrow == "always" %}style="fill: #ff4238 !important" {% endif %}
             >
                 <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
             </svg>
+            {% endunless %}
         </div>
     </a>
 </div>

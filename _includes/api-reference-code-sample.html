@@ -155,6 +155,34 @@ pims.unsubscribe( api: "{{include.name}}" /* no params */ ){% endif %}
 {% elsif include.sdk_name == "webportalv2" %}
 
 {%- comment -%} Request Webportal v2 {%- endcomment -%}
+{% if include.custom_code_sample %}
+
+  {% if include.sdk %}
+    {% assign sdk = include.sdk %}
+  {% else %}
+    {% assign sdk = false %}
+  {% endif %}
+  
+  {% if include.natif %}
+    {% assign natif = include.natif %}
+  {% else %}
+    {% assign natif = false %}
+  {% endif %}
+  
+  {% if include.reply %}
+    {% assign reply = include.reply %}
+  {% else %}
+    {% assign reply = false %}
+  {% endif %}
+
+  {% if include.type == "subscribe" and include.notify %}
+    {% assign notify = include.notify %}
+  {% else %}
+    {% assign notify = false %}
+  {% endif %}
+  
+{% else %}
+
 {% capture sdk %}
 ```js
 webportal.{{include.type}}(
@@ -185,33 +213,14 @@ webportal.{{include.type}}(
 
 {% capture natif %}
 ```js
-/* Send Request */
-var request_uuid = generateUUID();
-window.idp.process_request('{
-  "id":' + request_uuid +', 
+{
+  "id": "7372c16f-5f2f-42c9-84a7-5490e35f1be0", 
   "type": "{{include.type | upcase}}", 
   "api": "{{include.name}}",
   "params": {% if include.params == "none" or params == null %} null{% else %}{% if include.params_example %} {{include.params_example}} {% else %}{% for p in include.params %}{% if forloop.length == 1 %}{% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
     "{{p.name}}": {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% if forloop.last == false %},{% else %}
   }{% endif %}{% endif %}{% endfor %}{% endif %}{% endif %}
-}')
-
-/* Listen to received messages  */
-window.idp.registerCallback(function(message) {
-  message = JSON.parse(message);
-  // Check if the received message match the request
-  if (message.id === request_uuid) {
-    if (message.status === 200 && message.type == "REPLY") {
-       /* handle `REPLY` success */ 
-    }
-    {%- if include.type == "subscribe" %}
-    else if (message.status === 200 && message.type == "NOTIFY") {
-      /* handle `NOTIFY` event */
-    }
-    {%- endif %}
-    else { /* handle error */ }
-  }
-})
+}
 ```
 {% endcapture %}
 
@@ -267,6 +276,10 @@ window.idp.registerCallback(function(message) {
 {% else %}
 {% assign notify = false %}
 {% endif %}
+{% endif %}
+
+{% elsif include.sdk_name=="webportalv1" %}
+
 
 {% endif %}
 
@@ -295,13 +308,18 @@ window.idp.registerCallback(function(message) {
       href="
         {%- if include.sdk_name == "mobile-sdk" -%}
           {{- site.baseurl -}}/mobile-sdk/references/
+          {%- for type in include.type -%}{{- type -}}{% endfor %}-
           {{- include.name | "slugify" -}}
           {%- if include.subname -%}-{{- include.subname | "slugify" -}}{%- endif -%}
           .html#{{include.type}}
-        {%- elsif include.sdk_name == "webportal-v2" -%}
+        {%- elsif include.sdk_name == "webportalv2" -%}
           {{- site.baseurl -}}/webportal/v2/api-reference/
           {{- include.name | "slugify" -}}
           .html#{{include.type}}
+        {%- elsif include.sdk_name == "webportalv1" -%}
+          {{- site.baseurl -}}/webportal/v1/api-reference/
+          {{- include.name | "slugify" -}}
+          .html#article
         {%- endif -%}"
     >{{header_text}}</a>
     {% endif %}
@@ -312,10 +330,12 @@ window.idp.registerCallback(function(message) {
   {% if category.tag == include.sdk_name %}
   
   {%- comment -%} First Block {%- endcomment -%}
-  {% if include.custom_code_sample != true or (include.request_params_swift or include.request_params_kotlin) %}
+  {% if include.custom_code_sample != true or include.request_params_swift or include.request_params_kotlin or include.sdk or include.natif %}
   <div class="code-block first-block 
     {%- if include.sdk_name == "webportalv2" -%}
     {{" sdk "}}
+    {%- elsif include.sdk_name == "webportalv1" -%}
+    {{" request "}}
     {%- elsif include.sdk_name == "mobile-sdk" -%}
     {{" kotlin "}}
     {%- endif -%}"
@@ -325,14 +345,14 @@ window.idp.registerCallback(function(message) {
         <div class="api-code-tabs-container">
           <nav class="api-code-tabs">
             {% for button in category.request.examples %}
-            {% if button.tag != "natif" or site.baseurl == "/p4d00/doc" %}
+            {% unless button.tag == "natif" and include.custom_code_sample == true %}
             <div class="api-code-tab {{button.tag}}">
               <span class="api-code-tab-icon is-white">
                 <i class="{{button.icon}}"></i>
               </span>
               <span class="api-code-tab-text">{{button.name}}</span>
             </div>
-            {% endif %}
+            {% endunless %}
             {% endfor %}
           </nav>
         </div>
@@ -345,6 +365,8 @@ window.idp.registerCallback(function(message) {
           {{sdk | markdownify}}
         {% elsif include.sdk_name == "webportalv2" and code_example.tag == "natif" %}
           {{natif | markdownify}}
+        {% elsif include.sdk_name == "webportalv1" %}
+          {{include.request | markdownify}}
         {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "swift" %}
           {{swift | markdownify}}
         {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "kotlin" %}
@@ -358,12 +380,14 @@ window.idp.registerCallback(function(message) {
     {%- comment -%} END First Block {%- endcomment -%}
     
     {%- comment -%} Second Block {%- endcomment -%}
-    {% if include.custom_code_sample != true or (include.response or include.notification or include.failed) %}
+    {% if include.custom_code_sample != true or include.response or include.notification or include.failed or include.reply %}
     <div class="code-block second-block
       {%- if include.sdk_name == "webportalv2" and include.type != "subscribe" -%}
       {{" reply " }}
       {%- elsif include.sdk_name == "webportalv2" and include.type == "subscribe" -%}
       {{" notify " }}
+      {%- elsif include.sdk_name == "webportalv1" -%}
+      {{ " reply " }}
       {%- elsif include.sdk_name == "mobile-sdk" and include.type != "subscribe" -%}
       {{" succeeded " }}
       {%- elsif include.sdk_name == "mobile-sdk" and include.type == "subscribe" -%}
@@ -397,6 +421,8 @@ window.idp.registerCallback(function(message) {
           {{reply | markdownify}}
         {% elsif include.sdk_name == "webportalv2" and code_example.tag == "notify" %}
           {{notify | markdownify}}
+        {% elsif include.sdk_name == "webportalv1" %}
+          {{include.reply | markdownify}}
         {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "succeeded" %}
           {{succeeded | markdownify}}
         {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "result" and include.type == "subscribe" %}

@@ -1,15 +1,22 @@
 ---
-title: WebPortal.onApplicationUnloaded
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: WebPortal.onApplicationUnloaded
+domain: WebPortal
 supported:
   - 2
   - 3
   - 4
 type: event
+deprecated: true
 ---
 
 Event triggered when the application is unloaded.
 
-### EXAMPLE
+### Example
 
 ```javascript
 window.addEventListener("message", function(event){

@@ -32,7 +32,7 @@ This setting will impact your ability to retrieve data in our API.
 
 ### Effect on WebPortal
 
-As an embedded application developer (**Webportal v1 & v2**), only API that match the current privacy are available. That's why your application needs to handle the privacy settings selected by the user. See [privacy webportal v1]({{site.baseurl}}/webportal/v1/quickstart/#privacy-mode) or [privacy Webportal v2]({{site.baseurl}}/webportal/v2/overview/privacy/#article) for more info.
+As an embedded application developer (**Webportal v1 & v2**), only API that match the current privacy are available. That's why your application needs to handle the privacy settings selected by the user. See [privacy webportal v1]({{site.baseurl}}/webportal/v1/application/#privacy-mode) or [privacy Webportal v2]({{site.baseurl}}/webportal/v2/overview/privacy/#article) for more info.
 
 You can retrieve required level of privacy of each API in the references: [Webportal v1]({{site.baseurl}}/webportal/v1/api-reference/list/#article) or [Webportal v2]({{site.baseurl}}/webportal/v2/api-reference/list/#article).
 

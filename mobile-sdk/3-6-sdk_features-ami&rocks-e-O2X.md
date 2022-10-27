@@ -6,11 +6,10 @@ categorie: SDK Features
 title: AMI & Rocks-e
 description: "Retrieve AMI & Rocks-e events with connected vehicle mobile SDK."
 require: api-reference
-emoji: 🚙
 mobile-sdk-component: O2X
 ---
 
-{% include mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
 
 [**Citroën AMI**](https://www.citroen.fr/ami) and [**Opel Rocks-e**](https://www.opel.de/fahrzeuge/rocks-e/uebersicht.html) are small electric vehicles. They are not compatible with any other **features of this SDK** *(Trips, Navigation, Vehicle Status, Remote Command)*.
 

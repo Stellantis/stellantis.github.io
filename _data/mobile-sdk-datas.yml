@@ -14,11 +14,6 @@
       description: Status informations.
       type: Object
       fields:
-      - name: autonomy
-        type: Double
-        description: Autonomy value.
-        unit-value: n/a
-        example: 130.0
       - name: lastUpdate
         type: String
         description: The last update of vehicle information.
@@ -73,50 +68,55 @@
         description: Door State Information.
         type: Object
         fields:
-        - name: isRearRightDoorOpened
+        - name: isDriverDoorOpened
           type: Boolean
-          description: True if rear right door opened false otherwise.
-          unit-value: n/a
-          example: true
-        - name: isTrunkDoorOpened
-          type: Boolean
-          description: True if trunk opened false otherwise.
-          unit-value: n/a
-          example: true
-        - name: isLocked
-          type: Boolean
-          description: True if vehicle is locked, false otherwise.
-          unit-value: n/a
-          example: true
-        - name: isRearWindowDoorOpened
-          type: Boolean
-          description: True if rear window is opened false otherwise.
+          description: True if driver door is opened, false otherwise.
           unit-value: n/a
           example: true
         - name: isPassengerDoorOpened
           type: Boolean
-          description: True if passenger door opened false otherwise.
+          description: True if passenger doord is opened, false otherwise.
           unit-value: n/a
           example: true
         - name: isRearLeftDoorOpened
           type: Boolean
-          description: True if rear left door opened false otherwise.
+          description: True if rear left door is opened, false otherwise.
+          unit-value: n/a
+          example: true
+        - name: isRearRightDoorOpened
+          type: Boolean
+          description: True if rear right door is opened, false otherwise.
+          unit-value: n/a
+          example: true
+        - name: isRearWindowOpened
+          type: Boolean
+          description: True if rear window is opened, false otherwise.
+          unit-value: n/a
+          example: true
+        - name: isRoofWindowOpened
+          type: Boolean
+          description: True if roof window is opened, false otherwise.
+          unit-value: n/a
+          example: true
+        - name: isTrunkDoorOpened
+          type: Boolean
+          description: True if trunk is opened, false otherwise.
           unit-value: n/a
           example: true
         - name: state
           type: Array of String
           description: The door status.
           unit-value: 
-            - unlocked
-            - locked
-            - superLocked
-            - driverDoorUnlocked
-            - cabinDoorsUnlocked
-            - cargoDoorsLocked
-            - cargoDoorsUnlocked
-            - rearDoorsUnlocked
-            - rearDoorsLocked
-            - trunkLocked
+            - Unlocked
+            - Locked
+            - SuperLocked
+            - DriverDoorUnlocked
+            - CabinDoorsUnlocked
+            - CargoDoorsLocked
+            - CargoDoorsUnlocked
+            - RearDoorsUnlocked
+            - RearDoorsLocked
+            - TrunkLocked
           example: Unlocked
         - name: isDriverDoorOpened
           type: Boolean
@@ -146,18 +146,25 @@
             description: true if preconditioning program is enabled, false otherwis.
             unit-value: n/a
             example: true
+          - name: recurrence
+            type: String
+            example: "Daily"
+            description: Reccurence of the preconditionning program.
+            unit-value: 
+              - "Daily"
+              - "None"
           - name: occurrence
             type: List
-            description: The days of preconditioning program.
+            description: The occurrence on the program will spread on days depending on recurrence value.
             unit-value:
-              - mon
-              - tue
-              - wed
-              - thu
-              - fri
-              - sat
-              - sun
-            example: '["mon", "fri", "sat"]'
+              - Mon
+              - Tue
+              - Wed
+              - Thu
+              - Fri
+              - Sat
+              - Sun
+            example: '["Mon", "Fri", "Sat"]'
           - name: slot
             type: Integer
             description: Slot of the preconditionning program.
@@ -241,11 +248,6 @@
           type: String
           unit-value: date time
           example: "2021-07-29T22:25:09.898Z"
-        - name: consumption
-          type: Double
-          description: The consumption value.
-          unit-value: n/a
-          example: 23.0
         - name: type
           description: The energy information type.
           type: String
@@ -259,6 +261,12 @@
         unit-value:
           - hybrid
         example: hybrid
+      - ref: vin
+        required: true
+        type: String
+        unit-value: n/a
+        description: Vehicle's VIN.
+        example: VR1AB12C3D45678909
   - name: attributes
     description: Attributes informations.
     type: Object
@@ -267,10 +275,10 @@
         type: String
         description: Vehicle engine type.
         unit-value:
-          - bev
-          - phev
-          - thermal
-        example: bev
+          - BEV
+          - PHEV
+          - Thermal
+        example: BEV
       - ref: vin
         required: true
         type: String

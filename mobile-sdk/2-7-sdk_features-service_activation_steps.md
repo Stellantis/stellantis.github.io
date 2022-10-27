@@ -6,7 +6,10 @@ categorie: Security
 title: Service Activation Steps
 description: "Retrieve Service Activation Steps events with connected vehicle mobile SDK."
 require: api-reference
+mobile-sdk-component: UserVehicleSteps
 ---
+
+{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
 
 Some API of this SDK require more than [Authentication]({{site.baseurl}}/mobile-sdk/security/authentication/#article). The *Step* feature, provides **guidance for additional security**. It will return the list of **Steps** required to use a service.
 

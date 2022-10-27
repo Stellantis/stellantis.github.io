@@ -1,5 +1,11 @@
 ---
-title: Navigation.RouteCalculationFailed
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Navigation.RouteCalculationFailed
+domain: Navigation
 supported:
   - 2
   - 4
@@ -7,7 +13,7 @@ type: event
 ---
 Event triggered when the calculation of the itinerary ended with an error.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try{	

@@ -1,17 +1,26 @@
-# Examples
+This page is a list of examples of HTTP requests to Stellantis {% if page.subsection == 'b2b' %}Fleet Owners{% elsif page.subsection == 'b2c' %}End-Users{% endif %} API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall). 
 
-This Quick Start contains examples of curl requests to Stellantis {% if page.subsection == 'b2b' %}Fleet Owners{% elsif page.subsection == 'b2c' %}End-Users{% endif %} API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall). These examples will show you how to deal with single objects, collections, geo-json objects and an example of POST and DELETE HTTP request.
+These examples will show you how to deal with:
+- **Single** objects
+- **Collections** objects
+- **GeoJSON**
+- **Post** and **Delete** verbs HTTP verbs
 
-To retrieve {% if page.subsection == 'b2b' %} authentication information refer to [this section]({{site.baseurl}}/webapi/b2b/quickstart/authentication).{% elsif page.section == 'b2c' %} connection information refer to [this section]({{site.baseurl}}/webapi/b2c/quickstart/connect).{% endif %}
+## Get Account Info
 
+Web API base endpoint 
+{%- if page.subsection == 'b2b' %} `/fleets` allows to retrieve information about this account Fleet(s) of vehicles.
+{%- elsif page.subsection == 'b2c' %} `/user` allow to retrive information about the current End-User account, depending on the Access token in the request. {%- endif -%}. 
 
-## Get your Info
+This endpoint returns a [single object]({{site.baseurl}}/webapi/{{page.subsection}}/overview/standards/#single-object).
 
-
-
-Web API base endpoint {% if page.subsection == 'b2b' %}'/fleets'{% elsif page.subsection == 'b2c' %}'/user'{% endif %} allow you to retrieve info about your account in Stellantis's Network.
-
-{% include webapi-curl.md apiEndpointB2B='/fleets' apiEndpointB2C='/user' referenceURLResssourceB2C='/#/User/getUser' referenceURLResssourceB2B='/#/Fleet/getFleets' httpVerb='GET' displayApiURL=true %}
+{% include webapi-curl.md 
+   apiEndpointB2B='/fleets'
+   apiEndpointB2C='/user' 
+   referenceURLResssourceB2C='getUser' 
+   referenceURLResssourceB2B='getFleets'
+   httpVerb='GET' 
+%}
 
 {% if page.subsection == 'b2b' %} 
 **{version}** depends on your subscription:
@@ -23,41 +32,72 @@ Web API base endpoint {% if page.subsection == 'b2b' %}'/fleets'{% elsif page.su
 ## Get a List of Vehicles
 
 
-The {% if page.subsection == 'b2b' %}'/fleets/{fid}/vehicles'{% elsif page.subsection == 'b2c' %}'/user/vehicles'{% endif %} endpoint allow you to retrieve a list of your vehicles. 
+The {% if page.subsection == 'b2b' %} `/fleets/{fid}/vehicles`{% elsif page.subsection == 'b2c' %} `/user/vehicles` {% endif %} endpoint allow you to retrieve a list of your vehicles. 
 
-See {% if page.subsection == 'b2b' %}[standards]({{site.baseurl}}/webapi/b2b/overview/standards#pagination){% elsif page.subsection == 'b2c' %}[standards]({{site.baseurl}}/webapi/b2c/overview/standards#pagination){% endif %} for explanation about `indexRange` and `pageSize`.
+This endpoint returns a [collection]({{site.baseurl}}/webapi/{{page.subsection}}/overview/standards/#collection), check-out [pagination]({{site.baseurl}}/webapi/{{page.subsection}}/overview/standards#pagination) for more information about `indexRange` and `pageSize`.
 
-{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles'  referenceURLResssourceB2B='/#/Vehicles/getVehiclesByDevice' apiEndpointB2C='/user/vehicles' referenceURLResssourceB2C='/#/Vehicles/getVehiclesByDevice' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' %}
+{% assign getVehicleListQueryParams = 'indexRange=<element_per_page>, pageSize=<nb_of_pages>' | split: ", " %}
+
+
+{% include webapi-curl.md
+  apiEndpointB2B='/fleets/{fid}/vehicles'
+  apiEndpointB2C='/user/vehicles'
+  referenceURLResssourceB2B='getVehiclesByDevice'
+  referenceURLResssourceB2C='getVehiclesByDevice'
+  httpVerb='GET'
+  queryParams=getVehicleListQueryParams
+%}
 
 
 ## Get a Vehicle Position
 
 
-The {% if page.subsection == 'b2b' %}'/fleets/{fid}/vehicles/{id}/lastPosition'{% elsif page.subsection == 'b2c' %}'/user/vehicles/{id}/lastPosition'{% endif %} endpoint allow you to retrieve the last known position for a vehicle.
+The {% if page.subsection == 'b2b' %} `/fleets/{fid}/vehicles/{id}/lastPosition` {% elsif page.subsection == 'b2c' %} `/user/vehicles/{id}/lastPosition` {% endif %} endpoint allows to retrieve the last known position of a vehicle.
 
-Note that the 'Accept' header is not `--header 'Accept: application/hal+json'` but `Accept: application/vnd.geo+json`.
+LastPosition endpoints returns **application/vnd.geo+json**, check-out [HTTP Body format]({{site.baseurl}}/webapi/{{page.subsection}}/overview/standards/#http-body-format) .
 
-{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/lastPosition' apiEndpointB2C='/user/vehicles/{id}/lastPosition' referenceURLResssourceB2B='/#/Vehicles/getCarLastPosition' referenceURLResssourceB2C='/#/Vehicles/getCarLastPosition' httpVerb='GET' %}
+{% include webapi-curl.md 
+   apiEndpointB2B='/fleets/{fid}/vehicles/{id}/lastPosition' 
+   apiEndpointB2C='/user/vehicles/{id}/lastPosition' 
+   referenceURLResssourceB2B='getCarLastPosition' 
+   referenceURLResssourceB2C='getCarLastPosition' 
+   httpVerb='GET' 
+%}
 
 
 ## Get Alerts of a Vehicle
 
 
-The {% if page.subsection == 'b2b' %}'/fleets/{fid}/vehicles/{id}/alerts'{% elsif page.subsection == 'b2c' %}'/user/vehicles/{id}/alerts'{% endif %} endpoint allow you to retrieve a list of alerts for a vehicle.
-- Path parameter **{id}** is the unique identifier of one of your vehicles. 
+The {% if page.subsection == 'b2b' %} `/fleets/{fid}/vehicles/{id}/alerts` {% elsif page.subsection == 'b2c' %} `/user/vehicles/{id}/alerts` {% endif %} endpoint allows to retrieve a list of alerts for a vehicle.
+- Path parameter **{id}** is the unique identifier of a vehicle. 
 - Query parameter `locale` will change the language of the alert message.
 
-{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/vehicles/{id}/alerts' apiEndpointB2C='/user/vehicles/{id}/alerts' referenceURLResssourceB2B='/#/Vehicles/getVehicleAlerts' referenceURLResssourceB2C='/#/Vehicles/getVehicleAlerts' httpVerb='GET' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
+{% assign getAlertsQueryParams = 'indexRange=<element_per_page>, pageSize=<nb_of_pages>, locale=<language>' | split: ", " %}
+
+{% include webapi-curl.md
+   apiEndpointB2B='/fleets/{fid}/vehicles/{id}/alerts'
+   apiEndpointB2C='/user/vehicles/{id}/alerts'
+   referenceURLResssourceB2B='getVehicleAlerts'
+   referenceURLResssourceB2C='getVehicleAlerts'
+   httpVerb='GET'
+   queryParams=getAlertsQueryParams
+%}
 
 
 ## Post New Monitor
 
 
-The {% if page.subsection == 'b2b' %}'/fleets/{fid}/monitors'{% elsif page.subsection == 'b2c' %}'/user/vehicles/{id}/monitors'{% endif %} endpoint allow you to create a new monitor. Have a look to the {% if page.subsection == 'b2b' %}[monitor section]({{site.baseurl}}/webapi/b2b/monitor/about){% elsif page.subsection == 'b2c' %}[monitor section]({{site.baseurl}}/webapi/b2c/monitor/about).
-- Path parameter **{id}** is the unique identifier of one of your vehicles.
-{% endif %} 
+The {% if page.subsection == 'b2b' %} `/fleets/{fid}/monitors`{% elsif page.subsection == 'b2c' %} `/user/vehicles/{id}/monitors`{% endif %} endpoint allow you to create a new monitor. 
 
-{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/monitors' apiEndpointB2C='/user/vehicles/{id}/monitors' httpVerb='POST' referenceURLResssourceB2B ='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2B='#/Vehicles/setVehicleMonitor' httpBody='{
+Check-out the [dedicated tutorial]({{site.baseurl}}/webapi/{{page.subsection}}/monitor/about) for information about **Monitors**
+
+{% include webapi-curl.md
+  apiEndpointB2B='/fleets/{fid}/monitors'
+  apiEndpointB2C='/user/vehicles/{id}/monitors'
+  httpVerb='POST'
+  referenceURLResssourceB2B ='createFleetVehicleMonitor'
+  referenceURLResssourceB2C='createVehicleVehicleMonitor'
+  httpBody='{
    "label":"IDF Zone monitor With Data Triggering:[vehicle.energy.electric.level] OR on Mondays",
    "subscribeParam":{
       "refreshEvent":600,
@@ -135,49 +175,25 @@ The {% if page.subsection == 'b2b' %}'/fleets/{fid}/monitors'{% elsif page.subse
   }
 }' %}
 
-{% comment %} 
-## Put Edit a Monitor
-
-The {% if page.subsection == 'b2b' %}'/fleets/{fid}/monitors/{mid}/status'{% elsif page.subsection == 'b2c' %}'/user/vehicles/{id}/status'{% endif %} endpoint allow you to create a new monitor. Have a look to the {% if page.subsection == 'b2b' %}[monitor section]({{site.baseurl}}/webapi/b2b/monitor/about){% elsif page.subsection == 'b2c' %}[monitor section]({{site.baseurl}}/webapi/b2c/monitor/about){% endif %}.
-- Path parameter **{id}** is the unique identifier of one of your vehicles. 
-
-{% if page.subsection == 'b2b' %}
-
-{% assign apiEndpoint='/fleets/{fid}/monitors/{mid}/status'%}
-{% assign referenceURLResssource ='/#/Monitors/setFleetVehicleMonitorStatus' %}
-
-{% elsif page.subsection == 'b2c' %}
-
-{% assign apiEndpoint='/user/vehicles/{id}/status'%}
-{% assign referenceURLResssource ='/#/Vehicles/setFleetVehicleMonitorStatus' %}
-
-{% endif %}
-
-{% assign httpVerb='POST'%}
-{% assign httpBody='{
-
-}'%}
-{% include webapi-curl.md %}
-{% endcomment %}
-
-
 ## Delete a Monitor
 
+The {% if page.subsection == 'b2b' %} `/fleets/{fid}/monitors/{mid}`{% elsif page.subsection == 'b2c' %} `/user/vehicles/{id}/monitors/{mid}`{% endif %} endpoint allow you to retrieve a list of alerts for a vehicle.
 
-The {% if page.subsection == 'b2b' %}'/fleets/{fid}/monitors/{mid}'{% elsif page.subsection == 'b2c' %}'/user/vehicles/{id}/monitors/{mid}'{% endif %} endpoint allow you to retrieve a list of alerts for a vehicle.
-- Path parameter **{id}** is the unique identifier of one of your vehicles. 
-- Query parameter `locale` will change the language of the alert message.
+Check-out the [dedicated tutorial]({{site.baseurl}}/webapi/{{page.subsection}}/monitor/about) for information about **Monitors**
 
-{% include webapi-curl.md apiEndpointB2B='/fleets/{fid}/monitors/{mid}' apiEndpointB2C='/user/vehicles/{id}/monitors/{mid}' referenceURLResssourceB2B='/#/Monitors/deleteFleetMonitor' referenceURLResssourceB2C='/#/Vehicles/deleteMonitordd' httpVerb='DELETE' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>&locale=<language>' %}
-
-
-# See Also
-
-##### Try Out!
-
-Retrieve all reference of this API, go to the {% if page.subsection == 'b2b' %}[API List]({{ site.baseurl }}/webapi/b2b/api-reference/specification/){% elsif page.subsection == 'b2c' %}[API List]({{ site.baseurl }}/webapi/b2c/api-reference/specification/){% endif %}.
+{% assign deleteMonitorQueryParams = 'indexRange=<element_per_page>, pageSize=<nb_of_pages>, locale=<language>' | split: ", " %}
 
 
-##### Tutorial
+{% include webapi-curl.md
+  apiEndpointB2B='/fleets/{fid}/monitors/{mid}'
+  apiEndpointB2C='/user/vehicles/{id}/monitors/{mid}'
+  referenceURLResssourceB2B='deleteFleetMonitor'
+  referenceURLResssourceB2C='deleteVehicleMonitor'
+  httpVerb='DELETE'
+  queryParam=deleteMonitorQueryParams
+%}
 
-A  {% if page.subsection == 'b2b' %}[Quick Start guide]({{ site.baseurl }}/webapi/b2b/quickstart/examples/){% elsif page.subsection == 'b2c' %}[Quick Start guide]({{ site.baseurl }}/webapi/b2c/quickstart/examples/){% endif %} is provided to help you understand the basics and get started.
+
+#### See Also
+
+Check out this {% if page.subsection == "b2c"%} End-User {% elsif page.subsection == "b2b" %} Fleet Owner {% endif %} API [list of References]({{ site.baseurl }}/webapi/{{page.subsection}}/api-reference/specification/#article) to discover Stellantis Connected Vehicles features.

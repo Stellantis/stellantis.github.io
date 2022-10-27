@@ -1,5 +1,5 @@
 ---
-layout: doc-article
+layout: simple-article
 permalink: /changelog/
 title: Changelog
 menu: false
@@ -16,6 +16,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[10.0.0](#1000) | Website, Webportal, Mobile SDK v2.1
 [9.2.0](#920) | WEB API: v3.5.0
 [9.1.1](#911) | Mobile SDK: fix api ref
 [9.1.0](#910) | WEB API: v3.3.0 & v2.2.0
@@ -87,6 +88,30 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+<hr>
+
+## 10.0.0
+
+{% include published_on.html date='24 Oct 2022' %}
+
+**Mobile SDK:**
+- v2.1.x
+- links between references & tutorials
+
+**WebPortal**:
+- tutorial re-writing
+
+**WebPortal v1**
+- update popup ref
+- update app file structure (quickstart)
+- add postmessage / app.open apis
+
+**Website:** 
+- File structure update
+- API reference generation & design
+- code sample
+- search opens new page
 
 <hr>
 

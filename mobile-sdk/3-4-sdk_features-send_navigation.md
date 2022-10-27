@@ -6,11 +6,10 @@ categorie: SDK Features
 title: Send Navigation
 description: "Retrieve vehicle destinations with connected vehicle mobile SDK."
 mobile-sdk-component: SendToNav
-emoji: 🏁
 require: api-reference
 ---
 
-{% include mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
 
 *Stellantis Connected Vehicles mobile SDK for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)* has a dedicated feature to **send a navigation to the vehicle** from the mobile phone.
 
@@ -209,10 +208,17 @@ This feature is known as *Share Intent for Android* or *Share Extension for iOS*
 When a navigation is **not successfully started** in the vehicle infotainment system, the error message looks like this:
 
 {%- capture navigationStoredResponse -%}
+```js
+// representation of the `succeeded` dictionary object message as JSON
 {
+  "transactionId": "953cfefb-bc72",
+  "status": "SUCCEEDED",
+  "result": {
     "status": "stored"
     "reason": "GEOLOC_PRIVATE" /* or */ "FULL_PRIVATE"
   }
+}
+```
 {%- endcapture -%}
 
 {% include api-reference-code-sample.html
@@ -220,7 +226,10 @@ When a navigation is **not successfully started** in the vehicle infotainment sy
   type="set"
   name="pims.vehicle.destination"
   response=navigationStoredResponse
+  request="none"
+  description="Navigation not sent"
   no_link=true
+  custom_code_sample=true
 %}
 
 The `reason` field will return the reason why the destination **has not been sent** to the vehicle.

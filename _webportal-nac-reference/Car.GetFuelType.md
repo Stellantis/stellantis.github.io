@@ -1,5 +1,11 @@
 ---
-title: Car.GetFuelType()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetFuelType()
+domain: Car
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *Number*  Fuel type of the car.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var FuelType = Car.GetFuelType;
@@ -21,7 +27,7 @@ var FuelType = Car.GetFuelType;
 // The car uses Essence
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** The fuel type's length is 2 characters max.
 

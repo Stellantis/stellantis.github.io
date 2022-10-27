@@ -1,5 +1,11 @@
 ---
-title: Privacy.ModeFull
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Privacy.ModeFull
+domain: Privacy
 supported:
   - 2
   - 3
@@ -7,7 +13,7 @@ type: event
 ---
 Event triggered when the Full privacy mode is selected.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try {

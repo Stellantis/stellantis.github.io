@@ -6,7 +6,10 @@ categorie: Security
 title: CarKey Check
 description: "Check if the user has the vehicle keys."
 require: api-reference
+mobile-sdk-component: Carkey
 ---
+
+{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
 
 *CarKey* is a security feature that perform a check to make sure the user is in possession of the vehicle keys.
 

@@ -1,5 +1,11 @@
 ---
-title: Media.GetTrackName()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Media.GetTrackName()
+domain: Media
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *String*  The name of the current track, 32 characters long max.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //Check the state of the media

@@ -51,7 +51,7 @@ First of all, before being able to request any [API]({{site.baseurl}}/mobile-sdk
 
 Initializing the SDK require configuration params details in the following table:
 
-{% include mobile-sdk-intialize-params.html %}
+{% include_relative content/mobile-sdk-intialize-params.html %}
 
 {% capture initializeKotlin %}
 ```kotlin
@@ -258,6 +258,8 @@ Let's explain this request example:
 - `API Callback` - *Function* - Code to execute when a message is received.
 
 {% endcapture %}
+
+{{requestParamatersExample}}
 
 #### Get & Set Callback
 

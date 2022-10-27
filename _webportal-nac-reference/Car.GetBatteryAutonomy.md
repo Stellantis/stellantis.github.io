@@ -1,5 +1,11 @@
 ---
-title: Car.GetBatteryAutonomy()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetBatteryAutonomy()
+domain: Car
 supported:
   - 4
 type: api
@@ -11,14 +17,14 @@ type: api
 | **Response** | *Number*  Remaining battery autonomy.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var Batteryautonomy = Car.GetBatteryAutonomy();
 // Batteryautonomy = 1000 km
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** The Battery autonomy's max length is 4 characters.
 

@@ -1,9 +1,15 @@
 ---
-title: Car.GetAutonomy()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetAutonomy()
+domain: Car
 supported:
   - 2
   - 3
-type:
+type: api
 ---
 
 ### `Car.GetAutonomy()`
@@ -12,7 +18,7 @@ type:
 | **Response** | `Number`   Remaining autonomy in km.   |
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var CarAutonomy = Car.GetAutonomy();

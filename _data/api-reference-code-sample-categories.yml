@@ -15,6 +15,17 @@
       - tag: notify
         name: Notify
         icon: fas fa-bell
+- tag: webportalv1
+  request:
+    examples:
+      - tag: request
+        name: Request
+        icon: fas fa-long-arrow-alt-up
+  response:
+    examples:
+      - tag: reply
+        name: Reply
+        icon: fas fa-long-arrow-alt-down
 - tag: mobile-sdk
   request:
     examples:

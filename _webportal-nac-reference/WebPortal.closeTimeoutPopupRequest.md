@@ -1,15 +1,22 @@
 ---
-title: WebPortal.closeTimeoutPopupRequest
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: WebPortal.closeTimeoutPopupRequest
+domain: WebPortal
 supported:
   - 2
   - 3
   - 4
 type: event
+deprecated: true
 ---
 
-Event triggered when the popup [MQTT popup]({{site.baseurl}}/webportal/v1/connectivity/message/#receiving-message) timeout occurs (15 seconds by default).
+Event triggered when the popup **MQTT popup** timeout occurs (15 seconds by default).
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 window.addEventListener("message", function(event){

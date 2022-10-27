@@ -1,5 +1,11 @@
 ---
-title: Car.GetDrivingState()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.GetDrivingState()
+domain: Car
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *Boolean*  `True` if the speed is higher than 5km/h (default value), else `False`.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 if (Car.GetDrivingState() == false) {
@@ -23,7 +29,7 @@ if (Car.GetDrivingState() == false) {
 }
 ```
 	
-#### REMARK
+#### Remark
 
 >**Note:** The 5km/h limit to delimit the driving states can be changed by diagnostic.
 

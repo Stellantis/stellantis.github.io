@@ -1,5 +1,11 @@
 ---
-title: Media.Audio.configure()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Media.Audio.configure()
+domain: Media
 supported:
   - 2
   - 3
@@ -17,7 +23,7 @@ Parameter | Type | Description | Required
 `Type` | *String* | The player to configure, 31 characters max Possible values: - MEDIA_PLAYER_SOURCE, - TEMPORARY_SOURCE | Required
 `Sound_State` | *String* | To activate or deactivate sound, 8 characters max Possible values: - Active, - Inactive | Required
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 // Wait for the browser to fully load

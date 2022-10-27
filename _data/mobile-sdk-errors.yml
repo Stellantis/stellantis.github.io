@@ -40,7 +40,7 @@
   suberrors: false
 - code: 2201
   type: "Output Error"
-  label: "Timeout/Polling Timeout/Command Timeout"
+  label: "Timeout"
   suberrors: false
 - code: 2202
   type: "Output Error"

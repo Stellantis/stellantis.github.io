@@ -1,5 +1,11 @@
 ---
-title: Radio.PSName()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Radio.PSName()
+domain: Radio
 supported:
   - 3
   - 4

@@ -4,49 +4,81 @@ permalink: /mobile-sdk/references/list/
 section: mobile-sdk
 categorie: API Reference
 require: reference-list
-on_this_page: false
 title: References
-description: "Connected vehicle mobile SDK Reference: list of functions."
 redirect_from:
     - /mobile-sdk/references/
+description: "Connected vehicle mobile SDK Reference: list of functions."
 ---
+<div class="content" style="padding: 0">
 
-
-
-<div class="notification page-disclaimer">
-  <div>
-    This list of references allows browsing connected vehicle <strong>Mobile SDK</strong>. These API can be available under 3 methods,<a href="{{site.baseurl}}/mobile-sdk/overview/get-started/#api-methods"> see Get Started</a> for more info:
-    <ul>
-      <li>
-        <strong>Get</strong> 
-        retrieve the current state or value of this information.
-      </li>
-      <li>
-        <strong>Set</strong> 
-        change the value of this parameter in the vehicle
-      </li>
-      <li>
-        <strong>Subscribe/Unsubscribe</strong>
-        receive (or stop receiving) events about a specific status.
-      </li>
-    </ul>
+  <div class="notification page-disclaimer">
+    <div>
+      This list of references allows browsing connected vehicle <strong>Mobile SDK</strong>. These API can be available under 3 methods,<a href="{{site.baseurl}}/mobile-sdk/overview/get-started/#api-methods"> see Get Started</a> for more info:
+      <ul>
+        <li>
+          <strong>Get</strong> 
+          retrieve the current state or value of this information.
+        </li>
+        <li>
+          <strong>Set</strong> 
+          change the value of this parameter in the vehicle
+        </li>
+        <li>
+          <strong>Subscribe/Unsubscribe</strong>
+          receive (or stop receiving) events about a specific status.
+        </li>
+      </ul>
+    </div>
   </div>
+
+  <a class="notification-link" href="{{site.baseurl}}/mobile-sdk/references/changelog/#article">
+    <div class="notification page-disclaimer" style="display: flex; justify-content: space-between">
+      <p>
+        <strong>Changelog:</strong>
+          history and versioning of Mobile SDK.
+      </p>
+      <span class="icon is-white">
+        <i class="fas fa-external-link-square-alt"></i>
+      </span>
+    </div>
+  </a>
+
 </div>
 
-<hr>
+<div class="list-table-container">
+  <table class="list-table">
+    <thead class="list-table-head">
+      <tr>
+        <th>Domain</th>
+        <th>Component</th>
+      </tr>
+    </thead>
+
+  {% for domain in site.data.mobile-sdk-domains %}
+    <tr>
+      <td><a class="list-table-domain" href="#{{domain.name}}">{{domain.name}}.*</a></td>
+      <td>
+        {% for component in site.data.mobile-sdk-components %}
+        {% if component.domain == domain.tag %}
+            <a class="list-table-component" href="#domain-{{component.name}}">{{component.icon}} {{component.name }}</a><br>
+        {% endif %}
+      {% endfor %}
+      </td>
+    </tr>
+  {% endfor %}
+  </table>
+</div>
 
 {% for domain in site.data.mobile-sdk-domains %}
 <div class="reference-domain">
-  <div style="display: flex; justify-content: center">
-    <h2 style="
-          color: #323a58;
-          width: 100%;
-          font-size: 1.6rem;
-          font-weight: 600;
-          padding-top: 9rem;
-          margin-bottom: 2.125rem;
-          margin-left: 30px;"
-    >{{domain.name}}.*</h2>
+  <div class="is-flex is-justify-content-center">
+    <a 
+      class="reference-domain-name"
+      href="#{{domain.name}}"
+      id="{{domain.name}}"
+    >
+      {{domain.name}}.*
+    </a>
   </div>
   {% for component in site.data.mobile-sdk-components %}
     {% if component.domain == domain.tag %}
@@ -63,6 +95,3 @@ redirect_from:
   {% endfor %}
 </div>
 {% endfor %}
-
-
-

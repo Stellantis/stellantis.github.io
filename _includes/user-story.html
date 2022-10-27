@@ -1,0 +1,80 @@
+<div class="boxed-module expandable content {{include.modifier}}" id="{{include.tag}}">
+    <div class="boxed-module-header" onclick="dropdown('{{include.tag}}')">
+        <div class="boxed-title-quoted">
+            <div class="boxed-module-character">
+                {% if include.role == "customer" %}
+                <i class="fas fa-user-tag"></i>
+                {% elsif include.role == "admin" %}
+                <i class="fas fa-user-cog"></i>
+                {% else %}
+                <i class="fas fa-user"></i>
+                {% endif %}
+            </div>
+            <div class="boxed-quote-icon first">
+                <span class="icon is-black is-large">
+                    <i class="fas fa-2x fa-quote-left"></i>
+                </span>
+            </div>
+            <h2 class="boxed-module-title">{{include.title}}
+                <span class="icon is-black is-medium">
+                    <i class="fas fa-quote-right"></i>
+                </span>
+            </h2> 
+        </div>
+        <svg class="expand-icon icon-plus" viewBox="0 0 20 20">
+            <path d="M9,9 L0,9 L0,11 L9,11 L9,20 L11,20 L11,11 L20,11 L20,9 L11,9 L11,0 L9,0 L9,9 Z"></path>
+        </svg>
+        <svg class="expand-icon icon-moins" viewBox="0 0 20 2">
+            <rect x="0" y="0" width="20" height="2"></rect>
+        </svg>
+    </div>
+
+{% if include.datas != "none" %}
+{% assign apis-data = site.apis-data | where_exp:"data","include.datas contains data.tag" %}
+{% endif %}
+
+    <div class="boxed-module-hidden">
+        <hr style="margin-top: 0; margin-bottom: 3.5rem; background-color: darkgrey;">
+        <div class="boxed-module-content">
+            {% unless include.requirements == "none" %}
+            <div class="boxed-module-requirements">
+                <h3 class="boxed-module-requirements-title">Requirements</h3>
+                <ul class="boxed-module-requirements-list">
+                {% for data in apis-data %}
+                    <li class="boxed-module-requirements-item boxed-module-requirements-data">
+                        <span>
+                            {{data.title}} API
+                        </span>
+                        <span title="{{data.title | capitalize}}" class="icon is-medium">
+                            <i class="{{data.logo}}"></i>
+                        </span>
+                    </li>
+                {% endfor %}
+                {% for requirement in include.requirements %}
+                    <li class="boxed-module-requirements-item">
+                        {{requirement}}
+                    </li>    
+                {% endfor %}
+                </ul>
+            </div>
+            {% endunless %}
+            <div class="boxed-module-content-text">
+                {{include.markdown | markdownify}}
+            </div>
+       </div>
+    
+
+       {% if include.datas != "none" %}
+        <div class="boxed-modules-links">
+        {% for data in apis-data %}
+            {% assign label = "Check out " | append:data.title | append:" API" %}
+            {% include highlighted-link.html link_label=data.subtext link_url=data.permalink %}
+        {% endfor %}
+        </div>
+        {% else %}
+        <div style="margin-bottom: 1.5rem;"></div>
+        {% endif %}
+
+    </div>
+</div>
+

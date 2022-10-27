@@ -1,5 +1,11 @@
 ---
-title: Media.GetTotalTracks()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Media.GetTotalTracks()
+domain: Media
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *Number*  The total number of tracks < 9999.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //Check the state of the media

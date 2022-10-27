@@ -1,139 +1,168 @@
 {% comment %} -----------------------------------------------------
 
-# API call examples
-This include page allow to include API request examples to the documentation webapi section.
-Structure of this include:
-- API URL
-- HTTP Verb
-- API Endpoint Name
-- cUrl request with queryParam
-- HTTP Body request
+{% assign getVehicleListQueryParams = 'indexRange=<element_per_page>, pageSize=<nb_of_pages>' | split: ", " %}
+{% assign getVehicleListHeaders = 'indexRange: <element_per_page>, pageSize: <nb_of_pages>' | split: ", " %}
 
-This is how it should be included in any HTML or markdown page of the webapi section:
-```liquid
-{% include webapi-curl.md httpVerb='POST' apiEndpointB2B='/user/vehicles/{id}/monitors' referenceURLResssourceB2C='/#/Monitors/createFleetVehicleMonitor' referenceURLResssourceB2B='' queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>' displayCURL=false httpBody='{
-  "label": "monitor-name",
-  "subscribeParam": { },
-  "extendedEventParam": [ ],
-  "triggerParam": { }
+{% include webapi-curl.md
+  httpVerb='POST'
+   apiEndpointB2B='/fleets/{fid}/remote/callbacks'
+   apiEndpointB2C='/user/remote/callbacks' referenceURLResssourceB2B='setFleetVehicleRemote' referenceURLResssourceB2C='sendRemoteToVhl'
+  referenceURLResssourceB2B='getVehiclesByDevice'
+  referenceURLResssourceB2C='getVehiclesByDevice'
+  queryParams=getVehicleListQueryParams
+  HTTPHeader=getVehicleListQueryParams
+  httpBody='{
+  "retryPolicy": { },
+  "batchNotify": { },
+  "callback": { },
+  "label": "callback-name",
+  "extendedEventParam": [ ]
 }' %}
-```
-
-Where variables are:
-
-Variable | Type | Required | Description | Example
--|-|-|-|-
-httpVerb | String | Optional | Display the HTTP verb of the endpoint with appropriate color tag. Default is GET. | Ex: 'POST'.
-apiEndpoint | String | Optional | Display the name of this api endpoint. Required if you choose to display API Endpoint | Ex: '/fleets/{fid}/monitors'.
-displayApiURL | Boolean | Optional | Choose to display or not the API URL tag. Default: true | Ex: false
-displayApiEndpoint | Boolean | Optional | Choose to display or not the API endpoint tag. Default: true | Ex: false
-displayCURL | Boolean | Optional | Choose to display or not the cURL request. Default: true | Ex: false
-queryParam | String | Optional | Display query params after the URL. | Ex: 'queryParam='&indexRange=<element_per_page>&pageSize=<nb_of_pages>'.
-referenceURLResssource | String | Required | Anchor for the endpoint link to the reference. | Ex: '/#/Monitors/createFleetVehicleMonitor'.
-httpBody | String | Optional | JSON body of the HTTP request. Required in POST and PUTexamples. | Ex: '{ "label": "monitor-name"}'.
-referenceURLResssourceB2B | String | Required | Anchor for the endpoint link to the reference. | Ex: '/#/Monitors/createFleetVehicleMonitor'.
-referenceURLResssourceB2C | String | Required | Anchor for the endpoint link to the reference. | Ex: '/#/Monitors/createFleetVehicleMonitor'.
-
->Note: If the endpoint contain lastPosition, curl request will add a header = 'Accept: application/vnd.geo+json'.
 
 ----------------------------------------------------- {% endcomment %}
 
-{% unless include.displayApiURL == true %}
-{% else %}
-<div class="buttons has-addons">
-  {% if page.subsection == 'b2b' %}
-  <a href="{{site.baseurl}}/webapi/b2b/api-reference/specification/" class="tag_endpoint_large button is-info"> API BaseURL</a>
-  <a href="{{site.baseurl}}/webapi/b2b/api-reference/specification/" class="tag_endpoint_large tag_api_endpoint button is-info">
-  {{site.webapiB2B}}
-  {% elsif page.subsection == 'b2c' %}
-  <a href="{{site.baseurl}}/webapi/b2c/api-reference/specification/" class="tag_endpoint_large button is-info"> API BaseURL</a>
-  <a href="{{site.baseurl}}/webapi/b2c/api-reference/specification/" class="tag_endpoint_large tag_api_endpoint button is-info">
-  {{site.webapiB2C}}
-  {% endif %}
-  </a>
-</div>
-{% endunless %}
-{% unless include.displayApiEndpoint == false %}
-
-<div class="buttons has-addons">
-  {% if page.subsection == 'b2b' %}
-    <a href="{{site.baseurl}}/webapi/b2b/api-reference{{include.referenceURLResssourceB2B}}" class="tag_endpoint_large button is-light is-selected {% if include.httpVerb == 'GET' %}
-  get
-  {% elsif include.httpVerb == 'POST' %}
-  post
-  {% elsif include.httpVerb == 'PUT' %}
-  put
-  {% elsif include.httpVerb == 'DELETE' %}
-  verbdelete
-  {% else %}
-  get
-  {% endif %} "> {{include.httpVerb}} </a>
-  <a href="{{site.baseurl}}/webapi/b2b/api-reference{{include.referenceURLResssourceB2B}}" class="tag_endpoint_large button is-light is-selected">
-  {{include.apiEndpointB2B}}</a>
-  {% elsif page.subsection == 'b2c' %}
-    <a href="{{site.baseurl}}/webapi/b2c/api-reference/specification{{include.referenceURLResssourceB2C}}" class="tag_endpoint_large button is-light is-selected {% if include.httpVerb == 'GET' %}
-  get
-  {% elsif include.httpVerb == 'POST' %}
-  post
-  {% elsif include.httpVerb == 'PUT' %}
-  put
-  {% elsif include.httpVerb == 'DELETE' %}
-  verbdelete
-  {% else %}
-  get
-  {% endif %} "> {{include.httpVerb}} </a>
-   <a href="{{site.baseurl}}/webapi/b2c/api-reference/specification{{include.referenceURLResssourceB2C}}" class="tag_endpoint_large button is-light is-selected">
-  {{include.apiEndpointB2C}}</a>
-  {% endif %}
-</div>
-
-{% else %} {% endunless %}
-{% unless include.displayCURL == false %}
-{% if page.subsection == 'b2b' %}
+{% capture request %}
+{% if include.requestQuery %}
+{{include.requestQuery}}
+{% elsif page.subsection == 'b2b' %}
 ```shell
 $ curl \
-  --request {{include.httpVerb}} \
-  --url '{{site.webapiB2B}}{{include.apiEndpointB2B}}?client_id=<client_id>{{include.queryParam}}' \
+  --{{include.httpVerb}} \
+  --url '{{site.webapiB2B}}{{include.apiEndpointB2B}}' \
+  --data 'client_id=<client_id>' \
+  --header 'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' \
   --cert 'path/to/client_cert.pem[:<cert_password>]' \
   --key 'path/to/key.pem' \
-  --cacert 'path/to/ca_cert.pem' \
-  --header 'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' \
-{% if include.apiEndpointB2B contains 'lastPosition' %}  --header 'Accept: application/vnd.geo+json' \{% else %}  --header 'Accept: application/hal+json' \ {% endif %}
-{% if include.httpVerb == 'POST','PUT' %}  --header 'Content-type: application/json' \
-  --data '<HTTP_body>' \
+  --cacert 'path/to/ca_cert.pem' \{% for queryParam in include.queryParams %}
+  --data '{{queryParam}}' \{% endfor %}{% for HTTPHeader in include.HTTPHeaders %}
+  --header '{{HTTPHeader}}' \{% endfor %}{% if include.httpBody %}
+  --data '<check out HTTP body>' \{% endif %}
 ```
 
-
-Where **&lt;HTTP_body&gt;** is:
-
-```json
-{{ include.httpBody }}
-```
-{% else %}```
-{% endif %}
 {% elsif page.subsection == 'b2c' %}
 ```shell
 $ curl \
-  --request {{include.httpVerb}} \
-  --url '{{site.webapiB2C}}{{include.apiEndpointB2C}}?client_id=<client_id>{{include.queryParam}}' \
+  --{{include.httpVerb}} \
+  --url '{{site.webapiB2C}}{{include.apiEndpointB2C}}' \
+  --data 'client_id=<client_id>' \
   --header 'Authorization: Bearer <access_token>' \
-  --header 'x-introspect-realm: <realm>' \
-{% if include.apiEndpointB2C contains 'lastPosition' %}  --header 'Accept: application/vnd.geo+json' \
-{% else %}  --header 'Accept: application/hal+json' \ {% endif %}
-{% if include.httpVerb == 'POST','PUT' %}  --header 'Content-type: application/json' \
-    --data '<HTTP_body>' \
+  --header 'x-introspect-realm: <realm>' \{% for queryParam in include.queryParams %}
+  --data '{{queryParam}}' \{% endfor %}{% for HTTPHeader in include.HTTPHeaders %}
+  --header '{{HTTPHeader}}' \{% endfor %}{% if include.httpBody %}
+  --data '<check out HTTP body>' \{% endif %}
 ```
+{% endif %}
+{% endcapture %}
 
-Where **&lt;HTTP_body&gt;** is:
-
+{% capture httpRequestBody %}
 ```json
 {{ include.httpBody }}
 ```
-{% else %}```
-{% endif %}
-{% endif %}
-{% else %}
-```json
-{{ include.httpBody }}
-```
-{% endunless %}
+{% endcapture %}
+
+{% capture sample_id %}{{include.type}}-{{include.name | slugify }}{% if include.subname %}-{{include.subname | slugify}}{% endif %}{% if include.description %}-{{include.description | slugify}}{% endif %}{% endcapture %}
+
+<div
+  id="{{sample_id}}"
+  class="api-content-code api-code-content-webapi"
+  style="margin-bottom: 1.5rem;"
+>
+
+  {%- comment -%} HEADER {%- endcomment -%}
+  <div class="api-code-header">
+
+  {% capture header_class %}api-code-header-text {% if include.httpVerb %}api-code-header-
+  {%- if include.httpVerb == "GET" -%}get
+  {%- elsif include.httpVerb == "PUT" -%}set
+  {%- elsif include.httpVerb == "POST" -%}subscribe
+  {%- elsif include.httpVerb == "DELETE" -%}delete
+  {%- endif -%}{%- endif -%}{% endcapture %}
+
+    <a 
+      class="{{header_class}}"
+      href="{{site.baseurl}}
+      {%- if page.subsection == "b2c" -%}/webapi/b2c/api-reference/specification/#operation/{{include.referenceURLResssourceB2C}}
+      {%- elsif page.subsection == "b2b" -%}/webapi/b2b/api-reference-v3/specification/#operation/{{include.referenceURLResssourceB2B}}{%- endif -%}"
+    >
+      {{include.httpVerb}} |&nbsp;
+
+      {%- if page.subsection == "b2c" -%}
+        {%- if include.apiBaseUrl -%}
+          {{include.apiBaseUrl}}
+        {%- else -%}
+          {{site.webapiB2C}}
+        {%- endif -%}
+        <br>
+        <strong>{{include.apiEndpointB2C}}</strong>
+      {%- elsif page.subsection == "b2b" -%}
+        {%- if include.apiBaseUrl -%}
+          {{include.apiBaseUrl}}
+        {%- else -%}
+          {{site.webapiB2B}}
+        {%- endif -%}
+        <br>
+        <strong>{{include.apiEndpointB2B}}</strong>
+      {%- endif -%}
+
+    </a>
+  </div>
+  {%- comment -%} END HEADER {%- endcomment -%}
+
+  {%- comment -%} REQUEST {%- endcomment -%}
+  {% unless include.hideRequest == true %}
+  <div class="code-block first-block kotlin">
+    <div class="api-code-header">
+      <div class="api-code-tabs-container">
+        <nav class="api-code-tabs">
+          <div class="api-code-tab kotlin">
+            <span class="api-code-tab-icon is-white">
+              <i class="fas fa-long-arrow-alt-up"></i>
+            </span>
+            <span class="api-code-tab-text">HTTP Request</span>
+          </div>
+          {% if include.httpBody %}
+          <div class="api-code-tab swift">
+            <span class="api-code-tab-icon is-white">
+              <i class="fas fa-code"></i>
+            </span>
+            <span class="api-code-tab-text">HTTP Body</span>
+          </div>
+          {% endif %}
+        </nav>
+      </div>
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-kotlin">
+        {{request | markdownify}}
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-swift">
+      {% if include.httpBody %}
+        {{httpRequestBody | markdownify}}
+      {% endif %}
+    </div>
+  </div>
+  {% endunless %}
+  {%- comment -%} END REQUEST {%- endcomment -%}
+
+  {%- comment -%} RESPONSE {%- endcomment -%}
+  {% if include.200 %}
+  <div class="code-block first-block kotlin">
+    <div class="api-code-header">
+      <div class="api-code-tabs-container">
+        <nav class="api-code-tabs">
+          <div class="api-code-tab kotlin">
+            <span class="api-code-tab-icon is-white">
+              <i class="fas fa-long-arrow-alt-down"></i>
+            </span>
+            <span class="api-code-tab-text">HTTP Response 200</span>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-kotlin">
+        {{include.200 | markdownify}}
+    </div>
+  </div>
+  {% endif %}
+  {%- comment -%} END RESPONSE {%- endcomment -%}
+
+</div>

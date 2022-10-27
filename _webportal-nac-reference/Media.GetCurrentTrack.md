@@ -1,5 +1,11 @@
 ---
-title: Media.GetCurrentTrack()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Media.GetCurrentTrack()
+domain: Media
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *Number*  Current Track number if there is one, else returns error state.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //Check the state of the media

@@ -1,5 +1,11 @@
 ---
-title: Navigation.GetNextWaypoint.ETAHours()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Navigation.GetNextWaypoint.ETAHours()
+domain: Navigation
 supported:
   - 2
   - 3
@@ -14,14 +20,14 @@ privacy: Public
 | **Response** | *Number*  Estimated arrival hour at next waypoint.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var WaypointETAHours = Navigation.GetNextWaypoint.ETAHours();
 // WaypointETAHours = 1 Hour
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** `Navigation.GetNextWaypoint.ETAHours` only gives the "Hour" part of the Estimated Time of arrival. To get the "Minutes" part, use `Navigation.GetNextWaypoint.ETAMinutes`.
 

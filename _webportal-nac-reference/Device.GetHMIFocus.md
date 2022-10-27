@@ -1,5 +1,11 @@
 ---
-title: Device.GetHMIFocus()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Device.GetHMIFocus()
+domain: Device
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *boolean* `True` if focus is on portal, else `False`
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 if (Device.GetHMIFocus() === False) {

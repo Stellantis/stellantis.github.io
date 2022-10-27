@@ -109,10 +109,6 @@
               path: standards/
             - name: Errors & Rate Limit
               path: errors/
-            - name: Try it Out!
-            #   path: demo/
-            # - name: Data Scope
-              path: data-scope/
         - name: Quickstart
           path: quickstart/
           pages:
@@ -153,43 +149,28 @@
                 path: about/
               - name: App Validation
                 path: app-validation/
-              - name: Standards
-                path: standards/
               - name: Infotainment System
                 path: infotainment-system/
-        - name: Quickstart
-          path: quickstart/
+        - name: Application
+          path: application/
           pages:
-            - name: Get Started
-              path: get-started/
-            - name: Handling Events
-              path: events/
-            - name: Requirements
-              path: requirements/
+            - name: Quickstart
+              path: quickstart/
             - name: Guidelines
               path: guidelines/
+            - name: Handling Events
+              path: events/
+            - name: App Lifecycle
+              path: app-lifecycle/
             - name: Assets
               path: assets/
-        - name: Interactivity
-          path: interactivity/
-          pages:
-            - name: Managing Embedded
-              path: managing-embedded/
-            - name: Receive Notifications
-              path: notifications/
-            - name: Popup
-              path: popup/
-            - name: Player
-              path: player/
-        - name: Connectivity
-          path: connectivity/
+            - name: Privacy
+              path: privacy/
+        - name: Advanced Features
+          path: advanced-features/
           pages:
             - name: MQTT
               path: mqtt/
-            - name: Message
-              path: message/
-            - name: Notification
-              path: notification/
             - name: User Subscription
               path: user-subscription/
         - name: API Reference
@@ -197,8 +178,6 @@
           pages:
             - name: References
               path: list/
-            - name: Class
-              path: class/
     - tag: v2
       path: v2/
       name: Version 2
@@ -209,23 +188,19 @@
           pages:
             - name: About
               path: about/
-            - name: Privacy
-              path: privacy/
+            - name: App Validation
+              path: app-validation/
             - name: Infotainment System
               path: infotainment-system/
-        - name: Quickstart
-          path: quickstart/
+        - name: Application
+          path: application/
           pages:
-            - name: Get Started
-              path: get-started/
-            - name: Get Set Subscribe
-              path: get-set-subscribe/
-            - name: API Request
-              path: request/
-            - name: API Response
-              path: response/
-            - name: Guidelines
-              path: guidelines/
+            - name: Quickstart
+              path: quickstart/
+            - name: Assets
+              path: assets/
+            - name: Privacy
+              path: privacy/
         - name: API Reference
           path: api-reference/
           pages:
@@ -246,14 +221,8 @@
           pages: 
             - name: About
               path: about/
-            # - name: Quickstart Android
-            #   path: quickstart-android/
-            # - name: Quickstart iOS
-            #   path: quickstart-ios/
             - name: Get Started
               path: get-started/
-            # - name: Service Availability
-            #   path: service-availability/
         - name: Security
           path: security/
           pages: 
@@ -280,6 +249,8 @@
               path: vehicle-status/
             - name: Remote Commands
               path: remote-commands/
+            - name: Push Notification
+              path: push-notification/
             - name: AMI & Rocks-e
               path: ami&rocks-e/
         - name: API Reference
@@ -288,23 +259,15 @@
             - name: References
               path: list/
             - name: "&nbsp;&nbsp;Authentication"
-              path: list/#domain-Authentication
-            - name: "&nbsp;&nbsp;Enrollement"
-              path: list/#domain-Enrollment
-            - name: "&nbsp;&nbsp;CarKey"
-              path: list/#domain-CarKey
-            - name: "&nbsp;&nbsp;Steps"
-              path: list/#domain-Steps
+              path: list/#pims.authentication
             - name: "&nbsp;&nbsp;SDK"
-              path: list/#domain-SDK
-            - name: "&nbsp;&nbsp;AMI & Rocks-e (O2X)"
-              path: list/#domain-AMI & Rocks-e (O2X)
-            - name: "&nbsp;&nbsp;Send Navigation"
-              path: list/#domain-Send Navigation
-            - name: "&nbsp;&nbsp;Vehicle Status & Remote Command"
-              path: list/#domain-Vehicle Status & Remote Command
-            - name: "&nbsp;&nbsp;Trips"
-              path: list/#domain-Trips
+              path: list/#pims.sdk
+            - name: "&nbsp;&nbsp;Subscription"
+              path: list/#pims.subscription
+            - name: "&nbsp;&nbsp;Vehicle"
+              path: list/#pims.vehicle
+            - name: Changelog
+              path: changelog/
             - name: Errors
               path: errors/
 - tag: other

@@ -1,5 +1,11 @@
 ---
-title: Car.fuelUnit
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Car.fuelUnit
+domain: Car
 supported:
   - 2
   - 3
@@ -8,7 +14,7 @@ type: event
 ---
 Event triggered when the fuel unit is changed.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try {

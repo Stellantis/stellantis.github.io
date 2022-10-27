@@ -7,6 +7,7 @@ title: About
 description: "Security schemes in connected vehicle mobile SDK. Authentication, enrollment, OTP."
 ---
 
+
 In order to use Mobile SDK API, you should first perform the appropriate security schemes.
 
 
@@ -39,7 +40,7 @@ The security scheme you need to perform depends on the API to request. Each API 
 {%- assign sdk-features = site.pages | where: "categorie", "SDK Features" -%}
 {% for feature in sdk-features %}{%- for component in site.data.mobile-sdk-components -%}
 {%- if component.category == 'feature' -%}{% if component.tag == feature.mobile-sdk-component %}
-| [{{feature.emoji}} {{feature.title}}]({{site.baseurl}}{{feature.permalink}}#article) | {%- if component.security == "authentication" -%}{{security_authentication}}{%- elsif component.security == "subscription" -%} {{security_subscription}} {% elsif component.security == "none" %}{{no_security}}{%- endif -%}|
+| [{{component.icon}} {{feature.title}}]({{site.baseurl}}{{feature.permalink}}#article) | {%- if component.security == "authentication" -%}{{security_authentication}}{%- elsif component.security == "subscription" -%} {{security_subscription}} {% elsif component.security == "none" %}{{no_security}}{%- endif -%}|
 {%- endif -%}{%- endif -%}
 {%- endfor -%}
 {% endfor %}
@@ -53,3 +54,4 @@ The security scheme you need to perform depends on the API to request. Each API 
 
 Other security process, they are not mandatory but could be also interesting:
 - ✉️ **[OTP Code]({{site.baseurl}}/mobile-sdk/security/otp/#article)**: One Time Password, OTP should be handled in response to error **2302:** *missing OTP code*.
+- 🪙 **[Token]({{site.baseurl}}/mobile-sdk/security/token/#article)**: This feature allows retrieving tokens in order to request REST APIs not included in this SDK.

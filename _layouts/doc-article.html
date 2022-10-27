@@ -1,51 +1,158 @@
 ---
 layout: default
 ---
-{% include header.html %}
 
 <section id="article">
-    <div id="lunr">
-        <div id="lunrsearchresults">
-            <ul></ul>
-        </div>
-    </div>
+  <div class="columns is-gapless">
     
-    <div class="columns is-gapless">
-
-        
-        {% unless page.menu == false %}
-        <div class="column is-narrow is-hidden-mobile"> 
-            {% if page.layout == "doc-article" or page.layout == "api-reference" %}
-            {% include menu.html %}
-            {% endif %}
+    {%- comment -%} MENU {%- endcomment -%}
+    {% unless page.menu == false %}
+    <div class="column is-narrow is-hidden-mobile"> 
+      {% if page.layout == "doc-article" or page.layout == "api-reference" %}
+      <aside class="menu">
+        <span class="menu-title">
+          {% for section in site.data.sections %}
+          {% if page.section == section.tag %}
+          {{section.name}}
+          {% endif %}
+          {% for subsection in section.subsections %}
+          {% if subsection.tag==page.subsection and page.subsection %}
+          - {{subsection.name}}
+          {% endif %}
+          {% endfor %}
+          {% endfor %}
+        </span>
+        {%- if page.categorie -%}
+        {%- for section in site.data.sections -%}
+        {%- if section.subsections -%}
+        {%- for subsection in section.subsections -%}
+        {%- if page.subsection == subsection.tag -%}
+        {% for categorie in subsection.categories %}
+        <p href="{{site.baseurl}}{{section.path}}{{subsection.path}}{{categorie.path}}" class='menu-label has-list{% if page.categorie == categorie.name %} is-active{% endif %}' id="{{categorie.name}}">
+          <span>
+            {{categorie.name}}
+          </span>
+        </p>
+        <ul class="menu-list">
+          {% for p in categorie.pages %}
+          {%- assign page_link = section.path | append: subsection.path | append: categorie.path | append: p.path -%}
+          <li>
+            <a {% if page.permalink contains page_link %}class="is-active"{% endif %} href="{{site.baseurl}}{{page_link}}{% unless page_link contains "#" %}#article{% endunless %}">
+              {{p.name}} 
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endfor %}
+        {%- endif -%}
+        {%- endfor -%}
+        {%- endif -%}
+        {%- endfor -%}
+        {%- else -%}
+        <div class="menu-one-level">
+          {%- for section in site.data.sections -%}
+          {%- if section.subsections -%}
+          {%- for subsection in section.subsections -%}
+          {%- if page.subsection -%}
+          {%- if page.subsection == subsection.tag -%}
+          {% for p in subsection.categories[0].pages %}
+          <a href="{{site.baseurl}}{{section.path}}{{subsection.path}}{{p.path}}#article" class='menu-label{% if page.title == p.name %} is-active{% endif %}' id="{{p.name}}">
+            <span>
+              {{p.name}}
+            </span>
+          </a>
+          {% endfor %}
+          {%- endif -%}
+          {%- else -%}
+          {%- if page.section == section.tag -%}
+          {% for p in subsection.categories[0].pages %}
+          <a href="{{site.baseurl}}{{section.path}}{{p.path}}#article" class='menu-label{% if page.title == p.name %} is-active{% endif %}' id="{{p.name}}">
+            <span>
+              {{p.name}}
+            </span>
+          </a>
+          {% endfor %}
+          {%- endif -%}
+          {%- endif -%}
+          {%- endfor -%}
+          {%- endif -%}
+          {%- endfor -%}
         </div>
-        {% endunless %}
-
-        <main class="column">
-            <div class="content">
-                {% include content-header.html %}
-                {% include anchor_headings.html html=content anchorClass="bd-anchor-link" anchorBody="#" bodyPrefix='<span class="bd-anchor-name">' bodyAntefix="</span>" %}
-            <div>
-        </main>
-        
-        {% unless page.on_this_page == false %}
-        <div class="column is-hidden-touch" id="on-this-page-container">
-            <aside id="on-this-page">
-            {% if page.layout == "doc-article" %}
-            <div class="bd-anchors-reference" id="anchorsReference"></div>
-            <nav class="bd-anchors" id="anchors">
-                <p class="bd-anchors-title">
-                    On this page
-                </p>
-                <ul class="bd-anchors-list"></ul>
-            </nav>
-            {% elsif page.layout == "api-reference"%}
-                {% include api-reference-aside.html %}
-            {% endif %}
-            </aside>
-        </div>
-        {% endunless %}
+        {%- endif -%}
+      </aside>
+      {% endif %}
     </div>
-</section>
+    {% endunless %}
+    {%- comment -%} END MENU {%- endcomment -%}
+    
+    <main class="column {% unless page.title contains "eference" %}content-column{% endunless %}">
+      <div class="content">
+        {% include content-header.html %}
+        {% if page.layout == "api-reference" %}
+        {{content}}
+        {% else %}
+        {% include anchor_headings.html html=content anchorClass="bd-anchor-link" anchorBody="#" bodyPrefix='<span class="bd-anchor-name">' bodyAntefix="</span>" %}
+        {% endif %}
+      <div>
+    </main>
+        
+    {% unless page.on_this_page == false %}
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+        
+        {% if page.layout == "doc-article" %}
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            {% if page.section == "mobile-sdk" and page.title == "References" %}
+            
+            {% for domain in site.data.mobile-sdk-domains %}
+            <li style="{% unless forloop.first %}margin-top: .75rem{% endunless %}" ><a href="#{{domain.name}}" style="font-weight: 500;">{{domain.name}}.*</a></li>
+            {% for component in site.data.mobile-sdk-components %}
+            {% if component.domain == domain.tag %}
+            <li>
+              <a 
+              style="padding-left: 1rem; display: block;"
+              href="#domain-{{component.name}}">
+              {{component.name }}
+              </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+            
+            <li style="padding-bottom: 10px; margin-top:1rem; list-style-type: none"><a href="#article" style="">Back to top</a></li>
+            
+            {% elsif page.section == "webportal" and page.title contains "References" %}
+            {% if page.subsection == "v1" %}
+            {% assign domains = site.webportal-nac-reference | where: "type", "class" %}
+            {% elsif page.subsection == "v2" %}
+            {% assign domains = site.webportal-ivi-public-reference | where: "type", "domain" %}
+            {% endif %}
+            
+            
+            {% for domain in domains %}
+            <li><a href="#domain-{{domain.name}}">{{domain.name}}.*</a></li>
+            {% endfor %}
+            
+            <li style="padding-bottom: 10px; margin-top:1rem; list-style-type: none;"><a href="#article">Back to top</a></li>
+            {% endif %}
+            
+          </ul>
+        </nav>
 
-{% include footer.html %}
+        {% elsif page.layout == "api-reference"%}
+        <nav class="bd-anchors api-types-aside" id="anchors">
+          {% include api-reference-related-apis.html  %}
+        </nav>
+        {% endif %}
+      
+      </aside>
+    </div>
+  {% endunless %}
+  </div>
+</section>

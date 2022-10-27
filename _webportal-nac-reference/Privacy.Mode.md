@@ -1,5 +1,11 @@
 ---
-title: Privacy.Mode()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Privacy.Mode()
+domain: Privacy
 supported:
   - 3
   - 4
@@ -12,7 +18,7 @@ type: api
 | **Response** | *String*  Current privacy mode.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 If (Privacy.Mode() === "Private" || Privacy.Mode() === "Geoloc" ) {
@@ -23,7 +29,7 @@ If (Privacy.Mode() === "Private" || Privacy.Mode() === "Geoloc" ) {
 }
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** 3 values are available
 - `Public`: All informations are available (Geolocalisation and internet connectivity are authorized)

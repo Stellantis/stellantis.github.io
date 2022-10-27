@@ -1,15 +1,22 @@
 ---
-title: WebPortal.okBtnPopupRequestClicked
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: WebPortal.okBtnPopupRequestClicked
+domain: WebPortal
 supported:
   - 2
   - 3
   - 4
 type: event
+deprecated: true
 ---
 
-Event triggered when the *OK* button of the [MQTT popup]({{site.baseurl}}/webportal/v1/connectivity/notification/#sending-popup) is clicked.
+Event triggered when the *OK* button of the **MQTT popup** is clicked.
 
-### EXAMPLE
+### Example
 
 ```javascript
 window.addEventListener("message", function(event){

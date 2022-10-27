@@ -1,5 +1,11 @@
 ---
-title: Navigation.RouteCalculationCancelled
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Navigation.RouteCalculationCancelled
+domain: Navigation
 supported:
   - 2
   - 4
@@ -7,7 +13,7 @@ type: event
 ---
 Event triggered when the calculation of the itinerary was ended abruptly *eg:* if the user perform SW update during route calculation.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try{	

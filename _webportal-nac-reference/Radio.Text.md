@@ -1,5 +1,11 @@
 ---
-title: Radio.Text()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Radio.Text()
+domain: Radio
 supported:
   - 3
   - 4
@@ -12,7 +18,7 @@ type: api
 | **Response** | *String* Radio text.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 // Get the Radio text

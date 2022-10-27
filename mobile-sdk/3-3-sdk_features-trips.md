@@ -6,11 +6,10 @@ categorie: SDK Features
 title: Trips
 description: "Retrieve vehicle trips with connected vehicle mobile SDK."
 require: api-reference
-emoji: 📍
 mobile-sdk-component: TripNDrive
 ---
 
-{% include mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
 
 {%- capture trip -%}
       "alerts": [2,59,70], "category": "WORK", 
@@ -88,6 +87,7 @@ These records include information about navigation (start, end, destination), al
   - [Export](#export) *Trips* from the database.
   - [Merge](#merge) *Trips* together or [Unmerge](#unmerge).
 - 🔋 It's also possible to [set default energy price](#energy-price).
+- 🛠 [Statistics APIs](#statistics) allow retrieving figures about vehicle use during a period of time.
 
 ## Subscribe to new *Trips*
 
@@ -597,4 +597,35 @@ The following api allows changing the energy price:
   name="pims.vehicle.price"
   request_params_swift=setEnergyPriceRequestSwift
   request_params_kotlin=setEnergyPriceRequestKotlin
+%}
+
+## Statistics
+
+Trips component allows retrieving **sum of data** about trips available in the local database, you can request the following figures:
+- 🛢 **Consumption** of energy.
+- 📏 **Distance** traveled.
+- 🕛 **Duration** of the Trips.
+
+Theses API will calculate the sum of requested data during a certain period of time (*day, week, month, year, beginning*), it can help in creating user statistics.
+
+Example for **Trips Consumption**:
+
+{%- capture getConsumptionStatRequestKotlin -%}
+  Pair("action", "consumption"),
+  Pair("period", "begining")
+{%- endcapture -%}
+
+{%- capture getConsumptionStatRequestSwift -%}
+  "action": "consumption",
+  "period": "begining"
+{%- endcapture -%}
+
+
+{% include api-reference-code-sample.html
+  sdk_name=page.section
+  type="get"
+  name="pims.vehicle.statistics"
+  subname="consumption"
+  request_params_swift=getConsumptionStatRequestSwift
+  request_params_kotlin=getConsumptionStatRequestKotlin
 %}

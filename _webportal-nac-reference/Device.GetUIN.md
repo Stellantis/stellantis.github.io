@@ -1,5 +1,11 @@
 ---
-title: Device.GetUIN()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Device.GetUIN()
+domain: Device
 supported:
   - 3
   - 4
@@ -12,7 +18,7 @@ type: api
 | **Response** | *String* UIN
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var UIN = Device.GetUIN()

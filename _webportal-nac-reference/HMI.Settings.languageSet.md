@@ -1,5 +1,11 @@
 ---
-title: HMI.Settings.languageSet
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: HMI.Settings.languageSet
+domain: HMI
 supported:
   - 2
   - 3
@@ -8,7 +14,7 @@ type: event
 ---
 Event triggered when the user changes the language in the settings.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try{// HMI.Settings

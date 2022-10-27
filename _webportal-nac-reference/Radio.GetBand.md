@@ -1,5 +1,11 @@
 ---
-title: Radio.GetBand()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Radio.GetBand()
+domain: Radio
 supported:
   - 2
   - 3
@@ -13,7 +19,7 @@ type: api
 | **Response** | *String*  The currently used radio band.
 | **Parameter**   | *Void*
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 //Get the Radio Band
@@ -21,7 +27,7 @@ var RadioBand = Radio.GetBand()
 // RadioBand = "FM"
 ```
 
-#### REMARK
+#### Remark
 
 The possible values for the radio band are the following strings:
 - FM HD

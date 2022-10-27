@@ -1,5 +1,11 @@
 ---
-title: Navigation.LaunchGuidanceWaypoints()
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Navigation.LaunchGuidanceWaypoints()
+domain: Navigation
 supported:
   - 2
   - 4
@@ -21,9 +27,9 @@ Parameter | Type | Description | Required
 
 #### IMPORTANT
 
-> **Caution:** Guidance can **not** be launched when a popup (either [MQTT]({{site.baseurl}}/webportal/v1/connectivity/notification/#sending-popup) or [nativePopup]({{site.baseurl}}/webportal/v1/reference/list/#api-WebPortal-nativePopup-open)) is displayed. To make sure the guidance have actually been launched please check that {{page.title}} return is `True`.
+> **Caution:** Guidance can **not** be launched when a **popup** is displayed. To make sure the guidance have actually been launched please check that {{page.title}} return is `True`.
 
-#### EXAMPLE
+#### Example
 
 ```javascript
 var DestinationLongitude = 48.866669
@@ -41,7 +47,7 @@ if ( Navigation.LaunchGuidanceWaypoints(DestinationLongitude, DestinationLatitud
 }
 ```
 
-#### REMARK
+#### Remark
 
 >**Note:** This new version of the LaunchGuidance will override the current journey with the one being passed.
 

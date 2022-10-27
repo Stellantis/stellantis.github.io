@@ -17,7 +17,7 @@ This web server needs to be configured to read & process our events in order tha
 
 # See Also
 
-##### Standards
+##### SStandards
 
 Want to see what it's look like? Browse our {% if page.subsection == 'b2b' %}[Standards]({{ site.baseurl }}/webapi/b2b/overview/standards/){% elsif page.subsection == 'b2c' %}[Standards]({{ site.baseurl }}/webapi/b2c/overview/standards/){% endif %}.
 

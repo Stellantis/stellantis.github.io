@@ -6,7 +6,10 @@ categorie: Security
 title: OTP
 description: "Get OTP code."
 require: api-reference
+mobile-sdk-component: StrongAuthentication
 ---
+
+{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
 
 
 When it's requested by this Mobile SDK, you should be able to request an OTP code.

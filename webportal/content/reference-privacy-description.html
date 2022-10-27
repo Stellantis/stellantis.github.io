@@ -1,0 +1,49 @@
+Depending of the current <a href="{{site.baseurl}}
+{%- if page.subsection == "v2" -%}/webportal/v2/application/privacy/#article
+{%- elsif page.subsection == "v1" -%}/webportal/v1/application/privacy/#article
+{%- endif -%}">
+privacy</a> choosen by the vehicle driver int the HMI, API can be available or not:
+<ul>
+  <li>
+    <em>
+      <span class="icon is-white">
+        <i class="fas fa-long-arrow-alt-down" style="font-size: .9rem;"></i>
+        <i class="fas fa-long-arrow-alt-up" style="font-size: .9rem;"></i>
+        <i class="fas fa-map-marker-alt" style="padding-left: .2rem; font-size: .9rem;"></i>
+      </span>
+      <span>
+         Data &amp; Location:
+      </span>
+    </em>  
+    &nbsp; this API require all access to be granted.
+  </li>
+  <li>
+    <em>
+      <span class="icon is-white" style="font-size: .9rem;">
+        <i class="fas fa-map-marker-alt"></i>
+      </span>
+      <span>
+        Location:
+      </span>
+    </em>  
+    &nbsp; this API require at least location to be activated.
+  </li>
+  <li>
+    <span class="icon is-white" style="font-size: .9rem;">
+      <i class="fas fa-lock-open"></i>
+    </span>
+    <em>
+      None:
+    </em>
+    &nbsp; this API is always available even in plane mode.
+  </li>
+</ul>
+  {% if page.title == "Private References" %}
+    <span class="icon is-white" style="font-size: .9rem;">
+      <i class="fas fa-exclamation-circle"></i>
+    </span>
+    <strong>
+      SDK Only:
+    </strong>
+    &nbsp; this API is available only in the SDK.
+  {% endif %}

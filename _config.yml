@@ -11,7 +11,7 @@ gitHubSpecB2B: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/ass
 gitHubSpecB2C: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/assets/openapi/psacc.yaml"
 
 # doc versionning
-doc-version: "9.2.0"
+doc-version: "10.0.0"
 
 # WEB API BaseURI - theses var have to be renamed without prod/preprod (because we display only one at once)
 webapiB2C: "https://api.groupe-psa.com/connectedcar/v4"
@@ -23,10 +23,14 @@ webapiB2Bv2: "https://api-cert.groupe-psa.com/connectedcar/v2"
 
 collections:
   webportal-nac-reference:
-    output: false
-  webportal-ivi-reference:
+    output: true
+    permalink: /webportal/v1/api-reference/:name
+  webportal-ivi-public-reference:
     output: true
     permalink: /webportal/v2/api-reference/:name
+  mobile-sdk-public-reference:
+    output: false
+    permalink: /mobile-sdk/references/:name
   mobile-sdk-reference:
     output: true
     permalink: /mobile-sdk/references/:name
@@ -48,19 +52,18 @@ exclude:
  - "bin/"
  - "README.md"
  - "Rakefile"
- - "terms-of-use.md"
-
+ 
 plugins:
   - jekyll-redirect-from
 
 links:
-    header:
-    footer:
+  header:
+  footer:
 
 ui:
-    header:
-        color1: "#080331"
-        color2: "#673051"
+  header:
+      color1: "#080331"
+      color2: "#673051"
 
 social:
 
@@ -71,6 +74,7 @@ kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: true
+# highlighter: rouge
 
 permalink: pretty
 

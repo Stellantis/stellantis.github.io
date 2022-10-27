@@ -1,5 +1,11 @@
 ---
-title: Connectivity.connectivityOff
+layout: api-reference
+section: webportal
+subsection: v1
+categorie: API Reference
+title: References
+name: Connectivity.connectivityOff
+domain: Connectivity
 supported:
   - 2
   - 3
@@ -8,7 +14,7 @@ type: event
 ---
 Event triggered when the Internet connectivity status changes to `False`.
 
-### EXAMPLE
+### Example
 
 ```javascript
 try{
