@@ -11,6 +11,8 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v3.7.0](#b2b_v370) | 3.7.0
+[b2b_v3.6.0](#b2b_v360) | 3.6.0
 [b2b_v3.5.0](#b2b_v350) | 3.5.0
 [b2b_v3.4.1](#b2b_v341) | 3.4.1
 [b2b_v3.4.0](#b2b_v340) | 3.4.0
@@ -26,6 +28,36 @@ Version|Name
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
 [b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
+
+<hr>
+
+## b2b_v3.7.0
+
+{% include published_on.html date='29 nov 2022' %}
+
+**Telemetry API**
+- Add vehicle.lightingSystem in telemetry.type enum parameter
+- Update energies object
+
+**Status API**
+- Update energies object
+
+**Others**
+- Align date (createdAt/UpdateAt) behavior
+
+
+<hr>
+
+## b2b_v3.6.0
+
+{% include published_on.html date='29 nov 2022' %}
+
+**Telemetry & Status API**
+- Update Lights object to add position information
+
+**Telemetry API**
+- Update rvv enum list
+
 
 <hr>
 
