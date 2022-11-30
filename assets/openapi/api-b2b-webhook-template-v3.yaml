@@ -2,10 +2,9 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '3.5.0'
+  version: '3.7.0'
   title: Groupe PSA Connected Car B2B API
   description: | 
-                # <<```PSA API B2B Webhook template```>>
 
                 # Introduction
   
