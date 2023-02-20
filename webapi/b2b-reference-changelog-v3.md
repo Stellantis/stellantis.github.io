@@ -12,6 +12,7 @@ title: Changelog
 Version|Name
 -|-
 [b2b_v3.8.0](#b2b_v380) | 3.8.0
+[b2b_v3.7.1](#b2b_v371) | 3.7.1
 [b2b_v3.7.0](#b2b_v370) | 3.7.0
 [b2b_v3.6.0](#b2b_v360) | 3.6.0
 [b2b_v3.5.0](#b2b_v350) | 3.5.0
@@ -27,7 +28,6 @@ Version|Name
 [b2b_v3.0.6](#b2b_v306) | 3.0.6
 [b2b_v3.0.5](#b2b_v305) | 3.0.5
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
-[b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
 
 <hr>
@@ -44,6 +44,19 @@ Version|Name
 
 **Others**
 - Align date behavior (set createdAt in mandatory, etc)
+
+
+<hr>
+
+## b2b_v3.7.1
+
+{% include published_on.html date='20 feb 2023' %}
+
+**Collisions API**
+- Add mandatory state for side in collision object
+
+**Others API**
+- Aligne date behavior
 
 
 <hr>
