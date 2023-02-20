@@ -11,6 +11,7 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v3.8.0](#b2b_v380) | 3.8.0
 [b2b_v3.7.0](#b2b_v370) | 3.7.0
 [b2b_v3.6.0](#b2b_v360) | 3.6.0
 [b2b_v3.5.0](#b2b_v350) | 3.5.0
@@ -28,6 +29,22 @@ Version|Name
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
 [b2b_v3.0.3](#b2b_v303) | 3.0.3
 [b2b_v3.0.0](#b2b_v300) | Candiate version
+
+<hr>
+
+## b2b_v3.8.0
+
+{% include published_on.html date='20 feb 2023' %}
+
+
+**Telemetry & Status API**
+- Update enum list of autoECallTriggering
+- Fix wording issue in one item of adas accr data
+- Add sequential value in transmission.gearbox.mode
+
+**Others**
+- Align date behavior (set createdAt in mandatory, etc)
+
 
 <hr>
 
