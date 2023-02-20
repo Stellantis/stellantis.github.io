@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.7.0'
+  version: '3.8.0'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -1266,6 +1266,8 @@ components:
                 Minimal stands for no emergency system activated during the collision.
                 Minor only pretensioner system activated.
                 Major for airbag and prentensioner activation.
+        required : 
+          - side
       
     InfoCollision:
       type: string
@@ -1457,7 +1459,7 @@ components:
                       $ref: '#/components/schemas/BeltStatus'
                   autoECallTriggering:
                     type: string
-                    enum: [NotDetected, Detected]
+                    enum: [NotDetected, Detected, ShockDetectionUnabled]
                   beltWarning:
                     deprecated: true
                     type: string
@@ -1732,6 +1734,8 @@ components:
                       enum:
                         - Estimated
                         - Acquire
+              required : 
+                - createdAt
     
     Energy:
       description: Describe vehicle energy supply for thermic, low emission vehicle or both.
@@ -3731,6 +3735,8 @@ components:
                           type: boolean
                         snow:
                           type: boolean
+                        sequential:
+                          type: boolean
                     ratio:
                       description: Current gear-box ratio.
                       type: string
@@ -3782,7 +3788,7 @@ components:
                       - Hold
                       - HoldWithOverSpeeding
                       - Off
-                      - OverSpeedingByPedalPess
+                      - OverSpeedingByPedalPress
                       - StandBy
                   lvv:
                     type: boolean
