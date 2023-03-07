@@ -9,7 +9,7 @@ require: api-reference
 mobile-sdk-component: TripNDrive
 ---
 
-{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity-v2.html %}
 
 {%- capture trip -%}
       "alerts": [2,59,70], "category": "WORK", 
@@ -65,7 +65,7 @@ mobile-sdk-component: TripNDrive
   }
 {%- endcapture -%}
 
-Within *Stellantis Connected Vehicles SDK for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)*, **Trips** are records of the **vehicle activity** during a navigation 🗺
+Within *Stellantis Connected Vehicles SDK*, **Trips** are records of the **vehicle activity** during a navigation 🗺
 
 
 You can subscribe to *Trips* when the mobile phone is connected to the vehicle through **Bluetooth**. Then, when a navigation will end in the vehicle infotainment system, a record of the *Trip* will be saved in a dedicated local **database of the mobile phone**.
@@ -124,6 +124,7 @@ It will send **events** when the vehicle connect/disconnect, see [subscribe - pi
   request_params_kotlin="no_params"
   response="null"
   notification=connectionTripResponse
+  component="TripNDrive"
 %}
 
 ## 2 - Subscribe: Errors
@@ -155,6 +156,7 @@ Again, this api **does not connect** the vehicle with the device, but is made to
   request_params_kotlin=errorEventRequestKotlin
   notification=eventTripAndDriveResponse
   response="null"
+  component="TripNDrive"
 %}
 
 ## 3 - Subscribe: *Trips*
@@ -208,6 +210,7 @@ This API allows subscribing to **multiples VINs**. If you need to add more VIN t
   request_params_kotlin=eventTripRequestKotlin
   notification=tripWithType
   response="null"
+  component="TripNDrive"
 %}
 
 
@@ -235,6 +238,7 @@ If you want to retrieve the list of **VINs subscribed** to [*Subscribe* pims.veh
   request_params_swift='no_params'
   request_params_kotlin='no_params'
   response=subVinsResponse
+  component="TripNDrive"
 %}
 
 ## Retrieve Local *Trips*
@@ -265,6 +269,7 @@ Retrieve *Trip* one by one using *Trip* unique ID.
   request_params_swift=retrieveTripByIDRequestSwift
   request_params_kotlin=retrieveTripByIDRequestKotlin
   response=tripWithoutType
+  component="TripNDrive"
 %}
 
 
@@ -292,6 +297,7 @@ Retrieve *Trip* one by one using range (`first` or `last` trip).
   request_params_swift=retrieveTripByRangeRequestSwift
   request_params_kotlin=retrieveTripByRangeRequestKotlin
   response=tripWithoutType
+  component="TripNDrive"
 %}
 
 #### List of *Trips*
@@ -343,6 +349,7 @@ Then you can select the order:
   request_params_swift=retrieveTripsRequestSwift
   request_params_kotlin=retrieveTripsRequestKotlin
   response=listOfTrips
+  component="TripNDrive"
 %}
 
 
@@ -385,6 +392,7 @@ Editing a *Trip* will modify it in the local storage. This is the data you can e
   request_params_swift=editTripsRequestSwift
   request_params_kotlin=editTripsRequestKotlin
   response=listOfTrips
+  component="TripNDrive"
 %}
 
 #### Remove
@@ -411,6 +419,7 @@ Remove *Trips* from the mobile phone local storage using their ID(s):
   request_params_swift=removeTripsRequestSwift
   request_params_kotlin=removeTripsRequestKotlin
   response="null"
+  component="TripNDrive"
 %}
 
 This API always return `result: null`.
@@ -446,6 +455,7 @@ Import *Trips* from a file to the local storage of the mobile phone. This featur
   request_params_swift=importTripsRequestSwift
   request_params_kotlin=importTripsRequestKotlin
   response=importTripsResponse
+  component="TripNDrive"
 %}
 
 #### Export
@@ -476,6 +486,7 @@ Export *Trips* from the local storage of the mobile phone to a file:
   request_params_swift=exportTripsRequestSwift
   request_params_kotlin=exportTripsRequestKotlin
   response=exportTripsResponseSwift
+  component="TripNDrive"
 %}
 
 ## Merge & Unmerge Local *Trips*
@@ -510,6 +521,7 @@ Merge *Trips* in the local storage of the mobile phone. The *Trip* resulting fro
   request_params_swift=mergeTripsRequestSwift
   request_params_kotlin=mergeTripsRequestKotlin
   response=tripWithoutType
+  component="TripNDrive"
 %}
 
 
@@ -538,6 +550,7 @@ Unmerge *Trip* in the local storage of the mobile phone, the *Trip* should have 
   request_params_swift=unmergeTripsRequestSwift
   request_params_kotlin=unmergeTripsRequestKotlin
   response=listOfTrips
+  component="TripNDrive"
 %}
 
 
@@ -572,6 +585,7 @@ The following api allows reading the energy price:
   request_params_swift=getEnergyPriceRequestSwift
   request_params_kotlin=getEnergyPriceRequestKotlin
   response=getEnergyPriceResponse 
+  component="TripNDrive"
 %}
 
 #### Change energy Price
@@ -597,6 +611,7 @@ The following api allows changing the energy price:
   name="pims.vehicle.price"
   request_params_swift=setEnergyPriceRequestSwift
   request_params_kotlin=setEnergyPriceRequestKotlin
+  component="TripNDrive"
 %}
 
 ## Statistics
@@ -612,14 +627,22 @@ Example for **Trips Consumption**:
 
 {%- capture getConsumptionStatRequestKotlin -%}
   Pair("action", "consumption"),
+  Pair("vin", "VR1AB12C3D4567890"),
   Pair("period", "begining")
 {%- endcapture -%}
 
 {%- capture getConsumptionStatRequestSwift -%}
   "action": "consumption",
+  "vin": "VR1AB12C3D4567890",
   "period": "begining"
 {%- endcapture -%}
 
+{%- capture getConsumptionStatResponse -%}
+{ 
+    "fuelConsumtion": 3600,
+    "otherEnergyConsumtion": 3600
+  }
+{%- endcapture -%}
 
 {% include api-reference-code-sample.html
   sdk_name=page.section
@@ -628,4 +651,6 @@ Example for **Trips Consumption**:
   subname="consumption"
   request_params_swift=getConsumptionStatRequestSwift
   request_params_kotlin=getConsumptionStatRequestKotlin
+  response=getConsumptionStatResponse
+  component="TripNDrive"
 %}

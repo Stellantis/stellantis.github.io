@@ -9,7 +9,7 @@ require: api-reference
 mobile-sdk-component: UserVehicleSteps
 ---
 
-{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity-v2.html %}
 
 Some API of this SDK require more than [Authentication]({{site.baseurl}}/mobile-sdk/security/authentication/#article). The *Step* feature, provides **guidance for additional security**. It will return the list of **Steps** required to use a service.
 
@@ -26,7 +26,7 @@ This API cover the services required for remote component. They are two services
 
 The following steps are the returned:
 
-- 📱 **trustedPhone**: The registration of a trusted phone is a preliminary step to *device activation*. See [this page]({{site.baseurl}}/mobile-sdk/security/device-enrollment/#4%EF%B8%8F⃣-register-trusted-phone-number) for detailed information.
+- 📱 **trusterPhoneNumber**: The registration of a trusted phone is a preliminary step to *device activation*. See [this page]({{site.baseurl}}/mobile-sdk/security/device-enrollment/#4%EF%B8%8F⃣-register-trusted-phone-number) for detailed information.
 - 📱✅ **deviceActivation**: Activation of a device is a required security step, have a look at the [dedicated tutorial]({{site.baseurl}}/mobile-sdk/security/device-enrollment/#article).
 - 🔑 **mediumCarKey**: This step allows making sure the user has the vehicle keys in their possession, see [CarKey check]({{site.baseurl}}/mobile-sdk/security/carkey/#article).
 
@@ -77,8 +77,8 @@ This API needs a carAssociationID, it will return the list of steps required for
 {%- capture getStepsListResponse -%}
 { 
     "stepsID": 132324,
-    "trustedPhone": {
-        "name": "trustedPhone",
+    "trusterPhoneNumber": {
+        "name": "trusterPhoneNumber",
         "status": "alreadyDone",
         "order": 1
     },
@@ -103,6 +103,7 @@ This API needs a carAssociationID, it will return the list of steps required for
   request_params_swift=getStepsListRequestCarAssociationIDSwift
   request_params_kotlin=getStepsListRequestCarAssociationIDKotlin
   response=getStepsListResponse
+  component="UserVehicleSteps"
 %}
 
 The *stepsID* returned in the result message allows to easily update this list.
@@ -133,6 +134,7 @@ If you don't have access to the *carAssociationID*, you can use request the list
   request_params_swift=getStepsListRequestVinSwift
   request_params_kotlin=getStepsListRequestVinKotlin
   response=getStepsListResponse
+  component="UserVehicleSteps"
 %}
 
 {% endcomment %}
@@ -167,6 +169,7 @@ After a [first request](#first-list-request) with *carAssociationID*, you can us
   request_params_swift=getStepsListRequestStepsIDSwift
   request_params_kotlin=getStepsListRequestStepsIDKotlin
   response=getStepsListResponse
+  component="UserVehicleSteps"
 %}
 
 
@@ -203,10 +206,11 @@ When you have access to **stepsID**, you can use the following API to return the
   request_params_swift=getOnlyOneStepRequestSwift
   request_params_kotlin=getOnlyOneStepRequestKotlin
   response=getStepsListResponse
+  component="UserVehicleSteps"
 %}
 
 ## Cache 
 
 Once a step reach the status **alreadyDone** in **pims.vehicle.steps**, the step will remain in the same status unless if the cache is wiped. In order to reset this cache, we should request **pims.vehicle.steps** using the parameter `resetSteps == true`.
 
-In case of error *2317* or *2312* when using [pims.authentication.otp - withPIN]({{site.baseurl}}/mobile-sdk/references/pims-authentication-otp-with-pin.html#article), you should use `"resetStep": true` in the query. This action will refresh the cache and remove these errors.
+In case of error *2317* or *2312* when using [pims.authentication.otp - withPIN]({{site.baseurl}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/strongauthentication-get-pims-authentication-otp-withpin/#article), you should use `"resetStep": true` in the query. This action will refresh the cache and remove these errors.

@@ -9,7 +9,7 @@ require: api-reference
 mobile-sdk-component: Carkey
 ---
 
-{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity-v2.html %}
 
 *CarKey* is a security feature that perform a check to make sure the user is in possession of the vehicle keys.
 
@@ -51,6 +51,7 @@ Before activating a **CarKey**, you can check if it's already activated. If itâ€
   request_params_swift=checkAuthRequestSwift
   request_params_kotlin=checkAuthRequestKotlin
   response=checkAuthResponse
+  component="Carkey"
 %}
 
 ## Activate CarKey
@@ -75,5 +76,6 @@ When [*CarKey* conditions](#requirements) are met, we can perform a ***CarKey* a
   request_params_swift='no_params'
   request_params_kotlin='no_params'
   response=checkAuthResponse
+  component="Carkey"
 %}
 

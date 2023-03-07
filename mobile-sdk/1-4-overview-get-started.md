@@ -38,7 +38,7 @@ require: api-reference
 
 
 
-*Stellantis Connected Vehicles SDK for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)* runs on **iOS 12+** (and 13+ for some features) and  **Android 7+**. 
+*Stellantis Connected Vehicles SDK runs on **iOS 12+** (and 13+ for some features) and  **Android 7+**. 
 
 Bluetooth, GPS & internet connection might be required on the device, depending on the API.
 
@@ -47,7 +47,7 @@ Check out [Access Requirements]({{site.baseurl}}/connected-vehicles/access-requi
 
 ## Initialize & Release
 
-First of all, before being able to request any [API]({{site.baseurl}}/mobile-sdk/references/list/#article), you should initialize the SDK. 
+First of all, before being able to request any [API]({{site.baseurl}}/mobile-sdk/references/), you should initialize the SDK. 
 
 Initializing the SDK require configuration params details in the following table:
 
@@ -110,7 +110,7 @@ pims.initialize(
   ]
 ) { /* Callback */
   (message) in 
-    if message["status"] == "SUCEEDED"    { }    // handle succeeded initialization
+    if message["status"] == "SUCCEEDED"    { }    // handle succeeded initialization
     else if message["status"] == "FAILED" { }    // handle failed initialization
 }
 ```
@@ -147,7 +147,7 @@ pims.release( /* No Parameters */ )
 pims.release( /* No Parameters */ ) 
   { /* Callback */
   (message) in 
-    if message["status"] == "SUCEEDED"    { }    // handle succeeded release
+    if message["status"] == "SUCCEEDED"    { }    // handle succeeded release
     else if message["status"] == "FAILED" { }    // handle failed release
   }
 ```
@@ -191,7 +191,7 @@ pims.subscribe() /* and */ pims.unsubscribe()
 | {{subscribe_tag}} | Allows receiving **events** when a data changes.| **An acknowledgment callback**, when the request has been taken in account or is in error.  <br> Then, **an event callback each time** the event is triggered. | The acknowledgment message does not include outputted data, but can include info in case of error. <br> The event message include outputted data or info about error.
 | {{unsubscribe_tag}} | Whenever an api is available under the subscribe method, **unsubscribe** is also available to stop receiving events.| **Only one callback**, when the request has been resolved or is in error. | The message does not include outputted data, but can include info in case of error. 
 
-Each API can exist under these 4 types. See [References]({{site.baseurl}}/mobile-sdk/references/list/#article) for the list of all APIs and their types.
+Each API can exist under these 4 types. See [References]({{site.baseurl}}/mobile-sdk/references/) for the list of all APIs and their types.
 
 ## Method Get & Set
 
@@ -232,7 +232,7 @@ pims.get(
   ]
   ) { /* -- API Callback -- */
       (message) in 
-        if message["status"] == "SUCEEDED"    { }    // handle succeeded status
+        if message["status"] == "SUCCEEDED"    { }    // handle succeeded status
         else if message["status"] == "FAILED" { }    // handle failed status
     }
 ```
@@ -247,6 +247,7 @@ pims.get(
   description="Request"
   request_params_swift=requestPriceSwift
   request_params_kotlin=requestPriceKotlin
+  component="TripNDrive"
 %}
 
 {% capture requestParamatersExample %}
@@ -254,7 +255,7 @@ pims.get(
 Let's explain this request example:
 
 - `API Name` - *String* - The name of the API to request.
-- `API Parameters` - *Object* - Parameters specific to this API. Parameters and outputs are available in [references]({{site.baseurl}}/mobile-sdk/references/list/#article).
+- `API Parameters` - *Object* - Parameters specific to this API. Parameters and outputs are available in [references]({{site.baseurl}}/mobile-sdk/references/).
 - `API Callback` - *Function* - Code to execute when a message is received.
 
 {% endcapture %}
@@ -308,6 +309,7 @@ After requesting an API of the **Get & Set** type, you should except one return 
   description="Succeeded & Failed"
   response=responsePrice
   failed=failedPrice
+  component="TripNDrive"
 %}
 
 
@@ -317,8 +319,8 @@ Name| Value |Description
 -|-|-
 ***transactionId*** | *String* | Id of the request.
 ***status*** |*Enum of Strings* | Status of the message: <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;**status:** {{succeeded_tag}} the operation has been executed successfully.<br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;**status:** {{failed_tag}} the operation is in error. 
-***result*** | *dictionary Object* | Contains the outputted data, see [reference page]({{site.baseurl}}/mobile-sdk/references/list/#article) for the output of each API. <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{succeeded_tag}} **Get** operations always includes *result*, **Set** operations might include the *result* or not if no outputted data.<br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{failed_tag}} In **Failed** messages, this field is never returned.
-***error*** | *dictionary Object* | Code and Label of the error, check-out [reference page]({{site.baseurl}}/mobile-sdk/references/list/#article) or [error page]({{site.baseurl}}/mobile-sdk/references/errors/#article) for the list of errors. <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;Always returned in {{failed_tag}} messages. <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;Never returned in {{succeeded_tag}} messages.
+***result*** | *dictionary Object* | Contains the outputted data, see [reference page]({{site.baseurl}}/mobile-sdk/references/) for the output of each API. <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{succeeded_tag}} **Get** operations always includes *result*, **Set** operations might include the *result* or not if no outputted data.<br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{failed_tag}} In **Failed** messages, this field is never returned.
+***error*** | *dictionary Object* | Code and Label of the error, check-out [reference page]({{site.baseurl}}/mobile-sdk/references/) or [error page]({{site.baseurl}}/mobile-sdk/references/errors/#article) for the list of errors. <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;Always returned in {{failed_tag}} messages. <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;Never returned in {{succeeded_tag}} messages.
 
 ## Method Subscribe
 
@@ -372,7 +374,7 @@ pims.subscribe(
   ]
   ) { /* -- API Callback -- */
       (message) in 
-        if message["status"] == "SUCEEDED"    { }    // handle succeeded status
+        if message["status"] == "SUCCEEDED"    { }    // handle succeeded status
         else if message["status"] == "FAILED" { }    // handle failed status
         else if status == "RESULT" {
           if !message["error"].isEmpty { }            // handle error event code
@@ -395,6 +397,7 @@ pims.unsubscribe( api: "pims.vehicle.event" /* no params */ ) { /* API Callback 
   description="Request"
   request_params_swift=eventRemoteRequestSwift
   request_params_kotlin=eventRemoteRequestKotlin
+  component="LongRangeRemoteStatus"
 %}
 
 
@@ -476,6 +479,7 @@ when the subscribe is in error, the subscription has not been taken in account, 
   response=responseRemoteEvent
   notification=eventRemoteEvent
   failed=failedRemoteEvent
+  component="LongRangeRemoteStatus"
 %}
 
 
@@ -485,5 +489,5 @@ Name| Value |Description
 -|-|-
 ***transactionId*** | *String* | Id of the request, this is the same id for the **Succeeded**, **Result** and **Failed**, it's useful to make sure of the origin of the message.
 ***status*** |*Enum of Strings* | Status of the message: <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;**status:** {{succeeded_tag}} the subscription has been taken in account. Event messages with status result will be triggered.<br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;**status:** {{result_tag}} when a subscribe **event** is triggered (result or error). In this case the message include the *result* field with the outputted data or an *error* field error info. <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;**status:** {{failed_tag}} the subscribe is in error, the subscription **has not been taken in account**, no event will follow. 
-***result*** | *dictionary Object* | Contains the outputted data, see [reference page]({{site.baseurl}}/mobile-sdk/references/list/#article) for the output of each API. <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{succeeded_tag}} In **Succeeded** messages, this field is never returned <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{result_tag}} In **Result** messages, this field is returned only when the field `error` is not returned.<br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{failed_tag}} In **Failed** messages, this field is never returned.
-***error*** | *dictionary Object* | Code and Label of the error, check-out [reference page]({{site.baseurl}}/mobile-sdk/references/list/#article) or [error page]({{site.baseurl}}/mobile-sdk/references/errors/#article) for the list of errors.  <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{succeeded_tag}} In **Succeeded** messages, this field is never returned <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{result_tag}} In **Result** messages, this field is returned only when the field `result` is not returned.<br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{failed_tag}} In **Failed** messages, this field always returned. 
+***result*** | *dictionary Object* | Contains the outputted data, see [reference page]({{site.baseurl}}/mobile-sdk/references/) for the output of each API. <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{succeeded_tag}} In **Succeeded** messages, this field is never returned <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{result_tag}} In **Result** messages, this field is returned only when the field `error` is not returned.<br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{failed_tag}} In **Failed** messages, this field is never returned.
+***error*** | *dictionary Object* | Code and Label of the error, check-out [reference page]({{site.baseurl}}/mobile-sdk/references/) or [error page]({{site.baseurl}}/mobile-sdk/references/errors/#article) for the list of errors.  <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{succeeded_tag}} In **Succeeded** messages, this field is never returned <br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{result_tag}} In **Result** messages, this field is returned only when the field `result` is not returned.<br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;{{failed_tag}} In **Failed** messages, this field always returned. 

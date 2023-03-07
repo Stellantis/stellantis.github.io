@@ -9,6 +9,10 @@ $set-light-color: #4aad81da;
 $subscribe-color: #be9046;
 $subscribe-light-color: #be9046da;
 
+.ava-tag {
+  font-size: .75rem;
+}
+
 // list table menu
 .list-table-container {
     display: flex;
@@ -23,7 +27,7 @@ $subscribe-light-color: #be9046da;
 // end list table menu
 
 .content .notification.page-disclaimer {
-    margin-top: 3rem;
+    // margin-top: 3rem;
 }
 
 .bd-anchors-list li.is-past a, .bd-category-list li.is-past a, .bd-anchors-list li.is-current a, .bd-category-list li.is-current a{

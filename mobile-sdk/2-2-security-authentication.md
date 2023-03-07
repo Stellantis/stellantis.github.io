@@ -9,7 +9,7 @@ require: api-reference
 mobile-sdk-component: BasicAuthentication
 ---
 
-{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity-v2.html %}
 
 
 **Authentication** is the first layer of security in this connected vehicle mobile SDK. This layer of security will log in the user using email & password, this will request and store a token required for **most of this SDK APIs**.
@@ -46,6 +46,7 @@ Otherwise, you should use the [login API](#login).
   request_params_swift=checkAuthRequestSwift
   request_params_kotlin=checkAuthRequestKotlin
   response=checkAuthResponse
+  component="BasicAuthentication"
 %}
 
 # Login
@@ -71,6 +72,7 @@ If the status of the response is `succeeded`, you can use the API requiring **Au
   request_params_swift=setUserBasicAuthLoginRequestSwift
   request_params_kotlin=setUserBasicAuthLoginRequestKotlin
   response='null'
+  component="BasicAuthentication"
 %}
 
 
@@ -97,6 +99,7 @@ In case the response is `succeeded`, the user is successfully logged out.
   request_params_swift=setUserBasicAuthLogoutRequestSwift
   request_params_kotlin=setUserBasicAuthLogoutRequestKotlin
   response="null"
+  component="BasicAuthentication"
 %}
 
 
@@ -121,6 +124,7 @@ You should implement a "Create an account" feature if the user doesn't have one.
   request_params_swift=setUserBasicAuthCreateAccountRequestSwift
   request_params_kotlin=setUserBasicAuthCreateAccountRequestKotlin
   response="null"
+  component="BasicAuthentication"
 %}
 
 ## Update Login
@@ -144,6 +148,7 @@ To add a "update login" feature, implement the following api. Calling this API w
   request_params_swift=setUserBasicAuthUpdateLoginRequestSwift
   request_params_kotlin=setUserBasicAuthUpdateLoginRequestKotlin
   response="null"
+  component="BasicAuthentication"
 %}
 
 ## Update Password
@@ -167,6 +172,7 @@ To add a "update password" feature, implement the following api. Calling this AP
   request_params_swift=setUserBasicAuthUpdatePasswordRequestSwift
   request_params_kotlin=setUserBasicAuthUpdatePasswordRequestKotlin
   response="null"
+  component="BasicAuthentication"
 %}
 
 ## Error 2301

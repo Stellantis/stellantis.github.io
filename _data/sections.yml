@@ -256,16 +256,8 @@
         - name: API Reference
           path: references/
           pages: 
-            - name: References
-              path: list/
-            - name: "&nbsp;&nbsp;Authentication"
-              path: list/#pims.authentication
-            - name: "&nbsp;&nbsp;SDK"
-              path: list/#pims.sdk
-            - name: "&nbsp;&nbsp;Subscription"
-              path: list/#pims.subscription
-            - name: "&nbsp;&nbsp;Vehicle"
-              path: list/#pims.vehicle
+            - name: References v2.2
+              path: v2-2/
             - name: Changelog
               path: changelog/
             - name: Errors

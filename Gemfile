@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-gemspec
-gem "jekyll-bulma"
+gem 'jekyll'
 gem 'jekyll-redirect-from'
-gem 'webrick'
+gem 'jekyll-datapage-generator'

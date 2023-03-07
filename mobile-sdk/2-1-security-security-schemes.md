@@ -27,7 +27,7 @@ The security scheme you need to perform depends on the API to request. Each API 
 {%- endcapture -%}
 
 {%- capture security_subscription -%}
-🔓 [Authentication]({{site.baseurl}}/mobile-sdk/security/authentication/#article) is required. <br> 📑 Subscribtion (check-out [Steps]({{site.baseurl}}/mobile-sdk/security/service-activation-steps/#article))
+📑 Subscribtion (check-out [Steps]({{site.baseurl}}/mobile-sdk/security/service-activation-steps/#article))
 {%- endcapture -%}
 
 {%- capture no_security -%}
@@ -38,9 +38,18 @@ The security scheme you need to perform depends on the API to request. Each API 
 |Feature|Required Security|
 |-|-|
 {%- assign sdk-features = site.pages | where: "categorie", "SDK Features" -%}
-{% for feature in sdk-features %}{%- for component in site.data.mobile-sdk-components -%}
+{%- capture lastSpecFile -%}{% include api-reference-toolkit-v2.html type="lastSpecFile" %}{%- endcapture -%}
+
+{% for feature in sdk-features %}{%- for component in site.data[lastSpecFile].components -%}
 {%- if component.category == 'feature' -%}{% if component.tag == feature.mobile-sdk-component %}
-| [{{component.icon}} {{feature.title}}]({{site.baseurl}}{{feature.permalink}}#article) | {%- if component.security == "authentication" -%}{{security_authentication}}{%- elsif component.security == "subscription" -%} {{security_subscription}} {% elsif component.security == "none" %}{{no_security}}{%- endif -%}|
+| [{{component.icon}} {{feature.title}}]({{site.baseurl}}{{feature.permalink}}#article) | 
+{%- if component.securities[0].name -%}
+{%- for security in component.securities -%}
+  {%- if security.name == "Authentication" -%}{{security_authentication}}
+  {%- elsif security.name == "Subscription" -%}<br>{{security_subscription}}{% endif %}
+{%- endfor -%}
+{%- else -%}
+{{no_security}}{%- endif -%}|
 {%- endif -%}{%- endif -%}
 {%- endfor -%}
 {% endfor %}

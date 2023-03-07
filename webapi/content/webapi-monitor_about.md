@@ -4,6 +4,11 @@ But moreover our API allow you to set-up **events** that we will track for you.
 Monitors are a way to design events tracking patterns for vehicles.
 When the even is triggered, we will send a notification to your server.
 
+**Direct Request vs Monitoring:** 
+- It's possible to access most of the vehicle data using **HTTP Request**, see [API references]({{site.basuelr}}//webapi/{{page.subsection}}/api-reference/specification/#article).
+- But also, you can configure **[Monitors]({{site.baseurl}}/webapi/{{page.subsection}}/monitor/set-up/#article)** allowing to receive an event from Stellantis when a pattern is triggered.<br> *(ex: oil level is low)*
+
+
 **Available features:**
 
 ![monitors-features]({{site.baseurl}}/assets/images/monitors-features.png)

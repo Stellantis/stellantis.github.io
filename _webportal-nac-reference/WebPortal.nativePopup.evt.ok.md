@@ -16,6 +16,8 @@ type: event
 
 Event triggered when the *OK* button of the [ popup]({{site.baseurl}}/webportal/v1/api-reference/webportal-popup-open#article) is clicked.
 
+> **NativePopups** interacts with the [Notification Center]({{site.baseurl}}/webportal/v1/advanced-features/notification/#article) but they are **deprecated**, you should use [WebPortal.notification.new]({{site.baseurl}}/webportal/v1/api-reference/webportal-notification-new.html#article) instead.
+
 ### Example
 
 ```javascript

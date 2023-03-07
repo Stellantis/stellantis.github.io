@@ -1,0 +1,54 @@
+{% capture refVersionBasePath %}
+{%- if page.section == "web-sdk" -%}/web-sdk/references/
+{%- elsif page.section == "mobile-sdk" -%}/mobile-sdk/references/
+{%- elsif page.section == "webportal" and page.subsection == "v2" -%}/webportal/v2/api-reference/
+{% endif %}
+{%- endcapture -%}
+
+
+
+{%- comment -%} RETURNS REF SECTION URL
+                params: type=="refCategoryUrl", version=version {%- endcomment -%}
+{%- if include.type == "refCategoryUrl" -%}
+{{refVersionBasePath}}
+
+{%- comment -%} RETURNS REF LIST URL
+                params: type=="listUrl", version=version {%- endcomment -%}
+{%- elsif include.type == "listUrl" and include.version -%}
+{{refVersionBasePath}}v{{include.version | slugify }}
+
+{%- comment -%} RETURNS API URL
+                params: type=="apiUrl", api=api, version=version {%- endcomment -%}
+{%- elsif include.type == "apiUrl" and include.api and include.version -%}
+{{refVersionBasePath}}v{{include.version | slugify }}/{{api.component.tag|slugify}}-{{api.type|slugify}}-{{api.tag|slugify}}
+
+{%- comment -%} RETURNS COMPONENT ANCHOR
+                params: type=="componentAnchor", component=component {%- endcomment -%}
+{%- elsif include.type == "componentAnchor" and include.component -%}
+domain-{{include.component.tag|slugify}}
+  {%- if include.component.compatibilities -%}
+    -{%- for compatibility in include.component.compatibilities -%}
+    {{compatibility|slugify}}
+    {%- endfor -%}
+  {%- endif -%}
+
+{%- comment -%} RETURNS COMPONENT NAME
+                params: type=="componentName", component=component {%- endcomment -%}
+{%- elsif include.type == "componentName" and include.component  -%}
+{{include.component.name}}
+<sup class="text-note">
+  {%- for compatibility in include.component.compatibilities -%}
+  {{compatibility}}
+  {%- unless forloop.last -%}&nbsp;{%- endunless -%}
+  {%-endfor-%}
+</sup>
+
+{%- comment -%} RETURNS LAST SDK VERSION
+                params: type=="lastSpecFile" {%- endcomment -%}
+{%- elsif include.type == "lastSpecFile" -%}
+{%- capture sdkName -%}{{page.section}}{% if page.subsection %}-{{pgae.subsection}}{% endif %}{%- endcapture -%}
+{%- assign changelogFileName = sdkName | append: "-changelog" -%}
+{%- assign changelogFileRef = site.data[changelogFileName][0].version | replace: ".", "-" -%}
+{%- assign lastSpecName = sdkName | append: "-v" | append: changelogFileRef -%}
+{{lastSpecName}}
+{%- endif %}

@@ -7,13 +7,13 @@ title: Remote Commands
 redirect_from:
     - /mobile-sdk/sdk-features/
 description: "Send remote commands with connected vehicle mobile SDK. Doors, preconditionning, charge, lights blink, horn."
-mobile-sdk-component: LongRangeRemote(Remote)
+mobile-sdk-component: LongRangeRemoteRemote
 require: api-reference
 ---
 
-{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity-v2.html %}
 
-With *Stellantis Connected Vehicles SDK for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)* you can remote control a vehicle using **internet connection**, no need to be next to the vehicle.
+With *Stellantis Connected Vehicles SDK you can remote control a vehicle using **internet connection**, no need to be next to the vehicle.
 
 They are 3 commands available **only** for *Low Emission Vehicles (LEV)* and *Electric Vehicles (EV)*:
 - 🔌 Start/stop **charge**.
@@ -81,6 +81,7 @@ sdk_name=page.section
   request_params_kotlin='no_params'
   response="null"
   notification=signalNotif
+  component="LongRangeRemoteRemote"
 %}
 
 Then you need to set a vehicle before sending a remote command.
@@ -89,30 +90,12 @@ Then you need to set a vehicle before sending a remote command.
 
 In order to send a remote command, you **must** set the VIN of the targeted vehicle.
 
-{%- capture setVehicleKotlinv20 -%}
-  Pair("vin", "VR1AB12C3D45678909")
-{%- endcapture -%}
-
-{%- capture setVehicleSwiftv20 -%}
-  "vin": "VR1AB12C3D45678909"
-{%- endcapture -%}
-
-{% include api-reference-code-sample.html
-sdk_name=page.section
-  name="pims.vehicle.vin"
-  type="set"
-  subname="remote-v2.0"
-  request_params_swift=setVehicleKotlinv20
-  request_params_kotlin=setVehicleSwiftv20
-  response='null'
-%}
-
-{%- capture setVehicleKotlinV22 -%}
+{%- capture setVehicleKotlin -%}
   Pair("actionType", "remote"),
   Pair("vin", "VR1AB12C3D45678909")
 {%- endcapture -%}
 
-{%- capture setVehicleSwiftV22 -%}
+{%- capture setVehicleSwift -%}
   "actionType": "remote",
   "vin": "VR1AB12C3D45678909"
 {%- endcapture -%}
@@ -121,10 +104,11 @@ sdk_name=page.section
 sdk_name=page.section
   name="pims.vehicle.vin"
   type="set"
-  subname="remote-v2.2"
-  request_params_swift=setVehicleKotlinv22
-  request_params_kotlin=setVehicleSwiftv22
+  subname="remote"
+  request_params_swift=setVehicleKotlin
+  request_params_kotlin=setVehicleSwift
   response='null'
+  component="LongRangeRemoteRemote"
 %}
 
 ## Send a Remote Command
@@ -186,6 +170,7 @@ sdk_name=page.section
   type="set"
   request_params_swift=preconditioningCommandKotlin
   request_params_kotlin=preconditioningCommandSwift
+  component="LongRangeRemoteRemote"
 %}
 
 ## 🔌 Start charge
@@ -209,6 +194,7 @@ sdk_name=page.section
   type="set"
   request_params_swift=startChargeCommandKotlin
   request_params_kotlin=startChargeCommandSwift
+  component="LongRangeRemoteRemote"
 %}
 
 In order to retieve information about of a end of charge, you can use [pims.vehicle.event - remote]({{site.baseurl}}/mobile-sdk/sdk-features/vehicle-status/#-remote-charge-events).
@@ -242,6 +228,7 @@ sdk_name=page.section
   type="set"
   request_params_swift=scheduledChargeCommandKotlin
   request_params_kotlin=scheduledChargeCommandSwift
+  component="LongRangeRemoteRemote"
 %}
 
 In order to retieve information about of a charge (start & end), you can use [pims.vehicle.event - remote]({{site.baseurl}}/mobile-sdk/sdk-features/vehicle-status/#-remote-charge-events).
@@ -266,6 +253,7 @@ sdk_name=page.section
   type="set"
   request_params_swift=doorsCommandKotlin
   request_params_kotlin=doorsCommandSwift
+  component="LongRangeRemoteRemote"
 %}
 
 ## 🔉 Honk the horn
@@ -286,6 +274,7 @@ sdk_name=page.section
   type="set"
   request_params_swift=hornCommandKotlin
   request_params_kotlin=hornCommandSwift
+  component="LongRangeRemoteRemote"
 %}
 
 ## 💡 Set a light blinking
@@ -305,4 +294,5 @@ sdk_name=page.section
   type="set"
   request_params_swift=lightCommandKotlin
   request_params_kotlin=lightCommandSwift
+  component="LongRangeRemoteRemote"
 %}

@@ -1,0 +1,68 @@
+{%- capture specificationFileName -%}
+{{page.section}}
+{%- if page.subsection -%}-{{page.subsection}}{%- endif -%}
+-v{{page.sdkInfo.version| slugify}}
+{%- endcapture -%}
+
+<p class="bd-anchors-title aside-main-title">
+  <a 
+   class="bd-back-to-ref"
+   href="
+    {{site.baseurl}}
+    {%- include api-reference-toolkit-v2.html type="listUrl" version=page.sdkInfo.version -%}
+    /#article">
+    <span class="icon is-small">
+      <i class="fas fa-xs fa-arrow-left"></i>
+    </span> Back to Ref List {% if page.sdkInfo.version %}{{page.sdkInfo.version}}{%endif%}
+  </a>
+</p>
+<hr>
+<p class="bd-anchors-title">
+  <a 
+    class="bd-back-to-ref"
+    style="font-size: 85%"
+    href="
+      {{site.baseurl}}  
+      {%- include 
+        api-reference-toolkit-v2.html 
+        type="listUrl" 
+        version=page.sdkInfo.version 
+      -%}
+      /#
+      {%- include 
+        api-reference-toolkit-v2.html 
+        type="componentAnchor"
+        component=page.component 
+      -%}" 
+  >
+    {{page.component.icon}}&nbsp;
+    {%- include 
+      api-reference-toolkit-v2.html 
+      type="componentName"
+      component=page.component 
+    -%}&nbsp;
+  </a>
+</p>
+
+
+<ul class="bd-anchors-list">
+
+  {% for api in site.data[specificationFileName].apis %}
+  {% if page.component.tag == api.component.tag %}
+  <li>
+    <a 
+      {% if page.tag == api.tag %}
+      style="color: #2689b5;"
+      {% endif %}
+      href="
+        {{site.baseurl}}
+        {%- include api-reference-toolkit-v2.html type="apiUrl" api=api version=api.sdkInfo.version -%}
+        /#article"
+    >
+      {% for type in api.type %}{{type|upcase}}&nbsp;|&nbsp;{% endfor %}{{api.apiName}}{% if api.subname %}-<em>{{api.subname}}</em>{% endif %}
+    </a>
+  </li>
+  {% endif %}
+  {% endfor %}
+  
+</ul>

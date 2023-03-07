@@ -9,7 +9,7 @@ require: api-reference tab-content
 mobile-sdk-component: PushNotification
 ---
 
-{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity-v2.html %}
 
 *Push Notification* is a feature allowing receiving system notifications on the End User mobile device through Stellantis' Firebase service.
 
@@ -150,6 +150,7 @@ The Firebase FCM token needs to be registered in the following API in order for 
   request_params_swift=registerTokenRequestSwift
   request_params_kotlin=registerTokenRequestKotlin
   response="null"
+  component="PushNotification"
 %}
 
 **Unregister FCM Token**
@@ -172,6 +173,7 @@ You should implement a listener function in your App, if the system **notificati
   request_params_swift=unregisterTokenRequestSwift
   request_params_kotlin=unregisterTokenRequestKotlin
   response="null"
+  component="PushNotification"
 %}
 
 
@@ -227,6 +229,7 @@ You must use this information to choose which action you want to perform, if the
   request_params_swift=getEventsRequestSwift
   request_params_kotlin=getEventsRequestKotlin
   response=getEventsResponse
+  component="PushNotification"
 %}
 
 The response of this API let you know if these VIN has already subscribed. Also, vehicles requested with this API are selected for Step 4.
@@ -261,6 +264,7 @@ In order to activate the *PushNotification* feature, we should **enable** at lea
   request_params_swift=setEnableEventsRequestSwift
   request_params_kotlin=setEnableEventsRequestKotlin
   response="null"
+  component="PushNotification"
 %}
 
 If you want to turn off the *PushNotification* system, use [pims.sdk.event-disable](#disable-an-event).
@@ -378,6 +382,7 @@ On the action of the End User, you should disable event notification by calling 
   request_params_swift=setDisableEventsRequestSwift
   request_params_kotlin=setDisableEventsRequestKotlin
   response="null"
+  component="PushNotification"
 %}
 
 ## Remove a vehicle
@@ -404,4 +409,5 @@ On the action of the End User, you should remove a vehicle from the event system
   request_params_swift=setRemoveEventsRequestSwift
   request_params_kotlin=setRemoveEventsRequestKotlin
   response="null"
+  component="PushNotification"
 %}

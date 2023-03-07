@@ -11,7 +11,7 @@ gitHubSpecB2B: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/ass
 gitHubSpecB2C: "https://github.com/GroupePSA/groupepsa.github.io/blob/master/assets/openapi/psacc.yaml"
 
 # doc versionning
-doc-version: "10.2.0"
+doc-version: "11.0.0"
 
 # WEB API BaseURI - theses var have to be renamed without prod/preprod (because we display only one at once)
 webapiB2C: "https://api.groupe-psa.com/connectedcar/v4"
@@ -28,12 +28,6 @@ collections:
   webportal-ivi-public-reference:
     output: true
     permalink: /webportal/v2/api-reference/:name
-  mobile-sdk-public-reference:
-    output: false
-    permalink: /mobile-sdk/references/:name
-  mobile-sdk-reference:
-    output: true
-    permalink: /mobile-sdk/references/:name
 
 exclude:
  - webapi/content/
@@ -55,28 +49,45 @@ exclude:
  
 plugins:
   - jekyll-redirect-from
+  - jekyll-datapage-generator
 
-links:
-  header:
-  footer:
+page_gen-dirs: true
 
-ui:
-  header:
-      color1: "#080331"
-      color2: "#673051"
+page_gen:
+# ----------------------------------------------
+# ----------------------------------------------
+# ------------------MOBILE SDK------------------
+# ----------------------------------------------
+# ----------------------------------------------
+- data: mobile-sdk-changelog
+  template: api-reference-list-v2-mobile_sdk
+  dir: /mobile-sdk/references/
+  name_expr: + "v" + record['version'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
+  title_expr: + "References v" + record['version']
+- data: mobile-sdk-v2-0.apis
+  template: api-reference-mobile-sdk
+  dir: /mobile-sdk/references/v2-0/
+  name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
+  title: apiName
+- data: mobile-sdk-v2-1.apis
+  template: api-reference-mobile-sdk
+  dir: /mobile-sdk/references/v2-1/
+  name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
+  title: apiName
+- data: mobile-sdk-v2-2.apis
+  template: api-reference-mobile-sdk
+  dir: /mobile-sdk/references/v2-2/
+  name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
+  title: apiName
 
-social:
+# name_expr: record['component'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
+# .downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+# downcase makes it lowercase. The strip makes sure there is no leading or trailing whitespace. The first gsub replaces spaces with hyphens. The second gsub removes all non-alpha non-dash non-underscore characters (note that this set is very close to \W but includes the dash as well, which is why it's spelled out here).
 
-analytics:
 
-# Build settings
 kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: true
-# highlighter: rouge
-
 permalink: pretty
-
-# Enable or disable the site search
 search_enabled: true

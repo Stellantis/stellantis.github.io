@@ -9,7 +9,7 @@ require: api-reference
 mobile-sdk-component: StrongAuthentication
 ---
 
-{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity-v2.html %}
 
 Device Enrollement is required in order to use [remote commands]({{site.baseurl}}/mobile-sdk/sdk-features/remote-commands/#article) & [vehicle status]({{site.baseurl}}/mobile-sdk/sdk-features/vehicle-status/#article). Check out [Service Activation Steps]({{site.baseurl}}/mobile-sdk/security/service-activation-steps/#article) to get assistance accessing remote command.
 
@@ -28,7 +28,7 @@ At the end of this process, the device will be enrolled.
 # Enrollment Process
 
 They are **2 different methods to enroll** a new device:
-  - **🏎 Shortcut method**: Starting from SDK version 2.1.0, the easiest way is to use *EnrollmentWithPhoneNumber*. In this case, you only need to perform [step 1️](#1️⃣-check-enrollment-status) to **[step 4️·1](#4️⃣1️⃣-enrollment-with-phone-number)** to enroll a new device. This method is not available if a phone number is already register.
+  - **🏎 Shortcut method**: Starting from SDK version 2.1.0, the easiest way is to use *enrollWithPhoneNumber*. In this case, you only need to perform [step 1️](#1️⃣-check-enrollment-status) to **[step 4️·1](#4️⃣1️⃣-enrollment-with-phone-number)** to enroll a new device. This method is not available if a phone number is already register.
   - **🐢 Full method**: This enrollment process is longer since you need to go through all the steps from [step 1](#1️⃣-check-enrollment-status) to [step 8](#8️⃣-request-device-enrollment--perform-pin-code-validation) going through **[step 4·2](#4️⃣2️⃣-register-trusted-phone-number)** (avoid step 4·1 in this case). Use this method in case:
     - You are using an SDK **before version 2.1.0**.
     - Some **steps** of the enrollment process have **already been performed**.
@@ -65,6 +65,7 @@ First, you should check enrollment status, the device could be already enrolled.
   request_params_swift=checkEnrollRequestSwift
   request_params_kotlin=checkEnrollRequestKotlin
   response=checkEnrollResponse
+  component="StrongAuthentication"
 %}
 
 If the response result is `true` then the device is already enrolled!
@@ -99,6 +100,7 @@ Before initiating the enrollment process, let's check that the account is not bl
   request_params_swift=checkAccountRequestSwift
   request_params_kotlin=checkAccountRequestKotlin
   response=checkAccountResponse
+  component="StrongAuthentication"
 %}
 
 In case the response is `isAccountBlocked: 'AccountBlocked'/'PINBlocked'`, you need to **remove all enrollments** by going to [step A](#a---remove-all-enrollments).
@@ -126,6 +128,7 @@ If it's not the case, it should be added to the account because the phone number
   request_params_swift='no_params'
   request_params_kotlin='no_params'
   response=checkPhoneNumberResponse
+  component="StrongAuthentication"
 %}
 
 If the response result value is `trustedphoneNumber: null`, then the account doesn't have a **trusted phone number**. 
@@ -140,7 +143,7 @@ If it does have a **phone number value**, then it's possible to ask for an SMS C
 
 *This step is required only if you are following the shortcut method. It's not part of the full method. Refer to [enrollment methods description](#enrollment-process). This method is not available if a phone number is already register.*
 
-<img src="{{site.baseurl}}/assets/images/mobile-sdk-enrollment-step4-1-enrollmentWithPhoneNumber.svg" style="max-width:270px">
+<img src="{{site.baseurl}}/assets/images/mobile-sdk-enrollment-step4-1-enrollWithPhoneNumber.svg" style="max-width:270px">
 
 In order to enroll the device and add a new phone number to the user account, an **SMS code** is required for verification.
 
@@ -162,25 +165,26 @@ First, we should request to send an SMS code to the user **phone number**:
   type="get"
   name="pims.authentication.smscode"
   subname="phoneNumberCertification"
-  description="for enrollmentWithPhoneNumber"
+  description="for enrollWithPhoneNumber"
   request_params_swift=getSmsCodePhoneNumberCertifSwift
   request_params_kotlin=getSmsCodePhoneNumberCertifKotlin
   response="null"
+  component="StrongAuthentication"
 %}
 
 The user should receive the SMS code on their phone. Let's imagine the code is `2424` for the following request.
 
 Then we should perform the verification of the **smsCode**, **phone number** & **pinCode**. If the values are matching, the pinCode & phoneNumber are register for this account and the device is **enrolled**!
 
-{%- capture enrollmentWithPhoneNumberKotlin -%}
-  Pair("action", "enrollmentWithPhoneNumber"),
+{%- capture enrollWithPhoneNumberKotlin -%}
+  Pair("action", "enrollWithPhoneNumber"),
   Pair("pinCode", "424242"),
   Pair("smsCode", "2424"),
   Pair("phoneNumber", "0123456789")
 {%- endcapture -%}
 
-{%- capture enrollmentWithPhoneNumberSwift -%}
-  "action": "enrollmentWithPhoneNumber",
+{%- capture enrollWithPhoneNumberSwift -%}
+  "action": "enrollWithPhoneNumber",
   "pinCode": "424242",
   "smsCode": "2424",
   "phoneNumber": "0123456789"
@@ -190,10 +194,11 @@ Then we should perform the verification of the **smsCode**, **phone number** & *
   sdk_name=page.section
   type="set"
   name="pims.authentication.enrollment"
-  subname="enrollmentWithPhoneNumber"
-  request_params_swift=enrollmentWithPhoneNumberSwift
-  request_params_kotlin=enrollmentWithPhoneNumberKotlin
+  subname="enrollWithPhoneNumber"
+  request_params_swift=enrollWithPhoneNumberSwift
+  request_params_kotlin=enrollWithPhoneNumberKotlin
   response="null"
+  component="StrongAuthentication"
 %}
 
 If the response is `SUCCEEDED`, the device is successfully **enrolled!**
@@ -233,6 +238,7 @@ First, we should request to send an SMS code to the user **phone number**:
   request_params_swift=getPhoneNumberCertifSwift
   request_params_kotlin=getPhoneNumberCertifKotlin
   response="null"
+  component="StrongAuthentication"
 %}
 
 The user will receive an SMS Code on their phone, let's imagine the code is `24242424` for the following request. 
@@ -260,6 +266,7 @@ Then we should perform SMS code verification & validate **phone number**:
   request_params_swift=setAddPhoneNumberSwift
   request_params_kotlin=setAddPhoneNumberKotlin
   response="null"
+  component="StrongAuthentication"
 %}
 
 If the response is `SUCCEEDED`, the phone number is **registered!** 
@@ -292,6 +299,7 @@ Once the user has a registered phone number, it's possible to request an SMS cod
   request_params_swift=getSMSCodeEnrollmentRequestSwift
   request_params_kotlin=getSMSCodeEnrollmentRequestKotlin
   response=null
+  component="StrongAuthentication"
 %}
 
 The user should receive the SMS Code on his registered phone number, see [step 4·1](#4️⃣1️⃣-enrollment-with-phone-number).
@@ -331,6 +339,7 @@ We should check if the account already have a registered PIN Code, to trigger th
   request_params_swift=setSMSCodeEnrollmentCheckPINCodeRequestSwift
   request_params_kotlin=setSMSCodeEnrollmentCheckPINCodeRequestKotlin
   response=setSMSCodeEnrollmentCheckPINCodeResponse
+  component="StrongAuthentication"
 %}
 
 If it has been previously enrolled (`"status": "AlreadyEnrolled"`), there is no need to add a new PIN code, the user should use the **previous PIN code** for [step 8](#8️⃣-request-device-enrollment--perform-pin-code-validation).
@@ -376,6 +385,7 @@ In case this device has not been enrolled before for this account, we have to ma
   request_params_swift=setEnrollmentNewPINCodeRequestSwift
   request_params_kotlin=setEnrollmentNewPINCodeRequestKotlin
   response=setEnrollmentNewPINCodeResponse
+  component="StrongAuthentication"
 %}
 
 In this API, the parameter **smsCode** is only for iOS.
@@ -414,6 +424,7 @@ Once the user/device has a PIN code, it should be checked using the following co
   request_params_swift=setEnrollmentEnrollRequestSwift
   request_params_kotlin=setEnrollmentEnrollRequestKotlin
   response=setEnrollmentEnrollResponse
+  component="StrongAuthentication"
 %}
 
 In this API, the parameter **smsCode** is only for iOS.
@@ -464,6 +475,7 @@ In order to remove all enrollments, you need to request the following API:
   request_params_swift=RemoveEnrollmentSwift
   request_params_kotlin=RemoveEnrollmentKotlin
   response="null"
+  component="StrongAuthentication"
 %}
 
 If it `SUCCEEDED`, then you can restart enrollment process from [step 3](#3️⃣-check-phone-number).
@@ -495,6 +507,7 @@ In case the user doesn't remember the PIN Code, you should suggest **resetting t
   request_params_swift=ResetPINCodeSwift
   request_params_kotlin=ResetPINCodeKotlin
   response="null"
+  component="StrongAuthentication"
 %}
 
 If the **PIN Code reset** is successful (response is `SUCCEEDED`), then you can continue the enrollment process from [step 8](#8️⃣-request-device-enrollment--perform-pin-code-validation).
@@ -526,6 +539,7 @@ You can implement a feature allowing **PIN Code updating**.
   request_params_swift=UpdatePINCodeSwift
   request_params_kotlin=UpdatePINCodeKotlin
   response="null"
+  component="StrongAuthentication"
 %}
 
 In case the user can not remember the old PIN Code, you can [reset the PIN Code](#b---reset-pin-code).
@@ -537,13 +551,13 @@ You can implement a feature allowing **Phone Code modification**.
 > **Check PIN Code first:** Before trying to update the Phone Number, please follow [step 3](#3️⃣-check-phone-number) in order to make sure the device has already a phone number.<br>
 **Enrollment Required:** Reset PIN needs an active enrollment, you can check enrollment in [step 1](#1️⃣-check-enrollment-status).
 
-{%- capture getModifyPhoneNumberKotlin -%}
-  Pair("type", "modifyPhoneNumber"),
+{%- capture getphoneNumberCertificationKotlin -%}
+  Pair("type", "phoneNumberCertification"),
   Pair("phoneNumber", "0123456789")
 {%- endcapture -%}
 
-{%- capture getModifyPhoneNumberSwift -%}
-  "type": "modifyPhoneNumber",
+{%- capture getphoneNumberCertificationSwift -%}
+  "type": "phoneNumberCertification",
   "phoneNumber": "0123456789"
 {%- endcapture -%}
 
@@ -551,10 +565,11 @@ You can implement a feature allowing **Phone Code modification**.
   sdk_name=page.section
   type="get"
   name="pims.authentication.smscode"
-  subname="modifyPhoneNumber"
-  request_params_swift=getModifyPhoneNumberSwift
-  request_params_kotlin=getModifyPhoneNumberKotlin
+  subname="phoneNumberCertification"
+  request_params_swift=getphoneNumberCertificationSwift
+  request_params_kotlin=getphoneNumberCertificationKotlin
   response="null"
+  component="StrongAuthentication"
 %}
 
 The user will receive an SMS Code on their phone, then, you should use the following API to register the new phone number:
@@ -580,6 +595,7 @@ The user will receive an SMS Code on their phone, then, you should use the follo
   request_params_swift=setModifyPhoneNumberSwift
   request_params_kotlin=setModifyPhoneNumberKotlin
   response="null"
+  component="StrongAuthentication"
 %}
 
 ## **E** - Remove Vehicle Association
@@ -604,4 +620,5 @@ In case you need to remove the association between the vehicle and the user acco
   request_params_swift=setRemovePropertySwift
   request_params_kotlin=setRemovePropertyKotlin
   response="null"
+  component="UserInformation"
 %}

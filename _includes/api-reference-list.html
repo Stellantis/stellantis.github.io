@@ -16,12 +16,19 @@
     <div class="api-header">
       <a 
         class="api-name"
-        id="domain-{{ component.name | replace: '.', '-' | remove: '()'}}"
-        href="#domain-{{ component.name | replace: '.', '-' | remove: '()'}}"
+        id="domain-{{ component.tag | replace: '.', '-' | remove: '()'}}{%for compa in component.compatibility%}{{compa}}{% endfor %}"
+        href="#domain-{{ component.tag | replace: '.', '-' | remove: '()'}}{%for compa in component.compatibility%}{{compa}}{% endfor %}"
       >
 
         <div class="domain-component-name">
-          {{component.name}}&nbsp;{{component.icon}}
+          {{component.name}}
+          <sup class="text-note">
+            {%-for compa in component.compatibility-%}
+            {{compa}}
+            {%- unless forloop.last -%}&nbsp;{%- endunless -%}
+            {%-endfor-%}
+          </sup>
+          &nbsp;{{component.icon}}
         </div>
         
       </a>
@@ -67,7 +74,7 @@
     <div class="api-types api-types{% if include.sdk_name == "webportalv2" %}-full{% else %}-min{% endif %}">
       {% for buttonType in buttonsTypes %}
       <{% if include.sdk_name == "webportalv2" %}a{% else %}div{% endif %}
-        {% if apiType == buttonType %}
+        {% if api.type contains buttonType %}
         href="{{site.baseurl}}{{api.url}}.html#{{buttonType}}"
         {% endif %}
         class="
@@ -95,7 +102,7 @@
     
       <a
         class="api-name {% if include.sdk_name == "mobile-sdk" %}api-name-min{% endif %}" 
-        href="{{site.baseurl}}{{api.url}}#article"
+        href="{{site.baseurl}}{{api.url}}.html#article"
       >
       
           {%- comment -%} VERBS {%- endcomment -%}

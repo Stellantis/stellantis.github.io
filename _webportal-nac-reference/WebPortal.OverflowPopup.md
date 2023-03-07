@@ -12,7 +12,7 @@ type: event
 
 ### WebPortal.OverflowPopup
 
-| **Description** | This event is triggered when the popup queue contains 5 popp and a new popup try to be added.
+| **Description** | This event is triggered when the popup queue contains 5 popp and a new popup try to be added. Check out this [page]({{site.baseurl}}/webportal/v1/advanced-feature/notification/#prompt-popup) for more information.
 | **Type**| `event` message. |
 
 ## Example

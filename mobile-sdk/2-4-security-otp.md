@@ -9,7 +9,7 @@ require: api-reference
 mobile-sdk-component: StrongAuthentication
 ---
 
-{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity-v2.html %}
 
 
 When it's requested by this Mobile SDK, you should be able to request an OTP code.
@@ -73,10 +73,11 @@ sdk_name=page.section
   type="get"
   request_params_swift=getOTPRequestSwift
   request_params_kotlin=getOTPRequestKotlin
-  response=getOTPResponse 
+  response=getOTPResponse
+  component="StrongAuthentication"
 %}
 
 
 ## Error 2317 & 2312
 
-In case of error *2317* or *2312* when using [pims.authentication.otp - withPIN]({{site.baseurl}}/mobile-sdk/references/pims-authentication-otp-with-pin.html#article), you should use `"resetStep": true` in the query. This action will refresh the cache and remove these errors.
+In case of error *2317* or *2312* when using [pims.authentication.otp - withPIN]({{site.baseurl}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/strongauthentication-get-pims-authentication-otp-withpin/#article), you should use `"resetStep": true` in the query. This action will refresh the cache and remove these errors.

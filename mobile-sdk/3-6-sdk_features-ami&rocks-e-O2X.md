@@ -9,11 +9,11 @@ require: api-reference
 mobile-sdk-component: O2X
 ---
 
-{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity-v2.html %}
 
 [**Citroën AMI**](https://www.citroen.fr/ami) and [**Opel Rocks-e**](https://www.opel.de/fahrzeuge/rocks-e/uebersicht.html) are small electric vehicles. They are not compatible with any other **features of this SDK** *(Trips, Navigation, Vehicle Status, Remote Command)*.
 
-However, *Stellantis Connected Vehicles mobile SDK for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)* allows to retrieve information about these vehicles using **Bluetooth**.
+However, *Stellantis Connected Vehicles mobile SDK* allows to retrieve information about these vehicles using **Bluetooth**.
 
 ![citroen-ami]({{site.baseurl}}/assets/images/rocks-e_ami.png)
 
@@ -32,11 +32,11 @@ They are 2 types of reception stream depending on the parameter **reception**:
 - 🚗 **Status**: when `reception == status`, subscribe events are received when the vehicle status change. Vehicle status are: *Parked, Drive & Charging*.
 
 Subscribing to *pims.vehicle.informations* will scan for vehicle nearby and try to connect. Scanning will be impacted by the parameter **firstTime** of the query:
-- Use `firstTime == true`, if you want to subscribe to a new vehicle. You must **include** the parameter VIN in the query. Timeout will happen after 60 sec of unsuccessfull scanning, but default values can be changed in [pims.vehicle.timeout]({{site.baseurl}}/mobile-sdk/references/pims-vehicle-timeout.html#set).
+- Use `firstTime == true`, if you want to subscribe to a new vehicle. You must **include** the parameter VIN in the query. Timeout will happen after 60 sec of unsuccessfull scanning, but default values can be changed in [pims.vehicle.timeout]({{site.baseurl}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/o2x-set-pims-vehicle-timeout/#article).
 - Otherwise, use `firstTime == false` if you want to subscribe to the previous vehicle. You should **not include** the parameter VIN in the query. There is no timeout in this case.
 
 
-**Only one VIN** can be subscribed at a time. You can check the current subscribed VIN using [pims.vehicle.vin-O2X]({{site.baseurl}}/mobile-sdk/references/pims-vehicle-vin-o2x.html#article).
+**Only one VIN** can be subscribed at a time. You can check the current subscribed VIN using [pims.vehicle.vin-O2X]({{site.baseurl}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/o2x-get-pims-vehicle-vin-o2x/#article).
 
 > **BLE:** *AMI and Rocks-e* use **Bluetooth Low Energy** in order to transfer vehicle information, the user does not have to proceed to any Bluethooth pairing in the device settings.
 
@@ -99,6 +99,7 @@ Subscribing to *pims.vehicle.informations* will scan for vehicle nearby and try 
   request_params_kotlin=O2XSubscribeVhclInfoRequestKotlin
   response="null"
   notification=O2XVhclInfoResponse
+  component="O2X"
 %}
 
 ## Get Vehicle Information
@@ -121,6 +122,7 @@ To retrieve AMI & Rocks-e data, you can also use the **Get** API. It returns the
   request_params_swift=O2XGetVhclInfoRequestSwift
   request_params_kotlin=O2XGetVhclInfoRequestKotlin
   response=O2XVhclInfoResponse
+  component="O2X"
 %}
 
 ## Connection & Charge Events
@@ -155,4 +157,5 @@ Event are triggered when when the vehicle is in the following **states**:
   request_params_kotlin=O2XEventRequestKotlin
   response="null"
   notification=O2XEventResponse
+  component="O2X"
 %}

@@ -20,8 +20,10 @@ type: api
 |**Type**| `postMessage` command. See [implementation tutorial]({{site.baseurl}}/webportal/v1/application/events/#article) for post message commands. |
 | **Parameter** | _None_ |
 
-### See Also
+> **NativePopups** interacts with the [Notification Center]({{site.baseurl}}/webportal/v1/advanced-features/notification/#article) but they are **deprecated**, you should use [WebPortal.notification.new]({{site.baseurl}}/webportal/v1/api-reference/webportal-notification-new.html#article) instead.
 
+
+### See Also
 -   Event: [OK button]({{site.baseurl}}/webportal/v1/api-reference/webportal-popup-evt-ok#article).
 -   Event: [Cancel Button]({{site.baseurl}}/webportal/v1/api-reference/webportal-popup-evt-cancel#article).
 -   Event: [Display timeout]({{site.baseurl}}/webportal/v1/api-reference/webportal-popup-evt-timeout#article).
