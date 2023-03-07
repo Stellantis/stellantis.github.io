@@ -154,7 +154,7 @@
         {% endfor %}
     </td>
     <td>
-        <code>{{include.example}}</code>
+        <code>{% if include.example contains "[" %}{{include.example}}{% elsif include.type contains "rray" %}[ {% for e in include.example %}{%if include.type contains "tring"%}"{{e}}"{%else%}{{e}}{%endif%}{% unless forloop.last %}, {%endunless%}{%endfor%} ]{%else%}{{include.example}}{%endif%}</code>
     </td>
     {% if include.rowType == "param" %}<td><code>{{include.required}}</code></td>{% endif %}
     {% endif %}

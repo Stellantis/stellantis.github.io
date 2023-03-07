@@ -175,8 +175,8 @@ const domain_categories = {
 
 const specification_page = {
   webportal: {
-    v1: "/webportal/v1/api-reference/list/",
-    v2: "/webportal/v2/api-reference/list/",
+    v1: "/webportal/v1/api-reference/",
+    v2: "/webportal/v2/api-reference/",
   },
   webapi: {
     v2: "/webapi/b2b/api-reference-v2/specification/",
@@ -188,8 +188,10 @@ const specification_page = {
 
 function taggify (api, link, tagShortText) {
   if (link) {
+    var appendUrl;
+    api == "webportal" ? appendUrl = ".html#article" : appendUrl = "";
     var tagLink = 
-      "<a href='{{site.baseurl}}"  + specification_page[api][tagShortText] + link + "' target='_blank' class='tag data-item-available is-link'>"+
+      "<a href='{{site.baseurl}}"  + specification_page[api][tagShortText] + link + appendUrl + "' target='_blank' class='tag data-item-available is-link'>"+
         "<span> " + tagShortText +  "&nbsp; </span>"+
       "</a>";
     return tagLink;
@@ -320,7 +322,6 @@ var highlightRow = function(e, row){
     if (currentRow) {
       currentRow.classList.remove("data-item-highlighted");
     }
-    console.log(row.getData().ID)
     currentRow = rowElement;
     currentRow.classList.add("data-item-highlighted");
   }
@@ -423,9 +424,16 @@ table.setFilter("domain", "like", "{{page.search-catalog-keyword}}")
 const searchField = document.getElementById("data-header-search-area");
 
 // ------- CHECKBOXES FILTER ---------
+const checkboxesNotFiltered = {
+  "webportal_v1": "-",
+  "webportal_v2": "-",
+  "webapi_b2b_v2": "#",
+  "webapi_b2b_v3": "#",
+  "webapi_b2c_v4": "#"
+}
 var checkboxesState = {
-  "webportal_v1": "#",
-  "webportal_v2": "#",
+  "webportal_v1": "-",
+  "webportal_v2": "-",
   "webapi_b2b_v2": "#",
   "webapi_b2b_v3": "#",
   "webapi_b2c_v4": "#"
@@ -438,7 +446,7 @@ document.addEventListener("DOMContentLoaded",  function() {
     checkbox.addEventListener('change', function() {
       if (currentFilter) { table.removeFilter(currentFilter) }
       if (this.checked) {
-        checkboxesState[this.value] = "#";
+        checkboxesState[this.value] = checkboxesNotFiltered[this.value];
       } else {
         checkboxesState[this.value] = "@@@@@@";
       }

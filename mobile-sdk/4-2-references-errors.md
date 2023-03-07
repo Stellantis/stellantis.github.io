@@ -8,6 +8,9 @@ description: "List of error codes in Mobile SDK."
 require: reference-list
 ---
 
+{%- capture lastSpecFile -%}{% include api-reference-toolkit-v2.html type="lastSpecFile" %}{%- endcapture -%}
+
+
 This page is a list of error code you can encounter using PIMS. 
 
 These errors code are shared between iOS and Android SDKs.
@@ -45,13 +48,13 @@ These errors code are shared between iOS and Android SDKs.
     <div class="api-content" style="border-top: none">
         <div class="api-table">
             <table>
-                {% assign errorTypes = site.data.mobile-sdk-errors | map: 'type' | join: ',' | split: ',' | uniq %}
+                {% assign errorTypes = site.data[lastSpecFile].errors | map: 'type' | join: ',' | split: ',' | uniq %}
                 {% for errType in errorTypes %}
                     <thead>
                         <tr>
                             <th class="api-table-header api-params" colspan="4">
                                 <h2 class="api-table-header-title" id="{{errType | slugify}}">
-                                    {{errType }}
+                                    {{errType}}
                                 </h2>
                             </th>
                         </tr>
@@ -62,11 +65,11 @@ These errors code are shared between iOS and Android SDKs.
                         </tr>
                     </thead>
                     <tbody>
-                        {%- for error in site.data.mobile-sdk-errors -%}
+                        {%- for error in site.data[lastSpecFile].errors -%}
                         <tr>
                             {% if error.type == errType %}
                             <td><strong>{{error.code}}</strong></td>
-                            <td><code>{{error.label}}</code></td>
+                            <td><code>{{error.message}}</code></td>
                             <td>{% if error.suberrors %}Yes{% else %}<em class="na-value">no</em>{% endif %}</td>
                             {% endif %}
                         </tr>

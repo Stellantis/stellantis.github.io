@@ -95,6 +95,11 @@ hr {
     padding-top: 66px;
 }
 
+sup.text-note {
+    font-style: italic;
+    font-size: 80%;
+}
+
 .references-nac {
     .api-title {
         h2 {
@@ -283,6 +288,10 @@ table code {
     ul {
         margin-top: .25rem;
     }
+}
+
+.notification.notification-version a {
+    color: $psa-light-blue;
 }
 
 .content .notification.page-disclaimer {
@@ -722,6 +731,10 @@ code {
     margin-top: inherit;
 }
 
+.hero.no-hero .hero-body {
+    height: 67px;
+    padding: 0;
+}
 
 .hero_webportal {
     background-image: url("../../assets/images/city2.jpg");

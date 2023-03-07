@@ -6,12 +6,12 @@ type:
 name: HMI.notification
 domain: HMI
 paramsset:
-  - name: appId
-    description: ID of your App.
-    type: string
-    unit-value: n/a
-    example: com.example.app
-    required: true
+  # - name: appId
+  #   description: ID of your App.
+  #   type: string
+  #   unit-value: n/a
+  #   example: com.example.app
+  #   required: true
   - name: title
     description: Notification title.
     type: string

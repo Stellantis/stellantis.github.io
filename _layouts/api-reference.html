@@ -170,21 +170,57 @@ layout: doc-article
       {%- comment -%} END VERSION {%- endcomment -%}
 
       {%- comment -%} COMPONENT {%- endcomment -%}
-      {% if page.component %}
-      <div class="api-component api-general-block">
-        <span class="api-header-title">Component: </span>
-        {% if page.component.first  %}
-        <ul>
-          {% for compo in page.component %}
-          <li>{{compo}}</li>
-          {% endfor %}
-        </ul>
-        {% elsif page.component %}
-          <span>{{page.component}}</span>
-        {% endif %}
-      </div>
+      {%- if page.section == "mobile-sdk" and page.component -%}
+        {%- for component in site.data.mobile-sdk-components -%}
+          {%- if page.component == component.tag -%}
+            <div class="api-component api-general-block">
+              <span class="api-header-title">Component: </span>
+              {% if page.component %}
+                <span>
+                  {{component.icon}}
+                  {{component.tag}}
+                </span>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
       {% endif %}
       {%- comment -%} END COMPONENT {%- endcomment -%}
+
+      {%- comment -%} TUTORIAL {%- endcomment -%}
+      {%- if page.section == "mobile-sdk" and page.component -%}
+        {%- for component in site.data.mobile-sdk-components -%}
+          {%- if page.component == component.tag -%}
+            <div class="api-component api-general-block">
+              <span class="api-header-title">Tutorial: </span>
+              {% if page.component %}
+                <span>
+                  check-out 
+                  <a href="{{site.baseurl}}{{component.tutorial}}#article">
+                    {{component.name}}.
+                  </a> 
+                </span>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      {%- comment -%} END TUTORIAL {%- endcomment -%}
+
+
+      {%- comment -%} COMPATIBILITY {%- endcomment -%}
+      <div class="api-component api-general-block">
+        <span class="api-header-title">Plateforme Compatibility: </span>
+      {% for list_component in site.data.mobile-sdk-components %}
+        {% if page.component == list_component.tag %}
+        {%- for compa in list_component.compatibility -%}
+          {{compa | append: " "}}
+        {% endfor %}
+        {% endif %}
+      {% endfor %}
+      </div>
+      {%- comment -%} END COMPATIBILITY {%- endcomment -%}
+
 
       {%- comment -%} SECURITY {%- endcomment -%}
       {%- if page.section == "mobile-sdk" -%}
@@ -207,7 +243,7 @@ layout: doc-article
             {% endif %}
           {% else %}
             {%- for component in site.data.mobile-sdk-components -%}
-              {%- if page.component contains component.tag -%}
+              {%- if page.component == component.tag -%}
                 {%- if component.security == "none" -%}
                 <span class="icon is-white">
                   <i class="fas fa-lock-open"></i>
@@ -232,7 +268,7 @@ layout: doc-article
       {%- comment -%} PREREQUISITES {%- endcomment -%}
       {%- if page.section == "mobile-sdk" -%}
         {%- for component in site.data.mobile-sdk-components -%}
-        {%- if page.component contains component.tag -%}
+        {%- if page.component == component.tag -%}
           {% if component.security == "subscription" or page.security == "subscription" %}
           <div class="api-component api-general-block">
             <span class="api-header-title">Prerequisites: </span>  
@@ -397,7 +433,6 @@ layout: doc-article
                 Edit
               </span>
             </a>
-
           
           </div>
 

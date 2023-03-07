@@ -5,11 +5,11 @@ section: mobile-sdk
 categorie: SDK Features
 title: Vehicle Status
 description: "Retrieve vehicle information with connected vehicle mobile SDK."
-mobile-sdk-component: LongRangeRemote(Status)
+mobile-sdk-component: LongRangeRemoteStatus
 require: api-reference
 ---
 
-{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity-v2.html %}
 
 {%- capture vehicleInfo -%}
   {
@@ -84,6 +84,7 @@ Using the get parameter you will retrieve the latest information **from the serv
   request_params_swift=getVehicleInfoRequestSwift
   request_params_kotlin=getVehicleInfoRequestKotlin
   response=vehicleInfo
+  component="LongRangeRemoteFCAStatus"
 %}
 
 
@@ -116,6 +117,7 @@ Refresh parameter will also retrieve the latest information **from the server** 
   request_params_swift=refreshVehicleInfoRequestSwift
   request_params_kotlin=refreshVehicleInfoRequestKotlin
   response=vehicleInfo
+  component="LongRangeRemoteFCAStatus"
 %}
 
 {%- if site.baseurl == "/p4d00/doc/" -%}
@@ -151,6 +153,7 @@ If the connection with the server is not possible the response will be the **err
   request_params_swift=refreshWithWakeUpVehicleInfoRequestSwift
   request_params_kotlin=refreshWithWakeUpVehicleInfoRequestKotlin
   response=vehicleInfo
+  component="LongRangeRemoteFCAStatus"
 %} 
 {%- endif -%}
 
@@ -187,5 +190,6 @@ This event is triggered when the charge is finished or when the charge is interr
   request_params_kotlin=eventChargeRemoteRequestKotlin
   response="null"
   notification=eventChargeRemoteResponse
+  component="LongRangeRemoteFCAStatus"
 %}
 

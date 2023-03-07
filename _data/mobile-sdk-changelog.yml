@@ -1,0 +1,27 @@
+- version: "2.2"
+  release_date: 20 Feb 2023
+  name: Log Update
+  description: |-
+    - Update log generation system.
+- version: "2.1"
+  release_date: 26 Oct 2022
+  name: Push Notif, User Prop & enrollWithPhoneNumber
+  description: |-
+    - 🔔  Push Notification: add component.
+    - 👤  User Information: add component.
+    - 📱  Enrollment (PSA)
+      - set-pims.authentication.enrollment-enrollWithPhoneNumber: add API.
+- version: "2.0"
+  release_date: 01 Jun 2022
+  name: Candidate Version
+  description: |-
+    - 📍 Trips: add component.
+    - 🏁 Send Navigation: add component.
+    - 🚗 Vehicle Status (PSA): add component.
+    - 🕹 Remote Command (PSA): add component.
+    - 🚙 AMI & Rocks-e O2X: add component.
+    - 🔓 Authentication (PSA): add component.
+    - 📱 Enrollment (PSA): add component.
+    - 🔑 CarKey: add component.
+    - 📑 Steps: add component.
+    - 📦 SDK PSA O2X: add component.

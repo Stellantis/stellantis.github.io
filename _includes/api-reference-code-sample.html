@@ -1,10 +1,41 @@
 {%- comment -%} Build Var and Links {%- endcomment -%}
-{% capture sample_id %}{{include.type}}-{{include.name | slugify }}{% if include.subname %}-{{include.subname | slugify}}{% endif %}{% if include.description %}-{{include.description | slugify}}{% endif %}{% endcapture %}
+{% capture sample_id %}{{include.type}}-{{include.name | slugify }}{% if include.subname %}-{{include.subname }}{% endif %}{% if include.description %}-{{include.description | slugify}}{% endif %}{% endcapture %}
 
 
 {%- comment -%} Capture Code Blocks {%- endcomment -%}
 
-{% if include.sdk_name=="mobile-sdk" %}
+{% if include.sdk_name=="web-sdk" %}
+
+{% capture request %}
+```js
+space.{{include.type}}(
+  "{{include.name}}"{% if include.params %},{% endif %}  // API Name{% if include.params and include.params != 'none' %}
+  {% for p in include.params %}{% if forloop.first == forloop.last %}{% if p.type == "string" or p.type == "String" or p.type == "Enum of Strings" %}"{{p.example}}"{% else %}{{p.example}}{%endif%} // {{p.name}}{% endif %}{% endfor -%}
+  {% for p in include.params %}{% if forloop.first != forloop.last %}{% if forloop.first %}{{"{"}}
+{% endif %}    "{{p.name}}": {% if p.type == "string" or p.type == "String" or p.type == "Enum of Strings" %}"{{p.example}}"{% else %}{{p.example}}{%endif%}
+{% if forloop.last %}  } {% endif %}{% endif %}{% endfor %}{% endif %}
+)
+```
+{% endcapture %}
+
+{% capture reply %}
+```js
+{%- if include.data_example %}
+{{include.data_example}}
+{%- elsif datas == "none" or datas == null %}
+null
+{%- else %}
+{% 
+  include api-reference-code-sample-json.html 
+  datas=datas
+  indent=""
+  indentLevel=0
+%}
+{%- endif %}
+```
+{% endcapture %}
+
+{% elsif include.sdk_name=="mobile-sdk" %}
 
 {%- comment -%} KOTLIN {%- endcomment -%}
 {% if include.custom_code_sample %}
@@ -69,7 +100,7 @@ pims.{{include.type}}(
   "{{p.name}}": {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% if forloop.last == false %},{% else %}{% endif %}{% endfor %}
   {% endif %}]{% endif %}
   ) { (message) in 
-    if message["status"] == "SUCEEDED"    { }    // handle succeeded status
+    if message["status"] == "SUCCEEDED"    { }    // handle succeeded status
     else if message["status"] == "FAILED" { }    // handle failed status{% if include.type == "subscribe" %}
     else if status == "RESULT" {
       if !message["error"].isEmpty { }            // handle error event code
@@ -94,9 +125,12 @@ pims.unsubscribe( api: "{{include.name}}" /* no params */ ){% endif %}
 {
   "transactionId": "953cfefb-bc72",
   "status": "SUCCEEDED",
-  "result": {% if include.type == "subscribe" %}null{% else %}{% if include.sample_type == "ref" %}{% if datas == "none" or datas == null %}null{% else%}{% if data_example %}{{data_example}}{% else %}{% for d in datas %}{% if forloop.first %}{ {% endif %}
-  "{{d.name}}": {% if d.type == "int" or d.type == "number" or d.type == "boolean" %}{{d.example}}{% else %}"{{d.example}}"{% endif %}{% unless forloop.last %},{% else %}
-} {% endunless %}{% endfor %}{% endif %}{% endif %}{% elsif include.response %}{{include.response}}{% else %}null{% endif %}{% endif %}
+  "result": {% if include.type == "subscribe" %}null{% else %}{% if include.sample_type == "ref" %}{% if datas == "none" or datas == null %}null{% else %}{% 
+    include api-reference-code-sample-json.html 
+    datas=datas
+    indent="  "
+    indentLevel=0
+  %}{% endif %}{% elsif include.response %}{{include.response}}{% else %}null{% endif %}{% endif %}
 }
 ```
 {% endcapture %}
@@ -113,9 +147,12 @@ pims.unsubscribe( api: "{{include.name}}" /* no params */ ){% endif %}
 {
   "transactionId": "953cfefb-bc72",
   "status": "RESULT",
-  "result": {% if include.sample_type == "ref" %}{% if datas == "none" or datas == null %}null{% else%}{% if data_example %}{{data_example}}{% else %}{% for d in datas %}{% if forloop.first %}{ {% endif %}
-    "{{d.name}}": {% if d.type == "int" or d.type == "number" or d.type == "boolean" %}{{d.example}}{% else %}"{{d.example}}"{% endif %}{% unless forloop.last %},{% else %}
-  } {% endunless %}{% endfor %}{% endif %}{% endif %}{% else %}{{include.notification}}{% endif %}
+  "result": {% if include.sample_type == "ref" %}{% if datas == "none" or datas == null %}null{% else%}{% endif %}{% 
+    include api-reference-code-sample-json.html 
+    datas=datas
+    indent="  "
+    indentLevel=0
+  %}{% else %}{{include.notification}}{% endif %}
 }
 ```
 {% endcapture %}
@@ -133,20 +170,17 @@ pims.unsubscribe( api: "{{include.name}}" /* no params */ ){% endif %}
 ```js
 // representation of the `failed` dictionary objects messages as JSON
 
-{% for errList in site.data.mobile-sdk-errors %}{% for errApi in include.errors %}{% if errList.code == errApi.code %}/* -------- STATUS FAILED: {{errList.code}} -------- */
+{% for error in include.errors %}/* -------- STATUS FAILED: {{error.code}} -------- */
 {
   "transactionId": "953cfefb-bc72",
   "status": "FAILED",
   "error": {
-    "code": {{errList.code}},
-    "label": "{{errList.label}}"{% if errList.subcode %},
-    "subCode": {
-      "code" : {{errList.subcode}}{% if errList.sublabel %}, 
-      "label" : "{{errList.sublabel}}"{% endif %} 
-    }{% endif %}
+    "code": {{error.code}},
+    "label": "{{error.label}}"{% if error.subcode %},
+    "subCode": [...]{% endif %}
   }
 }
-{% endif -%}{% endfor -%}{% endfor -%}
+{% endfor -%}
 ```
 {% endcapture %}
 {% else %}{% assign failed = false %}{% endif %}
@@ -307,11 +341,12 @@ webportal.{{include.type}}(
       class="{{header_class}}"
       href="
         {%- if include.sdk_name == "mobile-sdk" -%}
-          {{- site.baseurl -}}/mobile-sdk/references/
-          {%- for type in include.type -%}{{- type -}}{% endfor %}-
-          {{- include.name | "slugify" -}}
-          {%- if include.subname -%}-{{- include.subname | "slugify" -}}{%- endif -%}
-          .html#{{include.type}}
+          {{- site.baseurl -}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/
+          {{- include.component | slugify -}}-
+          {{- include.type | slugify -}}-
+          {{- include.name | slugify -}}
+          {%- if include.subname -%}-{{- include.subname | slugify -}}{%- endif -%}
+          /#article
         {%- elsif include.sdk_name == "webportalv2" -%}
           {{- site.baseurl -}}/webportal/v2/api-reference/
           {{- include.name | "slugify" -}}
@@ -319,6 +354,10 @@ webportal.{{include.type}}(
         {%- elsif include.sdk_name == "webportalv1" -%}
           {{- site.baseurl -}}/webportal/v1/api-reference/
           {{- include.name | "slugify" -}}
+          .html#article
+        {%- elsif include.sdk_name == "web-sdk" -%}
+          {{- site.baseurl -}}/web-sdk/references/
+          {{- include.name -}}
           .html#article
         {%- endif -%}"
     >{{header_text}}</a>
@@ -338,6 +377,8 @@ webportal.{{include.type}}(
     {{" request "}}
     {%- elsif include.sdk_name == "mobile-sdk" -%}
     {{" kotlin "}}
+    {%- elsif include.sdk_name == "web-sdk" -%}
+    {{" request "}}
     {%- endif -%}"
   >
       {%- comment -%} First Block Buttons {%- endcomment -%}
@@ -371,6 +412,8 @@ webportal.{{include.type}}(
           {{swift | markdownify}}
         {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "kotlin" %}
           {{kotlin | markdownify}}
+        {% elsif include.sdk_name == "web-sdk" and code_example.tag == "request" %}
+          {{request | markdownify}}
         {% endif %}
       </div>
       {% endfor %}
@@ -392,6 +435,10 @@ webportal.{{include.type}}(
       {{" succeeded " }}
       {%- elsif include.sdk_name == "mobile-sdk" and include.type == "subscribe" -%}
       {{" result " }}
+      {%- elsif include.sdk_name == "web-sdk" and include.type == "subscribe" -%}
+      {{" notify " }}
+      {%- elsif include.sdk_name == "web-sdk" and include.type != "subscribe" -%}
+      {{" reply " }}
       {%- endif -%}
     ">
       {%- comment -%} Second Block Buttons {%- endcomment -%}
@@ -429,6 +476,8 @@ webportal.{{include.type}}(
           {{result | markdownify}}
         {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "failed" %}
           {{failed | markdownify}}
+        {% elsif include.sdk_name == "web-sdk" %}
+          {{reply | markdownify}}
         {% endif %}
       </div>
       {% endfor %}

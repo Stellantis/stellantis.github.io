@@ -371,12 +371,12 @@ else {
     {% unless page.permalink == "/" or page.name == "404.md" %}
     window.onscroll = function() {scrollFunction()};
     {% endunless %}
-
-        function scrollFunction() {
+    
+    function scrollFunction() {
         if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
-        document.getElementById("navbarpsa").classList.add("bluenavbar");
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
         } else {
-        document.getElementById("navbarpsa").classList.remove("bluenavbar");
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
         }
     } 
 }

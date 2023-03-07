@@ -9,9 +9,9 @@ mobile-sdk-component: SendToNav
 require: api-reference
 ---
 
-{% include_relative content/mobile-sdk-feature-security-connectivity.html %}
+{% include_relative content/mobile-sdk-feature-security-connectivity-v2.html %}
 
-*Stellantis Connected Vehicles mobile SDK for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)* has a dedicated feature to **send a navigation to the vehicle** from the mobile phone.
+*Stellantis Connected Vehicles mobile SDK* has a dedicated feature to **send a navigation to the vehicle** from the mobile phone.
 
 ![navigation-system]({{site.baseurl}}/assets/images/navigation-system-nac.jpg)
 
@@ -38,13 +38,19 @@ On iOS, this feature does not exist and therefore is not required. You can direc
   Pair("isConnected", "true")
 {%- endcapture -%}
 
+{%- capture connectDeviceAndroidRequestSwift -%}
+  // This API doesn't exist for iOS
+{%- endcapture -%}
+
 
 {% include api-reference-code-sample.html
   sdk_name=page.section
   type="set"
   name="pims.vehicle.device"
   request_params_kotlin=connectDeviceAndroidRequestKotlin
+  request_params_swift=connectDeviceAndroidRequestSwift
   response=null
+  component="SendToNav"
 %}
 
 ## Start Service
@@ -53,10 +59,12 @@ On Android & iOS, you must **start sendToNav** service. Without the service acti
 
 {%- capture startDestinationServiceRequestKotlin -%}
   Pair("action", "start")
+  Pair("service", "bluetooth")
 {%- endcapture -%}
 
-{%- capture sendToNavDestinationServiceRequestSwift -%}
+{%- capture startDestinationServiceRequestSwift -%}
   "action": "start"
+  "service": "bluetooth"
 {%- endcapture -%}
 
 
@@ -64,10 +72,10 @@ On Android & iOS, you must **start sendToNav** service. Without the service acti
   sdk_name=page.section
   type="set"
   name="pims.vehicle.service"
-  subname="sendToNav"
   request_params_swift=startDestinationServiceRequestSwift
   request_params_kotlin=startDestinationServiceRequestKotlin
   response=null
+  component="BTConnectivity"
 %}
 
 When you don't need the service anymore, you can disconnect the service using the same API with **action** param set to `stop`.
@@ -112,6 +120,7 @@ Events are received in the following conditions:
   request_params_kotlin=subEventsRequestSwift
   response="null"
   notification=eventDestinationResponse
+  component="SendToNav"
 %}
 
 ## Send with Coordinates
@@ -121,7 +130,7 @@ To send a navigation to the vehicle using coordinates, you have to provide **lon
 {% capture responseSendNav %}
 If everything went fine, you would receive `"status": "sent"` in the **response**, otherwise check [Vehicle Not Reachable](#vehicle-not-reachable).
 
-> **Info:** sending a destination doesn't work if the privacy of the vehicle is not open to *geolocation* (set to *none*), see [pims.vehicle.privacy]({{site.baseurl}}/mobile-sdk/references/pims-vehicle-privacy.html#article).
+> **Info:** sending a destination doesn't work if the privacy of the vehicle is not open to *geolocation* (set to *none*), see [pims.vehicle.privacy]({{site.baseurl}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/sendtonav-get-pims-vehicle-privacy/#article).
 {% endcapture %}
 
 {{responseSendNav}}
@@ -161,6 +170,7 @@ If everything went fine, you would receive `"status": "sent"` in the **response*
   request_params_swift=destinationCoordinatesRequestSwift
   request_params_kotlin=destinationCoordinatesRequestKotlin
   response=destinationCoordinatesResponse 
+  component="SendToNav"
 %}
 
 
@@ -201,6 +211,7 @@ This feature is known as *Share Intent for Android* or *Share Extension for iOS*
   request_params_swift=destinationExtensionRequestSwift
   request_params_kotlin=destinationExtensionRequestKotlin
   response=destinationExtensionResponse 
+  component="SendToNav"
 %}
 
 ## Sending Navigation Failed
@@ -258,7 +269,7 @@ When a navigation is cached, it will be re-send again each time the device conne
           "vin": "VR1AB12C3D45678909",
           "userid": "user@provider.tld"
           "location": {
-            "latitude": "trustedPhone",
+            "latitude": "48.77252",
             "longitude": "2.2151043",
             "address": "Rte de Gisy, 78140 Vélizy-Villacoublay"
           }
@@ -284,6 +295,7 @@ When a navigation is cached, it will be re-send again each time the device conne
   request_params_swift='no_params'
   request_params_kotlin='no_params'
   response=storedDestinationsResponse 
+  component="SendToNav"
 %}
 
 >**Info:** Destinations are only stored during 24 hours, then they are deleted.
@@ -323,6 +335,7 @@ After 24 hours a navigation in cache is deleted. If you had subscibed to [pims.v
   request_params_swift=sendToNavDeletedFromCacheNavigationRequestSwift
   request_params_kotlin=sendToNavDeletedFromCacheNavigationRequestKotlin
   response=sendToNavDeletedFromCacheNavigationResponse 
+  component="SendToNav"
 %}
 
 
@@ -357,4 +370,5 @@ If you want to convert a [third party link](#send-with-third-party-link) to coor
   request_params_swift=vehicleCoordinateRequestSwift
   request_params_kotlin=vehicleCoordinateRequestKotlin
   response=vehicleCoordinateResponse 
+  component="SendToNav"
 %}

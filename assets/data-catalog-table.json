@@ -14,7 +14,11 @@
     "webapi_b2b_v3": "#operation/getCarLastPosition",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 2,
@@ -31,7 +35,11 @@
     "webapi_b2b_v3": "#operation/getCarLastPosition",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 3,
@@ -48,7 +56,11 @@
     "webapi_b2b_v3": "#operation/getCarLastPosition",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 4,
@@ -65,7 +77,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleAlertsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 5,
@@ -82,7 +98,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleAlertsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 6,
@@ -99,7 +119,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleAlertsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 7,
@@ -116,7 +140,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleAlertsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 8,
@@ -133,7 +161,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleAlertsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 9,
@@ -150,7 +182,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleAlertsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 10,
@@ -167,7 +203,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleAlertsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 11,
@@ -184,7 +224,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleAlertsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 12,
@@ -201,11 +245,15 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 13,
-    "name": "engine coolant temperature (thermic)",
+    "name": "engine coolant temperature",
     "domain": "telemetrie",
     "description": "Temperature of the coolant liquid.",
     "type": "Float",
@@ -218,11 +266,15 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "",
+    "PHEV": "X",
+    "FCEV": ""
   },
   {
     "ID": 14,
-    "name": "engine oil level (thermic)",
+    "name": "engine oil level",
     "domain": "telemetrie",
     "description": "Percentage of engine oil left.",
     "type": "Integer",
@@ -235,11 +287,15 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "",
+    "PHEV": "X",
+    "FCEV": ""
   },
   {
     "ID": 15,
-    "name": "engine oil temperature (thermic)",
+    "name": "engine oil temperature",
     "domain": "telemetrie",
     "description": "Temperature of the engine oil.",
     "type": "Float",
@@ -252,24 +308,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
-  },
-  {
-    "ID": 16,
-    "name": "Selective catalytic reduction state",
-    "domain": "telemetrie",
-    "description": "Selective catalytic reduction (SCR) system warning level.",
-    "type": "Enum of Strings",
-    "unit_or_value": "`Off` `Blinked` `On`",
-    "step": "",
-    "update": "",
-    "webportal_v1": "",
-    "webportal_v2": "",
-    "webapi_b2b_v2": "#operation/getFleetVehicleStatus",
-    "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
-    "webapi_b2c_v4": "",
-    "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "",
+    "PHEV": "X",
+    "FCEV": ""
   },
   {
     "ID": 17,
@@ -286,7 +329,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 18,
@@ -303,7 +350,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 19,
@@ -320,7 +371,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 20,
@@ -337,7 +392,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 21,
@@ -354,7 +413,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 22,
@@ -371,7 +434,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 23,
@@ -388,7 +455,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 24,
@@ -396,7 +467,7 @@
     "domain": "telemetrie",
     "description": "Ignition state of the vehicle.",
     "type": "Enum of Strings",
-    "unit_or_value": "`Stop` `StartUp` `Start` `Free`",
+    "unit_or_value": "`Stop` `StartUp` `Start`",
     "step": "n/a",
     "update": "",
     "webportal_v1": "",
@@ -405,7 +476,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 25,
@@ -422,7 +497,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 26,
@@ -439,7 +518,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 27,
@@ -456,7 +539,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 28,
@@ -473,7 +560,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 29,
@@ -490,7 +581,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 30,
@@ -507,7 +602,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 31,
@@ -524,11 +623,15 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 32,
-    "name": "Fuel consumtion",
+    "name": "Fuel instant consumption",
     "domain": "telemetrie",
     "description": "Instant consumption for vehicles for thermic vehicle.",
     "type": "Float",
@@ -541,7 +644,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "",
+    "PHEV": "X",
+    "FCEV": ""
   },
   {
     "ID": 33,
@@ -549,7 +656,7 @@
     "domain": "telemetrie",
     "description": "Temperature outside of the vehicle.",
     "type": "Float",
-    "unit_or_value": "identifier",
+    "unit_or_value": "Celsius",
     "step": "",
     "update": "",
     "webportal_v1": "",
@@ -558,15 +665,19 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 34,
     "name": "Electric residual energy",
     "domain": "telemetrie",
     "description": "Residual electric energy.",
-    "type": "Float",
-    "unit_or_value": "KWh",
+    "type": "Integer",
+    "unit_or_value": "Wh",
     "step": "n/a",
     "update": "",
     "webportal_v1": "",
@@ -575,14 +686,18 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 35,
     "name": "Battery capacity",
     "domain": "telemetrie",
     "description": "Electric battery total capacity.",
-    "type": "Float",
+    "type": "Integer",
     "unit_or_value": "Wh",
     "step": "",
     "update": "",
@@ -592,11 +707,15 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 36,
-    "name": "Battery voltage (thermic)",
+    "name": "Battery voltage",
     "domain": "telemetrie",
     "description": "Battery voltage for combustion engine.",
     "type": "Float",
@@ -609,11 +728,15 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 37,
-    "name": "Battery current (thermic)",
+    "name": "Battery current",
     "domain": "telemetrie",
     "description": "Battery current for combustion engine.",
     "type": "Float",
@@ -626,7 +749,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 38,
@@ -643,7 +770,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 39,
@@ -657,10 +788,14 @@
     "webportal_v1": "",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getFleetVehicleStatus",
-    "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
+    "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 40,
@@ -677,7 +812,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 41,
@@ -694,7 +833,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 42,
@@ -711,7 +854,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 43,
@@ -728,7 +875,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 44,
@@ -745,7 +896,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 45,
@@ -762,7 +917,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 46,
@@ -779,7 +938,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 47,
@@ -796,11 +959,15 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 48,
-    "name": "Engine coolant level (thermic)",
+    "name": "Engine coolant level",
     "domain": "telemetrie",
     "description": "Percentage of coolant liquid left.",
     "type": "Integer",
@@ -813,7 +980,11 @@
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "",
+    "PHEV": "X",
+    "FCEV": ""
   },
   {
     "ID": 49,
@@ -830,11 +1001,15 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 50,
-    "name": "Gearbox selection mode",
+    "name": "Gearbox automatic mode",
     "domain": "telemetrie",
     "description": "Is gearbox mode is automatic?",
     "type": "Boolean",
@@ -847,7 +1022,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 51,
@@ -864,7 +1043,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 52,
@@ -881,7 +1064,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 53,
@@ -898,7 +1085,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 54,
@@ -915,7 +1106,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 55,
@@ -932,7 +1127,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 56,
@@ -949,7 +1148,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 57,
@@ -966,7 +1169,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 58,
@@ -983,7 +1190,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 59,
@@ -1000,7 +1211,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 60,
@@ -1008,7 +1223,7 @@
     "domain": "telemetrie",
     "description": "Sate of the rear park assist",
     "type": "Enum of Strings",
-    "unit_or_value": "`Fault` `DriverInhibition` `Active` `Wait` `OutOfService`",
+    "unit_or_value": "`Fault` `DriverInhibition` `Active` `Wait` `OutOfService` `TrailerInhibition`",
     "step": "n/a",
     "update": "",
     "webportal_v1": "",
@@ -1017,7 +1232,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 61,
@@ -1034,7 +1253,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 62,
@@ -1051,7 +1274,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 63,
@@ -1068,7 +1295,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 64,
@@ -1085,7 +1316,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 65,
@@ -1102,7 +1337,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 66,
@@ -1110,7 +1349,7 @@
     "domain": "telemetrie",
     "description": "Blink SpotMonitoring",
     "type": "Enum of Strings",
-    "unit_or_value": "`Active` `Inactive` `Disabled`",
+    "unit_or_value": "`Active` `Inactive` `Disabled` `Fault`",
     "step": "n/a",
     "update": "",
     "webportal_v1": "",
@@ -1119,7 +1358,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 67,
@@ -1127,7 +1370,7 @@
     "domain": "telemetrie",
     "description": "Lane Keeping Assist right",
     "type": "Enum of Strings",
-    "unit_or_value": "`Off` `Fixed` `OnFlashing`",
+    "unit_or_value": "`Authorized` `CorrectionInProgress` `NotAuthorized` `NotSelected`",
     "step": "n/a",
     "update": "",
     "webportal_v1": "",
@@ -1136,7 +1379,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 68,
@@ -1144,7 +1391,7 @@
     "domain": "telemetrie",
     "description": "Lane Keeping Assist left",
     "type": "Enum of Strings",
-    "unit_or_value": "`Off` `Fixed` `OnFlashing`",
+    "unit_or_value": "`Authorized` `CorrectionInProgress` `NotAuthorized` `NotSelected`",
     "step": "n/a",
     "update": "",
     "webportal_v1": "",
@@ -1153,7 +1400,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 69,
@@ -1170,7 +1421,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 70,
@@ -1187,7 +1442,11 @@
     "webapi_b2b_v3": "#operation/getTelemetry",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 71,
@@ -1204,7 +1463,11 @@
     "webapi_b2b_v3": "#operation/getVehicleCollision",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 72,
@@ -1221,15 +1484,19 @@
     "webapi_b2b_v3": "#operation/getVehicleCollision",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 73,
-    "name": "Days Before Maintenace",
+    "name": "Days Before Maintenance",
     "domain": "maitenance",
     "description": "Number of days before next maintenance.",
     "type": "Integer",
-    "unit_or_value": "2 to 3 values, longitude latitude and altitude.",
+    "unit_or_value": "day",
     "step": "n/a",
     "update": "",
     "webportal_v1": "",
@@ -1238,7 +1505,11 @@
     "webapi_b2b_v3": "#operation/getVehicleMaintenance",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 74,
@@ -1246,7 +1517,7 @@
     "domain": "maitenance",
     "description": "Number of kilometers before next maintenance.",
     "type": "Integer",
-    "unit_or_value": "2 to 3 values, longitude latitude and altitude.",
+    "unit_or_value": "km",
     "step": "",
     "update": "",
     "webportal_v1": "",
@@ -1255,7 +1526,11 @@
     "webapi_b2b_v3": "#operation/getVehicleMaintenance",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 75,
@@ -1266,13 +1541,17 @@
     "unit_or_value": "latitude, longitude, nextStreetName, town, city, province, country",
     "step": "",
     "update": "",
-    "webportal_v1": "/doc#api-Navigation-GetManeuverInfo",
+    "webportal_v1": "navigation-getmaneuverinfo",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getFleetTripsById",
     "webapi_b2b_v3": "#operation/getFleetTripsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 76,
@@ -1283,13 +1562,17 @@
     "unit_or_value": "km",
     "step": "n/a",
     "update": "",
-    "webportal_v1": "#api-Car-GetBatteryAutonomy AND #api-Car-GetFuelAutonomy",
+    "webportal_v1": "car-getbatteryautonomy and car-getfuelautonomy",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getFleetVehicleStatus",
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 77,
@@ -1300,13 +1583,17 @@
     "unit_or_value": "n/a",
     "step": "n/a",
     "update": "",
-    "webportal_v1": "#api-Car-GetDrivingState",
+    "webportal_v1": "car-getdrivingstate",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getFleetVehicleStatus",
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 78,
@@ -1317,13 +1604,17 @@
     "unit_or_value": "`Thermic` `Electric`",
     "step": "n/a",
     "update": "n/a",
-    "webportal_v1": "#api-Car-GetFuelType",
+    "webportal_v1": "car-getfueltype",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getVehicleByid",
     "webapi_b2b_v3": "#operation/getVehicleByid",
     "webapi_b2c_v4": "#operation/getVehicleByid",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 79,
@@ -1334,13 +1625,17 @@
     "unit_or_value": "`GPL` `Gasoil` `Petrol` `Biologic`",
     "step": "",
     "update": "n/a",
-    "webportal_v1": "#api-Car-GetFuelType",
+    "webportal_v1": "car-getfueltype",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getVehicleByid",
     "webapi_b2b_v3": "#operation/getVehicleByid",
     "webapi_b2c_v4": "#operation/getVehicleByid",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 80,
@@ -1351,13 +1646,17 @@
     "unit_or_value": "`l` `gal`",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Car-GetFuelType",
+    "webportal_v1": "car-getfueltype",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 81,
@@ -1368,13 +1667,17 @@
     "unit_or_value": "km",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Car-GetMileage",
+    "webportal_v1": "car-getmileage",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getFleetVehicleStatus",
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 82,
@@ -1385,13 +1688,17 @@
     "unit_or_value": "m/s^2",
     "step": "n/a",
     "update": "",
-    "webportal_v1": "#api-Car-GetSpeed",
+    "webportal_v1": "car-getspeed",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getFleetVehicleStatus",
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 83,
@@ -1402,13 +1709,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "n/a",
-    "webportal_v1": "#api-Car-GetVINCode",
+    "webportal_v1": "car-getvincode",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getVehicleByid",
     "webapi_b2b_v3": "#operation/getVehicleByid",
     "webapi_b2c_v4": "#operation/getVehicleByid",
     "ios": "#model-GPCVVehicle",
-    "android": "#model-ADVehicle class"
+    "android": "#model-ADVehicle class",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 84,
@@ -1419,13 +1730,17 @@
     "unit_or_value": "latitude, longitude, nextStreetName, town, city, province, country",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Car-Time-Hours",
+    "webportal_v1": "car-time-hours",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 85,
@@ -1436,13 +1751,17 @@
     "unit_or_value": "minute",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Car-Time-Minutes",
+    "webportal_v1": "car-time-minutes",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 86,
@@ -1453,13 +1772,17 @@
     "unit_or_value": "time",
     "step": "n/a",
     "update": "",
-    "webportal_v1": "#api-Car-Time-OffsetUTC",
+    "webportal_v1": "car-time-offsetutc",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 87,
@@ -1470,13 +1793,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "n/a",
-    "webportal_v1": "#api-Device-GetCarBrand",
+    "webportal_v1": "device-getcarbrand",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getVehicleByid",
     "webapi_b2b_v3": "#operation/getVehicleByid",
     "webapi_b2c_v4": "#operation/getVehicleByid",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 88,
@@ -1487,13 +1814,17 @@
     "unit_or_value": "`km` `miles`",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Device-GetDistanceUnit",
+    "webportal_v1": "device-getdistanceunit",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 89,
@@ -1504,13 +1835,17 @@
     "unit_or_value": "identifier",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Device-GetHMITheme",
+    "webportal_v1": "device-gethmitheme",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 90,
@@ -1521,13 +1856,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Device-GetInternetStatus",
+    "webportal_v1": "device-getinternetstatus",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 91,
@@ -1538,13 +1877,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Device-GetSoftwareRelease",
+    "webportal_v1": "device-getsoftwarerelease",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 92,
@@ -1555,13 +1898,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Device-GetUIN",
+    "webportal_v1": "device-getuin",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getFleetTripsById",
     "webapi_b2b_v3": "#operation/getFleetTripsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 93,
@@ -1572,13 +1919,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Media-GetAlbumName",
+    "webportal_v1": "media-getalbumname",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 94,
@@ -1589,13 +1940,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Media-GetArtistName",
+    "webportal_v1": "media-getartistname",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 95,
@@ -1606,13 +1961,17 @@
     "unit_or_value": "identifier",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Media-GetCurrentTrack",
+    "webportal_v1": "media-getcurrenttrack",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 96,
@@ -1623,13 +1982,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Media-GetCurrentTrack",
+    "webportal_v1": "media-getcurrenttrack",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 97,
@@ -1640,13 +2003,17 @@
     "unit_or_value": "1: `stop` 2: `play` 3: `pause` 4: `seek_up` 5: `seek_down`",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Media-GetMediaState",
+    "webportal_v1": "media-getmediastate",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 98,
@@ -1657,13 +2024,17 @@
     "unit_or_value": "Tracks",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Media-GetTotalTracks",
+    "webportal_v1": "media-gettotaltracks",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 99,
@@ -1674,13 +2045,17 @@
     "unit_or_value": "Cf Specification",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Media-GetTrackName",
+    "webportal_v1": "media-gettrackname",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 100,
@@ -1691,13 +2066,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Media-GetTrackName",
+    "webportal_v1": "media-gettrackname",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 101,
@@ -1708,13 +2087,17 @@
     "unit_or_value": "2 to 3 values: longitude latitude and altitude.",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Navigation-GetCurrentPosition",
+    "webportal_v1": "navigation-getcurrentposition",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getCarLastPosition",
     "webapi_b2b_v3": "#operation/getCarLastPosition",
     "webapi_b2c_v4": "#operation/getCarLastPosition",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 102,
@@ -1725,13 +2108,17 @@
     "unit_or_value": "2 to 3 values, longitude latitude and altitude.",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Navigation-GetDestination",
+    "webportal_v1": "navigation-getdestination",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getFleetTripsById",
     "webapi_b2b_v3": "#operation/getFleetTripsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 103,
@@ -1742,13 +2129,17 @@
     "unit_or_value": "Date-time",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Navigation-GetJourneyInfo",
+    "webportal_v1": "navigation-getjourneyinfo",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getFleetTripsById",
     "webapi_b2b_v3": "#operation/getFleetTripsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 104,
@@ -1759,30 +2150,38 @@
     "unit_or_value": "Hour",
     "step": "n/a",
     "update": "",
-    "webportal_v1": "#api-Navigation-GetNextWaypoint-ETAHours",
+    "webportal_v1": "navigation-getnextwaypoint-etahours",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getFleetTripsById",
     "webapi_b2b_v3": "#operation/getFleetTripsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 105,
     "name": "Privacy state",
     "domain": "telemetrie",
-    "description": "Privacy state of the vehicle",
+    "description": "Privacy state of the vehicle requested by the driver",
     "type": "Enum of Strings",
     "unit_or_value": "`None` `Geolocation` `Full`",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Privacy-Mode",
+    "webportal_v1": "privacy-mode",
     "webportal_v2": "",
     "webapi_b2b_v2": "#operation/getFleetVehicleStatus",
     "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 106,
@@ -1793,13 +2192,17 @@
     "unit_or_value": "`FM_HD` `MW` `LW` `FM` `DaB` `DMB` `SDaRS` `DaB+`",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Radio-GetBand",
+    "webportal_v1": "radio-getband",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 107,
@@ -1810,13 +2213,17 @@
     "unit_or_value": "kHz",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Radio-GetFrequency",
+    "webportal_v1": "radio-getfrequency",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 108,
@@ -1827,13 +2234,17 @@
     "unit_or_value": "identifier",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Radio-GetPreset",
+    "webportal_v1": "radio-getpreset",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 109,
@@ -1844,13 +2255,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Radio-PSName",
+    "webportal_v1": "radio-psname",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 110,
@@ -1861,13 +2276,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Radio-PTY",
+    "webportal_v1": "radio-pty",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 111,
@@ -1878,13 +2297,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Radio-RDS",
+    "webportal_v1": "radio-rds",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 112,
@@ -1895,13 +2318,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Radio-TA",
+    "webportal_v1": "radio-ta",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 113,
@@ -1912,13 +2339,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Radio-Text",
+    "webportal_v1": "radio-text",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 114,
@@ -1929,13 +2360,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-WebPortal-getCountry",
+    "webportal_v1": "webportal-getcountry",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 115,
@@ -1946,13 +2381,17 @@
     "unit_or_value": "n/a",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-WebPortal-getPendingNotifications",
+    "webportal_v1": "webportal-getpendingnotifications",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
   },
   {
     "ID": 116,
@@ -1969,7 +2408,11 @@
     "webapi_b2b_v3": "#operation/getFleets",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 117,
@@ -1986,7 +2429,11 @@
     "webapi_b2b_v3": "#operation/getFleets",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 118,
@@ -2003,7 +2450,11 @@
     "webapi_b2b_v3": "#operation/getFleets",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 119,
@@ -2020,7 +2471,11 @@
     "webapi_b2b_v3": "#operation/getVehicleByid",
     "webapi_b2c_v4": "#operation/getVehicleByid",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 120,
@@ -2037,7 +2492,11 @@
     "webapi_b2b_v3": "#operation/getVehicleByid",
     "webapi_b2c_v4": "#operation/getVehicleByid",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 121,
@@ -2054,7 +2513,11 @@
     "webapi_b2b_v3": "#operation/getVehicleCollision",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 122,
@@ -2071,7 +2534,11 @@
     "webapi_b2b_v3": "#operation/getVehicleCollision",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 123,
@@ -2088,7 +2555,11 @@
     "webapi_b2b_v3": "#operation/getVehicleCollision",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 124,
@@ -2105,7 +2576,11 @@
     "webapi_b2b_v3": "#operation/getVehicleCollision",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 125,
@@ -2122,7 +2597,11 @@
     "webapi_b2b_v3": "#operation/getVehicleCollision",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 126,
@@ -2139,7 +2618,11 @@
     "webapi_b2b_v3": "#operation/getFleetTripsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 127,
@@ -2156,7 +2639,11 @@
     "webapi_b2b_v3": "#operation/getFleetTripsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 128,
@@ -2173,7 +2660,11 @@
     "webapi_b2b_v3": "#operation/getFleetTripsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 129,
@@ -2190,7 +2681,11 @@
     "webapi_b2b_v3": "#operation/getFleetTripAlerts",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 130,
@@ -2207,7 +2702,11 @@
     "webapi_b2b_v3": "#operation/getFleetTelemetryForTrip",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 131,
@@ -2224,7 +2723,11 @@
     "webapi_b2b_v3": "#operation/getFleetTripsById",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 132,
@@ -2241,7 +2744,11 @@
     "webapi_b2b_v3": "#operation/sendRemoteToVhl",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 133,
@@ -2258,7 +2765,11 @@
     "webapi_b2b_v3": "#operation/sendRemoteToVhl",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": ""
   },
   {
     "ID": 134,
@@ -2275,7 +2786,11 @@
     "webapi_b2b_v3": "#operation/sendRemoteToVhl",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 135,
@@ -2292,7 +2807,11 @@
     "webapi_b2b_v3": "#operation/sendRemoteToVhl",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 136,
@@ -2309,7 +2828,11 @@
     "webapi_b2b_v3": "#operation/sendRemoteToVhl",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 137,
@@ -2326,7 +2849,11 @@
     "webapi_b2b_v3": "#operation/sendRemoteToVhl",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 138,
@@ -2343,7 +2870,11 @@
     "webapi_b2b_v3": "#operation/sendRemoteToVhl",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 139,
@@ -2360,7 +2891,11 @@
     "webapi_b2b_v3": "#operation/sendRemoteToVhl",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 140,
@@ -2377,7 +2912,11 @@
     "webapi_b2b_v3": "#operation/createFleetVehicleMonitor",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 141,
@@ -2394,7 +2933,11 @@
     "webapi_b2b_v3": "#operation/createFleetVehicleMonitor",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 142,
@@ -2411,7 +2954,11 @@
     "webapi_b2b_v3": "#operation/createFleetVehicleMonitor",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 143,
@@ -2428,7 +2975,11 @@
     "webapi_b2b_v3": "#operation/createFleetVehicleMonitor",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 144,
@@ -2445,7 +2996,11 @@
     "webapi_b2b_v3": "#operation/createFleetVehicleMonitor",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 145,
@@ -2462,7 +3017,11 @@
     "webapi_b2b_v3": "#operation/createFleetVehicleMonitor",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
   },
   {
     "ID": 146,
@@ -2473,12 +3032,163 @@
     "unit_or_value": "`km/h` `mph`",
     "step": "",
     "update": "",
-    "webportal_v1": "#api-Device-GetSpeedUnit",
+    "webportal_v1": "device-getspeedunit",
     "webportal_v2": "",
     "webapi_b2b_v2": "",
     "webapi_b2b_v3": "",
     "webapi_b2c_v4": "",
     "ios": "",
-    "android": ""
+    "android": "",
+    "ICE": "",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": ""
+  },
+  {
+    "ID": 147,
+    "name": "Driving behavior mode",
+    "domain": "telemetrie",
+    "description": "Driving mode selected by the driver.",
+    "type": "Enum of Strings",
+    "unit_or_value": "`Normal` `Sport` `Confort` `Eco` `Sand` `Mud` `Snow` `ZEV` `Hybrid` `ZEVEco` `HybridEco` `EcoPlus` `eAWD` `4AWD` `ReinforcedLoad`",
+    "step": "",
+    "update": "",
+    "webportal_v1": "",
+    "webportal_v2": "",
+    "webapi_b2b_v2": "#operation/getTelemetry",
+    "webapi_b2b_v3": "#operation/getTelemetry",
+    "webapi_b2c_v4": "",
+    "ios": "",
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
+  },
+  {
+    "ID": 148,
+    "name": "Wiping blade state",
+    "domain": "telemetrie",
+    "description": "Is wiping blade active ?",
+    "type": "Boolean",
+    "unit_or_value": "",
+    "step": "",
+    "update": "",
+    "webportal_v1": "",
+    "webportal_v2": "",
+    "webapi_b2b_v2": "",
+    "webapi_b2b_v3": "#operation/getTelemetry",
+    "webapi_b2c_v4": "",
+    "ios": "",
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
+  },
+  {
+    "ID": 149,
+    "name": "Wiping blade speed",
+    "domain": "telemetrie",
+    "description": "Wiping speed. Available only if wiping blade state is active.",
+    "type": "Enum of Strings",
+    "unit_or_value": "`Hight`, `Low`",
+    "step": "",
+    "update": "",
+    "webportal_v1": "",
+    "webportal_v2": "",
+    "webapi_b2b_v2": "",
+    "webapi_b2b_v3": "#operation/getTelemetry",
+    "webapi_b2c_v4": "",
+    "ios": "",
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
+  },
+  {
+    "ID": 150,
+    "name": "Gearbox ratio",
+    "domain": "telemetrie",
+    "description": "Current gearbox ratio engaged.",
+    "type": "Enum of Strings",
+    "unit_or_value": "`Ratio1` `Ratio2` `Ratio3` `Ratio4` `Ratio5` `Ratio6` `Ratio7` `Ratio8` `Neutral` `Reverse`",
+    "step": "",
+    "update": "",
+    "webportal_v1": "",
+    "webportal_v2": "",
+    "webapi_b2b_v2": "",
+    "webapi_b2b_v3": "#operation/getTelemetry",
+    "webapi_b2c_v4": "",
+    "ios": "",
+    "android": "",
+    "ICE": "X",
+    "BEV": "",
+    "PHEV": "",
+    "FCEV": "X"
+  },
+  {
+    "ID": 151,
+    "name": "Gearbox semiManual mode",
+    "domain": "telemetrie",
+    "description": "Is gearbox mode is semiManual?",
+    "type": "Boolean",
+    "unit_or_value": "n/a",
+    "step": "n/a",
+    "update": "",
+    "webportal_v1": "",
+    "webportal_v2": "",
+    "webapi_b2b_v2": "#operation/getTelemetry",
+    "webapi_b2b_v3": "#operation/getTelemetry",
+    "webapi_b2c_v4": "",
+    "ios": "",
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
+  },
+  {
+    "ID": 152,
+    "name": "Gearbox sequential mode",
+    "domain": "telemetrie",
+    "description": "Is gearbox mode is sequential?",
+    "type": "Boolean",
+    "unit_or_value": "n/a",
+    "step": "n/a",
+    "update": "",
+    "webportal_v1": "",
+    "webportal_v2": "",
+    "webapi_b2b_v2": "#operation/getTelemetry",
+    "webapi_b2b_v3": "#operation/getTelemetry",
+    "webapi_b2c_v4": "",
+    "ios": "",
+    "android": "",
+    "ICE": "X",
+    "BEV": "X",
+    "PHEV": "X",
+    "FCEV": "X"
+  },
+  {
+    "ID": 153,
+    "name": "Fuel total consumption",
+    "domain": "telemetrie",
+    "description": "Total consumption  for thermic vehicle.",
+    "type": "Float",
+    "unit_or_value": "cL",
+    "step": "",
+    "update": "",
+    "webportal_v1": "",
+    "webportal_v2": "",
+    "webapi_b2b_v2": "#operation/getFleetVehicleStatus",
+    "webapi_b2b_v3": "#operation/getFleetVehicleStatus",
+    "webapi_b2c_v4": "",
+    "ios": "",
+    "android": "",
+    "ICE": "X",
+    "BEV": "",
+    "PHEV": "X",
+    "FCEV": ""
   }
-]
+ ]

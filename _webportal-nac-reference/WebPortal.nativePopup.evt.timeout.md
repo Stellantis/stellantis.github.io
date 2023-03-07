@@ -16,6 +16,8 @@ deprecated: true
 
 Event triggered when the *timeout* of the [popup]({{site.baseurl}}/webportal/v1/api-reference/webportal-popup-open#article) is finish.
 
+> **NativePopups** interacts with the [Notification Center]({{site.baseurl}}/webportal/v1/advanced-features/notification/#article) but they are **deprecated**, you should use [WebPortal.notification.new]({{site.baseurl}}/webportal/v1/api-reference/webportal-notification-new.html#article) instead.
+
 ### Example
 
 ```javascript

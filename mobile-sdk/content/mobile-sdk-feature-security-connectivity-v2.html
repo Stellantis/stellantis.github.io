@@ -1,0 +1,57 @@
+{%- capture lastSpecFile -%}{% include api-reference-toolkit-v2.html type="lastSpecFile" %}{%- endcapture -%}
+
+{% for component in site.data[lastSpecFile].components %}
+{% if page.mobile-sdk-component == component.tag %}
+
+{% capture notif_auth %}
+
+{% if component.securities %}
+
+**Security:** {{page.title | append:" "}}
+{%-if component.securities == "none" -%}
+
+  does not require any [security schemes]({{site.baseurl}}/mobile-sdk/security/security-schemes/#article) because its does not access the user online account.
+{%- else -%} 
+
+require the following [security schemes]({{site.baseurl}}/mobile-sdk/security/security-schemes/#article) to be valid
+{% for security in component.securities %}
+{% if security.name == "Authentication" %}
+- 🔓 [Authentication]({{site.baseurl}}/mobile-sdk/security/authentication/#article)
+{% elsif security.name == "Subscription" %}
+- 📑 [Activation Steps]({{site.baseurl}}/mobile-sdk/security/service-activation-steps/#article)
+{% endif %}
+{% endfor %}
+
+{%- endif -%}
+
+{% endif %}
+
+{% if component.connectivity %}
+**Connectivity:** this feature is available using 
+{%- if component.connectivity == "bluetooth" and page.title == "AMI & Rocks-e" -%}
+<span class="icon"><i class="fab fa-bluetooth"></i></span>**Bluetooth Low Energy** (BLE) connectivity
+  - 🔌 The Bluetooth **dongle** should have been installed in the vehicle.
+  - 🚘 The user must stand **inside or close** to the vehicle and the device should support **BLE**.
+{%- elsif component.connectivity == "bluetooth" -%}
+<span class="icon"><i class="fab fa-bluetooth"></i></span>**Bluetooth** connectivity
+  - 🔗 The vehicle & the device must be **paired** with Bluetooth.
+  - 🚘 The user must stand **inside or close** to the vehicle.
+{%-elsif component.connectivity == "internet" -%}
+&nbsp;📡 **Cellular** network over-the-air
+  - 🚗 The vehicle should be able to **access internet**.
+  - 📱 The device should be able to **access internet**.
+{%- endif -%}
+{% endif %}
+
+{% if component.name %}
+**References:** check-out {{component.icon}} [{{component.name}} component]({{site.baseurl}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/#{%- include api-reference-toolkit-v2.html component=component type="componentAnchor" -%}) list of APIs.
+{% endif %}
+
+{% endcapture %}
+
+{% endif %}
+{% endfor %}
+
+<div class="notification">
+{{notif_auth | markdownify}}
+</div>

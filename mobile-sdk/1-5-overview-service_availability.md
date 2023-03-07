@@ -9,7 +9,7 @@ description: "Discover available services in a vehicle."
 require: api-reference
 ---
 
-Like most of the API described on this website, Stellantis Connected Vehicles SDK for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel, and Vauxhall) is a **set of technical features**.
+Like most of the API described on this website, Stellantis Connected Vehicles SDK for is a **set of technical features**.
 Depending on the vehicle, not all the features in this SDK are available.
 
 
@@ -50,4 +50,5 @@ You can retrieve the list of available services for a vehicle using the followin
   request_params_swift=SubServicesRequestSwift
   request_params_kotlin=SubServicesRequestKotlin
   response=SubServicesResponse
+  component="UserVehicleSteps"
 %}
