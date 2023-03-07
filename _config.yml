@@ -2,7 +2,7 @@
 title: Stellantis for Developers
 name: Stellantis for Developers
 description: Stellantis for Developers is the dedicated platform for application developers working with Stellantis's connected vehicles API and SDKs.
-baseurl: "/groupepsa.github.io" # the subpath of the site, e.g. /blog
+baseurl: "" # the subpath of the site, e.g. /blog
 url: "https://developer.groupe-psa.io" # the base hostname & protocol for the site, e.g. http://example.com
 
 # github links
