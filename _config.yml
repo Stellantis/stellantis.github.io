@@ -46,6 +46,7 @@ exclude:
  - "bin/"
  - "README.md"
  - "Rakefile"
+ - "vendor"
  
 plugins:
   - jekyll-redirect-from
