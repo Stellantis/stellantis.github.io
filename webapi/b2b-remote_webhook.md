@@ -1,6 +1,9 @@
 ---
 layout: doc-article
 permalink: /webapi/b2b/remote/webhook/
+redirect_from:
+  - /webapi/b2b/remote/webhook-v2/
+  - /webapi/b2b/remote/webhook-v3/
 section: webapi
 subsection: b2b
 require: swagger

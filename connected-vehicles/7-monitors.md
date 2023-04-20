@@ -32,5 +32,5 @@ But using our monitoring feature, you can receive an event in your Information S
 If you want to be more precise, it is also possible to create a more complex monitor triggered when the vehicle is leaving the area *after 10pm*, and only if the vehicle *battery is under 30%*.
 
 <div>
-    {% include highlighted-link.html link_label="Explore the references of the monitoring feature." link_url="/webapi/b2b/api-reference-v3/specification/#tag/Monitors" %}
+    {% include highlighted-link.html link_label="Explore the references of the monitoring feature." link_url="/webapi/b2b/api-reference/specification/#tag/Monitors" %}
 </div>

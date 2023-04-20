@@ -159,10 +159,6 @@ This is the old way of setting a triggering policy, it'is less performant as it 
 </p>
 </div>
 
-<div class="notification">
-<strong>Warning:</strong> If you are using <strong>WEB API V2</strong>, you have to use the deprecated way with timeZoneTrigger and dataTrigger.
-</div>
-
 ### 3.2 Boolean Expression
 
 Once you have selected your triggers, you'll have to combine them together to create a **triggering policy**. To do so, you will use boolean expression. Using boolean expression allow you to have various triggering policies in one monitor.

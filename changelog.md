@@ -10,7 +10,7 @@ description: "Stellantis developer portal's version changelog."
 <div class="notification page-disclaimer">
 <p>
     <strong>Changelogs:</strong> This changelog details the history of modifications of this website. 
-    You might also be interessted in the changelogs of <a href="{{site.baseurl}}/webapi/b2b/api-reference-v2/changelog/#article">web API B2B v2</a>, and <a href="{{site.baseurl}}/webapi/b2b/api-reference-v3/changelog/#article"> web API B2B v3</a>.</p>
+    You might also be interessted in the changelog of <a href="{{site.baseurl}}/webapi/b2b/api-reference/changelog/#article"> Web API B2B v3</a> and <a href="{{site.baseurl}}/mobile-sdk/references/changelog/#article">Mobile SDK</a>.</p>
 </div>
 
 
