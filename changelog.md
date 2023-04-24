@@ -10,12 +10,13 @@ description: "Stellantis developer portal's version changelog."
 <div class="notification page-disclaimer">
 <p>
     <strong>Changelogs:</strong> This changelog details the history of modifications of this website. 
-    You might also be interessted in the changelogs of <a href="{{site.baseurl}}/webapi/b2b/api-reference-v2/changelog/#article">web API B2B v2</a>, and <a href="{{site.baseurl}}/webapi/b2b/api-reference-v3/changelog/#article"> web API B2B v3</a>.</p>
+    You might also be interessted in the changelog of <a href="{{site.baseurl}}/webapi/b2b/api-reference/changelog/#article"> Web API B2B v3</a> and <a href="{{site.baseurl}}/mobile-sdk/references/changelog/#article">Mobile SDK</a>.</p>
 </div>
 
 
 Version|Name
 -|-
+[11.1.0](#1110) | WEB API: Remove Web API v2
 [11.0.0](#1100) | Multi version ref & Mobile SDK v2.2 & update webportal ref
 [10.2.0](#1020) | WEB API: v3.8.0
 [10.1.0](#1010) | WEB API: v3.7.0
@@ -91,6 +92,15 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add Webportal section
+
+<hr>
+
+## 11.1.0
+
+{% include published_on.html date='20 Apr 2023' %}
+
+**Webapi**
+- Remove Web API v2
 
 <hr>
 

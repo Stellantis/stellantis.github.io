@@ -82,7 +82,7 @@ $ curl \
       class="{{header_class}}"
       href="{{site.baseurl}}
       {%- if page.subsection == "b2c" -%}/webapi/b2c/api-reference/specification/#operation/{{include.referenceURLResssourceB2C}}
-      {%- elsif page.subsection == "b2b" -%}/webapi/b2b/api-reference-v3/specification/#operation/{{include.referenceURLResssourceB2B}}{%- endif -%}"
+      {%- elsif page.subsection == "b2b" -%}/webapi/b2b/api-reference/specification/#operation/{{include.referenceURLResssourceB2B}}{%- endif -%}"
     >
       {{include.httpVerb}} |&nbsp;
 

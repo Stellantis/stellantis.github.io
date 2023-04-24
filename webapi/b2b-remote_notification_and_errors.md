@@ -9,7 +9,7 @@ description: "Information about Fleet Owner API remotes notification & errors."
 ---
 # Being Notified
 
-As we have seen before, to [set up a remote]({{site.baseurl}}/remote/set-up/#article) you should first register a callback and then use this callback to send a remote to your vehicle.
+As we have seen before, to [set up a remote]({{site.baseurl}}/webapi/remote/set-up/#article) you should first register a callback and then use this callback to send a remote to your vehicle.
 
 
 When you send a remote action through a callback, you will receive (on your server) one or several **HTTP notification(s)** in order to inform you about the course of the events. It is also possible to retrieve these notifications through the **REST API** using the following endpoints:
@@ -17,8 +17,8 @@ When you send a remote action through a callback, you will receive (on your serv
 *Get all remote action of vehicle and callback:*
 
 <div class="buttons has-addons">
-    <a href="{{site.baseurl}}/webapi/b2b/api-reference-v3/specification/#operation/getRemoteRequestsForVhl" class="tag_endpoint_large button is-light is-selected get "> GET </a>
-    <a href="{{site.baseurl}}/webapi/b2b/api-reference-v3/specification/#operation/getRemoteRequestsForVhl" class="tag_endpoint_large button is-light is-selected">
+    <a href="{{site.baseurl}}/webapi/b2b/api-reference/specification/#operation/getRemoteRequestsForVhl" class="tag_endpoint_large button is-light is-selected get "> GET </a>
+    <a href="{{site.baseurl}}/webapi/b2b/api-reference/specification/#operation/getRemoteRequestsForVhl" class="tag_endpoint_large button is-light is-selected">
   /fleets/{fid}/vehicles/{vid}/callbacks/{cbid}/remotes</a>
 </div>
 
@@ -26,8 +26,8 @@ When you send a remote action through a callback, you will receive (on your serv
 *Get remote action by ID:*
 
 <div class="buttons has-addons">
-    <a href="{{site.baseurl}}/webapi/b2b/api-reference-v3/specification/#operation/getRemoteRequestForVhlById" class="tag_endpoint_large button is-light is-selected get "> GET </a>
-    <a href="{{site.baseurl}}/webapi/b2b/api-reference-v3/specification/#operation/getRemoteRequestForVhlById" class="tag_endpoint_large button is-light is-selected">
+    <a href="{{site.baseurl}}/webapi/b2b/api-reference/specification/#operation/getRemoteRequestForVhlById" class="tag_endpoint_large button is-light is-selected get "> GET </a>
+    <a href="{{site.baseurl}}/webapi/b2b/api-reference/specification/#operation/getRemoteRequestForVhlById" class="tag_endpoint_large button is-light is-selected">
   /fleets/{fid}/vehicles/{vid}/callbacks/{cbid}/remotes/{rid}</a>
 </div>
 

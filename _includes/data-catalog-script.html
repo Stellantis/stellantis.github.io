@@ -95,10 +95,6 @@
 
         <div class="table-header-api-available">
           <div class="table-header-version">
-            <input type="checkbox" class="api-version-checkbox" checked="true" id="webapi_b2b_v2" name="api" value="webapi_b2b_v2">
-            <label>Web API B2B v2</label>
-          </div>
-          <div class="table-header-version">
             <input type="checkbox" class="api-version-checkbox" checked="true" id="webapi_b2b_v3" name="api" value="webapi_b2b_v3">
             <label>Web API B2B v3</label>
           </div>
@@ -152,7 +148,6 @@ function tablesearch(searchInput) {
       {field:"update", type:"like", value:searchInput},
       {field:"webportal_v1", type:"like", value:searchInput},
       {field:"webportal_v2", type:"like", value:searchInput},
-      {field:"webapi_b2b_v2", type:"like", value:searchInput},
       {field:"webapi_b2b_v3", type:"like", value:searchInput},
       {field:"webapi_b2c_v4", type:"like", value:searchInput}
     ]
@@ -177,10 +172,11 @@ const specification_page = {
   webportal: {
     v1: "/webportal/v1/api-reference/",
     v2: "/webportal/v2/api-reference/",
+    v1: "/webportal/v1/api-reference/",
+    v2: "/webportal/v2/api-reference/",
   },
   webapi: {
-    v2: "/webapi/b2b/api-reference-v2/specification/",
-    v3: "/webapi/b2b/api-reference-v3/specification/",
+    v3: "/webapi/b2b/api-reference/specification/",
     v4: "/webapi/b2c/api-reference/specification/",
   }
 }
@@ -250,8 +246,8 @@ function taggifyWebportal(v1, v2){
 };
 
 
-function taggifyWebapi(v2, v3, v4){ 
-  if(!v2 && !v3 && !v4){
+function taggifyWebapi(v3, v4){ 
+  if(!v3 && !v4){
     return (
       "<div class='control'>"+
           "<div class='tags has-addons n-a'>"+
@@ -266,12 +262,8 @@ function taggifyWebapi(v2, v3, v4){
       "</div>"
     )}
   else{
-    var tagAddonV2 = "";
     var tagAddonV3 = "";
     var tagAddonV4 = "";
-    if (v2) {
-      tagAddonV2 = taggify("webapi", v2, "v2");
-    }
     if (v3) {
       tagAddonV3 = taggify("webapi", v3, "v3");
     }
@@ -287,7 +279,6 @@ function taggifyWebapi(v2, v3, v4){
               "</span>"
               +"<span class='availability-name'>Web API</span>"+
             "</span>"+
-            tagAddonV2+ 
             tagAddonV3+ 
             tagAddonV4+ 
           "</div>"+
@@ -358,10 +349,9 @@ var table = new Tabulator("#data-catalog", {
         cellContents,
         itemCategorieLogo = domain_categories[data.domain],
         elementWebportal = taggifyWebportal(data.webportal_v1, data.webportal_v2),
-        elementWebapi = taggifyWebapi(data.webapi_b2b_v2, data.webapi_b2b_v3, data.webapi_b2c_v4),
+        elementWebapi = taggifyWebapi(data.webapi_b2b_v3, data.webapi_b2c_v4),
         elementType = taggify(false, false, data.type),
         elementUnitValue = codify(data.unit_or_value),
-        elementWebapi_v2,
         elementWebapi_v3,
         elementWebapi_v4,
         elementWeportal_v1,
@@ -427,14 +417,12 @@ const searchField = document.getElementById("data-header-search-area");
 const checkboxesNotFiltered = {
   "webportal_v1": "-",
   "webportal_v2": "-",
-  "webapi_b2b_v2": "#",
   "webapi_b2b_v3": "#",
   "webapi_b2c_v4": "#"
 }
 var checkboxesState = {
   "webportal_v1": "-",
   "webportal_v2": "-",
-  "webapi_b2b_v2": "#",
   "webapi_b2b_v3": "#",
   "webapi_b2c_v4": "#"
 },
@@ -455,7 +443,6 @@ document.addEventListener("DOMContentLoaded",  function() {
           [
             {field:"webportal_v1", type:"like", value:checkboxesState["webportal_v1"]},
             {field:"webportal_v2", type:"like", value:checkboxesState["webportal_v2"]},
-            {field:"webapi_b2b_v2", type:"like", value:checkboxesState["webapi_b2b_v2"]},
             {field:"webapi_b2b_v3", type:"like", value:checkboxesState["webapi_b2b_v3"]},
             {field:"webapi_b2c_v4", type:"like", value:checkboxesState["webapi_b2c_v4"]}
           ]

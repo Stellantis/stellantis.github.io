@@ -22,12 +22,6 @@ This endpoint returns a [single object]({{site.baseurl}}/webapi/{{page.subsectio
    httpVerb='GET' 
 %}
 
-{% if page.subsection == 'b2b' %} 
-**{version}** depends on your subscription:
-- v2: *delegation publique*
-- v3: *connected fleet* / *TMTS* / *UBI*
-{% endif %}
-
 
 ## Get a List of Vehicles
 

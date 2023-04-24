@@ -17,18 +17,6 @@ By requesting this api you will have access to various **vehicle features**:
 - As a REST API, this product allow to request all the data above using **HTTP Request**. 
 - It's possible to configure **Monitors** allowing to receive an event from Stellantis when a pattern is triggered.<br> *(ex: oil level is low)*
 
-{% if page.subsection == "b2c" %}
-
-## End-Users API Roles
-
-End Users APIs allows **Application Developers** (Accessing Party) to access vehicle data of their **Users** (Resource Owner) owning **Stellantis** vehicles (ex PSA brands: Citroën, DS, Peugeot, Opel and Vauxhall).
-
-Check-out [Get Started]({{site.baseurl}}}/webapi/b2c/quickstart/get-started/#article) for more information about the full process to access the End Users API.
-
-![b2c-actors]({{site.baseurl}}/assets/images/b2c-actors.svg)
-
-{% endif %}
-
 ## How does it works?
 
 Vehicles are using various **sensors** which aim to improve security and driving experience in the vehicle, these data are available for the development of [in-vehicle applications]({{ site.baseurl }}/webportal/) but this Web API provide vehicle data from **outside of the vehicle**.

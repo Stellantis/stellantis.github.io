@@ -42,10 +42,6 @@
               path: standards/
             - name: Errors & Rate Limit
               path: errors/
-            - name: Try it Out!
-              path: demo/
-            - name: About Versions
-              path: about-versions/
             - name: Data Scope
               path: data-scope/
         - name: Quickstart
@@ -64,10 +60,8 @@
               path: set-up/
             - name: Retry Policy
               path: retry-policy/
-            - name: Webhook References v2
-              path: webhook-v2/
-            - name: Webhook References v3
-              path: webhook-v3/
+            - name: Webhook References
+              path: webhook/
         - name: Remote
           path: remote/
           pages:
@@ -81,19 +75,12 @@
               path: notifications-errors/
             - name: Webhook References
               path: webhook/
-        - name: API Reference v2
-          path: api-reference-v2/
+        - name: API Reference
+          path: api-reference/
           pages:
-            - name: Specification Version 2
+            - name: Specification Version 3
               path: specification/
-            - name: Changelog Version 2
-              path: changelog/
-        - name: API Reference v3
-          path: api-reference-v3/
-          pages:
-            - name: Specification Version 3
-              path: specification/
-            - name: Changelog Version 3
+            - name: Changelog Version 3
               path: changelog/
     - tag: b2c
       path: b2c/

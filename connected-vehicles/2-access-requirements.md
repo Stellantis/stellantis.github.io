@@ -18,7 +18,7 @@ Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhal
 In order to access & to make these API works, it's mandatory to fulfill the **requirements**, especially subscribe to at least one *Connected Vehicle Service*. Each of these services is bind to a *data scope* which gives access to a range of data & features in the API.
 
 Here are the references of these API:
-- **Web API** [B2B-v2]({{site.baseurl}}/webapi/b2b/api-reference-v2/specification/#article), [B2B-v3]({{site.baseurl}}/webapi/b2b/api-reference-v3/specification/#article) and [B2C-v4]({{site.baseurl}}/webapi/b2c/api-reference/specification/#article).
+- **Web API** [B2B]({{site.baseurl}}/webapi/b2b/api-reference/specification/#article) and [B2C]({{site.baseurl}}/webapi/b2c/api-reference/specification/#article).
 - **Embedded Infotainment**, [Webportal v1]({{site.baseurl}}/webportal/v1/api-reference/list/#article) and [Webportal v2]({{site.baseurl}}/webportal/v2/api-reference/list/#article).
 
 > **Disclaimer:** These references are a scope of possibilities, however it doesn't mean that all these features are actually available. If the feature is not part of any **Connected Vehicle Service scope**, then it's **not currently available for use**.
@@ -49,13 +49,13 @@ Data about your vehicles or your users vehicles are processed and stored in our 
 ![API plans]({{site.baseurl}}/assets/images/api-plans.jpg)
 
 
-> **API B2B V2 & v3:** subscriptions can be made with your contact person in Stellantis.<br>
+> **API B2B:** subscriptions can be made with your contact person in Stellantis.<br>
 **API B2C v4:** more information in this [tutorial]({{site.baseurl}}/webapi/b2c/quickstart/get-started/#article).
 
 ### Authorization
 
 In order to access online data about your vehicle, there are two options:
-- You own a fleet of Stellantis vehicles (ex Groupe PSA brands: Citroën, DS, Peugeot, Opel and Vauxhall) (**Web API B2B** v2 & v3). In this case, you can access your vehicle's data as you wish. This [tutorial]({{site.baseurl}}/webapi/b2b/quickstart/authentication/#article) explains the process of authentication for fleet owner.
+- You own a fleet of Stellantis vehicles (ex Groupe PSA brands: Citroën, DS, Peugeot, Opel and Vauxhall) (**Web API B2B**). In this case, you can access your vehicle's data as you wish. This [tutorial]({{site.baseurl}}/webapi/b2b/quickstart/authentication/#article) explains the process of authentication for fleet owner.
 - You are developing end-users application (**Web API B2C** v4). This [step-by-step]({{site.baseurl}}/webapi/b2c/quickstart/connect/#article) explains connection process. Then you will need to enroll your user using OAuth2 authorization protocol.
 
 # See Also

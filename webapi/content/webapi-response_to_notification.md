@@ -14,6 +14,6 @@ In order to manage our system of notification it is important that your web serv
 </div>
 </div>
 
-> **Note:** *200 OK* should always be the response of your server if it **received** the notification. It should not be taken into account if your server success or not in the **processing** of this notification. In any case it is always possible to retrieve the state of a vehicle using the [REST API]({{site.baseurl}}/doc/webapi/b2b/overview/about-versions/#article).
+> **Note:** *200 OK* should always be the response of your server if it **received** the notification. It should not be taken into account if your server success or not in the **processing** of this notification. In any case it is always possible to retrieve the state of a vehicle using the [REST API]({{site.baseurl}}/webapi/b2b/api-reference/specification#article).
 
 > **Note 2:** these HTTP status are the only one supported by our notification system. Please do not use any other HTTP status. Otherwise, it could lead to a failure regarding following notification (or [retry policy]({{site.baseurl}}/webapi/{{page.subsection | downcase}}/{{page.category | downcase}}/retry-policy/#article)).

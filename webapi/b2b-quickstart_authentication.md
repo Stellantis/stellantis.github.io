@@ -21,13 +21,8 @@ Here is an example with cURL:
 
 {% include webapi-curl.md apiEndpointB2B='/fleets' httpVerb='GET' referenceURLResssourceB2B='/#/Fleet/getFleets' displayApiURL=true %}
 
-**{version}** depends on your subscription:
-- v2: *delegation publique*
-- v3: *connected fleet* / *TMTS* / *UBI*
-
 Type|Name|Value|Description|Required
 -|-|-|-|-
-Path param |`{version}`|`<v2>` or `<v3>`|Depends on your subscription.|Yes
 Query Parameter|`client_id`|`<App_ID>`|Id of the application.|Yes
 File|Client Certificate|`path/to/client_certificate.pem`|Your [SSL certificate](#authentication-b2b) for authentication in Stelantis network.|Yes
 File|Private Key|`path/to/key.pem`|Your Private Key file.|Yes
