@@ -2,6 +2,8 @@
 # In order to import this stlye, import it with 'require: api-reference' in the page front matter.
 ---
 
+$function-color: #6e6e6e;
+$function-light-color: #acacac;
 $get-color: #61affe;
 $get-light-color: #61b0feda;
 $set-color: #4aad81;
@@ -170,6 +172,12 @@ hr {
     }
 }
 
+.api-verb-function:hover, .api-types-min .api-verb-function  {
+    background-color:  $function-color;
+    border-color:  $function-color;
+    color: white;
+}
+
 .api-verb-get:hover, .api-types-min .api-verb-get  {
     background-color:  $get-color;
     border-color:  $get-color;
@@ -314,6 +322,12 @@ hr {
 .api-type.api-verb-unavailable {
     cursor: not-allowed;
 }
+
+.api-verb-function {
+    border-color:  $function-light-color;
+    color: $function-color;
+}
+
 .api-verb-get {
     border-color:  $get-light-color;
     color: $get-color;
@@ -331,7 +345,7 @@ hr {
 
 
 
-.api-verb-subscribe, .api-verb-set, .api-verb-get {
+.api-verb-subscribe, .api-verb-set, .api-verb-get, .api-verb-function {
     cursor: pointer;
 }
 

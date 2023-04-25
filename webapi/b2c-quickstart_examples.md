@@ -11,4 +11,5 @@ redirect_from:
     - /webapi/b2c/quickstart/
 require: api-reference
 ---
+
 {% include_relative content/webapi-quickstart_examples.md %}

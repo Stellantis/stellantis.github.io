@@ -1,5 +1,5 @@
 info:
-  version: "2.1"
+  version: "2.3"
   title: Mobile SDK
   description: This SDK helps using Stellantis Web API in the context of the web browser.
 securities:
@@ -10,6 +10,72 @@ securities:
     name: Subscription
     description: Service activation specific to this API are required (see service activation steps).
 components:
+- &FCABasicAuthentication
+  tag: FCABasicAuthentication
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  name: Authentication
+  compatibilities: FCA
+  category: security
+  domain: pims.authentication.*
+  securities:
+    - *authentication
+  icon: 🔓
+  description: Perform account authentication for FCA users.
+- &FCAStrongAuthentication
+  tag: FCAStrongAuthentication
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  compatibilities: FCA
+  name: Enrollment
+  category: security
+  domain: pims.authentication.*
+  securities:
+    - *authentication
+  icon: 📱
+  description: Perform device enrollment for FCA vehicles.
+- &Media
+  tag: Media
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  compatibilities: 
+    - PSA
+  name: Media
+  category: feature
+  connectivity: bluetooth
+  securities:
+    - *authentication
+  domain: pims.vehicle.*
+  icon: 📻
+  description: Control the media system of the car on the user device.
+- &VehicleInformation
+  tag: VehicleInformation
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  name: Vehicle Information
+  compatibilities: 
+    - PSA
+    - FCA
+  category: feature
+  domain: pims.vehicle.*
+  securities:
+    - *authentication
+  icon: 💾
+  description: Register vehicle information to be used in other components.
+- &BTConnectivity
+  tag: BTConnectivity
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  compatibilities: 
+    - PSA
+  name: Bluetooth Connectivity
+  category: feature
+  connectivity: bluetooth
+  securities:
+    - *authentication
+  domain: pims.vehicle.*
+  icon: 📡
+  description: Control Bluetooth connectivity.
 - &PushNotification
   tag: PushNotification
   firstAvailability: "2.1"
@@ -40,7 +106,7 @@ components:
 - &TripNDrive
   tag: TripNDrive
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   compatibilities: 
     - PSA
   name: Trips
@@ -54,7 +120,7 @@ components:
 - &SendToNav
   tag: SendToNav
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   compatibilities: 
     - PSA
   name: Send Navigation
@@ -68,7 +134,7 @@ components:
 - &LongRangeRemoteStatus
   tag: LongRangeRemoteStatus
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   compatibilities: 
     - PSA
   name: Vehicle Status
@@ -79,11 +145,11 @@ components:
     - *authentication
     - *subscription
   icon: 🚗
-  description: Retrieve vehicle data from an internet connection.
+  description: Retrieve PSA vehicle data from an internet connection.
 - &LongRangeRemoteRemote
   tag: LongRangeRemoteRemote
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   compatibilities: 
     - PSA
   name: Remote Command
@@ -137,7 +203,7 @@ components:
 - &Carkey
   tag: Carkey
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   compatibilities: 
     - PSA
   name: CarKey
@@ -166,6 +232,7 @@ components:
   lastUpdate: "2.0"
   compatibilities: 
     - PSA
+    - FCA
     - O2X
   name: SDK
   category: other
@@ -174,6 +241,30 @@ components:
   icon: 📦
   description: Manage SDK features (log, config, etc.)
 errors:
+- &2383
+  code: 2383
+  type: "Gigya error"
+  message: "error.accountTemporarilyLockedOut"
+- &2210
+  code: 2210 
+  type: "Gigya error"
+  message: "error.gigyaSessionError"
+- &2387
+  code: 2387
+  type: "Gigya error"
+  message: "error.gigya.social.login.need.social.link"
+- &2388
+  code: 2388 
+  type: "Gigya error"
+  message: "error.gigya.social.login.account.already.exists"
+- &2384
+  code: 2384 
+  type: "Gigya error"
+  message: "error.gigya.social.login.account.pending.verification"
+- &2389
+  code: 2389 
+  type: "Gigya error"
+  message: "error.gigya.social.login.incomplete.userProfile"
 - &2000
   code: 2000
   type: "Generic error"
@@ -638,6 +729,20 @@ objects:
   unitOrValue: n/a
   example: VR1AB12C3D4567890
   required: true
+- &vins
+  name: vins
+  description: List of listening VINs and GDPR config. Empty if no subscribtion.
+  type: Object
+  required: true
+  fields:
+    - <<: *vin
+      required: true
+    - name: gdpr
+      required: true
+      type: Boolean
+      description: GDRP configuration. Check out *pims.vehicle.trips*.
+      unitOrValue: n/a
+      example: true
 - &vehicle
   name: vehicle
   type: Object
@@ -1139,6 +1244,444 @@ objects:
       type: Number
       description: Price for electricity.
       example: 0.89
+- &scheduledDays
+  name: scheduledDays
+  description: Scheduled days. #todo
+  type: Object
+  fields:
+    - name: sunday
+      description: Is sunday schedulded?
+      unitOrValue: n/a
+      type: Boolean
+      example: true
+    - name: monday
+      description: Is monday schedulded?
+      unitOrValue: n/a
+      type: Boolean
+      example: true
+    - name: thuesday
+      description: Is thuesday schedulded?
+      unitOrValue: n/a
+      type: Boolean
+      example: true
+    - name: wednesday
+      description: Is wednesday schedulded?
+      unitOrValue: n/a
+      type: Boolean
+      example: true
+    - name: thursday
+      description: Is thursday schedulded?
+      unitOrValue: n/a
+      type: Boolean
+      example: true
+    - name: friday
+      description: Is friday schedulded?
+      unitOrValue: n/a
+      type: Boolean
+      example: true
+    - name: saturday
+      description: Is saturday schedulded?
+      unitOrValue: n/a
+      type: Boolean
+      example: true
+- &unitValue
+  - name: unit
+    description: Unit of the following **value** field.
+    unitOrValue: n/a
+    type: String
+    example: mph
+  - name: value
+    description: Value of the field. See Previous **unit** for unit type.
+    unitOrValue: n/a
+    type: String
+    example: 79
+- &timestamp
+  name: timestamp
+  description: Timestamp of the information.
+  type: Number
+  unitOrValue: n/a #todo
+  example: 0
+- &vehicleInfoFCA
+  name: vehicleInfo
+  description: FCA vehicle object.
+  type: Object
+  fields: 
+    - *timestamp
+    - name: tyrePressure
+      type: Array of Objects
+      description: Array of Tyre pressure object for each tire.
+      fields: 
+        - name: type
+          description: Tyre type.
+          unitOrValue: 
+            - FR
+            - FL
+            - RR
+            - RL
+            - RR2
+            - RL2
+          type: Enum of Strings
+          example: FR
+        - name: pressure
+          description: Pressure of the tire.
+          type: Object
+          fields: *unitValue
+        - name: warning
+          description: Is warning enabled for this tire.
+          unitOrValue: n/a
+          type: Boolean
+          example: true
+        - name: status
+          description: Status of the tire
+          unitOrValue: #todo
+            - NORMAL
+          type: Enum of Strings
+          example: NORMAL
+    - name: oilLevel
+      description: Level of oil.
+      type: Object
+      fields: 
+      - name: oilLevel
+        description: Level of oil.
+        unitOrValue: "" #todo
+        type: Number
+        example: 0 #todo
+    - name: fuel
+      description: Fuel information.
+      type: Object 
+      fields: 
+        - name: distanceToEmpty
+          description: Distance before tank is empty.
+          type: Object
+          fields: *unitValue
+        - name: fuelAmount
+          description: Amount of fuel. #todo
+          type: Object
+          fields: *unitValue
+        - name: fuelAmountLevel
+          description: Level of fuel amount.
+          unitOrValue: "" #todo
+          type: Number
+          example: 0 #todo
+        - name: isFuelLevelLow
+          description: Is fuel warning low enabled?
+          unitOrValue: n/a
+          type: Boolean
+          example: true
+    - name: odometer
+      description: Vehicle odometer.
+      type: Object
+      fields: 
+        - name: odometer
+          description: Vehicle odometer.
+          type: Object
+          fields: *unitValue
+    - name: distanceToService
+      description: Distance to next vehicle service.
+      type: Object
+      fields: 
+        - name: distanceToService
+          description: Distance to next vehicle service.
+          type: Object
+          fields: *unitValue
+    - name: daysToService
+      description: Number of days before next vehicle service.
+      type: Number
+      unitOrValue: "" #todo
+      example: 90 #todo
+    - name: batteryInfo
+      description: Battery information.
+      type: Object
+      fields: 
+        - name: batteryStatus
+          description: Status of the vehicle battery.
+          unitOrValue: "" #todo: ENUM ?
+          type: String # TODO: enum of strings ?
+          example: "" #todo
+        - name: batteryVoltage
+          description: Battery voltage information.
+          type: Object
+          fields: *unitValue
+    - name: tripsInfo
+      description: Information about vehicle Trips.
+      type: Object
+      fields:
+       - name: trips
+         description: Array of vehicle Trips.
+         type: Array of Objects
+         fields: 
+          - name: name
+            description: Name of the Trip.
+            type: String
+            unitOrValue: n/a
+            example: "myTrip"
+          - name: totalDistance
+            type: Object
+            description: Total distance of the Trip.
+            fields: *unitValue
+          - name: energyUsed
+            type: Object
+            description: Energy used during the Trip.
+            fields: *unitValue
+          - name: averageEnergyUsed
+            type: Object
+            description: Average energy used during the Trip.
+            fields: *unitValue
+          - name: totalElectricDistance
+            type: Object
+            description: Total eletric distance during the Trip.
+            fields: *unitValue
+          - name: totalHybridDistance
+            type: Object
+            description: Total hybrid distance during the Trip.
+            fields: *unitValue
+    - name: wheelCount
+      description: Number of wheels.
+      unitOrValue: 
+        - 4
+        - 6
+      type: Enum of Numbers
+      example: 4
+    - name: isTPMSVehicle
+      description: Is it a TPMS vehicle?
+      unitOrValue: n/a
+      type: Boolean
+      example: true
+    - name: hvacPwrUsageDisp
+      description: HVAC power usage available.
+      unitOrValue: n/a
+      type: String
+      example: "" #todo
+- &evInfoFCA
+  name: evInfo
+  type: Object
+  description: Information about an Electric Vehicle.
+  fields: 
+    - *timestamp
+    - name: battery
+      description: Battery information.
+      type: Object
+      fields:
+        - name: distanceToEmpty
+          description: Distance before battery is empty.
+          type: Object
+          fields: *unitValue
+        - name: stateOfCharge
+          description: State of charge. #todo
+          unitOrValue: n/a
+          type: Number
+          example: 0 #todo
+        - name: plugInStatus
+          description: Plug-in status. #todo
+          unitOrValue: n/a
+          type: String
+          example: "" #todo
+        - name: chargingStatus
+          description: Charging status. #todo
+          unitOrValue: n/a
+          type: String
+          example: "" #todo
+        - name: totalRange
+          description: Total range. #todo
+          unitOrValue: n/a
+          type: String
+          example: "" #todo
+        - name: chargingLevel
+          description: Charging level.
+          unitOrValue: 
+            - L1
+            - L2
+          type: Enum of Strings
+          example: L1
+        - name: timeToFullyChargeL1
+          description: Time to fully charge L1. #todo
+          unitOrValue: n/a
+          type: Number
+          example: 0 #todo
+        - name: timeToFullyChargeL2
+          description: Time to fully charge L2. #todo
+          unitOrValue: n/a
+          type: Number
+          example: 0 #todo
+        - name: timeToFullyChargeL3
+          description: Time to fully charge L3. #todo
+          unitOrValue: n/a
+          type: Number
+          example: 0 #todo
+        - name: gasRange
+          description: Gas range. #todo
+          unitOrValue: n/a
+          type: Number
+          example: 0 #todo
+    - name: ingnitionStatus
+      description: Status of ignition.
+      unitOrValue: 
+        - ON
+        - OFF
+      type: Enum of Strings
+      example: ON
+    - name: schedules
+      description: Schedules Information.
+      type: Array of Objects
+      fields:   
+        - name: enableChargeSchedule
+          description: Enable charge scheduld?
+          type: Boolean
+          unitOrValue: n/a
+          example: true
+        - name: scheduleType
+          description: Type of schedulding.
+          type: Enum of Strings
+          unitOrValue: 
+            - NONE
+            - CHARGE
+            - CLIMATE
+          example: NONE
+        - name: startTime
+          description: Start time. #todo
+          type: String
+          unitOrValue: n/a
+          example: "" #todo
+        - name: endTime
+          description: End time. #todo
+          type: String
+          unitOrValue: n/a
+          example: "" #todo
+        - name: chargeToFull
+          description: Charge tu full level. #todo
+          type: Boolean
+          unitOrValue: n/a
+          example: true #todo
+        - name: cabinPriority
+          description: Cabin priority. #todo
+          type: Boolean
+          unitOrValue: n/a
+          example: true #todo
+        - *scheduledDays
+        - name: repeatSchedule
+          description: Scheduld repeated?
+          type: Boolean
+          unitOrValue: n/a
+          example: true #todo
+    - name: chargeSchedules
+      type: Array of Objects
+      description: Charge schedules.
+      fields: 
+        - name: enableChargeSchedule
+          description: Schedule carge status.
+          unitOrValue:
+           - ENABLE_SCHEDULE
+           - DISABLE_SCHEDULE
+          type: Enum of Strings
+          example: ENABLE_SCHEDULE
+        - name: scheduleType
+          description: Schedule type.
+          unitOrValue:
+           - WEEKDAY
+           - WEEKEND
+          type: Enum of Strings
+          example: WEEKDAY
+        - name: chargeUntilFull
+          description: Charge untill full.
+          unitOrValue: n/a
+          type: Boolean
+          example: true
+        - name: scheduleStartTime
+          description: Schedule start time.
+          unitOrValue: "" #todo
+          type: String
+          example: "" #todo
+        - name: scheduleEndTime
+          description: Schedule end time.
+          unitOrValue: "" #todo
+          type: String
+          example: "" #todo
+    - name: chargeScheduleV3 #todo
+      type: Array of Objects
+      description: charge Schedule V3.
+      fields:
+        - name: enableScheduleType
+          description: Schedule type V3 enabled?
+          unitOrValue: n/a
+          type: Boolean
+          example: true
+        - name: scheduleType
+          description: Schedule type V3?
+          unitOrValue:
+            - NONE
+            - CHARGE
+            - CLIMATE
+          type: Enum of Strings
+          example: NONE
+        - name: climateSettings
+          description: Climate settings. #todo
+          type: Object
+          fields:
+            - name: celsius
+              description: Temperature (Celisus).
+              unitOrValue: n/a
+              type: Number
+              example: 0 #todo
+            - name: fahrenheit
+              description: Temperature (Fahrenheit).
+              unitOrValue: n/a
+              type: Number
+              example: 0 #todo
+        - name: climateParameters
+          description: Climate parameters. #todo
+          unitOrValue:
+            - PARAMS_NOT_SET
+            - ALWAYS
+            - ONLY_IF_PLUGGED_IN
+            - ONLY_IF_PLUGGED_IN_AND_IN_CHARGE_SCHEDULE
+          type: Enum of Strings
+          example: NONE
+        - name: startTime
+          description: Start time. #todo
+          unitOrValue: n/a
+          type: String
+          example: "" #todo
+        - name: endTime
+          description: Start time. #todo
+          unitOrValue: n/a
+          type: String
+          example: "" #todo
+        - name: chargeToFull
+          description: Charge to full. #todo
+          unitOrValue: n/a
+          type: Boolean
+          example: true
+        - *scheduledDays
+        - name: repeatSchedule
+          description: Repeat schedule?
+          unitOrValue: n/a
+          type: Boolean
+          example: true
+    - name: chargePowerPreference
+      description: Charge power preference. #todo
+      unitOrValue: 
+        - NOT_USED_VALUE
+        - LEVEL_ONE
+        - LEVEL_TWO
+        - LEVEL_THREE
+        - LEVEL_FOUR
+        - LEVEL_FIVE
+      type: Enum of Strings
+      example: LEVEL_ONE
+    - name: chargeScheduleAdditionalInfo
+      description: Charge schedule additional information;
+      type: Object
+      fields: 
+        - name: heatSeat
+          description: Heat seat.
+          type: Boolean
+          example: true
+          unitOrValue: n/a
+        - name: cabinCond
+          description: Cabin conditionning.
+          type: Boolean
+          example: true
+          unitOrValue: n/a
 - &pimsVehicleServices
   tag: pims.vehicle.services
   firstAvailability: "2.0"
@@ -1180,7 +1723,216 @@ objects:
   description: This API return state of available services.
   securities: none
   component: *O2X
+- &FCATokenType
+  name: type
+  required: true
+  type: Enum of Strings
+  description: Type of token.
+  unitOrValue:
+    - cognito
+    - session
+  example: cognito
+- &FCASocialAccount
+  name: social
+  required: true
+  type: Enum of Strings
+  description: Third party login provider. In case `social=apple` you should activate `signIn = Apple` capability in the developer account.
+  unitOrValue: 
+  - apple
+  - yahoo
+  - google
+  - facebook
+  - linkedin
+  - twitter
+  - mopar
+  - site
+  example: yahoo
 apis:
+- tag: pims.vehicle.vin
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.vin
+  type: set
+  output: none
+  parameters:
+    - <<: *vin
+      required: true
+  description: This API allows to select the vehicle VIN before using another API in other components.
+  component: *VehicleInformation
+- tag: pims.vehicle.service
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.service
+  type: set
+  parameters:
+    - name: action
+      required: true
+      type: String
+      description: Connect or disconnect Bluetooth services.
+      example: start
+      unitOrValue: 
+        - 'start: start the service'
+        - 'stop: stop the service'
+    - name: service
+      required: true
+      type: String
+      description: Enable bluetooth service.
+      example: bluetooth
+      unitOrValue: 
+        - 'bluetooth'
+    - *vins
+  output: none
+  errors: 
+    - *2001
+    - *2101
+    - *2102
+    - *2301
+    - *2339
+    - *2345
+    - *2367
+  description: "This api allows to connect or disconnect Bluetooth services."
+  component: *BTConnectivity
+- tag: pims.vehicle.connection
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.connection
+  type: get
+  parameters: none
+  output:
+  - *vin
+  - name: protocol
+    type: Enum of Strings
+    description: Field present if `vin!=null`
+    unitOrValue:
+      - CEA
+      - Altran
+    example: CEA
+  - name: model
+    type: Enum of Strings
+    description: Field present if `vin!=null`
+    unitOrValue:
+      - SMEG
+      - NAC
+      - RCC
+      - RCE
+      - AIO_NAC
+      - AIO_RCC
+      - IVI
+    example: NAC
+  - name: version
+    type: String
+    unitOrValue: "n/a"
+    description: Protocol version (SemVer format). Field present if `vin!=null`. Field has value if `protocol=="CEA"`. With `protocol=="Altran"` value is empty (`""`) | 
+    example: '1.0.2'
+  - name: privacy
+    type: Enum of Strings
+    description: Field present if `vin!=null`. For `Altran` connections, value will be always `"Unknown"`.
+    unitOrValue: 
+      - Full
+      - Geolocation
+      - None
+      - Unknown
+    example: Full
+  errors: 
+    - *2001
+  description: |- 
+    This API allows to retrieve if the Bluetooth service is enabled or not. Check out **pims.vehicle.connection**.
+  component: *BTConnectivity
+- tag: pims.vehicle.privacy
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.privacy
+  type: get
+  parameters:
+    - <<: *vin
+      required: true
+  output: 
+    - name: privacy
+      type: String
+      description: privacy value
+      unitOrValue: 
+        - full
+        - geolocation
+        - none
+      example: geolocationprivate
+  errors: 
+    - *2001
+    - *2101
+    - *2102
+    - *2205
+    - *2301
+    - *2341
+    - *2342
+    - *2367
+  description: |-
+    This api allows to get the vehicle privacy. This API require *sendToNav* being enable using **pims.vehicle.service - Start**.
+
+    They are 3 levels of privacy:
+        - *none*: data & geolocation are authorized.
+        - *geolocationPrivate*: data is authorized but not geolocation.
+        - *fullPrivate*: data & geolocation are not authorized, sometime called *plane mode*.
+
+  component: *BTConnectivity
+- tag: pims.vehicle.connection
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.connection
+  type: subscribe
+  parameters: none
+  output: 
+    - *vin
+    - name: status
+      type: Enum of Strings
+      unitOrValue:
+        - Connected
+        - Disconnected 
+      description: Connection status.
+      example: Connected
+    - name: protocol
+      type: Enum of Strings
+      description: Field present if `status == "Connected"`.
+      unitOrValue:
+        - CEA
+        - Altran
+      example: CEA
+    - name: model
+      type: Enum of Strings
+      unitOrValue: 
+        - SMEG
+        - NAC
+        - RCC
+        - RCE
+        - AIO_NAC
+        - AIO_RCC
+        - IVI
+      description: Field present if `status == "Connected"`.
+      example: NAC
+    - name: version
+      type: String
+      unitOrValue: n/a
+      description: Protocol version (SemVer format). Field present if `status == "Connected"`. Field has value if `protocol=="CEA"`. With `protocol=="Altran"` value is empty (`""`).
+      example: "1.0.2"
+    - name: privacy
+      type: Enum of Strings
+      unitOrValue: 
+        - Full
+        - Geolocation
+        - None
+        - Unknown
+      description: Field present if `status == "Connected"`. For `Altran` connections, value will be always `"Unknown"`.
+      example: Full
+  errors: 
+    - *2001
+  description: |- 
+    This API will forward connection events when the Bluetooth service will be enabled. 
+    
+    Enabling the service is done using **SET pims.vehicle.service**. That's why you should subscribe to *pims.vehicle.connection* before.
+    Notification will be sent depending on nature of Head Unit:
+      - `CEA`: Once CEA session is opened
+      - `Altran`: Once authentication is done
+    
+    The unsubscribe api removes registration on connection change status. Any parameter required for this api.
+  component: *BTConnectivity
 - tag: pims.authentication.account-username
   firstAvailability: "2.0"
   lastUpdate: "2.0"
@@ -1534,11 +2286,10 @@ apis:
   component: *BasicAuthentication
 - tag: pims.vehicle.carkey
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   apiName: pims.vehicle.carkey
   type: get
-  parameters:
-    - *vin
+  parameters: none
   output: 
     - name: isCarKeyVerified 
       description: true if car key is verified , otherwise false
@@ -1918,15 +2669,22 @@ apis:
   component: *LongRangeRemoteRemote
 - tag: pims.vehicle.vin-remote
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   apiName: pims.vehicle.vin
   subname: remote
   type: set
   output: none
   parameters:
+    - name: actionType
+      required: true
+      type: String
+      description: Action name, in this case `remote`.
+      unitOrValue: 
+        - remote
+      example: remote
     - <<: *vin
       required: true
-  description: This API allows to select the vehicle VIN before sending remote command with *pims.vehicle.command*.
+  description: This API allows to select the vehicle VIN before using another API.
   component: *LongRangeRemoteRemote
 - tag: pims.vehicle.signal
   firstAvailability: "2.0"
@@ -2056,6 +2814,734 @@ apis:
     - *2302
   description: This api allows to be notified when a remote charge ends.
   component: *LongRangeRemoteStatus
+- tag: pims.vehicle.media-mediaSource
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: mediaSource
+  type: get
+  parameters:
+  - name: type
+    required: true
+    type: String
+    description: Action Name, in this case `mediaSource`.
+    unitOrValue:
+      - mediaSource
+    example: mediaSource
+  output:
+  - name: sources
+    type: Array of Objects
+    description: Informations about available sources.
+    fields:
+    - name: id
+      description: Id of the source.
+      unitOrValue: n/a
+      type: String
+      example: "" #todo
+    - name: type
+      description: Type of source.
+      type: Enum of Strings
+      unitOrValue:
+      - bluetooth
+      - usb
+      - webPortal
+      - tuner
+      - ipod
+      - tunerFm
+      - tunerAm
+      - tunerDab
+      example: tuner
+    - name: name
+      type: String
+      description: Name of the source.
+      unitOrValue: n/a
+      example: "" #todo
+  errors: [] #todo
+  description: Retrieve available audio sources.
+  component: *Media
+- tag: pims.vehicle.media-presetStation
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: presetStation
+  type: get
+  parameters:
+  - name: type
+    required: true
+    type: String
+    description: Action Name, in this case `presetStation`.
+    unitOrValue:
+      - presetStation
+    example: presetStation
+  output:
+  - name: presets
+    type: Array of Objects
+    description: Informations about available presets.
+    fields:
+    - name: sid
+      description: sID of the Preset.
+      unitOrValue: n/a
+      type: Integer
+      example: "" #todo
+    - name: band
+      type: Enum of Strings
+      description: Band of the Preset.
+      unitOrValue: 
+      - am
+      - fm
+      - dab
+      example: "" #todo
+    - name: name
+      type: String
+      description: Name of the Preset.
+      unitOrValue: n/a
+      example: myPreset
+    - name: preset
+      type: String
+      description: Position number of the Preset.
+      unitOrValue: n/a
+      example: 1
+    - name: frequency
+      type: String
+      description: Frequency of the Preset.
+      unitOrValue: Mhz
+      example: 100
+    - name: channel
+      description: Preset's channel.
+      type: String
+      unitOrValue: n/a
+      example: "" #todo
+    - name: serviceIndex
+      type: Integer
+      description: Service index of the Preset.
+      unitOrValue: n/a
+      example: "" #todo
+    - name: serviceCount
+      type: Integer
+      description: Service count of the Preset.
+      unitOrValue: n/a
+      example: "" #todo
+  errors: [] #todo
+  description: Retrieve list of radio presets.
+  component: *Media
+- tag: pims.vehicle.media-savedScan
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: savedScan
+  type: get
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `savedScan`.
+    unitOrValue:
+      - savedScan
+    example: savedScan
+  output:
+  - name: stations
+    type: Array of Objects
+    description: Informations about available stations.
+    fields:
+      - name: sid
+        description: sID of the station.
+        unitOrValue: n/a
+        type: Integer
+        example: "" #todo
+      - name: channelName
+        description: Station's channel.
+        type: String
+        unitOrValue: n/a
+        example: "" #todo MyRadio
+      - name: frequency
+        type: String
+        description: Frequency of the station.
+        unitOrValue: Mhz
+        example: 100
+      - name: preset
+        type: String
+        description: Preset position number of the station.
+        unitOrValue: n/a
+        example: "" #todo 1
+      - name: name
+        type: String
+        description: Name of the station.
+        unitOrValue: n/a
+        example: "" #todo BBC World News
+      - name: programName
+        type: String
+        description: Current program name of the station.
+        unitOrValue: n/a
+        example: "" #todo HARDtalk
+      - name: serviceCount
+        type: Integer
+        description: Service count of the station.
+        unitOrValue: n/a
+        example: "" #todo "" #todo
+      - name: serviceIndex
+        type: Integer
+        description: Service index of the station.
+        unitOrValue: n/a
+        example: "" #todo "" #todo
+      - name: used
+        type: Integer
+        description: "'Used' of the station."
+        unitOrValue: n/a
+        example: "" #todo "" #todo
+      - name: band
+        type: Enum of Strings
+        description: Band of the station.
+        unitOrValue: 
+        - am
+        - fm
+        - dab
+        example: "" #todo
+  errors: [] #todo
+  description: Retrieve last scanned radio stations.
+  component: *Media
+- tag: pims.vehicle.settings
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.settings
+  type: get
+  parameters: none
+  output:
+  - name: newsAnnouncements
+    type: Boolean
+    description: News announcements status.
+    unitOrValue: n/a
+    example: "true"
+  - name: sourceHandover
+    type: Boolean
+    description: Source handhover status.
+    unitOrValue: n/a
+    example: true
+  - name: trafficAnnouncements
+    type: Boolean
+    description: Traffic announcments status.
+    unitOrValue: n/a
+    example: "true"
+  - name: alternativeFrequency
+    type: Boolean
+    example: "true"
+    description: Alternative frequency status.
+    unitOrValue: n/a
+  errors: [] #todo
+  description: Retrieve media settings status.
+  component: *Media
+- tag: pims.vehicle.media-frequency
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: frequency
+  type: set
+  output: none
+  parameters:
+  - name: type
+    required: true
+    type: String
+    description: Action Name, in this case `frequency`.
+    unitOrValue:
+      - frequency
+    example: frequency
+  - name: action
+    required: false
+    type: Enum of Strings
+    description: Select next or previous radio frequency. `Action` & `Frequency` parameters cannot be sent together in the same request.
+    unitOrValue:
+      - next
+      - previous
+    example: previous
+  - name: frequency
+    required: false
+    type: Integer
+    description: Select radio frequency value. `Action` & `Frequency` parameters cannot be sent together in the same request.
+    unitOrValue: Mhz
+    example: 100
+  errors: [] #todo
+  description: Select radio frequency.
+  component: *Media
+- tag: pims.vehicle.media-mediaSource
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: mediaSource
+  type: set
+  output: none
+  parameters:
+  - name: type
+    required: true
+    type: String
+    description: Action Name, in this case `mediaSource`.
+    unitOrValue:
+      - mediaSource
+    example: mediaSource
+  - name: mediaSource
+    required: true
+    type: String
+    description: Select a media source.
+    unitOrValue:
+    - AM
+    - FM
+    - DAB
+    - BT
+    example: FM
+  errors: [] #todo
+  description: Set media source.
+  component: *Media
+- tag: pims.vehicle.media-nextMedia-previousMedia
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: nextMedia-previousMedia
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Launch next or previous media
+    unitOrValue:
+      - nextMedia
+      - previousMedia
+    example: nextMedia
+  errors: [] #todo
+  description: Launch next or previous media media.
+  component: *Media
+- tag: pims.vehicle.media-presetStation-save
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: presetStation-save
+  type: set
+  output: none
+  parameters:
+  - name: type
+    required: true
+    type: String
+    description: Action Name, in this case `presetStation`.
+    unitOrValue:
+      - presetStation
+    example: presetStation
+  - name: action
+    required: true
+    type: String
+    description: Action to perform, in this case `save`.
+    unitOrValue:
+      - save
+    example: save
+  - name: stationID
+    required: true
+    type: Integer
+    description: ID of the station to save as a preset.
+    unitOrValue: n/a
+    example: 1
+  - name: indexPreset
+    required: true
+    type: Integer
+    description: Index of the preset to save.
+    unitOrValue: n/a
+    example: 1
+  errors: [] #todo
+  description: Save a station in preset radio.
+  component: *Media
+- tag: pims.vehicle.media-presetStation-unsave
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: presetStation-unsave
+  type: set
+  output: none
+  parameters:
+  - name: type
+    required: true
+    type: String
+    description: Action Name, in this case `presetStation`.
+    unitOrValue:
+      - presetStation
+    example: presetStation
+  - name: action
+    required: true
+    type: String
+    description: Action to perform, in this case `unsave`.
+    unitOrValue:
+      - unsave
+    example: unsave
+  - name: indexPreset
+    required: true
+    type: Integer
+    description: Index of the preset to unsave.
+    unitOrValue: n/a
+    example: 1
+  errors: [] #todo
+  description: Unsave a station in preset radio.
+  component: *Media
+- tag: pims.vehicle.media-presetStation-start
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: presetStation-start
+  type: set
+  output: none
+  parameters:
+  - name: type
+    required: true
+    type: String
+    description: Action Name, in this case `presetStation`.
+    unitOrValue:
+      - presetStation
+    example: presetStation
+  - name: action
+    required: true
+    type: String
+    description: Action to perform on the presetStation, in this case `start`.
+    unitOrValue:
+      - start
+    example: start
+  - name: indexPreset
+    required: true
+    type: Integer
+    description: Index of the radio preset to launch.
+    unitOrValue: n/a
+    example: 1
+  errors: [] #todo
+  description: Launch a preseted radio station.
+  component: *Media
+- tag: pims.vehicle.media-sound-mute
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: sound-mute
+  type: set
+  output: none
+  parameters:
+  - name: type
+    required: true
+    type: String
+    description: Action Name, in this case `sound`.
+    unitOrValue:
+      - sound
+    example: sound
+  - name: mute
+    required: true
+    type: Boolean
+    description: Mute or unmute audio sounds.
+    unitOrValue:
+      - "true"
+      - "false"
+    example: true
+  errors: [] #todo
+  description: Mute or umute audio sounds.
+  component: *Media
+- tag: pims.vehicle.media-sound-volume
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: sound-volume
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `sound`.
+    unitOrValue:
+      - sound
+    example: sound
+  - name: volume
+    required: true
+    type: Integer
+    description: Set the sound volume.
+    unitOrValue: From 0 to 100.
+    example: 42
+  errors: [] #todo
+  description: Set the sound volume.
+  component: *Media
+- tag: pims.vehicle.media-startScan
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: startScan
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `startScan`.
+    unitOrValue:
+      - startScan
+    example: startScan
+  errors: [] #todo
+  description: Start scanning available radio stations. Check out *pims.vehicle.media-scan* for results.
+  component: *Media
+- tag: pims.vehicle.media-stopScan
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: stopScan
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `stopScan`.
+    unitOrValue:
+      - stopScan
+    example: stopScan
+  errors: [] #todo
+  description: Stop scanning available radio stations. Check out *pims.vehicle.media-startScan* for information about starting scan.
+  component: *Media
+- tag: pims.vehicle.settings
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.settings
+  type: set
+  output: none
+  parameters:
+  - name: newsAnnouncements
+    type: Boolean
+    description: Enable or Disbale News announcments.
+    unitOrValue: n/a
+    required: true
+    example: true
+  - name: sourceHandover
+    type: Boolean
+    description: Enable or Disbale Source handhover.
+    example: true
+    unitOrValue: n/a
+    required: true
+  - name: trafficAnnouncements
+    type: Boolean
+    description: Traffic announcments status.
+    unitOrValue: n/a
+    required: true
+    example: true
+  - name: alternativeFrequency
+    required: true
+    type: Boolean
+    description: Alternative frequency status.
+    unitOrValue: n/a
+    example: true
+  errors: [] #todo
+  description: Set media settings status.
+  component: *Media
+- tag: pims.vehicle.event
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.event
+  type: subscribe
+  parameters: none
+  output:
+  - name: event
+    type: String
+    description: Name of the event triggered.
+    example: sps
+    unitOrValue:
+      - "sps: home button"
+      - "next: next button"
+      - "previous: previous button"
+      - "audioSource: audio source button"
+  - name: value
+    description: Return true unless in case of error.
+    unitOrValue: "" #todo 
+    type: Boolean
+    example: true
+  errors: [] #todo
+  description: Trigger an event when the user clicks on an HMI button while in the Radio App of the Infotainment System.
+  component: *Media
+- tag: pims.vehicle.media-info
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: info
+  type: subscribe
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `info`.
+    unitOrValue:
+      - info
+    example: info
+  output:
+  - name: radioInfo
+    type: Object
+    description: Informations about new radio stations available.
+    fields:
+    - name: sid
+      description: sID of the station.
+      unitOrValue: n/a
+      type: Integer
+      example: "" #todo
+    - name: band
+      type: Enum of Strings
+      description: Band of the station.
+      unitOrValue: 
+      - am
+      - fm
+      - dab
+      example: "" #todo
+    - name: name
+      type: String
+      description: Name of the station.
+      unitOrValue: n/a
+      example: mystation
+    - name: memory
+      type: Integer
+      description: Position preset of the station.
+      unitOrValue: n/a
+      example: 1
+    - name: frequency
+      type: String
+      description: Frequency of the station.
+      unitOrValue: Mhz
+      example: 100
+    - name: channel
+      description: Station's channel.
+      type: String
+      unitOrValue: n/a
+      example: "" #todo
+    - name: serviceIndex
+      type: Integer
+      description: Service index of the station.
+      unitOrValue: n/a
+      example: "" #todo
+    - name: serviceCount
+      type: Integer
+      description: Service count of the station.
+      unitOrValue: n/a
+      example: "" #todo
+  - name: sound
+    type: Object
+    description: Information about sound.
+    fields:
+      - name: volume
+        type: Integer
+        description: Level of the volume.
+        unitOrValue: From 0 to 100.
+        example: 42
+      - name: mute
+        type: Boolean
+        description: Status of mute.
+        unitOrValue: n/a
+        example: "" #todo false
+  - name: announcement
+    type: String
+    description: Radio announcement.
+    unitOrValue: n/a
+    example: "" #todo
+  - name: slidShow
+    type: "String" #todo
+    description: SlideShow.
+    unitOrValue: n/a
+    example: "" #todo
+  - name: sources
+    type: Array of Objects
+    description: Source information.
+    fields:
+      - name: id
+        type: String
+        description: Identifier.
+        unitOrValue: n/a
+        example: "" #todo "" #todo
+      - name: type
+        type: String
+        description: Type of source.
+        unitOrValue: 
+          - bluetooth
+          - usb
+          - webPortal
+          - tuner
+          - ipod
+          - tunerFm
+          - tunerAm
+          - tunerDab
+        example: bluetooth
+      - name: name
+        type: String
+        description: Source name.
+        unitOrValue: n/a
+        example: "" #todo "mySource"
+  errors: [] #todo
+  description:  Informations about new radio stations available.
+  component: *Media
+- tag: pims.vehicle.media-scan
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.vehicle.media
+  subname: scan
+  type: subscribe
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `scan`.
+    unitOrValue:
+      - scan
+    example: scan
+  output:
+  - name: stations
+    type: Array of Objects
+    description: Informations about available stations.
+    fields:
+    - name: sid
+      description: sID of the station.
+      unitOrValue: n/a
+      type: Integer
+      example: "" #todo
+    - name: channelName
+      description: Station's channel.
+      type: String
+      unitOrValue: n/a
+      example: MyRadio
+    - name: frequency
+      type: String
+      description: Frequency of the station.
+      unitOrValue: Mhz
+      example: 100
+    - name: preset
+      type: String
+      description: Preset position number of the station.
+      unitOrValue: n/a
+      example: 1
+    - name: name
+      type: String
+      description: Name of the station.
+      unitOrValue: n/a
+      example: BBC World News
+    - name: programName
+      type: String
+      description: Current program name of the station.
+      unitOrValue: n/a
+      example: HARDtalk
+    - name: serviceCount
+      type: Integer
+      description: Service count of the station.
+      unitOrValue: n/a
+      example: "" #todo
+    - name: serviceIndex
+      type: Integer
+      description: Service index of the station.
+      unitOrValue: n/a
+      example: "" #todo
+    - name: used
+      type: Integer
+      description: "'Used' of the station."
+      unitOrValue: n/a
+      example: "" #todo
+    - name: band
+      type: Enum of Strings
+      description: Band of the station.
+      unitOrValue: 
+      - am
+      - fm
+      - dab
+      example: "" #todo
+  errors: [] #todo
+  description: Listen to available radio stations scan.
+  component: *Media
 - tag: pims.vehicle.informations-o2x
   firstAvailability: "2.0"
   lastUpdate: "2.0"
@@ -2645,9 +4131,10 @@ apis:
   type: set
   parameters:
   - name: payload
-    description: Payload.
+    description: |-
+      Notification information. For iOS: `bestAttemptContent.userInfo``, for Android: `remoteMessage.data`.
     required: true
-    type: Any
+    type: Object
     unitOrValue: n/a
     example: <payload>
   output: none
@@ -3147,47 +4634,11 @@ apis:
   description: |- 
     This api allows retrieving the list of navigations stored in vehicle cache. Navigation are stored when the vehicle was not reachable when sending a navigation.
   component: *SendToNav
-- tag: pims.vehicle.privacy
-  firstAvailability: "2.0"
-  lastUpdate: "2.0"
-  apiName: pims.vehicle.privacy
-  type: get
-  parameters:
-    - <<: *vin
-      required: true
-  output: 
-    - name: privacy
-      type: String
-      description: privacy value
-      unitOrValue: 
-        - full
-        - geolocation
-        - none
-      example: geolocationprivate
-  errors: 
-    - *2001
-    - *2101
-    - *2102
-    - *2205
-    - *2301
-    - *2341
-    - *2342
-    - *2367
-  description: |-
-    This api allows to get the vehicle privacy. This API require *sendToNav* being enable using **pims.vehicle.service - Start**.
-
-    They are 3 levels of privacy:
-        - *none*: data & geolocation are authorized.
-        - *geolocationPrivate*: data is authorized but not geolocation.
-        - *fullPrivate*: data & geolocation are not authorized, sometime called *plane mode*.
-      
-      ***pims.vehicle.destination*** is available only if privacy is set to `none`.
-  component: *SendToNav
 - <<: *pimsVehicleServices
   component: *SendToNav
 - tag: pims.vehicle.destination-coordinate
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   apiName: pims.vehicle.destination
   subname: coordinate
   type: set
@@ -3199,8 +4650,6 @@ apis:
       unitOrValue:
         - coordinate
       example: coordinate
-    - <<: *vin
-      required: true
     - name: preserve
       required: true
       type: Boolean
@@ -3267,11 +4716,14 @@ apis:
     - *2341
     - *2342
     - *2367
-  description: This api allows sending a navigation (using Coordinates) from the mobile phone to the vehicle.
+  description: |-
+    This api allows sending a navigation (using Coordinates) from the mobile phone to the vehicle.
+
+    This API is available only if privacy is set to `none`, check-out **pims.vehicle.privacy**.
   component: *SendToNav
 - tag: pims.vehicle.destination-extension
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   apiName: pims.vehicle.destination
   subname: extension
   type: set
@@ -3283,8 +4735,6 @@ apis:
       unitOrValue:
         - extension
       example: extension
-    - <<: *vin
-      required: true
     - name: preserve
       required: true
       type: Boolean
@@ -3322,7 +4772,10 @@ apis:
     - *2341
     - *2342
     - *2367
-  description: This api allows sending destination (using Extension) from the mobile phone to the vehicle.
+  description: |-
+    This api allows sending destination (using Extension) from the mobile phone to the vehicle.
+
+    This API is available only if privacy is set to `none`, check-out **pims.vehicle.privacy**.
   component: *SendToNav
 - tag: pims.vehicle.device
   firstAvailability: "2.0"
@@ -3344,32 +4797,6 @@ apis:
     - *2301
     - *2345
   description: This api allows filtering device to connect or not. This API exists only for **Android**, this step is not required, and does not exist for iOS.
-  component: *SendToNav
-- tag: pims.vehicle.service-sendToNav
-  firstAvailability: "2.0"
-  lastUpdate: "2.0"
-  apiName: pims.vehicle.service
-  subname: sendToNav
-  type: set
-  output: none
-  parameters:
-    - name: action
-      required: true
-      type: String
-      description: Connect or disconnect `sendToNav` service.
-      example: start
-      unitOrValue: 
-        - 'start: start the service'
-        - 'stop: stop the service'
-  errors: 
-    - *2001
-    - *2101
-    - *2102
-    - *2301
-    - *2339
-    - *2345
-    - *2367
-  description: "This api allows to connect or disconnect `sendToNav` service."
   component: *SendToNav
 - tag: pims.vehicle.event-sendToNav
   firstAvailability: "2.0"
@@ -4051,60 +5478,12 @@ apis:
 
     You should use this API after receiving an smsCode from **pims.authentication.smscode - phoneNumberCertification**.
   component: *StrongAuthentication
-- tag: pims.vehicle.connection
-  firstAvailability: "2.0"
-  lastUpdate: "2.0"
-  apiName: pims.vehicle.connection
-  type: get
-  parameters: none
-  output:
-  - *vin
-  - name: protocol
-    type: Enum of Strings
-    description: Field present if `vin!=null`
-    unitOrValue:
-      - CEA
-      - Altran
-    example: CEA
-  - name: model
-    type: Enum of Strings
-    description: Field present if `vin!=null`
-    unitOrValue:
-      - SMEG
-      - NAC
-      - RCC
-      - RCE
-      - AIO_NAC
-      - AIO_RCC
-      - IVI
-    example: NAC
-  - name: version
-    type: String
-    unitOrValue: "n/a"
-    description: Protocol version (SemVer format). Field present if `vin!=null`. Field has value if `protocol=="CEA"`. With `protocol=="Altran"` value is empty (`""`) | 
-    example: '1.0.2'
-  - name: privacy
-    type: Enum of Strings
-    description: Field present if `vin!=null`. For `Altran` connections, value will be always `"Unknown"`.
-    unitOrValue: 
-      - Full
-      - Geolocation
-      - None
-      - Unknown
-    example: Full
-  errors: 
-    - *2001
-  description: |- 
-    This API allows to retrieve if the `Trip` service is enabled or not. Check out **SUBSCRIBE pims.vehicle.connection**.
-  component: *TripNDrive
 - tag: pims.vehicle.price
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   apiName: pims.vehicle.price
   type: get
-  parameters:
-    - <<: *vin
-      required: true
+  parameters: none
   output:
     - name: priceFuel
       type: Number
@@ -4468,16 +5847,7 @@ apis:
   type: get
   parameters: none
   output: 
-    - name: vins
-      description: List of listening VINs and GDPR config. Empty if no subscribtion.
-      type: Object
-      fields:
-        - *vin
-        - name: gdpr
-          type: Boolean
-          description: GDRP configuration. Check out *pims.vehicle.trips*.
-          unitOrValue: n/a
-          example: true
+    - *vins
   errors: 
     - *2001
     - *2344
@@ -4485,13 +5855,11 @@ apis:
   component: *TripNDrive
 - tag: pims.vehicle.price
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   apiName: pims.vehicle.price
   type: set
   output: none
   parameters:
-    - <<: *vin
-      required: true
     - name: priceFuel
       type: Number
       description: Price for fuel.
@@ -4723,66 +6091,6 @@ apis:
     - *2301
   description: This API allows unmerging trips in stored the head-unit, undo `merge` operation.
   component: *TripNDrive
-- tag: pims.vehicle.connection
-  firstAvailability: "2.0"
-  lastUpdate: "2.0"
-  apiName: pims.vehicle.connection
-  type: subscribe
-  parameters: none
-  output: 
-    - *vin
-    - name: status
-      type: Enum of Strings
-      unitOrValue:
-        - Connected
-        - Disconnected 
-      description: Connection status.
-      example: Connected
-    - name: protocol
-      type: Enum of Strings
-      description: Field present if `status == "Connected"`.
-      unitOrValue:
-        - CEA
-        - Altran
-      example: CEA
-    - name: model
-      type: Enum of Strings
-      unitOrValue: 
-        - SMEG
-        - NAC
-        - RCC
-        - RCE
-        - AIO_NAC
-        - AIO_RCC
-        - IVI
-      description: Field present if `status == "Connected"`.
-      example: NAC
-    - name: version
-      type: String
-      unitOrValue: n/a
-      description: Protocol version (SemVer format). Field present if `status == "Connected"`. Field has value if `protocol=="CEA"`. With `protocol=="Altran"` value is empty (`""`).
-      example: "1.0.2"
-    - name: privacy
-      type: Enum of Strings
-      unitOrValue: 
-        - Full
-        - Geolocation
-        - None
-        - Unknown
-      description: Field present if `status == "Connected"`. For `Altran` connections, value will be always `"Unknown"`.
-      example: Full
-  errors: 
-    - *2001
-  description: |- 
-    This API will forward connection events when the `Trip` service will be enabled. 
-    
-    Enabling the `Trips` is done using **SUBSCRIBE pims.vehicle.trips**. That's why you should subscribe to *pims.vehicle.connection* before.
-    Notification will be sent depending on nature of Head Unit:
-      - `CEA`: Once CEA session is opened
-      - `Altran`: Once authentication is done
-    
-    The unsubscribe api removes registration on connection change status. Any parameter required for this api.
-  component: *TripNDrive
 - tag: pims.vehicle.event-tripNDrive
   firstAvailability: "2.0"
   lastUpdate: "2.0"
@@ -4814,27 +6122,10 @@ apis:
   component: *TripNDrive
 - tag: pims.vehicle.trips
   firstAvailability: "2.0"
-  lastUpdate: "2.0"
+  lastUpdate: "2.3"
   apiName: pims.vehicle.trips
   type: subscribe
-  parameters:
-    - name: vins
-      description: List of vehicle's VIN to subscribe with the GDPR rule.
-      required: true
-      type: Array of Objects
-      fields:
-        - name: vin
-          required: true
-          description: Vehicle Identification Number.
-          type: String
-          unitOrValue: n/a
-          example: VR1AB12C3D4567890
-        - name: gdpr
-          type: Boolean
-          description: GDRP setting for the associated vehicle's vin. If `false`, when a trip is not receive it will be received until success when the device connect with the vehicle, if `true` the trip is lost.
-          unitOrValue: n/a
-          example: true
-          required: true
+  parameters: none
   output:
     - name: type
       type: Enum of Strings
@@ -4851,10 +6142,6 @@ apis:
   description: |-
     This API allows to receive events when a trip ends in the vehicle.
     Subscribing to this API allows to receive an event when a new **trips ends** in the head-unit (destination reached or trip canceled).
-
-    It launch discover under VINs passed as parameters to connect and receive notifications about trips.
-
-    The **unsubscribe** api stop current connections and discover proccess and removes registration on trips notifications.
   errors:
     - *2001
     - *2101
@@ -5137,3 +6424,603 @@ apis:
     - Whenever you receive the error code 2312.
     - If you get the error code 2317 while using your pin code.
   component: *UserVehicleSteps
+- tag: pims.authentication.account-username
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.account
+  subname: username
+  type: get
+  parameters:
+  - name: actionType
+    required: true
+    type: String
+    description: Action Name (actionType), in this case `basic`.
+    unitOrValue:
+      - basic
+    example: basic
+  - name: type
+    required: true
+    type: String
+    description: Action Name (type), in this case `username`.
+    unitOrValue:
+      - username
+    example: username
+  output:
+  - *username
+  description: Returns connected user email.
+  errors: [] #todo
+  component: *FCABasicAuthentication
+- tag: pims.authentication.key
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.key
+  type: get
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action to perform.
+    unitOrValue:
+      - get
+      - refresh
+    example: get
+  - name: type
+    required: true
+    type: Array of Strings
+    description: Type of key.
+    unitOrValue:
+      - identityId
+      - accessKeyId
+      - secretKey
+    example: identityID
+  output:
+    - name: identityId
+      description: Identity Identifier, available only if params = identityId.
+      unitOrValue: n/a
+      type: String
+      example: "" #todo
+    - name: accessKeyId
+      description: Acess Key Identifier, available only if params = accessKeyId.
+      unitOrValue: n/a
+      type: String
+      example: "" #todo
+    - name: secretKey
+      description: Secret Key, available only if params = secretKey.
+      unitOrValue: n/a
+      type: String
+      example: "" #todo
+  description: Work with FCA authentification keys.
+  errors: [] #todo
+  component: *FCABasicAuthentication
+- tag: pims.authentication.token
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.token
+  type: get
+  parameters:
+  - *FCATokenType
+  - name: action
+    required: true
+    type: Array of Strings
+    description: Action to perform.
+    unitOrValue:
+      - get
+      - refresh
+    example: get
+  output: 
+  - name: token
+    type: String
+    description: Token requested.
+    unitOrValue: n/a
+    example: "" #todo
+  - *FCATokenType
+  description: Work with FCA authentication tokens.
+  errors: [] #todo
+  component: *FCABasicAuthentication
+- tag: pims.authentication.user-isLogged
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.user
+  subname: isLogged
+  type: get
+  parameters:
+  - name: type
+    required: true
+    type: String
+    description: Action Name, in this case `isLogged`.
+    unitOrValue:
+      - isLogged
+    example: isLogged
+  output:
+  - name: isLogged
+    type: Boolean
+    description: Returns if user is logged or not.
+    unitOrValue: Logged or not.
+    example: true
+  description: Returns if user is logged or not.
+  errors: [] #todo
+  component: *FCABasicAuthentication
+  securities: none
+- tag: pims.authentication.user-profile
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.user
+  subname: profile
+  type: get
+  parameters:
+  - name: type
+    required: true
+    type: String
+    description: Action Name, in this case `profile`.
+    unitOrValue:
+      - profile
+    example: profile
+  output:
+    - name: uid
+      type: String
+      description: Uniq Identifier.
+      unitOrValue: n/a
+      example: "" #todo
+    - name: firstName
+      type: String
+      description: First Name of the user.
+      unitOrValue: n/a
+      example: "" #todo Mary
+    - name: lastName
+      type: String
+      description: Last name of the user.
+      unitOrValue: n/a
+      example: "" #todo Buckley
+    - name: country
+      type: String
+      description: Country of the user.
+      unitOrValue: n/a
+      example: "" #todo United Kingdom
+    - name: phoneNumber
+      type: String
+      description: Phone numbe of the user.
+      unitOrValue: n/a
+      example: "" #todo +33 6 76 56 43 26
+    - name: locale
+      type: String
+      description: Langage of the user.
+      unitOrValue: n/a
+      example: "" #todo EN-uk
+    - name: email
+      type: String
+      description: Email of the user
+      unitOrValue: n/a
+      example: "" #todo user@provider.tld
+    - name: state
+      type: String
+      description: State of user.
+      unitOrValue: n/a
+      example: "" #todo Washington
+    - name: industry
+      type: String
+      description: Industry of the user.
+      unitOrValue: n/a
+      example: "" #todo "" #todo
+    - name: isVerified
+      type: Boolean
+      description: Is account verified
+      unitOrValue: n/a
+      example: "" #todo true
+    - name: isRegistered
+      type: Boolean
+      description: Is account registered?
+      unitOrValue: n/a
+      example: "" #todo true
+  description: Returns user profile.
+  errors: [] #todo
+  component: *FCABasicAuthentication
+- tag: pims.authentication.user-createAccount-isSocial
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.user
+  subname: createAccount-isSocial
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name in this case `createAccount`.
+    unitOrValue:
+      - createAccount
+    example: createAccount
+  - name: isSocial
+    description: Create account using third parties method.
+    type: Boolean
+    unitOrValue: n/a
+    required: true
+    example: true
+  - *FCASocialAccount
+  - name: firstName
+    description: Fist name of the user.
+    type: String
+    unitOrValue: n/a
+    required: true
+    example: Catherine
+  - name: lastName
+    description: Last name of the user.
+    type: String
+    unitOrValue: n/a
+    required: true
+    example: Dupont
+  - name: country
+    description: Country of origin of the user.
+    type: String
+    unitOrValue: n/a
+    required: true
+    example: France
+  - name: local
+    description: Language preference.
+    type: String
+    unitOrValue: language code
+    required: true
+    example: FR-fr
+  - name: consent
+    description: Consents authorized or not.
+    required: true
+    type: Object
+    fields: 
+    - name: marketing
+      description: Consent to marketing.
+      type: Boolean
+      unitOrValue: n/a
+      required: true
+      example: true
+    - name: profiling
+      description: Consent to profiling.
+      type: Boolean
+      unitOrValue: n/a
+      required: true
+      example: true
+    - name: thirdpartiesMarketing
+      description: Consent to thirdpartiesMarketing.
+      type: Boolean
+      unitOrValue: n/a
+      required: true
+      example: true
+    - name: thirdpartiesProfiling
+      description: Consent to thirdpartiesProfiling.
+      type: Boolean
+      unitOrValue: n/a
+      required: true
+      example: true
+  description: Create user account using third parties methods.
+  errors: [] #todo
+  component: *FCABasicAuthentication
+  securities: none
+- tag: pims.authentication.user-createAccount
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.user
+  subname: createAccount
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name in this case `createAccount`.
+    unitOrValue:
+      - createAccount
+    example: createAccount
+  - name: isSocial
+    description: Create account using FCA login method, not third party provider.
+    type: Boolean
+    unitOrValue: n/a
+    required: true
+    example: false
+  - name: email
+    description: Email to use has account user name for the new account.
+    type: String
+    unitOrValue: user@provider.tld
+    required: true
+    example: myname@mail.com
+  - name: password
+    description: Password for the new account.
+    type: String
+    unitOrValue: n/a
+    required: true
+    example: '*******'
+  - name: firstName
+    description: Fist name of the user.
+    type: String
+    unitOrValue: n/a
+    required: true
+    example: Catherine
+  - name: lastName
+    description: Last name of the user.
+    type: String
+    unitOrValue: n/a
+    required: true
+    example: Dupont
+  - name: country
+    description: Country of origin of the user.
+    type: String
+    unitOrValue: n/a
+    required: true
+    example: France
+  - name: local
+    description: Language preference.
+    type: String
+    unitOrValue: language code
+    required: true
+    example: FR-fr
+  - name: consent
+    description: Consents authorized or not.
+    required: true
+    type: Object
+    fields: 
+    - name: marketing
+      description: Consent to marketing.
+      type: Boolean
+      unitOrValue: n/a
+      required: true
+      example: true
+    - name: profiling
+      description: Consent to profiling.
+      type: Boolean
+      unitOrValue: n/a
+      required: true
+      example: true
+    - name: thirdpartiesMarketing
+      description: Consent to thirdpartiesMarketing.
+      type: Boolean
+      unitOrValue: n/a
+      required: true
+      example: true
+    - name: thirdpartiesProfiling
+      description: Consent to thirdpartiesProfiling.
+      type: Boolean
+      unitOrValue: n/a
+      required: true
+      example: true
+  description: Create user account using FCA method.
+  errors: [] #todo
+  component: *FCABasicAuthentication
+  securities: none
+- tag: pims.authentication.user-forgotPassword
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.user
+  subname: forgotPassword
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name in this case `forgotPassword`.
+    unitOrValue:
+      - forgotPassword
+    example: forgotPassword
+  - name: email
+    description: Email to use has account user name for the new account.
+    type: String
+    unitOrValue: user@provider.tld
+    required: true
+    example: myname@mail.com
+  description: Forgotten password.
+  errors: [] #todo
+  component: *FCABasicAuthentication
+- tag: pims.authentication.user-login-isSocial
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.user
+  subname: login-isSocial
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `login`.
+    unitOrValue:
+      - login
+    example: login
+  - name: isSocial
+    required: true
+    type: Boolean
+    description: Use third party login.
+    unitOrValue: n/a
+    example: true
+  - name: sessionExpiration
+    type: Integer
+    example: 3600
+    unitOrValue: seconds
+    description: Session duration before expiration in seconds.
+    required: true
+  - *FCASocialAccount
+  description: Login user using third party.
+  errors: 
+    - *2001
+    - *2202
+    - *2101
+    - *2102
+    - *2203
+    - *2000
+    - *2383
+    - *2210
+    - *2387
+    - *2388
+    - *2384
+    - *2389
+  component: *FCABasicAuthentication
+  securities: none
+- tag: pims.authentication.user-login
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.user
+  subname: login
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `login`.
+    unitOrValue:
+      - login
+    example: login
+  - name: isSocial
+    required: true
+    type: Boolean
+    description: Do not use third party login (but FCA login).
+    unitOrValue: n/a
+    example: false
+  - name: sessionExpiration
+    type: Integer
+    example: 3600
+    unitOrValue: seconds
+    description: Session duration before expiration in seconds.
+    required: true
+  - <<: *username
+    required: true
+  - name: password
+    type: String
+    required: true
+    description: User accountpassword.
+    unitOrValue: n/a
+    example: "**********"
+  description: Login user using FCA method.
+  errors: 
+    - *2001
+    - *2202
+    - *2101
+    - *2102
+    - *2203
+    - *2000
+    - *2383
+    - *2210
+    - *2387
+    - *2388
+    - *2384
+    - *2389
+  component: *FCABasicAuthentication
+  securities: none
+- tag: pims.authentication.user-logout
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.user
+  subname: logout
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `logout`.
+    unitOrValue:
+      - logout
+    example: logout
+  description: Logout user account.
+  errors: [] #todo
+  component: *FCABasicAuthentication
+- tag: pims.authentication.account-isdeviceactivated
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.account
+  subname: isDeviceActivated
+  type: get
+  parameters:
+  - name: type
+    required: true
+    type: String
+    description: Retrieve if the device is activated or not.
+    unitOrValue: 
+      - isDeviceActivated
+    example: isDeviceActivated
+  output:
+  - name: isDeviceActivated
+    type: Boolean
+    description: Indicates if the device is activated or not.
+    unitOrValue: n/a
+    example: false
+  errors:
+    - *2001
+    - *2002
+    - *2101
+    - *2301
+  description: Returns if the device is activated or not.
+  component: *FCAStrongAuthentication
+- tag: pims.authentication.pincode-create
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.pincode
+  subname: create
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `create`.
+    unitOrValue:
+      - create
+    example: create
+  - name: pinCode
+    required: true
+    type: String
+    description: Pin code of the user account.
+    unitOrValue: n/a
+    example: 1234
+  errors: [] #todo
+  description: Create user pincode.
+  component: *FCAStrongAuthentication
+- tag: pims.authentication.pincode-update
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.pincode
+  subname: update
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `update`.
+    unitOrValue:
+      - update
+    example: update
+  - name: oldPIN
+    required: true
+    type: String
+    description: Old Pin code of the user account.
+    unitOrValue: n/a
+    example: 1234
+  - name: newPIN
+    required: true
+    type: String
+    description: New Pin code for the user account.
+    unitOrValue: n/a
+    example: 4321
+  errors: [] #todo
+  description: Update user pincode.
+  component: *FCAStrongAuthentication
+- tag: pims.authentication.session
+  firstAvailability: "2.3"
+  lastUpdate: "2.3"
+  apiName: pims.authentication.session
+  type: set
+  output: none
+  parameters:
+  - name: action
+    required: true
+    type: String
+    description: Action Name, in this case `open`.
+    unitOrValue:
+      - open
+    example: open
+  - name: pinCode
+    required: true
+    type: String
+    description: Pin code of the user account.
+    unitOrValue: n/a
+    example: 1234
+  description: Open a Strong Authentication session.
+  errors: [] #todo
+  component: *FCAStrongAuthentication

@@ -1,5 +1,7 @@
-{%- assign previous_indent = include.indent -%}{%- assign current_indent = include.indent | append: "  " -%}{%- assign level = include.level | plus: 2 -%}
+{%- if include.datas.example -%}
+{{include.datas.example}}
+{%- else -%}{%- assign previous_indent = include.indent -%}{%- assign current_indent = include.indent | append: "  " -%}{%- assign level = include.level | plus: 2 -%}
 {%raw%}{{%endraw%}{% for d in include.datas %}
 {{current_indent}}"{{d.name}}": {% if d.fields %}{% if d.type contains "rray" or d.type contains "List" or d.type contains "list" %}[ 
 {{current_indent}}{%endif%}{% if d.type contains "rray" or d.type contains "List" or d.type contains "list" %}{%endif%}{% include api-reference-code-sample-json.html datas=d.fields indent=current_indent %}{% if d.type contains "rray" or d.type contains "List" or d.type contains "list" %}, /* Other {{d.name}} objects */ ]{%endif%}{%else%}{% if d.type contains "tring"  %}"{{d.example}}"{% elsif d.type contains "rray" or d.type contains "List" or d.type contains "list"  %}[ {% for e in d.example %}{%if d.type contains "tring"%}"{{e}}"{%else%}{{e}}{%endif%}{% unless forloop.last %}, {%endunless%}{% endfor %} ]{% else %}{{d.example}}{% endif %}{%endif%}{% unless forloop.last %},{% else %}
-{% endunless %}{% endfor %}{{previous_indent }}{%raw%}}{%endraw%}{%- assign current_indent = previous_indent -%}{%- assign previous_size = previous_indent | size | minus: level -%}{%- assign previous_indent = previous_indent | truncate: previous_size, "" -%}
+{% endunless %}{% endfor %}{{previous_indent }}{%raw%}}{%endraw%}{%- assign current_indent = previous_indent -%}{%- assign previous_size = previous_indent | size | minus: level -%}{%- assign previous_indent = previous_indent | truncate: previous_size, "" -%}{%- endif -%}

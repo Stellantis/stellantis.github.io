@@ -210,6 +210,8 @@
               path: about/
             - name: Get Started
               path: get-started/
+            - name: Migration v2.2 to v2.3
+              path: migration-v2-2-to-v2-3/
         - name: Security
           path: security/
           pages: 
@@ -243,8 +245,8 @@
         - name: API Reference
           path: references/
           pages: 
-            - name: References v2.2
-              path: v2-2/
+            - name: References v2.3
+              path: v2-3/
             - name: Changelog
               path: changelog/
             - name: Errors

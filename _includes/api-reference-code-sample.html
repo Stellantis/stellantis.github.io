@@ -1,12 +1,12 @@
 {%- comment -%} Build Var and Links {%- endcomment -%}
 {% capture sample_id %}{{include.type}}-{{include.name | slugify }}{% if include.subname %}-{{include.subname }}{% endif %}{% if include.description %}-{{include.description | slugify}}{% endif %}{% endcapture %}
 
-
 {%- comment -%} Capture Code Blocks {%- endcomment -%}
 
 {% if include.sdk_name=="web-sdk" %}
 
 {% capture request %}
+{% unless include.type == "function" %}
 ```js
 space.{{include.type}}(
   "{{include.name}}"{% if include.params %},{% endif %}  // API Name{% if include.params and include.params != 'none' %}
@@ -16,18 +16,23 @@ space.{{include.type}}(
 {% if forloop.last %}  } {% endif %}{% endif %}{% endfor %}{% endif %}
 )
 ```
+{% else %}
+```js
+{{include.params_example}}
+```
+{% endunless %}
 {% endcapture %}
 
 {% capture reply %}
 ```js
 {%- if include.data_example %}
 {{include.data_example}}
-{%- elsif datas == "none" or datas == null %}
+{%- elsif include.datas == "none" or include.datas == null %}
 null
 {%- else %}
 {% 
   include api-reference-code-sample-json.html 
-  datas=datas
+  datas=include.datas
   indent=""
   indentLevel=0
 %}
@@ -53,7 +58,7 @@ pims.{{include.type}}(
 {% else %}
 {% endif %}) { message -> /* handle message */ }
 {%- else -%} 
-  "{{include.name}}"{% if params == "none" or params == null %}
+  "{{include.name}}"{% if include.params == "none" or include.params == null %}
   /* no params */
   {%- else -%},
   mapOf( /* parameters */ {% if include.params_example.kotlin %} 
@@ -92,11 +97,11 @@ pims.{{include.type}}(
 {%else%}
 {% endif %}) { (message) in /* handle message */ }
 {%- else -%}
-  api: "{{include.name}}"{% if params == "none" or params == null %}
+  api: "{{include.name}}"{% if include.params == "none" or include.params == null %}
   /* no params */
   {%- else -%},
   parameters: [ {% if include.params_example.swift %} 
-  {{include.params_example.swift}} {% else %} {% for p in params %}
+  {{include.params_example.swift}} {% else %} {% for p in include.params %}
   "{{p.name}}": {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% if forloop.last == false %},{% else %}{% endif %}{% endfor %}
   {% endif %}]{% endif %}
   ) { (message) in 
@@ -125,12 +130,12 @@ pims.unsubscribe( api: "{{include.name}}" /* no params */ ){% endif %}
 {
   "transactionId": "953cfefb-bc72",
   "status": "SUCCEEDED",
-  "result": {% if include.type == "subscribe" %}null{% else %}{% if include.sample_type == "ref" %}{% if datas == "none" or datas == null %}null{% else %}{% 
+  "result": {% if include.type == "subscribe" %}{ }{% else %}{% if include.sample_type == "ref" %}{% if include.datas == "none" or include.datas == null %}{ }{% else %}{% 
     include api-reference-code-sample-json.html 
-    datas=datas
+    datas=include.datas
     indent="  "
     indentLevel=0
-  %}{% endif %}{% elsif include.response %}{{include.response}}{% else %}null{% endif %}{% endif %}
+  %}{% endif %}{% elsif include.response %}{{include.response}}{% else %}{ }{% endif %}{% endif %}
 }
 ```
 {% endcapture %}
@@ -147,9 +152,9 @@ pims.unsubscribe( api: "{{include.name}}" /* no params */ ){% endif %}
 {
   "transactionId": "953cfefb-bc72",
   "status": "RESULT",
-  "result": {% if include.sample_type == "ref" %}{% if datas == "none" or datas == null %}null{% else%}{% endif %}{% 
+  "result": {% if include.sample_type == "ref" %}{% if include.datas == "none" or include.datas == null %}{ }{% else%}{% endif %}{% 
     include api-reference-code-sample-json.html 
-    datas=datas
+    datas=include.datas
     indent="  "
     indentLevel=0
   %}{% else %}{{include.notification}}{% endif %}
@@ -165,7 +170,7 @@ pims.unsubscribe( api: "{{include.name}}" /* no params */ ){% endif %}
 {% if include.custom_code_sample %}
 {% assign failed = include.failed %}
 {% else %}
-{% if include.errors %}
+{% if include.errors and include.errors[0] != null %}
 {% capture failed %}
 ```js
 // representation of the `failed` dictionary objects messages as JSON
@@ -176,7 +181,7 @@ pims.unsubscribe( api: "{{include.name}}" /* no params */ ){% endif %}
   "status": "FAILED",
   "error": {
     "code": {{error.code}},
-    "label": "{{error.label}}"{% if error.subcode %},
+    "label": "{{error.message}}"{% if error.subcode %},
     "subCode": [...]{% endif %}
   }
 }
@@ -223,7 +228,7 @@ webportal.{{include.type}}(
     /* api name */
     "{{include.name}}",
     /* parameters */
-    {% if include.params == "none" or params == null %} null{% else %}{% if include.params_example %} {{include.params_example}} {% else %}{% for p in include.params %}{% if forloop.length == 1 %}{% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
+    {% if include.params == "none" or include.params == null %} null{% else %}{% if include.params_example %} {{include.params_example}} {% else %}{% for p in include.params %}{% if forloop.length == 1 %}{% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
       "{{p.name}}": {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% if forloop.last == false %},{% else %}
         }{% endif %}{% endif %}{% endfor %}{% endif %}{% endif %}{%- if include.type == "subscribe" -%},
     /* callback for `NOTIFY` messages */
@@ -251,7 +256,7 @@ webportal.{{include.type}}(
   "id": "7372c16f-5f2f-42c9-84a7-5490e35f1be0", 
   "type": "{{include.type | upcase}}", 
   "api": "{{include.name}}",
-  "params": {% if include.params == "none" or params == null %} null{% else %}{% if include.params_example %} {{include.params_example}} {% else %}{% for p in include.params %}{% if forloop.length == 1 %}{% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
+  "params": {% if include.params == "none" or include.params == null %} null{% else %}{% if include.params_example %} {{include.params_example}} {% else %}{% for p in include.params %}{% if forloop.length == 1 %}{% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
     "{{p.name}}": {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% if forloop.last == false %},{% else %}
   }{% endif %}{% endif %}{% endfor %}{% endif %}{% endif %}
 }
@@ -341,7 +346,9 @@ webportal.{{include.type}}(
       class="{{header_class}}"
       href="
         {%- if include.sdk_name == "mobile-sdk" -%}
-          {{- site.baseurl -}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/
+          {%- if include.sdk_version -%}{%- assign refVersion = include.sdk_version -%}
+          {%- else -%}{%- capture refVersion-%}{%- include api-reference-toolkit-v2.html type="lastSpecVersionDashed" -%}{%- endcapture -%}{%- endif -%}
+          {{- site.baseurl -}}/mobile-sdk/references/v{{ refVersion | replace: ".", "-"}}/
           {{- include.component | slugify -}}-
           {{- include.type | slugify -}}-
           {{- include.name | slugify -}}

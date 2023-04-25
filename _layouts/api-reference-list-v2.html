@@ -21,7 +21,7 @@ layout: doc-article
 {% if page.section == "webportal" and page.subsection == "v1" %}
 {% assign buttonsTypes = "api event" | split: " " %}
 {% else %}
-{% assign buttonsTypes = "get set subscribe" | split: " " %}
+{% assign buttonsTypes = "get set subscribe function" | split: " " %}
 {% endif %}
 
 {% assign sdkChangelog = sdk_name | append: "-changelog" %}
@@ -233,7 +233,7 @@ layout: doc-article
       
         <a
           class="api-name {% if sdk_name == "mobile-sdk" or "web-sdk" %}api-name-min{% endif %}"
-          href="{{site.baseurl}}{%- include api-reference-toolkit-v2.html type="apiUrl" api=page version=api.sdkInfo.version -%}/#article"
+          href="{{site.baseurl}}{%- include api-reference-toolkit-v2.html type="apiUrl" api=page version=page.version -%}/#article"
         >
         
             {%- comment -%} VERBS {%- endcomment -%}

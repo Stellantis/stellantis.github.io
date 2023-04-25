@@ -1,0 +1,29 @@
+
+{% unless no_edit_layouts contains page.layout %}
+<a 
+    {% if page.section == "web-sdk" and page.layout contains "api-reference"  %}
+    href="{{site.gitHubSpecWebSdk}}{{site.gitHubMasterPath}}{{page.section}}-v{%- if page.version -%}{{page.version | replace:".", "-"}}{%- else -%}{{page.title | replace:".", "-"}}{%- endif -%}.yml"
+    {% elsif page.section == "mobile-sdk" and page.layout contains "api-reference"  %}
+    href="{{site.gitHubSpecMobileSdk}}{{site.gitHubMasterPath}}{{page.section}}-v{%- if page.version -%}{{page.version | replace:".", "-"}}{%- else -%}{{page.title | replace:".", "-"}}{%- endif -%}.yml"
+    {% elsif page.section == "mobile-sdk" and page.layout contains "api-reference" %}
+    href="{{site.gitHubMobileSdk}}{{site.gitHubMasterPath}}{{page.section}}-v{{version}}.yml"
+    {% elsif page.gitHubPath %}
+    href="{{site.gitHubURL}}{{page.gitHubPath}}"
+    {% elsif page.title == "Specification" and page.subsection == "b2b" %}
+    href="{{site.gitHubSpecB2B}}"
+    {% elsif page.title == "Specification" and page.subsection == 'b2c' %}
+    href="{{site.gitHubSpecB2C}}"
+    {% else %}
+    href="{{site.gitHubURL}}{{ page.path }}"
+    {% endif %} 
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+{% endunless %}

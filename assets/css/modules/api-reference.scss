@@ -2,6 +2,9 @@
 # In order to import this stlye, import it with 'require: api-reference' in the page front matter.
 ---
 
+$function-color: #6e6e6e;
+$function-dark-color: #4f4f4f;
+$function-light-color: #acacac;
 $get-color: #61affe;
 $get-dark-color: #3095fa;
 $get-light-color: #61b0feda;
@@ -98,6 +101,11 @@ a.api-code-header-text:hover {
 cursor: pointer;
 }
 
+.api-code-header-function {
+background-color: $function-color;
+border-color: $function-color;
+}
+
 .api-code-header-get {
 background-color: $get-color;
 border-color: $get-color;
@@ -139,6 +147,36 @@ hr {
 }
 
 
+
+.api-content-container-function.api-content-container {
+    border-left-color: $function-light-color;
+    .api-content {
+        .api-content-tag {
+            background-color: $function-color;
+        }
+        .api-table-header, .api-code-header{
+            background-color: $function-color;
+        }
+    }
+    .api-content-name {
+        color: $function-dark-color;
+    }
+}
+
+.api-content-container-get.api-content-container {
+    border-left-color: $get-light-color;
+    .api-content {
+        .api-content-tag {
+            background-color: $get-color;
+        }
+        .api-table-header, .api-code-header{
+            background-color: $get-color;
+        }
+    }
+    .api-content-name {
+        color: $get-dark-color;
+    }
+}
 
 .api-content-container-get.api-content-container {
     border-left-color: $get-light-color;

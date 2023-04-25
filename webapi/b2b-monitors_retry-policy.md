@@ -5,7 +5,7 @@ section: webapi
 subsection: b2b
 categorie: Monitor
 title: Retry Policy
-gitHubPath: webapi/content/retry-policy.md
+gitHubPath: webapi/content/webapi_retry-policy.md
 description: "Information about WEB API for fleet owners monitors blacklisting policy."
 ---
 
