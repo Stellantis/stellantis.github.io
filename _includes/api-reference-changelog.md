@@ -19,6 +19,6 @@ Version | Name
 
 #### {{v.name}}
 
-{{v.description}}
+{{v.description | markdownify}}
 
 {% endfor %}

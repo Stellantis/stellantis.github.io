@@ -213,4 +213,4 @@ When you have access to **stepsID**, you can use the following API to return the
 
 Once a step reach the status **alreadyDone** in **pims.vehicle.steps**, the step will remain in the same status unless if the cache is wiped. In order to reset this cache, we should request **pims.vehicle.steps** using the parameter `resetSteps == true`.
 
-In case of error *2317* or *2312* when using [pims.authentication.otp - withPIN]({{site.baseurl}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/strongauthentication-get-pims-authentication-otp-withpin/#article), you should use `"resetStep": true` in the query. This action will refresh the cache and remove these errors.
+In case of error *2317* or *2312* when using [pims.authentication.otp - withPIN]({{site.baseurl}}/mobile-sdk/references/v{%- include api-reference-toolkit-v2.html type="lastSpecVersionDashed" -%}/strongauthentication-get-pims-authentication-otp-withpin/#article), you should use `"resetStep": true` in the query. This action will refresh the cache and remove these errors.

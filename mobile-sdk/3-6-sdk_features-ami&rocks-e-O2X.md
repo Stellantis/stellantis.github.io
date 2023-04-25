@@ -32,13 +32,13 @@ They are 2 types of reception stream depending on the parameter **reception**:
 - 🚗 **Status**: when `reception == status`, subscribe events are received when the vehicle status change. Vehicle status are: *Parked, Drive & Charging*.
 
 Subscribing to *pims.vehicle.informations* will scan for vehicle nearby and try to connect. Scanning will be impacted by the parameter **firstTime** of the query:
-- Use `firstTime == true`, if you want to subscribe to a new vehicle. You must **include** the parameter VIN in the query. Timeout will happen after 60 sec of unsuccessfull scanning, but default values can be changed in [pims.vehicle.timeout]({{site.baseurl}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/o2x-set-pims-vehicle-timeout/#article).
+- Use `firstTime == true`, if you want to subscribe to a new vehicle. You must **include** the parameter VIN in the query. Timeout will happen after 60 sec of unsuccessfull scanning, but default values can be changed in [pims.vehicle.timeout]({{site.baseurl}}/mobile-sdk/references/v{%- include api-reference-toolkit-v2.html type="lastSpecVersionDashed" -%}/o2x-set-pims-vehicle-timeout/#article).
 - Otherwise, use `firstTime == false` if you want to subscribe to the previous vehicle. You should **not include** the parameter VIN in the query. There is no timeout in this case.
 
 
-**Only one VIN** can be subscribed at a time. You can check the current subscribed VIN using [pims.vehicle.vin-O2X]({{site.baseurl}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/o2x-get-pims-vehicle-vin-o2x/#article).
+**Only one VIN** can be subscribed at a time. You can check the current subscribed VIN using [pims.vehicle.vin-O2X]({{site.baseurl}}/mobile-sdk/references/v{%- include api-reference-toolkit-v2.html type="lastSpecVersionDashed" -%}/o2x-get-pims-vehicle-vin-o2x/#article).
 
-> **BLE:** *AMI and Rocks-e* use **Bluetooth Low Energy** in order to transfer vehicle information, the user does not have to proceed to any Bluethooth pairing in the device settings.
+> **BLE:** *AMI and Rocks-e* use **Bluetooth Low Energy** in order to transfer vehicle information, the user does not have to proceed to any Bluetooth pairing in the device settings.
 
 {%- capture O2XSubscribeVhclInfoRequestKotlin -%}
   Pair("actionType", "O2X"),

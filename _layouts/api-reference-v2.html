@@ -2,6 +2,8 @@
 layout: doc-article
 ---
 
+{% assign version = page.title %}
+
 {%- comment -%} API {%- endcomment -%}
 <div class="api">
 
@@ -22,7 +24,7 @@ layout: doc-article
                 {%- include 
                   api-reference-toolkit-v2.html 
                   type="listUrl" 
-                  version=page.sdkInfo.version 
+                  version=version 
                 -%}
                 /#
                 {%- include 
@@ -69,10 +71,10 @@ layout: doc-article
       {%- comment -%} PREREQUISITES {%- endcomment -%}
 
       {%- comment -%} CURRENT VERSION {%- endcomment -%}
-      {% if page.sdkInfo.version %}
+      {% if version %}
       <div class="api-availability api-general-block">
         <span class="api-header-title">SDK Version: </span>
-        <span>v{{page.sdkInfo.version}}</span>
+        <span>v{{version}}</span>
       </div>
       {% endif %}
 
@@ -90,7 +92,7 @@ layout: doc-article
       <div class="api-availability api-general-block">
         <span class="api-header-title">API Last update: </span>
         <span>v{{page.lastUpdate}}</span>
-        {% if page.lastUpdate == page.sdkInfo.version %}
+        {% if page.lastUpdate == version %}
           <span class="tag is-warning">
           {% if page.firstAvailability == page.lastUpdate %}New 
           {% elsif page.firstAvailability != page.lastUpdate %}Updated
@@ -132,7 +134,7 @@ layout: doc-article
         <span class="api-header-title"> Operation{% if page.type.size > 1 %}s{% endif %}:</span>
         <div class="api-types">
           <ul>
-            {% assign buttonsTypes = "get set subscribe" | split: " " %}
+            {% assign buttonsTypes = "get set subscribe function" | split: " " %}
             {% for buttonType in buttonsTypes %}
               {% if page.type contains buttonType %}
               <li>
@@ -155,89 +157,6 @@ layout: doc-article
   </div>
   {%- comment -%} END API HEADER {%- endcomment -%}
   {% for t in page.type %}
-
-    {%- comment -%} ------ ASSIGN DATAs & PARAMs ------ {%- endcomment -%}
-    {% if t contains "get" %}
-
-    {% if    page.dataget %} {% assign datas = page.dataget %}
-    {% elsif page.output %}    {% assign datas = page.output %}
-    {% else %}              {% assign datas = null %} {% endif %}
-
-    {% if    page.paramsget %} {% assign params = page.paramsget %}
-    {% elsif page.parameters %}    {% assign params = page.parameters %}
-    {% else %}                {% assign params = null %} {% endif %}
-
-    {% if    page.errorget %} {% assign errors = page.errorget %}
-    {% elsif page.errors %}    {% assign errors = page.errors %}
-    {% else %}               {% assign errors = null %} {% endif %}
-
-    {% if    page.paramsget_example %} {% assign params_example = page.paramsget_example %}
-    {% elsif page.params_example %}    {% assign params_example = page.params_example %}
-    {% else %}                        {% assign params_example = null %} {% endif %}
-
-    {% if page.dataget_example %} {% assign data_example = page.dataget_example %}
-    {% elsif page.data_example %} {% assign data_example = page.data_example %}
-    {% else %}                   {% assign data_example = null %} {% endif %}
-    
-    {% if page.componentget %} {% assign component = page.componentget %}
-    {% elsif page.component %} {% assign component = page.component %}
-    {% else %}                   {% assign component = null %} {% endif %}
-    
-
-
-    {% elsif t contains "set" %}
-
-    {% if    page.dataset %} {% assign datas = page.dataset %}
-    {% elsif page.output %}    {% assign datas = page.output %}
-    {% else %}              {% assign datas = null %} {% endif %}
-
-    {% if    page.paramsset %} {% assign params = page.paramsset %}
-    {% elsif page.parameters %}    {% assign params = page.parameters %}
-    {% else %}                {% assign params = null %} {% endif %}
-
-    {% if    page.errorset %} {% assign errors = page.errorset %}
-    {% elsif page.errors %}    {% assign errors = page.errors %}
-    {% else %}               {% assign errors = null %} {% endif %}
-
-    {% if    page.paramsset_example %} {% assign params_example = page.paramsset_example %}
-    {% elsif page.params_example %}    {% assign params_example = page.params_example %}
-    {% else %}                        {% assign params_example = null %} {% endif %}
-    
-    {% if    page.dataset_example %} {% assign data_example = page.dataset_example %}
-    {% elsif page.data_example %}    {% assign data_example = page.data_example %}
-    {% else %}                      {% assign data_example = null %} {% endif %}
-
-    {% if page.componentset %} {% assign component = page.componentset %}
-    {% elsif page.component %} {% assign component = page.component %}
-    {% else %}                {% assign component = null %} {% endif %}
-
-    {% elsif t contains "subscribe" %}
-
-    {% if    page.datasubscribe %} {% assign datas = page.datasubscribe %}
-    {% elsif page.output %}          {% assign datas = page.output %}
-    {% else %}                    {% assign datas = null %} {% endif %}
-
-    {% if    page.paramssubscribe %} {% assign params = page.paramssubscribe %}
-    {% elsif page.parameters %}          {% assign params = page.parameters %}
-    {% else %}                      {% assign params = null %} {% endif %}
-    
-    {% if page.errorsubscribe %} {% assign errors = page.errorsubscribe %}
-    {% elsif page.errors %}       {% assign errors = page.errors %}
-    {% else %}                  {% assign errors = null %} {% endif %}
-    
-    {% if    page.paramssubscribe_example %} {% assign params_example = page.paramssubscribe_example %}
-    {% elsif page.params_example %}          {% assign params_example = page.params_example %}
-    {% else %}                              {% assign params_example = null %} {% endif %}
-    
-    {% if    page.datasubscribe_example %} {% assign data_example = page.datasubscribe_example %}
-    {% elsif page.data_example %}          {% assign data_example = page.data_example %}
-    {% else %}                      {% assign data_example = null %} {% endif %} 
-    
-    {% if page.componentsubscribe %} {% assign component = page.componentsubscribe %}
-    {% elsif page.component %}       {% assign component = page.component %}
-    {% else %}                      {% assign component = null %} {% endif %} {% endif %}
-    {%- comment -%}  END ASSIGN DATAs   {%- endcomment -%}
-
   <div 
     class="api-content-container api-content-container-{{t | downcase }}"
   >
@@ -260,22 +179,6 @@ layout: doc-article
       </div>
             {{page.apiName }}{% if page.subname %}<em> - {{page.subname}}</em>{% endif %}
           </a>
-        
-          <div class="api-type-edit-buttons is-flex is-justify-content-center is-align-items-baseline">
-            
-            <a href="{{site.gitHubURL}}{{page.path}}"
-              class="button edit-page icon-button is-outlined is-pulled-right is-small"
-              target="_blank"
-              title="Edit this page on GitHub">
-              <span class="icon">
-                <i class="fab fa-github"></i>
-              </span>
-              <span class="edit-page-text">
-                Edit
-              </span>
-            </a>
-          
-          </div>
 
         </div>
 
@@ -297,9 +200,8 @@ layout: doc-article
           <div class="api-short">{{page.textsubscribe | markdownify}}</div>
           {% endif %}
           {% endif %}
-          {%- comment -%} END API DESCRIPTION {%- endcomment -%}
-          
         </div>
+        {%- comment -%} END API DESCRIPTION {%- endcomment -%}
 
 
         {%- comment -%}  API CONTENT TABLE   {%- endcomment -%}
@@ -309,7 +211,7 @@ layout: doc-article
             {%- comment -%}  API CONTENT TABLE PARAMS  {%- endcomment -%}
             <thead>
               <tr><th colspan="6" class="api-table-header api-params">Input Parameter</th></tr>
-              {% if params == null or params == "none" %}
+              {% if page.parameters == null or page.parameters == "none" %}
             </thead>
             <tbody>
               <tr>
@@ -340,23 +242,26 @@ layout: doc-article
               </tr>
             </thead>
             <tbody>
-              {% for p in params %}
-              {% include api-reference-table-row.html
-                rowType="param"
-                ref=p.ref
-                name=p.name
-                description=p.description
-                type=p.type
-                unit-value=p.unitOrValue
-                example=p.example
-                required=p.required
-                fields=p.fields
-                sdk_name=page.section
-                %}
-                {% endfor %}
-                {% endif %}
-              </tbody>
-              {%- comment -%}  END API CONTENT TABLE PARAMs  {%- endcomment -%}
+            {% if page.parameters[0].name %}
+              {% for p in page.parameters %}
+                {% include api-reference-table-row.html
+                  rowType="param"
+                  ref=p.ref
+                  name=p.name
+                  description=p.description
+                  type=p.type
+                  unit-value=p.unitOrValue
+                  example=p.example
+                  required=p.required
+                  fields=p.fields
+                  sdk_name=page.section
+                  %}
+              {% endfor %}
+            {% endif %}
+
+            {% endif %}
+            </tbody>
+            {%- comment -%}  END API CONTENT TABLE PARAMs  {%- endcomment -%}
             </table>
         </div>
         <div class="api-table">
@@ -364,7 +269,7 @@ layout: doc-article
               {%- comment -%}   API CONTENT TABLE DATAs  {%- endcomment -%}
               <thead>
                 <tr><th colspan="5" class="api-table-header api-data">Output Data</th></tr>
-                {% if datas == null or datas == "none" %}
+                {% if page.output == null or page.output == "none" %}
               </thead>
               <tbody>
                 <tr>
@@ -392,71 +297,82 @@ layout: doc-article
                 </tr>
               </thead>
               <tbody>
-                {% for d in datas %}
+              {% if page.output.name %}
                 {% include api-reference-table-row.html
                   rowType="data"
-                  ref=d.ref
-                  name=d.name
-                  description=d.description
-                  type=d.type
-                  unit-value=d.unitOrValue
-                  example=d.example
-                  fields=d.fields
+                  name=page.output.name
+                  description=page.output.description
+                  type=page.output.type
+                  unit-value=page.output.unitOrValue
+                  example=page.output.example
+                  fields=page.output.fields
                   sdk_name=page.section
-                  %}
+                %}
+              {% elsif page.output[0].name %}
+                  {% for d in page.output %}
+                    {% include api-reference-table-row.html
+                      rowType="data"
+                      name=d.name
+                      description=d.description
+                      type=d.type
+                      unit-value=d.unitOrValue
+                      example=d.example
+                      fields=d.fields
+                      sdk_name=page.section
+                      %}
                   {% endfor %}
-                  
-                  {% endif %}
-                </tbody>
-                {%- comment -%}  END API CONTENT TABLE DATAs  {%- endcomment -%}
-              </table>
-            </div>
-            {%- comment -%} END API CONTENT TABLE   {%- endcomment -%}
+              {% endif %}
+              {% endif %}
+              </tbody>
+              {%- comment -%}  END API CONTENT TABLE DATAs  {%- endcomment -%}
+          </table>
+        </div>
+        {%- comment -%} END API CONTENT TABLE   {%- endcomment -%}
             
-            {%- comment -%} TABLE ERROR (MOBILE-SDK) {%- endcomment -%}
-            {% if page.section == "mobile-sdk" or page.section == "web-sdk" %}
-            <div class="api-table api-table-error">
-              <table>
-                <thead>
-                  <tr><th colspan="3" class="api-table-header api-data">Error</th></tr>
-                  {%- if errors == null or errors == "none" -%}
-                </thead>
-                <tbody>
-                  <tr>
-                    <td colspan="3">
-                      <em>No errors</em>
-                    </td>
-                  </tr>
-                  {%- else -%}
-                  <tr class="api-col-title">                    
-                    <th>
-                      Code
-                    </th>
-                    <th>
-                      Type
-                    </th>
-                    <th>
-                      Message
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {%- for error in errors -%}
-                  <tr>
-                    <td><strong>{{error.code}}</strong></td>
-                    <td>
-                      {{error.type}}
-                    </td>
-                    <td>{{error.message | markdownify}}</td>
-                  </tr>
-                  {%- endfor -%}
-                  {%- endif -%}
-                </tbody>
-                {%- comment -%} END TABLE ERROR (MOBILE-SDK) {%- endcomment -%}
-              </table>
-            </div>
-            {% endif %}
-            {%- comment -%}  END API CONTENT TABLE   {%- endcomment -%}
+        {%- comment -%} TABLE ERROR (MOBILE-SDK) {%- endcomment -%}
+        {% if page.section == "mobile-sdk" or page.section == "web-sdk" %}
+        <div class="api-table api-table-error">
+          <table>
+            <thead>
+              <tr><th colspan="3" class="api-table-header api-data">Error</th></tr>
+              {%- if page.errors == null or page.errors[0] == null or page.errors == "none" -%}
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="3">
+                  <em>No errors</em>
+                </td>
+              </tr>
+              {%- else -%}
+              <tr class="api-col-title">                    
+                <th>
+                  Code
+                </th>
+                <th>
+                  Type
+                </th>
+                <th>
+                  Message
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {%- for error in page.errors -%}
+              <tr>
+                <td><strong>{{error.code}}</strong></td>
+                <td>
+                  {{error.type}}
+                </td>
+                <td>{{error.message | markdownify}}</td>
+              </tr>
+              {%- endfor -%}
+              {%- endif -%}
+            </tbody>
+            {%- comment -%} END TABLE ERROR (MOBILE-SDK) {%- endcomment -%}
+          </table>
+        </div>
+        {% endif %}
+        {%- comment -%}  END API CONTENT TABLE   {%- endcomment -%}
 
 {%- comment -%}  API CONTENT CODE EXAMPLE   {%- endcomment -%}
 {%- comment -%}  **WARNING:** CODE EXAMPLE should not be indented to avoid issues w/ markdown {%- endcomment -%}
@@ -471,11 +387,11 @@ layout: doc-article
   name=page.apiName
   subname=page.subname
   
-  params=params
-  datas=datas
-  params_example=params_example
+  params=page.parameters
+  datas=page.output
+  params_example=page.parameters_example
   data_example=data_example
-  errors=errors
+  errors=page.errors
 %}
 
 

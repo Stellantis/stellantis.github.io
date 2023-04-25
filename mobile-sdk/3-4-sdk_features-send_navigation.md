@@ -19,8 +19,9 @@ With this feature, a user of your app is able to send a navigation to the vehicl
 
 In order send a navigation to the vehicle, you should first implement the **prerequisites**:
 - 🔌 [Connect](#connect-device-android) the device (only for Android devices).
-- 🏁 [Start](#start-service) the SendToNav service.
+- 🏁 [Start](#start-service) the Bluetooth service.
 - 🔔 [Subscribe](#subscribe-to-events) to Navigation events.
+- 🚗 [Select](#select-vehicles) vehicle.
 
 You will then be able to **send a navigation**:
 - 📍 Using the [coordinates](#send-with-coordinates) of the destination.
@@ -55,16 +56,36 @@ On iOS, this feature does not exist and therefore is not required. You can direc
 
 ## Start Service
 
-On Android & iOS, you must **start sendToNav** service. Without the service activated, it's not possible to send a navigation to the vehicle:
+On Android & iOS, you must **start Bluetooth** service. Without the service activated, it's not possible to send a navigation to the vehicle:
 
 {%- capture startDestinationServiceRequestKotlin -%}
-  Pair("action", "start")
-  Pair("service", "bluetooth")
+  Pair("action", "start"),
+  Pair("service", "bluetooth"),
+  Pair("vins", mapOf(
+    mapOf(
+      Pair("vin", "VR1AB12C3D4567890"),
+      Pair("gdpr", true))
+    ),
+    mapOf(
+      Pair("vin", "VR1AB12C3D4567891"),
+      Pair("gdpr", false)
+    )
+  )
 {%- endcapture -%}
 
 {%- capture startDestinationServiceRequestSwift -%}
-  "action": "start"
-  "service": "bluetooth"
+  "action": "start",
+  "service": "bluetooth",
+  "vins": [
+    [
+        "vin": "VR1AB12C3D4567890",
+        "gdpr": true
+    ],
+    [
+        "vin": "VR1AB12C3D4567891",
+        "gdpr": false
+    ]
+  ]
 {%- endcapture -%}
 
 
@@ -77,6 +98,8 @@ On Android & iOS, you must **start sendToNav** service. Without the service acti
   response=null
   component="BTConnectivity"
 %}
+
+> **Note:** Starting from [SDK version 2.3]({{site.baseurl}}/mobile-sdk/references/v2-3/#article), this API has been transferred from *Send Navigation* to *Bluetooth Connectivity* component. Check-out the [changelog]({{site.baseurl}}/mobile-sdk/references/changelog/#v23).
 
 When you don't need the service anymore, you can disconnect the service using the same API with **action** param set to `stop`.
 
@@ -123,6 +146,30 @@ Events are received in the following conditions:
   component="SendToNav"
 %}
 
+## Select Vehicle
+
+Before sending navigation with *set-pims.vehicle.destination(s)*, you must select a vehicle using this API:
+
+{%- capture setVehicleVinKotlin -%}
+  Pair("vin", "VR1AB12C3D45678909")
+{%- endcapture -%}
+
+{%- capture setVehicleVinSwift -%}
+  "vin": "VR1AB12C3D45678909"
+{%- endcapture -%}
+
+{% include api-reference-code-sample.html
+  sdk_name=page.section
+  type="set"
+  name="pims.vehicle.vin"
+  request_params_swift=setVehicleVinSwift
+  request_params_kotlin=setVehicleVinKotlin
+  response="null"
+  component="VehicleInformation"
+%}
+
+> **Note:** This API has been released in [SDK version 2.3]({{site.baseurl}}/mobile-sdk/references/v2-3/#article). Before v2.3, *set-pims.vehicle.destination* would include a VIN parameter. Check-out the [changelog]({{site.baseurl}}/mobile-sdk/references/changelog/#v23).
+
 ## Send with Coordinates
 
 To send a navigation to the vehicle using coordinates, you have to provide **longitude and latitude** in the request.
@@ -130,14 +177,14 @@ To send a navigation to the vehicle using coordinates, you have to provide **lon
 {% capture responseSendNav %}
 If everything went fine, you would receive `"status": "sent"` in the **response**, otherwise check [Vehicle Not Reachable](#vehicle-not-reachable).
 
-> **Info:** sending a destination doesn't work if the privacy of the vehicle is not open to *geolocation* (set to *none*), see [pims.vehicle.privacy]({{site.baseurl}}/mobile-sdk/references/v{{site.data.mobile-sdk-changelog[0].version | replace: ".", "-"}}/sendtonav-get-pims-vehicle-privacy/#article).
+> **Info:** sending a destination doesn't work if the privacy of the vehicle is not open to *geolocation* (set to *none*), see [pims.vehicle.privacy]({{site.baseurl}}/mobile-sdk/references/v{%- include api-reference-toolkit-v2.html type="lastSpecVersionDashed" -%}/btconnectivity-get-pims-vehicle-privacy/#article). Starting from [SDK version 2.3]({{site.baseurl}}/mobile-sdk/references/v2-3/#article), this API has been transferred from *SendToNav* to *BTConnectivity* component. Check-out the [changelog]({{site.baseurl}}/mobile-sdk/references/changelog/#v23).
+
 {% endcapture %}
 
 {{responseSendNav}}
 
 {%- capture destinationCoordinatesRequestKotlin -%}
   Pair("action", "coordinate"),
-  Pair("vin", "VR1AB12C3D45678909"),
   Pair("preserve", true),
   Pair("location", mapOf( 
     Pair("latitude", "48.77232"),
@@ -147,7 +194,6 @@ If everything went fine, you would receive `"status": "sent"` in the **response*
 
 {%- capture destinationCoordinatesRequestSwift -%}
   "action": "coordinate",
-  "vin": "VR1AB12C3D45678909",
   "preserve": true,
   "location": [
     "latitude", "48.77232",
@@ -184,14 +230,12 @@ This feature is known as *Share Intent for Android* or *Share Extension for iOS*
 
 {%- capture destinationExtensionRequestKotlin -%}
   Pair("action", "extension"),
-  Pair("vin", "VR1AB12C3D45678909"),
   Pair("preserve", true),
   Pair("extensionInformation", "https://goo.gl/maps/8VPNW6yTfHgPPqb16")
 {%- endcapture -%}
 
 {%- capture destinationExtensionRequestSwift -%}
   "action": "extension",
-  "vin": "VR1AB12C3D45678909",
   "preserve": true,
   "extensionInformation": "https://goo.gl/maps/8VPNW6yTfHgPPqb16"
   

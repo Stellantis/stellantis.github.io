@@ -48,14 +48,11 @@ exclude:
  - "README.md"
  - "Rakefile"
  - "vendor"
- - "vendor"
  
 plugins:
   - jekyll-redirect-from
   - jekyll-datapage-generator
-  - jekyll-datapage-generator
 
-page_gen-dirs: true
 page_gen-dirs: true
 
 page_gen:
@@ -73,47 +70,23 @@ page_gen:
   template: api-reference-mobile-sdk
   dir: /mobile-sdk/references/v2-0/
   name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title: apiName
+  title_expr: + "2.0"
 - data: mobile-sdk-v2-1.apis
   template: api-reference-mobile-sdk
   dir: /mobile-sdk/references/v2-1/
   name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title: apiName
+  title_expr: + "2.1"
 - data: mobile-sdk-v2-2.apis
   template: api-reference-mobile-sdk
   dir: /mobile-sdk/references/v2-2/
   name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title: apiName
-page_gen:
-# ----------------------------------------------
-# ----------------------------------------------
-# ------------------MOBILE SDK------------------
-# ----------------------------------------------
-# ----------------------------------------------
-- data: mobile-sdk-changelog
-  template: api-reference-list-v2-mobile_sdk
-  dir: /mobile-sdk/references/
-  name_expr: + "v" + record['version'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title_expr: + "References v" + record['version']
-- data: mobile-sdk-v2-0.apis
+  title_expr: + "2.2"
+- data: mobile-sdk-v2-3.apis
   template: api-reference-mobile-sdk
-  dir: /mobile-sdk/references/v2-0/
+  dir: /mobile-sdk/references/v2-3/
   name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title: apiName
-- data: mobile-sdk-v2-1.apis
-  template: api-reference-mobile-sdk
-  dir: /mobile-sdk/references/v2-1/
-  name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title: apiName
-- data: mobile-sdk-v2-2.apis
-  template: api-reference-mobile-sdk
-  dir: /mobile-sdk/references/v2-2/
-  name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title: apiName
+  title_expr: + "2.3"
 
-# name_expr: record['component'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-# .downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
-# downcase makes it lowercase. The strip makes sure there is no leading or trailing whitespace. The first gsub replaces spaces with hyphens. The second gsub removes all non-alpha non-dash non-underscore characters (note that this set is very close to \W but includes the dash as well, which is why it's spelled out here).
 # name_expr: record['component'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
 # .downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
 # downcase makes it lowercase. The strip makes sure there is no leading or trailing whitespace. The first gsub replaces spaces with hyphens. The second gsub removes all non-alpha non-dash non-underscore characters (note that this set is very close to \W but includes the dash as well, which is why it's spelled out here).

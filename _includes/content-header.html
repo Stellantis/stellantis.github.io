@@ -1,29 +1,27 @@
 {% assign no_edit_layouts = "simple-article simple-article-large api-data use-case compare-packages packages" %}
 
+{%- capture pageFullTitle -%}
+  {% if no_edit_layouts contains page.layout %}
+    {{page.subtitle}}
+  {% elsif page.layout contains "api-reference" and page.type %}
+    {% if page.apiName %}{{page.apiName}}{% else %}{{page.name}}{% endif %}
+    {%- if page.subname -%}-{{page.subname}}{%- endif%}
+  {% else %}
+    {{page.title}}
+  {% endif %}
+{%- endcapture -%}
+
 <div class="content-header" >
     <div class="page-title-container">
 
     {%-  comment -%}---PAGE TITLE---{%-  endcomment -%}
         <h1 id="page-title">
-        {% if no_edit_layouts contains page.layout %}
-            <span>
-                {{page.subtitle}}
+          <span {% if  page.layout contains "api-reference" and page.type %}style="font-size: 1.35rem"{% endif %}>
+              {% unless no_edit_layouts contains page.layout %}
+              {{page.categorie}} - 
+              {% endunless %}
+                {{pageFullTitle}}
             </span>
-        {% elsif page.layout == "api-reference" and page.type %}
-            <span style="font-size: 1.35rem">
-                {{page.categorie}} - {{page.name}}
-                {%- if page.subname -%}
-                    -{{page.subname}}
-                {%- endif%}
-            </span>
-        {% else %}
-            <span>
-                {% if page.categorie %}
-                    {{page.categorie}} - 
-                {% endif %}
-                    {{page.title}}
-            </span>
-        {% endif %}
         </h1>
     {%- comment -%}---END PAGE TITLE---{%- endcomment -%}
 
@@ -125,28 +123,10 @@
 
     {%-  comment -%}---EDIT WITH GITHUB---{%-  endcomment -%}
     <div class="is-flex is-justify-content-center is-align-items-baseline">
-        {% unless no_edit_layouts contains page.layout %}
-        <a 
-            {% if page.gitHubPath %}
-            href="{{site.gitHubURL}}{{page.gitHubPath}}"
-            {% elsif page.title == "Specification" and page.subsection == "b2b" %}
-            href="{{site.gitHubSpecB2B}}"
-            {% elsif page.title == "Specification" and page.subsection == 'b2c' %}
-            href="{{site.gitHubSpecB2C}}"
-            {% else %}
-            href="{{site.gitHubURL}}{{ page.path }}"
-            {% endif %} 
-            class="button is-small edit-page icon-button is-outlined is-pulled-right" 
-            target="_blank" 
-            title="Edit this page on GitHub">
-                <span class="icon">
-                    <i  class="fab fa-github"></i> 
-                </span>
-                <span class="edit-page-text">
-                    Edit
-                </span>
-        </a>
-        {% endunless %}
+        {% 
+            include
+            edit-with-github.html
+        %}
     
     </div>
 
@@ -178,7 +158,7 @@
             {% endif %}
             <li>
                 <a href="#article" aria-current="page">
-                    {{page.title}}
+                    {{pageFullTitle}}
                 </a>
             </li>
         </ul>
@@ -197,6 +177,10 @@
     {% elsif page.section == "mobile-sdk" %}
     <div class="notification page-disclaimer">
       <strong>Info:</strong> Stellantis Mobile SDK is <strong>not publicly available</strong>.
+    </div>
+    {% elsif page.section == "web-sdk" %}
+    <div class="notification page-disclaimer">
+      <strong>Info:</strong> Stellantis Web SDK is <strong>not publicly available</strong>.
     </div>
     {% endif %}
     {%-  comment -%}---END  DISCLAIMER---{%-  endcomment -%}

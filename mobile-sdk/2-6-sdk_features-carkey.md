@@ -28,13 +28,29 @@ To activate *CarKey* on the user account, the following requirements need to be 
 
 Before activating a **CarKey**, you can check if it's already activated. If it’s already activated, you don’t need to launch the process again. 
 
-{%- capture checkAuthRequestKotlin -%}
-  Pair("vin", "VR1AB12C3D4567890")
+In order to check a CarKey with *get-pims.vehicle.carkey*, you must select a vehicle using this API:
+
+{%- capture setVehicleVinKotlin -%}
+  Pair("vin", "VR1AB12C3D45678909")
 {%- endcapture -%}
 
-{%- capture checkAuthRequestSwift -%}
-  "vin": "VR1AB12C3D4567890"
+{%- capture setVehicleVinSwift -%}
+  "vin": "VR1AB12C3D45678909"
 {%- endcapture -%}
+
+{% include api-reference-code-sample.html
+  sdk_name=page.section
+  type="set"
+  name="pims.vehicle.vin"
+  request_params_swift=setVehicleVinSwift
+  request_params_kotlin=setVehicleVinKotlin
+  response="null"
+  component="VehicleInformation"
+%}
+
+> **Note:** This API has been released in [SDK version 2.3]({{site.baseurl}}/mobile-sdk/references/v2-3/#article). Before v2.3, *get-pims.vehicle.carkey* would include a VIN parameter. Check-out the [changelog]({{site.baseurl}}/mobile-sdk/references/changelog/#v23).
+
+Then, we can check **CarKey** status:
 
 {%- capture checkAuthResponse -%}
 { 
@@ -47,9 +63,9 @@ Before activating a **CarKey**, you can check if it's already activated. If it�
 {% include api-reference-code-sample.html
   sdk_name=page.section
   type="get"
-  name="pims.vehicle.carkey "
-  request_params_swift=checkAuthRequestSwift
-  request_params_kotlin=checkAuthRequestKotlin
+  name="pims.vehicle.carkey"
+  request_params_swift='no_params'
+  request_params_kotlin='no_params'
   response=checkAuthResponse
   component="Carkey"
 %}

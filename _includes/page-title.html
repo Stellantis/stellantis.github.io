@@ -1,6 +1,8 @@
 {%- if page.title -%}
     {% if page.title == "404" %}
         {{page.title}} | {{site.title}}
+        {% elsif page.apiName %}
+        {{page.apiName }}{% if page.subname %}-{{page.subname}}{% endif %}{% if page.component %}&nbsp;|&nbsp;{{page.component.name}}{% endif %}
         {% else %}
         {%- if page.categorie -%}
             {{page.title }}{{page.categorie | capitalize| prepend: " | " }}

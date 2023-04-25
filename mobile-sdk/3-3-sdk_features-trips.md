@@ -102,8 +102,10 @@ Follow this tutorial to **subscribe to vehicle *Trips***:
 
 First of all, you should subscribe to *pims.vehicle.connection*. This api **does not connect** the vehicle with the device, but is made to subscribe to upcoming connection events.
 
-It will send **events** when the vehicle connect/disconnect, see [subscribe - pims.vehicle.trips](#3---subscribe-trips).
+It will send **events** when the vehicle connect/disconnect, see [subscribe - pims.vehicle.trips](#4---subscribe-trips).
 
+
+> **Note:** Starting from [SDK version 2.3]({{site.baseurl}}/mobile-sdk/references/v2-3/#article), this API has been transferred from *Trips* to *Bluetooth Connectivity* component. Check-out the [changelog]({{site.baseurl}}/mobile-sdk/references/changelog/#v23).
 
 {%- capture connectionTripResponse -%}
 {
@@ -124,7 +126,7 @@ It will send **events** when the vehicle connect/disconnect, see [subscribe - pi
   request_params_kotlin="no_params"
   response="null"
   notification=connectionTripResponse
-  component="TripNDrive"
+  component="BTConnectivity"
 %}
 
 ## 2 - Subscribe: Errors
@@ -159,9 +161,53 @@ Again, this api **does not connect** the vehicle with the device, but is made to
   component="TripNDrive"
 %}
 
-## 3 - Subscribe: *Trips*
+## 3 - Start Service
 
-Once subscribed to *[pims.vehicle.connection](#1---subscribe-connection-info)* & *[pims.vehicle.event](#2---subscribe-errors)* you can subscibe to *pims.vehicle.trips*. Subscribing to this API will:
+Before subscribing to *Trips*, it's mandatory to activate *bluetooth* service using the following API:
+
+{%- capture setVehicleServiceKotlin -%}
+  Pair("action", "start"),
+  Pair("vins", mapOf(
+    mapOf(
+      Pair("vin", "VR1AB12C3D4567890"),
+      Pair("gdpr", true))
+    ),
+    mapOf(
+      Pair("vin", "VR1AB12C3D4567891"),
+      Pair("gdpr", false)
+    )
+  )
+{%- endcapture -%}
+
+{%- capture setVehicleServiceSwift -%}
+  "action": "tripNDrive",
+  "vins": [
+  [
+      "vin": "VR1AB12C3D4567890",
+      "gdpr": true
+  ],
+  [
+      "vin": "VR1AB12C3D4567891",
+      "gdpr": false
+  ]
+  ]
+{%- endcapture -%}
+
+{% include api-reference-code-sample.html
+  sdk_name=page.section
+  component="BTConnectivity"
+  type="set"
+  name="pims.vehicle.service"
+  request_params_swift=setVehicleServiceSwift
+  request_params_kotlin=setVehicleServiceKotlin
+  response="null"
+%}
+
+> **Note:** This API has been released in [SDK version 2.3]({{site.baseurl}}/mobile-sdk/references/v2-3/#article). Before v2.3, [subscribe-pims.vehicle.trips](#4---subscribe-trips) would include a VIN parameter. Check-out the [changelog]({{site.baseurl}}/mobile-sdk/references/changelog/#v23).
+
+## 4 - Subscribe: *Trips*
+
+Once subscribed to *[pims.vehicle.connection](#1---subscribe-connection-info)* & *[pims.vehicle.event](#2---subscribe-errors)* and [pims.vehicle.service](#3---start-service) has been activated, you can subscibe to *pims.vehicle.trips*. Subscribing to this API will:
 - **Populate** the *Trip* local database. Navigation that ends will be stored in the local database as *Trips*. You can access the database using the [dedicated APIs](#features).
 - **Trigger** a new event with information about the *Trip* each time a navigation ends.
 
@@ -214,9 +260,9 @@ This API allows subscribing to **multiples VINs**. If you need to add more VIN t
 %}
 
 
-## 4 - Subscribe: Check subscribed vins
+## 5 - Subscribe: Check subscribed vins
 
-If you want to retrieve the list of **VINs subscribed** to [*Subscribe* pims.vehicle.trips](#3---subscribe-trips) in the previous step, you can use the following API:
+If you want to retrieve the list of **VINs subscribed** to [*Subscribe* pims.vehicle.trips](#4---subscribe-trips) in the previous step, you can use the following API:
 
 {%- capture subVinsResponse -%}
 [
@@ -558,17 +604,31 @@ Unmerge *Trip* in the local storage of the mobile phone, the *Trip* should have 
 
 In the *Trip* data, the price of the energy is taken in account.
 
+Before accessing working on trip energy price with *get-pims.vehicle.price* and *set-pims.vehicle.price*, you must select vehicle using this API:
+
+{%- capture setVehicleVinKotlin -%}
+  Pair("vin", "VR1AB12C3D45678909")
+{%- endcapture -%}
+
+{%- capture setVehicleVinSwift -%}
+  "vin": "VR1AB12C3D45678909"
+{%- endcapture -%}
+
+{% include api-reference-code-sample.html
+  sdk_name=page.section
+  type="set"
+  name="pims.vehicle.vin"
+  request_params_swift=setVehicleVinSwift
+  request_params_kotlin=setVehicleVinKotlin
+  response="null"
+  component="VehicleInformation"
+%}
+
+> **Note:** This API has been released in [SDK version 2.3]({{site.baseurl}}/mobile-sdk/references/v2-3/#article). Before v2.3, *get-pims.vehicle.price* and *set-pims.vehicle.price* would include a VIN parameter. Check-out the [changelog]({{site.baseurl}}/mobile-sdk/references/changelog/#v23).
+
 #### Read energy Price
 
 The following api allows reading the energy price:
-
-{%- capture getEnergyPriceRequestKotlin -%}
-  Pair("vin", "VR1AB12C3D4567890"),
-{%- endcapture -%}
-
-{%- capture getEnergyPriceRequestSwift -%}
-  "vin": "VR1AB12C3D4567890",
-{%- endcapture -%}
 
 {%- capture getEnergyPriceResponse -%}
 { 
@@ -582,8 +642,8 @@ The following api allows reading the energy price:
   sdk_name=page.section
   type="get"
   name="pims.vehicle.price"
-  request_params_swift=getEnergyPriceRequestSwift
-  request_params_kotlin=getEnergyPriceRequestKotlin
+  request_params_swift='no_params'
+  request_params_kotlin='no_params'
   response=getEnergyPriceResponse 
   component="TripNDrive"
 %}
@@ -593,13 +653,11 @@ The following api allows reading the energy price:
 The following api allows changing the energy price:
 
 {%- capture setEnergyPriceRequestKotlin -%}
-  Pair("vin", "VR1AB12C3D4567890"),
   Pair("priceFuel", 1.27),
   Pair("priceElectric", 0.85)
 {%- endcapture -%}
 
 {%- capture setEnergyPriceRequestSwift -%}
-  "vin": "VR1AB12C3D4567890",
   "priceFuel": 1.27,
   "priceElectric": 0.85
 {%- endcapture -%}

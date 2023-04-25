@@ -23,6 +23,7 @@ In order to add the *Push Notification* feature to your project, you **must perf
   - [Step 3](#3-select-vehicles--check-their-status): Select the vehicle(s) to enable Push Notif on.
   - [Step 4](#4-enable-an-event): Enabled service on the selected vehicles
   - [Step 5](#5-customize-system-notif): Customize the notification appearance on the user device.
+  - [Step 6](#6-log-received-notifications): Log received notifications.
 
 ## 1. Firebase Config
 
@@ -358,6 +359,33 @@ Add a localizable file *Localizable.string* for every supported language, here i
   tab2Content=setUpSystemNotifIos
 %}
 
+## 6. Log received Notifications
+
+When a notification is recieved on the user device you must call the following API. It will be used for Stellantis internal logs.
+
+Depending on the operating system you should pass this dictionnary as the payload parameter:
+- iOS: `bestAttemptContent.userInfo`.
+- Android: `remoteMessage.data`.
+
+{%- capture setSdkNotifRequestKotlin -%}
+  Pair("payload", remoteMessage.data)
+{%- endcapture -%}
+
+{%- capture setSdkNotifRequestSwift -%}
+  "payload": bestAttemptContent.userInfo
+{%- endcapture -%}
+
+
+{% include api-reference-code-sample.html
+  sdk_name=page.section
+  type="set"
+  name="pims.sdk.notification"
+  request_params_swift=setSdkNotifRequestSwift
+  request_params_kotlin=setSdkNotifRequestKotlin
+  response="null"
+  component="PushNotification"
+%}
+
 ## Disable an event
 
 On the action of the End User, you should disable event notification by calling the following API:
@@ -369,7 +397,7 @@ On the action of the End User, you should disable event notification by calling 
 {%- endcapture -%}
 
 {%- capture setDisableEventsRequestSwift -%}
-  action": "disable",
+  "action": "disable",
   type": ["remoteChargeFinished", "remoteChargeInterrupted"]
 {%- endcapture -%}
 
@@ -396,8 +424,8 @@ On the action of the End User, you should remove a vehicle from the event system
 {%- endcapture -%}
 
 {%- capture setRemoveEventsRequestSwift -%}
-  action": "remove",
-  vin": "VR1AB12C3D4567890"
+  "action": "remove",
+  "vin": "VR1AB12C3D4567890"
 {%- endcapture -%}
 
 

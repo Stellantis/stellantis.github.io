@@ -7,6 +7,7 @@ categorie: API Reference
 # on_this_page: false
 title: Changelog
 description: "Connected vehicle mobile SDK Reference Changelog."
+gitHubPath: _data/mobile-sdk-changelog.yml
 ---
 
 {% include api-reference-changelog.md %}

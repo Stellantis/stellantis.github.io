@@ -1,4 +1,4 @@
-info: &sdkInfo
+info:
   version: "2.0"
   title: Mobile SDK
   description: This SDK helps using Stellantis Web API in the context of the web browser.
@@ -141,596 +141,11 @@ components:
     - PSA
     - O2X
   name: SDK
-  category: overview
+  category: other
   domain: pims.sdk.*
   securities: none
   icon: 📦
   description: Manage SDK features (log, config, etc.)
-objects:
-- &location
-  name: location
-  description: Latitude and longitude fields plus address in one string.
-  type: Object
-  fields:
-    - name: altitude
-      required: true
-      type: Number
-      unitOrValue: m
-      description: Altitude elevation.
-      example: 1034
-    - name: city
-      required: true
-      type: String
-      unitOrValue: n/a
-      description: City name.
-      example: Paris
-    - name: country
-      required: true
-      type: String
-      unitOrValue: n/a
-      description: Country name.
-      example: France
-    - name: date
-      required: true
-      type: String
-      unitOrValue: date yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
-      description: Date when the location has been recovered.
-      example: "2020-11-02T02:50:12.208Z"
-    - name: intersection
-      required: true
-      type: String
-      unitOrValue: n/a
-      description: Intersection.
-      example: "Rue de Rennes, Boulevard Saint-Germain"
-    - name: latitude
-      required: true
-      type: Number
-      unitOrValue: n/a
-      description: Latitude.
-      example: 8.74301
-    - name: longitude
-      required: true
-      type: Number
-      unitOrValue: n/a
-      description: Longitude.
-      example: 8.74301
-    - name: mileage
-      required: true
-      type: Number
-      unitOrValue: km
-      description: Mileage at moment location has been recovered.
-      example: 10762
-    - name: postalCode
-      required: true
-      type: String
-      unitOrValue: n/a
-      description: Postal code.
-      example: 75019
-    - name: quality
-      required: true
-      type: Number
-      unitOrValue: n/a
-      description: GPS signal quality. 
-      example: " " #TODO
-    - name: street
-      required: true
-      type: String
-      unitOrValue: n/a
-      description: Street name.
-      example: Rue de Rennes
-    - name: streetNumber
-      required: true
-      type: String
-      unitOrValue: n/a
-      description: Street number.
-      example: "16 Bis"
-- &vin
-  name: vin
-  description: Vehicle Identification Number.
-  type: String
-  unitOrValue: n/a
-  example: VR1AB12C3D4567890
-- &vehicle
-  name: vehicle
-  type: Object
-  description: Vehicle informations.
-  fields:
-  - name: ressources
-    description: Ressources informations.
-    type: Object
-    fields:
-    - name: status
-      description: Status informations.
-      type: Object
-      fields:
-      - name: lastUpdate
-        type: String
-        description: The last update of vehicle information.
-        unitOrValue: n/a
-        example: '2021-07-29T22:25:09.898Z'
-      - name: fuelInformation
-        description: Fuel Information.
-        type: Object
-        fields:
-        - name: autonomy
-          type: Double
-          description: Autonomy value.
-          unitOrValue: n/a
-          example: 130.0
-        - name: chargingLevel
-          type: Double
-          description: The charging level value.
-          unitOrValue: percentage
-          example: 100.0
-        - name: lastUpdate
-          type: String
-          description: The last update of preconditioning information.
-          unitOrValue: date time
-          example: 2021-07-29T22:25:09.898Z 
-        - name: consumption
-          type: Double
-          description: The consumption value.
-          unitOrValue: n/a
-          example: 23.0
-        - name: type
-          type: Enum of Strings
-          description: The energy information type.
-          unitOrValue:
-            - electric
-            - fuel
-          example: fuel
-      - name: doorStateInformation
-        description: Door State Information.
-        type: Object
-        fields:
-        - name: isDriverDoorOpened
-          type: Boolean
-          description: True if driver door is opened, false otherwise.
-          unitOrValue: n/a
-          example: true
-        - name: isPassengerDoorOpened
-          type: Boolean
-          description: True if passenger doord is opened, false otherwise.
-          unitOrValue: n/a
-          example: true
-        - name: isRearLeftDoorOpened
-          type: Boolean
-          description: True if rear left door is opened, false otherwise.
-          unitOrValue: n/a
-          example: true
-        - name: isRearRightDoorOpened
-          type: Boolean
-          description: True if rear right door is opened, false otherwise.
-          unitOrValue: n/a
-          example: true
-        - name: isRearWindowOpened
-          type: Boolean
-          description: True if rear window is opened, false otherwise.
-          unitOrValue: n/a
-          example: true
-        - name: isRoofWindowOpened
-          type: Boolean
-          description: True if roof window is opened, false otherwise.
-          unitOrValue: n/a
-          example: true
-        - name: isTrunkDoorOpened
-          type: Boolean
-          description: True if trunk is opened, false otherwise.
-          unitOrValue: n/a
-          example: true
-        - name: state
-          type: List of String
-          description: The door status.
-          unitOrValue: 
-            - Unlocked
-            - Locked
-            - SuperLocked
-            - DriverDoorUnlocked
-            - CabinDoorsUnlocked
-            - CargoDoorsLocked
-            - CargoDoorsUnlocked
-            - RearDoorsUnlocked
-            - RearDoorsLocked
-            - TrunkLocked
-          example: Unlocked
-        - name: isDriverDoorOpened
-          type: Boolean
-          description: True if driver door opened false otherwise.
-          unitOrValue: n/a
-          example: true
-      - name: precondInformation
-        description: Preconditioning Information.
-        type: Object
-        fields:
-        - name: lastUpdate
-          type: String
-          description: The last update of preconditioning information.
-          unitOrValue: date time
-          example: "2021-07-29T22:25:09.898Z"
-        - name: PrecondScheduling
-          description: Preconditioning Scheduling Information.
-          type: Object
-          fields:
-          - name: hour
-            type: Integer
-            description: The hour of the preconditioning program.
-            unitOrValue: Hour
-            example: 16
-          - name: isEnabled
-            type: Boolean
-            description: true if preconditioning program is enabled, false otherwis.
-            unitOrValue: n/a
-            example: true
-          - name: recurrence
-            type: String
-            example: "Daily"
-            description: Reccurence of the preconditionning program.
-            unitOrValue: 
-              - "Daily"
-              - "None"
-          - name: occurrence
-            type: List of Strings
-            description: The occurrence on the program will spread on days depending on recurrence value.
-            unitOrValue:
-              - Mon
-              - Tue
-              - Wed
-              - Thu
-              - Fri
-              - Sat
-              - Sun
-            example: ["Mon", "Fri", "Sat"]
-          - name: slot
-            type: Integer
-            description: Slot of the preconditionning program.
-            unitOrValue: n/a
-            example: 1
-          - name: minute
-            type: Integer
-            description: The minute of the preconditioning program.
-            unitOrValue: minutes
-            example: 25
-        - name: status
-          type: String
-          description: The status of preconditioning.
-          unitOrValue: 
-            - Unknown
-            - Disabled
-            - Enabled
-            - Finished
-            - Failure 
-          example: Enabled
-      - name: electricInformation
-        description: Electric Information.
-        type: Object
-        fields:
-        - name: autonomy
-          type: Integer
-          description: The autonomy value.
-          unitOrValue: n/a
-          example: 22
-        - name: ChargingInfo
-          description: Charging Information.
-          type: Object
-          fields:
-          - name: chargingMode
-            type: Enum of string
-            description: The charging mode.
-            unitOrValue:
-              - SLOW
-              - QUICK
-              - NO
-              - UNKNOWN
-            example: QUICK
-          - name: chargingRate
-            type: Double
-            description: The charge rating value.
-            example: 90.0
-            unitOrValue: percentage
-          - name: isPlugged
-            type: Boolean
-            description: "`true` if vehicle is plugged, `false` otherwise." 
-            unitOrValue: n/a
-            example: true
-          - name: nextDeferredChargingDate
-            type: String
-            description: Date of next deferred charge.
-            unitOrValue: duration
-            example:
-          - name: chargingState
-            type: Enum of Strings
-            description: The charging state.
-            unitOrValue:
-              - DISCONNECTED
-              - INPROGRESS
-              - FAILURE
-              - STOPPED
-              - FINISHED
-              - UNKNOWN
-            example: DISCONNECTED 
-          - name: remainingTime
-            type: Long
-            description: The time remaining for the full charg.
-            unitOrValue: time
-            example: PT0S
-        - name: chargingLevel
-          type: Double
-          description: The charging level value.
-          unitOrValue: percentage
-          example: 100.0
-        - name: lastUpdate
-          description: The last update of preconditioning information.
-          type: String
-          unitOrValue: date time
-          example: "2021-07-29T22:25:09.898Z"
-        - name: type
-          description: The energy information type.
-          type: String
-          unitOrValue: 
-            - electric
-            - fuel
-          example: electric
-      - name: vehicleType
-        description: Propulsion type of the vehicle.
-        type: string
-        unitOrValue:
-          - hybrid
-        example: hybrid
-      - *vin
-  - name: attributes
-    description: Attributes informations.
-    type: Object
-    fields:
-      - name: engine
-        type: String
-        description: Vehicle engine type.
-        unitOrValue:
-          - BEV
-          - PHEV
-          - Thermal
-        example: BEV
-      - *vin
-      - name: brand
-        type: String
-        description: Name of the vehicle brand.
-        unitOrValue:
-          - peugeot
-          - citroen
-          - opel
-          - vauxhall
-        example: opel
-- &trip
-  name: trip
-  description: Trip informations.
-  type: Object
-  fields:
-  - name: alerts
-    type: List of Numbers
-    unitOrValue: n/a
-    description: List of JDA alerts actives during trip
-    example: [2, 59, 70]
-  - name: category
-    type: String
-    unitOrValue: n/a
-    description: Trip Category
-    example: WORK
-  - name: createdAt
-    type: String
-    unitOrValue: date `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`
-    description: Date (on UTC) of trip recovery
-    example: "2021-03-30T08:18:20.143Z"
-  - name: daysUntilNextMaintenance
-    type: Number
-    unitOrValue: n/a
-    description: Day until next maintenance alert
-    example: 27
-  - <<: *location
-    name: destination
-    description: Location setted on the Navigation system.
-  - name: distance
-    type: Number
-    unitOrValue: km
-    description: Trip distance.
-    example: 42
-  - name: distanceToNextMaintenance
-    type: Number
-    unitOrValue: km
-    description: Distance until next maintenance alert.
-    example: 596
-  - <<: *location
-    name: end
-    description: Location at the end of the trip.
-  - name: fuelAutonomy
-    type: Number
-    unitOrValue: km
-    description: Automony for fuel engine.
-    example: 150
-  - name: fuelConsumption
-    type: Number
-    unitOrValue: mm3
-    description: Consumption for fuel engine in mm3 (10e6 mm3 = 1 liter).
-    example: 3242500
-  - name: fuelLevel
-    type: Number
-    unitOrValue: "%"
-    description: Percentage of fuel engine level.
-    example: 84
-  - name: id
-    type: Number
-    unitOrValue: n/a
-    description: Trip identifier (generated by the database).
-    example: 71
-  - name: maintenancePassed
-    type: Boolean
-    unitOrValue: n/a
-    description: Maintenance indicators (days or distance) have been exceeded.
-    example: true
-  - name: mergedIds
-    type: List of Number
-    unitOrValue: n/a
-    description: List of trips composing the merged trip. Field present only if `source` is `Merged`.
-    example: "[2, 59, 70]"
-  - name: otherEnergyAutonomy
-    type: Number
-    unitOrValue: km
-    description: Automony for electric engine.
-    example: 98
-  - name: otherEnergyConsumption
-    type: Number
-    unitOrValue: n/a
-    description: Consumption for electric engine.
-    example: 817
-  - name: otherEnergyDistance
-    type: Number
-    unitOrValue: km
-    description: Distance done with electric engine.
-    example: 48
-  - name: otherEnergyLevel
-    type: Number
-    unitOrValue: "%"
-    description: Percentage of electric engine level.
-    example: 20
-  - name: otherEnergyType
-    type: Enum of Number
-    unitOrValue:
-      - "0: Trip was done with a vehicle without electric engine."
-      - "1: Trip was done with a vehicle with electric engine. "
-    description: Energy Type used for the trip.
-    example: 1
-  - name: priceElectric
-    type: Number
-    unitOrValue: n/a
-    description: Price set for electricity.
-    example: 0.85
-  - name: priceFuel
-    type: Number
-    unitOrValue: n/a
-    description: Price set for fuel.
-    example: 1.27
-  - name: source
-    type: Enum of String
-    unitOrValue: 
-      - BTA
-      - Altran
-      - CEA
-      - Merge
-      - Unknown
-    description: Source of the trip.
-    example: CEA
-  - <<: *location
-    name: start
-    description: Location at the begining of the trip.
-  - name: travelTime
-    type: Number
-    unitOrValue: n/a
-    description: Duration on seconds of the trip.
-    example: 748
-  - name: tripNumber
-    type: Number
-    unitOrValue: n/a
-    description: Trip number on the vehicle.
-    example: 7
-  - name: updatedAt
-    type: String
-    unitOrValue: Date UTC yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
-    description: Date (on UTC) of trip update.
-    example: 2021-03-31T18:07:01.737Z
-  - name: user
-    type: String 
-    unitOrValue: email
-    description: User's email.
-    example: uzumaqui.naruto@stellantis.com
-  - *vin
-- &locationCoordinates
-  name: locationCoordinates
-  description: Location with coordinates only.
-  type: Object
-  fields:
-    - name: latitude
-      description: latitude value
-      type: Double
-      unitOrValue: n/a
-      example: 48.77232
-    - name: longitude 
-      description: longitude value
-      type: Double
-      unitOrValue: n/a
-      example: 2.2151043
-    - name: address
-      description: address value
-      type: String
-      unitOrValue: n/a
-      example: Rte de Gisy, 78140 Vélizy-Villacoublay
-- &step
-  name: step
-  description: Information about a step.
-  type: Object
-  fields:
-    - name: name
-      type: String
-      description: Step name value.
-      unitOrValue: 
-        - trusterPhoneNumber
-        - deviceActivation
-        - mediumCarKey
-      example: trusterPhoneNumber
-    - name: status
-      type: String
-      description: Status of the step.
-      unitOrValue: 
-        - todo
-        - alreadyDone
-      example: todo
-    - name: order
-      type: Integer
-      description: Order of the steps.
-      unitOrValue: 
-        - 1
-        - 2
-        - 3
-      example: 2
-- &token
-  name: token
-  description: Token value.
-  type: String
-  unitOrValue: n/a
-  example: "XXi2oI9Fglmgivv7RAJ7i"
-- &username
-  name: username
-  description: User account email.
-  type: String
-  unitOrValue: user@provider.tld
-  example: myname@mail.com
-- &context
-  name: context
-  description: Context. Only for Android.
-  required: true
-  type: context
-  unitOrValue: n/a
-  example: context
-- &TripEditableData
-  name: TripEditableData
-  description: Trip data to modify.
-  type: Object
-  fields:
-    - name: category
-      unitOrValue: n/a
-      required: false
-      type: String
-      description: Category name
-      example: WORK 
-    - name: priceFuel
-      unitOrValue: n/a
-      required: false
-      type: Number
-      description: Price for fuel.
-      example: 1.25
-    - name: priceElectric
-      unitOrValue: n/a
-      required: false
-      type: Number
-      description: Price for electricity.
-      example: 0.89
 errors:
 - &2000
   code: 2000
@@ -1111,9 +526,635 @@ errors:
   code: 2390
   type: "PIMS specific error"
   message: "Phone number allready registered"
+objects:
+- &location
+  name: location
+  description: Latitude and longitude fields plus address in one string.
+  type: Object
+  fields:
+    - name: altitude
+      required: true
+      type: Number
+      unitOrValue: m
+      description: Altitude elevation.
+      example: 1034
+    - name: city
+      required: true
+      type: String
+      unitOrValue: n/a
+      description: City name.
+      example: Paris
+    - name: country
+      required: true
+      type: String
+      unitOrValue: n/a
+      description: Country name.
+      example: France
+    - name: date
+      required: true
+      type: String
+      unitOrValue: date yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+      description: Date when the location has been recovered.
+      example: "2020-11-02T02:50:12.208Z"
+    - name: intersection
+      required: true
+      type: String
+      unitOrValue: n/a
+      description: Intersection.
+      example: "Rue de Rennes, Boulevard Saint-Germain"
+    - name: latitude
+      required: true
+      type: Number
+      unitOrValue: n/a
+      description: Latitude.
+      example: 8.74301
+    - name: longitude
+      required: true
+      type: Number
+      unitOrValue: n/a
+      description: Longitude.
+      example: 8.74301
+    - name: mileage
+      required: true
+      type: Number
+      unitOrValue: km
+      description: Mileage at moment location has been recovered.
+      example: 10762
+    - name: postalCode
+      required: true
+      type: String
+      unitOrValue: n/a
+      description: Postal code.
+      example: 75019
+    - name: quality
+      required: true
+      type: Number
+      unitOrValue: n/a
+      description: GPS signal quality. 
+      example: " " #todo
+    - name: street
+      required: true
+      type: String
+      unitOrValue: n/a
+      description: Street name.
+      example: Rue de Rennes
+    - name: streetNumber
+      required: true
+      type: String
+      unitOrValue: n/a
+      description: Street number.
+      example: "16 Bis"
+- &vin
+  name: vin
+  description: Vehicle Identification Number.
+  type: String
+  unitOrValue: n/a
+  example: VR1AB12C3D4567890
+  required: true
+- &vehicle
+  name: vehicle
+  type: Object
+  description: Vehicle informations.
+  fields:
+  - name: ressources
+    description: Ressources informations.
+    type: Object
+    fields:
+    - name: status
+      description: Status informations.
+      type: Object
+      fields:
+      - name: lastUpdate
+        type: String
+        description: The last update of vehicle information.
+        unitOrValue: n/a
+        example: "" #todo '2021-07-29T22:25:09.898Z'
+      - name: fuelInformation
+        description: Fuel Information.
+        type: Object
+        fields:
+        - name: autonomy
+          type: Double
+          description: Autonomy value.
+          unitOrValue: n/a
+          example: 130.0
+        - name: chargingLevel
+          type: Double
+          description: The charging level value.
+          unitOrValue: percentage
+          example: 100
+        - name: lastUpdate
+          type: String
+          description: The last update of preconditioning information.
+          unitOrValue: date time
+          example: 2021-07-29T22:25:09.898Z 
+        - name: consumption
+          type: Double
+          description: The consumption value.
+          unitOrValue: n/a
+          example: 23.0
+        - name: type
+          type: Enum of Strings
+          description: The energy information type.
+          unitOrValue:
+            - electric
+            - fuel
+          example: fuel
+      - name: doorStateInformation
+        description: Door State Information.
+        type: Object
+        fields:
+        - name: isDriverDoorOpened
+          type: Boolean
+          description: True if driver door is opened, false otherwise.
+          unitOrValue: n/a
+          example: true
+        - name: isPassengerDoorOpened
+          type: Boolean
+          description: True if passenger doord is opened, false otherwise.
+          unitOrValue: n/a
+          example: true
+        - name: isRearLeftDoorOpened
+          type: Boolean
+          description: True if rear left door is opened, false otherwise.
+          unitOrValue: n/a
+          example: true
+        - name: isRearRightDoorOpened
+          type: Boolean
+          description: True if rear right door is opened, false otherwise.
+          unitOrValue: n/a
+          example: true
+        - name: isRearWindowOpened
+          type: Boolean
+          description: True if rear window is opened, false otherwise.
+          unitOrValue: n/a
+          example: true
+        - name: isRoofWindowOpened
+          type: Boolean
+          description: True if roof window is opened, false otherwise.
+          unitOrValue: n/a
+          example: true
+        - name: isTrunkDoorOpened
+          type: Boolean
+          description: True if trunk is opened, false otherwise.
+          unitOrValue: n/a
+          example: true
+        - name: state
+          type: Array of Strings
+          description: The door status.
+          unitOrValue: 
+            - Unlocked
+            - Locked
+            - SuperLocked
+            - DriverDoorUnlocked
+            - CabinDoorsUnlocked
+            - CargoDoorsLocked
+            - CargoDoorsUnlocked
+            - RearDoorsUnlocked
+            - RearDoorsLocked
+            - TrunkLocked
+          example: Unlocked
+        - name: isDriverDoorOpened
+          type: Boolean
+          description: True if driver door opened false otherwise.
+          unitOrValue: n/a
+          example: true
+      - name: precondInformation
+        description: Preconditioning Information.
+        type: Object
+        fields:
+        - name: lastUpdate
+          type: String
+          description: The last update of preconditioning information.
+          unitOrValue: date time
+          example: "2021-07-29T22:25:09.898Z"
+        - name: PrecondScheduling
+          description: Preconditioning Scheduling Information.
+          type: Object
+          fields:
+          - name: hour
+            type: Integer
+            description: The hour of the preconditioning program.
+            unitOrValue: Hour
+            example: 16
+          - name: isEnabled
+            type: Boolean
+            description: true if preconditioning program is enabled, false otherwis.
+            unitOrValue: n/a
+            example: true
+          - name: recurrence
+            type: String
+            example: "Daily"
+            description: Reccurence of the preconditionning program.
+            unitOrValue: 
+              - "Daily"
+              - "None"
+          - name: occurrence
+            type: Array of Strings
+            description: The occurrence on the program will spread on days depending on recurrence value.
+            unitOrValue:
+              - Mon
+              - Tue
+              - Wed
+              - Thu
+              - Fri
+              - Sat
+              - Sun
+            example: ["Mon", "Fri", "Sat"]
+          - name: slot
+            type: Integer
+            description: Slot of the preconditionning program.
+            unitOrValue: n/a
+            example: 1
+          - name: minute
+            type: Integer
+            description: The minute of the preconditioning program.
+            unitOrValue: minutes
+            example: 25
+        - name: status
+          type: String
+          description: The status of preconditioning.
+          unitOrValue: 
+            - Unknown
+            - Disabled
+            - Enabled
+            - Finished
+            - Failure 
+          example: Enabled
+      - name: electricInformation
+        description: Electric Information.
+        type: Object
+        fields:
+        - name: autonomy
+          type: Integer
+          description: The autonomy value.
+          unitOrValue: n/a
+          example: 22
+        - name: ChargingInfo
+          description: Charging Information.
+          type: Object
+          fields:
+          - name: chargingMode
+            type: Enum of Strings
+            description: The charging mode.
+            unitOrValue:
+              - SLOW
+              - QUICK
+              - NO
+              - UNKNOWN
+            example: QUICK
+          - name: chargingRate
+            type: Double
+            description: The charge rating value.
+            example: 90.0
+            unitOrValue: percentage
+          - name: isPlugged
+            type: Boolean
+            description: "`true` if vehicle is plugged, `false` otherwise." 
+            unitOrValue: n/a
+            example: true
+          - name: nextDeferredChargingDate
+            type: String
+            description: Date of next deferred charge.
+            unitOrValue: duration
+            example: "" #todo
+          - name: chargingState
+            type: Enum of Strings
+            description: The charging state.
+            unitOrValue:
+              - DISCONNECTED
+              - INPROGRESS
+              - FAILURE
+              - STOPPED
+              - FINISHED
+              - UNKNOWN
+            example: DISCONNECTED 
+          - name: remainingTime
+            type: String
+            description: The time remaining for the full charg.
+            unitOrValue: time
+            example: PT0S
+        - name: chargingLevel
+          type: Double
+          description: The charging level value.
+          unitOrValue: percentage
+          example: 100
+        - name: lastUpdate
+          description: The last update of preconditioning information.
+          type: String
+          unitOrValue: date time
+          example: "2021-07-29T22:25:09.898Z"
+        - name: type
+          description: The energy information type.
+          type: String
+          unitOrValue: 
+            - electric
+            - fuel
+          example: electric
+      - name: vehicleType
+        description: Propulsion type of the vehicle.
+        type: String
+        unitOrValue:
+          - hybrid
+        example: hybrid
+      - *vin
+  - name: attributes
+    description: Attributes informations.
+    type: Object
+    fields:
+      - name: engine
+        type: String
+        description: Vehicle engine type.
+        unitOrValue:
+          - BEV
+          - PHEV
+          - Thermal
+        example: BEV
+      - *vin
+      - name: brand
+        type: String
+        description: Name of the vehicle brand.
+        unitOrValue:
+          - peugeot
+          - citroen
+          - opel
+          - vauxhall
+        example: opel
+- &trip
+  name: trip
+  description: Trip informations.
+  type: Object
+  fields:
+  - name: alerts
+    type: Array of Numbers
+    unitOrValue: n/a
+    description: List of JDA alerts actives during trip
+    example: [2, 59, 70]
+  - name: category
+    type: String
+    unitOrValue: n/a
+    description: Trip Category
+    example: WORK
+  - name: createdAt
+    type: String
+    unitOrValue: date `yyyy-MM-dd'T'HH:mm:ss.SSS'Z'`
+    description: Date (on UTC) of trip recovery
+    example: "2021-03-30T08:18:20.143Z"
+  - name: daysUntilNextMaintenance
+    type: Number
+    unitOrValue: n/a
+    description: Day until next maintenance alert
+    example: 27
+  - <<: *location
+    name: destination
+    description: Location setted on the Navigation system.
+  - name: distance
+    type: Number
+    unitOrValue: km
+    description: Trip distance.
+    example: 42
+  - name: distanceToNextMaintenance
+    type: Number
+    unitOrValue: km
+    description: Distance until next maintenance alert.
+    example: 596
+  - <<: *location
+    name: end
+    description: Location at the end of the trip.
+  - name: fuelAutonomy
+    type: Number
+    unitOrValue: km
+    description: Automony for fuel engine.
+    example: 150
+  - name: fuelConsumption
+    type: Number
+    unitOrValue: mm3
+    description: Consumption for fuel engine in mm3 (10e6 mm3 = 1 liter).
+    example: 3242500
+  - name: fuelLevel
+    type: Number
+    unitOrValue: "%"
+    description: Percentage of fuel engine level.
+    example: 84
+  - name: id
+    type: Number
+    unitOrValue: n/a
+    description: Trip identifier (generated by the database).
+    example: 71
+  - name: maintenancePassed
+    type: Boolean
+    unitOrValue: n/a
+    description: Maintenance indicators (days or distance) have been exceeded.
+    example: true
+  - name: mergedIds
+    type: Array of Numbers
+    unitOrValue: n/a
+    description: Array of Objects composing the merged trip. Field present only if `source` is `Merged`.
+    example: "[2, 59, 70]"
+  - name: otherEnergyAutonomy
+    type: Number
+    unitOrValue: km
+    description: Automony for electric engine.
+    example: 98
+  - name: otherEnergyConsumption
+    type: Number
+    unitOrValue: n/a
+    description: Consumption for electric engine.
+    example: 817
+  - name: otherEnergyDistance
+    type: Number
+    unitOrValue: km
+    description: Distance done with electric engine.
+    example: 48
+  - name: otherEnergyLevel
+    type: Number
+    unitOrValue: "%"
+    description: Percentage of electric engine level.
+    example: 20
+  - name: otherEnergyType
+    type: Enum of Numbers
+    unitOrValue:
+      - "0: Trip was done with a vehicle without electric engine."
+      - "1: Trip was done with a vehicle with electric engine. "
+    description: Energy Type used for the trip.
+    example: 1
+  - name: priceElectric
+    type: Number
+    unitOrValue: n/a
+    description: Price set for electricity.
+    example: 0.85
+  - name: priceFuel
+    type: Number
+    unitOrValue: n/a
+    description: Price set for fuel.
+    example: 1.27
+  - name: source
+    type: Enum of Strings
+    unitOrValue: 
+      - BTA
+      - Altran
+      - CEA
+      - Merge
+      - Unknown
+    description: Source of the trip.
+    example: CEA
+  - <<: *location
+    name: start
+    description: Location at the begining of the trip.
+  - name: travelTime
+    type: Number
+    unitOrValue: n/a
+    description: Duration on seconds of the trip.
+    example: 748
+  - name: tripNumber
+    type: Number
+    unitOrValue: n/a
+    description: Trip number on the vehicle.
+    example: 7
+  - name: updatedAt
+    type: String
+    unitOrValue: Date UTC yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+    description: Date (on UTC) of trip update.
+    example: 2021-03-31T18:07:01.737Z
+  - name: user
+    type: String 
+    unitOrValue: email
+    description: User's email.
+    example: uzumaqui.naruto@stellantis.com
+  - *vin
+- &locationCoordinates
+  name: locationCoordinates
+  description: Location with coordinates only.
+  type: Object
+  fields:
+    - name: latitude
+      description: latitude value
+      type: Double
+      unitOrValue: n/a
+      example: 48.77232
+    - name: longitude 
+      description: longitude value
+      type: Double
+      unitOrValue: n/a
+      example: 2.2151043
+    - name: address
+      description: address value
+      type: String
+      unitOrValue: n/a
+      example: Rte de Gisy, 78140 Vélizy-Villacoublay
+- &step
+  name: step
+  description: Information about a step.
+  type: Object
+  fields:
+    - name: name
+      type: String
+      description: Step name value.
+      unitOrValue: 
+        - trusterPhoneNumber
+        - deviceActivation
+        - mediumCarKey
+      example: trusterPhoneNumber
+    - name: status
+      type: String
+      description: Status of the step.
+      unitOrValue: 
+        - todo
+        - alreadyDone
+      example: todo
+    - name: order
+      type: Integer
+      description: Order of the steps.
+      unitOrValue: 
+        - 1
+        - 2
+        - 3
+      example: 2
+- &token
+  name: token
+  description: Token value.
+  type: String
+  unitOrValue: n/a
+  example: "XXi2oI9Fglmgivv7RAJ7i"
+- &username
+  name: username
+  description: User account email.
+  type: String
+  unitOrValue: user@provider.tld
+  example: myname@mail.com
+- &context
+  name: context
+  description: Context. Only for Android.
+  required: true
+  type: Object
+  unitOrValue: n/a
+  example: context
+- &TripEditableData
+  name: TripEditableData
+  description: Trip data to modify.
+  type: Object
+  fields:
+    - name: category
+      unitOrValue: n/a
+      required: false
+      type: String
+      description: Category name
+      example: WORK 
+    - name: priceFuel
+      unitOrValue: n/a
+      required: false
+      type: Number
+      description: Price for fuel.
+      example: 1.25
+    - name: priceElectric
+      unitOrValue: n/a
+      required: false
+      type: Number
+      description: Price for electricity.
+      example: 0.89
+- &pimsVehicleServices
+  tag: pims.vehicle.services
+  firstAvailability: "2.0"
+  lastUpdate: "2.0"
+  apiName: pims.vehicle.services
+  type: get
+  parameters:
+    - name: services 
+      required: true
+      type: Array of Strings
+      description: List of available services name.
+      unitOrValue: 
+        - o2x
+        - sendtonav
+        - tripsanddrive
+      example: "o2x"
+  output:
+  - name: services
+    description: Information about the service.
+    type: Object
+    fields:
+    - name: name
+      type: String
+      description: Service name.
+      unitOrValue: n/a
+      example: o2x
+    - name: status
+      type: Array of Strings
+      description: Status of the service.
+      unitOrValue: 
+        - started
+        - stopped
+        - notLoaded
+      example: started
+  errors: 
+    - *2001
+    - *2101
+    - *2102
+  description: This API return state of available services.
+  securities: none
+  component: *O2X
 apis:
 - tag: pims.authentication.account-username
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.account
@@ -1144,7 +1185,6 @@ apis:
   description: Returns the user login email.
   component: *BasicAuthentication
 - tag: pims.authentication.token-customerAt
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.token
@@ -1190,7 +1230,6 @@ apis:
   description: Returns a customerAt token.
   component: *BasicAuthentication
 - tag: pims.authentication.token-cvs
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.token
@@ -1236,7 +1275,6 @@ apis:
   description: Returns a CVS token.
   component: *BasicAuthentication
 - tag: pims.authentication.token-idtoken
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.token
@@ -1282,7 +1320,6 @@ apis:
   description: Returns an IDToken.
   component: *BasicAuthentication
 - tag: pims.authentication.user-createAccount
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.user
@@ -1298,8 +1335,8 @@ apis:
     example: createAccount
   - name: local
     description : Define the language to use in the external user agent (web view).
-    type : string
-    unitOrValue: #todo
+    type: String
+    unitOrValue: "" #todo
     required: false 
     example: "en"
   - <<: *context
@@ -1314,7 +1351,6 @@ apis:
   component: *BasicAuthentication
   securities: none
 - tag: pims.authentication.user-login
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.user
@@ -1330,8 +1366,8 @@ apis:
     example: login
   - name: local
     description : Define the language to use in the external user agent (web view).
-    type : string
-    unitOrValue: #todo
+    type: String
+    unitOrValue: "" #todo
     required: false 
     example: "en"
   - <<: *context
@@ -1346,7 +1382,6 @@ apis:
   component: *BasicAuthentication
   securities: none
 - tag: pims.authentication.user-forcedLogin
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.user
@@ -1362,8 +1397,8 @@ apis:
     example: forcedLogin
   - name: local
     description : Define the language to use in the external user agent (web view).
-    type : string
-    unitOrValue: #todo
+    type: String
+    unitOrValue: "" #todo
     required: false 
     example: "en"
   - <<: *context
@@ -1378,7 +1413,6 @@ apis:
   component: *BasicAuthentication
   securities: none
 - tag: pims.authentication.user-logout
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.user
@@ -1394,8 +1428,8 @@ apis:
     example: logout
   - name: local
     description : Define the language to use in the external user agent (web view).
-    type : string
-    unitOrValue: #todo
+    type: String
+    unitOrValue: "" #todo
     required: false 
     example: "en"
   - <<: *context
@@ -1412,7 +1446,6 @@ apis:
   description: This api allows to logout.
   component: *BasicAuthentication
 - tag: pims.authentication.user-updateLogin
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.user
@@ -1428,8 +1461,8 @@ apis:
     example: updateLogin
   - name: local
     description : Define the language to use in the external user agent (web view).
-    type : string
-    unitOrValue: #todo
+    type: String
+    unitOrValue: "" #todo
     required: false 
     example: "en"
   - <<: *context
@@ -1443,7 +1476,6 @@ apis:
   description: This api allows to update user login. It will prompt an external user agent (web view).
   component: *BasicAuthentication
 - tag: pims.authentication.user-updatePassword
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.user
@@ -1459,8 +1491,8 @@ apis:
     example: updatePassword
   - name: local
     description : Define the language to use in the external user agent (web view).
-    type : string
-    unitOrValue: #todo
+    type: String
+    unitOrValue: "" #todo
     required: false 
     example: "en"
   - <<: *context
@@ -1474,7 +1506,6 @@ apis:
   description: This api allows to update user password. It will prompt an external user agent (web view).
   component: *BasicAuthentication
 - tag: pims.vehicle.carkey
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.carkey
@@ -1513,16 +1544,16 @@ apis:
   description: Check carKey status.
   component: *Carkey
 - tag: pims.vehicle.carkey
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.carkey
   type: set
+  parameters: none
   output:
     - name: hasCarKey
       type: Boolean
       description: True if car key is set with success,  false otherwise.
-      unitOrValue: true/false 
+      unitOrValue: n/a/false 
       example: true
     - name: vin
       type: String
@@ -1533,7 +1564,7 @@ apis:
       description: Security code
       type: String
       unitOrValue: n/a
-      example: "c2hhemFtCg==" #TODO
+      example: "c2hhemFtCg==" #todo
     - name: securityExpiration
       type: String
       description: Expiration date of the security code.
@@ -1555,12 +1586,12 @@ apis:
   description: Activate a carKey.
   component: *Carkey
 - tag: pims.vehicle.command-charge
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.command
   subname: charge
   type: set
+  output: none
   parameters:
     - name: action
       required: true
@@ -1577,10 +1608,6 @@ apis:
         - 'true: start charge'
         - 'false: stop charge'
       example: true
-  text: |-
-    Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
-    Use this set of parameters with `pims.vehicle.command` to start or stop a charge.
-    This remote command is only available for *Low Emission Vehicles (LEV)* and *Electric Vehicles (EV)*.
   errors: 
     - *2337
     - *2101
@@ -1600,15 +1627,19 @@ apis:
     - *2332
     - *2339
     - *2377
-  description: This API allows to send remote command to the vehicle.
+  description: |-
+    This API allows to send remote command to the vehicle.
+    Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
+    Use this set of parameters with `pims.vehicle.command` to start or stop a charge.
+    This remote command is only available for *Low Emission Vehicles (LEV)* and *Electric Vehicles (EV)*.
   component: *LongRangeRemoteRemote
 - tag: pims.vehicle.command-chargeDeferredTime
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.command
   subname: chargeDeferredTime
   type: set
+  output: none
   parameters:
     - name: action
       required: true
@@ -1631,16 +1662,12 @@ apis:
       unitOrValue: duration
       description: Next deferred charge time.
       example: PTxxHxxM
-    - name: checkStartCharge #TODO
+    - name: checkStartCharge #todo
       required: true
       description: Perform check on starting charge. 
       type: Boolean
       unitOrValue: n/a
       example: true
-  text: |-
-    Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
-    Use this set of parameters with `pims.vehicle.command` to set deferred charging time.
-    This remote command is only available for *Low Emission Vehicles (LEV)* and *Electric Vehicles (EV)*.
   errors: 
     - *2337
     - *2101
@@ -1660,14 +1687,18 @@ apis:
     - *2332
     - *2339
     - *2377
-  description: This API allows to send remote command to the vehicle.
+  description: |- 
+    This API allows to send remote command to the vehicle.
+        Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
+    Use this set of parameters with `pims.vehicle.command` to set deferred charging time.
+    This remote command is only available for *Low Emission Vehicles (LEV)* and *Electric Vehicles (EV)*.
   component: *LongRangeRemoteRemote
 - tag: pims.vehicle.command-doors
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.command
   subname: doors
+  output: none
   type: set
   parameters:
     - name: action
@@ -1685,10 +1716,6 @@ apis:
         - 'lock'
         - 'unlock'
       example: lock
-  text: |-
-    Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
-    Use this set of parameters with `pims.vehicle.command` to honk the vehicle horn.
-
   errors:
     - *2357
     - *2101
@@ -1703,19 +1730,19 @@ apis:
     - *2360
     - *2361
     - *2362
-    - *2380
-    - *2381
-    - *2382
     - *2377
-  description: This API allows to send remote command to the vehicle.
+  description: |-
+    This API allows to send remote command to the vehicle.
+    Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
+    Use this set of parameters with `pims.vehicle.command` to honk the vehicle horn.
   component: *LongRangeRemoteRemote
 - tag: pims.vehicle.command-horn
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.command
   subname: horn
   type: set
+  output: none
   parameters:
     - name: action
       required: true
@@ -1724,9 +1751,6 @@ apis:
       example: horn
       unitOrValue: 
         - horn
-  text: |-
-    Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
-    Use this set of parameters with `pims.vehicle.command` to honk the vehicle horn.
   errors:
     - *2101
     - *2102
@@ -1739,15 +1763,18 @@ apis:
     - *2329
     - *2358
     - *2377
-  description: This API allows to send remote command to the vehicle.
+  description: |-
+    This API allows to send remote command to the vehicle.
+    Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
+    Use this set of parameters with `pims.vehicle.command` to honk the vehicle horn.
   component: *LongRangeRemoteRemote
 - tag: pims.vehicle.command-preconditioning
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.command
   subname: preconditioning
   type: set
+  output: none
   parameters:
     - name: action
       required: true
@@ -1766,19 +1793,19 @@ apis:
       example: true
     - name: programs
       required: true
-      type: List of Objects
+      type: Array of Objects
       description: Preconditioning program 
       fields:
         - name: hour
           required: true
-          type: int
+          type: Integer
           description: Preconditioning program hour.
           example: 9
           unitOrValue: n/a
         - name: minute
           unitOrValue: n/a
           required: true
-          type: int
+          type: Integer
           description: Preconditioning program minute.
           example: 32
         - name: isEnabled
@@ -1787,9 +1814,9 @@ apis:
           description: Indicates if the program is active or no.
           unitOrValue: n/a
           example: true
-        - name: occurrence # #TODO
+        - name: occurrence # #todo
           required: true
-          type: List of Strings 
+          type: Array of Strings 
           description: Occurrence of program.
           unitOrValue:
             - mon
@@ -1802,14 +1829,10 @@ apis:
           example: "['mon', 'tue']"
         - name: slot
           required: true
-          type: int
+          type: Integer
           description: Order of occurrence.
           example: 3
           unitOrValue: n/a
-  text: |-
-    Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
-    Use this set of parameters with `pims.vehicle.command` to start or stop preconditioning.
-    This remote command is only available for *Low Emission Vehicles (LEV)* and *Electric Vehicles (EV)*.
   errors:
     - *2101
     - *2102
@@ -1827,15 +1850,19 @@ apis:
     - *2334
     - *2335
     - *2336
-  description: This API allows to send remote command to the vehicle.
+  description: |- 
+    This API allows to send remote command to the vehicle.
+    Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
+    Use this set of parameters with `pims.vehicle.command` to start or stop preconditioning.
+    This remote command is only available for *Low Emission Vehicles (LEV)* and *Electric Vehicles (EV)*.
   component: *LongRangeRemoteRemote
 - tag: pims.vehicle.command-warning
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.command
   subname: warning
   type: set
+  output: none
   parameters:
     - name: action
       required: true
@@ -1844,9 +1871,6 @@ apis:
       example: warning
       unitOrValue:
         - warning
-  text: |-
-    Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
-    Use this set of parameters with `pims.vehicle.command` to set a light blinking.
   errors:
     - *2101
     - *2102
@@ -1860,22 +1884,24 @@ apis:
     - *2329
     - *2359
     - *2377
-  description: This API allows to send remote command to the vehicle.
+  description: |-
+    This API allows to send remote command to the vehicle.
+    Before sending any remote to vehicle, you should subscribe **pims.vehicle.signal**.
+    Use this set of parameters with `pims.vehicle.command` to set a light blinking.
   component: *LongRangeRemoteRemote
 - tag: pims.vehicle.vin-remote
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.vin
   subname: remote
   type: set
+  output: none
   parameters:
     - <<: *vin
       required: true
   description: This API allows to select the vehicle VIN before sending remote command with *pims.vehicle.command*.
   component: *LongRangeRemoteRemote
 - tag: pims.vehicle.signal
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.signal
@@ -1892,10 +1918,7 @@ apis:
         - 902
         - 903
         - 200
-    - <<: *vehicle
-      type: Object
-      name: vehicle
-      description: Vehicle informations.
+    - *vehicle
   errors: 
     - *2325
     - *2326
@@ -1915,9 +1938,6 @@ apis:
     - *2360
     - *2361
     - *2362
-    - *5
-    - *6
-    - *7
   description: |- 
     This api allows to be notified when receiving vehicle data after a **pims.vehicle.command**: 
       - Charge
@@ -1928,7 +1948,6 @@ apis:
       - Warning.
   component: *LongRangeRemoteRemote
 - tag: pims.vehicle.informations-remote
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.informations
@@ -1969,7 +1988,6 @@ apis:
   description: This API allows to retrieve Remote vehicle informations.
   component: *LongRangeRemoteStatus
 - tag: pims.vehicle.event-remote
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.event
@@ -1985,7 +2003,7 @@ apis:
         - remote
     - name: type
       required: true
-      type: List of Strings
+      type: Array of Strings
       description: Service type.
       unitOrValue:
           - "remoteChargeFinished: the remote charge is finished, vehicle is fully charged"
@@ -2012,7 +2030,6 @@ apis:
   description: This api allows to be notified when a remote charge ends.
   component: *LongRangeRemoteStatus
 - tag: pims.vehicle.informations-o2x
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.informations
@@ -2050,34 +2067,42 @@ apis:
         type: Boolean
         description: Is parking brake alert active. 
         example: false
+        unitOrValue: n/a
       - name: clusterIssue
         type: Boolean
         description: Is cluster issue alert active. 
         example: false
+        unitOrValue: n/a
       - name: stop
         type: Boolean
         description: Is stop alert active. 
         example: true
+        unitOrValue: n/a
       - name: batteryCharge
         type: Boolean
         description: Is battery charge alert active. 
         example: true 
+        unitOrValue: n/a
       - name: brakeSystemProblem
         type: Boolean
         description: Is brake system problem alert. 
         example: true 
+        unitOrValue: n/a
       - name: service
         type: Boolean
         description: Is service alert active. 
         example: false
+        unitOrValue: n/a
       - name: batteryTemperature
         type: Boolean
         description: Is battery temperature alert active. 
         example: true 
+        unitOrValue: n/a
       - name: turtleMode
         type: Boolean
         description: Is turtle mode alert active. 
         example: false
+        unitOrValue: n/a
     - name: previousAlert
       description: PreviousAlert informations.
       type: Object
@@ -2134,10 +2159,12 @@ apis:
               type: String
               description: Battery soc value. 
               unitOrValue: n/a
+              example: "42"
             - name: unit
               type: String
               description: Battery soc unit. 
               unitOrValue: n/a
+              example: "%"
         - name: systemState
           type: String
           description: System state value. 
@@ -2164,10 +2191,12 @@ apis:
             type: String
             description: Remaining autonomy value. 
             unitOrValue: n/a
+            example: "42"
           - name: unit
             type: String
             description: Remaining autonomy unit. 
             unitOrValue: n/a
+            example: "%"
         - name: rnd
           type: String
           description: the position of the gearbox  
@@ -2185,10 +2214,12 @@ apis:
             type: String
             description: Charge delay value. 
             unitOrValue: n/a
+            example: "42"
           - name: unit
             type: String
             description: Charge delay unit. 
             unitOrValue: n/a
+            example: "%"
         - name: parkBrakeStatus
           type: String
           description: Park brake status. 
@@ -2199,63 +2230,25 @@ apis:
           example: notActivated
         - name: totalOdometer
           description: Total odometer information.
-          type: object
+          type: Object
           fields:
             - name: value
               type: String
               description: Total odometer value. 
               unitOrValue: n/a
+              example: "%"
             - name: unit
               type: String
               description: Total odometer unit. 
               unitOrValue: n/a
+              example: "42"
   errors:
     - *2001
   description: This API allows to retrieve O2X vehicle informations.
   component: *O2X
-- tag: pims.vehicle.services-o2x
-  sdkInfo: *sdkInfo
-  firstAvailability: "2.0"
-  lastUpdate: "2.0"
-  apiName: pims.vehicle.services
-  type: get
-  parameters:
-    - name: services 
-      required: true
-      type: List of strings
-      description: List of available services name.
-      unitOrValue: 
-        - o2x
-        - sendtonav
-        - tripsanddrive
-      example: "o2x"
-  output:
-  - name: services
-    description: Information about the service.
-    type: Object
-    fields:
-    - name: name
-      type: String
-      description: Service name.
-      unitOrValue: n/a
-      example: o2x
-    - name: status
-      type: List of Strings
-      description: Status of the service.
-      unitOrValue: 
-        - started
-        - stopped
-        - notLoaded
-      example: started
-  errors: 
-    - *2001
-    - *2101
-    - *2102
-  description: This API return state of available services.
+- <<: *pimsVehicleServices
   component: *O2X
-  securities: none
 - tag: pims.vehicle.vin-o2x
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.vin
@@ -2275,7 +2268,6 @@ apis:
   description: This API allows retrieve Vehicle VIN, for O2X vehicles only.
   component: *O2X
 - tag: pims.vehicle.cleardata
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.cleardata
@@ -2285,7 +2277,6 @@ apis:
   description: This API allows to clean the cache of **GET pims.vehicle.information - 02X**.
   component: *O2X
 - tag: pims.vehicle.configuration
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.configuration
@@ -2321,7 +2312,6 @@ apis:
   description: This api configure the loglevel of O2X.
   component: *O2X
 - tag: pims.vehicle.timeout
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.timeout
@@ -2329,22 +2319,22 @@ apis:
   parameters:
     - name: scan
       required: false
-      type: Long
-      unitOrValue: " " #TODO
-      example: " " #TODO
+      type: Number
+      unitOrValue: " " #todo
+      example: " " #todo
       description: Timeout that will be triggered if no vehicle found after the specified time. The default value is 60 seconds (60000 ms).
     - name: looseConnection
       required: false
-      type: Long
-      unitOrValue: " " #TODO
+      type: Number
+      unitOrValue: " " #todo
       description: The timeout that will be triggered if no data received after the  specified time. The default value is 5 seconds (5000 ms).
-      example: " " #TODO
+      example: " " #todo
     - name: changeStatus
       required: false
-      type: Long
-      unitOrValue: " " #TODO
+      type: Number
+      unitOrValue: " " #todo
       description: Delay before send notification of change status.
-      example: " " #TODO
+      example: " " #todo
   output: none
   errors: 
     - *2001
@@ -2352,7 +2342,6 @@ apis:
   description: This API allows to set 02X timeouts.
   component: *O2X
 - tag: pims.vehicle.event-o2x
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.event
@@ -2379,7 +2368,6 @@ apis:
   description: This api allows to be notified when an event has occured in relation with O2X.
   component: *O2X
 - tag: pims.vehicle.informations-o2x
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.informations
@@ -2437,34 +2425,42 @@ apis:
         type: Boolean
         description: Is parking brake alert active. 
         example: false
+        unitOrValue: n/a
       - name: clusterIssue
         type: Boolean
         description: Is cluster issue alert active. 
         example: false
+        unitOrValue: n/a
       - name: stop
         type: Boolean
         description: Is stop alert active. 
         example: true
+        unitOrValue: n/a
       - name: batteryCharge
         type: Boolean
         description: Is battery charge alert active. 
         example: true 
+        unitOrValue: n/a
       - name: brakeSystemProblem
         type: Boolean
         description: Is brake system problem alert. 
         example: true 
+        unitOrValue: n/a
       - name: service
         type: Boolean
         description: Is service alert active. 
         example: false
+        unitOrValue: n/a
       - name: batteryTemperature
         type: Boolean
         description: Is  batter temperature alert active. 
         example: true 
+        unitOrValue: n/a
       - name: turtleMode
         type: Boolean
         description: Is turtle mode alert active. 
         example: false
+        unitOrValue: n/a
     - name: previousAlert
       description: PreviousAlert informations.
       type: Object
@@ -2521,10 +2517,12 @@ apis:
               type: String
               description: Battery soc value. 
               unitOrValue: n/a
+              example: "42"
             - name: unit
               type: String
               description: Battery soc unit. 
               unitOrValue: n/a
+              example: "%"
         - name: systemState
           type: String
           description: System state value. 
@@ -2551,10 +2549,12 @@ apis:
             type: String
             description: Remaining autonomy value. 
             unitOrValue: n/a
+            example: "42"
           - name: unit
             type: String
             description: Remaining autonomy unit. 
             unitOrValue: n/a
+            example: "%"
         - name: rnd
           type: String
           description: the position of the gearbox  
@@ -2572,10 +2572,12 @@ apis:
             type: String
             description: Charge delay value. 
             unitOrValue: n/a
+            example: "42"
           - name: unit
             type: String
             description: Charge delay unit. 
             unitOrValue: n/a
+            example: "%"
         - name: parkBrakeStatus
           type: String
           description: Park brake status. 
@@ -2586,16 +2588,18 @@ apis:
           example: notActivated
         - name: totalOdometer
           description: Total odometer information.
-          type: object
+          type: Object
           fields:
             - name: value
               type: String
               description: Total odometer value. 
               unitOrValue: n/a
+              example: "%"
             - name: unit
               type: String
               description: Total odometer unit. 
               unitOrValue: n/a
+              example: "42"
   errors: 
     - *2001
     - *2101
@@ -2608,7 +2612,6 @@ apis:
   description: This API allows to subscribe to O2X vehicle informations.
   component: *O2X
 - tag: pims.sdk.device
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.sdk.device
@@ -2618,29 +2621,28 @@ apis:
   - name: OS
     type: String
     unitOrValue: n/a
-    example: "Android" #TODO
+    example: "Android" #todo
     description: OS Name
   - name: OSVersion
     type: String
     unitOrValue: n/a
-    example: "9.0/PPR1.180610.011" #TODO
+    example: "9.0/PPR1.180610.011" #todo
     description: OS Version
   - name: PhoneModel
     type: String
     unitOrValue: n/a
-    example: Galaxy S9 #TODO
+    example: Galaxy S9 #todo
     description: Phone model name.
   - name: PhoneBrand
     type: String
     unitOrValue: n/a
-    example: "Samsung" #TODO
+    example: "Samsung" #todo
     description: Phone Brand name.
-  # errors: #TODO
+  # errors: #todo
   #   - *2000
   description: Returns the device information.
   component: *SDK
 - tag: pims.sdk.log
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.sdk.log
@@ -2648,16 +2650,15 @@ apis:
   parameters: none
   output: 
   - name: logPath
-    type: Strings
+    type: String
     description: Log file path.
     unitOrValue: n/a
-    example: " " #TODO
-  # errors: #TODO
+    example: " " #todo
+  # errors: #todo
   #   - *2000
   description: This api allows to get the path of the last log file.
   component: *SDK
 - tag: pims.sdk.logs
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.sdk.logs
@@ -2665,16 +2666,15 @@ apis:
   parameters: none
   output: 
   - name: logPaths
-    type: List of Strings
+    type: Array of Strings
     description: Logs files paths.
     unitOrValue: n/a
-    example: " " #TODO
-  # errors: #TODO
+    example: " " #todo
+  # errors: #todo
   #   - *2000
   description: This api allows to get the list of logs files.
   component: *SDK
 - tag: pims.sdk.version
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.sdk.version
@@ -2691,12 +2691,11 @@ apis:
     unitOrValue: n/a
     example: "1.2.5"
     description: Facade version
-  # errors: #TODO
+  # errors: #todo
   #   - *2000
   description: Returns the facade core version and the facade version.
   component: *SDK
 - tag: pims.sdk.configuration
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.sdk.configuration
@@ -2745,7 +2744,7 @@ apis:
         example: duration
       - name: newLogTimeDuration
         required: false
-        type: int
+        type: Integer
         description: Duration before 2 log file creation. Manadatory only if `newLogFile==duration`
         unitOrValue:  Between 5 and 1440.
         example: 42
@@ -2755,19 +2754,19 @@ apis:
       type: Object
       fields:
         - name: clientId
-          example: "6779ef20e75817b79602" #TODO
+          example: "6779ef20e75817b79602" #todo
           required: false
           type: String
           description: Client ID CVS Server.
           unitOrValue: n/a
         - name: clientSecret
-          example: "865333ef347etr" #TODO
+          example: "865333ef347etr" #todo
           required: false
           type: String
           description: Client Secret CVS Server.
           unitOrValue: n/a
         - name: macID
-          example: " " #TODO
+          example: " " #todo
           required: false
           type: String
           description: MAC id value of inwebo SDK.
@@ -2851,7 +2850,6 @@ apis:
           ]
   component: *SDK
 - tag: pims.vehicle.coordinate
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.coordinate
@@ -2875,7 +2873,6 @@ apis:
   description: This API allows to retrieve coordinates from ShaeExtension (Apple Maps, Google Maps, Here WeGo, Waze & Whats3Words). Depending on the link the response can also contain an address field.
   component: *SendToNav
 - tag: pims.vehicle.destinations
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.destinations
@@ -2884,7 +2881,7 @@ apis:
   output: 
     - name: destinations
       description: Destinations information.
-      type: List of Object
+      type: Array of Objects
       fields: 
         - name: vin
           description: Vehicle Identification Number.
@@ -2906,7 +2903,6 @@ apis:
     This api allows retrieving the list of navigations stored in vehicle cache. Navigation are stored when the vehicle was not reachable when sending a navigation.
   component: *SendToNav
 - tag: pims.vehicle.privacy
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.privacy
@@ -2919,8 +2915,8 @@ apis:
       type: String
       description: privacy value
       unitOrValue: 
-        - fullPrivate
-        - geolocationPrivate
+        - full
+        - geolocation
         - none
       example: geolocationprivate
   errors: 
@@ -2929,62 +2925,22 @@ apis:
     - *2102
     - *2205
     - *2301
-    - *2304
     - *2341
     - *2342
     - *2367
-  description: This api allows to get the vehicle privacy. This API require *sendToNav* being enable using **pims.vehicle.service - Start**.
-  text: |-
+  description: |-
+    This api allows to get the vehicle privacy. This API require *sendToNav* being enable using **pims.vehicle.service - Start**.
+
     They are 3 levels of privacy:
-      - *none*: data & geolocation are authorized.
-      - *geolocationPrivate*: data is authorized but not geolocation.
-      - *fullPrivate*: data & geolocation are not authorized, sometime called *plane mode*.
-    
-    ***pims.vehicle.destination*** is available only if privacy is set to `none`.
+        - *none*: data & geolocation are authorized.
+        - *geolocationPrivate*: data is authorized but not geolocation.
+        - *fullPrivate*: data & geolocation are not authorized, sometime called *plane mode*.
+      
+      ***pims.vehicle.destination*** is available only if privacy is set to `none`.
   component: *SendToNav
-- tag: pims.vehicle.services-sendToNav
-  sdkInfo: *sdkInfo
-  firstAvailability: "2.0"
-  lastUpdate: "2.0"
-  apiName: pims.vehicle.services
-  type: get
-  parameters:
-    - name: services 
-      required: true
-      type: List of strings
-      description: List of available services name.
-      unitOrValue: 
-        - o2x
-        - sendtonav
-        - tripsanddrive
-      example: "o2x"
-  output:
-  - name: services
-    description: Information about the service.
-    type: Object
-    fields:
-    - name: name
-      type: String
-      description: Service name.
-      unitOrValue: n/a
-      example: o2x
-    - name: status
-      type: List of strings
-      description: Status of the service.
-      unitOrValue: 
-        - started
-        - stopped
-        - notLoaded
-      example: started
-  errors: 
-    - *2001
-    - *2101
-    - *2102
-  description: This API return state of available services.
+- <<: *pimsVehicleServices
   component: *SendToNav
-  securities: none
 - tag: pims.vehicle.destination-coordinate
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.destination
@@ -3063,14 +3019,12 @@ apis:
     - *2102
     - *2205
     - *2301
-    - *2304
     - *2341
     - *2342
     - *2367
   description: This api allows sending a navigation (using Coordinates) from the mobile phone to the vehicle.
   component: *SendToNav
 - tag: pims.vehicle.destination-extension
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.destination
@@ -3120,14 +3074,12 @@ apis:
     - *2102
     - *2205
     - *2301
-    - *2304
     - *2341
     - *2342
     - *2367
   description: This api allows sending destination (using Extension) from the mobile phone to the vehicle.
   component: *SendToNav
 - tag: pims.vehicle.device
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.device
@@ -3149,12 +3101,12 @@ apis:
   description: This api allows filtering device to connect or not. This API exists only for **Android**, this step is not required, and does not exist for iOS.
   component: *SendToNav
 - tag: pims.vehicle.service-sendToNav
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.service
   subname: sendToNav
   type: set
+  output: none
   parameters:
     - name: action
       required: true
@@ -3175,7 +3127,6 @@ apis:
   description: "This api allows to connect or disconnect `sendToNav` service."
   component: *SendToNav
 - tag: pims.vehicle.event-sendToNav
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.event
@@ -3204,14 +3155,14 @@ apis:
       description: Deletion message. **This field is returned when a navigation is deleted from cache.**
       unitOrValue: "Some locations have been removed."
       example: "Some locations have been removed."
-  text: Events are received when a navigation is successfully sent to the vehicle or when a navigation is removed from cache (after 24h).
   errors:
     - *2001
     - *2301
-  description: "This api allows to be notified when a navigation is sent with `pims.vehicle.destination` or when old navigation are removed from cache."
+  description: |- 
+    "This api allows to be notified when a navigation is sent with `pims.vehicle.destination` or when old navigation are removed from cache."
+    Events are received when a navigation is successfully sent to the vehicle or when a navigation is removed from cache (after 24h).
   component: *SendToNav
 - tag: pims.authentication.account-isaccountblocked
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.account
@@ -3249,7 +3200,6 @@ apis:
   description: Returns if the account is blocked or not.
   component: *StrongAuthentication
 - tag: pims.authentication.account-isdeviceactivated
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.account
@@ -3272,7 +3222,7 @@ apis:
     example: isDeviceActivated
   output:
   - name: isDeviceActivated
-    type: boolean
+    type: Boolean
     description: Indicates if the device is activated or not.
     unitOrValue: n/a
     example: false
@@ -3284,7 +3234,6 @@ apis:
   description: Returns if the device is activated or not.
   component: *StrongAuthentication
 - tag: pims.authentication.otp-withPin
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.otp
@@ -3300,7 +3249,7 @@ apis:
     example: withPIN
   - name: pinCode
     required: true
-    type: int
+    type: String
     description: Account PIN code value.
     example: "1234"
     unitOrValue: n/a
@@ -3308,7 +3257,7 @@ apis:
   - name: otp
     type: String
     description: OTP value.
-    example: " " #TODO
+    example: " " #todo
     unitOrValue: n/a
   errors: 
     - *2000
@@ -3329,7 +3278,6 @@ apis:
   description: Returns an OTP (One Time Password) with PIN.
   component: *StrongAuthentication
 - tag: pims.authentication.otp-withoutPin
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.otp
@@ -3347,7 +3295,7 @@ apis:
   - name: otp
     type: String
     description: OTP value.
-    example: " " #TODO
+    example: " " #todo
     unitOrValue: n/a
   errors: 
     - *2000
@@ -3368,7 +3316,6 @@ apis:
   description: Returns an OTP (One Time Password) without PIN.
   component: *StrongAuthentication
 - tag: pims.authentication.smscode-enrollment
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.smscode
@@ -3399,7 +3346,6 @@ apis:
     When the code is receive, it should be validated using **SET pims.authentication.smscode**.
   component: *StrongAuthentication
 - tag: pims.authentication.smscode-phoneNumberCertification
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.smscode
@@ -3415,7 +3361,7 @@ apis:
     example: phoneNumberCertification
   - name: phoneNumber
     required: true
-    type: int
+    type: String
     unitOrValue: phoneNumber
     description: Phone number value.
     example: 0612345678
@@ -3430,13 +3376,12 @@ apis:
     - *2204
   description: |-
     This api allows to receive an SMS code allowing to add/modify the user account phone number.
-  text: |-
+
     It is possible to check if the user already has a phone number using **pims.authentication.trustedphonenumber**.
     
     When the code is receive, it should be validated using **pims.authentication.smscode - addPhoneNumber**, **pims.authentication.smscode - modifyPhoneNumber** or **pims.authentication.enrollment - enrollWithPhoneNumber**.
   component: *StrongAuthentication
 - tag: pims.authentication.smscode-resetPIN
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.smscode
@@ -3461,17 +3406,16 @@ apis:
     - *2204
   description: |-
     This api allows to request an SMS Code intended to reset the user's PIN Code. 
-  text: |-
     The code is send to the user trusted phone number, that's why a trusted phone number is required before calling this API, cf **pims.authentication.trustedphonenumber**.
     
     When the code is receive, it should be send using **SET pims.authentication.pincode - reset**.
   component: *StrongAuthentication
 - tag: pims.authentication.trustedphonenumber
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.trustedphonenumber
   type: get
+  parameters: none
   output:
   - name: phoneNumber
     description: Phone number. 
@@ -3491,7 +3435,6 @@ apis:
     Adding a phone number to the account could be performed using **pims.authentication.smscode - addPhoneNumber** or **pims.authentication.smscode - modifyPhoneNumber**.
   component: *StrongAuthentication
 - tag: pims.authentication.enrollment-enroll
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.enrollment
@@ -3507,15 +3450,15 @@ apis:
     example: enroll
   - name: pinCode
     required: true
-    type: int
+    type: String
     description: Account PIN code value.
     example: "1234"
     unitOrValue: n/a
   - name: smsCode
     required: true
     description: SMS code value. See **GET pims.authentication.smscode - enrollment**. *Only for iOS*.
-    type: int
-    example: " " #TODO
+    type: String
+    example: " " #todo
     unitOrValue: "n/a"
   output: none
   errors:
@@ -3539,7 +3482,6 @@ apis:
     You should use this API after receiving an smsCode from **pims.authentication.enrollment - enroll**.
   component: *StrongAuthentication
 - tag: pims.authentication.enrollment-remove
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.enrollment
@@ -3574,7 +3516,6 @@ apis:
   description: This api allows to remove all device enrollment within the current account.
   component: *StrongAuthentication
 - tag: pims.authentication.pincode-reset
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.pincode
@@ -3592,13 +3533,13 @@ apis:
     example: "1234"
     unitOrValue: n/a
     required: true
-    type: int
+    type: String
     description: New PIN code value.
   - name: smsCode
     example: "789012"
     unitOrValue: n/a
     required: true
-    type: int
+    type: String
     description: SMS code value. See **GET pims.authentication.smscode - resetPIN**.
   output: none
   errors: 
@@ -3623,7 +3564,6 @@ apis:
     The required SMS Code is available using **pims.authentication.smscode - resetPIN**."
   component: *StrongAuthentication
 - tag: pims.authentication.pincode-update
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.pincode
@@ -3645,7 +3585,7 @@ apis:
     unitOrValue: n/a
   - name: newPIN
     required: true
-    type: int
+    type: String
     description: New pin value.
     example: "4321"
     unitOrValue: n/a
@@ -3669,7 +3609,6 @@ apis:
   description: This api allows to update current account PIN code.
   component: *StrongAuthentication
 - tag: pims.authentication.smscode-addPhoneNumber
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.smscode
@@ -3686,13 +3625,13 @@ apis:
   - name: smsCode
     required: true
     description: SMS code value. See **GET pims.authentication.smscode - phoneNumberCertification**.
-    type: int
+    type: String
     unitOrValue: n/a
-    example: " " #TODO
-  - name: Phone number
+    example: " " #todo
+  - name: phoneNumber
     required: true
     description: New Phone number value.
-    type: int
+    type: String
     unitOrValue: n/a
     example: 0123456789
   output: none
@@ -3707,12 +3646,11 @@ apis:
     - *2344
   description: |-
     This api allows to add phone number.
-  text: |-
+
     You should use this API after receiving an smsCode from **pims.authentication.smscode - phoneNumberCertification**.
 
   component: *StrongAuthentication
 - tag: pims.authentication.smscode-enrollment
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.smscode
@@ -3729,9 +3667,9 @@ apis:
   - name: smsCode
     required: true
     description: SMS code value. See **GET pims.authentication.smscode - enrollment**.
-    type: int
+    type: String
     unitOrValue: n/a
-    example: " " #TODO
+    example: " " #todo
   output: 
     - name: status
       description: Status of the action.
@@ -3759,13 +3697,12 @@ apis:
     - *2344
   description: |-
     This api allows to perform the first steps of device enrollment, next step is **pims.authentication.enrollment - enroll**.
-  text: |-
+
     **SET** will send the SMS code received on the user trusted phone number for validation.
     
     The SMS is received using **GET pims.authentication.smscode**.
   component: *StrongAuthentication
 - tag: pims.authentication.smscode-modifyPhoneNumber
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.authentication.smscode
@@ -3782,12 +3719,12 @@ apis:
   - name: smsCode
     required: true
     description: SMS code value. See **GET pims.authentication.smscode - phoneNumberCertification**.
-    type: int
+    type: String
     unitOrValue: n/a
-    example: " " #TODO
+    example: " " #todo
   - name: phoneNumber
     required: true
-    type: int
+    type: String
     unitOrValue: phoneNumber
     description: Phone number value.
     example: 0612345678
@@ -3816,18 +3753,13 @@ apis:
     You should use this API after receiving an smsCode from **pims.authentication.smscode - phoneNumberCertification**.
   component: *StrongAuthentication
 - tag: pims.vehicle.connection
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.connection
   type: get
   parameters: none
   output:
-  - name: vin
-    type: String
-    description: Vehicle's VIN. It can be null if no VIN connected.
-    example: VR1AB12C3D45678909
-    unitOrValue: "n/a"
+  - *vin
   - name: protocol
     type: Enum of Strings
     description: Field present if `vin!=null`
@@ -3866,34 +3798,7 @@ apis:
   description: |- 
     This API allows to retrieve if the `Trip` service is enabled or not. Check out **SUBSCRIBE pims.vehicle.connection**.
   component: *TripNDrive
-- tag: pims.vehicle.informations-alarms
-  sdkInfo: *sdkInfo
-  firstAvailability: "2.0"
-  lastUpdate: "2.0"
-  apiName: pims.vehicle.price
-  type: get
-  parameters:
-    - *vin
-  output:
-    - name: priceFuel
-      type: Number
-      description: Price for fuel.
-      unitOrValue: n/a
-      example: 1.27
-    - name: priceElectric
-      type: Number
-      description: Price for electricity.
-      unitOrValue: n/a
-      example: 0.85
-  errors:
-    - *2001
-    - *2101
-    - *2102
-    - *2344
-  description: This API allows to retrieve the value of fuel/electricity price. This data allows to calculate Trip price.
-  component: *TripNDrive
 - tag: pims.vehicle.price
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.price
@@ -3919,49 +3824,9 @@ apis:
     - *2344
   description: This API allows to retrieve the value of fuel/electricity price.
   component: *TripNDrive
-- tag: pims.vehicle.services-TripNDrive
-  sdkInfo: *sdkInfo
-  firstAvailability: "2.0"
-  lastUpdate: "2.0"
-  apiName: pims.vehicle.services
-  type: get
-  parameters:
-    - name: services 
-      required: true
-      type: List of strings
-      description: List of available services name.
-      unitOrValue: 
-        - o2x
-        - sendtonav
-        - tripsanddrive
-      example: "o2x"
-  output:
-  - name: services
-    description: Information about the service.
-    type: Object
-    fields:
-    - name: name
-      type: String
-      description: Service name.
-      unitOrValue: n/a
-      example: o2x
-    - name: status
-      type: List of strings
-      description: Status of the service.
-      unitOrValue: 
-        - started
-        - stopped
-        - notLoaded
-      example: started
-  errors: 
-    - *2001
-    - *2101
-    - *2102
-  description: This API return state of available services.
+- <<: *pimsVehicleServices
   component: *TripNDrive
-  securities: none
 - tag: pims.vehicle.trip-id
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.trip
@@ -3994,7 +3859,6 @@ apis:
   description: This api allows to retrieve trip by **id** in the local storage. See **SUBSCRIBE pims.vehicle.trips** for more informations about receiving trips in local storage.
   component: *TripNDrive
 - tag: pims.vehicle.trip-range
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.trip
@@ -4029,7 +3893,6 @@ apis:
   description: This api allows to retrieve first and last trip in the local storage. See **SUBSCRIBE pims.vehicle.trips** for more informations about receiving trips in local storage.
   component: *TripNDrive
 - tag: pims.vehicle.trips-count
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.trips
@@ -4069,14 +3932,14 @@ apis:
       description: Custom SQL query using trips fields.
       example: "endmileage IS NOT NULL"
     - name: byCategory
-      type: boolean
+      type: Boolean
       required: false
       description: When true, the parameter category will be used to fetch the trips list otherwise the parameter category will be ignored.
       example: false
       unitOrValue: n/a
   output:
     - name: count
-      type: Int
+      type: Integer
       unitOrValue: n/a
       description: Number of trips in database.
       example: 102
@@ -4087,7 +3950,6 @@ apis:
   description: This API allows to retrieve the number of trips in the local storage.
   component: *TripNDrive
 - tag: pims.vehicle.trips-trips
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.trips
@@ -4105,13 +3967,13 @@ apis:
     - name: limit
       description: Number of results (maximum). Required if offset != null.
       required: false
-      type: Int
+      type: Integer
       example: 100
       unitOrValue: n/a
     - name: offset
       description: Position of the first result.  Required if limit != null.
       required: false
-      type: Int
+      type: Integer
       example: 10
       unitOrValue: n/a
     - name: from
@@ -4156,18 +4018,17 @@ apis:
     - <<: *trip
       name: trips
       required: true
-      type: List of Trips
+      type: Array of Objects
       description: Trips informations.
   errors: 
     - *2001
     - *2101
     - *2102
-  text: |-
+  description: |-
     See **SUBSCRIBE pims.vehicle.trips** for more informations about receiving trips in local storage.
     description: This API allows to retrieve trips from the local storage.
   component: *TripNDrive
 - tag: pims.vehicle.vins
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.vins
@@ -4180,7 +4041,7 @@ apis:
       fields:
         - *vin
         - name: gdpr
-          type: boolean
+          type: Boolean
           description: GDRP configuration. Check out *pims.vehicle.trips*.
           unitOrValue: n/a
           example: true
@@ -4190,11 +4051,11 @@ apis:
   description: Returns the list of VINs subcribed on API `pims.vehicle.trips`.
   component: *TripNDrive
 - tag: pims.vehicle.price
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.price
   type: set
+  output: none
   parameters:
     - <<: *vin
       required: true
@@ -4210,17 +4071,17 @@ apis:
       unitOrValue: n/a
       example: 0.85
       required: true
-  text: Edition will be done only in field is present.
   errors:
     - *2001
     - *2101
     - *2102
     - *2344
     - *2378
-  description: This API allows to modify the value of the fuel/electricity price.
+  description: |-
+    This API allows to modify the value of the fuel/electricity price.
+    Edition will be done only in field is present.
   component: *TripNDrive
 - tag: pims.vehicle.trips-edit
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.trips
@@ -4237,7 +4098,7 @@ apis:
         - edit
       example: edit
     - name: ids
-      type: List of Numbers #TODO
+      type: Array of Numbers #todo
       unitOrValue: n/a
       description: Trip identifiers. Choose only one for `edit`.
       required: true
@@ -4262,32 +4123,25 @@ apis:
     This API allows editing trip in stored the head-unit.
   component: *TripNDrive
 - tag: pims.vehicle.trips-export
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.trips
   subname: export
   type: set
   parameters:
-    - name: action 
+    - name: action
       required: true
       unitOrValue: 
         - export
       type: String
       description: Filter mode, in this case `export`.
       example: export
-    - name: ids
-      type: List of Numbers
-      unitOrValue: n/a
-      description: Identifiers of the trip(s) to export
-      required: true
-      example: "[418, 419]"
   output:
     - name: file
       type: String
       description: String containing data of exported trips.
       unitOrValue: n/a
-      example: "" #ToDo
+      example: "" #todo
   errors:
     - *2374
     - *2001
@@ -4297,7 +4151,6 @@ apis:
   description: This API allows exporting trips in stored the head-unit.
   component: *TripNDrive
 - tag: pims.vehicle.trips-import
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.trips
@@ -4316,7 +4169,7 @@ apis:
       unitOrValue: n/a
       required: true
       description: Trips data to import.
-      example: " " #TODO
+      example: " " #todo
   output:
     - name: total
       type: Number
@@ -4337,7 +4190,6 @@ apis:
   description: This API allows importing trips in stored the head-unit.
   component: *TripNDrive
 - tag: pims.vehicle.trips-merge
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.trips
@@ -4354,7 +4206,7 @@ apis:
       description: Filter mode, in this case `merge`.
       example: merge
     - name: ids
-      type: List of Numbers
+      type: Array of Numbers
       unitOrValue: n/a
       description: Identifiers of the trips to merge.
       required: true
@@ -4373,7 +4225,6 @@ apis:
   description: This API allows merging trips stored in the head-unit, can be *undone* using `unmerge`.
   component: *TripNDrive
 - tag: pims.vehicle.trips-remove
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.trips
@@ -4390,7 +4241,7 @@ apis:
       description: Filter mode, in this case `remove`.
       example: remove
     - name: ids
-      type: List of Numbers
+      type: Array of Numbers
       unitOrValue: n/a
       description: Identifier of the trip(s) to remove.
       required: true
@@ -4405,7 +4256,6 @@ apis:
   description: This API allows removing trip(s) in stored the head-unit.
   component: *TripNDrive
 - tag: pims.vehicle.trips-unmerge
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.trips
@@ -4429,9 +4279,9 @@ apis:
       type: "Number"
   output:
     - <<: *trip
-      type: List of Objects
+      type: Array of Objects
       name: trips
-      description: List of trips composing resultant after unmerging.
+      description: Array of Objects composing resultant after unmerging.
   errors:
     - *2001
     - *2101
@@ -4441,7 +4291,6 @@ apis:
   description: This API allows unmerging trips in stored the head-unit, undo `merge` operation.
   component: *TripNDrive
 - tag: pims.vehicle.connection
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.connection
@@ -4489,22 +4338,19 @@ apis:
         - Unknown
       description: Field present if `status == "Connected"`. For `Altran` connections, value will be always `"Unknown"`.
       example: Full
-  text: |-
+  errors: 
+    - *2001
+  description: |- 
+    This API will forward connection events when the `Trip` service will be enabled. 
+    
+    Enabling the `Trips` is done using **SUBSCRIBE pims.vehicle.trips**. That's why you should subscribe to *pims.vehicle.connection* before.
     Notification will be sent depending on nature of Head Unit:
       - `CEA`: Once CEA session is opened
       - `Altran`: Once authentication is done
     
     The unsubscribe api removes registration on connection change status. Any parameter required for this api.
-  errors: 
-    - *2001
-    - *2105
-  description: |- 
-    This API will forward connection events when the `Trip` service will be enabled. 
-    
-    Enabling the `Trips` is done using **SUBSCRIBE pims.vehicle.trips**. That's why you should subscribe to *pims.vehicle.connection* before.
   component: *TripNDrive
 - tag: pims.vehicle.event-tripNDrive
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.event
@@ -4534,7 +4380,6 @@ apis:
   description: Subscribe on notifications about `tripNDrive` events.
   component: *TripNDrive
 - tag: pims.vehicle.trips
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.vehicle.trips
@@ -4543,7 +4388,7 @@ apis:
     - name: vins
       description: List of vehicle's VIN to subscribe with the GDPR rule.
       required: true
-      type: List of Objects
+      type: Array of Objects
       fields:
         - name: vin
           required: true
@@ -4552,7 +4397,7 @@ apis:
           unitOrValue: n/a
           example: VR1AB12C3D4567890
         - name: gdpr
-          type: boolean
+          type: Boolean
           description: GDRP setting for the associated vehicle's vin. If `false`, when a trip is not receive it will be received until success when the device connect with the vehicle, if `true` the trip is lost.
           unitOrValue: n/a
           example: true
@@ -4570,7 +4415,8 @@ apis:
       name: trip
       required: true
       description: Trip informations.
-  text: |-
+  description: |-
+    This API allows to receive events when a trip ends in the vehicle.
     Subscribing to this API allows to receive an event when a new **trips ends** in the head-unit (destination reached or trip canceled).
 
     It launch discover under VINs passed as parameters to connect and receive notifications about trips.
@@ -4582,10 +4428,8 @@ apis:
     - *2102
     - *2344
     - *2005
-  description: This API allows to receive events when a trip ends in the vehicle.
   component: *TripNDrive
 - tag: pims.subscription.services
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.subscription.services
@@ -4596,16 +4440,16 @@ apis:
   output:
   - name: services
     description: Services available for this VIN.
-    type: List of Objects
+    type: Array of Objects
     fields:
       - name: name
         type: String
-        example: " " #TODO
+        example: " " #todo
         unitOrValue: n/a
         description: Service name value.
       - name: code
         type: String
-        example: " " #TODO
+        example: " " #todo
         unitOrValue: n/a
         description: Service name value.
   errors: 
@@ -4618,7 +4462,6 @@ apis:
   description: Returns list of services for a given vehicle identifier.
   component: *UserVehicleSteps
 - tag: pims.subscription.step
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.subscription.step
@@ -4627,20 +4470,17 @@ apis:
     - name: stepsID
       required: true
       type: String
-      example:  " " #TODO
+      example:  " " #todo
       unitOrValue: n/a
       description: Steps id value.
   output: 
   - <<: *step
-    type: Object
     name: trusterPhoneNumber
     description: "Information about trusted phone. Returned only if this step is the next one."
   - <<: *step
-    type: Object
     name: deviceActivation
     description: "Information about device activation. Returned only if this step is the next one." 
   - <<: *step
-    type: Object
     name: mediumCarKey
     description: "Information about medium car key. Returned only if this step is the next one." 
   errors: 
@@ -4650,7 +4490,6 @@ apis:
   description: Return the next to do step. This API return only **one STEP** at the time.
   component: *UserVehicleSteps
 - tag: pims.subscription.steps-carAssociationID
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.subscription.steps
@@ -4661,7 +4500,7 @@ apis:
       required: false
       type: String
       description: Car association id.
-      example: " " #TODO
+      example: " " #todo
       unitOrValue: n/a
     - name: resetSteps
       required: true
@@ -4681,19 +4520,16 @@ apis:
   output:
   - name: stepsID
     type: String
-    example:  " " #TODO
+    example:  " " #todo
     unitOrValue: n/a
     description: Steps id value.
   - <<: *step
-    type: Object
     name: trusterPhoneNumber
     description: "Information about trusted phone." 
   - <<: *step
-    type: Object
     name: deviceActivation
     description: "Information about device activation." 
   - <<: *step
-    type: Object
     name: mediumCarKey
     description: "Information about medium car key."
   errors: 
@@ -4712,7 +4548,6 @@ apis:
     - If you get the error code 2317 while using your pin code.
   component: *UserVehicleSteps
 - tag: pims.subscription.steps-stepsId
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.subscription.steps
@@ -4722,7 +4557,7 @@ apis:
     - name: stepsID
       required: false
       type: String
-      example: " " #TODO
+      example: " " #todo
       unitOrValue: n/a
       description: Steps id value.
     - name: resetSteps
@@ -4743,19 +4578,16 @@ apis:
   output:
   - name: stepsID
     type: String
-    example:  " " #TODO
+    example:  " " #todo
     unitOrValue: n/a
     description: Steps id value.
   - <<: *step
-    type: Object
     name: trusterPhoneNumber
     description: "Information about trusted phone." 
   - <<: *step
-    type: Object
     name: deviceActivation
     description: "Information about device activation." 
   - <<: *step
-    type: Object
     name: mediumCarKey
     description: "Information about medium car key."
   errors: 
@@ -4774,7 +4606,6 @@ apis:
     - If you get the error code 2317 while using your pin code.
   component: *UserVehicleSteps
 - tag: pims.subscription.steps-vin
-  sdkInfo: *sdkInfo
   firstAvailability: "2.0"
   lastUpdate: "2.0"
   apiName: pims.subscription.steps
@@ -4805,19 +4636,16 @@ apis:
   output:
   - name: stepsID
     type: String
-    example:  " " #TODO
+    example:  " " #todo
     unitOrValue: n/a
     description: Steps id value.
   - <<: *step
-    type: Object
     name: trusterPhoneNumber
     description: "Information about trusted phone." 
   - <<: *step
-    type: Object
     name: deviceActivation
     description: "Information about device activation." 
   - <<: *step
-    type: Object
     name: mediumCarKey
     description: "Information about medium car key."
   errors: 
