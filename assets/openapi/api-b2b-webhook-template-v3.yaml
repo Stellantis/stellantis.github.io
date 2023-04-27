@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '3.8.0'
+  version: '3.11.0'
   title: Groupe PSA Connected Car B2B API
   description: | 
 
@@ -142,7 +142,7 @@ components:
                   enum:
                   - vehicle.alert
                   - vehicle.odometer
-                  - vehicle.engines.running
+                  - vehicle.powertrain.status
                   - vehicle.engines.thermic.oil.temp
                   - vehicle.energy.electric.level
                   - vehicle.energy.electric.autonomy
