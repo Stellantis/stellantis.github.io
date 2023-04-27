@@ -16,42 +16,43 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[11.3.0](#1110) | Web API: v3.11.0
 [11.2.0](#1110) | Mobile SDK v2.3 & fix Data Catalog
-[11.1.0](#1110) | WEB API: Remove Web API v2
-[11.0.0](#1100) | Multi version ref & Mobile SDK v2.2 & update webportal ref
-[10.2.0](#1020) | WEB API: v3.8.0
-[10.1.0](#1010) | WEB API: v3.7.0
-[10.0.0](#1000) | Website, Webportal, Mobile SDK v2.1
-[9.2.0](#920) | WEB API: v3.5.0
+[11.1.0](#1110) | Web API: Remove Web API v2
+[11.0.0](#1100) | Multi version ref & Mobile SDK v2.2 & update WebPortal ref
+[10.2.0](#1020) | Web API: v3.8.0
+[10.1.0](#1010) | Web API: v3.7.0
+[10.0.0](#1000) | Website, WebPortal, Mobile SDK v2.1
+[9.2.0](#920) | Web API: v3.5.0
 [9.1.1](#911) | Mobile SDK: fix api ref
-[9.1.0](#910) | WEB API: v3.3.0 & v2.2.0
+[9.1.0](#910) | Web API: v3.3.0 & v2.2.0
 [9.0.2](#902) | WebPortal: v1 share of waves & v2 update setting.language
 [9.0.1](#901) | Mobile SDK: add local in pims.authentication.user
 [9.0.0](#900) | Mobile SDK
-[8.1.1](#811) | Webportal Updates Ref & Articles v1/v2
-[8.1.0](#810) | WEB API B2B v3.2.0
+[8.1.1](#811) | WebPortal Updates Ref & Articles v1/v2
+[8.1.0](#810) | Web API B2B v3.2.0
 [8.0.1](#801) | Remove 404 page from sitemap
 [8.0.0](#800) | Rename Stellantis for Developers
 [7.2.0](#720) | Connected Vehicles: Add Access Requirements
-[7.1.0](#710) | WEB API B2B v2.1.1 & v3.1.1
-[7.0.1](#701) | WEBAPI: Add & fix remotes info (charge, horn, lights)
-[7.0.0](#700) | Release Webportal V2 References
-[6.10.0](#6100) | WEB API B2B v2.1.0 & v3.1.0
+[7.1.0](#710) | Web API B2B v2.1.1 & v3.1.1
+[7.0.1](#701) | Web API: Add & fix remotes info (charge, horn, lights)
+[7.0.0](#700) | Release WebPortal V2 References
+[6.10.0](#6100) | Web API B2B v2.1.0 & v3.1.0
 [6.9.4](#694) | Data catalog: update pace & speed units
-[6.9.3](#693) | WEBAPI: rate limit info
-[6.9.2](#692) | WEB API B2B v2.0.8 & v3.0.9: fix swagger
-[6.9.1](#691) | WEB API B2B v2.0.8 & v3.0.9
+[6.9.3](#693) | Web API: rate limit info
+[6.9.2](#692) | Web API B2B v2.0.8 & v3.0.9: fix swagger
+[6.9.1](#691) | Web API B2B v2.0.8 & v3.0.9
 [6.9.0](#690) | Add Remote Nav + Add Monitor & Remote in connected vehicle 
 [6.8.1](#681) | Website: Add Contact Form
-[6.8.0](#680) | WEB API: Update Retry Policy (TTL 3 days)
-[6.7.0](#670) | WEB API: ADD notifications & error page + response to notif 
-[6.6.0](#660) | WEB API: Add retry policy page 
-[6.5.0](#650) | WEB API B2B v2.0.7 & v3.0.8
+[6.8.0](#680) | Web API: Update Retry Policy (TTL 3 days)
+[6.7.0](#670) | Web API: ADD notifications & error page + response to notif 
+[6.6.0](#660) | Web API: Add retry policy page 
+[6.5.0](#650) | Web API B2B v2.0.7 & v3.0.8
 [6.4.0](#640) | Update data catalog: data & layout & filters
-[6.3.0](#630) | WEB API B2B v2.0.6 & v3.0.7 / Update Menu & page title / Matomo
-[6.2.1](#621) | Fix WEB API B2B specification update v2.0.5 / v3.0.6
-[6.2.0](#620) | WEB API B2B specification update v2.0.5 / v3.0.6
-[6.1.0](#610) | WEB API B2B v2 / v3 : Production URL
+[6.3.0](#630) | Web API B2B v2.0.6 & v3.0.7 / Update Menu & page title / Matomo
+[6.2.1](#621) | Fix Web API B2B specification update v2.0.5 / v3.0.6
+[6.2.0](#620) | Web API B2B specification update v2.0.5 / v3.0.6
+[6.1.0](#610) | Web API B2B v2 / v3 : Production URL
 [6.0.0](#600) | Connected-Vehicles>APIs + layouts + components
 [5.8.0](#580) | Add Data-Catalog
 [5.7.1](#571) | Fix spec Web API v2: consumption
@@ -64,7 +65,7 @@ Version|Name
 [5.3.0](#530) | Web API B2B Specification update 2.0.4-P4 & 3.0.3 & URLs
 [5.2.1](#521) | Web API B2B Specification 
 [5.1.2](#512) | Fix version mismatch
-[5.1.1](#511) | Fix typos in Webportal
+[5.1.1](#511) | Fix typos in WebPortal
 [5.1.0](#510) | Split Web API v2 & v3
 [5.0.2](#502) | Fix fairlytics 
 [5.0.1](#501) | Fix lunr & specification page layout
@@ -80,19 +81,28 @@ Version|Name
 [3.0.1](#301) | Fix connect page Web API B2C
 [3.0.0](#300) | Add Web API B2C section & Demo Web API
 [2.4.1](#241) | Fix URL Web API B2B / Readme
-[2.4.0](#240) | Update specification + Monitor web API B2B 
-[2.3.0](#230) | Add APIs + fix in webportal 
+[2.4.0](#240) | Update specification + Monitor Web API B2B 
+[2.3.0](#230) | Add APIs + fix in WebPortal 
 [2.2.0](#220) | Update Jekyll architecture & Add Yammer 
-[2.1.3](#213) | Update specification web API B2B
-[2.1.2](#212) | Update specification web API B2B v2.0.3
-[2.1.1](#211) | Add HAL in preview web API B2B
-[2.1.0](#201) | Add authentication in web API B2B 
+[2.1.3](#213) | Update specification Web API B2B
+[2.1.2](#212) | Update specification Web API B2B v2.0.3
+[2.1.1](#211) | Add HAL in preview Web API B2B
+[2.1.0](#201) | Add authentication in Web API B2B 
 [2.0.0](#200) | Add Web API B2B section
-[1.2.2](#122) | Fix Webportal API
-[1.2.1](#121) | Fix Webportal API
+[1.2.2](#122) | Fix WebPortal API
+[1.2.1](#121) | Fix WebPortal API
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
-[1.0.0](#010) | Add Webportal section
+[1.0.0](#010) | Add WebPortal section
+
+<hr>
+
+## 11.3.0
+
+{% include published_on.html date='27 Apr 2023' %}
+
+**Web API:**
+- v3.11.0
 
 <hr>
 
@@ -112,7 +122,7 @@ Version|Name
 
 {% include published_on.html date='20 Apr 2023' %}
 
-**Webapi**
+**Web API**
 - Remove Web API v2
 
 <hr>
@@ -129,7 +139,7 @@ Version|Name
 **Mobile SDK:**
 - v2.2
 
-**Webportal**
+**WebPortal**
 - Reference update
 
 <hr>
@@ -138,7 +148,7 @@ Version|Name
 
 {% include published_on.html date='20 Feb 2023' %}
 
-**Webapi:**
+**Web API:**
 - v3.8.0
 
 <hr>
@@ -147,7 +157,7 @@ Version|Name
 
 {% include published_on.html date='29 Nov 2022' %}
 
-**Webapi:**
+**Web API:**
 - v3.7.0
 
 <hr>
@@ -180,7 +190,7 @@ Version|Name
 
 {% include published_on.html date='14 Oct 2022' %}
 
-**Webapi:**
+**Web API:**
 - v3.5.0
 
 <hr>
@@ -199,11 +209,11 @@ Version|Name
 
 {% include published_on.html date='23 Jun 2022' %}
 
-**Webapi:**
+**Web API:**
 - v2.2.0
 - v3.3.0
 
-**Webportal v2:**
+**WebPortal v2:**
 - remove cea.uin
 
 <hr>
@@ -212,10 +222,10 @@ Version|Name
 
 {% include published_on.html date='20 Jun 2022' %}
 
-**Webportal v1:**
+**WebPortal v1:**
 - update share of waves tables
 
-**Webportal v2:**
+**WebPortal v2:**
 - update settings.language (regionSubtag)
 
 <hr>
@@ -240,13 +250,13 @@ Version|Name
 
 **Website:**
 - font size weight case in menu & nav
-- output ref in dedicated pages (mobile sdk & webportal)
+- output ref in dedicated pages (mobile sdk & WebPortal)
 - add lines number in code blocks
 
-**Webportal v1:**
+**WebPortal v1:**
 - Device.GetCarBrand values
 
-**Webportal v2:**
+**WebPortal v2:**
 - driving.currentGear version
 - settings.language add params regionSubtag
 - code examples in ref
@@ -257,12 +267,12 @@ Version|Name
 
 {% include published_on.html date='02 Mar 2022' %}
 
-**Webportal v1:**
+**WebPortal v1:**
 - get started: Update app structure  & md5
 - fix references:
     - Device.GetCarBrand
 
-**Webportal v2:**
+**WebPortal v2:**
 - add page infotainment system (screen sizes)
 - add page guidelines (icon sizes)
 - fix references:
@@ -283,7 +293,7 @@ Version|Name
 
 {% include published_on.html date='30 Jan 2022' %}
 
-**Webapi:**
+**Web API:**
 - v3.2.0
 
 <hr>
@@ -305,7 +315,7 @@ Version|Name
 - rename website > "Stellantis for Developer"
 - update landingpage (reponsive)
 
-**Webportal v1:**
+**WebPortal v1:**
 - add popup image
 
 <hr>
@@ -318,7 +328,7 @@ Version|Name
 - update privacy page
 - add access requirement page (data scope)
 
-**Webapi:**
+**Web API:**
 - add Data scope page
 
 <hr>
@@ -327,7 +337,7 @@ Version|Name
 
 {% include published_on.html date='18 Oct 2021' %}
 
-**Webapi:**
+**Web API:**
 - v2.1.1
 - v3.1.1
 - fix missing remotes info
@@ -338,7 +348,7 @@ Version|Name
 
 {% include published_on.html date='30 Sep 2021' %}
 
-**Webapi B2B**
+**Web API B2B**
 - add stop charg infos
 - fix horn & lights
 
@@ -348,7 +358,7 @@ Version|Name
 
 {% include published_on.html date='29 Sep 2021' %}
 
-**Webportal v2:**
+**WebPortal v2:**
 - first release
 
 **Website:**
@@ -360,7 +370,7 @@ Version|Name
 
 {% include published_on.html date='28 Jul 2021' %}
 
-**Webapi:**
+**Web API:**
 - v2.1.0
 - v3.1.0
 
@@ -379,7 +389,7 @@ Version|Name
 
 {% include published_on.html date='13 Jul 2021' %}
 
-**Webapi:**
+**Web API:**
 - add info about rate limit
 
 
@@ -389,7 +399,7 @@ Version|Name
 
 {% include published_on.html date='7 Jul 2021' %}
 
-**Webapi:**
+**Web API:**
 - v2 & v3: update kinetics + trip duration unit
 
 <hr>
@@ -398,7 +408,7 @@ Version|Name
 
 {% include published_on.html date='25 Jun 2021' %}
 
-**Webapi:**
+**Web API:**
 - v2.0.8
 - v3.0.9
 
@@ -412,7 +422,7 @@ Version|Name
 - Monitor page
 - Remote page
 
-**Webapi:**
+**Web API:**
 - Add remote navigation feature
 
 
@@ -659,7 +669,7 @@ Version|Name
 
 {% include published_on.html date='16 Sep 2020' %}
 
-**Webportal**
+**WebPortal**
 - Fix typos
 
 <hr>
@@ -726,7 +736,7 @@ Version|Name
 
 - New connected vehicle section for cross-functional information.
 
-**Webportal**
+**WebPortal**
 
 - Head unit theme description.
 
@@ -901,7 +911,7 @@ Version|Name
 
 {% include published_on.html date='18 Oct 2019' %}
 
-**Webportal**
+**WebPortal**
 
 - Add APi : 
     - radio text
@@ -910,8 +920,8 @@ Version|Name
     - ta 
     - opennativepopup
 - Delete unecessary apis
-- Doc screen size webportal
-- add warning: webportal app are single page 
+- Doc screen size WebPortal
+- add warning: WebPortal app are single page 
 - Add nac wave propertie
 
 <hr>
@@ -958,7 +968,7 @@ Version|Name
 
 - Specification update.
 
-**Webportal**
+**WebPortal**
 
 - Minor fix in API reference.
 
@@ -972,7 +982,7 @@ Version|Name
 
 - Add authentication page.
 
-**Webportal**
+**WebPortal**
 
 - Minor fix in API reference.
 
@@ -991,7 +1001,7 @@ Version|Name
 
 - Add section Web API B2B.
 
-**Webportal**
+**WebPortal**
 
 - Add *Appear in sofware version XX.XX.XX*
 
@@ -1001,9 +1011,9 @@ Version|Name
 
 {% include published_on.html date='24 May 2019' %}
 
-**Webportal**
+**WebPortal**
 
-- Fix webportal APIs:
+- Fix WebPortal APIs:
     - Navigation.LaunchGuidance
     - add WebDestinationReached
 
@@ -1013,9 +1023,9 @@ Version|Name
 
 {% include published_on.html date='23 May 2019' %}
 
-**Webportal**
+**WebPortal**
 
-- Fix webportal APIs:
+- Fix WebPortal APIs:
     - Navigation.LaunchGuidanceWaypoints
     - Device.PopupRequest
     - LaunchGuidance
@@ -1027,9 +1037,9 @@ Version|Name
 
 {% include published_on.html date='6 May 2019' %}
 
-**Webportal**
+**WebPortal**
 
-- Update webportal:
+- Update WebPortal:
     - appwall
     - sending message to your server
 
@@ -1043,9 +1053,9 @@ Version|Name
 
 {% include published_on.html date='15 Apr 2019' %}
 
-**Webportal**
+**WebPortal**
 
-- Update webportal advice.
+- Update WebPortal advice.
 
 **Website**
 
@@ -1057,6 +1067,6 @@ Version|Name
 
 {% include published_on.html date='29 Mar 2019' %}
 
-**Embedded Webportal**
+**Embedded WebPortal**
 
-- Add section Embedded Webportal.
+- Add section Embedded WebPortal.

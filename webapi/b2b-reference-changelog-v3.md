@@ -13,6 +13,9 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v3.11.0](#b2b_v3110) | 3.11.0
+[b2b_v3.10.0](#b2b_v3100) | 3.10.0
+[b2b_v3.9.0](#b2b_v390) | 3.9.0
 [b2b_v3.8.0](#b2b_v380) | 3.8.0
 [b2b_v3.7.1](#b2b_v371) | 3.7.1
 [b2b_v3.7.0](#b2b_v370) | 3.7.0
@@ -31,6 +34,43 @@ Version|Name
 [b2b_v3.0.5](#b2b_v305) | 3.0.5
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
 [b2b_v3.0.0](#b2b_v300) | Candiate version
+
+<hr>
+
+## b2b_v3.11.0
+
+{% include published_on.html date='26 Apr 2024' %}
+
+**Telemetry & Status API**
+- Add alarm object
+
+<hr>
+
+## b2b_v3.10.0
+
+{% include published_on.html date='26 Apr 2024' %}
+
+**Telemetry & Status API**
+- Add powertrain object
+
+**Others**
+- Update description & fix wording issue
+- Update format/type mileageBeforeMaintenance data
+
+<hr>
+
+## b2b_v3.9.0
+
+{% include published_on.html date='26 Apr 2024' %}
+
+**Telemetry & Status API**
+- Update enum list of ignition (delete unnecessary "free" value)
+- Add semiManual in transmission.gearbox.mode
+- Replace adas.lrka by adas.llka (set adas.lrka in deprecated mode)
+
+**Others**
+- Aligne date behavior
+- Update description & fix missing format/type
 
 <hr>
 

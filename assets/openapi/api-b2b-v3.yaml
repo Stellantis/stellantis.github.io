@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.8.0'
+  version: '3.11.0'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -1342,8 +1342,7 @@ components:
                   description: category of the score. Global, ACCELERATION, BREAKING, A/C system, Runing cold engine, Direct Shift Gear, Speed, STT system, ZEV (Zero emission vehicle).
                   enum: [Global, Acceleration, Break, AirCondioner, ColdEngine, TirePressure, Slope, Speed, StartStop]
                 score:
-                  type: number
-                  format: int
+                  type: integer
                   minimum: 0
                   maximum: 10
         _embedded:
@@ -1364,24 +1363,15 @@ components:
         daysBeforeMaintenance:
           type: integer
         mileageBeforeMaintenance:
-          type: integer
+          type: number
+          format : float
       required: [createdAt, vin] 
     
     MaintenanceObj:
      allOf:
         - $ref: '#/components/schemas/CreatedAtField'
         - $ref: '#/components/schemas/UpdatedAtField'
-        - description: Expresses next Maintenance details. Such as number of days and the mileage until the next Maintenance. The value is negative if the next maintenance (day or mileage) is already passed. At least one of the following maintenance information will be provided.
-          type: object
-          title: Maintenance
-          properties:
-            vin: 
-              $ref: '#/components/schemas/Vin'
-            daysBeforeMaintenance:
-              type: integer
-            mileageBeforeMaintenance:
-              type: integer
-          required: [createdAt, vin]
+        - $ref: '#/components/schemas/MaintenanceBase'
 
     Maintenance:
       allOf:
@@ -1410,7 +1400,7 @@ components:
           properties:
             type:
                 type: string
-                enum: [Stop, StartUp, Start, Free]
+                enum: [Stop, StartUp, Start]
           required: [type,createdAt]     
 
     VehicleOdometer:
@@ -1473,7 +1463,7 @@ components:
                 type: object
                 properties:
                   active: 
-                      description: weither active (true) or not (false).
+                      description: Either active (true) or not (false).
                       type: boolean
                   speed:
                     description: Wiping speed. This field is present only if active field is set to true.
@@ -1569,6 +1559,8 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/Engine'
+            powertrain:
+                  $ref: '#/components/schemas/Powertrain'
             doorsState:
                   $ref: '#/components/schemas/DoorsState'
             privacy:
@@ -1589,6 +1581,8 @@ components:
                   $ref: '#/components/schemas/DrivingBehavior'
             lightingSystem:
                       $ref: '#/components/schemas/LightingSystem'
+            alarm:
+                  $ref: '#/components/schemas/VehicleStatusAlarm'
             _embedded:
               type: object
               properties:
@@ -1678,14 +1672,12 @@ components:
                     vin:
                       $ref: '#/components/schemas/Vin'
                     heading:
-                      type: number
-                      format: float
+                      type: integer
                       description: Course angle expressed in degree. 
                       minimum: 0
                       maximum: 360
                     signalQuality:
-                      type: number
-                      format: int
+                      type: integer
                     type:
                       type: string
                       enum:
@@ -1721,14 +1713,12 @@ components:
                     vin:
                       $ref: '#/components/schemas/Vin'
                     heading:
-                      type: number
-                      format: float
+                      type: integer
                       description: Course angle expressed in degree. 
                       minimum: 0
                       maximum: 360
                     signalQuality:
-                      type: number
-                      format: int
+                      type: integer
                     type:
                       type: string
                       enum:
@@ -1864,7 +1854,6 @@ components:
     EnergyCharging:
                   type: object
                   description: Electric charging state.
-                  required: [status]
                   properties:
                     plugged:
                       type: boolean
@@ -1890,14 +1879,12 @@ components:
       properties:
         capacity:
           description:  Health related to battery capacity (expressed in percentage).
-          type: number
-          format: int
+          type: integer
           minimum: 0
           maximum: 100
         resistance:
           description:  Health related to battery resistance (expressed in percentage).
-          type: number
-          format: int
+          type: integer
           minimum: 0
           maximum: 100
           
@@ -1905,11 +1892,10 @@ components:
       properties : 
         capacity:
           description: Electric battery total capacity (expressed in Wh). 
-          type: number
+          type: integer
         residual:
           description: Residual electric energy (expressed in Wh)
-          type: number
-          format: float
+          type: integer
     
     EnergyBatteryBase:
       type: object
@@ -1924,8 +1910,6 @@ components:
           $ref: '#/components/schemas/LoadElectricEnergy'
         health: 
           $ref: '#/components/schemas/HealthElectricEnergy'
-        
-      
     EnergyBattery:
       type: object
       description: Electric charging state.
@@ -1937,13 +1921,143 @@ components:
           deprecated : true
         load : 
           allOf:
-            - $ref: '#/components/schemas/UpdatedAtField'
+            - $ref: '#/components/schemas/CreatedAtField'
             - $ref: '#/components/schemas/LoadElectricEnergy'
+          required : [createdAt]
         health:
           allOf:
-            - $ref: '#/components/schemas/UpdatedAtField'
+            - $ref: '#/components/schemas/CreatedAtField'
             - $ref: '#/components/schemas/HealthElectricEnergy'
+          required : [createdAt]
+    BaseAlarmTrigger:
+      type: object
+      title: Vehicle Alarm Trigger
+      description: Describe a vehicle alarm trigger.
+      properties:
+          type: 
+            description: Define the vehicle break-in type.
+            type: string
+            enum:
+                - NoBreakIn
+                - FrontRightDoorBreakIn
+                - FrontLeftDoorBreakIn
+                - RearRightFrontDoorBreakIn
+                - RearLeftFrontDoorBreakIn
+                - HoodDoorBreakIn
+                - TrunkDoorBreakIn
+                - BackliteDoorBreakIn
+                - RoofBreakIn
+                - VolumetricBreakIn
+                - VehicleLifting
+                - ElectricalsystemBreakIn
+                - KeyLearning
+                - UnauthenticatedStartup
+          position:
+            allOf:
+                - description: The position (last vehicle known one) where the alarm triggered.
+                - $ref: '#/components/schemas/Position'
+          startAt:
+            description: Time when the alarm triggering started.
+            type: string
+            format: date-time
+      required: [type, startAt]
+      
+      
+    BaseAlarmStatus:
+      type: object
+      title: Vehicle Alarm Status
+      description: Describe a vehicle alarm status.
+      properties:
+          activation: 
+            description: Define whether the vehicle alarm is active or not.
+            type: string
+            enum: [Inactive, Active]
+      required: [activation]
+        
+    BaseAlarm:
+      type: object
+      title: VehicleAlarm
+      description: Describe a vehicle alarm status and trigger.
+      properties:
+        status:
+          $ref: '#/components/schemas/BaseAlarmStatus'
+        trigger:
+          $ref: '#/components/schemas/BaseAlarmTrigger'
+      
+    AlarmTrigger:
+      allOf:
+        - $ref: '#/components/schemas/CreatedAtField'
+        - $ref: '#/components/schemas/BaseAlarmTrigger'
+        - title: Vehicle Alarm Trigger
+        - required: [type, startAt, createdAt]
+        
+    AlarmStatus:
+      allOf:
+        - $ref: '#/components/schemas/CreatedAtField'
+        - $ref: '#/components/schemas/BaseAlarmStatus'
+        - title: Vehicle Alarm Status
+        - required: [activation, createdAt]
+        
+    Alarm:
+      type: object
+      title: Vehicle Alarm
+      description: Describes the vehicle alarm status or trigger. Only one is present.
+      properties:
+        trigger:
+            $ref: '#/components/schemas/AlarmTrigger'
+        status:
+            $ref: '#/components/schemas/AlarmStatus'
+    
+    VehicleStatusAlarm:
+      allOf:
+        - $ref: '#/components/schemas/Alarm'
+        - description: Describes the current vehicle alarm status and the latest (if available) trigger.
+    
+    AlarmDetails :
+      allOf:
+        - properties:
+            id : 
+              type: string
+        - $ref: '#/components/schemas/Alarm'
+        - required : [id]
 
+    Alarms:
+      title: Alarm array
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - properties:
+            _embedded:
+              type: object
+              properties:
+                alarms:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AlarmDetails'            
+    BasicProgram:
+      type: object
+      description: Describe recurring action.
+      properties:
+        start:
+            type: string
+            description: |
+                          The program relative (to 00:00) start time formatted using the duration format based on [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) with the schema: P[n]Y[n]M[n]DT[n]H[n]M[n]S
+                      
+                          _example_: 
+                        
+                          * PT14H30M means 14H and 30Min
+            example : PT14H30M
+        occurence:
+                type: object
+                description: >
+                   The occurrence on the program will spread on days depending on recurrence value.
+                properties:
+                    day:
+                        type: array
+                        items:
+                          type: string
+                          enum: [Mon, Tue, Wed, Thu, Fri, Sat, Sun]
+                required: [day]
+      required: [start]
     
     Program:
       type: object
@@ -1982,7 +2096,7 @@ components:
     PreconditioningProgram:
       allOf:
         - $ref: '#/components/schemas/Program'
-        - title: ProconditionProgram
+        - title: PreconditionProgram
         - properties:
             slot:
               type: integer
@@ -2471,12 +2585,10 @@ components:
                 type: object
                 properties:
                   size:
-                    type: number
-                    format: int
+                    type: integer
                     description: Batch size (positive value and not zero).
                   timeWindow:
-                    type: number
-                    format: int
+                    type: integer
                     default: 60
                     minimum: 5
                     description: Notification batch window size (expressed in seconds).
@@ -2497,8 +2609,7 @@ components:
           properties:
             refreshEvent:
                     description:  Define the period (in sec.) between two refresh events. The refresh-events are sent when the condition of the monitor is satisfied (Trigger -> toggled true). A kind of periodic reminder.
-                    type: number
-                    format: int
+                    type: integer
                     minimum: 60
 
     MonitorStatusSetter:
@@ -2637,8 +2748,7 @@ components:
                     properties:
                       radius:
                         description: Circle radius (expressed in km)
-                        type: number
-                        format: int
+                        type: integer
                       center:
                         type: object
                         properties:
@@ -2688,14 +2798,14 @@ components:
             |---|---| ---:| ---:|
             | vehicle.alert | List of value | onChange (at least one)/includedIn/equalsTo | Value (ObjetAlert) |
             | vehicle.odometer | Integer | equalsTo/greaterThan/lowerThan/ | Value |
-            | vehicle.engines.running (boolean) | Boolean | onChange/equalsTo | Value (true/false) |
+            | vehicle.powertrain.status |Enum(powertrain.status) | equalsTo / onChange/includedIn | Value |
             | vehicle.engines.thermic.oil.temp | Integer | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.electric.level | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.electric.autonomy | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.fuel.level | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.fuel.autonomy | Number | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.autonomy (global) | Number | equalsTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.energy.charging.status | Enum(ChargingStatusEnum) | onChange/equalsTo | Value |
+            | vehicle.energy.charging.status | Enum(ChargingStatusEnum) | onChange/equalsTo/includedIn | Value |
             | vehicle.energy.charging.plugged | Boolean | onChange/equalsTo | Value |
             | vehicle.doorsState.lockedState | N/A | onChange | Value |
             | vehicle.doorsState.opening | N/A | onChange | Value |
@@ -2725,7 +2835,7 @@ components:
           enum:
             - vehicle.alert
             - vehicle.odometer
-            - vehicle.engines.running
+            - vehicle.powertrain.status
             - vehicle.engines.thermic.oil.temp
             - vehicle.energy.electric.level
             - vehicle.energy.electric.autonomy
@@ -3504,13 +3614,23 @@ components:
                               properties:
                                 level:
                                   description: Engine liquid level expressed in persent.
-                                  type: number
-                                  format: int
+                                  type: integer
                                 temp:
                                   description: Engine liquid temperature expressed in Celsius degrees.
                                   type: number
                                   format: float
-
+    PowertrainBase:
+      type: object
+      properties:
+        status : 
+          type : string
+          description : Status of the powertrain
+          enum: [NotRunning, Starting, Running, Stopping, Stopped]
+    Powertrain :
+      allOf:
+        - $ref: '#/components/schemas/CreatedAtField'
+        - $ref: '#/components/schemas/PowertrainBase'
+      required: [createdAt]
     EngineBase:
           type: object
           properties:
@@ -3527,6 +3647,7 @@ components:
                   gmpStatus:
                     type: string
                     enum: [NotRunning, Starting, Running, Stopping, Stopped]
+                    deprecated : true
                   extension:
                     type: object
                     properties:
@@ -3582,6 +3703,8 @@ components:
                         $ref: '#/components/schemas/EnergyBase'
                     transmission:
                       $ref: '#/components/schemas/Transmission'
+                    powertrain: 
+                      $ref: '#/components/schemas/PowertrainBase'
                     adas:
                       $ref: '#/components/schemas/Adas'
                     lighting:
@@ -3605,6 +3728,8 @@ components:
                                 description: Vehicle mileage expressed in KM.
                                 type: number
                                 format: float
+                    alarm:
+                        $ref: '#/components/schemas/BaseAlarm'
                     kinetic :
                         $ref: '#/components/schemas/BasicKinetic'
                     drivingBehavior:
@@ -3674,7 +3799,7 @@ components:
                 speed:
                   type: number
                   format: float
-                  description:  Vehicle speed (expressed in m/s)
+                  description:  Vehicle speed (expressed in km/h)
                 moving:
                   type: boolean 
     
@@ -3737,6 +3862,8 @@ components:
                           type: boolean
                         sequential:
                           type: boolean
+                        semiManual:
+                          type : boolean
                     ratio:
                       description: Current gear-box ratio.
                       type: string
@@ -3816,7 +3943,7 @@ components:
                       - Unavailable
                     default: Unavailable
                   bsm:
-                    description: Blink SpotMonitoring
+                    description: Blind Spot Monitoring
                     type: string
                     enum:
                       - Active
@@ -3836,11 +3963,16 @@ components:
                     description: Speed Limit Information (expressed in km/h)
                     type: integer
                   rlka:
-                    description: Lane Keeping Assist right
+                    description: Right Lane Keeping Assist 
                     type: string
                     enum: [Authorized, CorrectionInProgress, NotAuthorized, NotSelected]
                   lrka:
                     description: Lane Keeping Assist left
+                    type: string
+                    enum: [Authorized, CorrectionInProgress, NotAuthorized, NotSelected]
+                    deprecated : true
+                  llka:
+                    description: Left Lane Keeping Assist 
                     type: string
                     enum: [Authorized, CorrectionInProgress, NotAuthorized, NotSelected]
                   rgi:
@@ -3938,7 +4070,8 @@ components:
                         properties:
                           temp:
                             description: Outside air temperature in Celsius degrees
-                            type: number                             
+                            type: number
+                            format: float
     TelemetryEnum:
       type: array
       minItems: 1
@@ -4092,8 +4225,7 @@ components:
       name: pageSize
       in: query
       schema:
-        type: number
-        format: int
+        type: integer
         default: 60
         minimum: 1
         maximum: 60
@@ -4108,8 +4240,7 @@ components:
       name: pageSize
       in: query
       schema:
-        type: number
-        format: int
+        type: integer
         minimum: 1
         maximum: 2000
         default: 60
