@@ -30,7 +30,7 @@ You can find the documentation [here]({{site.baseurl}}/webportal/).
 
 ### Mobile SDK
 
-Stallantis Connected Vehicle SDK for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) let your mobile application benefits of remote vehicles features. 
+Stellantis Connected Vehicle SDK for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) let your mobile application benefits of remote vehicles features. 
 
 # See Also
 

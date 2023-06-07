@@ -16,8 +16,9 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
-[11.3.0](#1110) | Web API: v3.11.0
-[11.2.0](#1110) | Mobile SDK v2.3 & fix Data Catalog
+[11.3.1](#1131) | Fix misprint
+[11.3.0](#1130) | Web API: v3.11.0
+[11.2.0](#1120) | Mobile SDK v2.3 & fix Data Catalog
 [11.1.0](#1110) | Web API: Remove Web API v2
 [11.0.0](#1100) | Multi version ref & Mobile SDK v2.2 & update WebPortal ref
 [10.2.0](#1020) | Web API: v3.8.0
@@ -94,6 +95,15 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add WebPortal section
+
+<hr>
+
+## 11.3.1
+
+{% include published_on.html date='15 May 2023' %}
+
+**Website:**
+- Misprint
 
 <hr>
 
