@@ -26,7 +26,7 @@ Vehicles are using various **sensors** which aim to improve security and driving
 If an application require info about a vehicle, appropriate data are **collected & sent** to Stellantis servers via cellular network. This make sure that the data are available whether the vehicle is online or not.
 
 
-Data are then **unified & processed**, these steps ensure that thedata provided within this API share the same format in spite of the different types of vehicles and generation,
+Data are then **unified & processed**, these steps ensure that the data provided within this API share the same format in spite of the different types of vehicles and generation,
 
 > **Data Scope:** Only required data are available within this API, check out [data scope]({{site.baseurl}}/webapi/b2c/overview/data-scope/#article).
 

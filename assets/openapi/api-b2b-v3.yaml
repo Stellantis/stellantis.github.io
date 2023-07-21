@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.11.0'
+  version: '3.13.0'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -214,6 +214,7 @@ paths:
       summary: Last position identified
       description: Returns the latest GPS Position of the Vehicle.
       operationId: getCarLastPosition
+      deprecated: true
       parameters:
         
         - $ref: '#/components/parameters/fleetId'
@@ -461,7 +462,47 @@ paths:
           $ref: '#/components/responses/TelemetrySuccessResponse'
         default:
           $ref: '#/components/responses/TelemetryFailedResponse'
-          
+  
+  '/fleets/{fid}/vehicles/{vid}/alarms':
+    get:
+      tags:
+        - Vehicles
+      description: | 
+        Returns a (filtered) list of alarm for a Vehicle.
+        *Note:* Timestamp filtering concerns the creation date for status or trigger. 
+      summary: Vehicle's Alarms
+      operationId: getVehicleAlarms
+      parameters:
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/alarmType'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          $ref: '#/components/responses/AlarmSuccessResponses'
+        default:
+          $ref: '#/components/responses/AlarmFailedResponse'
+  
+  '/fleets/{fid}/vehicles/{vid}/alarms/{aid}':
+    get:
+      tags:
+        - Vehicles
+      description: Returns information about a specific alarm for a Vehicle.
+      summary: Vehicle's Alarm
+      operationId: getVehicleAlarmsById
+      parameters:
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/alarmId'
+      responses:
+        '200':
+          $ref: '#/components/responses/AlarmSucessResponse'
+        default:
+          $ref: '#/components/responses/AlarmFailedResponse'
+  
   '/fleets/{fid}/monitors':
     get:
       tags:
@@ -616,7 +657,6 @@ paths:
         This method returns a list of all Trips. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
       operationId: getFleetTrips
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/timestamps'
@@ -632,6 +672,7 @@ paths:
 
   '/fleets/{fid}/trips/{tid}/collisions':
     get:
+     deprecated : true
      tags:
        - Trips
      summary: Fleet's trip collisions list. 
@@ -639,7 +680,6 @@ paths:
        Returns the list of Collisions that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
      operationId: getTripCollisionsByTrip
      parameters:
-
        - $ref: '#/components/parameters/fleetId'
        - $ref: '#/components/parameters/pageToken'
        - $ref: '#/components/parameters/tripId'
@@ -662,7 +702,6 @@ paths:
        Returns the list of Collisions of a vehicle that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
      operationId: getTripCollisionsByTripAndVehicle
      parameters:
-
        - $ref: '#/components/parameters/vehicleId'
        - $ref: '#/components/parameters/fleetId'
        - $ref: '#/components/parameters/pageToken'
@@ -685,7 +724,6 @@ paths:
        Returns the list of Collisions that occured on vehicles' fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
      operationId: getFleetTripCollisions
      parameters:
-
        - $ref: '#/components/parameters/fleetId'
        - $ref: '#/components/parameters/profile'
        - $ref: '#/components/parameters/pageToken'
@@ -707,7 +745,6 @@ paths:
       # Returns the Collision that matches the fleet id and the Collision cid. 
      operationId: getCollisionsById
      parameters:
-
        - $ref: '#/components/parameters/fleetId'
        - $ref: '#/components/parameters/profile'
        - $ref: '#/components/parameters/collisionId'      
@@ -719,6 +756,7 @@ paths:
 
   '/fleets/{fid}/trips/{tid}':
     get:
+      deprecated : true
       summary : Fleet's trip list.
       tags:
         - Trips
@@ -726,7 +764,6 @@ paths:
         Gives the Trip that matches the Trip id (tid).
       operationId: getFleetTripsById
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/profile'
@@ -746,7 +783,6 @@ paths:
         Vehicle (id) has taken.
       operationId: getFleetTripByVehicle
       parameters:
-        
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/fleetId'
@@ -759,6 +795,7 @@ paths:
 
   '/fleets/{fid}/trips/{tid}/alerts':
     get:
+      deprecated : true
       summary: Fleet's trip alert list.
       tags:
         - Trips
@@ -766,7 +803,6 @@ paths:
         Returns the alert message list for a given trip.
       operationId: getFleetTripAlerts
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/timestamps'
@@ -774,7 +810,6 @@ paths:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/profile'
-
       responses:
         200:
           $ref: '#/components/responses/AlertsuccessResponses'
@@ -790,7 +825,6 @@ paths:
         Returns the alert message list for a given vehicle.
       operationId: getFleetTripAlertByVehicle
       parameters:
-        
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/fleetId'
@@ -799,7 +833,6 @@ paths:
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/profile'
-
       responses:
         200:
           $ref: '#/components/responses/AlertsuccessResponses'
@@ -831,6 +864,7 @@ paths:
     
   '/fleets/{fid}/trips/{tid}/alerts/{aid}':
     get:
+      deprecated : true
       summary: Fleet's trip specific alert.
       tags:
         - Trips
@@ -838,12 +872,10 @@ paths:
         Returns the alert message for a given trip.
       operationId: getFleetTripAlertById
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/tripId'
         - $ref: '#/components/parameters/alertId'
         - $ref: '#/components/parameters/profile'
-
       responses:
         200:
           $ref: '#/components/responses/AlertsuccessResponse'
@@ -852,6 +884,7 @@ paths:
     
   '/fleets/{fid}/trips/{tid}/wayPoints':
     get:
+      deprecated : true
       summary: Fleet's trip waypoints.
       tags:
         - Trips
@@ -908,6 +941,7 @@ paths:
 
   '/fleets/{fid}/trips/{tid}/telemetry':
     get:
+      deprecated : true
       summary: Fleet's trip telemetry.
       tags:
         - Trips
@@ -1411,6 +1445,7 @@ components:
             mileage:
                 description: Vehicle mileage expressed in KM.
                 type: number
+                format : float
       required: [createdAt]
     Battery:  
             allOf:
@@ -1450,14 +1485,6 @@ components:
                   autoECallTriggering:
                     type: string
                     enum: [NotDetected, Detected, ShockDetectionUnabled]
-                  beltWarning:
-                    deprecated: true
-                    type: string
-                    enum: [Normal, Omission]
-                  eCallTriggeringRequest:
-                    deprecated: true
-                    type: string
-                    enum: [AirbagUnabled, NoRequest, Requested]        
 
     WipingBladesState:  
                 type: object
@@ -1468,7 +1495,7 @@ components:
                   speed:
                     description: Wiping speed. This field is present only if active field is set to true.
                     type: string
-                    enum: [Hight, Low]
+                    enum: [High, Low]
                   
 
     Safety:  
@@ -1482,25 +1509,15 @@ components:
               - $ref: '#/components/schemas/CreatedAtField'
               - type: object
                 properties:
-                  updatedAt:
-                    type: string
-                    format: date-time
-                    deprecated: true
                   type:
                     type: string
                     enum: [Electric, Hybrid, Unknown]
           required: [createdAt]
+          deprecated : true
     
     DoorsState:
         allOf:
           - $ref: '#/components/schemas/CreatedAtField'
-          - type : object 
-          - properties:
-              updatedAt:
-                description: Date when the resource has been updated.
-                type: string
-                format: date-time
-                deprecated : true
           - $ref: '#/components/schemas/DoorsStateBase'
         required: [createdAt]
                         
@@ -1683,6 +1700,12 @@ components:
                       enum:
                         - Estimated
                         - Acquire
+                    fixStatus:
+                      type: string
+                      description : Fix status information is only returned when position type is set to Acquire. Horizontal & altitude position can be determined in 3D fix status mode where it is only horizontal position in 2D mode. 
+                      enum:
+                        - 2D
+                        - 3D
                   
     Position:
       allOf:
@@ -1705,11 +1728,6 @@ components:
                 - $ref: '#/components/schemas/CreatedAtField' 
                 - type: object
                   properties:
-                    updatedAt:
-                      description: Date when the resource has been updated.
-                      type: string
-                      format: date-time
-                      deprecated : true
                     vin:
                       $ref: '#/components/schemas/Vin'
                     heading:
@@ -1724,6 +1742,12 @@ components:
                       enum:
                         - Estimated
                         - Acquire
+                    fixStatus:
+                      type: string
+                      description : Fix status information is only returned when position type is set to Acquire. Horizontal & altitude position can be determined in 3D fix status mode where it is only horizontal position in 2D mode. 
+                      enum:
+                        - 2D
+                        - 3D
               required : 
                 - createdAt
     
@@ -1733,11 +1757,6 @@ components:
       allOf:
         - $ref: '#/components/schemas/CreatedAtField'
       properties :
-        updatedAt:
-          description: Date when the resource has been updated.
-          type: string
-          format: date-time
-          deprecated: true
         type:
           type: string
           description: Energy type present on the vehicle.
@@ -1764,16 +1783,12 @@ components:
               description: Specific fuel energy properties.
               type: object
               properties:
-                 consumption:
-                     $ref: '#/components/schemas/FuelEnergyConsumption'
                  consumptions:
                      $ref: '#/components/schemas/CompositFuelEnergyConsumption'
             electric:
               description: Specific electric energy parameters.
               type: object
               properties:
-                residual:
-                   $ref: '#/components/schemas/ElectricResidualEnergy'
                 battery:
                     $ref: '#/components/schemas/EnergyBattery'
                 charging:
@@ -1810,28 +1825,62 @@ components:
               description: Specific fuel energy properties.
               type: object
               properties:
-                 consumption:
-                     $ref: '#/components/schemas/FuelEnergyConsumption'
                  consumptions:
                      $ref: '#/components/schemas/CompositFuelEnergyConsumption'
             electric:
               description: Specific electric energy parameters.
               type: object
               properties:
-                residual:
-                   $ref: '#/components/schemas/ElectricResidualEnergy'
                 battery:
                   $ref: '#/components/schemas/EnergyBatteryBase'
                 charging:
                   $ref: '#/components/schemas/EnergyCharging'
       required: [type]
-          
-    FuelEnergyConsumption:
-              description: Total consumption for vehicles for thermic vehicle. Deprecated, use consumptions (CompositFuelEnergyConsumption) instand.
-              type: number
-              format: float
-              deprecated: true
-              minimum: 0
+    LiteEnergy:
+      description: Describe vehicle energy supply for thermic, low emission vehicle or both.
+      type: object
+      properties :
+        type:
+          $ref: '#/components/schemas/EnergyType'
+        subType:
+          $ref: '#/components/schemas/EnergySubType'
+        level:
+          type: number
+          format: float
+          description: Percentage of remaining energy (Fuel or electric) level. Expressed with a precision of 0.1%.
+          minimum: 0
+          maximum: 100
+        autonomy:
+          description: Vehicle autonomy expressed in km for this energy class.
+          type: integer
+    Consumption:
+          type: object
+          properties:
+              consumption:
+                type: number
+                format: float
+                minimum: 0
+          required: [consumption]
+    EnergyConsumption:
+        allOf:
+              - $ref: '#/components/schemas/Consumption'
+              - description: Vehicle total consumption related to a specific type of energy. Expressed in L for fuel energy type or in KWh for eletric one.
+              - properties:
+                  type:
+                    $ref: '#/components/schemas/EnergyType'
+                  subType:
+                    $ref: '#/components/schemas/EnergySubType'              
+              - required: [type]
+    EnergyType:
+          type: string
+          description: Energy type present on the vehicle.
+          enum: [Fuel, Electric]
+    EnergySubType:
+          type: string
+          description: | 
+            Energy subtype. This field is not mandatory and therefore if it is not present, it means that the resource consumer should only process the primary energy type. The enumeration of the subtypes is not exhaustive and may contain more elements depending on the evolution of the vehicles. The consumer of the data must take this constraint into account. The Fossil and Electric energy subtypes are only used to populate this subtype for the default Fuel and Electric types.
+              * Electric and hydrogen type are considered as low emission vehicle whereas fuel(fossil) is associated to thermic energy
+          enum: [FossilEnergy, ElectricEnergy, Hydrogen] 
     CompositFuelEnergyConsumption:
               description: Fuel consumption.
               type: object
@@ -1845,11 +1894,6 @@ components:
                   description: Instant Fuel consumption expressed in L/100Km.
                   type: number
                   format: float
-    ElectricResidualEnergy:
-                  description: Residual electric energy (Wh)
-                  type: number
-                  format: float
-                  deprecated : true
                   
     EnergyCharging:
                   type: object
@@ -1901,11 +1945,6 @@ components:
       type: object
       description: Electric battery capacity and heath 
       properties:
-        capacity:
-          description: Electric battery total capacity (expressed in Wh). 
-          type: number
-          format: float
-          deprecated : true
         load : 
           $ref: '#/components/schemas/LoadElectricEnergy'
         health: 
@@ -1914,11 +1953,6 @@ components:
       type: object
       description: Electric charging state.
       properties:
-        capacity:
-          description: Electric battery total capacity (expressed in Wh). 
-          type: number
-          format: float
-          deprecated : true
         load : 
           allOf:
             - $ref: '#/components/schemas/CreatedAtField'
@@ -2114,11 +2148,6 @@ components:
           - type: object
             description: Preconditioning the vehicle for driver and passenger.
             properties:
-              createdAt:
-                description: Date when the resource has been created.
-                type: string
-                format: date-time
-                deprecated: true
               airConditioning:
                 allOf:
                   - $ref: '#/components/schemas/CreatedAtField'
@@ -2278,6 +2307,10 @@ components:
             vin:
               description: Serial number of a vehicle
               type: string
+            motorization :
+              description : Motorization of the vehicle.
+              type : string
+              enum: [Electric, Hybrid, Thermic, Hydrogen]
             brand:
               description: Brand of a vehicle
               type: string
@@ -3831,7 +3864,7 @@ components:
                 enum:
                     - Normal
                     - Sport
-                    - Confort
+                    - Comfort
                     - Eco
                     - Sand
                     - Mud
@@ -3922,7 +3955,7 @@ components:
                   rvv:
                     description: Advanced Speed Regulator
                     type: string
-                    enum: [Off,NoBestFit,BestFitInProgress,BestFitMax,BestFitMin,BestFitDeactivated,AutoDeactivated,OverflowSpeedConsign,LeakOfVisibilityRadar,LearningRadar,Deactivated,LimitSetting]
+                    enum: [Off,NoBestFit,BestFitInProgress,BestFitMax,BestFitMin,BestFitDeactivated,AutoDeactivated,OverflowSpeedConsign,LackOfVisibilityRadar,LearningRadar,Deactivated,LimitSetting]
                   aebs:
                     description: Advanced Emergency Braking System
                     type: string
@@ -4075,7 +4108,7 @@ components:
     TelemetryEnum:
       type: array
       minItems: 1
-      maxItems: 15
+      maxItems: 17
       items:
         type: string
         enum:
@@ -4093,8 +4126,16 @@ components:
           - vehicle.safety
           - vehicle.transmission
           - vehicle.drivingBehavior
+          - vehicle.alarm.status
+          - vehicle.alarm.trigger
           - vehicle.wipingBlades
-          
+    AlarmTypeEnum:
+      type: array
+      items:
+        type: string
+        enum:
+          - vehicle.alarm.status
+          - vehicle.alarm.trigger      
     DataProfile:
         type: string
         enum:
@@ -4132,6 +4173,14 @@ components:
       name: aid
       in: path
       description: id of the alert.
+      required: true
+      schema:
+        type: string
+    
+    alarmId:
+      name: aid
+      in: path
+      description: id of the alamr.
       required: true
       schema:
         type: string
@@ -4281,19 +4330,25 @@ components:
       schema:
         type: number
         format: float
-        
+    
+    alarmType:
+      name: type
+      in: query
+      description:  Results will only contain Alarm messages of this type.  If no filtering type is selected then all alarms will be taken .
+      required: false
+      schema:
+        $ref: '#/components/schemas/AlarmTypeEnum'    
+    
     telemetryType:
       name: type
       in: query
       description: >-
         Results will only contain Telemetry messages of this kind. You can add
-        more than one message type. By default, if no type is selected then all telemetries will be taken ```(the number of elements in this array must be between 1 and 15)```.
+        more than one message type. By default, if no type is selected then all telemetries will be taken ```(the number of elements in this array must be between 1 and 17)```.
          * _Disclaimer_:   ```vehicle.lighting``` is deprecated
       required: false
       schema:
         $ref: '#/components/schemas/TelemetryEnum'
-    
-
   
     telemetryExtension:
       name: extension
@@ -4303,7 +4358,6 @@ components:
       required: false
       schema:
         $ref: '#/components/schemas/TelemetryExtensionType'    
-    
 
     remoteType:
       name: types
@@ -4364,6 +4418,24 @@ components:
         application/hal+json:
           schema:
             $ref: '#/components/schemas/Fleets'        
+    
+    AlarmSucessResponse:
+      description: Alarm response
+      content:
+        application/hal+json:
+          schema:
+            $ref: '#/components/schemas/AlarmDetails'
+    
+    AlarmSuccessResponses:
+      description: A list of alert
+      content:
+        application/hal+json:
+          schema:
+            $ref: '#/components/schemas/Alarms'
+            
+    AlarmFailedResponse:
+      description: Alarm request error
+      $ref: '#/x-fragment/general_error_fragment'
     
     AlertsuccessResponses:
       description: A list of alert
