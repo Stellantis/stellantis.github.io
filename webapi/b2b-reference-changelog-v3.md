@@ -41,7 +41,7 @@ Version|Name
 
 ## b2b_v3.13.0
 
-{% include published_on.html date='20 Jul 2024' %}
+{% include published_on.html date='20 Jul 2023' %}
 
 **Alarms API**
 - Add of 2 news API : GET /fleets/{fid}/vehicles/{vid}/alarms & GET /fleets/{fid}/vehicles/{vid}/alarms/{aid}
@@ -60,7 +60,7 @@ Version|Name
 
 ## b2b_v3.12.0
 
-{% include published_on.html date='20 Jul 2024' %}
+{% include published_on.html date='20 Jul 2023' %}
 
 **Vehicle API**
 - Add motorization in vehicle object
@@ -80,7 +80,7 @@ Version|Name
 
 ## b2b_v3.11.0
 
-{% include published_on.html date='26 Apr 2024' %}
+{% include published_on.html date='26 Apr 2023' %}
 
 **Telemetry & Status API**
 - Add alarm object
@@ -89,7 +89,7 @@ Version|Name
 
 ## b2b_v3.10.0
 
-{% include published_on.html date='26 Apr 2024' %}
+{% include published_on.html date='26 Apr 2023' %}
 
 **Telemetry & Status API**
 - Add powertrain object
@@ -102,7 +102,7 @@ Version|Name
 
 ## b2b_v3.9.0
 
-{% include published_on.html date='26 Apr 2024' %}
+{% include published_on.html date='26 Apr 2023' %}
 
 **Telemetry & Status API**
 - Update enum list of ignition (delete unnecessary "free" value)
