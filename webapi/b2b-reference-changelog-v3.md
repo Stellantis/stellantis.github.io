@@ -13,6 +13,8 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v3.13.0](#b2b_v3130) | 3.13.0
+[b2b_v3.12.0](#b2b_v3120) | 3.12.0
 [b2b_v3.11.0](#b2b_v3110) | 3.11.0
 [b2b_v3.10.0](#b2b_v3100) | 3.10.0
 [b2b_v3.9.0](#b2b_v390) | 3.9.0
@@ -34,6 +36,45 @@ Version|Name
 [b2b_v3.0.5](#b2b_v305) | 3.0.5
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
 [b2b_v3.0.0](#b2b_v300) | Candiate version
+
+<hr>
+
+## b2b_v3.13.0
+
+{% include published_on.html date='20 Jul 2024' %}
+
+**Alarms API**
+- Add of 2 news API : GET /fleets/{fid}/vehicles/{vid}/alarms & GET /fleets/{fid}/vehicles/{vid}/alarms/{aid}
+
+**Telemetry API**
+- Update TelemetryEnum list to include alarm values for type query parameter
+
+**Telemetry & Status API**
+- Update enum list ofrvv in adas object (LeakOfVisibilityRadar by LackOfVisibilityRadar)
+
+**Others**
+- Deprecate API /fleets/{fid}/vehicles/{vid}/lastPosition
+- Remove several deprecated features
+
+<hr>
+
+## b2b_v3.12.0
+
+{% include published_on.html date='20 Jul 2024' %}
+
+**Vehicle API**
+- Add motorization in vehicle object
+
+**Telemetry & Status API**
+- Update enum list in speed for wipingBlades object (replace Hight by High)
+- Update enum list in mode for drivingBehavior object (replace Confort by Comfort)
+
+**Trips API**
+- Deprecate the following endpoints : /fleets/{fid}/trips/{tid}/telemetry & /fleets/{fid}/trips/{tid}/wayPoints & /fleets/{fid}/trips/{tid}/alerts/{aid} & /fleets/{fid}/trips/{tid}/alerts & /fleets/{fid}/trips/{tid} & /fleets/{fid}/trips/{tid}/collisions
+
+**Others**
+- Add fixStatus in position object
+- Update description and fix wording issues
 
 <hr>
 
