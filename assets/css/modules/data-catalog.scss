@@ -386,6 +386,14 @@ $table-color: #323a58;
   transition: all .3s ease-out;
 }
 
+.data-item-info {
+  flex: 2;
+}
+.data-item-type {
+  font-weight: 500;
+  flex: 1.5
+}
+
 .data-item-expand-arrow {
   color: $table-color;
   height: 37.5px;
@@ -398,12 +406,19 @@ $table-color: #323a58;
   width: 100px;
 }
 
-
-.data-item-description, .data-item-unit_value, .data-item-fiel-title, .data-item-domain-name,.availability-name  {
+.data-item-description, .data-item-enum, .data-item-unit, .data-item-domain-name, .availability-name, .availability-vhcl-type, .data-item-subtitle {
   display: none;
 }
 
-.data-item-title, .data-item-description, .data-item-type, .data-item-unit_value  {
+.data-item-availability, .availability-api-na {
+  display: none;
+}
+
+.availability-api-na {
+  font-weight: normal;
+}
+
+.data-item-title, .data-item-description, .data-item-type, .data-item-enum, .data-item-unit, .availability-api-title, .availability-api-list  {
   white-space: break-spaces;
 }
 
@@ -457,142 +472,36 @@ $table-color: #323a58;
   }
 }
 
-.data-item-info {
-  flex: 2;
-  padding: 0 .5rem;
-}
-
-.data-item-fiel-title {
-  color: $table-color;
-  font-weight: 500;
-  font-size: .9rem;
-}
-
-.data-item-technical {
-  flex: 1.5; 
-  padding: 0rem .5rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.data-item-unit_value {
-  padding: .25rem 0;
-  code {
-    font-size:.9rem;
-  }
-}
-
-.data-item-availability {
-  margin-left: .5rem;
-  margin-right: 2rem;
-}
-
-.tag:not(body).data-item-available {
-display: none;
-}
-
-.tag:not(body).data-item-available.is-link {
-  color: white;
-  align-items: center;
-  background-color: $table-color;
-  a {
-    color: $accent-color;
-  }
-  &::after{
-    content: "\f35d";
-    font-family: "Font Awesome 5 Free";
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
-    font-weight: 900;
-    font-size: .6rem;
-  }
-}
-
-.tag:not(body).data-item-available.is-link:hover {
-  background-color: whitesmoke;
-  color: $accent-color;
-  a {
-    text-decoration: underline;
-    color: $accent-color;
-  }
-  &::after {
-    text-decoration: unset;
-    color: $accent-color;
-  }
-}
-
-
-.data-item-links .n-a {
-  visibility: hidden;
-}
-
-
-.data-item-availability .control:not(:last-of-type) {
-  margin: 0 1rem .75rem 0 !important;
-}
-
-.data-item-type .tag:not(body) {
-  color: $table-color;
-  // transition: all 0.3s ease-out;
-  font-weight: 500;
-  background: transparent;
-}
-
-.data-item-links {
-  width: 100%;
-  .field.is-grouped {
-    display: flex;
-    justify-content: center;
-  }
-}
-
-.tag:not(body) {
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.tag:not(body).is-dark {
-  background-color: $table-color;
-}
-
-
-.tag:not(body).is-info {
-  background: transparent;
-  color: $table-color;
-}
-
-.tag:not(body).is-danger {
-  color: #ff4238;
-  background: whitesmoke;
-}
-
 .fa-angle-right {
   transition: all 0.3s ease-out;
   font-size: 1.2rem;
 }
 
-.data-item-highlighted {
+.non-highlighted-icon {
+  display: flex;
+  gap: 1rem;
+  flex: .5;
+}
 
+.data-item-highlighted {
+  
+  .non-highlighted-icon {
+    display: none;
+  }
+  
+  .data-item-title {
+    padding-bottom: .5rem;
+  }
+  
   .data-item-category, .data-item-content {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
-  
 
-  .data-item-fiel-title, .data-item-description, .data-item-domain-name, .data-item-type {
-    display: inherit;
-  }
-
-  .data-item-unit_value {
-    display: block;
-  }
-
-  .data-item-availability{
-    margin: .25rem .5rem .5rem;
+  .data-item-content {
+    flex-direction: column;
+    align-items: start;
+    gap: .75rem;
   }
 
   .data-item-category .icon {
@@ -603,195 +512,87 @@ display: none;
     background-color: $table-color;
   }
 
-  .data-item-links .n-a {
-    visibility: visible;
-  }
-
-  .data-item-type .tag:not(body) {
-    background-color: transparent;
-    box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
-    color: $table-color;
-    border: 2px solid $table-color;
-    font-weight:500;
-    display: inline-flex;
-    margin-bottom: .5rem;
-    margin-top: .25rem;
-  }
-
-  .data-item-content {
-    align-items: start;
-  }
-
-  .availability-name {
-    display: block;
-  }
-
-  .tag:not(body).is-info {
-    color: $table-color;
-    border: 2px solid $table-color;
-
-    background-color: transparent;
-    box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
-  }
-  
-  .tag:not(body).data-item-available {
-    display: inline-flex;
-  }
-
   .fa-angle-right {
     transform: rotate(90deg);
   }
-  
-    .field.is-grouped {
-      display: block;
-    }
-  
-}
 
-@media screen and (max-width: 480px) {
-  .data-header .table-header-filter-reset .icon {
-    display: none;
+  .data-item-subtitle {
+    font-weight: 500;
   }
 
-  .data-item-availability {
-    display: none;
+  .data-item-description, .data-item-domain-name, .data-item-type, .availability-vhcl-type, .data-item-subtitle {
+    display: inherit;
   }
 
-  .data-item-highlighted {
-    .data-item-availability {
-      display: block;
-    }
+  .data-item-availability, .availability-api-na, .data-item-enum, .data-item-unit {
+    display: block
   }
 
-  .data-item-expand-arrow {
-    display: none;
+  .data-item-type {
+    font-weight: normal;
   }
 
-  .data-header .table-header-filter .table-header-api {
-    display: block;
-    
-    .table-header-api-title {
-      margin-bottom: 1rem;
-    }
-  }
-}
-
-@media screen and (max-width: 950px) {
-  
-  .tag:not(body).is-info{
-    min-width: 0;
-  }
-  .data-item-highlighted {
-    
-    .data-item-content  {
-      flex-wrap: wrap;
-    }
-
-    .availability-name {
-      display: none;
-      padding: 0;
-    }
-  }
-
-  .data-header .table-header-filter {
-    .table-header-versions .tag {
-      width: auto;
-    }
-  }
-
-}
-
-@media screen and (max-width: 1087px) {
-  .tag:not(body) {
-    font-size: 0.8rem;
-  }
-  .data-item-expand-arrow {
-    width: 60px;
-  }
-  .data-item-category{
-    min-width: 60px;
-    margin-left: .75rem;
-    margin-right: .75rem;
-    .icon {
-      font-size: 20px;
-    }
-  }
-  .data-item-availability {
-    width: 130px;
-  }
-  .data-item-title {
-    line-height: 1.25;
-  }
-  .data-item-highlighted {
-    .data-item-category, .data-item-content {
-      padding-top: .75rem;
-      padding-bottom: .75rem;
-    }
-    .data-item-availability {
-      width: auto;
-    }
-  }
-
-
-  .data-header .table-header-filter {
-    .table-header-versions .tag {
-      margin-right: 1rem;
-    }
-    .table-header-version {
-      width: auto;
+  .data-item-availability  {
+    font-size: 1rem;
+    .availability-api-title-container {
       display: flex;
-      flex-direction: column;
-      label {
-        margin-left: 0;
-        text-align: center;
+      flex-wrap: wrap;
+      font-weight: 500;
+      .icon {
+        font-size: inherit;
       }
     }
-    .table-header-version:not(:last-of-type) {
-      margin-right: .75rem;
+    .availability-api-list {
+      font-size: .95rem;
+      margin-top: .25rem;
     }
   }
 
-
-} 
-
-@media screen and (max-width: 700px) {
-
-  .tabulator-row:last-of-type {
-    margin-bottom: 535px;
+  .data-item-availability-vehicles {
+    display: flex;
+    flex-wrap: wrap;
+    .availability-api-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      margin: 0;
+      li { margin: 0 }
+    }
   }
-  .data-header .table-header-filter-reset {
-    margin-left: 1rem;
-    min-width: 100px;
-  }
 
-  .data-item-technical {
+  .availability-api {
+    flex-direction: column;
+    font-size: .8rem;
+    .tag.is-info {
+      width: 100%;
+      margin: 0;
+    }
+    .tag.data-item-available.is-link {
+      width: 100%;
+      margin:0;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) { 
+  .non-highlighted-icon, .data-item-type {
     display: none;
   }
-
-  .data-item-availability .control:not(:last-of-type) {
-    margin: 0 .25rem .75rem 0 !important
+  .data-item-highlighted .data-item-type {
+    display: flex;
   }
-  .field.is-grouped {
-    justify-content: unset;
-    }
+}
 
-  .data-item-highlighted {
-
-    
+@media screen and (max-width: 485px) { 
+  .data-item-highlighted .data-item {
+    flex-wrap: wrap;
+    justify-content: center;
     .data-item-content {
-      display: block;
+      padding: 1rem;
     }
-
-    .data-item-unit_value {
-      padding-bottom: 1rem;
-    }
-
-    .data-item-technical {
-      display: block;
-    }
-    .data-item-description {
-      padding-bottom: .5rem;
-    }
-
   }
 }
