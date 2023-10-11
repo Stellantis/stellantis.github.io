@@ -169,8 +169,8 @@ const specification_page = {
     v2: "/webportal/v2/api-reference/",
   },
   webapi: {
-    v3: "/webapi/b2b/api-reference/specification/#operation/",
-    v4: "/webapi/b2c/api-reference/specification/#operation/",
+    v3: "/webapi/b2b/api-reference/references/#operation/",
+    v4: "/webapi/b2c/api-reference/references/#operation/",
   }
 }
 
@@ -294,7 +294,8 @@ var table = new Tabulator("#data-catalog", {
         linksWebportalV1 = linkify("webportal", "v1", data.availability.apis.webportal_v1),
         linksWebportalV2 = linkify("webportal", "v2", data.availability.apis.webportal_v2),
         linksWebApiV4 = linkify("webapi", "v4", data.availability.apis.webapi_b2c_v4),
-        linksWebApiV3 = linkify("webapi", "v3", data.availability.apis.webapi_b2b_v3);
+        linksWebApiV3 = linkify("webapi", "v3", data.availability.apis.webapi_b2b_v3),
+        elementDataScope = listify(data.scope);
 
         //clear current row data
         while(element.firstChild) element.removeChild(element.firstChild);
@@ -373,6 +374,19 @@ var table = new Tabulator("#data-catalog", {
                 "</ul>"
               ) +
             "</nav>"+
+            "<div class='data-item-availability data-item-availability-api'>"+
+              "<span class='availability-api-title-container'>"+
+                "<span class='availability-api-title'>" +
+                  "&nbsp; WebAPI B2C Scopes:"+
+                "</span>" +
+                ( 
+                  elementDataScope.includes("not available.</li>") ?
+                  "<span class='availability-api-na'>&nbsp;not available.</span></span>" :
+                  "</span><ul class='availability-api-list'>"+
+                    elementDataScope +
+                  "</ul>"
+                ) +
+            "</div>"+
             "<div class='non-highlighted-icon'>" +
               ( !linksWebApiV4.includes("not available.</li>") || !linksWebApiV3.includes("not available.</li>") 
                 ? "<span class='icon'><i class='fas fa-cloud'></i></span>" : "<span class='icon'></span>" ) +

@@ -6,7 +6,7 @@ redirect_from:
 section: webapi
 subsection: b2b
 categorie: Monitor
-title: About
+title: About Monitors
 require: swagger
 gitHubPath: webapi/content/webapi-monitor_about.md
 description: "B2B API monitors are a way to design events tracking patterns for vehicles. When the even is triggered, we will send a notification to your server."

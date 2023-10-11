@@ -1,6 +1,5 @@
 # Webhook Template
-
-What we offer with monitor is a simple way to process large amount of vehicle data. Although, you have to develop on your side a **dedicated webhook** able to receive our events.
+Monitors allows to process large amount of vehicle data. Although, you have to develop on your side a **dedicated webhook** able to receive our events.
 ### Response to Notification
 
 {% include_relative /content/webapi-response_to_notification.md %}
@@ -16,8 +15,8 @@ This web server needs to be configured to read & process our events in order tha
 
 ##### Quick-Start
 
-Need to see examples of request to the API? Browse our {% if page.subsection == 'b2b' %}[Quick-Start]({{site.baseurl}}/webapi/b2b/quickstart/examples/){% elsif page.subsection == 'b2c' %}[Quick-Start]({{site.baseurl}}/webapi/b2c/quickstart/examples/){% endif %}.
+Need to see examples of request to the API? Browse the {% if page.subsection == 'b2b' %}[Quick-Start]({{site.baseurl}}/webapi/b2b/quickstart/examples/){% elsif page.subsection == 'b2c' %}[Quick-Start]({{site.baseurl}}/webapi/b2c/quickstart/request_examples/){% endif %}.
 
 ##### Try Out!
 
-Retrieve reference of this API, go to the {% if page.subsection == 'b2b' %}[API List]({{ site.baseurl }}/webapi/b2b/api-reference/specification/){% elsif page.subsection == 'b2c' %}[API List]({{ site.baseurl }}/webapi/b2c/api-reference/specification/){% endif %}.
+Retrieve reference of this API, go to the {% if page.subsection == 'b2b' %}[API List]({{ site.baseurl }}/webapi/b2b/api-reference/references/){% elsif page.subsection == 'b2c' %}[API List]({{ site.baseurl }}/webapi/b2c/api-reference/references/){% endif %}.

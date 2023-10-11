@@ -18,7 +18,7 @@ Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhal
 In order to access & to make these API works, it's mandatory to fulfill the **requirements**, especially subscribe to at least one *Connected Vehicle Service*. Each of these services is bind to a *data scope* which gives access to a range of data & features in the API.
 
 Here are the references of these API:
-- **Web API** [B2B]({{site.baseurl}}/webapi/b2b/api-reference/specification/#article) and [B2C]({{site.baseurl}}/webapi/b2c/api-reference/specification/#article).
+- **Web API** [B2B]({{site.baseurl}}/webapi/b2b/api-reference/references/#article) and [B2C]({{site.baseurl}}/webapi/b2c/api-reference/references/#article).
 - **Embedded Infotainment**, [Webportal v1]({{site.baseurl}}/webportal/v1/api-reference/list/#article) and [Webportal v2]({{site.baseurl}}/webportal/v2/api-reference/list/#article).
 
 > **Disclaimer:** These references are a scope of possibilities, however it doesn't mean that all these features are actually available. If the feature is not part of any **Connected Vehicle Service scope**, then it's **not currently available for use**.

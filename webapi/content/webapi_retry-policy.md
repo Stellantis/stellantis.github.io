@@ -35,23 +35,23 @@ In this case the notification message will be stored & we will try to send it ag
 > **Be careful:** retry policy is not made for data storage use! It is a remedial tool used to help when a service failure (on your side). It has a limited tolerance for unavailability and therefore a limited storage depth. 
 
 
-##### None & Bounded
+##### Policies - None & Bounded
 
 
 <div class="tile is-ancestor">
     <div class="tile is-parent">
         <article class="tile is-child HTTP notification">
             <div class="language-json"><pre class="highlight"><code><span class="nl">"retryPolicy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="nl">"policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span>
+    <span class="p">}</span><span class="w">
 </span></code></pre></div>
         </article>
     </div>
     <div class="tile is-parent">
         <article class="tile is-child HTTP notification">
             <div class="language-json"><pre class="highlight"><code><span class="nl">"retryPolicy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bounded"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="nl">"policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bounded"</span>
+    <span class="p">}</span><span class="w">
 </span></code></pre></div>
         </article>
     </div>
@@ -63,14 +63,14 @@ When the retry policy is set to *None* or *Bounded*, if the HTTP notification is
 - `Bounded`: with a limited number of retries set with `retryNumber` & `retryDelay` for a maximum of **3 days**.
 
 {% if page.categorie == "Monitor" %}
-##### Always
+##### Policy - Always
 
 <div class="tile is-ancestor">
     <div class="tile is-parent">
         <article class="tile is-child HTTP notification">
             <div class="language-json"><pre class="highlight"><code><span class="nl">"retryPolicy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Always"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="nl">"policy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Always"</span><span class="p">}<span class="w">
+    </span>
 </span></code></pre></div>
         </article>
     </div>

@@ -1,18 +1,24 @@
-This page is a list of examples of HTTP requests to Stellantis {% if page.subsection == 'b2b' %}Fleet Owners{% elsif page.subsection == 'b2c' %}End-Users{% endif %} API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall). 
+This page is a list of examples of HTTP requests to Stellantis {% if page.subsection == 'b2b' %}Fleet Owners{% elsif page.subsection == 'b2c' %}End-Users{% endif %} API. 
 
 These examples will show you how to deal with:
 - **Single** objects
-- **Collections** objects
+- **Collections** objects, and pagination
 - **GeoJSON**
 - **Post** and **Delete** verbs HTTP verbs
+
+Check out the following pages to learn about the concepts of [single objects]({{site.baseurl}}/webapi/b2c/overview/api-concepts/#single-object), [collection]({{site.baseurl}}/webapi/b2c/overview/api-concepts/#collection) and [paginations]({{site.baseurl}}/webapi/b2c/overview/api-concepts/#pagination) in this API.
+
+{% if page.subsection == "b2c" %}
+{% include realms.md %}
+{% endif %}
 
 ## Get Account Info
 
 Web API base endpoint 
-{%- if page.subsection == 'b2b' %} `/fleets` allows to retrieve information about this account Fleet(s) of vehicles.
-{%- elsif page.subsection == 'b2c' %} `/user` allow to retrive information about the current End-User account, depending on the Access token in the request. {%- endif -%}. 
+{%- if page.subsection == 'b2b' %} `/fleets` allows retrieving information about this account Fleet(s) of vehicles.
+{%- elsif page.subsection == 'b2c' %} `/user` allows retrieving information about the current End-User account, depending on the Access token used in the request. {%- endif -%}. 
 
-This endpoint returns a [single object]({{site.baseurl}}/webapi/{{page.subsection}}/overview/standards/#single-object).
+This endpoint returns a [single object]({{site.baseurl}}/webapi/{{page.subsection}}/overview/api-concepts/#single-object).
 
 {% include webapi-curl.md 
    apiEndpointB2B='/fleets'
@@ -26,9 +32,9 @@ This endpoint returns a [single object]({{site.baseurl}}/webapi/{{page.subsectio
 ## Get a List of Vehicles
 
 
-The {% if page.subsection == 'b2b' %} `/fleets/{fid}/vehicles`{% elsif page.subsection == 'b2c' %} `/user/vehicles` {% endif %} endpoint allow you to retrieve a list of your vehicles. 
+The {% if page.subsection == 'b2b' %} `/fleets/{fid}/vehicles`{% elsif page.subsection == 'b2c' %} `/user/vehicles` {% endif %} endpoint allows you to retrieve a list of your vehicles. 
 
-This endpoint returns a [collection]({{site.baseurl}}/webapi/{{page.subsection}}/overview/standards/#collection), check-out [pagination]({{site.baseurl}}/webapi/{{page.subsection}}/overview/standards#pagination) for more information about `indexRange` and `pageSize`.
+This endpoint returns a [collection]({{site.baseurl}}/webapi/{{page.subsection}}/overview/api-concepts/#collection), checkout [pagination]({{site.baseurl}}/webapi/{{page.subsection}}/overview/api-concepts#pagination) for more information about `indexRange` and `pageSize`.
 
 {% assign getVehicleListQueryParams = 'indexRange=<element_per_page>, pageSize=<nb_of_pages>' | split: ", " %}
 
@@ -41,23 +47,6 @@ This endpoint returns a [collection]({{site.baseurl}}/webapi/{{page.subsection}}
   httpVerb='GET'
   queryParams=getVehicleListQueryParams
 %}
-
-
-## Get a Vehicle Position
-
-
-The {% if page.subsection == 'b2b' %} `/fleets/{fid}/vehicles/{id}/lastPosition` {% elsif page.subsection == 'b2c' %} `/user/vehicles/{id}/lastPosition` {% endif %} endpoint allows to retrieve the last known position of a vehicle.
-
-LastPosition endpoints returns **application/vnd.geo+json**, check-out [HTTP Body format]({{site.baseurl}}/webapi/{{page.subsection}}/overview/standards/#http-body-format) .
-
-{% include webapi-curl.md 
-   apiEndpointB2B='/fleets/{fid}/vehicles/{id}/lastPosition' 
-   apiEndpointB2C='/user/vehicles/{id}/lastPosition' 
-   referenceURLResssourceB2B='getCarLastPosition' 
-   referenceURLResssourceB2C='getCarLastPosition' 
-   httpVerb='GET' 
-%}
-
 
 ## Get Alerts of a Vehicle
 
@@ -81,9 +70,9 @@ The {% if page.subsection == 'b2b' %} `/fleets/{fid}/vehicles/{id}/alerts` {% el
 ## Post New Monitor
 
 
-The {% if page.subsection == 'b2b' %} `/fleets/{fid}/monitors`{% elsif page.subsection == 'b2c' %} `/user/vehicles/{id}/monitors`{% endif %} endpoint allow you to create a new monitor. 
+The {% if page.subsection == 'b2b' %} `/fleets/{fid}/monitors`{% elsif page.subsection == 'b2c' %} `/user/vehicles/{id}/monitors`{% endif %} endpoint allows you to create a new monitor. 
 
-Check-out the [dedicated tutorial]({{site.baseurl}}/webapi/{{page.subsection}}/monitor/about) for information about **Monitors**
+Checkout the [dedicated tutorial]({{site.baseurl}}/webapi/{{page.subsection}}/monitor/about) for information about **Monitors**.
 
 {% include webapi-curl.md
   apiEndpointB2B='/fleets/{fid}/monitors'
@@ -171,9 +160,9 @@ Check-out the [dedicated tutorial]({{site.baseurl}}/webapi/{{page.subsection}}/m
 
 ## Delete a Monitor
 
-The {% if page.subsection == 'b2b' %} `/fleets/{fid}/monitors/{mid}`{% elsif page.subsection == 'b2c' %} `/user/vehicles/{id}/monitors/{mid}`{% endif %} endpoint allow you to retrieve a list of alerts for a vehicle.
+The {% if page.subsection == 'b2b' %} `/fleets/{fid}/monitors/{mid}`{% elsif page.subsection == 'b2c' %} `/user/vehicles/{id}/monitors/{mid}`{% endif %} endpoint allows you to retrieve a list of alerts for a vehicle.
 
-Check-out the [dedicated tutorial]({{site.baseurl}}/webapi/{{page.subsection}}/monitor/about) for information about **Monitors**
+Checkout the [dedicated tutorial]({{site.baseurl}}/webapi/{{page.subsection}}/monitor/about) for information about **Monitors**
 
 {% assign deleteMonitorQueryParams = 'indexRange=<element_per_page>, pageSize=<nb_of_pages>, locale=<language>' | split: ", " %}
 
@@ -188,6 +177,6 @@ Check-out the [dedicated tutorial]({{site.baseurl}}/webapi/{{page.subsection}}/m
 %}
 
 
-#### See Also
+#### References
 
-Check out this {% if page.subsection == "b2c"%} End-User {% elsif page.subsection == "b2b" %} Fleet Owner {% endif %} API [list of References]({{ site.baseurl }}/webapi/{{page.subsection}}/api-reference/specification/#article) to discover Stellantis Connected Vehicles features.
+Check out this API [references]({{ site.baseurl }}/webapi/{{page.subsection}}/api-reference/references/#article) to discover Stellantis Connected Vehicles features.

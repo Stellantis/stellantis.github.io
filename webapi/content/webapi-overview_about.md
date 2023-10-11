@@ -1,30 +1,39 @@
 
-This REST API implements various endpoints to **retrieve data** from a vehicle. It's also possible to **remote control** some features of the vehicles, like opening the doors or turning AC on.
+Stellantis WEB API for{% if page.subsection == "b2c"%} End-User {% elsif page.subsection == "b2b" %} Fleet Owner {% endif %} is a REST API implementing various endpoints allowing to work with ex-PSA vehicles (Citroën, DS, Peugeot, Opel and Vauxhall).
 
-## Features
+These are the main **features** of this API:
+- 🚙 **Remote data access**: brand, model, maintenance, collisions, trips of the infotainment system, vehicle alerts, real-time location, etc.
+- 🔔 **Custom events (Monitors)**: Set up & receive notifications about the vehicle. Example: receive vehicle info when then battery is under 20% of charge.
+- 🕹 **Remote control (Remotes)**: Send remote actions to vehicles like: ❄️ preconditionning programs, 🔈 honk the horn , 💡 turn on/off the lights , 🚪 open doors , 🔋 start a charge etc.
 
-By requesting this api you will have access to various **vehicle features**:
-- 🚗 **Car Data**: Get a user or car general info, like brand, model, fuel type, autonomy, open doors etc.
-- 🛠 **Maintenance**: Stay tuned on car maintenance, time and mileage before maintenance.
-- 💥 **Collision**: Be notified of collisions and where it happened.
-- 🏁 **Trips**: Browse into cars trips, departure point, arrival.
-- ⚠️ **Alerts**: Get history of in-car alerts (oil, engine, breaks etc).
-- 📍 **Location**: Access the vehicle position in real time.
-- 📊 **Telemetrics**: Retrieve and track vehicles telemetrics (speed, fuel level, blinking lights etc).
-- 🕹 **Remote control**: Send remote actions to your vehicle (preconditionning, honk, lights, doors...).
+{% if page.subsection == "b2c" %}
 
-> **Direct Request** vs **Monitoring:** 
-- As a REST API, this product allow to request all the data above using **HTTP Request**. 
-- It's possible to configure **Monitors** allowing to receive an event from Stellantis when a pattern is triggered.<br> *(ex: oil level is low)*
+## Enroll any users
 
-## How does it works?
+This API provides an OAuth2 authorization framework to enroll users owning Stellantis vehicles (ex Groupe PSA brands, Citroën, DS, Peugeot, Opel and Vauxhall):
+- 1️⃣ First, you will need to register your App in Stellantis information systems.
+- 2️⃣ Then, you can check if the capabilities of the vehicle of your targeted end-user feet your use case.
+- 3️⃣ If so, request the user consent to access its account data.
+- 4️⃣ Finally, you have everything needed to request user data!
 
-Vehicles are using various **sensors** which aim to improve security and driving experience in the vehicle, these data are available for the development of [in-vehicle applications]({{ site.baseurl }}/webportal/) but this Web API provide vehicle data from **outside of the vehicle**.
+
+## API Roles
+
+End Users APIs allows **Third Party Application** (Accessing Party) to access vehicle data of their **End Users** (Resource Owner) owning **Stellantis** vehicles (ex PSA brands: Citroën, DS, Peugeot, Opel and Vauxhall).
+
+Checkout the [quickstart]({{site.baseurl}}/webapi/b2c/quickstart/about-authentication/#article) for more information about the full process to access the End User API.
+
+![b2c-actors]({{site.baseurl}}/assets/images/b2c-actors.svg)
+
+{% elsif page.subsection == "b2b" %}
+
+## How does it work?
+
+Vehicles are using various **sensors** which aim to improve security and driving experience in the vehicle, these data are available for the development of [in-vehicle applications]({{ site.baseurl }}/webportal/) but this Web API provides vehicle data from **outside of the vehicle**.
 
 ![presentation-unified]({{ site.baseurl }}/assets/images/presentation-unified.png)
 
-If an application require info about a vehicle, appropriate data are **collected & sent** to Stellantis servers via cellular network. This make sure that the data are available whether the vehicle is online or not.
-
+If an application requires info about a vehicle, appropriate data are **collected & sent** to Stellantis servers via cellular networks. This makes sure that the data are available whether the vehicle is online or not.
 
 Data are then **unified & processed**, these steps ensure that the data provided within this API share the same format in spite of the different types of vehicles and generation,
 
@@ -32,15 +41,7 @@ Data are then **unified & processed**, these steps ensure that the data provided
 
 > **Data Refreshment:** data are refreshed from the vehicle to Stellantis on a **regular basis** (every 1 min before 2019, more frequently after) and also on **vehicle events** *(ex: turning on the vehicle)*.
 
+{% endif %}
 
-
-# See Also
-
-##### Standards
-
-Want to see what it's look like? Browse our {% if page.subsection == 'b2b' %}[Standards]({{ site.baseurl }}/webapi/b2b/overview/standards/){% elsif page.subsection == 'b2c' %}[Standards]({{ site.baseurl }}/webapi/b2c/overview/standards/){% endif %}.
-
-##### Try Out!
-
-Retrieve all reference of this API, go to the {% if page.subsection == 'b2b' %}[API List]({{ site.baseurl }}/webapi/b2b/api-reference/specification/){% elsif page.subsection == 'b2c' %}[API List]({{ site.baseurl }}/webapi/b2c/api-reference/specification/){% endif %}.
-
+#### API Concepts
+[This page]({{ site.baseurl }}/webapi/{{page.subsection}}/overview/api-concepts#article) describes the concepts & structure of this API.

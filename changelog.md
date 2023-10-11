@@ -16,6 +16,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[12.0.0](#1200) | Web API: Documentation Update End-User 
 [11.4.1](#1141) | Website: update data catalog
 [11.4.0](#1140) | Web API: v3.13.0
 [11.3.1](#1131) | Fix misprint
@@ -97,6 +98,15 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add WebPortal section
+
+<hr>
+
+## 12.0.0
+
+{% include published_on.html date='11 Oct 2023' %}
+
+**Web API**
+- Documentation Update End-User 
 
 <hr>
 

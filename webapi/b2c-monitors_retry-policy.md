@@ -5,7 +5,7 @@ section: webapi
 subsection: b2c
 categorie: Monitor
 title: Retry Policy
-gitHubPath: webapi/content/retry-policy.md
+gitHubPath: webapi/content/webapi_retry-policy.md
 description: "Information about End User API monitors's blacklisting policy."
 output: false
 ---
