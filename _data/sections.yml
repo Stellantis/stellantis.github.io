@@ -36,10 +36,10 @@
         - name: Overview
           path: overview/
           pages: 
-            - name: About
+            - name: About this API
               path: about/
-            - name: Standards
-              path: standards/
+            - name: API Concepts
+              path: api-concepts/
             - name: Errors & Rate Limit
               path: errors/
             - name: Data Scope
@@ -54,7 +54,7 @@
         - name: Monitor
           path: monitor/
           pages:
-            - name: About
+            - name: About Monitors
               path: about/
             - name: Set Up
               path: set-up/
@@ -65,7 +65,7 @@
         - name: Remote
           path: remote/
           pages:
-            - name: About
+            - name: About Remotes
               path: about/
             - name: Set Up
               path: set-up/
@@ -78,9 +78,9 @@
         - name: API Reference
           path: api-reference/
           pages:
-            - name: Specification Version 3
-              path: specification/
-            - name: Changelog Version 3
+            - name: References
+              path: references/
+            - name: Changelog
               path: changelog/
     - tag: b2c
       path: b2c/
@@ -90,23 +90,31 @@
         - name: Overview
           path: overview/
           pages: 
-            - name: About
+            - name: About this API
               path: about/
-            - name: Standards
-              path: standards/
+            - name: API Concepts
+              path: api-concepts/
             - name: Errors & Rate Limit
               path: errors/
         - name: Quickstart
           path: quickstart/
           pages:
-            - name: Connect
-              path: connect/
-            - name: Examples
-              path: examples/
+            - name: About Authentication
+              path: about-authentication/
+            - name: Data Availability & Scopes
+              path: data-availability-scopes/
+            - name: App Registration
+              path: app-registration/
+            - name: Enroll End-Users
+              path: enroll-users/
+            - name: Access End-User Data
+              path: access-user-data/
+            - name: Request Examples
+              path: request_examples/
         - name: Monitor
           path: monitor/
           pages:
-            - name: About
+            - name: About Monitors
               path: about/
             - name: Set Up
               path: set-up/
@@ -114,11 +122,26 @@
               path: retry-policy/
             - name: Webhook References
               path: webhook/
+        - name: Remote
+          path: remote/
+          pages:
+            - name: About Remotes
+              path: about/
+            - name: Set Up
+              path: set-up/
+            - name: Retry Policy
+              path: retry-policy/
+            - name: Notifications and Errors
+              path: notifications-errors/
+            - name: Webhook References
+              path: webhook/
         - name: API Reference
           path: api-reference/
           pages:
-            - name: Specification
-              path: specification/
+            - name: References
+              path: references/
+            - name: Changelog
+              path: changelog/
 - tag: webportal
   path: /webportal/
   name: Embedded Webportal

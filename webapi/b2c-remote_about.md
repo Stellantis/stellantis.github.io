@@ -1,10 +1,8 @@
 ---
 layout: doc-article
-permalink: /webapi/b2b/remote/about/
-redirect_from: 
-    - /webapi/b2b/remote/
+permalink: /webapi/b2c/remote/about/
 section: webapi
-subsection: b2b
+subsection: b2c
 require: swagger
 gitHubPath: webapi/content/webapi-remote_about.md
 categorie: Remote

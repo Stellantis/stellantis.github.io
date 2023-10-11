@@ -39,7 +39,7 @@ You can retrieve required level of privacy of each API in the references: [Webpo
 ### Effect on Web API
 
 
-If you are a fleet owner (**WEB API B2B**) you can access your vehicle data. However, in order to be compliant with GDPR, you should use the query parameter `profile` as described [here]({{site.baseurl}}/webapi/b2b/api-reference/specification/#section/API-output:/Data-profile).
+If you are a fleet owner (**WEB API B2B**) you can access your vehicle data. However, in order to be compliant with GDPR, you should use the query parameter `profile` as described [here]({{site.baseurl}}/webapi/b2b/api-reference/references/#section/API-output:/Data-profile).
 
 If you are developing end-user applications (**Web API B2C v4**), you can only access data that match the current privacy mode of the vehicle.
 

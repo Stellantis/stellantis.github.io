@@ -13,6 +13,10 @@ title: Changelog
 
 Version|Name
 -|-
+[b2b_v3.16.0](#b2b_v3160) | 3.16.0
+[b2b_v3.15.0](#b2b_v3150) | 3.15.0
+[b2b_v3.14.0](#b2b_v3140) | 3.14.0
+[b2b_v3.13.1](#b2b_v3131) | 3.13.1
 [b2b_v3.13.0](#b2b_v3130) | 3.13.0
 [b2b_v3.12.0](#b2b_v3120) | 3.12.0
 [b2b_v3.11.0](#b2b_v3110) | 3.11.0
@@ -35,7 +39,69 @@ Version|Name
 [b2b_v3.0.6](#b2b_v306) | 3.0.6
 [b2b_v3.0.5](#b2b_v305) | 3.0.5
 [b2b_v3.0.4](#b2b_v304) | 3.0.4
-[b2b_v3.0.0](#b2b_v300) | Candiate version
+[b2b_v3.0.3](#b2b_v303) | 3.0.3 
+[b2b_v3.0.0](#b2b_300) | B2B-3.0.0 Remote
+[b2b_v2.0.5](#b2b_v205) | B2B Spec For PIV-RLEV 1.1
+[b2b_v2.0.4](#b2b_v204) | B2B Multi-Fleets support
+[b2b_v2.0.3](#b2b_v203) | Candiate version (Lot1/Version2)
+[b2b_v2.0.2](#b2b_v202) | 1st candiate version (lot1)
+[b2b_v2.0.1](#b2b_v201) | supported object in extensions
+[b2b_v2.0.0](#b2b_v200) | B2B - Partners Release - 
+[b2b_v1.0.0](#b2b_v100) | 1st release (B2B)
+
+<hr>
+
+## b2b_v3.16.0
+
+{% include published_on.html date='PreProd' %}
+
+**Monitors API**
+- Add vehicle.alarm.trigger.type & vehicle.alarm.status.activation as datatriggers
+
+
+<hr>
+
+## b2b_v3.15.0
+
+{% include published_on.html date='PreProd' %}
+
+**Vehicles API**
+- Update remote section in onboardCapabilities object
+
+**Vehicles API**
+- Add /vehicles/{vin} endpoint in B2B API
+
+
+<hr>
+
+## b2b_v3.14.0
+
+{% include published_on.html date='PreProd' %}
+
+**Vehicles API**
+- Update onboardCapabilities object
+
+**Status & Telemetry API**
+- Update energies objects
+
+**Status API**
+- Update failureCause enum in preconditioning object
+- Add startingCause data in preconditioning object
+
+**Monitors API**
+- Add charging type data trigger.
+
+**Remote API**
+- Update charging remote operation
+
+<hr>
+
+## b2b_v3.13.1
+
+{% include published_on.html date='PreProd' %}
+
+**Vehicles API**
+- Add alarms information in link section
 
 <hr>
 
@@ -408,9 +474,190 @@ Version|Name
 
 <hr>
 
-## b2b_v3.0.0
+##  b2b_3.0.0 
 
 {% include published_on.html date='24 Mar 2020' %}
 
-#### `Candiate version`
-Spec version : b2b_v3.0.0
+
+#### `B2B-3.0.0 Remote`
+
+Based on: 
+[B2B-2.1.0-Monitor-NG](https://github.psa-cloud.com/mph00/Spec/releases/edit/b2b_v2.1.0) (tag b2b_v2.1.0) 
+With major changes :
+* Support of Car remote for B2B fleet management.
+
+<hr>
+
+## b2b_v2.0.5
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Wed Nov 20 2019</span></div>
+
+
+#### `B2B Spec For PIV-RLEV 1.1`
+Based on:
+[B2B Multi-Fleets support](https://github.psa-cloud.com/mph00/Spec/releases/tag/b2b_v2.0.4) (tag b2b_v2.0.4) 
+
+_With:_
+
+#### API B2B
+
+##### API Status
+* Add RoofWindow to ```DoorsState#opening#identifier``` enum.
+* Rename door state enum ```DoorsState#opening#state.Close``` to ```Closed```
+* Add  ```CargoDoorsLocked , RearDoorsUnlocked, RearDoorsLocked``` consts to ```DoorsState#lockedState``` enum.
+* Add ```Safety``` struc to Status object
+* Add ```ServiceType``` struct to Status object
+* date-time review (align with stadar RFC 3339
+* Add ```OverallAutonomy``` (with its own date) to status
+* Add ```VehicleOdometer``` (with its own date)  to status
+* Change ```Status.createdAt``` to ```updatedAt```
+* API vehicuel Status: add lockedStates array of state (compliant with new DC RLEV Spec)  and make lockedState depricated.
+* Change odometer field from type number to objet (VehicleOdometer).
+* Remove  autonomy field from status struct.
+
+##### API Monitor
+* Add ```PUT /monitors/{mid}```: update an existing monitor
+* Add fields literalValue & objectValues to body#values struct (To monitor callback template)
+
+
+##### Alert-ENUM
+Fix enum spelling (*Collant -> *Coolant)
+
+#### Huawei interface changes:
+* Add tid to alert
+* Add tid to collision
+* Add ```Safety```  to Status object
+* Add ```ServiceType```  to Status object
+* Add done status to Trip object
+* Add faults list to Trip object
+* ADD timed.odometer to Status
+* ADD ```overall.autonomy``` to Status
+* Statusodometer & autonomy are now pricated 
+* Remove ResourceHeader from position to be compliant with GeoJSON
+* Rename the field Position.point  to geometry -->compliante GeoJSON
+* Rename in ```Monitor.data.trigget```: privacy.status to privacy.state
+* ```DoorsState.opening```: enum Close renamed to Closed
+* ```DoorsState.opening```: Add RoofWindow to idenfier enum
+* ```DoorsState.lockedState```: Add conts CargoDoorsUnlocked, RearDoorsUnlocked, RearDoorsLocked to lockedState
+* API vehicule Status: add lockedStates array of state (compliant with new DC RLEV Spec)  and make lockedState depricated
+* Struct Status: ```odometer & autonomy``` are , from now, depricated. 
+* A new filed named ```vehicleOdometer``` (time stamped type) has been added to status
+
+<hr>
+
+## b2b_v2.0.4
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Mon Sep 23 2019</span></div>
+
+
+#### `B2B Multi-Fleets support`
+compound with: b2b_v2.0.3 + "Multi-Fleets" support .
+
+##### API new:
+-Now prefixed by
+```/fleets/{fid}``` 
+- add Monitor ```label``` field when creating monitor (POST)
+- add vehicle autonomy value entry to monitor#data-trogger parameter.
+
+
+##### Note:
+Mapping Fleets(s) will be done on APIC side.
+
+
+<hr>
+
+## b2b_v2.0.3
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Mon Sep 02 2019</span></div>
+
+
+#### `Candiate version (Lot1/Version2)`
+Spec version : b2b_v2.0.3
+
+
+#### Release note:
+Iso ```b2b_v2.0.2```  _1st candiate version (lot1)_ by adding:
+
+##### B2B PSA Public API
+* Add ```/fleet/collisions```
+* Add ```/fleet/trips/{tid}/wayPoints```
+* Status monitor enum changed : ```[Running, Paused, Failed]``` ->  ```[Running, Paused]```
+* Ignition: rename const Contact -> SrartUp
+* Add Battery struct to Telemetry
+* Refactoring list of results: using CollectionResult struct header
+* Add MD doc : array of supported data trigger (value, description and operations)
+* AlertMsgEnum: add mising anums
+* TelemetryEnum: replace both ```vehicle.lightingSystem.signal``` and ```vehicle.lightingSystem.foglight``` by a uniq ```vehicle.lighting```
+* Review Monitor#DataTrigger.data value enum (doc on allowed OP for Door Opening and Lock states))
+
+##### Huawei interface
+* Add Battery struct to Telemetry
+* Make waypoints API pageable 
+* Fix spelling "Maintenace" -> "Maintenance"
+* Add ```reduced``` to waypoints result to determines whether this result set has been reduced or not.
+* Review Monitor#DataTrigger.data value enum (doc on allowed OP for Door Opening and Lock states))
+
+<hr>
+
+## b2b_v2.0.2
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Fri Jun 14 2019</span></div>
+
+
+#### `1st candiate version (lot1)`
+
+
+<hr>
+
+## b2b_v2.0.1
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Wed Jun 12 2019</span></div>
+
+Content : b2b_v2.0.0 with  supported object in extensions
+
+<hr>
+
+## b2b_v2.0.0
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Wed Jun 12 2019</span></div>
+
+
+#### `B2B - Partners Release - `
+
+#### PSA/Huawei interfacing review:
+
+##### Monitor :
+* add the extension and refresh-event support
+* remove callback
+* add compound trigger support
+
+##### Pull:
+* add Telemetry
+* add vin to batch resources
+* add update-date to batch resources 
+* add an extension to telemetry API (resource:  location, alerts, collision, maintenance)
+
+
+#### PSA Public interface:
+
+##### Monitor:
+* add extension
+* add compound trigger support
+
+##### Pull:
+* add Telemetry
+* add vin to batch resources
+* add update-date to batch resources 
+* add an extension to telemetry API (resource: location, alerts, collision, maintenance).
+
+
+<hr>
+
+## b2b_v1.0.0
+
+<div class="tags has-addons is-pulled-right"><span class="tag is-dark">Published On</span><span class="tag is-info">Tue May 07 2019</span></div>
+
+
+#### `1st release (B2B)`
+* As delivered to Huawei regarding interfacing API
+* As delivered to MPH/API team regarding public B2B API

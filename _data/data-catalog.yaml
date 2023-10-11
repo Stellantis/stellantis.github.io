@@ -2,7 +2,7 @@ schema_version: "1.0.1"
 info:
   title: Stellantis Connected Vehicles Data Catalog
   description: Stellantis Connected Vehicles Data Catalog
-  version: 2.1.0
+  version: 2.2.0
 data:
 - name: Alert severity
   domain: alert
@@ -12,6 +12,8 @@ data:
     - Information
     - Warning
     - Critical
+  scope:
+    - data:alert
   availability:
     apis:
       webportal_v1: false
@@ -36,6 +38,8 @@ data:
   domain: alert
   description: Describe if the alert is active or inactive.
   type: boolean
+  scope:
+    - data:alert
   availability:
     apis:
       webportal_v1: false
@@ -61,6 +65,8 @@ data:
   description: Type of the alert.
   type: string
   enum: Cf specification
+  scope:
+    - data:alert
   availability:
     apis:
       webportal_v1: false
@@ -86,6 +92,9 @@ data:
   description: |-
     Coordinates where the alert occurs. Comes with other position information such as longitude, latitude, altitude, signal Quality, heading, etc.
   type: object
+  scope:
+    - data:alert
+    - data:position
   availability:
     apis:
       webportal_v1: false
@@ -111,6 +120,9 @@ data:
   description: |- 
     Coordinates where the alert stopped. Comes with other position information such as longitude, latitude, altitude, signal Quality, heading, etc."
   type: object
+  scope:
+    - data:alert
+    - data:position
   availability:
     apis:
       webportal_v1: false
@@ -135,6 +147,8 @@ data:
   domain: alert
   description: Time when the alert occurs.
   type: string
+  scope:
+    - data:alert
   unit: Date-time
   availability:
     apis:
@@ -160,6 +174,8 @@ data:
   domain: alert
   description: Time when the alert stop.
   type: string
+  scope:
+    - data:alert
   unit: Date-time
   availability:
     apis:
@@ -186,6 +202,8 @@ data:
   description: |- 
     Coordinates of the vehicle as specified in RFC3339. Set of 2 to 3 values: longitude, latitude and altitude."
   type: array
+  scope:
+    - data:position
   items: number
   availability:
     apis:
@@ -215,6 +233,8 @@ data:
   enum: 
     - Acquire
     - Estimated
+  scope:
+    - data:position
   availability:
     apis:
       webportal_v1: false
@@ -238,6 +258,8 @@ data:
   domain: location
   description: Compass direction of the vehicle (From 0 to 360)
   type: number
+  scope:
+    - data:position
   unit: Degree
   availability:
     apis:
@@ -262,6 +284,8 @@ data:
   domain: location
   description: Quality of the position signal when acquire through GPS.
   type: integer
+  scope:
+    - data:position
   availability:
     apis:
       webportal_v1: false
@@ -288,6 +312,8 @@ data:
   enum:
     - 2D
     - 3D
+  scope:
+    - data:position
   availability:
     apis:
       webportal_v1: false
@@ -311,6 +337,8 @@ data:
   domain: maintenance
   description: Number of days before next maintenance.
   type: integer
+  scope:
+    - data:telemetry
   unit: day
   availability:
     apis:
@@ -333,6 +361,8 @@ data:
   domain: maintenance
   description: Number of kilometers before next maintenance.
   type: number
+  scope:
+    - data:telemetry
   unit: km
   availability:
     apis:
@@ -355,6 +385,8 @@ data:
   domain: telemetrie
   description: Vehicle longitudinal speed.
   type: number
+  scope:
+    - data:telemetry
   unit: km/h
   availability:
     apis:
@@ -378,6 +410,8 @@ data:
   domain: telemetrie
   description: Vehicle acceleration.
   type: number
+  scope:
+    - data:telemetry
   unit: m/s^2
   availability:
     apis:
@@ -402,6 +436,8 @@ data:
   domain: telemetrie
   description: Is the vehicle moving?
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1:
@@ -425,6 +461,8 @@ data:
   domain: telemetrie
   description: Ignition state of the vehicle.
   type: string
+  scope:
+    - data:telemetry
   enum: 
     - Stop
     - StartUp
@@ -455,6 +493,8 @@ data:
     - None
     - Geolocation
     - Full
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1:
@@ -478,6 +518,8 @@ data:
   domain: telemetrie
   description: Temperature outside of the vehicle.
   type: number
+  scope:
+    - data:telemetry
   unit: Celsius
   availability:
     apis:
@@ -501,6 +543,8 @@ data:
   domain: telemetrie
   description: Boolean state of ambiant luminosity (day or night)
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -523,6 +567,8 @@ data:
   domain: telemetrie
   description: Vehicle mileage.
   type: number
+  scope:
+    - data:telemetry
   unit: km
   availability:
     apis:
@@ -551,6 +597,8 @@ data:
     - Front
     - Rear
     - Lateral
+  scope:
+    - data:collision
   availability:
     apis:
       webportal_v1: false
@@ -573,6 +621,8 @@ data:
     - Minimal
     - Minor
     - Major
+  scope:
+    - data:collision
   availability:
     apis:
       webportal_v1: false
@@ -591,6 +641,8 @@ data:
   domain: collision
   description: Indicates if the car tipped over during the collision.
   type: boolean
+  scope:
+    - data:collision
   availability:
     apis:
       webportal_v1: false
@@ -609,6 +661,8 @@ data:
   domain: collision
   description: Collision with a pedestrian.
   type: boolean
+  scope:
+    - data:collision
   availability:
     apis:
       webportal_v1: false
@@ -629,7 +683,9 @@ data:
   type: string
   enum: 
     - Driver
-    - Passenger
+    - Passenger 
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -655,6 +711,8 @@ data:
   enum: 
     - Normal
     - Omission
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -681,6 +739,8 @@ data:
     - ShockDetectionUnabled 
     - Detected
     - NotDetected
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -719,6 +779,8 @@ data:
     - eAWD
     - 4AWD
     - ReinforcedLoad
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -741,6 +803,8 @@ data:
   domain: telemetrie
   description: Is wiping blade active ?
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -763,6 +827,8 @@ data:
   enum: 
     - High
     - Low
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -788,6 +854,8 @@ data:
     - Active
     - Wait
     - OutOfService
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -814,6 +882,8 @@ data:
     - Wait
     - OutOfService
     - TrailerInhibition
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -841,6 +911,8 @@ data:
     - "Off"
     - OverSpeedingByPedalPess
     - StandBy
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -860,6 +932,8 @@ data:
   domain: telemetrie
   description: Speed limiter
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -891,7 +965,9 @@ data:
     - LackOfVisibilityRadar
     - LearningRadar
     - Deactivated
-    - LimitSetting
+    - LimitSetting 
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -915,6 +991,8 @@ data:
     - "Off"
     - Fixed
     - OnFlashing
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -939,6 +1017,8 @@ data:
     - FlashingWarning
     - "Off"
     - OnFixed
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -962,6 +1042,8 @@ data:
     - NotSelected
     - Selected
     - Unavailable
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -986,6 +1068,8 @@ data:
     - Inactive
     - Disabled
     - Fault
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1005,6 +1089,8 @@ data:
   domain: telemetrie
   description: Electronic Stability Program state.
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1024,6 +1110,8 @@ data:
   domain: telemetrie
   description: Anti-lock braking system state.
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1043,6 +1131,8 @@ data:
   domain: telemetrie
   description: Electric brake service state.
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1062,6 +1152,8 @@ data:
   domain: telemetrie
   description: Speed Limit Information value.
   type: integer
+  scope:
+    - data:telemetry
   unit: km/h
   availability:
     apis:
@@ -1087,6 +1179,8 @@ data:
     - CorrectionInProgress
     - NotAuthorized
     - NotSelected
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1111,6 +1205,8 @@ data:
     - CorrectionInProgress
     - NotAuthorized
     - NotSelectedt
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1135,6 +1231,8 @@ data:
     - Up
     - Down
     - UpDown
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1154,6 +1252,8 @@ data:
   domain: telemetrie
   description: Is gearbox mode is automatic?
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1173,6 +1273,8 @@ data:
   domain: telemetrie
   description: Is gearbox mode is sport?
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1192,6 +1294,8 @@ data:
   domain: telemetrie
   description: Is gearbox mode is snow?
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1211,6 +1315,8 @@ data:
   domain: telemetrie
   description: Is gearbox mode is semiManual?
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1230,6 +1336,8 @@ data:
   domain: telemetrie
   description: Is gearbox mode is sequential?
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1260,6 +1368,8 @@ data:
     - Ratio8
     - Neutral
     - Reverse
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1279,6 +1389,8 @@ data:
   domain: telemetrie
   description: Battery voltage for combustion engine.
   type: number
+  scope:
+    - data:telemetry
   unit: Percentage
   availability:
     apis:
@@ -1314,6 +1426,8 @@ data:
     - RearDoorsLocked
     - TrunkLocked
     - TrunkUnLocked 
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1344,6 +1458,8 @@ data:
     - Trunk
     - RearWindow
     - RoofWindow 
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1369,6 +1485,8 @@ data:
   enum: 
     - Open
     - Closed
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1394,6 +1512,8 @@ data:
   enum: 
     - Thermic
     - Electric 
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1416,6 +1536,8 @@ data:
   domain: telemetrie
   description: Engine speed value.
   type: number
+  scope:
+    - data:telemetry
   unit: RPM
   availability:
     apis:
@@ -1439,6 +1561,8 @@ data:
   domain: telemetrie
   description: Percentage of engine coolant left.
   type: integer
+  scope:
+    - data:telemetry
   unit: Percentage (%)
   availability:
     apis:
@@ -1462,6 +1586,8 @@ data:
   domain: telemetrie
   description: Temperature of the coolant liquid.
   type: number
+  scope:
+    - data:telemetry
   unit: Celsius
   availability:
     apis:
@@ -1485,6 +1611,8 @@ data:
   domain: telemetrie
   description: Percentage of engine oil left.
   type: integer
+  scope:
+    - data:telemetry
   unit: Percentage (%)
   availability:
     apis:
@@ -1508,6 +1636,8 @@ data:
   domain: telemetrie
   description: Temperature of the engine oil.
   type: number
+  scope:
+    - data:telemetry
   unit: Celsius
   availability:
     apis:
@@ -1531,6 +1661,8 @@ data:
   domain: telemetrie
   description: Temperature of the engine air.
   type: number
+  scope:
+    - data:telemetry
   unit: Celsius
   availability:
     apis:
@@ -1554,6 +1686,8 @@ data:
   domain: telemetrie
   description: State of the powertrain.
   type: string
+  scope:
+    - data:telemetry
   enum: 
     - NotRunning
     - Starting
@@ -1587,6 +1721,8 @@ data:
     - Disabled
     - Finished
     - Failure
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1612,6 +1748,8 @@ data:
     - LowBattery
     - LowFuelLevel
     - TooManyUnusedProg
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1631,6 +1769,8 @@ data:
   domain: telemetrie
   description: Display whether this program is enabled or not.
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1654,6 +1794,8 @@ data:
   enum: 
     - None
     - Daily
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1682,6 +1824,8 @@ data:
     - Fri
     - Sat
     - Sun
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1701,6 +1845,8 @@ data:
   domain: telemetrie
   description: The program start time formatted using the duration format based on ISO 8601.
   type: string
+  scope:
+    - data:telemetry
   unit: "Regex: P[n]Y[n]M[n]DT[n]H[n]M[n]S"
   availability:
     apis:
@@ -1721,6 +1867,8 @@ data:
   domain: telemetrie
   description: Program slot number as you can select one between various preconditioningprograms."
   type: integer
+  scope:
+    - data:telemetry
   unit: From slot 1 to slot 4.
   availability:
     apis:
@@ -1744,6 +1892,8 @@ data:
   enum: 
     - Left
     - Right
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1769,6 +1919,8 @@ data:
   enum: 
     - Front
     - Rear
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1794,6 +1946,8 @@ data:
   enum: 
     - "Off"
     - "On"
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1819,6 +1973,8 @@ data:
   enum: 
     - Left
     - Right
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1844,6 +2000,8 @@ data:
   enum: 
     - Front
     - Rear
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1869,6 +2027,8 @@ data:
   enum: 
     - "Off"
     - "On"
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1894,6 +2054,8 @@ data:
   enum: 
     - Fuel
     - Electric
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1920,6 +2082,8 @@ data:
     - FossilEnergy
     - ElectricEnergy
     - Hydrogen 
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -1942,6 +2106,8 @@ data:
   domain: telemetrie
   description: Vehicle autonomy expressed in km.
   type: integer
+  scope:
+    - data:telemetry
   unit: km
   availability:
     apis:
@@ -1966,6 +2132,8 @@ data:
   domain: telemetrie
   description: Vehicle energy level.
   type: number
+  scope:
+    - data:telemetry
   unit: Percentage (%)
   availability:
     apis:
@@ -1990,6 +2158,8 @@ data:
   domain: telemetrie
   description: Instant consumption for vehicles for thermic vehicle.
   type: number
+  scope:
+    - data:telemetry
   unit: From 0 L/100Km
   availability:
     apis:
@@ -2013,6 +2183,8 @@ data:
   domain: telemetrie
   description: Total consumption  for thermic vehicle.
   type: number
+  scope:
+    - data:telemetry
   unit: cL
   availability:
     apis:
@@ -2036,6 +2208,8 @@ data:
   domain: telemetrie
   description: Electric battery total capacity.
   type: integer
+  scope:
+    - data:telemetry
   unit: Wh
   availability:
     apis:
@@ -2059,6 +2233,8 @@ data:
   domain: telemetrie
   description: Residual electric energy.
   type: integer
+  scope:
+    - data:telemetry
   unit: Wh
   availability:
     apis:
@@ -2082,6 +2258,8 @@ data:
   domain: telemetrie
   description: Health related to battery capacity.
   type: integer
+  scope:
+    - data:telemetry
   unit: Percentage (%)
   availability:
     apis:
@@ -2105,6 +2283,8 @@ data:
   domain: telemetrie
   description: Health related to battery resistance.
   type: integer
+  scope:
+    - data:telemetry
   unit: Percentage (%)
   availability:
     apis:
@@ -2128,6 +2308,8 @@ data:
   domain: telemetrie
   description: Return if the electric vehicle is charging or not.
   type: boolean
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -2156,6 +2338,8 @@ data:
     - Failure
     - Stopped
     - Finished
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -2182,6 +2366,8 @@ data:
     - Slow
     - Quick
     - "No"
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -2204,6 +2390,8 @@ data:
   domain: telemetrie
   description: Charging speed expressed in autonomy per hour.
   type: integer
+  scope:
+    - data:telemetry
   unit: expressed in gained batteryLife per hour -> KM/H
   availability:
     apis:
@@ -2227,6 +2415,8 @@ data:
   domain: telemetrie
   description: Remaning time before the battery is fully charged.
   type: string
+  scope:
+    - data:telemetry
   unit: Duration (ISO8601)
   availability:
     apis:
@@ -2250,6 +2440,8 @@ data:
   domain: telemetrie
   description: Time at which charging is scheduled.
   type: string
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -2287,6 +2479,8 @@ data:
     - ElectricalsystemBreakIn
     - KeyLearning
     - UnauthenticatedStartup 
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -2312,6 +2506,8 @@ data:
   description: |-
     Coordinates where the alarm occurs. Comes with other position information such as longitude, latitude, altitude, signal Quality, heading, etc.
   type: object
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -2336,6 +2532,8 @@ data:
   domain: telemetrie
   description: Time when the alarm occurs.
   type: string
+  scope:
+    - data:telemetry
   unit: Date-time
   availability:
     apis:
@@ -2364,6 +2562,8 @@ data:
   enum:
     - Inactive
     - Active 
+  scope:
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -2807,6 +3007,8 @@ data:
   domain: trip
   description: Distance of the trip
   type: string
+  scope:
+    - data:trip
   unit: km
   availability:
     apis:
@@ -2827,6 +3029,8 @@ data:
   domain: trip
   description: Duration of the trip
   type: string
+  scope:
+    - data:trip
   unit: Date-time
   availability:
     apis:
@@ -2848,6 +3052,9 @@ data:
   domain: trip
   description: Departure location of the trip. 2 to 3 values, longitude latitude and altitude"
   type: array
+  scope:
+    - data:trip
+    - data:position
   items: number
   availability:
     apis:
@@ -2869,6 +3076,9 @@ data:
   description: |- 
     Arrival location of the trip. 2 to 3 values: longitude latitude and altitude.
   type: array
+  scope:
+    - data:trip
+    - data:position
   items: number
   availability:
     apis:
@@ -2890,6 +3100,8 @@ data:
   domain: trip
   description: Determines whether this trip have is finished.
   type: boolean
+  scope:
+    - data:trip
   availability:
     apis:
       webportal_v1: false
@@ -2913,6 +3125,8 @@ data:
     - Unstarted
     - DataLacking
     - Unfinished
+  scope:
+    - data:trip
   availability:
     apis:
       webportal_v1: false
@@ -2932,6 +3146,8 @@ data:
   domain: alert
   description: Time when the trip started.
   type: string
+  scope:
+    - data:trip
   unit: Date-time
   availability:
     apis:
@@ -2952,6 +3168,8 @@ data:
   domain: alert
   description: Time when the trip stopped.
   type: string
+  scope:
+    - data:trip
   unit: Date-time
   availability:
     apis:
@@ -2991,6 +3209,9 @@ data:
   domain: trip
   description: Alerts related to a trip. See alerts for more info. 2 to 3 values, longitudelatitude and altitude."
   type: array
+  scope:
+    - data:trip
+    - data:alert
   items: number
   availability:
     apis:
@@ -3011,6 +3232,9 @@ data:
   description: |-
     Telemetries for a trip. Available: privacy, engine type, energy type, brakes, transmissions, adas, lightening, ignition, door state, battery, beltWarning, eCall trigering, luminosity, air temperature, odometer, acceleration, speed, pace, moving, location, maintenance. See telemetries categorie for more info.
   type: object
+  scope:
+    - data:trip
+    - data:telemetry
   availability:
     apis:
       webportal_v1: false
@@ -3055,6 +3279,9 @@ data:
   domain: trip
   description: Retrieve collisions of a Trip.
   type: object
+  scope:
+    - data:trip
+    - data:collision
   availability:
     apis:
       webportal_v1: false
@@ -3073,6 +3300,9 @@ data:
   domain: trip
   description: Retrieve waypoints of a Trip.
   type: object
+  scope:
+    - data:trip
+    - data:position
   unit: Array of GeoJSON Coordinates
   availability:
     apis:
@@ -3397,6 +3627,8 @@ data:
   domain: remote
   description: Send remote preconditionning command.
   type: object
+  scope:
+    - remote:preconditioning:write
   availability:
     apis:
       webportal_v1: false
@@ -3415,6 +3647,8 @@ data:
   domain: remote
   description: Enable/disable charging remotly.
   type: object
+  scope:
+    - remote:charging:write
   availability:
     apis:
       webportal_v1: false
@@ -3433,6 +3667,8 @@ data:
   domain: remote
   description: Honk the horn remotly.
   type: object
+  scope:
+    - remote:horn:write
   availability:
     apis:
       webportal_v1: false
@@ -3451,6 +3687,8 @@ data:
   domain: remote
   description: Lock or unlock the vehicle`s dorr remotly.
   type: object
+  scope:
+    - remote:door:write
   availability:
     apis:
       webportal_v1: false
@@ -3469,6 +3707,8 @@ data:
   domain: remote
   description: Turn on/off the lights remotly.
   type: object
+  scope:
+    - remote:lights:write
   availability:
     apis:
       webportal_v1: false
@@ -3523,6 +3763,8 @@ data:
   domain: remote
   description: Wake up the vehicle remotly.
   type: object
+  scope:
+    - remote:weakup:write
   availability:
     apis:
       webportal_v1: false

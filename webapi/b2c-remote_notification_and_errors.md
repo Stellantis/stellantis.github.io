@@ -1,8 +1,8 @@
 ---
 layout: doc-article
-permalink: /webapi/b2b/remote/notifications-errors/
+permalink: /webapi/b2c/remote/notifications-errors/
 section: webapi
-subsection: b2b
+subsection: b2c
 categorie: Remote
 title: Notifications & Errors
 description: "Information about Fleet Owner API remotes notification & errors."
@@ -69,13 +69,13 @@ This page describes only `eventStatus` object, if you need the full response spe
 
 ### Messages Description
 
-- ***Vehicle Sleep:*** if the vehicle is stopped, it stays awake during 3min, when a message is sent to the vehicle, it will stays awake 3 min more. Otherwise, if a vehicle is sleeping, we will to send a special command to awake it. In this case you are notified by a `WakingUpVehicle` because the delay to apply the remote action could be longer.
+- ***Vehicle Sleep:*** if the vehicle is stopped, it stays awake during 3min, when a message is sent to the vehicle, it will stay awake 3 min more. Otherwise, if a vehicle is sleeping, we will send a special command to awake it. In this case you are notified by a `WakingUpVehicle` because the delay to apply the remote action could be longer.
 
-- ***Too Many Wake Ups:*** In order to preserve your vehicle health, it is not allowed to awake a vehicle too often. That's why a monthly limit is set. If you reach this limit it will not be possible to send a remote to your vehicle again during this month, and you'll receive a `TooManyWakeUpsOverMonth` notification. 
+- ***Too Many Wake Ups:*** In order to preserve your vehicle health, it is not allowed to awake a vehicle too often. That's why a monthly limit is set. If you reach this limit, it will not be possible to send a remote to your vehicle again during this month, and you'll receive a `TooManyWakeUpsOverMonth` notification. 
 
 - ***Time Out:*** in case your vehicle is not connected to the internet, it is not possible to send a remote action to it. In this case you will receive an error notification until your vehicle is reconnected.
 
-- ***Already Done***: if the vehicle was already in the status requested by your remote, you will receive a `AlreadyDone` notification.
+- ***Already Done***: if the vehicle was already in the status requested by your remote, you will receive an `AlreadyDone` notification.
 
 - ***Charge Too Low:*** in case of an electric vehicle, the system will preserve your vehicle battery life by not sending remote action when the charge is less than a limit. In this case you'll receive a `VehicleBatteryChargeTooLow` or a `NotPossibleDueToVehicleBatteryLevel` notification.
 

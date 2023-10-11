@@ -93,12 +93,16 @@ margin-bottom: 0;
 
 }
 
-.api-code-header-text {
-color: white;
+.api-code-header-text, .api-code-header-text strong {
+  color: white;
 }
 
 a.api-code-header-text:hover {
-cursor: pointer;
+  cursor: pointer;
+}
+
+a.api-code-header-text:hover strong {
+  color: black;
 }
 
 .api-code-header-function {

@@ -1,10 +1,9 @@
-# Post Monitor Request
+This tutorial explains how to set-up monitors using the  API endpoint: POST Monitor. In order to do so, we will need to understand how to configure the **callback notification** and set-up a **triggering policy**.
 
-## 1. Overview
 
-Here is an overview of an **HTTP request** intended to create a monitor.
+## Post Monitor Request
 
-We will then take a closer look to the **body request**.
+The following example is the structure of the HTTP request intended to create a monitor. HTTP headers require to use [realms]({{site.baseurl}}/webapi/b2c/quickstart/access-user-data/#manufacturers-brands--realms). The request body will allow to set-up the behavior of the monitor.
 
 {% include webapi-curl.md
    apiEndpointB2B='/fleets/{fid}/monitors'
@@ -12,79 +11,45 @@ We will then take a closer look to the **body request**.
    referenceURLResssourceB2B='createFleetVehicleMonitor'
    referenceURLResssourceB2C='createVehicleVehicleMonitor'
    httpVerb='POST'
-   httpBody='{
-  "label": "monitor-name",
-  "subscribeParam": { },
-  "extendedEventParam": [ ],
-  "triggerParam": { }
-}' %}
-
-First, we will have a look at the callback configuration: **"subscribeParam"** and **"extendedEventParam"**. 
-
-Then we will see how to create triggers and triggering policy for your monitors with **"triggerParam"**. 
-
-At the end we will see **examples** of monitor configuration.
-
-{% if page.subsection == 'b2b' %}> **Note:** one monitor is for one fleet only. Indeed you can creat multpile monitors for multiple fleets. {% endif %}
-
-## 2. Callback Configuration
-
-Firstly, you have to configure your monitor to send an **HTTP callback** to your webhook when it is triggered.
-This is the models explaining how to configure the callback:
+%}
 
 ```json
 {
-   "label": "",
-   "subscribeParam": {
-      "retryPolicy": {
-         "policy": "None",
-         "maxRetryNumber": 0,
-         "retryDelay": 0
-         },
-      "batchNotify": {
-         "size": 0,
-         "timeWindow": 0
-      },
-      "callback": {
-         "webhook": {
-            "target": "https://my.post.callback",
-            "name": "My_Webhook",
-            "attributres": [
-               {
-               "type": "Header",
-               "key": "X-Vehicle_Id",
-               "value": "$vin"
-               },
-               {
-               "type":"Header",
-               "key":"Authorization",
-               "value":"Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="
-               }
-            ]
-         }
-      },
-      "refreshEvent": 100
-   },
-   "extendedEventParam": [
-      "vehicle.alerts",
-      "vehicle.status"
-   ],
-   "triggerParam": { }
+  "label": "<monitor-name>",
+  "subscribeParam": { },
+  "extendedEventParam": [ ],
+  "triggerParam": { }
 }
 ```
 
-Below is a description of the JSON models explaining how to configure the callback. Please refer to {% if page.subsection == 'b2b' %}[API Reference]({{site.baseurl}}/webapi/b2b/api-reference){% elsif page.subsection == 'b2c' %}[API Reference]({{site.baseurl}}/webapi/b2c/api-reference/specification){% endif %} models to read a full description of the callback configuration.
+Below is a description of the JSON body to configure the monitor, refer to [API Reference]({{site.baseurl}}/webapi/{{page.subsection}}/api-reference/references/#operation/{% if page.subsection == "b2b" %}createFleetVehicleMonitor{% elsif page.subsection == "b2c" %}createVehicleVehicleMonitor{% endif %}) for the specification of this endpoint.
 
-**{% if page.subsection == 'b2b' %}[MonitorParameter]({{site.baseurl}}/webapi/b2b/api-reference/specification#model-MonitorParameter){% elsif page.subsection == 'b2c' %}[MonitorParameter]({{site.baseurl}}/webapi/b2c/api-reference/specification/#model-MonitorParameter){% endif %}**: this JSON object allow you to configure your monitor callback:
-   - **retryPolicy**: this where you set retry policy, it's in case your webhook has not received the callback, whatever is the reason.
-   - **batchNotify**: you can set this object in case you need to receive notification in batch instead of one by one.
-   - **callback>webhook**: this required object is where you will set the address and name of you webhook. This is also where you can customize the HTTP notification (example: for authentication purpose).
-   - **refreshEvent**: if the trigger is satisfied, refreshEvent define the period between two re-checking.
-   - **extendedEventParam**: this events table allow you to send extra vehicle data in the notification.
+- `label`: is the name of the monitor.
+- `subscribeParam`: allows to set up:
+  - *retryPolicy*: in case your webhook has not received the callback, whatever is the reason. This topic has its own [dedicated page]({{site.baseurl}}/webapi/{{page.subsection}}/monitor/retry-policy/#article)
+  - *batchNotify*: if you need to receive notification in batch instead of one by one.
+  - *callback*: is where you will set the address and name of you webhook. This is also where you can customize the HTTP notification (example: for authentication purpose).
+  - *refreshEvent*: if the trigger is satisfied, refreshEvent define the period between two re-checking of the pattern.
+- `extendedEventParam`: this array allows you to send extra vehicle data in the notification.
+- `triggerParam`: is where the **trigger policy is set up**, checkout [triggering](#triggering-events). 
 
-## 3. Event Triggering
+{% if page.subsection == 'b2b' %}> **Note:** one monitor is for one fleet only. However, you can creat multpile monitors for multiple fleets. {% endif %}
 
-### 3.1 Triggers
+## Post Monitor Response
+
+If the monitor request is properly set-up, the monitor will be created and an HTTP response will be returned:
+
+```json 
+{
+   "monitorId":"c7eeaafdf0ab9683d5a1b8d51572014996540m0021",
+   "status":"Created"
+} 
+```
+
+
+In this case, the monitor have been **created** with `id=c7eeaafdf0ab9683d5a1b8d51572014996540m0021`. This identifier, allows to track this monitor when it triggers an HTTP notification to the webhook because it will be sent with every notification.
+
+## Triggering Events
 
 Let's have a look at how to create monitor triggers.
 First, you have to decide what will be the triggers of your monitor. 
@@ -99,7 +64,7 @@ Choose and configure the triggers you need as a JSON table:
 ```json
 {
    "label": "",
-   "subscribeParam": { }
+   "subscribeParam": { },
    "triggerParam": {
       "triggers": [
          {
@@ -145,9 +110,8 @@ Choose and configure the triggers you need as a JSON table:
 }
 ```
 
-For the entire documentation, look closer at {% if page.subsection == 'b2b' %}[API Reference]({{site.baseurl}}/webapi/b2b/api-reference){% elsif page.subsection == 'b2c' %}[[API Reference]({{site.baseurl}}/webapi/b2c/api-reference/specification){% endif %}>**MonitorParameter>triggerParam>triggers**. 
-This is where you can find the **entire list of available triggers**.
-
+For the specification, checkout {% if page.subsection == 'b2b' %}[API Reference]({{site.baseurl}}/webapi/b2b/api-reference){% elsif page.subsection == 'b2c' %}[[API Reference]({{site.baseurl}}/webapi/b2c/api-reference/references){% endif %}>**MonitorParameter>triggerParam>triggers**. 
+This is where you can find the **list of all triggers available**.
 
 <div class="notification">
 <strong>Deprecated:</strong> timeZoneTrigger and dataTrigger.
@@ -159,9 +123,9 @@ This is the old way of setting a triggering policy, it'is less performant as it 
 </p>
 </div>
 
-### 3.2 Boolean Expression
+#### Triggering Policy
 
-Once you have selected your triggers, you'll have to combine them together to create a **triggering policy**. To do so, you will use boolean expression. Using boolean expression allow you to have various triggering policies in one monitor.
+Once you have selected your triggers, you'll have to combine them together to create a **triggering policy**. To do so, you will use boolean expression. Using boolean expression allows you to have various triggering policies in one monitor.
 
 Let's see how to use this boolean expression:
 
@@ -197,9 +161,7 @@ In this boolean expression, the monitor will notify your webhook in all these si
 - *(o2 & (z1 &#124; t2))* = **o2** is triggered *AND* either **z1** *OR* **t2** is triggered
 - *(o3 & (z1 &#124; z2))* = **o3** is triggered *AND* either **z1** *OR* **z2** is triggered
 
-## 4. Examples
-
-### 4.1 Autonomy
+## Examples: Autonomy
 
 This request ask to **create** an "IDF Zone monitor With Data Triggering:[vehicle.energy.electric.level]" monitor with the following parameters:
 - It will be **refreshed** every 600s if the event is still triggered. 
@@ -289,7 +251,7 @@ This request ask to **create** an "IDF Zone monitor With Data Triggering:[vehicl
 }
 ```
 
-### 4.2 Heatwave
+## Example: Heatwave
 
 Another example monitor to detect heatwave:
 
@@ -359,7 +321,7 @@ Another example monitor to detect heatwave:
 
 This request ask to **create** a heatwave monitor **triggered** inside the city of Paris, if the temperature is greater than 30 °C.
 
-### 4.3 Merge Monitors
+## Example: Merged Monitors
 
 In place of having two monitors like example **4.1** and **4.2** you can use boolean expression to merge those 2 examples in only one monitor:
 
@@ -378,16 +340,3 @@ In place of having two monitors like example **4.1** and **4.2** you can use boo
       "boolExp": "((outOfParis & (batteryIsLow | onMonday) | (outOfParis & outsideTemperatureIsHight))"
 }
 ```
-
-# Post Monitor Response
-
-Here is an example of HTTP response after POSTING a new monitor.
-
-```json 
-{
-   "monitorId":"c7eeaafdf0ab9683d5a1b8d51572014996540m0021",
-   "status":"Created"
-} 
-```
-
-The monitor have been **created** with `id=c7eeaafdf0ab9683d5a1b8d51572014996540m0021`. This id will be sent with every notification to your webhook.
