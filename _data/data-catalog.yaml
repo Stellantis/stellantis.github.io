@@ -3764,7 +3764,7 @@ data:
   description: Wake up the vehicle remotly.
   type: object
   scope:
-    - remote:weakup:write
+    - remote:wakeup:write
   availability:
     apis:
       webportal_v1: false
