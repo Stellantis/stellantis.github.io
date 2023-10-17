@@ -79,7 +79,7 @@ Scopes exist under two different categories:
   - `remote:horn:write`
   - `remote:charging:write`
   - `remote:lights:write`
-  - `remote:weakup:write`
+  - `remote:wakeup:write`
   - `remote:navigation:write`
 
 #### App registration

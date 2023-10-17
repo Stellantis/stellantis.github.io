@@ -114,25 +114,11 @@
         - name: Monitor
           path: monitor/
           pages:
-            - name: About Monitors
-              path: about/
-            - name: Set Up
-              path: set-up/
-            - name: Retry Policy
-              path: retry-policy/
             - name: Webhook References
               path: webhook/
         - name: Remote
           path: remote/
           pages:
-            - name: About Remotes
-              path: about/
-            - name: Set Up
-              path: set-up/
-            - name: Retry Policy
-              path: retry-policy/
-            - name: Notifications and Errors
-              path: notifications-errors/
             - name: Webhook References
               path: webhook/
         - name: API Reference

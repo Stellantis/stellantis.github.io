@@ -102,7 +102,7 @@ Content-Type: application/json
           "operation": [
             "remote:door:write", "remote:preconditioning:write",
             "remote:horn:write", "remote:charging:write",
-            "remote:lights:write", "remote:weakup:write", "remote:navigation:write"
+            "remote:lights:write", "remote:wakeup:write", "remote:navigation:write"
           ],
           "details": {
             "charging": {

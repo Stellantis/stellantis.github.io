@@ -21,7 +21,7 @@ With this REST API, you are able to {% if page.subsection == 'b2b' %}[browse dat
 **Step1: create a callback**
 
 First, you will have to set up a remote callback.
-If you are already working with monitors, it is almost the same as posting a {% if page.subsection == 'b2b' %}[monitor]({{site.baseurl}}/webapi/b2b/monitor/set-up/#post-monitor-request){% elsif page.subsection == 'b2c' %}[monitor]({{site.baseurl}}/webapi/b2c/monitor/about/set-up/#post-monitor-request){% endif %}. 
+If you are already working with monitors, it is almost the same as posting a {% if page.subsection == 'b2b' %}[monitor]({{site.baseurl}}/webapi/b2b/monitor/set-up/#post-monitor-request){% elsif page.subsection == 'b2c' %}[monitor]({{site.baseurl}}/webapi/b2c/monitor/set-up/#post-monitor-request){% endif %}. 
 
 Callback is where you define the parameters of your **webhook** (URL, authentication) and the structure of the **HTTP request** you will receive as a notification.
 

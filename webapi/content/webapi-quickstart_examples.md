@@ -66,6 +66,7 @@ The {% if page.subsection == 'b2b' %} `/fleets/{fid}/vehicles/{id}/alerts` {% el
    queryParams=getAlertsQueryParams
 %}
 
+{% if page.subsection == "b2b" %}
 
 ## Post New Monitor
 
@@ -176,6 +177,7 @@ Checkout the [dedicated tutorial]({{site.baseurl}}/webapi/{{page.subsection}}/mo
   queryParam=deleteMonitorQueryParams
 %}
 
+{% endif %}
 
 #### References
 
