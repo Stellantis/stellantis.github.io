@@ -70,7 +70,6 @@ Version|Name
 
 {% include published_on.html date='11 Apr 2019' %}
 
-**Candidate Version**
+**First Release**
 
 <hr>
-
