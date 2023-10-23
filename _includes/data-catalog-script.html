@@ -157,7 +157,7 @@ const domain_categories = {
   monitor: "fas fa-bell",
   picture: "fas fa-image",
   remote: "fas fa-satellite-dish",
-  telemetrie: "fas fa-chart-bar",
+  telemetry: "fas fa-chart-bar",
   trip: "fas fa-route",
   vehicle_info: "fas fa-info",
   HMI: "fas fa-car-side",
@@ -278,7 +278,7 @@ var table = new Tabulator("#data-catalog", {
   columns:
     [
       {% unless page.subsection == "api-data" %}
-      {title:"Domain", field:"domain", cssClass:"column-title", headerFilter:"select", headerFilterParams:{values: { "alert":"Alert", "collision":"Collision", "location" : "Location" , "maintenance" : "Maintenance" , "monitor": "Monitor" , "picture": "Picture", "remote":"Remote", "telemetrie":"Telemetrie", "trip": "Trip" , "vehicle_info": "Vehicle Info" , "HMI":"HMI"}}, headerFilterPlaceholder:"Domain"},
+      {title:"Domain", field:"domain", cssClass:"column-title", headerFilter:"select", headerFilterParams:{values: { "alert":"Alert", "collision":"Collision", "location" : "Location" , "maintenance" : "Maintenance" , "monitor": "Monitor" , "picture": "Picture", "remote":"Remote", "telemetry":"Telemetry", "trip": "Trip" , "vehicle_info": "Vehicle Info" , "HMI":"HMI"}}, headerFilterPlaceholder:"Domain"},
       {% endunless %}
       {title:"Type", field:"type", cssClass:"column-title",editor:"input", headerFilter:"select", headerFilterParams:{values: true}, headerFilterPlaceholder:"Type"},
     ],
