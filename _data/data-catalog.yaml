@@ -2,7 +2,7 @@ schema_version: "1.0.1"
 info:
   title: Stellantis Connected Vehicles Data Catalog
   description: Stellantis Connected Vehicles Data Catalog
-  version: 2.2.0
+  version: 2.2.2
 data:
 - name: Alert severity
   domain: alert
@@ -382,7 +382,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Longitudinal speed
-  domain: telemetrie
+  domain: telemetry
   description: Vehicle longitudinal speed.
   type: number
   scope:
@@ -407,7 +407,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Acceleration
-  domain: telemetrie
+  domain: telemetry
   description: Vehicle acceleration.
   type: number
   scope:
@@ -433,7 +433,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Moving state
-  domain: telemetrie
+  domain: telemetry
   description: Is the vehicle moving?
   type: boolean
   scope:
@@ -458,7 +458,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Ignition state
-  domain: telemetrie
+  domain: telemetry
   description: Ignition state of the vehicle.
   type: string
   scope:
@@ -486,7 +486,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Privacy state
-  domain: telemetrie
+  domain: telemetry
   description: Privacy state of the vehicle requested by the driver
   type: string
   enum: 
@@ -515,7 +515,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Outside temperature
-  domain: telemetrie
+  domain: telemetry
   description: Temperature outside of the vehicle.
   type: number
   scope:
@@ -540,7 +540,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Ambiant luminosity state
-  domain: telemetrie
+  domain: telemetry
   description: Boolean state of ambiant luminosity (day or night)
   type: boolean
   scope:
@@ -564,7 +564,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Odometer mileage
-  domain: telemetrie
+  domain: telemetry
   description: Vehicle mileage.
   type: number
   scope:
@@ -678,7 +678,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Belt passenger identifier
-  domain: telemetrie
+  domain: telemetry
   description: Seat belt identifier.
   type: string
   enum: 
@@ -705,7 +705,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Belt status
-  domain: telemetrie
+  domain: telemetry
   description: Seat belt status.
   type: string
   enum: 
@@ -732,7 +732,7 @@ data:
       PHEV: true
       FCEV: true
 - name: ECall state
-  domain: telemetrie
+  domain: telemetry
   description: State of the eCall emergency system.
   type: string
   enum: 
@@ -760,7 +760,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Driving behavior mode
-  domain: telemetrie
+  domain: telemetry
   description: Driving mode selected by the driver.
   type: string
   enum: 
@@ -800,7 +800,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Wiping blade state
-  domain: telemetrie
+  domain: telemetry
   description: Is wiping blade active ?
   type: boolean
   scope:
@@ -821,7 +821,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Wiping blade speed
-  domain: telemetrie
+  domain: telemetry
   description: Wiping speed (available only if wiping blade state is active).
   type: string
   enum: 
@@ -845,7 +845,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Park assist front
-  domain: telemetrie
+  domain: telemetry
   description: State of the front park assist
   type: string
   enum: 
@@ -872,7 +872,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Park assist rear
-  domain: telemetrie
+  domain: telemetry
   description: Sate of the rear park assist
   type: string
   enum: 
@@ -900,7 +900,7 @@ data:
       PHEV: true
       FCEV: true
 - name: ACCR State
-  domain: telemetrie
+  domain: telemetry
   description: State of the Adaptive Cruise Control Regulation
   type: string
   enum: 
@@ -929,7 +929,7 @@ data:
       PHEV: true
       FCEV: true
 - name: LVV State
-  domain: telemetrie
+  domain: telemetry
   description: Speed limiter
   type: boolean
   scope:
@@ -950,7 +950,7 @@ data:
       PHEV: true
       FCEV: true
 - name: RVV state
-  domain: telemetrie
+  domain: telemetry
   description: State of Cruise control.
   type: string
   enum: 
@@ -984,7 +984,7 @@ data:
       PHEV: true
       FCEV: true
 - name: AEBS State
-  domain: telemetrie
+  domain: telemetry
   description: State of Advanced Emergency Braking System
   type: string
   enum: 
@@ -1009,7 +1009,7 @@ data:
       PHEV: true
       FCEV: true
 - name: AFIL State
-  domain: telemetrie
+  domain: telemetry
   description: State of Lane Departure Warning System
   type: string
   enum: 
@@ -1035,7 +1035,7 @@ data:
       PHEV: true
       FCEV: true
 - name: ARTIV State
-  domain: telemetrie
+  domain: telemetry
   description: Respect of inter vehicle time assist (ARTIV)
   type: string
   enum: 
@@ -1060,7 +1060,7 @@ data:
       PHEV: true
       FCEV: true
 - name: BSM State
-  domain: telemetrie
+  domain: telemetry
   description: Blind Spot Monitoring state
   type: string
   enum: 
@@ -1086,7 +1086,7 @@ data:
       PHEV: true
       FCEV: true
 - name: ESP State
-  domain: telemetrie
+  domain: telemetry
   description: Electronic Stability Program state.
   type: boolean
   scope:
@@ -1107,7 +1107,7 @@ data:
       PHEV: true
       FCEV: true
 - name: ABS State
-  domain: telemetrie
+  domain: telemetry
   description: Anti-lock braking system state.
   type: boolean
   scope:
@@ -1128,7 +1128,7 @@ data:
       PHEV: true
       FCEV: true
 - name: FSE State
-  domain: telemetrie
+  domain: telemetry
   description: Electric brake service state.
   type: boolean
   scope:
@@ -1149,7 +1149,7 @@ data:
       PHEV: true
       FCEV: true
 - name: SLI State
-  domain: telemetrie
+  domain: telemetry
   description: Speed Limit Information value.
   type: integer
   scope:
@@ -1171,7 +1171,7 @@ data:
       PHEV: true
       FCEV: true
 - name: RLKA State
-  domain: telemetrie
+  domain: telemetry
   description: Right Lane Keeping Assist state.
   type: string
   enum: 
@@ -1197,7 +1197,7 @@ data:
       PHEV: true
       FCEV: true
 - name: LLKA State
-  domain: telemetrie
+  domain: telemetry
   description: Left Lane Keeping Assist state.
   type: string
   enum: 
@@ -1223,7 +1223,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Gear suggestion
-  domain: telemetrie
+  domain: telemetry
   description: Recommended gear indicator.
   type: string
   enum: 
@@ -1249,7 +1249,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Gearbox automatic mode
-  domain: telemetrie
+  domain: telemetry
   description: Is gearbox mode is automatic?
   type: boolean
   scope:
@@ -1270,7 +1270,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Gearbox sport mode
-  domain: telemetrie
+  domain: telemetry
   description: Is gearbox mode is sport?
   type: boolean
   scope:
@@ -1291,7 +1291,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Gearbox snow mode
-  domain: telemetrie
+  domain: telemetry
   description: Is gearbox mode is snow?
   type: boolean
   scope:
@@ -1312,7 +1312,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Gearbox semiManual mode
-  domain: telemetrie
+  domain: telemetry
   description: Is gearbox mode is semiManual?
   type: boolean
   scope:
@@ -1333,7 +1333,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Gearbox sequential mode
-  domain: telemetrie
+  domain: telemetry
   description: Is gearbox mode is sequential?
   type: boolean
   scope:
@@ -1354,7 +1354,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Gearbox ratio
-  domain: telemetrie
+  domain: telemetry
   description: Current gearbox ratio engaged.
   type: string
   enum: 
@@ -1386,7 +1386,7 @@ data:
       PHEV: true
       FCEV: false
 - name: Battery voltage
-  domain: telemetrie
+  domain: telemetry
   description: Battery voltage for combustion engine.
   type: number
   scope:
@@ -1411,7 +1411,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Doors lock state
-  domain: telemetrie
+  domain: telemetry
   description: Describe lock state for all the doors of the vehicle.
   type: string
   enum: 
@@ -1447,7 +1447,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Door opening identifier
-  domain: telemetrie
+  domain: telemetry
   description: Describe lock state for each doors of the vehicle.
   type: string
   enum: 
@@ -1479,7 +1479,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Door opening status
-  domain: telemetrie
+  domain: telemetry
   description: Describe lock state for each doors of the vehicle.
   type: string
   enum: 
@@ -1506,7 +1506,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Engine type
-  domain: telemetrie
+  domain: telemetry
   description: Engine type information.
   type: string
   enum: 
@@ -1533,7 +1533,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Engine speed
-  domain: telemetrie
+  domain: telemetry
   description: Engine speed value.
   type: number
   scope:
@@ -1558,7 +1558,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Engine coolant level
-  domain: telemetrie
+  domain: telemetry
   description: Percentage of engine coolant left.
   type: integer
   scope:
@@ -1583,7 +1583,7 @@ data:
       PHEV: true
       FCEV: false
 - name: Engine coolant temperature
-  domain: telemetrie
+  domain: telemetry
   description: Temperature of the coolant liquid.
   type: number
   scope:
@@ -1608,7 +1608,7 @@ data:
       PHEV: true
       FCEV: false
 - name: Engine oil level
-  domain: telemetrie
+  domain: telemetry
   description: Percentage of engine oil left.
   type: integer
   scope:
@@ -1633,7 +1633,7 @@ data:
       PHEV: true
       FCEV: false
 - name: Engine oil temperature
-  domain: telemetrie
+  domain: telemetry
   description: Temperature of the engine oil.
   type: number
   scope:
@@ -1658,7 +1658,7 @@ data:
       PHEV: true
       FCEV: false
 - name: Engine air temperature
-  domain: telemetrie
+  domain: telemetry
   description: Temperature of the engine air.
   type: number
   scope:
@@ -1683,7 +1683,7 @@ data:
       PHEV: true
       FCEV: false
 - name: Powertrain state
-  domain: telemetrie
+  domain: telemetry
   description: State of the powertrain.
   type: string
   scope:
@@ -1713,7 +1713,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Preconditioning state
-  domain: telemetrie
+  domain: telemetry
   description: The state of the preconditioning feature.
   type: string
   enum: 
@@ -1739,7 +1739,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Preconditioning error state
-  domain: telemetrie
+  domain: telemetry
   description: Cause of failure in case preconditioning has not been started.
   type: string
   enum: 
@@ -1766,7 +1766,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Preconditioning program enable
-  domain: telemetrie
+  domain: telemetry
   description: Display whether this program is enabled or not.
   type: boolean
   scope:
@@ -1787,7 +1787,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Preconditioning program reccurence
-  domain: telemetrie
+  domain: telemetry
   description: |- 
     Recurrence of the program. None: means no recurrence. Daily: repeated over the week.
   type: string
@@ -1812,7 +1812,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Preconditioning program occurence day 
-  domain: telemetrie
+  domain: telemetry
   description: |- 
     Days of the week affected by recurence.
   type: string
@@ -1842,7 +1842,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Preconditioning program start time
-  domain: telemetrie
+  domain: telemetry
   description: The program start time formatted using the duration format based on ISO 8601.
   type: string
   scope:
@@ -1864,7 +1864,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Preconditionning program slot
-  domain: telemetrie
+  domain: telemetry
   description: Program slot number as you can select one between various preconditioningprograms."
   type: integer
   scope:
@@ -1886,7 +1886,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Lighting Turn direction
-  domain: telemetrie
+  domain: telemetry
   description: Information about turn signals direction
   type: string
   enum: 
@@ -1913,7 +1913,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Lighting Turn position
-  domain: telemetrie
+  domain: telemetry
   description: Information about turn signals position
   type: string
   enum: 
@@ -1940,7 +1940,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Lighting Turn status
-  domain: telemetrie
+  domain: telemetry
   description: Information about vehicle turn signals state
   type: string
   enum: 
@@ -1967,7 +1967,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Lighting Fog direction
-  domain: telemetrie
+  domain: telemetry
   description: Information about fog signals direction
   type: string
   enum: 
@@ -1994,7 +1994,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Lighting Fog position
-  domain: telemetrie
+  domain: telemetry
   description: Information about fog signals position
   type: string
   enum: 
@@ -2021,7 +2021,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Lighting Fog status
-  domain: telemetrie
+  domain: telemetry
   description: Information about vehicle fog signals state
   type: string
   enum: 
@@ -2103,7 +2103,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Energy autonomy
-  domain: telemetrie
+  domain: telemetry
   description: Vehicle autonomy expressed in km.
   type: integer
   scope:
@@ -2129,7 +2129,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Energy level
-  domain: telemetrie
+  domain: telemetry
   description: Vehicle energy level.
   type: number
   scope:
@@ -2155,7 +2155,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Fuel instant consumption
-  domain: telemetrie
+  domain: telemetry
   description: Instant consumption for vehicles for thermic vehicle.
   type: number
   scope:
@@ -2180,7 +2180,7 @@ data:
       PHEV: true
       FCEV: false
 - name: Fuel total consumption
-  domain: telemetrie
+  domain: telemetry
   description: Total consumption  for thermic vehicle.
   type: number
   scope:
@@ -2205,7 +2205,7 @@ data:
       PHEV: true
       FCEV: false
 - name: Battery capacity
-  domain: telemetrie
+  domain: telemetry
   description: Electric battery total capacity.
   type: integer
   scope:
@@ -2230,7 +2230,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Battery residual energy
-  domain: telemetrie
+  domain: telemetry
   description: Residual electric energy.
   type: integer
   scope:
@@ -2255,7 +2255,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Battery health capicity
-  domain: telemetrie
+  domain: telemetry
   description: Health related to battery capacity.
   type: integer
   scope:
@@ -2280,7 +2280,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Battery health resistance
-  domain: telemetrie
+  domain: telemetry
   description: Health related to battery resistance.
   type: integer
   scope:
@@ -2305,7 +2305,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Charging plugged state
-  domain: telemetrie
+  domain: telemetry
   description: Return if the electric vehicle is charging or not.
   type: boolean
   scope:
@@ -2329,7 +2329,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Charging state
-  domain: telemetrie
+  domain: telemetry
   description: Status of charging system.
   type: string
   enum: 
@@ -2359,7 +2359,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Charging mode
-  domain: telemetrie
+  domain: telemetry
   description: Charging technology.
   type: string
   enum: 
@@ -2387,7 +2387,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Charging rate
-  domain: telemetrie
+  domain: telemetry
   description: Charging speed expressed in autonomy per hour.
   type: integer
   scope:
@@ -2412,7 +2412,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Charging remaining time
-  domain: telemetrie
+  domain: telemetry
   description: Remaning time before the battery is fully charged.
   type: string
   scope:
@@ -2437,7 +2437,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Charging next delayed time
-  domain: telemetrie
+  domain: telemetry
   description: Time at which charging is scheduled.
   type: string
   scope:
@@ -2461,7 +2461,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Alarm trigger type
-  domain: telemetrie
+  domain: telemetry
   description: Vehicle alarm trigger type  
   type: string
   enum:
@@ -2502,7 +2502,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Alarm trigger position
-  domain: telemetrie
+  domain: telemetry
   description: |-
     Coordinates where the alarm occurs. Comes with other position information such as longitude, latitude, altitude, signal Quality, heading, etc.
   type: object
@@ -2529,7 +2529,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Alarm trigger start timestamp
-  domain: telemetrie
+  domain: telemetry
   description: Time when the alarm occurs.
   type: string
   scope:
@@ -2556,7 +2556,7 @@ data:
       PHEV: true
       FCEV: true
 - name: Alarm activation state
-  domain: telemetrie
+  domain: telemetry
   description: Vehicle alarm activation state  
   type: string
   enum:

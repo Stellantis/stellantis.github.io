@@ -10,12 +10,13 @@ description: "Stellantis developer portal's version changelog."
 <div class="notification page-disclaimer">
 <p>
     <strong>Changelogs:</strong> This changelog details the history of modifications of this website. 
-    You might also be interessted in the changelog of <a href="{{site.baseurl}}/webapi/b2b/api-reference/changelog/#article"> Web API B2B v3</a> and <a href="{{site.baseurl}}/mobile-sdk/references/changelog/#article">Mobile SDK</a>.</p>
+    You might also be interested in the changelog of <a href="{{site.baseurl}}/webapi/b2b/api-reference/changelog/#article"> Web API B2B v3</a> and <a href="{{site.baseurl}}/mobile-sdk/references/changelog/#article">Mobile SDK</a>.</p>
 </div>
 
 
 Version|Name
 -|-
+[12.1.0](#1210) | Web API End User v4.10.1 & Data Catalog 2.2.2
 [12.0.1](#1201) | Web API - End User: fix scopes & monitor/remote
 [12.0.0](#1200) | Web API: Documentation Update End-User 
 [11.4.1](#1141) | Website: update data catalog
@@ -99,6 +100,18 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add WebPortal section
+
+<hr>
+
+## 12.1.0
+
+{% include published_on.html date='23 Oct 2023' %}
+
+**Web API for End Users:**
+- Update to v4.10.1
+
+**Data Catalog**
+- Update to v2.2.2
 
 <hr>
 

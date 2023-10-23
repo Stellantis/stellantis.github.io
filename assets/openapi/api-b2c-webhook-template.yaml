@@ -2,52 +2,107 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '2.0'
+  version: '4.10.1'
   title: Groupe PSA Connected Car API
   description: | 
 
-              # Introduction
+              ## Introduction
 
                 
-                This is the description of the *Groupe PSA Connected Car V2 API*. The
-                speccification is  is based on **OpenAPI Specification version 3** and can
+                This is the description of the *Groupe PSA Connected Car API* notification message and API (WebHook feature). The
+                specification. It  is based on **OpenAPI Specification version 3** and can
                 be displayed via [ReDoc](https://github.com/Rebilly/ReDoc)a or
                 [Swagger](http://swagger.io).
-                 The REST API allows  applications to fetch data from the connected Vehicles data  platform.
                .
-              # Authentication
-                TBD.
+              ## Authentication
+                The security scheme is managed by the subscription and is set,in the webhook notification case, by adding header entry (authorization) during the subscription to the notification feature (remote or monitor)
+
+    
 
     
   license:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'
 tags:
-  - name: Webhook
-    description: Monitor webhook model.
- 
+  
+  
+  - name: Message Webhook
+    description: Message model sent through webhook.
+    
+  - name: Message Push-Notif
+    description: Message model sent through webhook . 
 paths:
-
-  '/monitors/webhook':
+  '/messages/webhook':
     post:
       tags:
-        - Webhook
-      summary: Post a list of monitor events.
+        - Message Webhook
+      summary: Post a list of messages.
       description: |
-                    Post a a list of avent raised by a a registered monitor.
-      operationId: set
+                    Post a list of message (*raised by a registered remote or monitor*).
+      operationId: postWHMsgs
       parameters:
         - $ref: '#/components/parameters/headerAttribute'
+        - $ref: '#/components/parameters/queryAttribute'
       requestBody:
         content:
           application/json:
             schema:
-                $ref: '#/components/schemas/MonitorEvents'
+               $ref: '#/components/schemas/Message'
       responses:
         201:
          description: Post Ok.
         default:
           $ref: '#/components/responses/PostErrorResponse'
+  '/messages/pushnotif':
+    post:
+      tags:
+        - Message Push-Notif
+      summary: Post a list of messages.
+      description: |
+                    Post a message (*raised by a registered remote or monitor*) using FCM (Firebase Cloud Messaging) push notification service.  
+                    [Basic notification](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#Notification) template supported by all platforms is used as output message schema.
+                    
+                    _Notes:_
+                    
+                    * The event message  (see below) will be set in the "data" part of the notification. However, 
+                    this message being a JSON Object in text representation, 
+                    will be encoded in base64 coding in order to embeed it in the push-notif FCM message body with "**mph_message**" key.
+                    
+                    JSON representation of the basic template.
+
+                         {
+                          "name": string,
+                          "data": {
+                            string: string, // Attribute (out of keyword) key, value pair
+                            mph_message: base64String //  event message (see below) body encoded in base64 
+                            ...
+                          },
+                          "notification": {
+                            "title": string,
+                            "body": string,
+                            "image": string
+                          }
+                         }
+                         
+                    | <b>Field</b>  | <b>Description & mapping</b>  | 
+                    |---|---|
+                    |name| name of the callback that raises the event (see MPH B2C API for more details)|
+                    |data| map of key/values pairs that includes cb-header & message headers attribute (sent when subscribing the callback or creating monitor or posting a remote |
+                    |notification.title| title of notification, will be mapped on the label of the remote or the monitor|
+                    |notification.body| will contains the message payload|
+                    |notification.image| mapping is not supported by the current version|
+      operationId: postPNMsgs
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+               $ref: '#/components/schemas/Message'
+      responses:
+        201:
+         description: Post Ok.
+        default:
+          $ref: '#/components/responses/PostErrorResponse'        
 
  
 components:
@@ -59,7 +114,7 @@ components:
     Attributes:
           type: array
           description: >-
-            Additional attribute set that was defined when registering the monitor (a set of key / values)
+            Additional attribute set that was defined as 'body' attribute type when registering the monitor (a set of key / values)
           items:
             type: object
             properties:
@@ -70,42 +125,39 @@ components:
             required:
               - key
               - value  
-   
   
-    MonitorId:
-      type: string
-      description: The identifier of monitor that raised the event.
-      
-    MonitorEvents:
-      title: MonitorEvents
-      description: Monitor event list. This list will contain only one item when the batch-notify (see Monitor API) is not set.
+    Message:
+      title: Message
+      description: |
+                   Message can be a remote or monitor event. 
       type: object
       properties:
-        monitorId:
-           $ref: '#/components/schemas/MonitorId'
+        callbackId:
+           $ref: '#/components/schemas/CallbackId'      
         attributes:   
             $ref: '#/components/schemas/Attributes'
+      
+        type:
+          type: string
+          enum: [Monitor, Remote]
        
-        events:
-              type: array
-              items:
-                $ref: '#/components/schemas/MonitorEvent'
+        date:
+          description: The date on which the message was raised/built.
+          type: string
+          format: dateTime
+        monitorEvent:
+          $ref: '#/components/schemas/MonitorEvent'
+        remoteEvent:
+          $ref: '#/components/schemas/RemoteEvent'
+        
+          
     
     MonitorEvent:
       title: MonitorEvent
       type: object
       properties:
-      
-        vin:
-          description: Vehicle identifier for which the event was raised.
-          type: string  
-        eventDate:
-          description: The date on which the event was raised..
-          type: string
-          format: dateTime
-       # position:
-        #  $ref: '#/components/schemas/Position'
-       
+        monitorId:
+           $ref: '#/components/schemas/MonitorId'
         values:
           type: array
           description: Values that caused the trigger. If subscribed monitor trigger is not a compound one then the array will contain only one item.
@@ -118,9 +170,10 @@ components:
                   enum:
                     - vehicle.alert
                     - vehicle.odometer
-                    - vehicle.engines.running
+                    - vehicle.powertrain.status
                     - vehicle.engines.thermic.oil.temp
                     - vehicle.energy.electric.level
+                    - vehicle.energy.electric.autonomy
                     - vehicle.energy.fuel.level
                     - vehicle.energy.fuel.autonomy
                     - vehicle.autonomy
@@ -130,16 +183,18 @@ components:
                     - vehicle.doorsState.opening
                     - vehicle.kinetic.moving
                     - vehicle.kinetic.speed
-                    - vehicle.trip
-                    - vehicle.maintenance.daysBeforeMaintenance
-                    - vehicle.maintenance.mileageBeforeMaintenance
                     - vehicle.safety.beltWarning
                     - environment.air.temp
-                    - privacy.status
+                    - privacy.state
+                    - vehicle.drivingBehavior.mode
+                    - vehicle.safety.autoECallTriggering
+                    - vehicle.preconditioning.airConditioning
+                    - vehicle.alarm.trigger.type
+                    - vehicle.alarm.status.activation
                 
                   description: The monitored data (operand of a trigger).
               value: 
-                description: Values that caused the trigger. Could be a list of data values in case of 'includedIn' operation is used
+                description: Values that fired the trigger. Could be a list of data values in case of 'includedIn' operation is used
                 type: object
                 properties:
                       type:
@@ -149,15 +204,18 @@ components:
                         type: object
                         properties:
                         
-                          literalValue :
+                          literalValue:
                             type: string
-                            description: a literal representation of the primitive data value. The client application should be aware of that and should convert it regarding the trigger data type.  
+                            description: A literal representation of the primitive data value. The client application should be aware of that and should convert it regarding the trigger data type.  
                           objectValues:
                             type: array 
                             items:
                               type: object
                               description: For this object schema definition (based on the type of field), refere to the API Spec definition.
-                    
+              previous: 
+                description: the previous value of the data that fired the transition state from previous to the current (value) one. This field will be filled if and only if it was definied in the monitor parameter (previous section). It exposes only the literal representation of the primitive or enum data value (see monitor creation SPEC).
+                type: string
+
         extensions:
           description: Defines the extra vehicle data as specified in the monitor extended eventparam file (see Monitor paramaeter objecrt definition in the API Spec)
           type: array
@@ -167,7 +225,7 @@ components:
               type:
                 type: string
                 description: Speficies the data type of body items. 
-                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts]
+                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.alarm]
               body:
                 type: array
                 description: 
@@ -185,16 +243,141 @@ components:
                       type: object  
                     telemetry:
                       type: object
-                    alert:
-                        type: object
+                    alerts:
+                      type: array
+                      items:  
+                         type: object
+                    alarm:
+                      type: object
                   
         
         refresh:
           description: |
               Indicates whether the event is a refresh (reminder) one or not.
-              * ```false``` means entering the context of the trigger (1st time the trigger evaluated true). 
-              * ```true```means that is it a reminder event (already within trigger satisfied context).
+              * ```false``` means entering the context of the trigger (1st time the trigger valued true). 
+              * ```true``` means this is it a reminder event (already within trigger satisfied context).
           type: boolean
+
+    
+    MonitorId:
+      type: string
+      description: The identifier of monitor that raised the event.  
+    RemoteActionId:
+      type: string
+      description: The uniq remote action ID. This ID is returned when the remote action is posted and accepted.
+      
+    CallbackId:
+      type: string
+      description: ID of the callback used to notify events. This Id refers to the user callback created at subscription API.
+    RemoteType:
+      type: string    
+      enum: 
+            - ThermalPreconditioning
+            - ElectricBatteryChargingRequest
+            - Horn
+            - Doors
+            - Lights
+            - ChargingState
+            - WakeUp
+            - Navigation
+    RemoteEventType:
+      description: | 
+        The event type. See```status```for event state.
+        * Pending event is related to intermediate state of the action before it is handled by the vehicle.
+        * Done event is related to a final state of the action when handled by the vehicle.
+      type: string    
+      enum: 
+            - Pending
+            - Done
+            
+    RemoteDoneEventStatus:
+      description: | 
+        The reponse event status. 
+      type: string    
+      enum: 
+            - Success
+            - AlreadyDone
+            - Failed
+            
+    RemotePendingEventStatus:
+      description: | 
+        The processing event status. 
+      type: string    
+      enum: 
+            - Accepted
+            - WakingUpVehicle
+            - CheckingVehicle
+            - SentToVehicle
+            - VehicleBatteryChargeTooLow
+            - TooManyWakeUpsOverMonth
+    RemoteFailedEventStatus:
+      description: | 
+        The failure cause for event with failed status. This field is filled only is failure state. 
+         
+      type: string    
+      enum: 
+            - GeneralError
+            - VehicleError
+            - WrongCommand
+            - VehicleConnectionTimeout
+            - MissingRights
+            - NotPossibleDueToVehicleBatteryLevel
+            - NotPossibleDueToVehiclePrivacyLevel
+            - TooManyWakeUpsOverMonth
+            - TooManyRequestInShortTime
+            - SameActionInProgress
+            - NotPossibleDueToVehicleStolenState
+            - VehicleInUse
+            - TooManyRequestSent 
+            - DoorsOpen
+            - VehicleErrorOrCidInside
+            - CidInside
+            - ExternalChargingSystemError
+            - VehicleChargingSystemError
+            - VehicleIsNotLocked
+            - CanceledByDriver
+
+    RemoteEventFeedbackDetail:
+      description: | 
+        Additionnal detail in case of success on some specific behavior :
+        
+        |Feature|Description|Behavior|
+        |----------|:-------------|------:|
+        |Lock Doors|Send a lock doors by force|NoCIDBlacklisted if lock is OK but IML not blacklisted, CIDBlacklisted is when the doors are locked and the IML is well blacklisted|
+
+        
+      type: string
+      enum:
+            - NoCIDBlacklisted
+            - CIDBlacklisted    
+      
+    RemoteEventStatus:
+              type: object
+              properties:
+                type:   
+                  $ref: '#/components/schemas/RemoteEventType'
+                status:
+                  oneOf:
+                    - $ref: '#/components/schemas/RemoteDoneEventStatus'
+                    - $ref: '#/components/schemas/RemotePendingEventStatus'
+                failureCause:   
+                  $ref: '#/components/schemas/RemoteFailedEventStatus'
+                feedbackDetail:
+                  $ref: '#/components/schemas/RemoteEventFeedbackDetail'
+              required: [type,status]
+              
+    
+      
+    RemoteEvent:
+      title: RemoteEvent
+      type: object
+      properties:
+        remoteActionId:
+          $ref: '#/components/schemas/RemoteActionId'
+        remoteType:
+          $ref: '#/components/schemas/RemoteType'
+        eventStatus:
+            $ref: '#/components/schemas/RemoteEventStatus'
 
     xError:
       type: object
@@ -210,7 +393,7 @@ components:
           description: A human-readable error message.
           type: string
       example:
-        code: 1001
+        code: 500123
         debug: CMP_001234
         message: Not able to process the post.
         
@@ -221,7 +404,7 @@ components:
   
   responses:
     PostErrorResponse:
-      description: Post event error
+      description: Post message error
       content:
        application/json:
         schema:
@@ -235,30 +418,30 @@ components:
           
   parameters:
     headerAttribute:
-      name: <attribute-key> 
+      name: <header-attribute-key> 
       description: |
-         An attribute key as specified in the registered monitor additional attributes set that can be used as http header (_can also be used as an **Authorization** parameter specified by the registerer_). The provided attribute value is also set when calling this api. 
+         An attribute key/value as specified in the registered callback in additional attributes set as an HTTP header entry(_can also be used as an **Authorization** (Bearer authentication)).
          
-         **Note**:  This parameter is repeated as many times as attributes in the attribute-set declared when registring of the monitor.
+         **Note**:  ```This parameter is repeated as many times as attributes typed as 'header' in the declared attribute-set when registring of the callback.```
       in: header
-      required: true
+      schema:
+        type: string
+    queryAttribute:
+      name: <query-attribute-key> 
+      description: |
+         An attribute key/value as specified in the registered callback in additional attributes set as HTTP query parameter.
+         
+         **Note**:  ```This parameter is repeated as many times as attributes typed as 'query' in the declared attribute-set when registring of the callback.```
+      in: header
       schema:
         type: string
         
     tokenAuth:
       name: authorization
       description: >-
-        HTTP token authentication (Bearer authentication) that should be
-        retrived using PSA connection API.
+        HTTP token authentication (Bearer authentication) as part of .
       in: header
       required: true
       schema:
         type: string
         pattern: Bearer (\w|-|=)*
-
- 
-  
-    
-   
-  
-    
