@@ -13,10 +13,6 @@ title: Changelog
 
 Version|Name
 -|-
-[b2b_v3.16.0](#b2b_v3160) | 3.16.0
-[b2b_v3.15.0](#b2b_v3150) | 3.15.0
-[b2b_v3.14.0](#b2b_v3140) | 3.14.0
-[b2b_v3.13.1](#b2b_v3131) | 3.13.1
 [b2b_v3.13.0](#b2b_v3130) | 3.13.0
 [b2b_v3.12.0](#b2b_v3120) | 3.12.0
 [b2b_v3.11.0](#b2b_v3110) | 3.11.0
@@ -48,60 +44,6 @@ Version|Name
 [b2b_v2.0.1](#b2b_v201) | supported object in extensions
 [b2b_v2.0.0](#b2b_v200) | B2B - Partners Release - 
 [b2b_v1.0.0](#b2b_v100) | 1st release (B2B)
-
-<hr>
-
-## b2b_v3.16.0
-
-{% include published_on.html date='PreProd' %}
-
-**Monitors API**
-- Add vehicle.alarm.trigger.type & vehicle.alarm.status.activation as datatriggers
-
-
-<hr>
-
-## b2b_v3.15.0
-
-{% include published_on.html date='PreProd' %}
-
-**Vehicles API**
-- Update remote section in onboardCapabilities object
-
-**Vehicles API**
-- Add /vehicles/{vin} endpoint in B2B API
-
-
-<hr>
-
-## b2b_v3.14.0
-
-{% include published_on.html date='PreProd' %}
-
-**Vehicles API**
-- Update onboardCapabilities object
-
-**Status & Telemetry API**
-- Update energies objects
-
-**Status API**
-- Update failureCause enum in preconditioning object
-- Add startingCause data in preconditioning object
-
-**Monitors API**
-- Add charging type data trigger.
-
-**Remote API**
-- Update charging remote operation
-
-<hr>
-
-## b2b_v3.13.1
-
-{% include published_on.html date='PreProd' %}
-
-**Vehicles API**
-- Add alarms information in link section
 
 <hr>
 

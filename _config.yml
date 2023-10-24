@@ -14,7 +14,7 @@ gitHubSpecWebSdk: "https://github.psa-cloud.com/p4d00/web-sdk-spec"
 gitHubMasterPath: "/blob/master/"
 
 # doc versionning
-doc-version: "12.1.0"
+doc-version: "12.1.1"
 
 # WEB API BaseURI - theses var have to be renamed without prod/preprod (because we display only one at once)
 webapiB2C: "https://api.groupe-psa.com/connectedcar/v4"
