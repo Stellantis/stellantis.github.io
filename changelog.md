@@ -16,6 +16,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[12.1.1](#1211) | Web API: Fix Changelog Fleet Owner
 [12.1.0](#1210) | Web API End User v4.10.1 & Data Catalog 2.2.2
 [12.0.1](#1201) | Web API - End User: fix scopes & monitor/remote
 [12.0.0](#1200) | Web API: Documentation Update End-User 
@@ -100,6 +101,15 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add WebPortal section
+
+<hr>
+
+## 12.1.1
+
+{% include published_on.html date='24 Oct 2023' %}
+
+**Web API Fleet Owner:**
+- Fix Changelog
 
 <hr>
 
