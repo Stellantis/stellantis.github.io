@@ -1,145 +1,68 @@
+This tutorial explains how to set up remotes using the REST API. In order to do so, we will need to understand how to configure the **callback** and send a **remote command**.
 
-# 1. Post Remote CallBack
+{% include_relative content/webapi-callbacks.md %}
 
-### Callback Request
+## Post Remote Request
 
-Before being able to send a remote action, you have to configure the **HTTP callback** that will be sent to your webhook. 
+The following example is the structure of the HTTP request intended to send a remote command. 
 
-This callback specifies your webhook config, a retry policy and a batch notification policy. You can set up several callbacks. You will then execute a remote action using the callback the most appropriate for the situation.
-
-Here is an overview of an **HTTP request** intended to create a remote callback.
-
-{% include webapi-curl.md
-   apiEndpointB2B='/fleets/{fid}/remote/callbacks'
-   apiEndpointB2C='/user/remote/callbacks' referenceURLResssourceB2B='setFleetVehicleRemote' referenceURLResssourceB2C='sendRemoteToVhl'
-   httpVerb='POST'
-   httpBody='{
-  "retryPolicy": { },
-  "batchNotify": { },
-  "callback": { },
-  "label": "callback-name",
-  "extendedEventParam": [ ]
-}' %}
-
-Below is a description of the JSON models explaining how to configure a callback. Please refer to {% if page.subsection == 'b2b' %}[API Reference]({{site.baseurl}}/webapi/b2b/api-reference){% elsif page.subsection == 'b2c' %}[API Reference]({{site.baseurl}}/webapi/b2c/api-reference/references){% endif %} models to read a full description of the callback configuration.
-
-- **{% if page.subsection == 'b2b' %}[RemoteCallbackSubscribe]({{site.baseurl}}/webapi/b2b/api-reference/references#model-RemoteCallbackSubscribe){% elsif page.subsection == 'b2c' %}[RemoteCallbackSubscribe]({{site.baseurl}}/webapi/b2c/api-reference/references/#model-RemoteCallbackSubscribe){% endif %}**: this JSON object allows you to configure your remote callback:
-   - **retryPolicy**: this is where you set retry policy, it's in case your webhook has not received the callback, whatever is the reason.
-   - **batchNotify**: you can set this object in case you need to receive notification in batch instead of one by one.
-   - **callback>webhook**: this required object is where you will set the URL address and name of your webhook. This is also where you can customize the HTTP notification (example: for authentication purpose).
-- **{% if page.subsection == 'b2b' %}[notificationTypes]({{site.baseurl}}/webapi/b2b/api-reference/references#model-RemoteType){% elsif page.subsection == 'b2c' %}[notificationTypes]({{site.baseurl}}/webapi/b2c/api-reference/references/#model-RemoteType){% endif %}**: this array of remotes allows you to subscribe this callback to one or more actions.
-
-#### Example
-
-This request asks to **create** a callback named "my-post-callback" with the following parameters:
-- If the callback **notification is not received**, the request will be sent again every 120s until it's properly delivered. 
-- The callback will be **sent once** 10 callback notifications are ready to be sent or 300s after triggering.
-- The callback will be **sent to** your `https://my.post.callback` webhook with the VIN of the vehicle as a query path parameter and your `Basic authentication` in HTTP headers.
-- This callback can be used in order to send **remote actions**: `ThermalPreconditioning` & `ElectricBatteryChargingRequest`.
-
-```json
-{
-   "retryPolicy": {
-      "policy": "Always",
-      "maxRetryNumber": 3,
-      "retryDelay": 120
-      },
-   "batchNotify": {
-      "size": 10,
-      "timeWindow": 300
-   },
-   "callback": {
-      "webhook": {
-         "target": "https://my.post.callback",
-         "name": "My_Webhook",
-         "attributres": [
-            {
-            "type":"Header",
-            "key":"Authorization",
-            "value":"Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=="
-            }
-         ]
-      }
-   },
-   "label": "my-post-callback",
-    "notificationTypes": [
-        "ThermalPreconditioning",
-        "ElectricBatteryChargingRequest"
-    ]
-}
-```
-
-### Callback Response
-
-Here is an example of HTTP response after POSTING a new remote callback.
-
-```json 
-{
-    "_links": {...},
-    "callbackId": "c7eeaafdf0ab9683d5a1b8d51572014996540m0021",
-    "status": "Running"
-} 
-```
-
-The callback has been created with `id=c7eeaafdf0ab9683d5a1b8d51572014996540m0021`. This **callbackId** will be sent along with every notification to your webhook.
-
-> **Important:** You will need this ID to POST a remote action to a vehicle with this callback.
-
-# 2. Post Remote Action
-
-### Remote Request
-
-Once you have a dedicated callback, you are able to POST a remote action to a vehicle.
-Choose a vehicle id (you can retrieve it with the API status), then send this kind of request:
+The following **path parameters are required**, they need to be replaced by the appropriate value:
+{% if page.subsection == 'b2b' %}- **{fid}** is the id of the fleet.{% endif %}
+- **{{'{'}}{% if page.subsection == 'b2b' %}v{% endif %}id}** is the id of the vehicle to send a remote to.
+- **{cbid}** is the id of a callback, this id is received when a [callback is created](#post-callback).
 
 {% include webapi-curl.md
    apiEndpointB2B='/fleets/{fid}/vehicles/{vid}/callbacks/{cbid}/remotes'
-   apiEndpointB2C='/user/vehicles/{vid}/callbacks/{cbid}/remotes' referenceURLResssourceB2B='sendRemoteToVhl'
+   apiEndpointB2C='/user/vehicles/{id}/callbacks/{cbid}/remotes'
+   referenceURLResssourceB2B='sendRemoteToVhl'
    referenceURLResssourceB2C='sendRemoteToVhl'
    httpVerb='POST'
-   httpBody='{
-  "label": "remote_name",
+%}
+
+```js
+{
+  "label": "remote_name",{% if page.subsection == "b2c" %}
+  "attributes": {  }
+  "callbackAttributes": {  },{% endif %}
   "door": {
     "state": "Unlocked"
-    }
-}' %}
-
-In this API you have to replace this fields:
-{% if page.subsection == 'b2b' %}- **{fid}** is the id of your fleet.{% endif %}
-- **{vid}** is the id of the vehicle to which you want to send the remote action.
-- **{cbid}** is the id of one of your callbacks *(see [1. Post remote Callback](#1-post-remote-callback))*.
-
-You can browse the **{% if page.subsection == 'b2b' %}[Remote Object]({{site.baseurl}}/webapi/b2b/api-reference/references#model-Remote){% elsif page.subsection == 'b2c' %}[Remote Object]({{site.baseurl}}/webapi/b2c/api-reference/references/#model-Remote){% endif %}** in the reference section to have more info about how to send a specific remote action:
-
-#### Remote Actions
-
-Object Name | Description | Example
--|-|-
-RemotePreconditioning | Choose between `immediate` preconditioning or not, and set a `program` with `recurrence` or not, `start` time,  `occurence` during the week then, choose to `enable` or not this program. **Note:** Using the key/value `Slot` you can register up to 4 PreconditionPrograms. | ``` {  "label": "string",  "preonditionning": {    "airConditioning": {      "immediate": false,      "programs": [        {          "recurrence": "Daily",          "start": "PT14H30M",          "occurence": {            "day": [              "Mon"            ]          },          "slot": 0,          "enabled": true        }      ]    }  } } ```
-RemoteSetImmobilization | Set to `activate` to true if you need to immobilize a vehicle. You can use this feature in addition to "RemoteSetStolen". | ``` {   "immobilization": {    "activate": true  } }```
-RemoteDoorsState | Set `state` to `Locked` or `Unlocked`. | ``` {  "door": {    "state": "Unlocked"  } }```
-RemoteHorn | Honk the vehicle horn. | ``` {  "horn": {   "state": "Activated"  } }```
-RemoteCharging | You can choose between `immediate` recharge or `nextDelayedTime` with a timestamp [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) before the charge activation. To **stop** a charge use set `immediate` to `false`. | ``` {  "charging": {    "nextDelayedTime": "string",    "immediate": false  } }```<br> <strong>Stop: </strong>```{  "charging": {"immediate": false} }```
-RemoteSetStolen | Set `stolen` to true if you want the vehicle to be in a stolen state. It's mean that it will stay awake and refresh {% if page.subsection == 'b2b' %}[lastPosition]({{site.baseurl}}/webapi/b2b/api-reference/references#operations-Vehicles-getCarLastPosition){% elsif page.subsection == 'b2c' %}[lastPosition]({{site.baseurl}}/webapi/b2b/api-reference/references#operations-Vehicles-getCarLastPosition){% endif %} on a regular basis.  | ``` {  "stolen": {    "stolen": true  } }```
-RemoteLights | Set a light blinking. | ```{  "ligths": {    "on": true  } }```
-RemoteState | Set `action: state` to retrieve an updated status of the vehicle. | ``` {  "state": {    "action": "state"  } }``` |
-RemoteNavigation | Set `action: navigation` to send a remote navigation on the guidance system of the vehicle. You can choose to send a notification to the driver through the HMI, before launching the navigation with `"driverApproval": true`. The field `"positions": [...]` is an array of [GeoJSON](https://geojson.org/) points where the last point is the final destination and the other points are waypoints, maximum 10 points. | ``` {"navigation": {  "driverApproval": true,  "positions": [    {      "type": "Point",      "coordinates": [        5.970338,        -62.536239      ]   }  ]}}``` |
-
-
-> **Be careful:** you can send **only one** Remote Action at once. If you need to send several Remote Actions, you have to send several HTTP POST requests to {% if page.subsection == 'b2b' %}*/fleets/{fid}/vehicles/{vid}/callbacks/{cbid}/remotes*{% elsif page.subsection == 'b2c' %}*/user/vehicles/{vid}/callbacks/{cbid}/remotes*{% endif %}. However, you can use the same callback for those Remote Action.
-
-### Remote Response
-
-This is an example of HTTP response when you POST remote action:
-
-```json
-{
-  "_links": { ... },
-  "remoteActionId": "909bkqacjb3bfhdhjanahbc244jj2lixfbe2e52u5y",
-  "type": [
-    "ThermalPreconditioning"
-  ]
+  }
 }
 ```
 
-**RemoteActionID** is the unique identifier of the remote. This id will be sent to your callback with your remote action reports.
+Below is a description of the JSON body to configure the remote, refers to [API Reference]({{site.baseurl}}/webapi/{{page.subsection}}/api-reference/references/#operation/sendRemoteToVhl) for the specification of this endpoint.
+
+- `label` is the name of the remote.
+{% if page.subsection == "b2c" %}
+- `attributes` & `callbackAttributes`: allows adding or to overwrite key/value attributes declared in the [callback creation](#post-callback), it will be available in the notification as query parameters, headers or body. Attributes (*vin, CallbackID & CallbackLabel*) are useful to perform the routing of the notification.
+{% endif %}
+- `<remote-type>` objects allow configuring the remote action to send, checkout [remote actions](#remote-actions). Only one remote can be sent at once.
+
+
+## Post Remote Response
+
+This is an example of HTTP response when sending a remote action:
+
+```json
+{
+  "_links": {  },
+  "remoteActionId": "909bkqacjb3bfhdhjanahbc244jj2lixfbe2e52u5y",
+  "type": ["ThermalPreconditioning"]
+}
+```
+
+This message indicates that the remote has been successfully created with a unique identifier. This identifier is sent with every notification; therefore, it allows tracking this remote.
+
+## Remote Actions
+
+Object Name | Description | Example
+-|-|-
+RemotePreconditioning | Choose between `immediate` preconditioning or not, and set a `program` with `recurrence` or not, `start` time,  `occurence` during the week then, choose to `enable` or not this program. **Note:** Using the key/value `Slot` it's possible to register up to 4 PreconditionPrograms. | ``` {  "label": "string",  "preonditionning": {    "airConditioning": {      "immediate": false,      "programs": [        {          "recurrence": "Daily",          "start": "PT14H30M",          "occurence": {            "day": [              "Mon"            ]          },          "slot": 0,          "enabled": true        }      ]    }  } } ```
+RemoteSetImmobilization | Set `activate` to true to immobilize a vehicle. This feature can be used in addition to "RemoteSetStolen". | ``` {   "immobilization": {    "activate": true  } }```
+RemoteDoorsState | Set `state` to `Locked` or `Unlocked`. | ``` {  "door": {    "state": "Unlocked"  } }```
+RemoteHorn | Honk the vehicle horn. | ``` {  "horn": {   "state": "Activated"  } }```
+RemoteCharging | It's possible to choose between `immediate` recharge or `nextDelayedTime` with a timestamp [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) before the charge activation. To **stop** a charge use set `immediate` to `false`. | ``` {  "charging": {    "nextDelayedTime": "string",    "immediate": false  } }```<br> <strong>Stop: </strong>```{  "charging": {"immediate": false} }```
+RemoteSetStolen | Set `stolen` to true to put the vehicle in stolen state. It's mean that it will stay awake and refresh its position status on a regular basis.  | ``` {  "stolen": {    "stolen": true  } }```
+RemoteLights | Set a light blinking. | ```{  "ligths": {    "on": true  } }```
+RemoteState | Set `action: state` to retrieve an updated status of the vehicle. | ``` {  "state": {    "action": "state"  } }``` |
+RemoteNavigation | Set `action: navigation` to send a remote navigation on the guidance system of the vehicle. It's possible to send a notification to the driver through the HMI, before launching the navigation with `"driverApproval": true`. The field `"positions": [...]` is an array of [GeoJSON](https://geojson.org/) points where the last point is the final destination and the other points are waypoints, maximum 10 points. | ``` {"navigation": {  "driverApproval": true,  "positions": [    {      "type": "Point",      "coordinates": [        5.970338,        -62.536239      ]   }  ]}}``` |

@@ -9,36 +9,76 @@
 {% unless include.type == "function" %}
 ```js
 space.{{include.type}}(
-  "{{include.name}}"{% if include.params %},{% endif %}  // API Name{% if include.params and include.params != 'none' %}
-  {% for p in include.params %}{% if forloop.first == forloop.last %}{% if p.type == "string" or p.type == "String" or p.type == "Enum of Strings" %}"{{p.example}}"{% else %}{{p.example}}{%endif%} // {{p.name}}{% endif %}{% endfor -%}
-  {% for p in include.params %}{% if forloop.first != forloop.last %}{% if forloop.first %}{{"{"}}
-{% endif %}    "{{p.name}}": {% if p.type == "string" or p.type == "String" or p.type == "Enum of Strings" %}"{{p.example}}"{% else %}{{p.example}}{%endif%}
-{% if forloop.last %}  } {% endif %}{% endif %}{% endfor %}{% endif %}
+"{{include.name}}",  // API Name{% if include.params and include.params != 'none' %}
+// Parameters
+{% 
+  include api-reference-code-sample-json.html 
+  datas=include.params
+  indent=""
+  indentLevel=0
+%}{%else%}
+{} // No Parameters, empty object required {% endif %}
 )
 ```
 {% else %}
 ```js
-{{include.params_example}}
+{{include.requestExample}}
 ```
 {% endunless %}
 {% endcapture %}
 
 {% capture reply %}
 ```js
-{%- if include.data_example %}
-{{include.data_example}}
-{%- elsif include.datas == "none" or include.datas == null %}
+{%- if include.datas == "none" or include.datas == null %}
 null
 {%- else %}
+{% if page.title contains "0.0." or page.title == "0.1.1" %}
 {% 
   include api-reference-code-sample-json.html 
   datas=include.datas
   indent=""
   indentLevel=0
 %}
-{%- endif %}
+{% else %}
+{
+  "response": {
+    "namespace": "{{include.name}}",
+    "status": 200,
+    "data": // specific output for this API 
+    {% 
+      include api-reference-code-sample-json.html 
+      datas=include.datas
+      indent="    "
+      indentLevel=0
+    %},
+    "errors": null
+  }
+}{%- endif %}{%- endif %}
 ```
 {% endcapture %}
+
+{% if include.errors and include.errors[0] != null %}
+{% capture failed %}
+```js
+{
+  "response": {
+    "namespace": "{{<include.name>}}",
+    "status": <HTTP_code>,
+    "data": {},
+    "errors": [ 
+      // List of possible errors for this API{% for error in include.errors %}
+      {
+        "namespace": "{{include.name}}",
+        "status": {{error.code}},
+        "message": "{{error.message}}"
+      }
+      {%- endfor %}
+    ]
+  }
+}
+```
+{% endcapture %}
+{% endif %}
 
 {% elsif include.sdk_name=="mobile-sdk" %}
 
@@ -61,9 +101,9 @@ pims.{{include.type}}(
   "{{include.name}}"{% if include.params == "none" or include.params == null %}
   /* no params */
   {%- else -%},
-  mapOf( /* parameters */ {% if include.params_example.kotlin %} 
-    {{include.params_example.kotlin}} {% else %} {% for p in include.params %}
-    Pair("{{p.name}}", {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}){% if forloop.last == false %},{% else %}{% endif %}{% endfor %}{% endif %}
+  mapOf( /* parameters */ {% if include.requestExample.kotlin %} 
+    {{include.requestExample.kotlin}} {% else %} {% for p in include.params %}
+    Pair("{{p.name}}", {% if p.type == "String" or p.type == "Enum of Strings"  %}"{{p.example}}"{% elsif p.type contains "rray" %}mapOf({% for e in p.example %}{% if p.type contains "tring" %}"{{e}}"{% else %}{{e}}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}){% else %}{{p.example}}{% endif %}){% if forloop.last == false %},{% else %}{% endif %}{% endfor %}{% endif %}
   ) {% endif %}
 ) { message -> when (message["status"] as? String) {
       "SUCCEEDED" -> { }                          // handle succeeded status
@@ -100,9 +140,9 @@ pims.{{include.type}}(
   api: "{{include.name}}"{% if include.params == "none" or include.params == null %}
   /* no params */
   {%- else -%},
-  parameters: [ {% if include.params_example.swift %} 
-  {{include.params_example.swift}} {% else %} {% for p in include.params %}
-  "{{p.name}}": {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% if forloop.last == false %},{% else %}{% endif %}{% endfor %}
+  parameters: [ {% if include.requestExample.swift %} 
+    {{include.requestExample.swift}} {% else %} {% for p in include.params %}
+    "{{p.name}}": {% if p.type == "String" or p.type == "Enum of Strings" %}"{{p.example}}"{% elsif p.type contains "rray" %}mapOf({% for e in p.example %}{% if p.type contains "tring" %}"{{e}}"{% else %}{{e}}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}){% else %}{{p.example}}{% endif %}{% if forloop.last == false %},{% else %}{% endif %}{% endfor %}
   {% endif %}]{% endif %}
   ) { (message) in 
     if message["status"] == "SUCCEEDED"    { }    // handle succeeded status
@@ -135,7 +175,7 @@ pims.unsubscribe( api: "{{include.name}}" /* no params */ ){% endif %}
     datas=include.datas
     indent="  "
     indentLevel=0
-  %}{% endif %}{% elsif include.response %}{{include.response}}{% else %}{ }{% endif %}{% endif %}
+  %}{% endif %}{% elsif include.response %}{% if include.response == "null" %}{ }{% else %}{{include.response}}{% endif %}{% else %}{ }{% endif %}{% endif %}
 }
 ```
 {% endcapture %}
@@ -228,7 +268,7 @@ webportal.{{include.type}}(
     /* api name */
     "{{include.name}}",
     /* parameters */
-    {% if include.params == "none" or include.params == null %} null{% else %}{% if include.params_example %} {{include.params_example}} {% else %}{% for p in include.params %}{% if forloop.length == 1 %}{% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
+    {% if include.params == "none" or include.params == null %} null{% else %}{% if include.requestExample %} {{include.requestExample}} {% else %}{% for p in include.params %}{% if forloop.length == 1 %}{% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
       "{{p.name}}": {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% if forloop.last == false %},{% else %}
         }{% endif %}{% endif %}{% endfor %}{% endif %}{% endif %}{%- if include.type == "subscribe" -%},
     /* callback for `NOTIFY` messages */
@@ -256,7 +296,7 @@ webportal.{{include.type}}(
   "id": "7372c16f-5f2f-42c9-84a7-5490e35f1be0", 
   "type": "{{include.type | upcase}}", 
   "api": "{{include.name}}",
-  "params": {% if include.params == "none" or include.params == null %} null{% else %}{% if include.params_example %} {{include.params_example}} {% else %}{% for p in include.params %}{% if forloop.length == 1 %}{% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
+  "params": {% if include.params == "none" or include.params == null %} null{% else %}{% if include.requestExample %} {{include.requestExample}} {% else %}{% for p in include.params %}{% if forloop.length == 1 %}{% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% else %}{% if forloop.first %} { {% endif %}
     "{{p.name}}": {% if p.type == "int" or p.type == "number" or p.type == "boolean" %}{{p.example}}{% else %}"{{p.example}}"{% endif %}{% if forloop.last == false %},{% else %}
   }{% endif %}{% endif %}{% endfor %}{% endif %}{% endif %}
 }
@@ -483,8 +523,10 @@ webportal.{{include.type}}(
           {{result | markdownify}}
         {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "failed" %}
           {{failed | markdownify}}
-        {% elsif include.sdk_name == "web-sdk" %}
+        {% elsif include.sdk_name == "web-sdk" and code_example.tag == "reply" %}
           {{reply | markdownify}}
+        {% elsif include.sdk_name == "web-sdk" and code_example.tag == "failed" %}
+          {{failed | markdownify}}
         {% endif %}
       </div>
       {% endfor %}

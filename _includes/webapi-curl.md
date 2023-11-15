@@ -27,28 +27,31 @@
 {% elsif page.subsection == 'b2b' %}
 ```shell
 $ curl \
-  --{{include.httpVerb}} \
+  --request {{include.httpVerb}} \
   --url '{{site.webapiB2B}}{{include.apiEndpointB2B}}' \
-  --data 'client_id=<client_id>' \
+  --data-urlencode 'client_id=<client_id>' \
   --header 'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==' \
-  --cert 'path/to/client_cert.pem[:<cert_password>]' \
   --key 'path/to/key.pem' \
+  --cert 'path/to/client_cert.pem[:<cert_password>]' \
   --cacert 'path/to/ca_cert.pem' \{% for queryParam in include.queryParams %}
-  --data '{{queryParam}}' \{% endfor %}{% for HTTPHeader in include.HTTPHeaders %}
-  --header '{{HTTPHeader}}' \{% endfor %}{% if include.httpBody %}
+  --data-urlencode '{{queryParam}}' \{% endfor %}{% for HTTPHeader in include.HTTPHeaders %}
+  --header '{{HTTPHeader}}' \{% endfor %}{% if include.httpBody or include.httpVerb == "POST" or include.httpVerb == "PUT" %}
   --data '<check out HTTP body>' \{% endif %}
 ```
 
 {% elsif page.subsection == 'b2c' %}
 ```shell
 $ curl \
-  --{{include.httpVerb}} \
+  --request {{include.httpVerb}} \
   --url '{{site.webapiB2C}}{{include.apiEndpointB2C}}' \
-  --data 'client_id=<client_id>' \
+  --data-urlencode 'client_id=<client_id>' \
   --header 'Authorization: Bearer <access_token>' \
-  --header 'x-introspect-realm: <realm>' \{% for queryParam in include.queryParams %}
-  --data '{{queryParam}}' \{% endfor %}{% for HTTPHeader in include.HTTPHeaders %}
-  --header '{{HTTPHeader}}' \{% endfor %}{% if include.httpBody %}
+  --header 'x-introspect-realm: <realm>' \
+  --key 'path/to/key.pem' \
+  --cert 'path/to/client_cert.pem[:<cert_password>]' \
+  --cacert 'path/to/ca_cert.pem' \{% for queryParam in include.queryParams %}
+  --data-urlencode '{{queryParam}}' \{% endfor %}{% for HTTPHeader in include.HTTPHeaders %}
+  --header '{{HTTPHeader}}' \{% endfor %}{% if include.httpBody or include.httpVerb == "POST" or include.httpVerb == "PUT" %}
   --data '<check out HTTP body>' \{% endif %}
 ```
 {% endif %}
@@ -77,12 +80,15 @@ $ curl \
   {%- elsif include.httpVerb == "POST" -%}subscribe
   {%- elsif include.httpVerb == "DELETE" -%}delete
   {%- endif -%}{%- endif -%}{% endcapture %}
-
+    {% if include.no_link %}
+    <div
+    {% else %}
     <a 
-      class="{{header_class}}"
       href="{{site.baseurl}}
       {%- if page.subsection == "b2c" -%}/webapi/b2c/api-reference/references/#operation/{{include.referenceURLResssourceB2C}}
       {%- elsif page.subsection == "b2b" -%}/webapi/b2b/api-reference/references/#operation/{{include.referenceURLResssourceB2B}}{%- endif -%}"
+    {% endif %}
+      class="{{header_class}}"
     >
       {{include.httpVerb}} |&nbsp;
 
@@ -103,8 +109,8 @@ $ curl \
         <br>
         <strong>{{include.apiEndpointB2B}}</strong>
       {%- endif -%}
-
-    </a>
+    
+    {% if include.no_link %}</div>{% else %}</a>{% endif %}
   </div>
   {%- comment -%} END HEADER {%- endcomment -%}
 
