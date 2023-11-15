@@ -60,8 +60,8 @@
               path: set-up/
             - name: Retry Policy
               path: retry-policy/
-            - name: Webhook References
-              path: webhook/
+            - name: Server Specification
+              path: server-specification/
         - name: Remote
           path: remote/
           pages:
@@ -73,8 +73,8 @@
               path: retry-policy/
             - name: Notifications and Errors
               path: notifications-errors/
-            - name: Webhook References
-              path: webhook/
+            - name: Server Specification
+              path: server-specification/
         - name: API Reference
           path: api-reference/
           pages:
@@ -114,13 +114,27 @@
         - name: Monitor
           path: monitor/
           pages:
-            - name: Webhook References
-              path: webhook/
+            - name: About Monitors
+              path: about/
+            - name: Set Up
+              path: set-up/
+            - name: Retry Policy
+              path: retry-policy/
+            - name: Server Specification
+              path: server-specification/
         - name: Remote
           path: remote/
           pages:
-            - name: Webhook References
-              path: webhook/
+            - name: About Remotes
+              path: about/
+            - name: Set Up
+              path: set-up/
+            - name: Retry Policy
+              path: retry-policy/
+            - name: Notifications and Errors
+              path: notifications-errors/
+            - name: Server Specification
+              path: server-specification/
         - name: API Reference
           path: api-reference/
           pages:

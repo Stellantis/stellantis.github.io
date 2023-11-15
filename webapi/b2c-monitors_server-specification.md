@@ -1,15 +1,14 @@
 ---
 layout: doc-article
-permalink: /webapi/b2c/monitor/webhook/
+permalink: /webapi/b2c/monitor/server-specification/
 section: webapi
 subsection: b2c
 require: swagger
 categorie: Monitor
-title: Webhook
+title: Server Specification
 gitHubPath: webapi/content/webapi-monitor_webhook.md
 description: "Learn how to set-up your webhook in order to receive Monitor notifications."
-output: false
 ---
-{% assign specification_reference =  site.baseurl | append: "/assets/openapi/api-b2c-webhook-template.yaml" %}
+{% assign specification_reference = site.baseurl | append: "/assets/openapi/psacc.yaml" %}
 
-{% include_relative content/webapi-monitor_webhook.md %}
+{% include_relative content/webapi-server-specification.md %}

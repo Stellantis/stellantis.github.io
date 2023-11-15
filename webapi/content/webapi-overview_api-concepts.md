@@ -154,7 +154,7 @@ As seen in the previous example, there is an `_links` object in the response bod
 Resources in the API are using HAL for **HATEOAS integration**. It allows interaction inside the API resources. The purpose is to access and discover the API like you browse a website: navigating from one page to another. Links are named with the idea that you can understand easily what they are about.
 
 **Example for** {% if page.subsection == 'b2b' %}
-[**GET /fleets/{fid}/status:**]({{site.baseurl}}/webapi/b2b/api-reference/references#/Fleet/getFleetStatusList) {% elsif page.subsection == 'b2c' %}[**GET /user/vehicles/{id}/status:**]({{site.baseurl}}/webapi/b2c/api-reference/references/#operation/getVehicleByid) {% endif %}
+[**GET /fleets/{fid}/status:**]({{site.baseurl}}/webapi/b2b/api-reference/references/#operation/getFleetStatusList) {% elsif page.subsection == 'b2c' %}[**GET /user/vehicles/{id}/status:**]({{site.baseurl}}/webapi/b2c/api-reference/references/#operation/getVehicleByid) {% endif %}
 
 ```json
 {

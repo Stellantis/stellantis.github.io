@@ -16,27 +16,28 @@
 </style>
 
 {% if page.categorie == "Remote" %}
-    {% assign callbackLink = site.baseurl | append: "/"| append: page.section | append: "/" | append: page.subsection | append: "/" | append: page.categorie | downcase | append: "/" | append:"set-up/#1-post-remote-callback"%}
-{% else %}
-    {% assign callbackLink = site.baseurl | append: "/" | append: page.section | append: "/" | append: page.subsection | append: "/" | append: page.categorie | downcase | append: "/" | append:"set-up/#2-callback-configuration"%}
+    {% assign callbackLink = site.baseurl | append: "/"| append: page.section | append: "/" | append: page.subsection | append: "/" | append: page.categorie | downcase | append: "/" | append:"set-up/#post-callback"%}
+{% elsif page.categorie == "Monitor" %}
+    {% assign callbackLink = site.baseurl | append: "/" | append: page.section | append: "/" | append: page.subsection | append: "/" | append: page.categorie | downcase | append: "/" | append:"set-up/#post-monitor-request"%}
 {% endif %}
 
-When a {{page.categorie | downcase}} is set up, you have to decide a [retry policy]({{callbackLink}}) in case the HTTP notification does not reach your server.
+{% if page.subsection == "b2b" %}
+When a [{{page.categorie | downcase}} is set up]({{callbackLink}}), a retry policy must be set up in case the HTTP notification does not reach the server.
+{% endif %}
 
-**Retry policy** will be triggered when your server is not processing the HTTP notification correctly. It means that your response to the HTTP notification is anything else than an HTTP 2XX.
+Retry policy will be triggered when the server in charge of receiving the {{page.categorie}} notification is not acknowledging the notification correctly. It's the case if the response to the HTTP notification is anything else than an HTTP 2XX.
+
+Retry policy is not made for data storage use! It is a remedial tool in case of service failure of the server where the notification should be received.
+
+{% if page.subsection == "b2b" %}
 
 Retry policy can be set to *none*, *bounded* or *always*, but in any case the maximum period of retry for a notification message is **3 days**. 
+
 # Available Policies
 
-Retry policy is applied if your server is **not responding** HTTP code `2XX` (for example, *another HTTP code or a time-out*) to a notification send by the {{page.categorie | downcase}}. 
-
-In this case the notification message will be stored & we will try to send it againg based on the `retryPolicy` decided for this {{page.categorie | downcase}}.
-
-> **Be careful:** retry policy is not made for data storage use! It is a remedial tool used to help when a service failure (on your side). It has a limited tolerance for unavailability and therefore a limited storage depth. 
-
+In this case the notification message will be stored & it will be sent again based on the retryPolicy decided for this {{page.categorie | downcase}}.
 
 ##### Policies - None & Bounded
-
 
 <div class="tile is-ancestor">
     <div class="tile is-parent">
@@ -58,11 +59,12 @@ In this case the notification message will be stored & we will try to send it ag
 </div>
 
 
-When the retry policy is set to *None* or *Bounded*, if the HTTP notification is not received on your side, the message will be sent again:
+When the retry policy is set to *None* or *Bounded*, if the HTTP notification is not received, the message will be sent again:
 - `None`: only one single retry.
-- `Bounded`: with a limited number of retries set with `retryNumber` & `retryDelay` for a maximum of **3 days**.
+- `Bounded`: with a limited number of retries set with *retryNumber* & *retryDelay* for a maximum of 3 days.
 
 {% if page.categorie == "Monitor" %}
+
 ##### Policy - Always
 
 <div class="tile is-ancestor">
@@ -77,35 +79,49 @@ When the retry policy is set to *None* or *Bounded*, if the HTTP notification is
 </div>
 
 
-When the retry policy is set to `Always`, if the HTTP notification is not received on your side, the message will be sent again for **3 days** maximum.
+When the retry policy is set to `Always`, if the HTTP notification is not received, the message will be sent again for 3 days maximum.
 
 The frequency of retry depends on the `retryDelay` parameter.
 
 {% endif %}
-## Maximum of 3 Days
 
-We can not store your messages forever, because doing so, it would be very likely that the {{page.categorie | downcase }} service would undergo slowdown when too many messages are enqueued.
+{% elsif page.subsection == "b2c" %}
 
-In case your retry policy is set to  `Bounded` {% if page.categorie == "Monitor" %}or `Always`{% endif %} our server will try to send you the HTTP notification for a maximum of **3 days** at the frequency set in `retryDelay`.
+## Policy Description
 
-After these 3 days of retry we will **stop sending and storing** this notification message.
+This policy of retry has different parameters:
+- When a message [enters failure](#enter-retry-policy), it will be **sent again until it succeeds**, or retention time exceeded.
+- The **retry delay**, periods of time between two retry attempts, is 10 seconds.
+- Notifications are sent in **batches**, when 100 notifications are ready, they will be sent in a batch, even if the retry delay of 10 seconds has not been reached. Batches send notification in a JSON array in the HTTP body, specific headers and query parameters will not be available.
+- After 3 days (72 hours) of retry policy, the message is **deleted**.
 
-After the first message not processed on your side, **other notification** messages being triggered in this monitor will also continue to be sent during 3 days after the moment they were triggered.
+{% endif %}
 
-However, after 3 days, it's still possible to retrieve data using the REST API within the normal period of 2 months.
+## Maximum Retention Time
 
-> **Info:** The retry policy impact the notification message, not the [callback]({{callbackLink}}). Others {{page.categorie | downcase }} related to a callback are not affected by the retry policy. 
-It means also that your server needs to respond a 2XX to a message send for this particular {{page.categorie | downcase }} in order to get out of the retry policy.
+{% if page.subsection == "b2b" %}
 
-## Enter in Retry Policy
+In case the retry policy is set to *Bounded* {% if page.categorie == "Monitor" %}or *Always*{% endif %}, the notification will be resent for a maximum of 3 days at the frequency set in *retryDelay*.
 
-When an event failed to be processed by your server, the retry policy process will be triggered.
+{% endif %}
 
-The event HTTP notification is stored in our database, and we will try to send it again according to your [policy](#available-policies).
+After 3 days of retry the **notification message is deleted**. However, it's still possible to retrieve vehicle data using the REST API within the normal period of 2 months.
+
+After the first notification not processed, other notification messages being triggered in this monitor will also continue to be sent for 3 days after the moment they were triggered.
+
+{% unless page.subsection == "b2b" or page.categorie == "Monitor" %}
+
+> **Info:** The retry policy impacts the {{page.categorie | downcase }}, not the [callback]({{callbackLink}}). Others {{page.categorie | downcase }} related to a callback are not affected by the retry policy. 
+It also means that the server needs to respond "2XX" to a message send for this specific {{page.categorie | downcase }} in order to get out of the retry policy.
+
+{% endunless %}
+
+## Enter Retry Policy
+
+Retry policy is applied if the server is **not responding HTTP code 2XX** (for example, *another HTTP code or a time-out*) to a notification send by the {{page.categorie | downcase}}. 
+
+The notification is stored, and it will be sent again according to the [policy]({% if page.subsection == "b2b" %}#available-policies{% elsif page.subsection == "b2c" %}#policy-description{% endif %}).
+
 ## Get Out of Retry Policy
 
-To get out of retry policy your server needs to **respond a 2XX** to any new HTTP notification of this {{page.categorie | downcase}}.
-
-Once an event is triggered, or on frequency based on your `retryDelay`, a message is sent to your server.
-
-If your server respond a 2XX, your {{page.categorie | downcase}} is removed from retry policy and **all stored HTTP notifications are sent**.
+To get out of retry policy the server needs to **respond "2XX**" to any new attempt to send the notification. If it happens, the {{page.categorie | downcase}} is removed from retry policy and all stored HTTP notifications are sent. Otherwise, messages are deleted but vehicle data are still available through the REST API.
