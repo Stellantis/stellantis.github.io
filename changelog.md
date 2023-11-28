@@ -118,6 +118,9 @@ Version|Name
 **Mobile SDK & Webportal:**
 - Minor fixes & improvements
 
+**Website:**
+- Updated Footer Links
+
 <hr>
 
 ## 12.2.0
