@@ -40,7 +40,7 @@
                         description=rD.description
                         type=rD.type
                         required=rD.required
-                        unit-value=rD.unit-value
+                        unit-value=rD.unitOrValue
                         example=rD.example
                         nested=include.name
                         nestingDeep=incrementedNestingDeep
@@ -55,7 +55,7 @@
                     required=refData.required
                     description=refData.description
                     type=refData.type
-                    unit-value=refData.unit-value
+                    unit-value=refData.unitOrValue
                     example=refData.example
                     nested=include.name
                     nestingDeep=include.nestingDeep
@@ -88,7 +88,7 @@
             description=field.description
             type=field.type
             required=field.required
-            unit-value=field.unit-value
+            unit-value=field.unitOrValue
             example=field.example
             nested=include.name
             nestingDeep=incrementedNestingDeep

@@ -16,6 +16,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[12.3.0](#1230) | Web API: v3.17.1 & 4.15.1
 [12.2.0](#1220) | Web API: Remote & Monitors tutorials
 [12.1.1](#1211) | Web API: Fix Changelog Fleet Owner
 [12.1.0](#1210) | Web API End User v4.10.1 & Data Catalog 2.2.2
@@ -102,6 +103,32 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add WebPortal section
+
+## 12.3.0
+
+{% include published_on.html date='28 Nov 2023' %}
+
+**Web API:**
+- v3.17.1
+- v4.15.1
+- Renaming "WEB API for Accessing Party for End-Users"
+- Webapi v4: documentation fixes
+- YAML Changelog
+
+**Mobile SDK & Webportal:**
+- Minor fixes & improvements
+
+**Website:**
+- Updated Footer Links
+
+<hr>
+
+## 12.2.0
+
+{% include published_on.html date='15 Noc 2023' %}
+
+**Web API:**
+- Remote & Monitors updated tutorials
 
 <hr>
 

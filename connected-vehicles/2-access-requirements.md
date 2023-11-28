@@ -9,7 +9,7 @@ subtitle: What's Required?
 ---
 
 <div class="notification page-disclaimer">
-    <p><strong>Reminder:</strong> Stellantis End User API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall), Web API B2C-v4, has not yet been published publicly yet.</p>
+    <p><strong>Reminder:</strong> Stellantis Accessing Party for End-Users API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall), Web API B2C-v4, has not yet been published publicly yet.</p>
 </div>
 
 
@@ -29,7 +29,7 @@ To access a specific data or feature of these API, you need to make sure that th
 - At least one of the vehicle **[Connected Vehicle Services scope](#connected-vehicle-services)** subscription contains this data.
 - The vehicle **[privacy settings]({{site.baseurl}}/connected-vehicles/privacy/#article)** should not block the refreshment of the data you want to access.
 - Your developer account has subscribed a **[plan (SLA)](#service-level-agreement)** that fits your needs of request.
-- In the case of Web API B2C v4, the application should have **[access to the vehicle]({{site.baseurl}}/webapi/b2c/quickstart/get-started/#article)**.
+- In the case of Web API B2C v4, the application should have **[access to the vehicle]({{site.baseurl}}/webapi/b2c/quickstart/about-authentication/#article)**.
 - You should set-up your **[authorization](#authorization)** access.
 
 ### Connected Vehicles Services
@@ -50,7 +50,7 @@ Data about your vehicles or your users vehicles are processed and stored in our 
 
 
 > **API B2B:** subscriptions can be made with your contact person in Stellantis.<br>
-**API B2C v4:** more information in this [tutorial]({{site.baseurl}}/webapi/b2c/quickstart/get-started/#article).
+**API B2C v4:** more information in this [tutorial]({{site.baseurl}}/webapi/b2c/quickstart/about-authentication/#article).
 
 ### Authorization
 
@@ -66,4 +66,4 @@ Look at our [data catalog]({{site.baseurl}}/connected-vehicles/data-catalog/#art
 
 #### Privacy
 
-Our API are affected by vehicle privacy settings, see our [dedicated page]({{site.baseurl}}/connected-vehicles/privacy#article) for more info.
+Our APIs are affected by vehicle privacy settings, see our [dedicated page]({{site.baseurl}}/connected-vehicles/privacy#article) for more info.

@@ -24,7 +24,7 @@ privacy: Public
 
 `Navigation.CurrentPosition` is the object where are stored the informations about the current position after a successful call to `Navigation.GetCurrentPosition`.
 
-- `Navigation.CurrentPosition.address`, *String*
+- `Navigation.CurrentPosition.Address`, *String*
 - `Navigation.CurrentPosition.Town`, *String*
 - `Navigation.CurrentPosition.City`, *String*
 - `Navigation.CurrentPosition.Province`, *String* 
@@ -36,7 +36,8 @@ privacy: Public
 if ( Navigation.GetCurrentPosition === false ) {
 	// GPS error, Navigation.CurrentPosition is empty
 } else {
-	var Storedaddress = Navigation.CurrentPosition.address;
+        Navigation.GetCurrentPosition();
+	var Storedaddress = Navigation.CurrentPosition.Address;
 	var StoredTown = Navigation.CurrentPosition.Town;
 	var StoredCity = Navigation.CurrentPosition.City;
 	var StoredProvince = Navigation.CurrentPosition.Province;

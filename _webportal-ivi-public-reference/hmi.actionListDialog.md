@@ -16,7 +16,7 @@ paramsset:
     type: string
     description: Name of the actionListDialog icon.
     unit-value: n/a
-    example: 'This actionListDialog allow to do many things:'
+    example: 'This actionListDialog allows to do many things:'
     required: true
   - name: icon
     type: string

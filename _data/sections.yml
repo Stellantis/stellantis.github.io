@@ -84,8 +84,8 @@
               path: changelog/
     - tag: b2c
       path: b2c/
-      name: End User
-      nameUpcase: END USER
+      name: Accessing Party for end-users
+      nameUpcase: ACCESSING PARTY FOR END USERS
       categories:
         - name: Overview
           path: overview/

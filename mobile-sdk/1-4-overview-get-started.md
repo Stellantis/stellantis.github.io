@@ -65,8 +65,8 @@ pims.initialize(
       Pair("newLogTimeDuration", 42)
     )
     Pair("credential", map0f(
-      Pair("clientId", "6779ef20e75817b79602"),
-      Pair("clientSecret", "865333ef347etr"),
+      Pair("clientID", "<clientID>"),
+      Pair("clientSecret", "<clientSecret>"),
       Pair("macID", "macIDValue"),
       Pair("inWeboURL", "https://address.tld"),
       Pair("webviewsRedirectURI", "https://address.tld"),
@@ -97,8 +97,8 @@ pims.initialize(
       "newLogTimeDuration": 42
     ],
     "credential": [
-      "clientId": "6779ef20e75817b79602",
-      "clientSecret": "865333ef347etr",
+      "clientID": "<clientID>",
+      "clientSecret": "<clientSecret>",
       "macID": "macIDValue",
       "inWeboURL": "https://addres.tlhttps://address.tld",
       "webviewsRedirectURI": "https://address.tld",

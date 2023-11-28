@@ -36,12 +36,14 @@ domain-{{include.component.tag|slugify}}
                 params: type=="componentName", component=component {%- endcomment -%}
 {%- elsif include.type == "componentName" and include.component  -%}
 {{include.component.name}}
+{% unless include.noPlateform == true %}
 <sup class="text-note">
   {%- for compatibility in include.component.compatibilities -%}
   {{compatibility}}
   {%- unless forloop.last -%}&nbsp;{%- endunless -%}
   {%-endfor-%}
 </sup>
+{% endunless %}
 
 {%- elsif include.type contains "lastSpec" -%}
 {%- capture sdkName -%}{{page.section}}{% if page.subsection %}-{{pgae.subsection}}{% endif %}{%- endcapture -%}

@@ -4,8 +4,8 @@ In this tutorial API calls require the manufacturer **{brand.tld} or &lt;realm&g
   
 | Manufacturer Brand | {brand.tld} | &lt;realm&gt; |
 |--|--|--|
-| Peugeot | peugeot.com | `clientsB2CPeugeot` |
-| Citroën | citroen.com | `clientsB2CCitroen` |
-| DS | driveds.com | `clientsB2CDS` |
-| Opel | opel.com | `clientsB2COpel` |
-| Vauxhall | vauxhall.co.uk | `clientsB2CVauxhall` |
+| Peugeot | peugeot.com | `clientsB2CPeugot/OTPPeugeot` |
+| Citroën | citroen.com | `clientsB2CCitroen/OTPCitroen` |
+| DS | driveds.com | `clientsB2CDS/OTPDS` |
+| Opel | opel.com | `clientsB2COpel/OTPOpel` |
+| Vauxhall | vauxhall.co.uk | `clientsB2CVauxhall/OTPVauxhall` |

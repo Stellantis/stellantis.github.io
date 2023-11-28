@@ -1,11 +1,11 @@
 openapi: 3.0.0
 servers:
-  - url: 'https://api-cert.groupe-psa.com/connectedcar/v3'
+  - url: 'https://api-cert-preprod.groupe-psa.com/connectedcar/v3'
 security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.13.0'
+  version: '3.17.1'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -109,6 +109,8 @@ info:
     name: Groupe PSA Licence
     url: 'https://www.psa-peugeot-citroen.com/'
 tags:
+  - name: Capabilities
+    description: Access to Vehicles details & onboard capabilities
   - name: Fleet
     description: To retreive Fleet details and access resources in **batch mode** (without vehicle or trip filtering).
   - name: Vehicles
@@ -121,6 +123,27 @@ tags:
     description: Vehicle remote access.
 
 paths:
+  /vehicles/{vin}:
+    get:
+      tags:
+        - Capabilities
+      summary: List of vehicles characteristics & capabilities
+      description: Returns vehicle'scharacteristics & capabilities
+      operationId: getVehiclesCapabilities
+      parameters:
+        - $ref: '#/components/parameters/vin'
+        - $ref: '#/components/parameters/locale'
+        - $ref: '#/components/parameters/vehicleExtension'
+      responses:
+        '200':
+          description: OK
+          content:
+            'application/hal+json ':
+              schema:
+                $ref: '#/components/schemas/VehicleCapabilities'
+        default:
+          description: Vehicle not found
+          $ref: '#/x-fragment/general_error_fragment'
   /fleets:
     get:
       tags:
@@ -147,7 +170,6 @@ paths:
       description: Returns the Fleet's information. 
       operationId: getFleet
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
       responses:
         200:
@@ -164,11 +186,11 @@ paths:
       description: Returns the Vehicles associated with the Fleet.
       operationId: getVehiclesByDevice
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
         - $ref: '#/components/parameters/locale'
+        - $ref: '#/components/parameters/vehiclesExtension'
         - $ref: '#/components/parameters/vinPrefix'
       responses:
         200:
@@ -189,10 +211,10 @@ paths:
       description: Returns detailed information about a Vehicle.
       operationId: getVehicleByid
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/locale'
+        - $ref: '#/components/parameters/vehicleExtension'
    
       responses:
         200:
@@ -201,7 +223,6 @@ paths:
             'application/hal+json ':
               schema:
                   allOf:
-                      - $ref: '#/components/schemas/VehicleLabel'
                       - $ref: '#/components/schemas/Vehicle'
         default:
           description: Vehicle not found
@@ -298,6 +319,7 @@ paths:
   
   '/fleets/{fid}/status':
     get:
+      deprecated : true
       tags:
         - Fleet
       description: Returns the latest vehicles status for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
@@ -318,6 +340,7 @@ paths:
           
   '/fleets/{fid}/maintenances':
     get:
+      deprecated : true
       tags:
         - Fleet
       description: Returns the latest vehicles maintenance list for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
@@ -338,6 +361,7 @@ paths:
           
   '/fleets/{fid}/alerts':
     get:
+      deprecated : true
       tags:
         - Fleet
       description: Returns the vehicles alerts list for a given fleet. HyperLink (HAL) resolutions of resources within the returned collection are associate to vehicle. 
@@ -359,6 +383,7 @@ paths:
   
   '/fleets/{fid}/alerts/{aid}':
     get:
+      deprecated : true
       tags:
         - Fleet
       description: Returns information about a specific alert message for a given fleet. 
@@ -639,6 +664,9 @@ paths:
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/tripDistance'
+        - $ref: '#/components/parameters/tripDuration'
+        - $ref: '#/components/parameters/tripState'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
@@ -650,6 +678,7 @@ paths:
 
   '/fleets/{fid}/trips':
     get:
+      deprecated : true
       summary: Trips of all vehicles of the fleet. 
       tags:
         - Fleet
@@ -660,6 +689,9 @@ paths:
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/tripDistance'
+        - $ref: '#/components/parameters/tripDuration'
+        - $ref: '#/components/parameters/tripState'
         - $ref: '#/components/parameters/indexRange'
         - $ref: '#/components/parameters/pageSize'
         - $ref: '#/components/parameters/pageToken'
@@ -669,30 +701,26 @@ paths:
         default:
           $ref: '#/components/responses/TripFailedResponse'
   
-
-  '/fleets/{fid}/trips/{tid}/collisions':
+  '/fleets/{fid}/vehicles/{vid}/trips/{tid}':
     get:
-     deprecated : true
-     tags:
-       - Trips
-     summary: Fleet's trip collisions list. 
-     description: >-
-       Returns the list of Collisions that occurred during a trip and bounded (optional) by a timestamp ranges and an index range.
-     operationId: getTripCollisionsByTrip
-     parameters:
-       - $ref: '#/components/parameters/fleetId'
-       - $ref: '#/components/parameters/pageToken'
-       - $ref: '#/components/parameters/tripId'
-       - $ref: '#/components/parameters/profile'
-       - $ref: '#/components/parameters/timestamps'
-       - $ref: '#/components/parameters/indexRange'
-       - $ref: '#/components/parameters/pageSize'
-     responses:
-       '200':
-         $ref: '#/components/responses/CollisionsSuccessResponse'
-       default:
-         $ref: '#/components/responses/CollisionFailedResponse'
-         
+      summary : Vehicle's trip information.
+      tags:
+        - Trips
+      description: >-
+        This method returns the Trip that matches the Trip id (tid) a given
+        Vehicle (id) has taken.
+      operationId: getFleetTripByVehicle
+      parameters:
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/tripId'
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/profile'
+      responses:
+        200:
+          $ref: '#/components/responses/TripsuccessResponse'
+        default:
+          $ref: '#/components/responses/TripFailedResponse'
+
   '/fleets/{fid}/vehicles/{vid}/trips/{tid}/collisions':
     get:
      tags:
@@ -717,6 +745,7 @@ paths:
          
   '/fleets/{fid}/collisions':
     get:
+     deprecated : true
      tags:
        - Fleet
      summary: Collisions of all vehicles' fleet.
@@ -738,11 +767,12 @@ paths:
   
   '/fleets/{fid}/collisions/{cid}':    
     get:
+     deprecated : true
      tags:
        - Fleet
      summary: An identified collision that occurred on a fleet.
      description: >-
-      # Returns the Collision that matches the fleet id and the Collision cid. 
+      Returns the Collision that matches the fleet id and the Collision cid. 
      operationId: getCollisionsById
      parameters:
        - $ref: '#/components/parameters/fleetId'
@@ -753,68 +783,6 @@ paths:
          $ref: '#/components/responses/CollisionsuccessResponse'
        default:
          $ref: '#/components/responses/CollisionFailedResponse' 
-
-  '/fleets/{fid}/trips/{tid}':
-    get:
-      deprecated : true
-      summary : Fleet's trip list.
-      tags:
-        - Trips
-      description: >-
-        Gives the Trip that matches the Trip id (tid).
-      operationId: getFleetTripsById
-      parameters:
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/profile'
-      responses:
-        200:
-          $ref: '#/components/responses/TripsuccessResponse'
-        default:
-          $ref: '#/components/responses/TripFailedResponse'
-
-  '/fleets/{fid}/vehicles/{vid}/trips/{tid}':
-    get:
-      summary : Vehicle's trip list.
-      tags:
-        - Trips
-      description: >-
-        This method returns the Trip that matches the Trip id (tid) a given
-        Vehicle (id) has taken.
-      operationId: getFleetTripByVehicle
-      parameters:
-        - $ref: '#/components/parameters/vehicleId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/profile'
-      responses:
-        200:
-          $ref: '#/components/responses/TripsuccessResponse'
-        default:
-          $ref: '#/components/responses/TripFailedResponse'
-
-  '/fleets/{fid}/trips/{tid}/alerts':
-    get:
-      deprecated : true
-      summary: Fleet's trip alert list.
-      tags:
-        - Trips
-      description: >-
-        Returns the alert message list for a given trip.
-      operationId: getFleetTripAlerts
-      parameters:
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSize'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/profile'
-      responses:
-        200:
-          $ref: '#/components/responses/AlertsuccessResponses'
-        default:
-          $ref: '#/components/responses/AlertFailedResponse'  
 
   '/fleets/{fid}/vehicles/{vid}/trips/{tid}/alerts':
     get:
@@ -861,54 +829,6 @@ paths:
           $ref: '#/components/responses/AlertsuccessResponse'
         default:
           $ref: '#/components/responses/AlertFailedResponse'  
-    
-  '/fleets/{fid}/trips/{tid}/alerts/{aid}':
-    get:
-      deprecated : true
-      summary: Fleet's trip specific alert.
-      tags:
-        - Trips
-      description: >-
-        Returns the alert message for a given trip.
-      operationId: getFleetTripAlertById
-      parameters:
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/alertId'
-        - $ref: '#/components/parameters/profile'
-      responses:
-        200:
-          $ref: '#/components/responses/AlertsuccessResponse'
-        default:
-          $ref: '#/components/responses/AlertFailedResponse'   
-    
-  '/fleets/{fid}/trips/{tid}/wayPoints':
-    get:
-      deprecated : true
-      summary: Fleet's trip waypoints.
-      tags:
-        - Trips
-      description: Gives the wayPoints for a specified Fleet Trip.
-      operationId: getPathForATrip
-      parameters:
-        
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/tolerence'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/pageSizeHighFrequency'
-        - $ref: '#/components/parameters/pageToken'
-      responses:
-        200:
-          description: Path response
-          content:
-            application/hal+json:
-              schema:
-                $ref: '#/components/schemas/WayPoints'
-        default:
-          description: wayPoints not found
   
   '/fleets/{fid}/vehicles/{vid}/trips/{tid}/wayPoints':
     get:
@@ -939,33 +859,6 @@ paths:
         default:
           description: wayPoints not found
 
-  '/fleets/{fid}/trips/{tid}/telemetry':
-    get:
-      deprecated : true
-      summary: Fleet's trip telemetry.
-      tags:
-        - Trips
-      description: >-
-        Returns the set of Telemetry values that occurred for a  speific Trip (tid) during the timestamp ranges and bounded by
-        an index range.
-      operationId: getFleetTelemetryForTrip
-      parameters:
-        
-        - $ref: '#/components/parameters/fleetId'
-        - $ref: '#/components/parameters/tripId'
-        - $ref: '#/components/parameters/profile'
-        - $ref: '#/components/parameters/timestamps'
-        - $ref: '#/components/parameters/indexRange'
-        - $ref: '#/components/parameters/pageSizeHighFrequency'
-        - $ref: '#/components/parameters/pageToken'
-        - $ref: '#/components/parameters/telemetryType'
-        - $ref: '#/components/parameters/telemetryExtension'
-      responses:
-        200:
-          $ref: '#/components/responses/TelemetrySuccessResponse'
-        default:
-          $ref: '#/components/responses/TelemetryFailedResponse' 
-  
   '/fleets/{fid}/vehicles/{vid}/trips/{tid}/telemetry':
     get:
       summary: Vehicle's trip telemetry.
@@ -1117,6 +1010,7 @@ paths:
         default:
           $ref: '#/components/responses/RemoteCallbackFailedResponse'
           
+
   '/fleets/{fid}/vehicles/{vid}/callbacks/{cbid}/remotes':
     post:
       tags:
@@ -1197,7 +1091,27 @@ components:
     Vin:  
           description: Identifier of a vehicle. **Set when retrieving resource in batch mode**.   
           type: string
-
+          example : VF3ABCDE0FG123456
+    VehicleCapabilities:
+      allOf:
+        - title: Vehicle Information
+          type: object
+          properties:
+            vin:
+              description: Serial number of a vehicle
+              type: string
+              example : VF3ABCDE0FG123456
+            motorization :
+              description : Motorization of the vehicle.
+              type : string
+              enum: [Electric, Hybrid, Thermic, Hydrogen]
+              example : Thermic
+            _embedded:
+              type: object
+              properties:
+                extension:
+                  $ref: '#/components/schemas/VehicleExtension'
+          required: [createdAt, vin]
     Alert:
       allOf: 
         - $ref: '#/components/schemas/CreatedAtField'
@@ -1221,6 +1135,7 @@ components:
               required : [self]
             id:
               type: string
+              example : 0a9de72cc3803b12a74418acd20dcd66634fa82e44b2ec7060bca91462dc5772199559905caefe168812918d47f67253f33d477b645bb59afdd1268b81e382999
             vin:
               $ref: '#/components/schemas/Vin'
             active:
@@ -1303,9 +1218,6 @@ components:
         required : 
           - side
       
-    InfoCollision:
-      type: string
-      enum: [ NoCrash, CrashDetected]
     CollisionObj:
      allOf:
         - title: Collision
@@ -1326,9 +1238,9 @@ components:
           properties:
             id:
               type: string
+              example : 055d8f0a0089d7b9226989ce2db42511e2e19df8cc106a7fb7d0c7fb92ab2320c0720e94be1ee517b3172da70dd05446a934cccca524172d9add54d8dbce51b14
             vin:
               $ref: '#/components/schemas/Vin'
-            
             tippedOver:
               type: boolean
               description: >-
@@ -1446,6 +1358,7 @@ components:
                 description: Vehicle mileage expressed in KM.
                 type: number
                 format : float
+                minimum : 0.0
       required: [createdAt]
     Battery:  
             allOf:
@@ -1600,11 +1513,6 @@ components:
                       $ref: '#/components/schemas/LightingSystem'
             alarm:
                   $ref: '#/components/schemas/VehicleStatusAlarm'
-            _embedded:
-              type: object
-              properties:
-                extension:
-                  $ref: '#/components/schemas/Extension'
           required: [_links, createdAt, vin] 
         
     Privacy:
@@ -1776,6 +1684,7 @@ components:
         autonomy:
           description: Vehicle autonomy expressed in km for this energy class.
           type: integer
+          minimum : 0
         extension:
           type: object
           properties:
@@ -1818,6 +1727,7 @@ components:
         autonomy:
           description: Vehicle autonomy expressed in km for this energy class.
           type: integer
+          minimum : 0
         extension:
           type: object
           properties:
@@ -1836,6 +1746,7 @@ components:
                 charging:
                   $ref: '#/components/schemas/EnergyCharging'
       required: [type]
+          
     LiteEnergy:
       description: Describe vehicle energy supply for thermic, low emission vehicle or both.
       type: object
@@ -1911,6 +1822,10 @@ components:
                       type: integer
                       minimum: 0
                       maximum: 500
+                    chargingPowerLevel:
+                      description:  Charging power level. Expressed by possible values enum. This enum list may change in the future. The application must be aware of this and provide for lenient deserialization.
+                      type: string
+                      enum: [Level1,Level2,Level3,Level4,Level5]                      
                     chargingMode:
                         description:  The charging mode; Slow, Quick and No(not charging).
                         type: string
@@ -1918,6 +1833,16 @@ components:
                     nextDelayedTime:
                       description:  Duration (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) until the next battery charging.
                       type: string
+                    schedule:
+                        properties:
+                          programs:
+                            type: array
+                            items:
+                                $ref: '#/components/schemas/ChargeScheduleProgram'
+                    type:
+                      description: Charging type associated to the vehicle. Full means that the charge will stop when it is completed whereas partial will stop before end of charge in order to optimize battery lifetime.
+                      type: string
+                      enum: [ Partial, Full ]
     HealthElectricEnergy:
       type: object
       properties:
@@ -1963,6 +1888,25 @@ components:
             - $ref: '#/components/schemas/CreatedAtField'
             - $ref: '#/components/schemas/HealthElectricEnergy'
           required : [createdAt]
+    ChargeScheduleProgram:  
+     allOf:
+        - $ref: '#/components/schemas/BasicProgram'
+        - properties:
+                enabled:
+                  type: boolean
+                  description:  Determines whether this program is enabled or not.
+                end:
+                  type: string
+                  description: |
+                          The program relative (to 00:00) end time formatted using the duration format based on [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) with the schema: P[n]Y[n]M[n]DT[n]H[n]M[n]S
+                      
+                          _example_: 
+                        
+                          * PT14H30M means 14H and 30Min
+                  example : PT14H30M
+                chargeUntilFull:
+                    description: If this program is tagged as chargin until battery is full.
+                    type : boolean
     BaseAlarmTrigger:
       type: object
       title: Vehicle Alarm Trigger
@@ -1995,8 +1939,6 @@ components:
             type: string
             format: date-time
       required: [type, startAt]
-      
-      
     BaseAlarmStatus:
       type: object
       title: Vehicle Alarm Status
@@ -2006,8 +1948,7 @@ components:
             description: Define whether the vehicle alarm is active or not.
             type: string
             enum: [Inactive, Active]
-      required: [activation]
-        
+      required: [activation]   
     BaseAlarm:
       type: object
       title: VehicleAlarm
@@ -2067,6 +2008,7 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/AlarmDetails'            
+
     BasicProgram:
       type: object
       description: Describe recurring action.
@@ -2141,7 +2083,7 @@ components:
                 type: boolean
                 description: > 
                           Determines whether this program is enabled or not.
-        - required: [start, enabled, slot, recurrence, occurence]
+        - required: [start, enabled, recurrence, occurence]
         
     Preconditioning:
       allOf:
@@ -2158,10 +2100,14 @@ components:
                           The status of the preconditioning feature.
                         type: string
                         enum: [Enabled, Disabled, Finished, Failure]
+                      startingCause:
+                        description : starting cause
+                        type: string
+                        enum: [Immediate, Scheduled]
                       failureCause:
                         description: failure cause
                         type: string
-                        enum: [ Defect, DoorOpened, LowBattery, LowFuelLevel, TooManyUnusedProg ]
+                        enum: [ Defect, DoorOpened, LowBattery, LowFuelLevel, TooManyUnusedProg, WindowsRoofOpened, HoodOpened, NotParked, OtherFailures]
                       programs:
                         type: array
                         minItems: 1
@@ -2169,12 +2115,11 @@ components:
                         items:
                           $ref: '#/components/schemas/PreconditioningProgram'
                 required: [createdAt]
-  
         
     Trip:
-      allOf : 
-          - $ref: '#/components/schemas/UpdatedAtField'
+      allOf :
           - $ref: '#/components/schemas/CreatedAtField'
+          - $ref: '#/components/schemas/UpdatedAtField'
           - title: Trip 
             type: object
             properties:
@@ -2205,28 +2150,85 @@ components:
                 type: string
                 format: date-time
                 description: Date & Time when the trip stopped
-              duration:
-                type: string
-                description: Duration in seconds of the trip
-              distance:
-                type: number
-                format: float
-                description: Distance in km of the trip
               startPosition:
                 $ref: '#/components/schemas/Position'
               stopPosition:
                 $ref: '#/components/schemas/Position'
-              done:
-                description: Determines whether this trip is finished or not.
-                type: boolean
-              faults:
-                description: The faults of this finished or in progress trip. This means that we lacked data from the vehicle to complete the trip description during one of its step (starting, progressing, or finishing).
+              duration:
+                type: integer
+                description: Duration in second of the trip
+              distance:
+                type: number
+                format: float
+                description: Distance in km of the trip
+              startMileage: 
+                type: number
+                format: float
+                description: Vehicle mileage at the trip starting time.
+              startEnergies: #LiteEnergy
+                  description: Vehicle energies levels and autonomies at the trip start time. 
+                  type: array
+                  items: 
+                     $ref: '#/components/schemas/LiteEnergy'
+              endEnergies: #LiteEnergy
+                description: Vehicle energies levels and autonomies at the trip end time. 
+                type: array
+                items: 
+                   $ref: '#/components/schemas/LiteEnergy'                     
+              energyConsumptions:
+                description: The consumptions of different energies during this trip.
+                type: array
+                items: 
+                   $ref: '#/components/schemas/EnergyConsumption'
+              kinetic:
+                description: Expresses the max and average vehicle speed during this trip. 
+                type: object
+                properties:
+                  avgSpeed: 
+                    type: number
+                    format: float
+                  maxSpeed: 
+                    type: number
+                    format: float
+              segments:
+                description: The parts of the trip crossed for each type of propulsion.
                 type: array
                 items:
-                  type: string
-                  enum: [Unstarted, DataLacking, Unfinished]
+                  $ref: '#/components/schemas/TripSegment'
+              done:
+                description: Determines either this trip is finished or not.
+                type: boolean
+              faults:
+                description: Faults of this finished or in progress trip. This means that we lacked data from the vehicle to complete the trip description during one of its step (starting, progressing, or finishing).
+                type: array
+                items:
+                  type: object
+                  properties:
+                    fault:
+                      type: string
+                      enum: [Unstarted, DataLacking, Unfinished]
+                    cause:
+                      type: string
+                      enum: [GeoPrivacy, FullPrivacy, Connection]
             required : [_links, createdAt, id, vin]
-            
+    TripSegment:
+      description: Part of the trip crossed for a type of propulsion.
+      properties:
+        propulsion: 
+          description: |
+            Propulsion during this trip segment.
+          type: string
+          enum: [Thermal, Electric, Hybrid]
+        percent:
+          description: | 
+            Trip segment pecentage. _Unit: %_
+          type: number
+          format: float
+        distance:
+          description: |
+            Distance driven during this trip segment. _Unit: Km_
+          type: number
+          format: float
     Fleet:
       allOf :
         - $ref: '#/components/schemas/UpdatedAtField'
@@ -2261,7 +2263,8 @@ components:
               type: string
             id:
               description: The id of the Fleet
-              type: string  
+              type: string
+              example : 0a123bc5d1e873066454b4d9
             description:
               description: The description of the Fleet
               type: string
@@ -2293,6 +2296,88 @@ components:
                   $ref: '#/components/schemas/Link'
                 telemetry:
                   $ref: '#/components/schemas/Link'
+                collisions:
+                  $ref: '#/components/schemas/Link'
+                alarms:
+                  $ref: '#/components/schemas/Link'
+                monitors:
+                  $ref: '#/components/schemas/Link'
+                remotes:
+                  $ref: '#/components/schemas/Link'
+                callbacks:
+                  $ref: '#/components/schemas/Link'
+              required : [self]
+            id:
+              type: string
+              example : 01234a91598cf0c57e856bb88003fd2a7f2c27f458faab8bbd34356235695902ffb6c4c5360d6714415ab92b07c8e33b5
+            vin:
+              description: Serial number of a vehicle
+              type: string
+              example : VF3ABCDE0FG123456
+            motorization :
+              description : Motorization of the vehicle.
+              type : string
+              enum: [Electric, Hybrid, Thermic, Hydrogen]
+              example : Thermic
+            brand:
+              deprecated: true
+              description: Brand of a vehicle
+              type: string
+              example : Peugeot
+            pictures:
+              deprecated: true
+              description: With the links it's possible to see the pictures of the vehicle 
+              type: array
+              minItems: 1
+              maxItems: 12
+              items:
+                $ref: '#/components/schemas/Url'
+              example: 
+                - "https://visuel3d-secure.peugeot.com/V3DImage.ashx?client=miseco&format=png&back=0&version=1PP5C5ZNKAB0A0B0&color=0MM00N9V&trim=0PDB0RFX&OPT1=D180&OPT2=D190&OPT3=DD50&OPT4=DLZ0&OPT5=DVB1&view=001"
+                - "https://visuel3d-secure.peugeot.com/V3DImage.ashx?client=miseco&format=png&back=0&version=1PP5C5ZNKAB0A0B0&color=0MM00N9V&trim=0PDB0RFX&OPT1=D180&OPT2=D190&OPT3=DD50&OPT4=DLZ0&OPT5=DVB1&view=002"
+            _embedded:
+              type: object
+              properties:
+                extension:
+                  $ref: '#/components/schemas/VehicleExtension'
+          required : [_links]
+    Vehicles:
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - properties:
+            _embedded:
+              type: object
+              properties:
+                vehicles:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/VehicleItem'
+    VehicleItem:
+      allOf:
+        - $ref: '#/components/schemas/UpdatedAtField'
+        - $ref: '#/components/schemas/CreatedAtField'
+        - title: Vehicle Information
+          type : object
+          properties:
+            _links:
+              type: object
+              properties:
+                self:
+                  $ref: '#/components/schemas/Link'
+                fleet:
+                  $ref: '#/components/schemas/Link'  
+                lastPosition:
+                  $ref: '#/components/schemas/Link'
+                trips:
+                  $ref: '#/components/schemas/Link'
+                maintenance:
+                  $ref: '#/components/schemas/Link'
+                alerts:
+                  $ref: '#/components/schemas/Link'
+                status:
+                  $ref: '#/components/schemas/Link'
+                telemetry:
+                  $ref: '#/components/schemas/Link'
                 monitors:
                   $ref: '#/components/schemas/Link'
                 remotes:
@@ -2304,31 +2389,273 @@ components:
               required : [self]
             id:
               type: string
+              example : 01234a91598cf0c57e856bb88003fd2a7f2c27f458faab8bbd34356235695902ffb6c4c5360d6714415ab92b07c8e33b5
             vin:
               description: Serial number of a vehicle
               type: string
+              example : VF3ABCDE0FG123456
             motorization :
               description : Motorization of the vehicle.
               type : string
               enum: [Electric, Hybrid, Thermic, Hydrogen]
+              example : Thermic
             brand:
+              deprecated: true
               description: Brand of a vehicle
               type: string
+              example : Peugeot
             pictures:
+              deprecated: true
               description: With the links it's possible to see the pictures of the vehicle 
               type: array
               minItems: 1
               maxItems: 12
               items:
                 $ref: '#/components/schemas/Url' 
+              example: 
+                - "https://visuel3d-secure.peugeot.com/V3DImage.ashx?client=miseco&format=png&back=0&version=1PP5C5ZNKAB0A0B0&color=0MM00N9V&trim=0PDB0RFX&OPT1=D180&OPT2=D190&OPT3=DD50&OPT4=DLZ0&OPT5=DVB1&view=001"
+                - "https://visuel3d-secure.peugeot.com/V3DImage.ashx?client=miseco&format=png&back=0&version=1PP5C5ZNKAB0A0B0&color=0MM00N9V&trim=0PDB0RFX&OPT1=D180&OPT2=D190&OPT3=DD50&OPT4=DLZ0&OPT5=DVB1&view=002"
+            _embedded:
+              type: object
+              properties:
+                extension:
+                  $ref: '#/components/schemas/VehicleExtensions'
           required : [_links]
           
-    VehicleLabel:
-        properties:
-            label:
-                type: string
-                description: Version of a vehicle
-          
+    VehicleExtensions:
+        allOf:
+          - description: Additional vehicle  information.  
+          - properties:
+                branding:
+                  $ref: '#/components/schemas/VehicleBrandingSingle'
+                pictures:
+                  $ref: '#/components/schemas/VehiclePictures'
+    VehicleExtension:
+        allOf:
+          - description: Additional vehicle  information.  
+          - properties:
+                onboardCapabilities:
+                  $ref: '#/components/schemas/OnboardCapabilities'
+                branding:
+                  $ref: '#/components/schemas/VehicleBranding'
+                pictures:
+                  $ref: '#/components/schemas/VehiclePictures'
+    OnboardCapabilities:
+      type : object
+      properties:
+        data :
+          description : List of retrievable data represented by their scopes.
+          type: array
+          items:
+            type: string
+            enum:
+              - data:vehicle:devices:pnc
+              - data:telemetry
+              - data:telemetry:environment
+              - data:telemetry:privacy
+              - data:telemetry:vehicle
+              - data:telemetry:vehicle:ignition
+              - data:telemetry:vehicle:preconditioning
+              - data:telemetry:vehicle:energies
+              - data:telemetry:vehicle:engines
+              - data:telemetry:vehicle:doorsState
+              - data:telemetry:vehicle:powertrain
+              - data:telemetry:vehicle:battery
+              - data:telemetry:vehicle:safety
+              - data:telemetry:vehicle:odometer
+              - data:telemetry:vehicle:kinetic
+              - data:telemetry:vehicle:transmission
+              - data:telemetry:vehicle:adas
+              - data:telemetry:vehicle:lightingSystem
+              - data:telemetry:vehicle:maintenance
+              - data:telemetry:vehicle:drivingBehavior
+              - data:telemetry:vehicle:wipingBlades
+              - data:telemetry:vehicle:alarm
+              - data:position
+              - data:trip
+              - data:alert
+              - data:collision
+        remote :
+          description : List of callable remote functions and associated supported properties.
+          type: object
+          required: [preconditioning,door,horn,charging,lights,wakeup,navigation, stolen]
+          properties:
+            preconditioning:
+              required: [supported, scopeName, parameters]
+              type: object
+              properties:
+                supported :
+                  type: boolean
+                  description: True means remote preconditioning is supported.
+                scopeName:
+                  type: string
+                  enum: [remote:preconditioning:write]
+                  default : remote:preconditioning:write
+                parameters:
+                  type: object
+                  properties:
+                    programs:
+                      type : object
+                      properties:
+                        size: 
+                          type: integer
+                          description : Max number of program accepted by the vehicle.
+                      required : [size] 
+            charging:
+              type: object
+              required: [supported, scopeName, parameters]
+              properties:
+                supported :
+                  type: boolean
+                  description: True means remote charging is supported.
+                scopeName:
+                  type: string
+                  enum: [remote:charging:write]
+                parameters:
+                  type: object
+                  properties:
+                    immediate: 
+                        properties:
+                          start:
+                            type: boolean
+                            description: True means remote immediate charge start action is supported.
+                          stop:
+                            type: boolean
+                            description: True means remote immediate charge stop action is supported. 
+                    schedule:
+                      required: [programs,nextDelayedTime,preferences]
+                      properties:
+                        programs:
+                          type: object
+                          properties:
+                            supported :
+                              type : boolean
+                              description: True means remote charging schedule[programs] is supported.
+                            size: 
+                              type: integer
+                              description : Max number of program accepted by the vehicle.
+                          required : [supported]
+                        nextDelayedTime:
+                          type: boolean
+                          description: True means remote charging schedule[nextDelayedTime] is supported.
+                    preferences:
+                      properties:
+                        level:
+                          type: boolean
+                          description: True means remote charging preferences[level] is supported.
+                        type:
+                          type: boolean
+                          description: True means remote charging preferences[type] is supported.
+            door:
+              type: object
+              required: [supported, scopeName]
+              properties:
+                supported :
+                  type: boolean
+                  description: True means remote door is supported.
+                scopeName:
+                  type: string
+                  enum: [remote:door:write]
+                  default : remote:door:write
+            horn:
+              type: object
+              required: [supported, scopeName]
+              properties:
+                supported :
+                  type: boolean
+                  description: True means remote horn is supported.
+                scopeName:
+                  type: string
+                  enum: [remote:horn:write]
+                  default : remote:horn:write
+            lights:
+              type: object
+              required: [supported, scopeName]
+              properties:
+                supported :
+                  type: boolean
+                  description: True means remote lights is supported.
+                scopeName:
+                  type: string
+                  enum: [remote:lights:write]
+                  default : remote:lights:write
+            wakeup:
+              type: object
+              required: [supported, scopeName]
+              properties:
+                supported :
+                  type: boolean
+                  description: True means remote wakeup is supported.  
+                scopeName:
+                  type: string
+                  enum: [remote:wakeup:write]
+                  default : remote:wakeup:write
+            navigation:
+              type: object
+              required: [supported, scopeName]
+              properties:
+                supported :
+                  type: boolean
+                  description: True means remote navigation is supported.
+                scopeName:
+                  type: string
+                  enum: [remote:navigation:write]
+                  default : remote:navigation:write
+            stolen:
+              type: object
+              properties:
+                supported :
+                  type: boolean
+                  description: True means remote navigation is supported.
+                 
+
+
+    VehicleExtensionType:
+      type: array
+      minItems: 1
+      maxItems: 3
+      items:
+        type: string
+        enum:
+          - onboardCapabilities
+          - branding
+          - pictures
+    VehiclesExtensionType:
+      type: array
+      minItems: 1
+      maxItems: 2
+      items:
+        type: string
+        enum:
+          - branding
+          - pictures
+    VehicleBranding:
+      type : object
+      properties:
+        brand:
+          description: Brand of a vehicle
+          type: string
+          example : Peugeot
+        label:
+          description: Car model description.
+          type: string 
+    VehicleBrandingSingle:
+      type : object
+      properties:
+        brand:
+          description: Brand of a vehicle
+          type: string
+          example : Peugeot
+    VehiclePictures:
+      description: Link to a vehicle picture. 
+      type: array
+      minItems: 1
+      maxItems: 12
+      items:
+        $ref: '#/components/schemas/Url' 
+      example: 
+        - "https://visuel3d-secure.peugeot.com/V3DImage.ashx?client=miseco&format=png&back=0&version=1PP5C5ZNKAB0A0B0&color=0MM00N9V&trim=0PDB0RFX&OPT1=D180&OPT2=D190&OPT3=DD50&OPT4=DLZ0&OPT5=DVB1&view=001"
+        - "https://visuel3d-secure.peugeot.com/V3DImage.ashx?client=miseco&format=png&back=0&version=1PP5C5ZNKAB0A0B0&color=0MM00N9V&trim=0PDB0RFX&OPT1=D180&OPT2=D190&OPT3=DD50&OPT4=DLZ0&OPT5=DVB1&view=002"
     CollectionResult:
       type: object
       properties:
@@ -2452,20 +2779,6 @@ components:
                   type: array
                   items:
                     $ref: '#/components/schemas/Status'
-                
-    Vehicles:
-      allOf:
-        - $ref: '#/components/schemas/CollectionResult'
-        - title: Vehicle List
-          properties:
-            _embedded:
-              type: object
-              properties:
-                vehicles:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/Vehicle'
-                    
     
     Attribute:
             type: object
@@ -2687,6 +3000,7 @@ components:
                             * For telemetry extension:  
                               * The suffix ```${.TelemetryEnum}``` can be selected to refine with telemetry type (from the TelemetryEnum list). This value (with suffix) can be selected **_several times_** to included suitable telemetry messages with the extention.
                               * Using ```vehicle.telemetry``` without suffix means to include all available telemetries. 
+                            * The set of data will then correspond to the union of extensions used in the request.
             triggerParam:
               description: Monitor trigger-param that allows to compound triggers by applying a boolean expression to evaluate them.
               properties:
@@ -2830,16 +3144,17 @@ components:
             |**Data**|**Type**|**Op**|**Value**|
             |---|---| ---:| ---:|
             | vehicle.alert | List of value | onChange (at least one)/includedIn/equalsTo | Value (ObjetAlert) |
-            | vehicle.odometer | Integer | equalsTo/greaterThan/lowerThan/ | Value |
+            | vehicle.odometer | Number | equalsTo/greaterThan/lowerThan/ | Value |
             | vehicle.powertrain.status |Enum(powertrain.status) | equalsTo / onChange/includedIn | Value |
             | vehicle.engines.thermic.oil.temp | Integer | equalsTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.energy.electric.level | Number | equalsTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.energy.electric.autonomy | Number | equalsTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.energy.fuel.level | Number | equalsTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.energy.fuel.autonomy | Number | equalsTo/greaterThan/ lowerThan/ | Value |
-            | vehicle.autonomy (global) | Number | equalsTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.electric.level | Integer | equalsTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.electric.autonomy | Integer | equalsTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.fuel.level | Integer | equalsTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.energy.fuel.autonomy | Integer | equalsTo/greaterThan/ lowerThan/ | Value |
+            | vehicle.autonomy (global) | Integer | equalsTo/greaterThan/ lowerThan/ | Value |
             | vehicle.energy.charging.status | Enum(ChargingStatusEnum) | onChange/equalsTo/includedIn | Value |
             | vehicle.energy.charging.plugged | Boolean | onChange/equalsTo | Value |
+            | vehicle.energy.charging.type | Enum(ChargingTypeEnum) | onChange/equalsTo | Value |
             | vehicle.doorsState.lockedState | N/A | onChange | Value |
             | vehicle.doorsState.opening | N/A | onChange | Value |
             | vehicle.kinetic.moving| Boolean | onChange/equalsTo | Value (true/false) |
@@ -2847,6 +3162,9 @@ components:
             | vehicle.trip (DEPRECATED)| Literal | onChange| Value(IDTRIP) |
             | vehicle.trip.start| Literal | onChange| Value(IDTRIP) |
             | vehicle.trip.stop| Literal | onChange| Value(IDTRIP) |
+            | vehicle.trip.duration| Integer | equalsTo/greaterThan/lowerThan| Value |
+            | vehicle.trip.distance| Number | equalsTo/greaterThan/lowerThan| Value |
+            | vehicle.trip.state| List of value |includedIn| TripStateEnumArray |
             | vehicle.maintenance.daysBeforeMaintenance, | Number | equalsTo/ greaterThan/ lowerThan/ | Value |
             | vehicle.maintenance.mileageBeforeMaintenance| Number | equalsTo/ greaterThan/ lowerThan/ | Value |
             | vehicle.safety.beltWarning | Enum(beltWarning) | onChange/equalsTo | Value |
@@ -2857,6 +3175,8 @@ components:
             | vehicle.collision.severity | Enum(collision.severity) | equalsTo / includedIn | Value |
             | vehicle.safety.autoECallTriggering | Enum(safety.autoECallTriggering) | equalsTo / onChange/includedIn | Value |
             | vehicle.preconditioning.airConditioning | N/A| onChange | Value |
+            | vehicle.alarm.trigger.type | Enum(trigger.type)| onChange/equalsTo/includedIn  | Value |
+            | vehicle.alarm.status.activation | Enum(status.activation)| onChange/equalsTo  | Value |
 
                         
             The right operand  (value) argument depends on the type of operation (OP) as following:
@@ -2877,6 +3197,7 @@ components:
             - vehicle.autonomy
             - vehicle.energy.charging.status
             - vehicle.energy.charging.plugged
+            - vehicle.energy.charging.type 
             - vehicle.doorsState.lockedState
             - vehicle.doorsState.opening
             - vehicle.kinetic.moving
@@ -2884,6 +3205,9 @@ components:
             - vehicle.trip
             - vehicle.trip.start
             - vehicle.trip.stop
+            - vehicle.trip.duration
+            - vehicle.trip.distance
+            - vehicle.trip.state
             - vehicle.maintenance.daysBeforeMaintenance
             - vehicle.maintenance.mileageBeforeMaintenance
             - vehicle.safety.beltWarning
@@ -2894,6 +3218,8 @@ components:
             - vehicle.collision.severity
             - vehicle.safety.autoECallTriggering
             - vehicle.preconditioning.airConditioning
+            - vehicle.alarm.trigger.type
+            - vehicle.alarm.status.activation
         op:
             description: The operator of the trigger function.                          
             type: string
@@ -2963,20 +3289,62 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RemoteType'
-        
-
+    
     RemoteCharging:
-                  type: object
-                  description: Remote electric battery charging action. At least one of the following parameters must be provided.
-                  properties:
-                    nextDelayedTime:
-                      description:  Duration (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) until the next battery charging.
-                      type: string
-                    immediate:
-                      type: boolean
-                      default: true
-                      description :  Determines if the charging will start immediately(```true```) or not. Set to "true" by default.
-                      
+      type: object
+      description: | 
+        Remote electric battery charging action. 
+        
+        - ```preferences``` cannot be used in the same remote than ```schedule``` and/or ```immediate```
+      properties:
+        nextDelayedTime:
+          deprecated: true 
+          description: (!Depricated; use schedule instead)  Timestamp (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) of the next battery charging time.
+          type: string
+        schedule:
+          type: object
+          description: Charge scheduling. Only one of the two modes, programs or nexDelayedTime, should be provided.
+          properties:
+            nextDelayedTime:
+              type: string                        
+              description:  Timestamp (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) of the next battery charging time.
+            programs:
+              description: Scheduled charging programs list.
+              type: array
+              items:
+                allOf:
+                  - $ref: '#/components/schemas/BasicProgram'
+                  - properties:
+                      enabled: 
+                        type: boolean
+                        description: True if the progrm is enables, foalse otherwise.
+                        
+                      end:
+                          type: string
+                          description: |
+                                        The program relative (to 00:00) end time formatted using the duration format based on [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Time_intervals) with the schema: P[n]Y[n]M[n]DT[n]H[n]M[n]S
+                                    
+                                        _example_: 
+                                      
+                                        * PT14H30M means 14H and 30Min
+                          example : PT14H30M                              
+        immediate:
+          type: boolean
+          description :  Determines if the charging will start immediately(```true```) or not.
+        preferences: 
+          description: Set the charging preferences.
+          type: object
+          properties:
+            level: 
+              description:  Charging power level. 
+              type: string
+              example: Level1
+              enum: [Level1, Level2, Level3, Level4, Level5]
+            type:
+              description : Configure charging type preferences.
+              type : string
+              enum: [Partial , Full]
+              example: Partial
     RemoteSetStolen:
                   type: object
                   description: Remote to set the vehicle in stolen state.
@@ -3043,7 +3411,7 @@ components:
             immediate:
               type: boolean
               default: false
-              description :  Determines whether air conditioning will start immediately or not independently if scheduled ```programs``` are set or not. Set to "false" by default..
+              description :  Determines whether air conditioning will start immediately or not independently if scheduled ```programs``` are set or not. Set to "false" by default.
             programs:
               description : List of air conditioning programs to schedule on vehicle.
               type: array
@@ -3083,7 +3451,6 @@ components:
                         type: string
                         enum: [Delete, Set]
                         default: Set
-                  - required: [slot]
       required : [airConditioning]
           
     RemoteDoorsState:
@@ -3313,7 +3680,6 @@ components:
             type: string
             enum: [Running, Paused]
             
-            
     RemoteFailedEventStatus:
       description: | 
         The failure cause for event with failed status. This field is filled only is failure state. 
@@ -3347,6 +3713,7 @@ components:
       description: >-
         URL format follows [RFC 3986](https://tools.ietf.org/html/rfc3986) and
         usually looks like this ` scheme://host[:port][/Path] `
+      example : http://example.com
     
     Link:
       type: object
@@ -3526,7 +3893,19 @@ components:
             - TrunkOrHoodOpen     
             - TrunkOrHoodOpenLowSpeed
             - WaterInTheDieselFuelFilter  
-        
+    Range:
+      type: string
+      pattern: \d+-\d*
+      default: 0-
+      description: >
+        value range
+    TripStateEnum:
+         type: string
+         enum: [Nominal,Unstarted, DataLacking, Unfinished]
+    TripStateEnumArray:
+      type: array
+      items:
+         $ref: '#/components/schemas/TripStateEnum'
     TimeTriggerEntry:
       allOf:
         -  $ref: '#/components/schemas/Program'
@@ -3538,7 +3917,7 @@ components:
                         * ```occurence``` field <b><u>should</u></b> be provided only if the recurrence is set to ```Daily```. Otherwise an invalid parameter status is returned.
                         * The time entry with recurrence set to ```None``` means that this program will be enabled from the absolute start time with no recurrence. This kind of time entry can be used to for delayed monitor activation (from a start time) or a closed trigger time interval.
                         *  ```duration``` field <b><u>is mandatory</u></b> if the recurrence is set to ```Daily```. If it is set to ```None``` then it will define the absolute monitor activity period duration (starting from absolute time defined by ```start``` field), otherwise this trigger time interval is considered as unclosed.
-##
+        ##
           properties:
             duration:
               description: Duration of the monitor action expressed using [ISO-8601 Duration spec](https://en.wikipedia.org/wiki/ISO_8601#Durations).  This field <b><u>is mandatory</u></b> if the recurrence is set to ```Daily```
@@ -3761,6 +4140,7 @@ components:
                                 description: Vehicle mileage expressed in KM.
                                 type: number
                                 format: float
+                                minimum : 0.0
                     alarm:
                         $ref: '#/components/schemas/BaseAlarm'
                     kinetic :
@@ -3999,11 +4379,6 @@ components:
                     description: Right Lane Keeping Assist 
                     type: string
                     enum: [Authorized, CorrectionInProgress, NotAuthorized, NotSelected]
-                  lrka:
-                    description: Lane Keeping Assist left
-                    type: string
-                    enum: [Authorized, CorrectionInProgress, NotAuthorized, NotSelected]
-                    deprecated : true
                   llka:
                     description: Left Lane Keeping Assist 
                     type: string
@@ -4193,7 +4568,6 @@ components:
       schema:
         type: string
 
-    
     collisionId:
       name: cid
       in: path
@@ -4224,7 +4598,16 @@ components:
       description: The ID {tid} of Trip
       schema:
         type: string
-    
+        
+    vin:
+      name: vin
+      in: path
+      description: Results will only be related to this Vehicle Identification Number.
+      required: true
+      schema:
+        type: string
+      example : VF3ABCDE0FG123456
+      
     locale:
       name: locale
       in: query
@@ -4269,6 +4652,54 @@ components:
           pattern: \w?/\w?
 
          # $ref: '#/components/schemas/TimeRange'
+    tripDuration:
+      name: duration
+      in: query
+      schema:
+        $ref: '#/components/schemas/Range'
+      required: false
+      description: >
+        Trip duration validity interval. It allows to  define the min or max duration of a trip. **Unit = sec**
+          
+        *Example:*
+          
+                  * 10-3600: Trip with duration between 10 sec and 1 hour.
+          
+                  * 20-: Trip with duration greater than 20 sec.
+          
+          default: 0-
+    tripDistance:
+      name: distance
+      in: query
+      schema:
+        $ref: '#/components/schemas/Range'
+      required: false
+      description: >
+        Trip distance  validity interval. It allows to  define the min or max duration of a trip.  
+        
+        **Unit = Km** and format : float (only one digit after the decimal point is aceepted for the interval bounds).
+          
+        *Example:*
+        
+                  * 1-150: Trip with distance between 1 Km and 150 km .
+          
+                  * 0.1-: Trip with distance  greater than 100 m.
+          
+          default: 0-  
+    
+    
+        
+    tripState:
+      description:  >
+        Allow to filter for Trips with defined states. Those states can be compound of : _Nominal,Unstarted, DataLacking, Unfinished_. 
+      
+      
+        Default: All states are allowed.
+      name: states
+      in: query
+      schema:
+        $ref: '#/components/schemas/TripStateEnumArray'
+    
     
     pageSize:
       name: pageSize
@@ -4358,7 +4789,23 @@ components:
       required: false
       schema:
         $ref: '#/components/schemas/TelemetryExtensionType'    
-
+    
+    vehicleExtension:
+      name: extension
+      in: query
+      description: >-
+        Additional data set that will be included in embedded field```(the number of elements in this array must be between 1 and 3)```.
+      required: false
+      schema:
+        $ref: '#/components/schemas/VehicleExtensionType'    
+    vehiclesExtension:
+      name: extension
+      in: query
+      description: >-
+        Additional data set that will be included in embedded field```(the number of elements in this array must be between 1 and 2)```.
+      required: false
+      schema:
+        $ref: '#/components/schemas/VehiclesExtensionType'     
     remoteType:
       name: types
       in: query
@@ -4523,7 +4970,7 @@ components:
         application/hal+json:
           schema:
             $ref: '#/components/schemas/CallbackRef'
-            
+     
     RemoteActionsSuccessPostResponse:
       description: Remote action creation success response (accepted).
       content:

@@ -1,4 +1,5 @@
 - version: "2.3"
+  tag: in_use
   release_date: 25 Apr 2023
   name: Radio, exFCA Auth/Enroll
   description: |-
@@ -24,11 +25,13 @@
       - set-pims.vehicle.price: remove vin parameter.
       - subscribe-pims.vehicle.trips: remove vins parameter.
 - version: "2.2"
+  tag: in_use
   release_date: 20 Feb 2023
   name: Log Update
   description: |-
     - Update log generation system.
 - version: "2.1"
+  tag: in_use
   release_date: 26 Oct 2022
   name: Push Notif, User Prop & enrollWithPhoneNumber
   description: |-
@@ -37,6 +40,7 @@
     - 📱  Enrollment (PSA)
       - set-pims.authentication.enrollment-enrollWithPhoneNumber: add API.
 - version: "2.0"
+  tag: in_use
   release_date: 01 Jun 2022
   name: Candidate Version
   description: |-

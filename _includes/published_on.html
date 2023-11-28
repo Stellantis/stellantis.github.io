@@ -1,4 +1,21 @@
 <div class="tags has-addons is-pulled-right">
+    {% if include.type %}
+    <span class="tag is-dark">Release {{include.type}}</span>
+    {% else %}
     <span class="tag is-dark">Published On</span>
-    <span class="tag is-info">{{ include.date }}</span>
+    {% endif %}
+
+    <span 
+      class="
+        tag
+        {% if include.date == "Not Released" %}
+          is-light
+        {% elsif include.type == "Prod" %}
+          is-success
+        {% else %}
+          is-info
+        {% endif %}"
+    >
+      {{ include.date }}
+    </span>
 </div>

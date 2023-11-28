@@ -18,7 +18,7 @@ Within the vehicle infotainment system, the user can select between **3 privacy 
 - <strong>Data:</strong> subscribed services relevant data's is refreshed, but geolocation is not.
 - <strong>Plane Mode:</strong> neither data nor geolocation are refreshed.
 
-This setting will impact your ability to retrieve data in our API.
+This setting will impact your ability to retrieve data in our APIs.
 {% endcapture %}
 
 <div style="overflow: auto">

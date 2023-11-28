@@ -1,4 +1,4 @@
-This page is a list of examples of HTTP requests to Stellantis {% if page.subsection == 'b2b' %}Fleet Owners{% elsif page.subsection == 'b2c' %}End-Users{% endif %} API. 
+This page is a list of examples of HTTP requests to Stellantis {% if page.subsection == 'b2b' %}Fleet Owners{% elsif page.subsection == 'b2c' %}Accessing Party for End-Users {% endif %} API. 
 
 These examples will show you how to deal with:
 - **Single** objects

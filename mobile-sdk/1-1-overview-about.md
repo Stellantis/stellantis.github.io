@@ -4,7 +4,7 @@ permalink: /mobile-sdk/overview/about/
 section: mobile-sdk
 categorie: Overview
 title: About
-description: "The Stellantis Connected Vehicles SDK let your application interacts with vehicles using smartphone related technologies such as bluetooth and mobile internet."
+description: "The Stellantis Connected Vehicles SDK allows your application to interacts with vehicles using smartphone related technologies such as bluetooth and mobile internet."
 redirect_from:
     - /mobile-sdk/android/*
     - /mobile-sdk/ios/*
@@ -13,7 +13,7 @@ redirect_from:
 
 # Mobile App with Vehicle Integration 🚗📱
 
-*Stellantis Connected Vehicles SDK* lets your application benefits of remote vehicles features on smart-device.
+*Stellantis Connected Vehicles SDK* lets your application access to remote vehicles features on smart-device.
 
 It allows **retrieving data** and **remote controlling** vehicles using smartphone related technologies such as Bluetooth and mobile internet. Sometime, this SDK is also referred as **PIMS**.
 

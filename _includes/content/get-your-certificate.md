@@ -4,7 +4,7 @@ In this tutorial you will find an explanation about **getting your B2B authentic
 
 This page is dedicated to Stellantis's commercial partners. End-user authentication procedure is different, check this [page]({{site.baseurl}}/webapi/b2c/quickstart/connect).
 
-Our API let you access sensible data about your fleet of vehicles, that's why we have to perform mutual authentication between our networks. In order to sign your certificate we need you to produce a **Certificate Signing Request (CSR)**. 
+Our API allows access to sensible data about your fleet of vehicles, that's why we have to perform mutual authentication between our networks. In order to sign your certificate we need you to produce a **Certificate Signing Request (CSR)**. 
 
 At the end of this process you will have everything you need to consume our B2B API for connected vehicles!
 

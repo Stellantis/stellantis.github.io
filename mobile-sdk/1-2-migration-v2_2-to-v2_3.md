@@ -21,15 +21,9 @@ This page list the breaking changes introduced **from v2.2 to v2.3** of of *Stel
 {%- capture setVehicleServiceKotlin -%}
   Pair("action", "start"),
   Pair("service", "bluetooth"),
-  Pair("vins", mapOf(
-    mapOf(
-      Pair("vin", "VR1AB12C3D4567890"),
-      Pair("gdpr", true))
-    ),
-    mapOf(
-      Pair("vin", "VR1AB12C3D4567891"),
-      Pair("gdpr", false)
-    )
+  Pair("vins", listOf(
+    mapOf<String, Boolean>("VR1AB12C3D4567890", true),
+    mapOf<String, Boolean>("VR1AB12C3D4567891", false)
   )
 {%- endcapture -%}
 
@@ -37,14 +31,14 @@ This page list the breaking changes introduced **from v2.2 to v2.3** of of *Stel
   "action": "start",
   "service": "bluetooth",
   "vins": [
-    [
-        "vin": "VR1AB12C3D4567890",
-        "gdpr": true
-    ],
-    [
-        "vin": "VR1AB12C3D4567891",
-        "gdpr": false
-    ]
+    {
+      "vin": "VR1AB12C3D4567890",
+      "gdpr": true
+    },
+    {
+      "vin": "VR1AB12C3D4567891",
+      "gdpr": false
+    }
   ]
 {%- endcapture -%}
 

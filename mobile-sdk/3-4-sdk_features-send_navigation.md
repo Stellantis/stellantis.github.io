@@ -61,15 +61,9 @@ On Android & iOS, you must **start Bluetooth** service. Without the service acti
 {%- capture startDestinationServiceRequestKotlin -%}
   Pair("action", "start"),
   Pair("service", "bluetooth"),
-  Pair("vins", mapOf(
-    mapOf(
-      Pair("vin", "VR1AB12C3D4567890"),
-      Pair("gdpr", true))
-    ),
-    mapOf(
-      Pair("vin", "VR1AB12C3D4567891"),
-      Pair("gdpr", false)
-    )
+  Pair("vins", listOf(
+    mapOf<String, Boolean>("VR1AB12C3D4567890", true),
+    mapOf<String, Boolean>("VR1AB12C3D4567891", false)
   )
 {%- endcapture -%}
 
@@ -77,17 +71,16 @@ On Android & iOS, you must **start Bluetooth** service. Without the service acti
   "action": "start",
   "service": "bluetooth",
   "vins": [
-    [
-        "vin": "VR1AB12C3D4567890",
-        "gdpr": true
-    ],
-    [
-        "vin": "VR1AB12C3D4567891",
-        "gdpr": false
-    ]
+    {
+      "vin": "VR1AB12C3D4567890",
+      "gdpr": true
+    },
+    {
+      "vin": "VR1AB12C3D4567891",
+      "gdpr": false
+    }
   ]
 {%- endcapture -%}
-
 
 {% include api-reference-code-sample.html
   sdk_name=page.section

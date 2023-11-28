@@ -57,6 +57,7 @@ layout: doc-article
       <ul>
       {% if reference_collection %}
       {% for v in site[reference_collection] %}
+        {% if v.tag == "in_use" %}
         <li><strong>
           {% if page.name == v.name %}
             {{v.name|replace: "-", "."}}
@@ -65,12 +66,13 @@ layout: doc-article
               {{v.name|replace: "-", "."}}
             </a>
           {% endif %}
-            
         </li></strong>
+        {% endif %}
       {% endfor %}
 
       {% elsif references %}
       {% for v in references %}
+        {% if v.tag == "in_use" %}
         <li><strong>
           {% if page.version == v.version %}
             v{{v.version}}
@@ -79,8 +81,8 @@ layout: doc-article
               v{{v.version}}
             </a>
           {% endif %}
-            
         </li></strong>
+        {% endif %}
       {% endfor %}
       {% endif %}
       </ul>
@@ -95,17 +97,35 @@ layout: doc-article
     <thead class="list-table-head">
       <tr>
         <th>Domain</th>
-        <th>Component</th>
+        <th>xPSA Components</th>
+        <th>xFCA Components</th>
+        {% if page.section == "mobile-sdk" %}
+        <th>O2X Components</th>
+        {% endif %}
       </tr>
     </thead>
     
   {% for domain in domains %}
     {% assign domainFilteredComponents = components | where: 'domain', domain %}
     <tr>
-      <td><a class="list-table-domain" href="#{{domain|slugify}}">{{domain}}</a></td>
       <td>
-        
-      {% for component in domainFilteredComponents %}
+        <a class="list-table-domain" href="#{{domain|slugify}}">
+        pims.<br>
+        {{domain | replace: "pims.", ""}}
+        </a>
+      </td>
+      {% assign plateforms = "PSA, FCA" | split: ', ' %}
+      
+      {% if page.section == "mobile-sdk" %}
+        {% assign plateforms = "PSA, FCA, O2X" | split: ', ' %}
+      {% endif %}
+
+      {% for plateform in plateforms %}
+      <td>
+
+      {% assign domainFilteredComponentsPlateform = domainFilteredComponents | where_exp: "component", "component.compatibilities contains plateform" %}
+      {% if domainFilteredComponentsPlateform.size != 0 %}
+      {% for component in domainFilteredComponentsPlateform %}
         <a 
           class="list-table-component" 
           href="#
@@ -118,17 +138,31 @@ layout: doc-article
           {%- include api-reference-toolkit-v2.html
             type="componentName"
             component=component
+            noPlateform=true
           -%}
         </a>
-        {% if component.lastUpdate == page.version %}
+        {%- assign componentFiltereApis = apis | where: "component.tag", component.tag -%}
+        {%- for api in componentFiltereApis %}
+          {% assign apiLastUpdate = api.lastUpdate %}
+          {% if forloop.first %} 
+            {% assign cpmntLastUpdate = apiLastUpdate %}
+          {% else %}
+            {% if apiLastUpdate > cpmntLastUpdate %} {% assign cpmntLastUpdate = apiLastUpdate %} {% endif %}
+          {% endif %}
+        {% endfor -%}
+        {% if cpmntLastUpdate == page.version %}
           <em class="ava-tag">
-          {% if component.lastUpdate == component.firstAvailability %} New 
-          {% elsif component.lastUpdate != component.firstAvailability %} Updated 
+          {% if cpmntLastUpdate == component.firstAvailability %} New 
+          {% elsif cpmntLastUpdate != component.firstAvailability %} Updated 
           {% endif %}</em>
         {% endif %}
         <br>
       {% endfor %}
+      {% else %}
+      <em>/</em>
+      {% endif %}
       </td>
+    {% endfor %}
     </tr>
   {% endfor %}
   

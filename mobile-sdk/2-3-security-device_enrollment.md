@@ -437,7 +437,7 @@ Finally, if the response is `FAILED` and the error code is `2317` the account is
 
 # Account Management
 
-Account management is a list of features that allow to interact with the user account. These features are APIs, they are **part** of the enrollment process (**steps with numbers**) or are **not part** of the regular enrollment process (**steps with letters**):
+Account management is a list of features that allows to interact with the user account. These features are APIs, they are **part** of the enrollment process (**steps with numbers**) or are **not part** of the regular enrollment process (**steps with letters**):
   - [Step **A**](#a---remove-all-enrollments) - Remove all enrollments.
   - [Step **B**](#b---reset-pin-code) - Reset PIN Code.
   - [Step **C**](#c---update-pin-code) - Update PIN Code.
