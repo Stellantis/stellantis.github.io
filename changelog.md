@@ -132,6 +132,15 @@ Version|Name
 
 <hr>
 
+## 12.2.0
+
+{% include published_on.html date='15 Noc 2023' %}
+
+**Web API:**
+- Remote & Monitors updated tutorials
+
+<hr>
+
 ## 12.1.1
 
 {% include published_on.html date='24 Oct 2023' %}
