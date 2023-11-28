@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '4.10.1'
+  version: '4.15.1'
   title: Groupe PSA Connected Car API
   description: | 
 
@@ -179,10 +179,16 @@ components:
                     - vehicle.autonomy
                     - vehicle.energy.charging.status
                     - vehicle.energy.charging.plugged
+                    - vehicle.energy.charging.type
                     - vehicle.doorsState.lockedState
                     - vehicle.doorsState.opening
                     - vehicle.kinetic.moving
                     - vehicle.kinetic.speed
+                    - vehicle.trip.start
+                    - vehicle.trip.stop
+                    - vehicle.trip.duration
+                    - vehicle.trip.distance
+                    - vehicle.trip.state
                     - vehicle.safety.beltWarning
                     - environment.air.temp
                     - privacy.state
@@ -225,7 +231,7 @@ components:
               type:
                 type: string
                 description: Speficies the data type of body items. 
-                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.alarm]
+                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.alarm, vehicle.trip]
               body:
                 type: array
                 description: 
@@ -235,20 +241,28 @@ components:
                   properties:
                     doorState:
                       type: object
+                      description: Return the latest known doors status before or at the eventDate
                     status:
                       type: object
+                      description: Return the latest known status before or at the eventDate
                     maintenance:
                       type: object
+                      description: Return the latest known maintenance information before or at the eventDate
                     position:
                       type: object  
+                      description: Return the latest known position before or at the eventDate
                     telemetry:
                       type: object
                     alerts:
                       type: array
-                      items:  
-                         type: object
+                      description: Return all active alerts at the eventDate
+                      items:
+                        type: object
                     alarm:
                       type: object
+                    trip: 
+                      type : object
+                      description: Return the trip related to this event
                   
         
         refresh:

@@ -13,7 +13,7 @@ title: About Authentication
 description: "In this tutorial you will find an explanation about connecting a developer App to Stellantis API."
 ---
 
-To access *Stellantis End User API*, the **Third-Party Application (Accessing Party)** and the **End-User (Resource Owner)** should first register themselves in **Stellantis (Resource Server)** information system.
+To access *Stellantis Accessing Party for End-Users API*, the **Third-Party Application (Accessing Party)** and the **End-User (Resource Owner)** should first register themselves in **Stellantis (Resource Server)** information system.
 
 Stellantis End-Users APIs implements [OAuth2 Authorization Code Flow](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1). As the Accessing Party, using OAuth2 framework will let you **request an authorization** from the Ressource Owner. Therefore, if the access is granted, your application will be able to **access your customer vehicle's data** from Stellantis Ressource Server.
 
@@ -32,7 +32,7 @@ This schema summarizes the [OAuth 2](https://oauth.net/2/) process intended to [
 
 You can start this process by [registering your Application]({{site.baseurl}}/webapi/b2c/quickstart/app-registration/#article) with Mobilisights.
 
-## Access End-User API
+## Access Accessing Party for End-Users API
 
 This End User API requires that both to meet certain **conditions**.
 

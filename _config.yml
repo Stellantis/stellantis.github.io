@@ -14,13 +14,13 @@ gitHubSpecWebSdk: "https://github.psa-cloud.com/p4d00/web-sdk-spec"
 gitHubMasterPath: "/blob/master/"
 
 # doc versionning
-doc-version: "12.2.0"
+doc-version: "12.3.0"
 
 # WEB API BaseURI - theses var have to be renamed without prod/preprod (because we display only one at once)
 webapiB2C: "https://api-cert.groupe-psa.com/connectedcar/v4"
-cvsOAuth2: "https://idpcvs.{brand.tld}/am/oauth2/access_token"
-virtualKeyToken: "https://api.groupe-psa.com/connectedcar/v3"
 webapiB2B: "https://api-cert.groupe-psa.com/connectedcar/v3"
+cvsOAuth2: "https://idpcvs.{brand.tld}/am/oauth2"
+virtualKeyToken: "https://api.groupe-psa.com/connectedcar/v3"
 
 collections:
   webportal-nac-reference:
@@ -66,6 +66,7 @@ page_gen:
   dir: /mobile-sdk/references/
   name_expr: + "v" + record['version'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
   title_expr: + "References v" + record['version']
+  filter_condition: "record['tag'] == 'in_use'"
 - data: mobile-sdk-v2-0.apis
   template: api-reference-mobile-sdk
   dir: /mobile-sdk/references/v2-0/

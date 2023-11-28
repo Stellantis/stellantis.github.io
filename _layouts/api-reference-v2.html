@@ -4,6 +4,18 @@ layout: doc-article
 
 {% assign version = page.title %}
 
+{%- capture specificationFileName -%}
+{{page.section}}
+{%- if page.subsection -%}-{{page.subsection}}{%- endif -%}
+-v{{version|slugify}}
+{%- endcapture -%}
+
+{% assign generalErrors = site.data[specificationFileName].generalErrors %}
+{% assign allErrors = generalErrors %}
+{% for specificError in page.specificErrors %}
+  {% assign allErrors = allErrors | push: specificError %}
+{% endfor %}
+
 {%- comment -%} API {%- endcomment -%}
 <div class="api">
 
@@ -116,15 +128,23 @@ layout: doc-article
       {%- comment -%} END COMPATIBILITY {%- endcomment -%}
 
       {%- comment -%} SECURITY {%- endcomment -%}
-      {%- if page.component.securities and page.component.securities != "none" -%}
-        <div class="api-component api-general-block">
-          <span class="api-header-title">Security: </span>
-          <ul>
-          {% for security in page.component.securities %}
-            <li>{{security.name}}: {{security.description}}</li>
-          {% endfor %}
-          </ul>
-        </div>
+      {% if page.securities %}
+        {% assign securities = page.securities %}
+      {% else %}
+        {% assign securities = page.component.securities %}
+      {% endif %}
+      {%- if securities -%}
+      <div class="api-component api-general-block">
+        <span class="api-header-title">Security: </span>
+        {% if securities == "none" %}<span>none</span>
+        {% else %}
+        <ul>
+        {% for security in securities %}
+          <li>{{security.name}}: {{security.description}}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
       {% endif %}
       {%- comment -%} END SECURITY {%- endcomment -%}
 
@@ -210,13 +230,20 @@ layout: doc-article
             
             {%- comment -%}  API CONTENT TABLE PARAMS  {%- endcomment -%}
             <thead>
-              <tr><th colspan="6" class="api-table-header api-params">Input Parameter</th></tr>
+              <tr><th colspan="6" class="api-table-header api-params">Input Parameters Object</th></tr>
               {% if page.parameters == null or page.parameters == "none" %}
             </thead>
             <tbody>
               <tr>
                 <td colspan="6">
-                  <em>No input params</em>
+                  {% if page.section == "web-sdk" %}
+                    Input: No parameters but an <strong>empty object {&nbsp;}</strong> is required.<br>
+                    Check out code sample.
+                  {% else %}
+                  <em>
+                    No input params.
+                  </em>
+                  {% endif %}
                 </td>
               </tr>
               {% else %}
@@ -268,7 +295,7 @@ layout: doc-article
             <table>
               {%- comment -%}   API CONTENT TABLE DATAs  {%- endcomment -%}
               <thead>
-                <tr><th colspan="5" class="api-table-header api-data">Output Data</th></tr>
+                <tr><th colspan="5" class="api-table-header api-data">Output Data Object</th></tr>
                 {% if page.output == null or page.output == "none" %}
               </thead>
               <tbody>
@@ -335,7 +362,7 @@ layout: doc-article
           <table>
             <thead>
               <tr><th colspan="3" class="api-table-header api-data">Error</th></tr>
-              {%- if page.errors == null or page.errors[0] == null or page.errors == "none" -%}
+              {%- if allErrors == null or allErrors[0] == null or allErrors == "none" -%}
             </thead>
             <tbody>
               <tr>
@@ -357,7 +384,7 @@ layout: doc-article
               </tr>
             </thead>
             <tbody>
-              {%- for error in page.errors -%}
+              {%- for error in allErrors -%}
               <tr>
                 <td><strong>{{error.code}}</strong></td>
                 <td>
@@ -389,9 +416,9 @@ layout: doc-article
   
   params=page.parameters
   datas=page.output
-  params_example=page.parameters_example
+  requestExample=page.requestExample
   data_example=data_example
-  errors=page.errors
+  errors=allErrors
 %}
 
 

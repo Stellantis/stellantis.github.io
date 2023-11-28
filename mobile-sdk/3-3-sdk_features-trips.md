@@ -167,29 +167,25 @@ Before subscribing to *Trips*, it's mandatory to activate *bluetooth* service us
 
 {%- capture setVehicleServiceKotlin -%}
   Pair("action", "start"),
-  Pair("vins", mapOf(
-    mapOf(
-      Pair("vin", "VR1AB12C3D4567890"),
-      Pair("gdpr", true))
-    ),
-    mapOf(
-      Pair("vin", "VR1AB12C3D4567891"),
-      Pair("gdpr", false)
-    )
+  Pair("service", "bluetooth"),
+  Pair("vins", listOf(
+    mapOf<String, Boolean>("VR1AB12C3D4567890", true),
+    mapOf<String, Boolean>("VR1AB12C3D4567891", false)
   )
 {%- endcapture -%}
 
 {%- capture setVehicleServiceSwift -%}
-  "action": "tripNDrive",
+  "action": "start",
+  "service": "bluetooth",
   "vins": [
-  [
+    {
       "vin": "VR1AB12C3D4567890",
       "gdpr": true
-  ],
-  [
+    },
+    {
       "vin": "VR1AB12C3D4567891",
       "gdpr": false
-  ]
+    }
   ]
 {%- endcapture -%}
 

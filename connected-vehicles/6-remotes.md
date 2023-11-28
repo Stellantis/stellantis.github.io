@@ -40,7 +40,7 @@ Using this tool, it is possible to add remote control features to your mobile ap
 
 This feature is fully compatible with our REST API, it means that you can configure all your remote action using simple HTTP request. 
 
-In addition, remote control provides notification messages during the process of the remote action. You will receive these notification messages on your server, you can understand more about it by reading the [webhook references]({{site.baseurl}}/webapi/b2b/remote/webhook/#/article).
+In addition, remote control provides notification messages during the process of the remote action. You will receive these notification messages on your server, you can understand more about it by reading the [webhook references]({{site.baseurl}}/webapi/b2b/remote/server-specification/#/article).
 
 **Example sending a remote navigation:**
 

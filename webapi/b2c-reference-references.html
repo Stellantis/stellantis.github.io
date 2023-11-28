@@ -1,48 +1,15 @@
 ---
-layout: empty-content
-permalink: /webapi/b2c/api-reference/references/
-redirect_from: 
-    - /webapi/b2c/api-reference/specification/
-    - /webapi/b2c/api-reference/
-    - webapi/b2c/reference/specification/
-    - webapi/b2c/reference/
-section: webapi
-subsection: b2c
-categorie: API Reference
+layout: webapi-reference
 title: References
+permalink: /webapi/b2c/api-reference/references/
+redirect_from:
+  - /webapi/b2c/api-reference/specification/
+  - /webapi/b2c/api-reference/
+  - webapi/b2c/reference/specification/
+  - webapi/b2c/reference/
 require: redoc webapi-reference-specification
-description: "Stellantis End User API References: list of available endpoints."
-gitHubPath: assets/openapi/psacc.yaml
+categorie: API Reference
+section: webapi
+description: "Stellantis Accessing Party for End User API References: list of available endpoints."
+subsection: b2c
 ---
-
-{% assign urlReference = "/assets/openapi/psacc.yaml" %}
-
-<div class="content">
-    {% include content-header.html %}
-    <a class="notification-link" href="{{site.baseurl}}/webapi/b2c/api-reference/changelog/#article">
-        <div class="notification page-disclaimer">
-            <p><strong>Changelog:</strong> history and versioning of WEB API Fleet-Owner v4.</p>
-            <span class="icon is-white">
-                <i class="fas fa-external-link-square-alt"></i>
-            </span>
-        </div>
-    </a>
-    <a class="notification-link" href="{{site.baseurl}}/webapi/b2c/quickstart/data-availability-scopes/#article">
-        <div class="notification page-disclaimer">
-            <p><strong>Available Data:</strong> This API specification is a scope of all the possibilities of this API, real life implementation can only access data actually produced, uploaded and authorized.</p>
-            <span class="icon is-white">
-                <i class="fas fa-external-link-square-alt"></i>
-            </span>
-        </div>
-    </a>
-</div>
-<div class="is-spec-content">
-    <div class="buttons has-addons">
-        <a class="tag_endpoint_large button is-info"> API BaseURL</a>
-        <a class="tag_endpoint_large tag_api_endpoint button is-info is-border is-selectable">
-            {{site.webapiB2C}}
-        </a>
-    </div>
-</div>
-
-{% include_relative content/webapi-reference-specification.md %}

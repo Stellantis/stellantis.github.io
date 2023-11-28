@@ -158,6 +158,7 @@ Query Parameter|`response_type`|`code`| Use OAuth2 Authorization code flow. | Ye
 Query Parameter|`scope`|`<scope1>,<scope2>,etc.`| The list of scopes requested to your customer (Ressource Owner). | Yes
 Query Parameter|`redirect_uri`|`<redirect_uri>`| The URI address to redirect the user at the end of the authorization process. | Yes
 Query Parameter|`state`|`<state>`| A state value generated on your side, it will be returned along with the [Authorization Code](#2️⃣•4️⃣-authorization-code) in the redirection. Recommended, checking this parameter when it's returned allows tracking and identifying the request, and prevent attacks. | No
+Query Parameter|`local`|`<local>`|  End user browser language (by default, en-GB). Possible values: *ar-EG,cs-CZ,da-DK,de-AT,de-CH,de-DE,en-AU,en-EG,en-GB,en-IE,en-JP,en-MT,en-NZ,en-ZA,es-AR,es-CL,es-ES,es-MX,et-EE,fi-FI,fr-BE,fr-CH,fr-DZ,fr-FR,fr-LU,fr-MA,fr-MQ,fr-RE,fr-TN,hr-HR,hu-HU,it-CH,it-IT,nb-NO,nl-BE,nl-NL,pl-PL,pt-BR,pt-PT,ru-RU,ru-UA,sk-SK,sl-SI,sv-SE,tr-TR,uk-UA,ar-DZ,ar-MA,ar-PS,el-GR,es-CO,es-PE,fa-IR,fr-GF,fr-GP,fr-MG,he-IL,ja-JP,ko-KR,en-PS,ar-SA,en-SA,ar-AE,en-AE,en-SG,es-UY,en-MY,en-BN,ro-RO,mk-MK,es-EC,en-ES,fr-LB,en-LB,bg-BG,sr-RS,en-CY,fr-NC,es-CR,es-PY,is-IS,en-IS,fr-SN,en-IN,en-JO,en-MU,lv-LV,lt-LT,zh-TW*. | No
 
 {% capture getAuthRequest %}
 ```shell
@@ -169,6 +170,7 @@ $ curl \
   --data-urlencode 'scope=vehicle_read,remote_write' \
   --data-urlencode 'redirect_uri=<app_callback_uri>' \
   --data-urlencode 'state=<state>' \
+  --data-urlencode 'local=<local>'
 ```
 {% endcapture %}
 
@@ -195,6 +197,8 @@ In cases these checks are performed successfully, the redirection prompt is sent
 When the external user agent authorization prompt is triggered by the End User device, you have no more access to the authorization process. 
 
 In the prompted external user agent (web view), the user will follow the **consent process** to give access to its Stellantis Account.
+
+The journey of the End User in the prompted external user agent is detailed in the [User Journey section]({{site.baseurl}}/webapi/b2c/quickstart/user-journey/#article).
 
 **User Journey**: if not previously performed for another Stellantis Connected service, the following steps are required on the End User side before being able to authorize access to its Stellantis Account:
 - **Create an account** in Stellantis system.

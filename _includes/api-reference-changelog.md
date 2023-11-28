@@ -1,23 +1,47 @@
 {%- capture sdk_name -%}
-{{page.section}}{{page.subsection}}
+{{page.section}}{% if page.subsection %}-{{page.subsection}}{% endif %}
 {%- endcapture -%}
 
 {% assign sdkChangelog = sdk_name | append: "-changelog" %}
 {% assign referencesChangelog = site.data[sdkChangelog] %}
 
-Version | Name
-- | -
-{% for v in referencesChangelog %}[v{{v.version}}](#v{{v.version| replace: ".", ""}}) | {{v.name}}
-{% endfor %}
-
 {% for v in referencesChangelog %}
 <hr>
 
+
+
+{% if v.release_date_prod and v.release_date_preprod %}
+  
+{% if v.release_date_prod %}
+{% include 
+  published_on.html
+  type="Prod"
+  date=v.release_date_prod
+  availability=v.availability.prod
+%}
+{% endif %}
+
+{% if v.release_date_preprod %}
+{% include 
+published_on.html
+type="PreProd"
+date=v.release_date_preprod
+availability=v.availability.preprod
+%}
+{% endif %}
+
+{% elsif v.release_date %}
+
 {% include published_on.html date=v.release_date %}
 
-## [v{{v.version}}]({{site.baseurl}}{%- include api-reference-toolkit-v2.html type="listUrl" version=v.version -%}/#article) 
+{% endif %}
 
+
+## v{{v.version}}
+
+{% if v.name %}
 #### {{v.name}}
+{% endif %}
 
 {{v.description | markdownify}}
 

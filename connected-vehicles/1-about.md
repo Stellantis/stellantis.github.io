@@ -11,7 +11,7 @@ description: "Stellantis for Developers is the dedicated platform for applicatio
 subtitle: Stellantis for Developers
 ---
 
-Stellantis for Developers is the dedicated platform for application developers working with Stellantis's ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) connected vehicles. Here you can find everything about our API and SDKs. Whether you are working by yourself or being part of a company, this platform will let you access documentation about our products for connected cars.
+Stellantis for Developers is the dedicated platform for application developers working with Stellantis's ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) connected vehicles. Here you can find everything about our APIs and SDKs. Whether you are working by yourself or being part of a company, this platform allows to access documentation about our products for connected cars.
 You will be able to access our **web API** in order to retrieve your vehicle data and send remote commands, develop apps for your vehicles **embedded screen** and use our mobile SDK to **remote control** your car using Bluetooth.
 
 # Available Features
@@ -30,12 +30,12 @@ You can find the documentation [here]({{site.baseurl}}/webportal/).
 
 ### Mobile SDK
 
-Stellantis Connected Vehicle SDK for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) let your mobile application benefits of remote vehicles features. 
+Stellantis Connected Vehicle SDK for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) allows your mobile application to benefits of remote vehicles features. 
 
 # See Also
 
 #### Privacy
-Our API are affected by vehicle privacy settings, see our [dedicated page]({{site.baseurl}}/connected-vehicles/privacy/#article) for more info.
+Our APIs are affected by vehicle privacy settings, see our [dedicated page]({{site.baseurl}}/connected-vehicles/privacy/#article) for more info.
 
 #### Connected Services
 

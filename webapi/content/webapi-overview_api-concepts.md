@@ -209,7 +209,7 @@ Furthermore, regarding the nature of this API, it could append that some **field
 
 {% if page.subsection == "b2c" %}
 
-> **Data Availability:** [this article]({{site.baseurl}}/webapi/b2c/quickstart/data-availability-scopes/#article) explains how data availability is managed within End-User API.
+> **Data Availability:** [this article]({{site.baseurl}}/webapi/b2c/quickstart/data-availability-scopes/#article) explains how data availability is managed within Accessing Party for End-Users API.
 
 {% endif %}
 

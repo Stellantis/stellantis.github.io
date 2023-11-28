@@ -6,7 +6,7 @@ subsection: b2c
 categorie: Quickstart
 title: Request Examples
 gitHubPath: webapi/content/webapi-quickstart_examples.md
-description: "This page contains examples (single objects, collections, geo-json object) of curl requests to Stellantis End User API."
+description: "This page contains examples (single objects, collections, geo-json object) of curl requests to Stellantis Accessing Party for End-Users API."
 require: api-reference
 ---
 

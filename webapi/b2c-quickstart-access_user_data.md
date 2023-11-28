@@ -19,14 +19,14 @@ require: api-reference
   - 🔑 Your Application [private key]({{site.baseurl}}/webapi/b2c/quickstart/app-registration/#2%EF%B8%8F⃣-generates-encryption-keys--csr).
   - 🪙 An [Access Token]({{site.baseurl}}/webapi/b2c/quickstart/enroll-users/#article) allowing requesting data about a user enrolled in your App.
 
-**Tutorial Output**: an authorized access to the End-User API.
+**Tutorial Output**: an authorized access to the Accessing Party for End-Users API.
   - 🚗 An authorized access to the vehicle data of the End User.
 {% endcapture %}
 {{ short | markdownify}}
 
 </div>
 
-In this page, we will build a valid HTTP request to the **End-User API**. First, make sure you have completed the following tutorials: [Authentication summary]({{site.baseurl}}/webapi/b2c/quickstart/about-authentication/#article), [App registration]({{site.baseurl}}/webapi/b2c/quickstart/app-registration/#article), [Enroll Users]({{site.baseurl}}/webapi/b2c/quickstart/enroll-users/#article). 
+In this page, we will build a valid HTTP request to the **Accessing Party for End-Users API**. First, make sure you have completed the following tutorials: [Authentication summary]({{site.baseurl}}/webapi/b2c/quickstart/about-authentication/#article), [App registration]({{site.baseurl}}/webapi/b2c/quickstart/app-registration/#article), [Enroll Users]({{site.baseurl}}/webapi/b2c/quickstart/enroll-users/#article). 
 
 As an Accessing Party, you'll need the following credentials to End-Users APIs:
 - 👤 Application **Client ID**.

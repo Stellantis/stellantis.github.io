@@ -8,8 +8,9 @@ This website is documentation portal including references, tutorials and good pr
 
 ## API
 
-- ☁️ Web API B2B v3     [ [Documentation](https://developer.groupe-psa.io/webapi/b2b/overview/about/) | [References](https://developer.groupe-psa.io/webapi/b2b/api-reference/references/) ]
-- ☁️ Web API B2C v4     [ [Documentation](https://developer.groupe-psa.io/webapi/b2c/overview/about/) | [References](https://developer.groupe-psa.io/webapi/b2c/api-reference/references/#article) ] *(not publicly available yet)*
+
+- ☁️ Web API B2B        [ [Documentation](https://developer.groupe-psa.io/webapi/b2b/overview/about/) | [References](https://developer.groupe-psa.io/webapi/b2b/api-reference/references/) ]
+- ☁️ Web API B2C        [ [Documentation](https://developer.groupe-psa.io/webapi/b2c/overview/about/) | [References](https://developer.groupe-psa.io/webapi/b2c/api-reference/references/#article) ] *(not publicly available yet)*
 - 🚙 Embedded Webportal v1     [ [Documentation](https://developer.groupe-psa.io/webportal/v1/overview/about/) | [References](https://developer.groupe-psa.io/webportal/v1/api-reference/list/) ]
 - 🚙 Embedded Webportal v2     [ [Documentation](https://developer.groupe-psa.io/webportal/v2/overview/about/) | [References](https://developer.groupe-psa.io/webportal/v2/api-reference/list/) ]
 - 📱 Mobile SDK      [ [Documentation](https://developer.groupe-psa.io/mobile-sdk/overview/about/) | [References](https://developer.groupe-psa.io/mobile-sdk/references/) ]

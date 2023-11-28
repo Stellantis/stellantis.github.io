@@ -9,10 +9,6 @@
     href="{{site.gitHubMobileSdk}}{{site.gitHubMasterPath}}{{page.section}}-v{{version}}.yml"
     {% elsif page.gitHubPath %}
     href="{{site.gitHubURL}}{{page.gitHubPath}}"
-    {% elsif page.title == "Specification" and page.subsection == "b2b" %}
-    href="{{site.gitHubSpecB2B}}"
-    {% elsif page.title == "Specification" and page.subsection == 'b2c' %}
-    href="{{site.gitHubSpecB2C}}"
     {% else %}
     href="{{site.gitHubURL}}{{ page.path }}"
     {% endif %} 

@@ -1,0 +1,92 @@
+---
+layout: empty-content
+---
+
+{% assign changelogFile = "webapi-" | append: page.subsection | append: "-changelog" %}
+
+{% assign urlReference = "/assets/openapi/api-" | append: page.subsection | append: ".yaml" %}
+
+<div class="content">
+    {% include content-header.html %}
+    <a class="notification-link" href="{{site.baseurl}}/webapi/{{page.subsection}}/api-reference/changelog/#article">
+        <div class="notification page-disclaimer">
+            <p><strong>Changelog:</strong> history and versioning of WEB API {% if page.subsection == "b2c" %} Accessing Party for End-Users v4.{% elsif page.subsection == "b2b" %} Fleet Owner v3.{% endif %}</p>
+            <span class="icon is-white">
+                <i class="fas fa-external-link-square-alt"></i>
+            </span>
+        </div>
+    </a>
+
+    {% if page.subsection == "b2c" %}
+    <a class="notification-link" href="{{site.baseurl}}/webapi/b2c/quickstart/data-availability-scopes/#article">
+        <div class="notification page-disclaimer">
+            <p><strong>Available Data:</strong> This API specification is a scope of all the possibilities of this API, real life implementation can only access data actually produced, uploaded and authorized.</p>
+            <span class="icon is-white">
+                <i class="fas fa-external-link-square-alt"></i>
+            </span>
+        </div>
+    </a>
+    {% endif %}
+</div>
+<div class="is-spec-content">
+    <div class="buttons has-addons">
+        <a class="tag_endpoint_large button is-info"> API BaseURL</a>
+        <a class="tag_endpoint_large tag_api_endpoint button is-info is-border is-selectable">
+          {% if page.subsection == "b2c" %}
+            {{site.webapiB2C}}
+          {% elsif page.subsection == "b2b" %}  
+            {{site.webapiB2B}}
+          {% endif %}  
+        </a>
+    </div>
+</div>
+
+<div id="redoc-container">
+</div>
+
+<script>
+    Redoc.init('{{ urlReference | prepend: site.baseurl }}', {
+    scrollYOffset: 67,
+    disableSearch: true,
+    expandResponses: "200,201,202",
+    theme: {
+        colors: {
+            primary: {
+                main: '#1e2336',
+            }
+        },
+        "typography": {
+            fontSize: '14px',
+            "fontFamily": "'Roboto', sans-serif;",
+            headings: {
+                fontFamily: "'Roboto', sans-serif",
+                fontWeight: '400',
+                lineHeight: '1.6em',
+            },
+            code: {
+                fontSize: '13px',
+                fontFamily: 'Inconsolata, monospace',
+                wrap: false,
+            },
+            links: {
+            color: "#2689b5"
+            },
+        },
+        codeBlock: {
+            backgroundColor: "#2A3A51"
+        },
+        "sidebar": {
+            "level1Items": {
+                "textTransform": "uppercase"
+            },
+            "arrow": {
+            "size": "18px"
+            }
+        },
+        "rightPanel": {
+            "backgroundColor": "#fafafa",
+        },
+    }
+}, document.getElementById('redoc-container'))
+
+</script>

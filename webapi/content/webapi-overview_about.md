@@ -1,5 +1,5 @@
 
-Stellantis WEB API for{% if page.subsection == "b2c"%} End-User {% elsif page.subsection == "b2b" %} Fleet Owner {% endif %} is a REST API implementing various endpoints allowing to work with ex-PSA vehicles (Citroën, DS, Peugeot, Opel and Vauxhall).
+Stellantis WEB API for{% if page.subsection == "b2c"%} Accessing Party for End-Users  {% elsif page.subsection == "b2b" %} Fleet Owner {% endif %} is a REST API implementing various endpoints allowing to work with ex-PSA vehicles (Citroën, DS, Peugeot, Opel and Vauxhall).
 
 These are the main **features** of this API:
 - 🚙 **Remote data access**: brand, model, maintenance, collisions, trips of the infotainment system, vehicle alerts, real-time location, etc.

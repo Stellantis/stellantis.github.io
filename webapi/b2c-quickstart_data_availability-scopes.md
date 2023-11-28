@@ -8,7 +8,7 @@ title: Data Availability & Scope
 description: "Data available in the End User API depends on data production, submission & authorization."
 ---
 
-[References]({{site.baseurl}}/webapi/b2c/api-reference/references/#article) expose the set of all possibilities of the End-User API, but all these **data & features are not always available**. This page explains how data are made available in the API.
+[References]({{site.baseurl}}/webapi/b2c/api-reference/references/#article) expose the set of all possibilities of the Accessing Party for End-Users API, but all these **data & features are not always available**. This page explains how data are made available in the API.
 
 In order for a data to be available in the API response, it should meet all the following conditions:
 - [📋 Reference](#-api-references-list), it should be part of the API reference list.
@@ -28,7 +28,7 @@ This reference list is the barebone of the system, it displays the structure of 
 
 ## 🚗 Vehicle Data Production
 
-Stellantis End User API is intended to work with a **wide variety of vehicles** of different generations, shape and motorization. All these vehicles are not equipped with the same features and sensors.
+Stellantis Accessing Party for End-Users API is intended to work with a **wide variety of vehicles** of different generations, shape and motorization. All these vehicles are not equipped with the same features and sensors.
 
 Real life vehicles only produce part of the data exposed in the API references. That's why the API can only **output data actually produced** by the vehicle.
 
