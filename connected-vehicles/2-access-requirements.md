@@ -26,7 +26,7 @@ Here are the references of these API:
 # Requirements
 
 To access a specific data or feature of these API, you need to make sure that these **conditions are fulfilled**: 
-- At least one of the vehicle **[Connected Vehicle Services scope](#connected-vehicle-services)** subscription contains this data.
+- At least one of the vehicle **Connected Vehicle Services scope** subscription contains this data.
 - The vehicle **[privacy settings]({{site.baseurl}}/connected-vehicles/privacy/#article)** should not block the refreshment of the data you want to access.
 - Your developer account has subscribed a **[plan (SLA)](#service-level-agreement)** that fits your needs of request.
 - In the case of Web API B2C v4, the application should have **[access to the vehicle]({{site.baseurl}}/webapi/b2c/quickstart/about-authentication/#article)**.
