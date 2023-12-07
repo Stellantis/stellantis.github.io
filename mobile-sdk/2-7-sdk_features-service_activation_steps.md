@@ -54,7 +54,7 @@ The first list of *Steps* must be requested using **carAssociationID**, then you
 
 
 
-> **carAssociationID**: is not provided in this SDK. This code is available when subscribing to a [connected service]({{site.baseurl}}/connected-vehicles/access-requirements/#connected-vehicles-services). A *carAssociationID* represents:
+> **carAssociationID**: is not provided in this SDK. This code is available when subscribing to a *connected service*. A *carAssociationID* represents:
 - 🦸‍♂️ An **user**.
 - 💡 Requesting a **service**.
 - 🚗 For a **vehicle**.

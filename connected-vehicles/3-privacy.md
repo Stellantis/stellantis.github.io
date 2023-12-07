@@ -11,7 +11,7 @@ subtitle: "In Vehicle Privacy"
 # Infotainment Settings
 
 {% capture text %}
-Depending on the [services]({{site.baseurl}}/connected-vehicles/access-requirements#connected-vehicle-services) subscribed by the owner of the vehicles, relevant data will be sent to Stellantis servers through mobile network.
+Depending on the *connected services* subscribed by the owner of the vehicles, relevant data will be sent to Stellantis servers through mobile network.
 
 Within the vehicle infotainment system, the user can select between **3 privacy settings**:
 - <strong>Data & Location:</strong> geolocation & subscribed services relevant data are refreshed.
@@ -43,15 +43,10 @@ If you are a fleet owner (**WEB API B2B**) you can access your vehicle data. How
 
 If you are developing end-user applications (**Web API B2C v4**), you can only access data that match the current privacy mode of the vehicle.
 
-> **Reminder:** Whatever the privacy selected in the vehicle, you can only access the data allowed in the data scope of the *[Connected Vehicle Services]({{site.baseurl}}/connected-vehicles/access-requirements/#vehicle-connected-services)* your vehicle subscribed.
+> **Reminder:** Whatever the privacy selected in the vehicle, you can only access the data allowed in the data scope of the *Connected Vehicle Services* your vehicle subscribed.
 
 # See Also
 
 #### Data Catalog
 
 Look at our [data catalog]({{site.baseurl}}/connected-vehicles/data-catalog/#article) to find what kind of information are available in the API.
-
-
-#### Connected Services
-
-See how to access the API by reading more about [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).

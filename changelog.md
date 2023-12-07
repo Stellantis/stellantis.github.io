@@ -107,13 +107,14 @@ Version|Name
 
 ## 12.3.1
 
-{% include published_on.html date='6 Dec 2023' %}
+{% include published_on.html date='7 Dec 2023' %}
 
 **Web API:**
 - Fix References v4.15.1
 
 **Connected Vehicles:**
-- Fix link and "WEB API for Accessing Party for End-Users"
+- Fix "WEB API for Accessing Party for End-Users"
+- Remove Access Requirements (outdated)
 
 <hr>
 

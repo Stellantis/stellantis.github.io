@@ -36,7 +36,3 @@ Stellantis Connected Vehicle SDK for ex Groupe PSA brands (Citroën, DS, Peugeot
 
 #### Privacy
 Our APIs are affected by vehicle privacy settings, see our [dedicated page]({{site.baseurl}}/connected-vehicles/privacy/#article) for more info.
-
-#### Connected Services
-
-See how to access to the API by reading [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).

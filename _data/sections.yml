@@ -13,8 +13,6 @@
           pages: 
             - name: About
               path: about/
-            - name: Access Requirements
-              path: access-requirements/
             - name: Privacy Settings
               path: privacy/
             - name: Remotes Control
