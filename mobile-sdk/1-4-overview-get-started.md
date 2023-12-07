@@ -36,14 +36,9 @@ require: api-reference
 <span class="tag is-small" style="background: #be9046; color: white; font-weight: bold">UNSUBSCRIBE</span>
 {%- endcapture -%}
 
-
-
 *Stellantis Connected Vehicles SDK runs on **iOS 12+** (and 13+ for some features) and  **Android 7+**. 
 
 Bluetooth, GPS & internet connection might be required on the device, depending on the API.
-
-Check out [Access Requirements]({{site.baseurl}}/connected-vehicles/access-requirements/#article) for info about connected services.
-
 
 ## Initialize & Release
 

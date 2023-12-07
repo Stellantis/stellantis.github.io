@@ -2,7 +2,7 @@
 
 Stellantis Fleet Owner API is a technical interface allowing developers to create application that includes connected vehicles data and features for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall)
 
-These API are scope of possibilities, but to access the data you need authorization (see [access requirements]({{site.baseurl}}/connected-vehicles/access-requirements/)).
+These API are scope of possibilities, but to access the data you need authorization.
 
 ## Data Scope
 

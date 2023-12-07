@@ -20,7 +20,7 @@ You will be able to access our **web API** in order to retrieve your vehicle dat
 
 Stellantis Web API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) implements all the resources you need to retrieve from your vehicles and remote control. It’s based on standards: OpenAPIv3, JSON & HAL.
 
-It's available for [fleet-owner]({{site.baseurl}}/webapi/b2b/overview/about/) and for [end-user]({{site.baseurl}}/webapi/b2c/overview/about/).
+It's available for [Fleet Owners]({{site.baseurl}}/webapi/b2b/overview/about/) and [Accessing Party (for End-Users)]({{site.baseurl}}/webapi/b2c/overview/about/).
 
 ### Embedded WebPortal
 
@@ -36,7 +36,3 @@ Stellantis Connected Vehicle SDK for ex Groupe PSA brands (Citroën, DS, Peugeot
 
 #### Privacy
 Our APIs are affected by vehicle privacy settings, see our [dedicated page]({{site.baseurl}}/connected-vehicles/privacy/#article) for more info.
-
-#### Connected Services
-
-See how to access to the API by reading [connected services]({{site.baseurl}}/connected-vehicles/access-requirements).
