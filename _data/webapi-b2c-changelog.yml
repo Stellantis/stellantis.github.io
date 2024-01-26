@@ -15,25 +15,25 @@
   availability: not_in_use
   release_date: 28 Nov 2023
   description: |-
-    Status API :
+    **Status API**
     - Add alarm object
     - Update energies to add extension.electric.charging.type, extension.electric.charging.schedule, extension.electric.charging.chargingPowerLevel
     - Add startingCause in preconditioning object
     - Update failureCause enum list in preconditioning object
 
-    Remote API
+    **Remote API**
     - Add POST /user/vehicles/{id}/callbacks/{cbid}/remotes endpoint
     - Add GET /user/vehicles/{id}/callbacks/{cbid}/remotes endpoint
     - Add GET /user/vehicles/{id}/callbacks/{cbid}/remotes/{rid} endpoint
 
-    Callbacks API
+    **Callbacks API**
     - Update pushnotif supported attributes
     - Update websocket and webhook lifecycle management.
 
-    Monitors API
+    **Monitors API**
     - Update data trigger type and add of new datatriggers
 
-    Others
+    **Others**
     - Add OAut2.0 treatment per API endpoint
     - Update wording and examples
 - version: "4.10.1"
