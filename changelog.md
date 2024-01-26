@@ -16,6 +16,7 @@ description: "Stellantis developer portal's version changelog."
 
 Version|Name
 -|-
+[12.4.0](#1240) | Web API: v3.18.0 & 4.16.0
 [12.3.1](#1231) | Web API: fix references 4.15.1
 [12.3.0](#1230) | Web API: v3.17.1 & 4.15.1
 [12.2.0](#1220) | Web API: Remote & Monitors tutorials
@@ -104,6 +105,23 @@ Version|Name
 [1.2.0](#120) | Add Edit w/ GitHub
 [1.1.0](#110) | Add Search function
 [1.0.0](#010) | Add WebPortal section
+
+<hr>
+
+## 12.4.0
+
+{% include published_on.html date='26 Jan 2024' %}
+
+**Web API:**
+- v3.17.1
+- v4.15.1
+
+**Data Catalog:**
+- Data Catalog in Web API
+- Vue JS visualization: refactoring & add filters
+- Update data source
+
+<hr>
 
 ## 12.3.1
 

@@ -1,12 +1,12 @@
-schema_version: "1.0.1"
+schema_version: "1.2.0"
 info:
   title: Stellantis Connected Vehicles Data Catalog
   description: Stellantis Connected Vehicles Data Catalog
-  version: 2.2.2
+  version: 2.3.1
 data:
 - name: Alert severity
   domain: alert
-  description: Severity of the alert.,
+  description: Severity of the alert.
   type: string
   enum: 
     - Information
@@ -16,8 +16,6 @@ data:
     - data:alert
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleAlertsById"
         - "getVehicleAlerts"
@@ -27,8 +25,6 @@ data:
         - "getFleetTripAlertByVehicleById"
       webapi_b2c_v4:
         - "getVehicleAlerts"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -42,8 +38,6 @@ data:
     - data:alert
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleAlertsById"
         - "getVehicleAlerts"
@@ -53,8 +47,6 @@ data:
         - "getFleetTripAlertByVehicleById"
       webapi_b2c_v4:
         - "getVehicleAlerts"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -69,8 +61,6 @@ data:
     - data:alert
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleAlertsById"
         - "getVehicleAlerts"
@@ -80,8 +70,6 @@ data:
         - "getFleetTripAlertByVehicleById"
       webapi_b2c_v4:
         - "getVehicleAlerts"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -97,8 +85,6 @@ data:
     - data:position
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleAlertsById"
         - "getVehicleAlerts"
@@ -108,8 +94,6 @@ data:
         - "getFleetTripAlertByVehicleById"
       webapi_b2c_v4:
         - "getVehicleAlerts"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -125,8 +109,6 @@ data:
     - data:position
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleAlertsById"
         - "getVehicleAlerts"
@@ -136,8 +118,6 @@ data:
         - "getFleetTripAlertByVehicleById"
       webapi_b2c_v4:
         - "getVehicleAlerts"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -152,8 +132,6 @@ data:
   unit: Date-time
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleAlertsById"
         - "getVehicleAlerts"
@@ -163,8 +141,6 @@ data:
         - "getFleetTripAlertByVehicleById"
       webapi_b2c_v4:
         - "getVehicleAlerts"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -179,8 +155,6 @@ data:
   unit: Date-time
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleAlertsById"
         - "getVehicleAlerts"
@@ -190,8 +164,6 @@ data:
         - "getFleetTripAlertByVehicleById"
       webapi_b2c_v4:
         - "getVehicleAlerts"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -207,9 +179,6 @@ data:
   items: number
   availability:
     apis:
-      webportal_v1:
-        - "navigation-getcurrentposition"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -218,8 +187,6 @@ data:
         - "getPathForTrip"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -237,8 +204,6 @@ data:
     - data:position
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -247,8 +212,6 @@ data:
         - "getPathForTrip"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -263,8 +226,6 @@ data:
   unit: Degree
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -273,8 +234,6 @@ data:
         - "getPathForTrip"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -288,8 +247,6 @@ data:
     - data:position
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -298,8 +255,6 @@ data:
         - "getPathForTrip"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -316,8 +271,6 @@ data:
     - data:position
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -326,8 +279,6 @@ data:
         - "getPathForTrip"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -342,16 +293,12 @@ data:
   unit: day
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getVehicleMaintenance"
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleMaintenance"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -366,16 +313,12 @@ data:
   unit: km
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getVehicleMaintenance"
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleMaintenance"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -390,8 +333,6 @@ data:
   unit: km/h
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -399,8 +340,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -415,9 +354,6 @@ data:
   unit: m/s^2
   availability:
     apis:
-      webportal_v1:
-        - "car-getspeed"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -425,8 +361,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -440,9 +374,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1:
-        - "car-getdrivingstate"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -450,8 +381,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -469,8 +398,6 @@ data:
     - Start
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -478,8 +405,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -497,9 +422,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1:
-        - "privacy-mode"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -507,8 +429,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -523,8 +443,6 @@ data:
   unit: Celsius
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -532,8 +450,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -547,8 +463,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -556,8 +470,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -572,9 +484,6 @@ data:
   unit: km
   availability:
     apis:
-      webportal_v1:
-        - "car-getmileage"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -582,8 +491,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -601,13 +508,9 @@ data:
     - data:collision
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getVehicleCollision"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -625,13 +528,9 @@ data:
     - data:collision
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getVehicleCollision"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -645,13 +544,9 @@ data:
     - data:collision
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getVehicleCollision"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -665,13 +560,9 @@ data:
     - data:collision
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getVehicleCollision"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -688,8 +579,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
       webapi_b2c_v4:
@@ -697,8 +586,6 @@ data:
         - "getFleetStatusList"
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -715,8 +602,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -724,8 +609,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -743,8 +626,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -752,8 +633,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -783,8 +662,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -792,8 +669,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -807,14 +682,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -831,14 +702,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -858,14 +725,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -886,14 +749,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -915,14 +774,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -936,14 +791,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -970,14 +821,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -995,14 +842,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1021,14 +864,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1046,14 +885,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1072,14 +907,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1093,14 +924,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1114,14 +941,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1135,14 +958,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1157,14 +976,10 @@ data:
   unit: km/h
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1183,14 +998,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1209,14 +1020,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1235,14 +1042,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1256,14 +1059,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1277,14 +1076,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1298,14 +1093,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1319,14 +1110,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1340,14 +1127,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1372,14 +1155,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getTelemetry"
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: false
@@ -1394,8 +1173,6 @@ data:
   unit: Percentage
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1403,8 +1180,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1430,8 +1205,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1439,8 +1212,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1462,8 +1233,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1471,8 +1240,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1489,8 +1256,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1498,8 +1263,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1516,8 +1279,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1525,8 +1286,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1541,8 +1300,6 @@ data:
   unit: RPM
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1550,8 +1307,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1566,8 +1321,6 @@ data:
   unit: Percentage (%)
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1575,8 +1328,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: false
@@ -1591,8 +1342,6 @@ data:
   unit: Celsius
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1600,8 +1349,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: false
@@ -1616,8 +1363,6 @@ data:
   unit: Percentage (%)
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1625,8 +1370,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: false
@@ -1641,8 +1384,6 @@ data:
   unit: Celsius
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1650,8 +1391,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: false
@@ -1666,8 +1405,6 @@ data:
   unit: Celsius
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1675,8 +1412,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: false
@@ -1696,8 +1431,6 @@ data:
     - Stopped
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1705,8 +1438,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1725,14 +1456,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1752,14 +1479,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1773,14 +1496,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1798,14 +1517,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1828,14 +1543,10 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1850,14 +1561,10 @@ data:
   unit: "Regex: P[n]Y[n]M[n]DT[n]H[n]M[n]S"
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1872,14 +1579,10 @@ data:
   unit: From slot 1 to slot 4.
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1896,8 +1599,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1905,8 +1606,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1923,8 +1622,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1932,8 +1629,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1950,8 +1645,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1959,8 +1652,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -1977,8 +1668,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -1986,8 +1675,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -2004,8 +1691,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2013,8 +1698,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -2031,8 +1714,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2040,8 +1721,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -2058,8 +1737,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2067,8 +1744,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -2086,8 +1761,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2095,8 +1768,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -2111,9 +1782,6 @@ data:
   unit: km
   availability:
     apis:
-      webportal_v1:
-        - "car-getbatteryautonomy and car-getfuelautonomy"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2121,8 +1789,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -2137,9 +1803,6 @@ data:
   unit: Percentage (%)
   availability:
     apis:
-      webportal_v1:
-        - "car-getbatteryautonomy and car-getfuelautonomy"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2147,8 +1810,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -2163,8 +1824,6 @@ data:
   unit: From 0 L/100Km
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2172,8 +1831,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: false
@@ -2188,8 +1845,6 @@ data:
   unit: cL
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2197,8 +1852,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: false
@@ -2213,8 +1866,6 @@ data:
   unit: Wh
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2222,8 +1873,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2238,8 +1887,6 @@ data:
   unit: Wh
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2247,8 +1894,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2263,8 +1908,6 @@ data:
   unit: Percentage (%)
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2272,8 +1915,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2288,8 +1929,6 @@ data:
   unit: Percentage (%)
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2297,8 +1936,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2312,8 +1949,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2321,8 +1956,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2342,8 +1975,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2351,8 +1982,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2370,8 +1999,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2379,8 +2006,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2395,8 +2020,6 @@ data:
   unit: expressed in gained batteryLife per hour -> KM/H
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2404,8 +2027,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2420,8 +2041,6 @@ data:
   unit: Duration (ISO8601)
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2429,8 +2048,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2444,8 +2061,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2453,8 +2068,6 @@ data:
         - "getTelemetryForTripByVehicle"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2483,8 +2096,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2494,8 +2105,6 @@ data:
         - "getVehicleAlarmsById"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2510,8 +2119,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2521,8 +2128,6 @@ data:
         - "getVehicleAlarmsById"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -2537,8 +2142,6 @@ data:
   unit: Date-time
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2548,8 +2151,6 @@ data:
         - "getVehicleAlarmsById"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -2566,8 +2167,6 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetVehicleStatus"
         - "getFleetStatusList"
@@ -2577,8 +2176,6 @@ data:
         - "getVehicleAlarmsById"
       webapi_b2c_v4:
         - "getVehicleStatus"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: false
       BEV: true
@@ -2593,416 +2190,59 @@ data:
     - Electric
   availability:
     apis:
-      webportal_v1:
-        - "car-getfueltype"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getVehicleByid"
       webapi_b2c_v4:
         - "getVehicleByid"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
       PHEV: true
       FCEV: true
-- name: thermic engine energy
-  domain: vehicle_info
-  description: Fuel type of a thermic vehicle.
-  type: string
-  enum: 
-    - GPL
-    - Gasoil
-    - Petrol
-    - Biologic
-  availability:
-    apis:
-      webportal_v1:
-        - "car-getfueltype"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: true
-      BEV: true
-      PHEV: true
-      FCEV: true
-- name: Fuel Unit
-  domain: HMI
-  description: Retrieve what fuel unit is currently in use in the HMI.
-  type: string
-  enum: 
-    - l
-    - gal
-  availability:
-    apis:
-      webportal_v1:
-        - "car-getfueltype"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
 - name: vin
   domain: vehicle_info
   description: Serial number of a vehicle
   type: string
   availability:
     apis:
-      webportal_v1:
-        - "car-getvincode"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getVehicleByid"
       webapi_b2c_v4:
         - "getVehicleByid"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
       PHEV: true
       FCEV: true
-- name: HMI time hour
-  domain: HMI
-  description: HMI current hour of the day.
-  type: string
-  enum:
-    - latitude
-    - longitude
-    - nextStreetName
-    - town
-    - city
-    - province
-    - country
-  availability:
-    apis:
-      webportal_v1:
-        - "car-time-hours"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI time minute
-  domain: HMI
-  description: HMI current minute of the hour.
-  type: string
-  unit: minute
-  availability:
-    apis:
-      webportal_v1:
-        - "car-time-minutes"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI UTC offset
-  domain: HMI
-  description: HMI current off set with UTC.
-  type: string
-  unit: time
-  availability:
-    apis:
-      webportal_v1:
-        - "car-time-offsetutc"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
 - name: brand
   domain: vehicle_info
   description: Brand of a vehicle
   type: string
   availability:
     apis:
-      webportal_v1:
-        - "device-getcarbrand"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getVehicleByid"
       webapi_b2c_v4:
         - "getVehicleByid"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
       PHEV: true
       FCEV: true
-- name: HMI distance Unit
-  domain: HMI
-  description: Current distance unit used within the HMI
-  type: string
-  enum: 
-    - km
-    - miles
-  availability:
-    apis:
-      webportal_v1:
-        - "device-getdistanceunit"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI theme
-  domain: HMI
-  description: Current theme within the HMI. See webportal colour theme.
-  type: integer
-  unit: identifier
-  availability:
-    apis:
-      webportal_v1:
-        - "device-gethmitheme"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI internet status
-  domain: HMI
-  description: Retrieve current internet status of the vehicle
-  type: boolean
-  availability:
-    apis:
-      webportal_v1:
-        - "device-getinternetstatus"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Software release
-  domain: HMI
-  description: Retrieve HMI software release
-  type: string
-  availability:
-    apis:
-      webportal_v1:
-        - "device-getsoftwarerelease"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
 - name: UIN
   domain: vehicle_info
   description: UIN of the vehcile
   type: string
   availability:
     apis:
-      webportal_v1:
-        - "device-getuin"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetTripsById"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
       PHEV: true
       FCEV: true
-- name: HMI album name
-  domain: HMI
-  description: Current album playing within the HMI
-  type: string
-  availability:
-    apis:
-      webportal_v1:
-        - "media-getalbumname"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI artist name
-  domain: HMI
-  description: Current artist playing within the HMI
-  type: string
-  availability:
-    apis:
-      webportal_v1:
-        - "media-getartistname"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI track number
-  domain: HMI
-  description: Current track number playing within the HMI
-  type: integer
-  unit: identifier
-  availability:
-    apis:
-      webportal_v1:
-        - "media-getcurrenttrack"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI folder name
-  domain: HMI
-  description: Current folder within the HMI
-  type: string
-  availability:
-    apis:
-      webportal_v1:
-        - "media-getcurrenttrack"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Media State
-  domain: HMI
-  description: Status of the media player.
-  type: string
-  enum:
-    - stop
-    - play
-    - pause
-    - seek_up
-    - seek_down
-  availability:
-    apis:
-      webportal_v1:
-        - "media-getmediastate"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Total tracks
-  domain: HMI
-  description: Get total number of tracks on the connected media
-  type: integer
-  unit: Tracks
-  availability:
-    apis:
-      webportal_v1:
-        - "media-gettotaltracks"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Media Name
-  domain: HMI
-  description: Get type of media
-  type: integer
-  unit: Cf Specification
-  availability:
-    apis:
-      webportal_v1:
-        - "media-gettrackname"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI track name
-  domain: HMI
-  description: Current track playing within the HMI
-  type: string
-  availability:
-    apis:
-      webportal_v1:
-        - "media-gettrackname"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
 - name: Trip distance
   domain: trip
   description: Distance of the trip
@@ -3012,14 +2252,10 @@ data:
   unit: km
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3034,15 +2270,10 @@ data:
   unit: Date-time
   availability:
     apis:
-      webportal_v1:
-        - "navigation-getjourneyinfo"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3058,14 +2289,10 @@ data:
   items: number
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3082,15 +2309,10 @@ data:
   items: number
   availability:
     apis:
-      webportal_v1:
-        - "navigation-getdestination"
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3104,14 +2326,10 @@ data:
     - data:trip
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3129,14 +2347,10 @@ data:
     - data:trip
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3151,14 +2365,10 @@ data:
   unit: Date-time
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3173,33 +2383,10 @@ data:
   unit: Date-time
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: true
-      BEV: true
-      PHEV: true
-      FCEV: true
-- name: Trip current ETA
-  domain: trip
-  description: Retrive current ETA for an ongoing navigation.
-  type: integer
-  unit: Hour
-  availability:
-    apis:
-      webportal_v1:
-        - "navigation-getnextwaypoint-etahours"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3215,13 +2402,9 @@ data:
   items: number
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetTripAlerts"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3237,39 +2420,9 @@ data:
     - data:telemetry
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleetTelemetryForTrip"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: true
-      BEV: true
-      PHEV: true
-      FCEV: true
-- name: Trip current Info
-  domain: trip
-  description: Retrieve information about the current navigation.
-  type: object
-  enum: 
-    - latitude
-    - longitude
-    - nextStreetName
-    - town
-    - city
-    - province
-    - country
-  availability:
-    apis:
-      webportal_v1:
-        - "navigation-getmaneuverinfo"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3284,13 +2437,9 @@ data:
     - data:collision
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3: 
         - "getTripCollisionsByTripAndVehicle"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3306,243 +2455,23 @@ data:
   unit: Array of GeoJSON Coordinates
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3: 
         - "getPathForTrip"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
       PHEV: true
       FCEV: true
-- name: HMI radio band
-  domain: HMI
-  description: Current radio band
-  type: string
-  enum: 
-    - FM_HD
-    - MW
-    - LW
-    - FM
-    - DaB
-    - DMB
-    - SDaRS
-    - DaB+
-  availability:
-    apis:
-      webportal_v1:
-        - "radio-getband"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI radio frequency
-  domain: HMI
-  description: Gets the currently selected radio frequency of the car in kHz.
-  type: integer
-  unit: kHz
-  availability:
-    apis:
-      webportal_v1:
-        - "radio-getfrequency"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI radio preset
-  domain: HMI
-  description: Indicates the saved preset corresponding to the current frequency.
-  type: integer
-  unit: identifier
-  availability:
-    apis:
-      webportal_v1:
-        - "radio-getpreset"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Radio Program Service Name
-  domain: HMI
-  description: Return the program service name..
-  type: string
-  availability:
-    apis:
-      webportal_v1:
-        - "radio-psname"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Radio PTY
-  domain: HMI
-  description: Returns the program type as defined by either RDS or RBDS. Possible values are[0-31]."
-  type: boolean
-  availability:
-    apis:
-      webportal_v1:
-        - "radio-pty"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Radio RDS
-  domain: HMI
-  description: Return true if the current radio stations supports RDS, false otherwise.
-  type: boolean
-  availability:
-    apis:
-      webportal_v1:
-        - "radio-rds"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Radio TA
-  domain: HMI
-  description: Returns true if traffic announcement is available.
-  type: boolean
-  availability:
-    apis:
-      webportal_v1:
-        - "radio-ta"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Radio Text
-  domain: HMI
-  description: Return the radio text.
-  type: string
-  availability:
-    apis:
-      webportal_v1:
-        - "radio-text"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Country
-  domain: HMI
-  description: Gets the country currently selected by the user.
-  type: string
-  availability:
-    apis:
-      webportal_v1:
-        - "webportal-getcountry"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Notification
-  domain: HMI
-  description: Gets the notifications currently pending.
-  type: object
-  availability:
-    apis:
-      webportal_v1:
-        - "webportal-getpendingnotifications"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
-- name: HMI Speed Unit
-  domain: HMI
-  description: Current speed unit used within the HMI
-  type: string
-  enum: 
-    - km/h
-    - mph
-  availability:
-    apis:
-      webportal_v1:
-        - "device-getspeedunit"
-      webportal_v2: false
-      webapi_b2b_v3: false
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
-    vehicle_types:
-      ICE: false
-      BEV: false
-      PHEV: false
-      FCEV: false
 - name: Fleet Name
   domain: vehicle_info
   description: Name of the fleet to which this vehicle belongs.
   type: string
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleets"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3554,13 +2483,9 @@ data:
   type: string
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleets"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3572,13 +2497,9 @@ data:
   type: string
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getFleets"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3590,14 +2511,10 @@ data:
   type: string
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getVehicleByid"
       webapi_b2c_v4:
         - "getVehicleByid"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3610,14 +2527,10 @@ data:
   items: string
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "getVehicleByid"
       webapi_b2c_v4:
         - "getVehicleByid"
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3631,13 +2544,10 @@ data:
     - remote:preconditioning:write
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "sendRemoteToVhl"
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
     vehicle_types:
       ICE: false
       BEV: true
@@ -3651,13 +2561,10 @@ data:
     - remote:charging:write
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "sendRemoteToVhl"
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
     vehicle_types:
       ICE: false
       BEV: true
@@ -3671,13 +2578,10 @@ data:
     - remote:horn:write
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "sendRemoteToVhl"
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
     vehicle_types:
       ICE: true
       BEV: true
@@ -3691,13 +2595,10 @@ data:
     - remote:door:write
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "sendRemoteToVhl"
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
     vehicle_types:
       ICE: true
       BEV: true
@@ -3711,13 +2612,10 @@ data:
     - remote:lights:write
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "sendRemoteToVhl"
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
     vehicle_types:
       ICE: true
       BEV: true
@@ -3729,13 +2627,10 @@ data:
   type: object
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "sendRemoteToVhl"
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
     vehicle_types:
       ICE: true
       BEV: true
@@ -3747,13 +2642,9 @@ data:
   type: object
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "sendRemoteToVhl"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3767,13 +2658,27 @@ data:
     - remote:wakeup:write
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "sendRemoteToVhl"
-      webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: remote navigation
+  domain: remote
+  description: Send a remote navigation to the vehicle infotainment system.
+  type: object
+  scope:
+    - remote:navigation:write
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "sendRemoteToVhl"
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
     vehicle_types:
       ICE: true
       BEV: true
@@ -3785,13 +2690,9 @@ data:
   type: object
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "createFleetVehicleMonitor"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3803,13 +2704,9 @@ data:
   type: object
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "createFleetVehicleMonitor"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true
@@ -3821,13 +2718,9 @@ data:
   type: object
   availability:
     apis:
-      webportal_v1: false
-      webportal_v2: false
       webapi_b2b_v3:
         - "createFleetVehicleMonitor"
       webapi_b2c_v4: false
-      mobile_sdk: false
-      web_sdk: false
     vehicle_types:
       ICE: true
       BEV: true

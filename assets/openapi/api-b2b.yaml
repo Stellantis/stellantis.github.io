@@ -1,11 +1,11 @@
 openapi: 3.0.0
 servers:
-  - url: 'https://api-cert-preprod.groupe-psa.com/connectedcar/v3'
+  - url: 'https://api-cert.groupe-psa.com/connectedcar/v3'
 security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.17.1'
+  version: '3.18.0'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -1208,6 +1208,7 @@ components:
             description: >-
                 Indicates the side of the collision
             enum: [Front, Rear, Lateral]
+            example : Lateral
           severity:
             type: string
             enum: [Minimal, Minor, Major]
@@ -1215,6 +1216,7 @@ components:
                 Minimal stands for no emergency system activated during the collision.
                 Minor only pretensioner system activated.
                 Major for airbag and prentensioner activation.
+            example : Minor
         required : 
           - side
       
@@ -1250,6 +1252,7 @@ components:
               type: boolean
               description: 'Indicates if the collision involve a pedestrian.
                            *Warning : This information is applicable only on vehicles equipped with dedicated sensor and is optionnal*'
+              example : false
             updatedAt:
               type: string
               format: date-time
@@ -1287,10 +1290,12 @@ components:
                   type: string
                   description: category of the score. Global, ACCELERATION, BREAKING, A/C system, Runing cold engine, Direct Shift Gear, Speed, STT system, ZEV (Zero emission vehicle).
                   enum: [Global, Acceleration, Break, AirCondioner, ColdEngine, TirePressure, Slope, Speed, StartStop]
+                  example : ColdEngine
                 score:
                   type: integer
                   minimum: 0
                   maximum: 10
+                  example : 5
         _embedded:
           type: object
       required : [_links]
@@ -1345,8 +1350,9 @@ components:
           type: object
           properties:
             type:
-                type: string
-                enum: [Stop, StartUp, Start]
+              type: string
+              enum: [Stop, StartUp, Start]
+              example : Start
           required: [type,createdAt]     
 
     VehicleOdometer:
@@ -1383,10 +1389,12 @@ components:
                     description: Belt status. 
                     type: string
                     enum: [Normal, Omission]
+                    example: Omission
                   id: 
                     description: Seat identifier.
                     type: string
-                    enum: [Driver, Passenger]  
+                    enum: [Driver, Passenger]
+                    example: Passenger
               
     BaseSafety:  
                 type: object
@@ -1399,17 +1407,24 @@ components:
                     type: string
                     enum: [NotDetected, Detected, ShockDetectionUnabled]
 
-    WipingBladesState:  
+    WipingBladesState:
+      allOf:
+        - $ref: '#/components/schemas/CreatedAtField'
+        - $ref: '#/components/schemas/WipingBladesStateBase'
+      required:
+        - createdAt
+    WipingBladesStateBase:  
                 type: object
                 properties:
                   active: 
                       description: Either active (true) or not (false).
                       type: boolean
+                      example : true
                   speed:
                     description: Wiping speed. This field is present only if active field is set to true.
                     type: string
                     enum: [High, Low]
-                  
+                    example : Low
 
     Safety:  
       allOf:
@@ -1802,7 +1817,10 @@ components:
                   format: float
                   minimum: 0
                 instant:
-                  description: Instant Fuel consumption expressed in L/100Km.
+                  description: |
+                    Instant Fuel consumption.
+                    * If subType equal to FossilEnergy than it will be expressed in L/100Km.
+                    * If subType equal to Hydrogen than it will be expressed in Kg/100Km.
                   type: number
                   format: float
                   
@@ -2486,7 +2504,7 @@ components:
               properties:
                 supported :
                   type: boolean
-                  description: True means remote preconditioning is supported.
+                  description: true means remote preconditioning is supported.
                 scopeName:
                   type: string
                   enum: [remote:preconditioning:write]
@@ -2501,13 +2519,16 @@ components:
                           type: integer
                           description : Max number of program accepted by the vehicle.
                       required : [size] 
+                    immediate:
+                      type: boolean
+                      description: true means remote preconditioning immediate action is supported.
             charging:
               type: object
               required: [supported, scopeName, parameters]
               properties:
                 supported :
                   type: boolean
-                  description: True means remote charging is supported.
+                  description: true means remote charging is supported.
                 scopeName:
                   type: string
                   enum: [remote:charging:write]
@@ -2518,10 +2539,12 @@ components:
                         properties:
                           start:
                             type: boolean
-                            description: True means remote immediate charge start action is supported.
+                            description: true means remote immediate charge start action is supported.
+                            example : true
                           stop:
                             type: boolean
-                            description: True means remote immediate charge stop action is supported. 
+                            description: true means remote immediate charge stop action is supported.
+                            example : true
                     schedule:
                       required: [programs,nextDelayedTime,preferences]
                       properties:
@@ -2530,29 +2553,33 @@ components:
                           properties:
                             supported :
                               type : boolean
-                              description: True means remote charging schedule[programs] is supported.
+                              description: true means remote charging schedule[programs] is supported.
                             size: 
                               type: integer
                               description : Max number of program accepted by the vehicle.
+                              example : 2
                           required : [supported]
                         nextDelayedTime:
                           type: boolean
-                          description: True means remote charging schedule[nextDelayedTime] is supported.
+                          description: true means remote charging schedule[nextDelayedTime] is supported.
+                          example : true
                     preferences:
                       properties:
                         level:
                           type: boolean
-                          description: True means remote charging preferences[level] is supported.
+                          description: true means remote charging preferences[level] is supported.
+                          example : true
                         type:
                           type: boolean
-                          description: True means remote charging preferences[type] is supported.
+                          description: true means remote charging preferences[type] is supported.
+                          example : false
             door:
               type: object
               required: [supported, scopeName]
               properties:
                 supported :
                   type: boolean
-                  description: True means remote door is supported.
+                  description: true means remote door is supported.
                 scopeName:
                   type: string
                   enum: [remote:door:write]
@@ -2563,7 +2590,7 @@ components:
               properties:
                 supported :
                   type: boolean
-                  description: True means remote horn is supported.
+                  description: true means remote horn is supported.
                 scopeName:
                   type: string
                   enum: [remote:horn:write]
@@ -2574,7 +2601,8 @@ components:
               properties:
                 supported :
                   type: boolean
-                  description: True means remote lights is supported.
+                  description: true means remote lights is supported.
+                  example : false
                 scopeName:
                   type: string
                   enum: [remote:lights:write]
@@ -2585,7 +2613,8 @@ components:
               properties:
                 supported :
                   type: boolean
-                  description: True means remote wakeup is supported.  
+                  description: true means remote wakeup is supported.
+                  example : true
                 scopeName:
                   type: string
                   enum: [remote:wakeup:write]
@@ -2596,7 +2625,7 @@ components:
               properties:
                 supported :
                   type: boolean
-                  description: True means remote navigation is supported.
+                  description: true means remote navigation is supported.
                 scopeName:
                   type: string
                   enum: [remote:navigation:write]
@@ -2609,7 +2638,6 @@ components:
                   description: True means remote navigation is supported.
                  
 
-
     VehicleExtensionType:
       type: array
       minItems: 1
@@ -2620,6 +2648,7 @@ components:
           - onboardCapabilities
           - branding
           - pictures
+        example : branding
     VehiclesExtensionType:
       type: array
       minItems: 1
@@ -2629,6 +2658,7 @@ components:
         enum:
           - branding
           - pictures
+        example : pictures
     VehicleBranding:
       type : object
       properties:
@@ -2916,11 +2946,13 @@ components:
                 type: integer
                 default: 3
                 minimum: 1
+                example : 10
             retryDelay:
                 description: Time to wait (expressed in seconds) before retrying to push a notification (ignored if retryPolicy is set to ```None```).
                 type: integer
                 default: 10
                 minimum: 1 
+                example : 60
         batchNotify:
                 description: |
 
@@ -2957,6 +2989,7 @@ components:
                     description:  Define the period (in sec.) between two refresh events. The refresh-events are sent when the condition of the monitor is satisfied (Trigger -> toggled true). A kind of periodic reminder.
                     type: integer
                     minimum: 60
+                    example : 120
 
     MonitorStatusSetter:
       title: MonitorStatusSetter
@@ -2966,6 +2999,7 @@ components:
           status:
             type: string
             enum: [Running, Paused]
+            example : Paused
     
     MonitorParameter:
       title: MonitorParameter
@@ -2979,7 +3013,7 @@ components:
             extendedEventParam:
               type: array
               items:
-                 enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.collisions]
+                 enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.collisions, vehicle.trip,vehicle.stolen]
               description: | 
                             Allow to set extra vehicle data (defined in data model) to add to the monitor event
                             when publishing. The possible values are :
@@ -2995,6 +3029,7 @@ components:
                             |vehicle.alerts|List of active alerts at the eventDate|Alert|
                             |vehicle.collisions|Latest known collisions before the eventDate|Collision|
                             |vehicle.trip|Trip related to the event that triggers the notification|Trip|
+                            |vehicle.stolen|Vehicle Stolen context at the eventDate (only returns when vehicle is reported stolen) |Stolen|
 
                             
                             * For telemetry extension:  
@@ -3072,7 +3107,7 @@ components:
         time: 
              $ref: '#/components/schemas/TimeTrigger'
         data: 
-             $ref: '#/components/schemas/DataTrigger'     
+             $ref: '#/components/schemas/DataTrigger'
       required: [name]  
                  
     ZoneTrigger:
@@ -3108,12 +3143,12 @@ components:
                         required: [longitude, latitude]
       required: [place, transition]
       example: 
-                        transition: Out
-                        place:
-                          radius: 20
-                          center:
-                            longitude: 2.333333
-                            latitude:  48.866667
+        transition: Out
+        place:
+          radius: 20
+          center:
+            longitude: 2.333333
+            latitude:  48.866667
     
     TimeTrigger:
       title: TimeTrigger
@@ -3177,7 +3212,7 @@ components:
             | vehicle.preconditioning.airConditioning | N/A| onChange | Value |
             | vehicle.alarm.trigger.type | Enum(trigger.type)| onChange/equalsTo/includedIn  | Value |
             | vehicle.alarm.status.activation | Enum(status.activation)| onChange/equalsTo  | Value |
-
+            | stolen.state |Boolean| onChange/equalsTo| Value |
                         
             The right operand  (value) argument depends on the type of operation (OP) as following:
               
@@ -3220,10 +3255,14 @@ components:
             - vehicle.preconditioning.airConditioning
             - vehicle.alarm.trigger.type
             - vehicle.alarm.status.activation
+            - stolen.state
+          example : vehicle.energy.fuel.level
+            
         op:
             description: The operator of the trigger function.                          
             type: string
             enum: [equalsTo, greaterThan, lowerThan, includedIn, onChange]
+            example : greaterThan
         value:
             description: |
               The right operand of the trigger function. It can be a uniq ```value``` or a list of value ```values```. The choice of one or the other depends on ```OP```  which in the case of ```includedIn``` must be a list.
@@ -3257,6 +3296,7 @@ components:
                     description: |
                                 Defines the retry rules following a notification failure (ie the return code is not HTTP 2XX for  WebHook mode). ```None``` means with a single try, ```Bounded``` with a limited number of tries. 
                     enum: [None, Bounded]
+                    example : None
 
               callback:
                 type: object
@@ -3283,6 +3323,7 @@ components:
             - Stolen
             - WakeUp
             - Navigation
+          example : Doors
     
 
     RemoteTypes:
@@ -3317,8 +3358,8 @@ components:
                   - properties:
                       enabled: 
                         type: boolean
-                        description: True if the progrm is enables, foalse otherwise.
-                        
+                        description: true if the progrm is enables, foalse otherwise.
+                        example : true
                       end:
                           type: string
                           description: |
@@ -3330,7 +3371,8 @@ components:
                           example : PT14H30M                              
         immediate:
           type: boolean
-          description :  Determines if the charging will start immediately(```true```) or not.
+          description :  Determines if the charging will start immediately(```True```) or not.
+          example : true
         preferences: 
           description: Set the charging preferences.
           type: object
@@ -3345,15 +3387,36 @@ components:
               type : string
               enum: [Partial , Full]
               example: Partial
-    RemoteSetStolen:
+    RemoteStolen:
                   type: object
-                  description: Remote to set the vehicle in stolen state.
+                  description: Remote operation to update stolen state, immobilization and configuration information. Only one attribute can be used at a time.
                   properties:
                     stolen:
+                      description : Declare the vehicle stolen or not (set at ```True``` to report as stolen).
                       type: boolean
-                      description :  Set, if ```true```, the vehicle as stolen or not (otherwise). 
-                  required: [stolen]
-    
+                      example : true
+                    trackingPeriod:
+                      type: object
+                      description : Modify vehicle data collection frequency through tracking timer attributes.
+                      properties: 
+                        running:
+                            description : Data collection frequency when vehicle is in stolen mode and ignition On 
+                            type : integer
+                            minimum: 5
+                            example : 30
+                        shutdown: 
+                          description : Data collection frequency when vehicle is in stolen mode and ignition Off 
+                          type : integer
+                          minimum : 60
+                          example : 120
+                    immobilization:
+                      type: object
+                      description: Requesting the stolen vehicle for immobilization.
+                      properties:
+                        activate:
+                            type: boolean
+                            description :  Set, if ```true```, the vehicle as immobilized or not (otherwise). 
+                      required: [activate]
     RemoteLights:
                   type: object
                   description: Remote to swith on / off lights.
@@ -3467,23 +3530,16 @@ components:
         forced:
               deprecated: true
               type: boolean
-              
       required: [state]
           
     RemoteHorn:
       type: object
       description: Remote vehicle horn activation.
       properties:
-      #      number:
-      #        type: integer
-      #        description : Number of vehicle horn activations.
-      #        default: 1
-      #        minimum: 1
-      #        maximum: 5
-            state:
-              type: string
-              description : Activate or unactivate this remote horn.
-              enum: [Activated,Unactivated]
+        state:
+          type: string
+          description : Activate or unactivate this remote horn.
+          enum: [Activated,Unactivated]
       required: [state]
       
     RemoteSetImmobilization:
@@ -3512,7 +3568,7 @@ components:
         charging:
           $ref: '#/components/schemas/RemoteCharging'
         stolen: 
-          $ref: '#/components/schemas/RemoteSetStolen'
+          $ref: '#/components/schemas/RemoteStolen'
         lights: 
           $ref: '#/components/schemas/RemoteLights'
         wakeUp: 

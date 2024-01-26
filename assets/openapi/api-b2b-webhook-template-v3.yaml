@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '3.17.1'
+  version: '3.18.0'
   title: Groupe PSA Connected Car B2B API
   description: | 
 
@@ -173,7 +173,7 @@ components:
                   - vehicle.preconditioning.airConditioning
                   - vehicle.alarm.trigger.type
                   - vehicle.alarm.status.activation
-                
+                  - stolen.state
                   description: The monitored data (operand of a trigger).
               value: 
                 description: Values that caused the trigger. Could be a list of data values in case of 'includedIn' operation is used
@@ -204,7 +204,7 @@ components:
               type:
                 type: string
                 description: Speficies the data type of body items. 
-                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.collisions, vehicle.trip]
+                enum: [vehicle.doorsState, vehicle.status, vehicle.maintenance,vehicle.position, vehicle.telemetry, vehicle.alerts, vehicle.collisions, vehicle.trip, vehicle.stolen]
               body:
                
                   description: |
@@ -220,7 +220,7 @@ components:
                       | vehicle.alerts | List of active alerts at the eventDate | Alert |
                       | vehicle.collisions | Latest collisions information before or at the eventDate | Collision |
                       | vehicle.trip |  Trip related to the event that triggers the notification | Trip |
-
+                      | vehicle.stolen | Vehicle Stolen context at the eventDate (only returns when vehicle is reported stolen) |Stolen|
                   type: object
                   properties:
                     doorState:
@@ -249,6 +249,9 @@ components:
                     trip: 
                       type : object
                       description: Return the trip related to this event
+                    stolen: 
+                      type : object
+                      description: Return the stolen context related to this event
                   
         
         refresh:

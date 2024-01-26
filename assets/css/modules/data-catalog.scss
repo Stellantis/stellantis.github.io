@@ -1,14 +1,18 @@
 ---
-# In order to import this stlye, import it with 'require: data-catalog' in the page front matter.
 ---
-
 // $table-color: #83786f;
 $accent-color: #2689b5;
 $table-color: #323a58;
 
-
+.data-catalog-container {
+  background-color: white;
+}
 
 // --------------------- FILTER & SEARCH ---------------------
+
+.data-count {
+  font-size:.85rem;
+}
 
 .data-header{
   display: flex;
@@ -40,7 +44,6 @@ $table-color: #323a58;
     border: 1px solid grey;
     padding-left: 3.5rem;
     font-weight: 400;
-    font-size: 1.25rem;
     &::placeholder {
       color: dimgrey;
     }
@@ -73,29 +76,48 @@ $table-color: #323a58;
     width: 100%;
     border-top: 1px solid dimgrey;
 
-    .table-header-filter-dropdown {
-      &:hover{
-        .table-header-filter-arrow, .table-header-filter-title {
-          color: $accent-color;
-        }
-      } 
-    }
-
-    .table-header-filter-dropdown {
+    .table-header-filter-title-container {
       margin-top: .75rem;
       padding-bottom: .75rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
+    }
+
+    .table-header-filter-dropdown-content {
+      display:none;
+      justify-content: space-between;
+      gap: 1.75rem;
+    }
+
+    .table-header-filter-dropdown:hover .table-header-filter-arrow, .table-header-filter-title {
+      color: $accent-color;
+    }
+
+    .table-header-filter-select {
+      border: 1px solid grey;
+      background-color: white;
+      border-radius: 3px;
+      height: 45px;
+      font-size: 1rem;
+      font-family: "Roboto", sans-serif;
+      color: black;
+      opacity: 1;
+      cursor: pointer;
+      padding: 0.75rem;
+      box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+      width: 100%;
+    }
+
+    .table-header-filter-dropdown {
       border-bottom: 1px solid dimgrey;
-  
+      padding: 0 1.25rem;
       .table-header-filter-title {
         font-weight: 500;
         font-size: 1.35rem;
         line-height: 1.2;
         width: 100%;
-        padding-left: 1.25rem;
         color: $table-color;
         .fa-filter {
           font-size:1.15rem; 
@@ -104,7 +126,6 @@ $table-color: #323a58;
       }
       
       .table-header-filter-arrow {
-        padding-right: 13px;
         color: #363636;
         font-size: 1.2rem;
         .fa-minus{display: none;}
@@ -112,15 +133,8 @@ $table-color: #323a58;
     }
     
     .table-header-filter-dropdown.table-header-filter-displayed {
-      border-bottom: none;
       padding-bottom: 2rem;
-      
-      
-      
-      ~.table-header-versions {
-        display: block;
-      }
-
+  
       .fa-plus {
         display: none;
       }
@@ -128,47 +142,11 @@ $table-color: #323a58;
       .fa-minus {
         display: block;
       }
-
-
-    }
-
-    .table-header-versions {
-      font-size: 1rem;
-      display: none;
-      max-width: 100%;
-      margin: 0 13px 2rem;
-      border: none;
-      color: #363636;
       
-      .tag {
-        background-color: $table-color;
-        color: white;
-        font-weight: 500;
-        font-size: 1rem;
-        margin-right: 2rem;
-        box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
+      .table-header-filter-dropdown-content {
+        display: grid;
       }
-    }
-    
-    .table-header-api {
-      padding: .8rem 1.2rem;
-      display: flex;
-      border-radius: 3px;
-      border: 1px solid grey;
-      box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
-      width: 100%;
-    }
-    .table-header-api:first-of-type {
-      margin-bottom: calc(2rem + .5em);
-    }
 
-    .table-header-api-available {
-      display: flex;
-      justify-content: space-around;
-    }
-
-    .table-header-version, .table-header-versions .tag {
-      width: 180px;
     }
 
 
@@ -190,77 +168,26 @@ $table-color: #323a58;
 }
 
 
-// --------------------- TABULATOR FILTERS ---------------------
-
-.tabulator .tabulator-header .tabulator-col-title {
-  height: 0;
-}
-
-
-#data-catalog.tabulator .tabulator-header {
-  height: 0;
-  transition: all 0.3s ease-out
-
-}
-
-.tabulator-headers {
-  padding-bottom: 2rem;
-  border-bottom: 1px solid black;
-}
-
-.tabulator-header {
-  .tabulator-header-filter::after {
-    color: #363636
-  }
-}
-
 //---------------------  CUSTOM TABULATOR TABLE ---------------------
 
-#data-catalog {
-  .column-title {
-    text-align: center !important;
-  }
-  
-  .tabulator-col-group-cols {
-    border-right: 2px solid #aaa;
-  }
-
-  .tabulator-header .tabulator-col.tabulator-sortable[aria-sort="none"] .tabulator-col-content .tabulator-arrow {
-    display: none !important;
-  }
-
-}
-
-
-#data-catalog .tabulator-table {
-  width: 100%;
-  color: $table-color;
-
-}
-
-#data-catalog .tabulator-tableHolder {
-  overflow: hidden;
-}
-
-.tabulator-row:first-of-type {
+.data-catalog-row:first-of-type {
   border-top: 1px solid lightgrey;
   margin-top: 4rem;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 
-.tabulator-row:last-of-type {
+.data-catalog-row:last-of-type {
   border-bottom: 1px solid lightgrey;
-  margin-bottom: 250px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 
-.tabulator-row:not(:last-of-type) {
+.data-catalog-row:not(:last-of-type) {
   border-bottom: 1px solid lightgrey;
 }
 
-#data-catalog .tabulator-row {
+#data-catalog .data-catalog-row {
   transition: all 0.3s ease-out;
   padding: 9px 0;
   cursor: pointer;
@@ -279,99 +206,9 @@ $table-color: #323a58;
 }
 
 
-#data-catalog .tabulator-row.data-item-highlighted {
+#data-catalog .data-catalog-row.data-item-highlighted {
   background-color: white;
 }
-
-#data-catalog.tabulator {
-  background: transparent;
-}
-
-
-
-.tabulator-edit-select-list-item {
-  background-color: white;
-  }
-  .tabulator-edit-select-list-item:hover {
-    color:white !important;
-  }
-  
-  .tabulator-header {
-    border: none !important;
-  }
-  
-  .tabulator .tabulator-header .tabulator-col .tabulator-header-filter input {
-    border: 1px solid grey !important;
-    border-radius: 3px !important;
-    height: 45px;
-    font-size: 1rem;
-    font-family: 'Roboto', sans-serif;
-    color: black!important;
-    opacity: 1;
-    cursor: pointer !important;
-    padding: .75rem !important;
-    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
-    
-    &::placeholder {
-      opacity: 1;
-    }
-    
-    
-  }
-  
-  .tabulator-header-filter {
-   &::after {
-     color: black;
-     font-size: 1rem;
-     position: relative;
-     right: 25px;
-     font-weight: 900;
-        font-family: "Font Awesome 5 Free";
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
-        display: inline-block;
-        font-style: normal;
-        font-variant: normal;
-        text-rendering: auto;
-        line-height: 1;
-   }
-  }
-  
-  .tabulator-col:nth-child(1) .tabulator-header-filter, .tabulator-col:nth-child(2) .tabulator-header-filter {
-    &::after {
-    content: "\f078";
-    }
-  }
-  
-  .tabulator-table .tabulator-cell:nth-child(2){
-    font-weight: bold;
-    text-transform: capitalize
-  }
-  
-  .centered{
-    text-align:center !important;
-  }
-  
-  .twenty-icon{
-    font-size:19px !important;
-  }
-  .tabulator-responsive-collapse-toggle-open, .tabulator-responsive-collapse-toggle-close{
-  color: white;
-  padding: 5px;
-  }
-    
-  
-  .thirteen-icon{
-    font-size:11.5px !important;
-  }
-  
-  .tabulator-icon{
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    height: 100%;
-    font-size:14px;
-  }
 
 
 // --------------------- ROW / DATA ITEM  STYLE ---------------------
@@ -406,7 +243,7 @@ $table-color: #323a58;
   width: 100px;
 }
 
-.data-item-description, .data-item-enum, .data-item-unit, .data-item-domain-name, .availability-name, .availability-vhcl-type, .data-item-subtitle {
+.data-item-description, .data-item-enum, .data-item-items, .data-item-unit, .data-item-domain-name, .availability-name, .availability-vhcl-type, .data-item-subtitle {
   display: none;
 }
 
@@ -418,7 +255,7 @@ $table-color: #323a58;
   font-weight: normal;
 }
 
-.data-item-title, .data-item-description, .data-item-type, .data-item-enum, .data-item-unit, .availability-api-title, .availability-api-list  {
+.data-item-title, .data-item-description, .data-item-type, .data-item-enum, .data-item-items, .data-item-unit, .availability-api-title, .availability-api-list  {
   white-space: break-spaces;
 }
 
@@ -524,7 +361,7 @@ $table-color: #323a58;
     display: inherit;
   }
 
-  .data-item-availability, .availability-api-na, .data-item-enum, .data-item-unit {
+  .data-item-availability, .availability-api-na, .data-item-enum, .data-item-items, .data-item-unit {
     display: block
   }
 
@@ -588,7 +425,7 @@ $table-color: #323a58;
 }
 
 @media screen and (max-width: 485px) { 
-  .data-item-highlighted .data-item {
+  .data-item.data-item-highlighted.data-catalog-row {
     flex-wrap: wrap;
     justify-content: center;
     .data-item-content {
