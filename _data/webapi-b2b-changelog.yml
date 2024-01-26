@@ -1,5 +1,22 @@
-- version: "3.17.1"
+- version: "3.18.0"
   availability: in_use
+  release_date: 25 Jan 2024
+  description: |-
+    **Monitors API**
+      - Add vehicle.stolen in monitor extension
+      - Add stolen.state in data trigger list
+- version: "3.17.2"
+  availability: not_in_use
+  release_date: '25 Jan 2024'
+  description: |-
+    **Remote API**
+    - Add remote stolen tracking period
+    - Add remote stolen immobilization
+
+    **Others**
+    - Complete missing examples
+- version: "3.17.1"
+  availability: not_in_use
   release_date: 28 Nov 2023
   description: |-
     **Status API**

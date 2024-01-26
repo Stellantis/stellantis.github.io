@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://api-cert.groupe-psa.com/connectedcar/v4'
 info:
-  version: '4.15.1'
+  version: '4.16.0'
   title: Groupe PSA Connected Car B2C API
   license:
     name: Groupe PSA Licence
@@ -155,6 +155,8 @@ tags:
   - name: User
   - name: Vehicles
     description: Access to Vehicles details.
+  - name: Trips
+    description: Describe Trips of a a User or Vehicle
   - name: Subscribe
     description: Describe User subscription (callback) to use with remote and/or monitor feature.
   - name: Monitors
@@ -295,6 +297,14 @@ paths:
                 $ref: '#/components/schemas/Status'
         default:
           $ref: '#/x-fragment/general_error_fragment'          
+
+
+ 
+  '/user/vehicles/{id}/trips':
+    $ref: '#/x-fragment/Vehicle_id_Trips'
+  '/user/vehicles/{id}/trips/{tid}':
+    $ref: '#/x-fragment/Vehicle_id_Trip_id'
+
 
           
   '/user/vehicles/{id}/callbacks/{cbid}/monitors':
@@ -993,8 +1003,12 @@ components:
                   items: 
                     $ref: '#/components/schemas/Link'
               required : [self]
+            id:
+              type: string
+              example : 0a9de72cc3803b12a74418acd20dcd66634fa82e44b2ec7060bca91462dc5772199559905caefe168812918d47f67253f33d477b645bb59afdd1268b81e382999
             active:
               type: boolean
+              example : true
             type:
               $ref: '#/components/schemas/AlertMsgEnum'
             severity:
@@ -1008,6 +1022,7 @@ components:
                             |Critical|Starting prohibited without repair.|                          
               type: string
               enum: [Information, Warning, Critical]
+              example : Information
             startedAt:
               type: string
               format: date-time
@@ -1077,9 +1092,11 @@ components:
             type: string
             description: Indicates the side of the collision
             enum: [Front, Rear, Lateral]
+            example : Lateral
           severity:
             type: string
             enum: [Minimal, Minor, Major]
+            example : Minor
             description: >-
                 * Minimal stands for no emergency system activated during the collision.
                 
@@ -1105,6 +1122,9 @@ components:
         - title: Collision
           type: object
           properties:
+            id:
+              type: string
+              example : 055d8f0a0089d7b9226989ce2db42511e2e19df8cc106a7fb7d0c7fb92ab2320c0720e94be1ee517b3172da70dd05446a934cccca524172d9add54d8dbce51b14
             tippedOver:
               type: boolean
               description: >-
@@ -1153,9 +1173,11 @@ components:
                   type: string
                   description: category of the score. Global, ACCELERATION, BREAKING, A/C system, Runing cold engine, Direct Shift Gear, Speed, STT system, ZEV (Zero emission vehicle).
                   enum: [Global, Acceleration, Break, AirCondioner, ColdEngine, TirePressure, Slope, Speed, StartStop]
+                  example : ColdEngine
                 score:
                   type: number
                   minimum: 0
+                  example : 6
                   maximum: 10
        
         _embedded:
@@ -1206,6 +1228,7 @@ components:
                           enum:
                             - Thermic
                             - Electric
+                          example : Thermic
                   oil:
                     type: object 
                     deprecated: true
@@ -1214,12 +1237,14 @@ components:
                       temp:
                         type: number
                         format: float
+                        example : 33,3
                   speed:
                     type: number
                     format: float
                   gmpStatus:
                     type: string
                     enum: [NotRunning, Starting, Running, Stopping, Stopped]
+                    example : Running
                     deprecated : true
                   extension:
                     type: object
@@ -1259,9 +1284,11 @@ components:
       properties:
         daysBeforeMaintenance:
           type: integer
+          example : 45
         mileageBeforeMaintenance:
           type: number
           format : float
+          example : 1239,6
       required: [createdAt]
               
     Maintenance:
@@ -1293,6 +1320,7 @@ components:
             type:
                 type: string
                 enum: [Stop, StartUp, Start]
+                example : Start
           required: [type,createdAt]
   
            
@@ -1306,6 +1334,7 @@ components:
                   type: number
                   format : float
                   minimum : 0.0
+                  example : 12978,9
       required : [ createdAt]
     
     Adas:  
@@ -1323,7 +1352,8 @@ components:
                             - DriverInhibition
                             - Active
                             - Wait
-                            - OutOfService 
+                            - OutOfService
+                          example : Active
                       rear:
                         type: array
                         items:
@@ -1335,6 +1365,7 @@ components:
                             - Active
                             - Wait
                             - OutOfService 
+                          example : TrailerInhibition
                   accr:
                     description: Adaptive Cruise Control Regulation
                     type: string
@@ -1346,23 +1377,26 @@ components:
                       - Off
                       - OverSpeedingByPedalPress
                       - StandBy
+                    example : HoldWithOverSpeeding
                   lvv:
                     type: boolean
+                    example : true
                   rvv:
                     type: string
                     enum:
-                        - Off
-                        - NoBestFit
-                        - BestFitInProgress
-                        - BestFitMax
-                        - BestFitMin
-                        - BestFitDeactivated
-                        - AutoDeactivated
-                        - OverflowSpeedConsign
-                        - LackOfVisibilityRadar
-                        - LearningRadar
-                        - Deactivated
-                        - LimitSetting
+                      - Off
+                      - NoBestFit
+                      - BestFitInProgress
+                      - BestFitMax
+                      - BestFitMin
+                      - BestFitDeactivated
+                      - AutoDeactivated
+                      - OverflowSpeedConsign
+                      - LackOfVisibilityRadar
+                      - LearningRadar
+                      - Deactivated
+                      - LimitSetting
+                    example : AutoDeactivated
                   aebs:
                     description: Advanced Emergency Braking System
                     type: string
@@ -1370,10 +1404,12 @@ components:
                       - off
                       - Fixed
                       - OnFlashing
+                    example : Fixed
                   afil:
                     description: Lane Departure Warning System
                     type: string
                     enum: [FlashingFault, FlashingWarning, Off, OnFixed]
+                    example : FlashingWarning
                   artiv:
                     description: Respect of inter vehicle time assist (ARTIV)
                     type: string
@@ -1382,34 +1418,42 @@ components:
                       - Selected
                       - Unavailable
                     default: Unavailable
+                    example : Selected
                   bsm:
                     description: Blind Spot Monitoring
                     type: string
                     enum:
-                    - Active
-                    - Inactive
-                    - Disabled
-                    - Fault
+                      - Active
+                      - Inactive
+                      - Disabled
+                      - Fault
+                    example : Active
                   esp:
                     description: Electronic Stability Program
                     type: boolean
+                    example : true
                   abs:
                     description: Anti-lock braking system
                     type: boolean
+                    example : false
                   fse:
                     description: Electric brake service
                     type: boolean
+                    example : true
                   sli:
                     description: Speed Limit Information (expressed in km/h)
                     type: integer
+                    example : 110
                   rlka:
                     description: Right Lane Keeping Assist 
                     type: string
                     enum: [Authorized, CorrectionInProgress, NotAuthorized, NotSelected]
+                    example : Authorized
                   llka:
                     description: Left Lane Keeping Assist 
                     type: string
                     enum: [Authorized, CorrectionInProgress, NotAuthorized, NotSelected]
+                    example : CorrectionInProgress
                   rgi:
                     description: Recommended gear indicator
                     type: string
@@ -1418,6 +1462,7 @@ components:
                       - Up
                       - Down
                       - UpDown
+                    example : None
          
     Lights:
       description: Expresses all light, direction (```Left```, ```Right``` ),  position (```Front```, ```Rear``` ) and status  (```Off```, ```On```) for a category.
@@ -1964,7 +2009,10 @@ components:
                   format: float
                   minimum: 0
                 instant:
-                  description: Instant Fuel consumption expressed in L/100Km.
+                  description: |
+                    Instant Fuel consumption.
+                    * If subType equal to FossilEnergy than it will be expressed in L/100Km.
+                    * If subType equal to Hydrogen than it will be expressed in Kg/100Km.
                   type: number
                   format: float
     Consumption:
@@ -2265,6 +2313,39 @@ components:
                   items:
                     $ref: '#/components/schemas/PreconditioningProgram'
           required : [ createdAt]
+    
+    PreconditioningBase:
+      type: object
+      description: Preconditioning the vehicle for driver and passenger.
+      properties:
+        airConditioning:
+          allOf:
+            - type : object
+            - properties:
+                updatedAt:
+                  type: string
+                  format: date-time
+                  deprecated: true
+                status:
+                  description: The status of the preconditioning feature.
+                  type: string
+                  enum: [Enabled, Disabled, Finished, Failure]
+                  example : Enabled
+                startingCause:
+                  description : starting cause
+                  type: string
+                  enum: [Immediate, Scheduled]
+                  example : Immediate
+                failureCause:
+                  description: failure cause
+                  type: string
+                  enum: [ Defect, DoorOpened, LowBattery, LowFuelLevel, TooManyUnusedProg, WindowsRoofOpened, HoodOpened, NotParked, OtherFailures ]
+                  example : OtherFailures
+                programs:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/PreconditioningProgram'
+          required : [ createdAt]
 
     Environment: 
               type: object
@@ -2290,6 +2371,7 @@ components:
                     properties:
                       day:
                         type: boolean 
+                        example : true
     Air:
                     allOf:
                       - $ref: '#/components/schemas/CreatedAtField'
@@ -2302,6 +2384,7 @@ components:
                           temp:
                             type: number
                             format : float
+                            example : 33,3
     Trip: 
       allOf:
             - $ref: '#/components/schemas/CreatedAtField'
@@ -2389,6 +2472,7 @@ components:
                 done:
                   description: Determines either this trip is finished or not.
                   type: boolean
+                  example : true
                 faults:
                   description: Faults of this finished or in progress trip. This means that we lacked data from the vehicle to complete the trip description during one of its step (starting, progressing, or finishing).
                   type: array
@@ -2398,9 +2482,11 @@ components:
                       fault:
                         type: string
                         enum: [Unstarted, DataLacking, Unfinished]
+                        example : DataLacking
                       cause:
                         type: string
                         enum: [GeoPrivacy, FullPrivacy, Connection]
+                        example : Connection
               required : [_links, createdAt, id]
     TripSegment:
       description: Part of the trip crossed for a type of propulsion.
@@ -2596,7 +2682,11 @@ components:
                         size: 
                           type: integer
                           description : Max number of program accepted by the vehicle.
-                      required : [size] 
+                      required : [size]
+                    immediate:
+                      type: boolean
+                      description: True means remote preconditioning immediate action is supported.
+                      example : true
             charging:
               type: object
               required: [supported, scopeName, parameters]
@@ -2615,9 +2705,11 @@ components:
                           start:
                             type: boolean
                             description: True means remote immediate charge start action is supported.
+                            example : true
                           stop:
                             type: boolean
                             description: True means remote immediate charge stop action is supported. 
+                            example : stop
                     schedule:
                       required: [programs,nextDelayedTime,preferences]
                       properties:
@@ -2649,6 +2741,7 @@ components:
                 supported :
                   type: boolean
                   description: True means remote door is supported.
+                  example : true
                 scopeName:
                   type: string
                   enum: [remote:door:write]
@@ -2660,6 +2753,7 @@ components:
                 supported :
                   type: boolean
                   description: True means remote horn is supported.
+                  example : true
                 scopeName:
                   type: string
                   enum: [remote:horn:write]
@@ -2671,6 +2765,7 @@ components:
                 supported :
                   type: boolean
                   description: True means remote lights is supported.
+                  example : true
                 scopeName:
                   type: string
                   enum: [remote:lights:write]
@@ -2682,6 +2777,7 @@ components:
                 supported :
                   type: boolean
                   description: True means remote wakeup is supported.  
+                  example : true
                 scopeName:
                   type: string
                   enum: [remote:wakeup:write]
@@ -2693,6 +2789,7 @@ components:
                 supported :
                   type: boolean
                   description: True means remote navigation is supported.
+                  example : false
                 scopeName:
                   type: string
                   enum: [remote:navigation:write]
@@ -2952,110 +3049,111 @@ components:
       type: string   
       description: Alert list 
       enum:
-            - AbsBrakingSystemFault    
-            - ActiveSpoilerFault    
-            - AdBlueFault     
-            - AdBlueFaultStartingImpossible   
-            - AdBlueFaultStartingImpossibleSoon  
-            - AddWasherFluid     
-            - AirbagOrSeatBeltPretensionerOrActiveHoodFailure 
-            - AssistanceButtonFault    
-            - AutomaticBrakingDeactivated   
-            - AutomaticHeadlightAdjustmentFault   
-            - BatteryChargeOrElectricalCircuitSystemFailure 
-            - BrakingSystemFailure    
-            - ChargingFailure     
-            - CheckTheCenterBrakeLamp    
-            - CollisionDetectionSystemFault   
-            - CollisionMitigationSystemFault   
-            - CoolantLevellow     
-            - DrivingAssistanceSensorBlind   
-            - ElectricTractionSystemFailureLimitSpeed
-            - ElectricTractionSystemFailureStopVehicle
-            - ElectricTractionSystemFault
-            - ElectronicImmobiliserFault    
-            - EmissionSystemOrAdBlueQualityFailueStartingImpossible
-            - EmissionSystemOrAdBlueQualityFailueStartingImpossibleSoon
-            - EmissionSystemOrAdBlueQualityFailure  
-            - EngineFailure     
-            - EngineFault
-            - EngineMisfiringFuel
-            - EngineOilPressureFailure    
-            - EngineTemperatureFailure    
-            - EspAsrSystemFault     
-            - FrontLeftFlashingIndicatorFault   
-            - FrontLeftFogLampsFault     
-            - FrontLeftParkingLampsFault     
-            - FrontRightFlashingIndicatorFault   
-            - FrontRightFogLampsFault     
-            - FrontRightParkingLampsFault     
-            - FuelLevelLow     
-            - GearboxFault     
-            - HeadlightsFault     
-            - InstalledSpareWheelFault   
-            - InterVehicleTimeMeasurementFault  
-            - LaneChangeAssistanceFault     
-            - LaneDepartureWarningSystemFault   
-            - LeftBrakeLampFault  
-            - LeftFrontDoorOpen     
-            - LeftFrontDoorOpenLowSpeed 
-            - LeftFrontTirePressurSensorFault   
-            - LeftFrontTirePuncture    
-            - LeftFrontTireUnderInflated    
-            - LeftRearDoorOpen     
-            - LeftRearDoorOpenLowSpeed
-            - LeftRearTirePressurSensorFault   
-            - LeftRearTirePuncture    
-            - LeftRearTireUnderInflated    
-            - LeftReverseLampFault     
-            - OilLevelLow      
-            - ParkAssistSystemFault    
-            - ParkingBrakeOrHillStartSystemFailure  
-            - ParticleFilterAdditiveLevelTooLow   
-            - ParticleFilterFull     
-            - ParticleFilterRegenerating    
-            - PowerSteeringFailure    
-            - PowerSteeringFault    
-            - PreheatingPreventilationDeactivatedBatteryLow 
-            - PreheatingPreventilationDeactivatedClockUnset 
-            - PreheatingPreventilationDeactivatedFuelLevelLow 
-            - RearLeftFlashingIndicatorFault   
-            - RearLeftFogLampsFault     
-            - RearLeftParkingLampsFault     
-            - RearRightFlashingIndicatorFault   
-            - RearRightFogLampsFault     
-            - RearRightParkingLampsFault     
-            - RearWindowOpen     
-            - RearWindowOpenLowSpeed
-            - ReplaceBrakePads     
-            - ReplaceTheRemoteControlBattery   
-            - RetractableRoofMechanismFault   
-            - RightBrakeLampFault     
-            - RightFrontDoorOpenLowSpeed    
-            - RightFrontDoorOpen     
-            - RightFrontTirePressurSensorFault  
-            - RightFrontTirePuncture    
-            - RightFrontTireUnderInflated    
-            - RightRearDoorOpen     
-            - RightRearDoorOpenLowSpeed 
-            - RightRearTirePressurSensorFault   
-            - RightRearTirePuncture    
-            - RightRearTireUnderInflated    
-            - RightReverseLampFault     
-            - RiskOfIce     
-            - RoofOperationNotPossibleSpeedUnknown
-            - RoofOperationNotPossibleTooHighTemp
-            - ShiftToPark     
-            - SteeringLockFault     
-            - SuspensionFault     
-            - SuspensionFaultLimitSpeed
-            - SuspensionFaultRepaireVehicle
-            - TireUnderInflationDetectionSystemFault  
-            - TooManyRoofOperation
-            - TrailerConnectionFault    
-            - TrunkOrHoodOpen     
-            - TrunkOrHoodOpenLowSpeed
-            - WaterInTheDieselFuelFilter  
+        - AbsBrakingSystemFault    
+        - ActiveSpoilerFault    
+        - AdBlueFault     
+        - AdBlueFaultStartingImpossible   
+        - AdBlueFaultStartingImpossibleSoon  
+        - AddWasherFluid     
+        - AirbagOrSeatBeltPretensionerOrActiveHoodFailure 
+        - AssistanceButtonFault    
+        - AutomaticBrakingDeactivated   
+        - AutomaticHeadlightAdjustmentFault   
+        - BatteryChargeOrElectricalCircuitSystemFailure 
+        - BrakingSystemFailure    
+        - ChargingFailure     
+        - CheckTheCenterBrakeLamp    
+        - CollisionDetectionSystemFault   
+        - CollisionMitigationSystemFault   
+        - CoolantLevellow     
+        - DrivingAssistanceSensorBlind   
+        - ElectricTractionSystemFailureLimitSpeed
+        - ElectricTractionSystemFailureStopVehicle
+        - ElectricTractionSystemFault
+        - ElectronicImmobiliserFault    
+        - EmissionSystemOrAdBlueQualityFailueStartingImpossible
+        - EmissionSystemOrAdBlueQualityFailueStartingImpossibleSoon
+        - EmissionSystemOrAdBlueQualityFailure  
+        - EngineFailure     
+        - EngineFault
+        - EngineMisfiringFuel
+        - EngineOilPressureFailure    
+        - EngineTemperatureFailure    
+        - EspAsrSystemFault     
+        - FrontLeftFlashingIndicatorFault   
+        - FrontLeftFogLampsFault     
+        - FrontLeftParkingLampsFault     
+        - FrontRightFlashingIndicatorFault   
+        - FrontRightFogLampsFault     
+        - FrontRightParkingLampsFault     
+        - FuelLevelLow     
+        - GearboxFault     
+        - HeadlightsFault     
+        - InstalledSpareWheelFault   
+        - InterVehicleTimeMeasurementFault  
+        - LaneChangeAssistanceFault     
+        - LaneDepartureWarningSystemFault   
+        - LeftBrakeLampFault  
+        - LeftFrontDoorOpen     
+        - LeftFrontDoorOpenLowSpeed 
+        - LeftFrontTirePressurSensorFault   
+        - LeftFrontTirePuncture    
+        - LeftFrontTireUnderInflated    
+        - LeftRearDoorOpen     
+        - LeftRearDoorOpenLowSpeed
+        - LeftRearTirePressurSensorFault   
+        - LeftRearTirePuncture    
+        - LeftRearTireUnderInflated    
+        - LeftReverseLampFault     
+        - OilLevelLow      
+        - ParkAssistSystemFault    
+        - ParkingBrakeOrHillStartSystemFailure  
+        - ParticleFilterAdditiveLevelTooLow   
+        - ParticleFilterFull     
+        - ParticleFilterRegenerating    
+        - PowerSteeringFailure    
+        - PowerSteeringFault    
+        - PreheatingPreventilationDeactivatedBatteryLow 
+        - PreheatingPreventilationDeactivatedClockUnset 
+        - PreheatingPreventilationDeactivatedFuelLevelLow 
+        - RearLeftFlashingIndicatorFault   
+        - RearLeftFogLampsFault     
+        - RearLeftParkingLampsFault     
+        - RearRightFlashingIndicatorFault   
+        - RearRightFogLampsFault     
+        - RearRightParkingLampsFault     
+        - RearWindowOpen     
+        - RearWindowOpenLowSpeed
+        - ReplaceBrakePads     
+        - ReplaceTheRemoteControlBattery   
+        - RetractableRoofMechanismFault   
+        - RightBrakeLampFault     
+        - RightFrontDoorOpenLowSpeed    
+        - RightFrontDoorOpen     
+        - RightFrontTirePressurSensorFault  
+        - RightFrontTirePuncture    
+        - RightFrontTireUnderInflated    
+        - RightRearDoorOpen     
+        - RightRearDoorOpenLowSpeed 
+        - RightRearTirePressurSensorFault   
+        - RightRearTirePuncture    
+        - RightRearTireUnderInflated    
+        - RightReverseLampFault     
+        - RiskOfIce     
+        - RoofOperationNotPossibleSpeedUnknown
+        - RoofOperationNotPossibleTooHighTemp
+        - ShiftToPark     
+        - SteeringLockFault     
+        - SuspensionFault     
+        - SuspensionFaultLimitSpeed
+        - SuspensionFaultRepaireVehicle
+        - TireUnderInflationDetectionSystemFault  
+        - TooManyRoofOperation
+        - TrailerConnectionFault    
+        - TrunkOrHoodOpen     
+        - TrunkOrHoodOpenLowSpeed
+        - WaterInTheDieselFuelFilter  
+      example : FuelLevelLow 
 
     
     TelemetryEnum:
@@ -3102,7 +3200,6 @@ components:
       type: string
       pattern: \d+-\d*
       default: 0-
- 
       description: >
         value range
     
@@ -3187,7 +3284,6 @@ components:
               - value  
               - type
             example:
-              
               type: Header
               key: X-Vehicle_Id
               value: $vin
@@ -3218,7 +3314,6 @@ components:
     
     PushNotifAttribute:
       allOf:
-        - $ref: '#/components/schemas/Attribute'
         - properties:
               type:
                 type: string
@@ -3240,6 +3335,9 @@ components:
                             | Key   |      Category      |  Description |  Format |
                             |----------|:-------------:|------:|------:| 
                             | disableNotificationPayload | iOS, Android and WebPush |If set to true, will remove ```notification ``` payload from the Firebase body when sending event message to Firebase. | ```"true"``` or  ```"false"```|
+                            | deliveryPriority |iOS, Android and WebPush only|Define the message delivery priority for Android and WebPush platforms. It will be mapped on the FCM field: (Android > ```"priority"```), (iOS > ```"apns-priority"```) and (WebPush > ```"Urgency"```). |```"low"```, ```"normal"``` or  ```"high"```. (<b>note:</b> ```"low"``` will be mapped on normal (lowest level) on android and web push platforms)|
+                            | mutable | iOS only|Set the apns payload mutable or not.  It will be mapped on the FCM field ```"mutable-content"```. For more details, see [FCM Protocol](https://firebase.google.com/docs/cloud-messaging/http-server-ref).  |```"true"``` or  ```"false"```|
+                            | contentAvailable |iOS only |this field to represent ```"content-available"``` in the APNs payload. It's used (<i>true value</i>) to wakeup an inactive client app. For more details, see [FCM Protocol](https://firebase.google.com/docs/cloud-messaging/http-server-ref)|```"true"``` or  ```"false"```|                            
                             | title | iOS, Android and WebPush |Title of the notification|not empty string|
                             | body | iOS, Android and WebPush|The notification's body text|not empty string|
                             | image| iOS, Android and WebPush |URL of the image displayed in a notification |not empty URL string [RFC 3986](https://tools.ietf.org/html/rfc3986)  (scheme://host[:port][/Path]|
@@ -4012,7 +4110,8 @@ components:
             immediate:
               type: boolean
               default: false
-              description :  Determines whether air conditioning will start immediately or not independently if scheduled ```programs``` are set or not. Set to "false" by default..
+              description :  Determines whether air conditioning will start immediately or not independently if scheduled ```programs``` are set or not. Set to "false" by default.
+              example : false
             programs:
               description : List of air conditioning programs to schedule on vehicle.
               type: array
@@ -4049,6 +4148,7 @@ components:
                         type: string
                         enum: [Delete, Set]
                         default: Set
+                        example: Set
       required : [airConditioning]
           
     RemoteDoorsState:
@@ -4061,9 +4161,11 @@ components:
         state:
               type: string
               enum: [Unlocked, Locked]
+              example : Unlocked
         forced:
               deprecated: true
               type: boolean
+              example : true
               
       required: [state]
           
@@ -4081,6 +4183,7 @@ components:
               type: string
               description : Activate or unactivate this remote horn.
               enum: [Activated,Unactivated]
+              example : Activated
       required: [state]
     
     Remote:
@@ -4130,11 +4233,12 @@ components:
     CallbackStatus:
       type: string
       enum: [Running, Paused, Failed]
+      example : Running
       
     RemoteActionStatus:
       type: string
       enum: [Accepted, Failed, Success, AlreadyDone, WakingUpVehicle, CheckingVehicle, SentToVehicle, VehicleBatteryChargeTooLow,TooManyWakeUpsOverMonth]
-   
+      example : Accepted
     RemoteRef: 
       type: object
       properties:
@@ -4247,6 +4351,7 @@ components:
           status:
             type: string
             enum: [Running, Paused]
+            example : Running
  
     RemoteFailedEventStatus:
       description: | 
@@ -4329,6 +4434,7 @@ components:
             description: Define whether the vehicle alarm is active or not.
             type: string
             enum: [Inactive, Active]
+            example : Active
       required: [activation]
         
     BaseAlarm:

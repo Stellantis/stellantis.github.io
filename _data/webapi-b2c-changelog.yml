@@ -1,5 +1,18 @@
-- version: "4.15.1"
+- version: "4.16.0"
   availability: in_use
+  release_date: 25 Jan 2024
+  description: |-
+    **Trips API**
+    - Add /user/vehicles/{id}/trips
+    - Add /user/vehicles/{id}/trips/{tid}
+
+    **Callbacks API**
+    - Update push notification attribute list & description
+
+    **Others**
+    - Complete missing examples
+- version: "4.15.1"
+  availability: not_in_use
   release_date: 28 Nov 2023
   description: |-
     Status API :

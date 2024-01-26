@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://client.base.uri/root'
 info:
-  version: '4.15.1'
+  version: '4.16.0'
   title: Groupe PSA Connected Car API
   description: | 
 
