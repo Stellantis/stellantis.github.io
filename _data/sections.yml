@@ -19,8 +19,6 @@
               path: remotes/
             - name: Monitoring & Notification
               path: monitors/
-            - name: Data Catalog
-              path: data-catalog/
 - tag: webapi
   path: /webapi/
   name: Web API
@@ -140,6 +138,16 @@
               path: references/
             - name: Changelog
               path: changelog/
+    - tag: catalog
+      path: catalog/
+      name: Catalog
+      nameUpcase: CATALOG
+      categories:
+        - name:
+          path:
+          pages: 
+            - name: Data Catalog
+              path: data-catalog/
 - tag: webportal
   path: /webportal/
   name: Embedded Webportal
