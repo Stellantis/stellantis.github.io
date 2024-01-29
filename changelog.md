@@ -113,8 +113,8 @@ Version|Name
 {% include published_on.html date='26 Jan 2024' %}
 
 **Web API:**
-- v3.17.1
-- v4.15.1
+- v3.18.0
+- v4.16.0
 
 **Data Catalog:**
 - Data Catalog in Web API
