@@ -2,7 +2,7 @@ schema_version: "1.2.0"
 info:
   title: Stellantis Connected Vehicles Data Catalog
   description: Stellantis Connected Vehicles Data Catalog
-  version: 2.3.1
+  version: 2.4.1
 data:
 - name: Alert severity
   domain: alert
@@ -2255,7 +2255,9 @@ data:
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
-      webapi_b2c_v4: false
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
     vehicle_types:
       ICE: true
       BEV: true
@@ -2273,7 +2275,9 @@ data:
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
-      webapi_b2c_v4: false
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
     vehicle_types:
       ICE: true
       BEV: true
@@ -2292,7 +2296,9 @@ data:
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
-      webapi_b2c_v4: false
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
     vehicle_types:
       ICE: true
       BEV: true
@@ -2312,7 +2318,9 @@ data:
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
-      webapi_b2c_v4: false
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
     vehicle_types:
       ICE: true
       BEV: true
@@ -2329,7 +2337,9 @@ data:
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
-      webapi_b2c_v4: false
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
     vehicle_types:
       ICE: true
       BEV: true
@@ -2350,14 +2360,16 @@ data:
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
-      webapi_b2c_v4: false
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
     vehicle_types:
       ICE: true
       BEV: true
       PHEV: true
       FCEV: true
 - name: Trip start timestamp
-  domain: alert
+  domain: trip
   description: Time when the trip started.
   type: string
   scope:
@@ -2368,14 +2380,16 @@ data:
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
-      webapi_b2c_v4: false
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
     vehicle_types:
       ICE: true
       BEV: true
       PHEV: true
       FCEV: true
 - name: Trip stop timestamp
-  domain: alert
+  domain: trip
   description: Time when the trip stopped.
   type: string
   scope:
@@ -2386,7 +2400,143 @@ data:
       webapi_b2b_v3:
         - "getFleetTripsById"
         - "getTripsByVehicle"
-      webapi_b2c_v4: false
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip start mileage
+  domain: trip
+  description: Mileage when the trip started.
+  type: number
+  scope:
+    - data:trip
+  unit: kilometers
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip start energy
+  domain: trip
+  description: Informations about vehicle energy (type, level, autonomy) when the trip started.
+  type: object
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip end energy
+  domain: trip
+  description: Informations about vehicle energy (type, level, autonomy) when the trip stopped.
+  type: object
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip energy consumption
+  domain: trip
+  description: Informations about vehicle energy (type, consumption) when the trip stopped.
+  type: object
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip average speed
+  domain: trip
+  description: Vehicle average speed during the trip.
+  type: number
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip max speed
+  domain: trip
+  description: Vehicle max speed during the trip.
+  type: number
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip energy ratio
+  domain: trip
+  description: Proportion and distance of all energy type used during the trip.
+  type: array
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
     vehicle_types:
       ICE: true
       BEV: true
@@ -2394,7 +2544,7 @@ data:
       FCEV: true
 - name: Trip alerts
   domain: trip
-  description: Alerts related to a trip. See alerts for more info. 2 to 3 values, longitudelatitude and altitude."
+  description: Alerts related to a trip. See alerts for more info.
   type: array
   scope:
     - data:trip
