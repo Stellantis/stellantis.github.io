@@ -1,0 +1,3326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Changelog | Stellantis for Developers</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Changelog | Stellantis for Developers">
+    <meta property="og:url" content="https://developer.groupe-psa.io/changelog/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="Stellantis developer portal's version changelog.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Changelog | Stellantis for Developers">
+    <meta name="twitter:description" content="Stellantis developer portal's version changelog.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Stellantis developer portal's version changelog." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/changelog/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS --><!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header no-header-body">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title " id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+    </section><section id="article" class="unboxed">
+
+    <main><div class="unboxed-page-header">
+
+            <div class="unboxed-page-title-container">
+                
+                <span>
+                    <h1 class="unboxed-page-title">
+                        Changelog
+                    </h1>
+                </span>
+
+                
+
+            </div>
+
+            <p class="unboxed-page-subtext">
+                
+                    Stellantis developer portal's version changelog.
+                
+            </p>
+
+        </div>
+
+        <div class="content">
+    <div>
+        
+        <div class="notification page-disclaimer">
+<p>
+    <strong>Changelogs:</strong> This changelog details the history of modifications of this website. 
+    You might also be interested in the changelog of <a href="/webapi/b2b/api-reference/changelog/#article"> Web API B2B v3</a> and <a href="/mobile-sdk/references/changelog/#article">Mobile SDK</a>.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Version</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#1241">12.4.1</a></td>
+      <td>Data catalog: update trip data</td>
+    </tr>
+    <tr>
+      <td><a href="#1240">12.4.0</a></td>
+      <td>Web API: v3.18.0 &amp; 4.16.0</td>
+    </tr>
+    <tr>
+      <td><a href="#1231">12.3.1</a></td>
+      <td>Web API: fix references 4.15.1</td>
+    </tr>
+    <tr>
+      <td><a href="#1230">12.3.0</a></td>
+      <td>Web API: v3.17.1 &amp; 4.15.1</td>
+    </tr>
+    <tr>
+      <td><a href="#1220">12.2.0</a></td>
+      <td>Web API: Remote &amp; Monitors tutorials</td>
+    </tr>
+    <tr>
+      <td><a href="#1211">12.1.1</a></td>
+      <td>Web API: Fix Changelog Fleet Owner</td>
+    </tr>
+    <tr>
+      <td><a href="#1210">12.1.0</a></td>
+      <td>Web API End User v4.10.1 &amp; Data Catalog 2.2.2</td>
+    </tr>
+    <tr>
+      <td><a href="#1201">12.0.1</a></td>
+      <td>Web API - End User: fix scopes &amp; monitor/remote</td>
+    </tr>
+    <tr>
+      <td><a href="#1200">12.0.0</a></td>
+      <td>Web API: Documentation Update End-User</td>
+    </tr>
+    <tr>
+      <td><a href="#1141">11.4.1</a></td>
+      <td>Website: update data catalog</td>
+    </tr>
+    <tr>
+      <td><a href="#1140">11.4.0</a></td>
+      <td>Web API: v3.13.0</td>
+    </tr>
+    <tr>
+      <td><a href="#1131">11.3.1</a></td>
+      <td>Fix misprint</td>
+    </tr>
+    <tr>
+      <td><a href="#1130">11.3.0</a></td>
+      <td>Web API: v3.11.0</td>
+    </tr>
+    <tr>
+      <td><a href="#1120">11.2.0</a></td>
+      <td>Mobile SDK v2.3 &amp; fix Data Catalog</td>
+    </tr>
+    <tr>
+      <td><a href="#1110">11.1.0</a></td>
+      <td>Web API: Remove Web API v2</td>
+    </tr>
+    <tr>
+      <td><a href="#1100">11.0.0</a></td>
+      <td>Multi version ref &amp; Mobile SDK v2.2 &amp; update WebPortal ref</td>
+    </tr>
+    <tr>
+      <td><a href="#1020">10.2.0</a></td>
+      <td>Web API: v3.8.0</td>
+    </tr>
+    <tr>
+      <td><a href="#1010">10.1.0</a></td>
+      <td>Web API: v3.7.0</td>
+    </tr>
+    <tr>
+      <td><a href="#1000">10.0.0</a></td>
+      <td>Website, WebPortal, Mobile SDK v2.1</td>
+    </tr>
+    <tr>
+      <td><a href="#920">9.2.0</a></td>
+      <td>Web API: v3.5.0</td>
+    </tr>
+    <tr>
+      <td><a href="#911">9.1.1</a></td>
+      <td>Mobile SDK: fix api ref</td>
+    </tr>
+    <tr>
+      <td><a href="#910">9.1.0</a></td>
+      <td>Web API: v3.3.0 &amp; v2.2.0</td>
+    </tr>
+    <tr>
+      <td><a href="#902">9.0.2</a></td>
+      <td>WebPortal: v1 share of waves &amp; v2 update setting.language</td>
+    </tr>
+    <tr>
+      <td><a href="#901">9.0.1</a></td>
+      <td>Mobile SDK: add local in pims.authentication.user</td>
+    </tr>
+    <tr>
+      <td><a href="#900">9.0.0</a></td>
+      <td>Mobile SDK</td>
+    </tr>
+    <tr>
+      <td><a href="#811">8.1.1</a></td>
+      <td>WebPortal Updates Ref &amp; Articles v1/v2</td>
+    </tr>
+    <tr>
+      <td><a href="#810">8.1.0</a></td>
+      <td>Web API B2B v3.2.0</td>
+    </tr>
+    <tr>
+      <td><a href="#801">8.0.1</a></td>
+      <td>Remove 404 page from sitemap</td>
+    </tr>
+    <tr>
+      <td><a href="#800">8.0.0</a></td>
+      <td>Rename Stellantis for Developers</td>
+    </tr>
+    <tr>
+      <td><a href="#720">7.2.0</a></td>
+      <td>Connected Vehicles: Add Access Requirements</td>
+    </tr>
+    <tr>
+      <td><a href="#710">7.1.0</a></td>
+      <td>Web API B2B v2.1.1 &amp; v3.1.1</td>
+    </tr>
+    <tr>
+      <td><a href="#701">7.0.1</a></td>
+      <td>Web API: Add &amp; fix remotes info (charge, horn, lights)</td>
+    </tr>
+    <tr>
+      <td><a href="#700">7.0.0</a></td>
+      <td>Release WebPortal V2 References</td>
+    </tr>
+    <tr>
+      <td><a href="#6100">6.10.0</a></td>
+      <td>Web API B2B v2.1.0 &amp; v3.1.0</td>
+    </tr>
+    <tr>
+      <td><a href="#694">6.9.4</a></td>
+      <td>Data catalog: update pace &amp; speed units</td>
+    </tr>
+    <tr>
+      <td><a href="#693">6.9.3</a></td>
+      <td>Web API: rate limit info</td>
+    </tr>
+    <tr>
+      <td><a href="#692">6.9.2</a></td>
+      <td>Web API B2B v2.0.8 &amp; v3.0.9: fix swagger</td>
+    </tr>
+    <tr>
+      <td><a href="#691">6.9.1</a></td>
+      <td>Web API B2B v2.0.8 &amp; v3.0.9</td>
+    </tr>
+    <tr>
+      <td><a href="#690">6.9.0</a></td>
+      <td>Add Remote Nav + Add Monitor &amp; Remote in connected vehicle</td>
+    </tr>
+    <tr>
+      <td><a href="#681">6.8.1</a></td>
+      <td>Website: Add Contact Form</td>
+    </tr>
+    <tr>
+      <td><a href="#680">6.8.0</a></td>
+      <td>Web API: Update Retry Policy (TTL 3 days)</td>
+    </tr>
+    <tr>
+      <td><a href="#670">6.7.0</a></td>
+      <td>Web API: ADD notifications &amp; error page + response to notif</td>
+    </tr>
+    <tr>
+      <td><a href="#660">6.6.0</a></td>
+      <td>Web API: Add retry policy page</td>
+    </tr>
+    <tr>
+      <td><a href="#650">6.5.0</a></td>
+      <td>Web API B2B v2.0.7 &amp; v3.0.8</td>
+    </tr>
+    <tr>
+      <td><a href="#640">6.4.0</a></td>
+      <td>Update data catalog: data &amp; layout &amp; filters</td>
+    </tr>
+    <tr>
+      <td><a href="#630">6.3.0</a></td>
+      <td>Web API B2B v2.0.6 &amp; v3.0.7 / Update Menu &amp; page title / Matomo</td>
+    </tr>
+    <tr>
+      <td><a href="#621">6.2.1</a></td>
+      <td>Fix Web API B2B specification update v2.0.5 / v3.0.6</td>
+    </tr>
+    <tr>
+      <td><a href="#620">6.2.0</a></td>
+      <td>Web API B2B specification update v2.0.5 / v3.0.6</td>
+    </tr>
+    <tr>
+      <td><a href="#610">6.1.0</a></td>
+      <td>Web API B2B v2 / v3 : Production URL</td>
+    </tr>
+    <tr>
+      <td><a href="#600">6.0.0</a></td>
+      <td>Connected-Vehicles&gt;APIs + layouts + components</td>
+    </tr>
+    <tr>
+      <td><a href="#580">5.8.0</a></td>
+      <td>Add Data-Catalog</td>
+    </tr>
+    <tr>
+      <td><a href="#571">5.7.1</a></td>
+      <td>Fix spec Web API v2: consumption</td>
+    </tr>
+    <tr>
+      <td><a href="#570">5.7.0</a></td>
+      <td>Update spec Web API v2 &amp; v3: naming &amp; enums</td>
+    </tr>
+    <tr>
+      <td><a href="#561">5.6.1</a></td>
+      <td>Fix about monitor</td>
+    </tr>
+    <tr>
+      <td><a href="#560">5.6.0</a></td>
+      <td>Update Web API Webhook spec v2</td>
+    </tr>
+    <tr>
+      <td><a href="#550">5.5.0</a></td>
+      <td>Update Web API Specification 3.0.4</td>
+    </tr>
+    <tr>
+      <td><a href="#540">5.4.0</a></td>
+      <td>Update Specification 2.0.4-P5</td>
+    </tr>
+    <tr>
+      <td><a href="#531">5.3.1</a></td>
+      <td>Fix Specification 2.0.4-P4 &amp; 3.0.3</td>
+    </tr>
+    <tr>
+      <td><a href="#530">5.3.0</a></td>
+      <td>Web API B2B Specification update 2.0.4-P4 &amp; 3.0.3 &amp; URLs</td>
+    </tr>
+    <tr>
+      <td><a href="#521">5.2.1</a></td>
+      <td>Web API B2B Specification</td>
+    </tr>
+    <tr>
+      <td><a href="#512">5.1.2</a></td>
+      <td>Fix version mismatch</td>
+    </tr>
+    <tr>
+      <td><a href="#511">5.1.1</a></td>
+      <td>Fix typos in WebPortal</td>
+    </tr>
+    <tr>
+      <td><a href="#510">5.1.0</a></td>
+      <td>Split Web API v2 &amp; v3</td>
+    </tr>
+    <tr>
+      <td><a href="#502">5.0.2</a></td>
+      <td>Fix fairlytics</td>
+    </tr>
+    <tr>
+      <td><a href="#501">5.0.1</a></td>
+      <td>Fix lunr &amp; specification page layout</td>
+    </tr>
+    <tr>
+      <td><a href="#500">5.0.0</a></td>
+      <td>New page &amp; navbar design / Jekyll file structure</td>
+    </tr>
+    <tr>
+      <td><a href="#411">4.1.1</a></td>
+      <td>Fairlytics</td>
+    </tr>
+    <tr>
+      <td><a href="#410">4.1.0</a></td>
+      <td>New section: connected vehicle / SEO / 404 page / Breadcrumb</td>
+    </tr>
+    <tr>
+      <td><a href="#400">4.0.0</a></td>
+      <td>Spec B2B v3.0.0 / Tuto Web API / Redoc /  New Navbar</td>
+    </tr>
+    <tr>
+      <td><a href="#340">3.4.0</a></td>
+      <td>Remove Yammer</td>
+    </tr>
+    <tr>
+      <td><a href="#330">3.3.0</a></td>
+      <td>Update website page design</td>
+    </tr>
+    <tr>
+      <td><a href="#320">3.2.0</a></td>
+      <td>Content in section directory (Jekyll)</td>
+    </tr>
+    <tr>
+      <td><a href="#311">3.1.1</a></td>
+      <td>Code highlighter display update.</td>
+    </tr>
+    <tr>
+      <td><a href="#310">3.1.0</a></td>
+      <td>Spec Update &amp; doc update Web API B2B &amp; B2C</td>
+    </tr>
+    <tr>
+      <td><a href="#301">3.0.1</a></td>
+      <td>Fix connect page Web API B2C</td>
+    </tr>
+    <tr>
+      <td><a href="#300">3.0.0</a></td>
+      <td>Add Web API B2C section &amp; Demo Web API</td>
+    </tr>
+    <tr>
+      <td><a href="#241">2.4.1</a></td>
+      <td>Fix URL Web API B2B / Readme</td>
+    </tr>
+    <tr>
+      <td><a href="#240">2.4.0</a></td>
+      <td>Update specification + Monitor Web API B2B</td>
+    </tr>
+    <tr>
+      <td><a href="#230">2.3.0</a></td>
+      <td>Add APIs + fix in WebPortal</td>
+    </tr>
+    <tr>
+      <td><a href="#220">2.2.0</a></td>
+      <td>Update Jekyll architecture &amp; Add Yammer</td>
+    </tr>
+    <tr>
+      <td><a href="#213">2.1.3</a></td>
+      <td>Update specification Web API B2B</td>
+    </tr>
+    <tr>
+      <td><a href="#212">2.1.2</a></td>
+      <td>Update specification Web API B2B v2.0.3</td>
+    </tr>
+    <tr>
+      <td><a href="#211">2.1.1</a></td>
+      <td>Add HAL in preview Web API B2B</td>
+    </tr>
+    <tr>
+      <td><a href="#201">2.1.0</a></td>
+      <td>Add authentication in Web API B2B</td>
+    </tr>
+    <tr>
+      <td><a href="#200">2.0.0</a></td>
+      <td>Add Web API B2B section</td>
+    </tr>
+    <tr>
+      <td><a href="#122">1.2.2</a></td>
+      <td>Fix WebPortal API</td>
+    </tr>
+    <tr>
+      <td><a href="#121">1.2.1</a></td>
+      <td>Fix WebPortal API</td>
+    </tr>
+    <tr>
+      <td><a href="#120">1.2.0</a></td>
+      <td>Add Edit w/ GitHub</td>
+    </tr>
+    <tr>
+      <td><a href="#110">1.1.0</a></td>
+      <td>Add Search function</td>
+    </tr>
+    <tr>
+      <td><a href="#010">1.0.0</a></td>
+      <td>Add WebPortal section</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="1241">12.4.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      30 Jan 2024
+    </span>
+</div>
+
+<p><strong>Data Catalog:</strong></p>
+<ul>
+  <li>Add trip data for webapi v3.18.0 &amp; 4.16.0</li>
+</ul>
+
+<hr />
+
+<h2 id="1240">12.4.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      26 Jan 2024
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v3.18.0</li>
+  <li>v4.16.0</li>
+</ul>
+
+<p><strong>Data Catalog:</strong></p>
+<ul>
+  <li>Data Catalog in Web API</li>
+  <li>Vue JS visualization: refactoring &amp; add filters</li>
+  <li>Update data source</li>
+</ul>
+
+<hr />
+
+<h2 id="1231">12.3.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      7 Dec 2023
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>Fix References v4.15.1</li>
+</ul>
+
+<p><strong>Connected Vehicles:</strong></p>
+<ul>
+  <li>Fix “WEB API for Accessing Party for End-Users”</li>
+  <li>Remove Access Requirements (outdated)</li>
+</ul>
+
+<hr />
+
+<h2 id="1230">12.3.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Nov 2023
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v3.17.1</li>
+  <li>v4.15.1</li>
+  <li>Renaming “WEB API for Accessing Party for End-Users”</li>
+  <li>Webapi v4: documentation fixes</li>
+  <li>YAML Changelog</li>
+</ul>
+
+<p><strong>Mobile SDK &amp; Webportal:</strong></p>
+<ul>
+  <li>Minor fixes &amp; improvements</li>
+</ul>
+
+<p><strong>Website:</strong></p>
+<ul>
+  <li>Updated Footer Links</li>
+</ul>
+
+<hr />
+
+<h2 id="1220">12.2.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      15 Noc 2023
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>Remote &amp; Monitors updated tutorials</li>
+</ul>
+
+<hr />
+
+<h2 id="1220-1">12.2.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      15 Noc 2023
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>Remote &amp; Monitors updated tutorials</li>
+</ul>
+
+<hr />
+
+<h2 id="1211">12.1.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      24 Oct 2023
+    </span>
+</div>
+
+<p><strong>Web API Fleet Owner:</strong></p>
+<ul>
+  <li>Fix Changelog</li>
+</ul>
+
+<hr />
+
+<h2 id="1210">12.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      23 Oct 2023
+    </span>
+</div>
+
+<p><strong>Web API for End Users:</strong></p>
+<ul>
+  <li>Update to v4.10.1</li>
+</ul>
+
+<p><strong>Data Catalog</strong></p>
+<ul>
+  <li>Update to v2.2.2</li>
+</ul>
+
+<hr />
+
+<h2 id="1201">12.0.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      17 Oct 2023
+    </span>
+</div>
+
+<p><strong>Web API: End User</strong></p>
+<ul>
+  <li>fix scope <code class="language-plaintext highlighter-rouge">remote:wakeup:write</code></li>
+  <li>temporarily remove monitors &amp; remote tutorials</li>
+</ul>
+
+<hr />
+
+<h2 id="1200">12.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      11 Oct 2023
+    </span>
+</div>
+
+<p><strong>Web API</strong></p>
+<ul>
+  <li>Documentation Update End-User</li>
+</ul>
+
+<hr />
+
+<h2 id="1141">11.4.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      3 Oct 2023
+    </span>
+</div>
+
+<p><strong>Data Catalog:</strong></p>
+<ul>
+  <li>Source file update</li>
+  <li>Layout update</li>
+  <li>Add availability links (multi-entries)</li>
+</ul>
+
+<hr />
+
+<h2 id="1140">11.4.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      20 Jul 2023
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v3.13.0</li>
+</ul>
+
+<hr />
+
+<h2 id="1131">11.3.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      15 May 2023
+    </span>
+</div>
+
+<p><strong>Website:</strong></p>
+<ul>
+  <li>Misprint</li>
+</ul>
+
+<hr />
+
+<h2 id="1130">11.3.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      27 Apr 2023
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v3.11.0</li>
+</ul>
+
+<hr />
+
+<h2 id="1120">11.2.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      25 Apr 2023
+    </span>
+</div>
+
+<p><strong>Mobile SDK</strong></p>
+<ul>
+  <li>v2.3</li>
+</ul>
+
+<p><strong>Data Catalog</strong></p>
+<ul>
+  <li>Fix source file.</li>
+</ul>
+
+<hr />
+
+<h2 id="1110">11.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      20 Apr 2023
+    </span>
+</div>
+
+<p><strong>Web API</strong></p>
+<ul>
+  <li>Remove Web API v2</li>
+</ul>
+
+<hr />
+
+<h2 id="1100">11.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      07 Mar 2023
+    </span>
+</div>
+
+<p><strong>API Reference:</strong></p>
+<ul>
+  <li>Multi versions reference system</li>
+  <li>New/updated tag</li>
+  <li>Mobile SDK URLs are modified</li>
+</ul>
+
+<p><strong>Mobile SDK:</strong></p>
+<ul>
+  <li>v2.2</li>
+</ul>
+
+<p><strong>WebPortal</strong></p>
+<ul>
+  <li>Reference update</li>
+</ul>
+
+<hr />
+
+<h2 id="1020">10.2.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      20 Feb 2023
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v3.8.0</li>
+</ul>
+
+<hr />
+
+<h2 id="1010">10.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      29 Nov 2022
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v3.7.0</li>
+</ul>
+
+<hr />
+
+<h2 id="1000">10.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      24 Oct 2022
+    </span>
+</div>
+
+<p><strong>Mobile SDK:</strong></p>
+<ul>
+  <li>v2.1.x</li>
+  <li>links between references &amp; tutorials</li>
+</ul>
+
+<p><strong>WebPortal</strong>:</p>
+<ul>
+  <li>tutorial re-writing</li>
+</ul>
+
+<p><strong>WebPortal v1</strong></p>
+<ul>
+  <li>update popup ref</li>
+  <li>update app file structure (quickstart)</li>
+  <li>add postmessage / app.open apis</li>
+</ul>
+
+<p><strong>Website:</strong></p>
+<ul>
+  <li>File structure update</li>
+  <li>API reference generation &amp; design</li>
+  <li>code sample</li>
+  <li>search opens new page</li>
+</ul>
+
+<hr />
+
+<h2 id="920">9.2.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      14 Oct 2022
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v3.5.0</li>
+</ul>
+
+<hr />
+
+<h2 id="911">9.1.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      6 Jul 2022
+    </span>
+</div>
+
+<p><strong>Mobile SDK:</strong></p>
+<ul>
+  <li>pims.authentication.account-isaccountblocked: data isAccountBlocked is an enum, not a bool</li>
+  <li>pims.vehicle.destination-coordinate: address is not a valid param</li>
+</ul>
+
+<hr />
+
+<h2 id="910">9.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      23 Jun 2022
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v2.2.0</li>
+  <li>v3.3.0</li>
+</ul>
+
+<p><strong>WebPortal v2:</strong></p>
+<ul>
+  <li>remove cea.uin</li>
+</ul>
+
+<hr />
+
+<h2 id="902">9.0.2</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      20 Jun 2022
+    </span>
+</div>
+
+<p><strong>WebPortal v1:</strong></p>
+<ul>
+  <li>update share of waves tables</li>
+</ul>
+
+<p><strong>WebPortal v2:</strong></p>
+<ul>
+  <li>update settings.language (regionSubtag)</li>
+</ul>
+
+<hr />
+
+<h2 id="901">9.0.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      07 Jun 2022
+    </span>
+</div>
+
+<p><strong>Mobile SDK:</strong></p>
+<ul>
+  <li>add parameter loacl in pims.authentication.user APIs</li>
+</ul>
+
+<hr />
+
+<h2 id="900">9.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      01 Jun 2022
+    </span>
+</div>
+
+<p><strong>Mobile SDK:</strong></p>
+<ul>
+  <li>documentation first release</li>
+  <li>ref v2.0.X</li>
+  <li>tutorials: overview, security, features (vhcl status, remote commands, trips, send nav, ami&amp;rocks-e)</li>
+</ul>
+
+<p><strong>Website:</strong></p>
+<ul>
+  <li>font size weight case in menu &amp; nav</li>
+  <li>output ref in dedicated pages (mobile sdk &amp; WebPortal)</li>
+  <li>add lines number in code blocks</li>
+</ul>
+
+<p><strong>WebPortal v1:</strong></p>
+<ul>
+  <li>Device.GetCarBrand values</li>
+</ul>
+
+<p><strong>WebPortal v2:</strong></p>
+<ul>
+  <li>driving.currentGear version</li>
+  <li>settings.language add params regionSubtag</li>
+  <li>code examples in ref</li>
+</ul>
+
+<hr />
+
+<h2 id="811">8.1.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      02 Mar 2022
+    </span>
+</div>
+
+<p><strong>WebPortal v1:</strong></p>
+<ul>
+  <li>get started: Update app structure  &amp; md5</li>
+  <li>fix references:
+    <ul>
+      <li>Device.GetCarBrand</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>WebPortal v2:</strong></p>
+<ul>
+  <li>add page infotainment system (screen sizes)</li>
+  <li>add page guidelines (icon sizes)</li>
+  <li>fix references:
+    <ul>
+      <li>app.loadingStatus</li>
+      <li>app.visibilityState</li>
+      <li>engine.batteryPercentageOfTripMileage &gt; engine.batteryTripMileage</li>
+      <li>engine.tripBatteryConsumptionAverage &gt; engine.tripBatteryConsumption</li>
+      <li>mqtt.publish</li>
+      <li>settings.units</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Website:</strong></p>
+<ul>
+  <li>add anchors link in reference list</li>
+</ul>
+
+<hr />
+
+<h2 id="810">8.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      30 Jan 2022
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v3.2.0</li>
+</ul>
+
+<hr />
+
+<h2 id="801">8.0.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      2 Dec 2021
+    </span>
+</div>
+
+<p><strong>Website:</strong></p>
+<ul>
+  <li>remove 404 page from site map (google console)</li>
+</ul>
+
+<hr />
+
+<h2 id="800">8.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      1 Dec 2021
+    </span>
+</div>
+
+<p><strong>Website:</strong></p>
+<ul>
+  <li>rename website &gt; “Stellantis for Developer”</li>
+  <li>update landingpage (reponsive)</li>
+</ul>
+
+<p><strong>WebPortal v1:</strong></p>
+<ul>
+  <li>add popup image</li>
+</ul>
+
+<hr />
+
+<h2 id="720">7.2.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      2 Nov 2021
+    </span>
+</div>
+
+<p><strong>Connected Vehicles:</strong></p>
+<ul>
+  <li>update privacy page</li>
+  <li>add access requirement page (data scope)</li>
+</ul>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>add Data scope page</li>
+</ul>
+
+<hr />
+
+<h2 id="710">7.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      18 Oct 2021
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v2.1.1</li>
+  <li>v3.1.1</li>
+  <li>fix missing remotes info</li>
+</ul>
+
+<hr />
+
+<h2 id="701">7.0.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      30 Sep 2021
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>add stop charg infos</li>
+  <li>fix horn &amp; lights</li>
+</ul>
+
+<hr />
+
+<h2 id="700">7.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      29 Sep 2021
+    </span>
+</div>
+
+<p><strong>WebPortal v2:</strong></p>
+<ul>
+  <li>first release</li>
+</ul>
+
+<p><strong>Website:</strong></p>
+<ul>
+  <li>add reference-list (get set subcribe library)</li>
+</ul>
+
+<hr />
+
+<h2 id="6100">6.10.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Jul 2021
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v2.1.0</li>
+  <li>v3.1.0</li>
+</ul>
+
+<hr />
+
+<h2 id="694">6.9.4</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      19 Jul 2021
+    </span>
+</div>
+
+<p><strong>Data Catalog</strong></p>
+<ul>
+  <li>update speed &amp; pace units</li>
+</ul>
+
+<hr />
+
+<h2 id="693">6.9.3</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      13 Jul 2021
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>add info about rate limit</li>
+</ul>
+
+<hr />
+
+<h2 id="692">6.9.2</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      7 Jul 2021
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v2 &amp; v3: update kinetics + trip duration unit</li>
+</ul>
+
+<hr />
+
+<h2 id="691">6.9.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      25 Jun 2021
+    </span>
+</div>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>v2.0.8</li>
+  <li>v3.0.9</li>
+</ul>
+
+<hr />
+
+<h2 id="690">6.9.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      8 Jun 2021
+    </span>
+</div>
+
+<p><strong>Connected Vehicle</strong></p>
+<ul>
+  <li>Monitor page</li>
+  <li>Remote page</li>
+</ul>
+
+<p><strong>Web API:</strong></p>
+<ul>
+  <li>Add remote navigation feature</li>
+</ul>
+
+<hr />
+
+<h2 id="681">6.8.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      2 Jun 2021
+    </span>
+</div>
+
+<p><strong>Website</strong></p>
+<ul>
+  <li>add <a href="/contact-us/">contact form</a></li>
+</ul>
+
+<hr />
+
+<h2 id="680">6.8.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 May 2021
+    </span>
+</div>
+
+<p><strong>Web API</strong></p>
+<ul>
+  <li>retry policy: remove old algorithm explanation and add the 3 days TTL notice</li>
+</ul>
+
+<hr />
+
+<h2 id="670">6.7.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      20 May 2021
+    </span>
+</div>
+
+<p><strong>Web API</strong></p>
+<ul>
+  <li>remote: add notification &amp; errors page</li>
+  <li>webhook (monitor &amp; remote): add paragraph “response to notification”</li>
+</ul>
+
+<hr />
+
+<h2 id="660">6.6.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      20 Apr 2021
+    </span>
+</div>
+
+<p><strong>Web API</strong></p>
+<ul>
+  <li>add a page explaining retry policy for monitor &amp; remote</li>
+</ul>
+
+<hr />
+
+<h2 id="650">6.5.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      19 Apr 2021
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>v2.0.6</li>
+  <li>v3.0.7</li>
+</ul>
+
+<hr />
+
+<h2 id="640">6.4.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      10 Mar 2021
+    </span>
+</div>
+
+<p><strong>Data Catalog</strong></p>
+
+<ul>
+  <li>update data</li>
+  <li>update layout (psa blue color theme)</li>
+  <li>add filtering &amp; clear filters</li>
+</ul>
+
+<hr />
+
+<h2 id="630">6.3.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      24 Feb 2021
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>v2.0.6</li>
+  <li>v3.0.7</li>
+</ul>
+
+<p><strong>Website</strong></p>
+<ul>
+  <li>Fix footer padding (mobile)</li>
+  <li>Update menu: direct links to spec v2 &amp; v3</li>
+  <li>Page title</li>
+  <li>Add analytics Matomo</li>
+</ul>
+
+<hr />
+
+<h2 id="621">6.2.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      11 Feb 2021
+    </span>
+</div>
+
+<p><strong>Fix Web API B2B</strong></p>
+<ul>
+  <li>v3.0.6 : Fix <em>createdAt</em> instead of <em>updatedAt</em> in model DoorsState &amp; Battery</li>
+</ul>
+
+<hr />
+
+<h2 id="620">6.2.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      9 Feb 2021
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>v2.0.5</li>
+  <li>v3.0.6</li>
+</ul>
+
+<hr />
+
+<h2 id="610">6.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      3 Feb 2021
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>v2 &amp; v3 : production URL</li>
+</ul>
+
+<hr />
+
+<h2 id="600">6.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Jan 2021
+    </span>
+</div>
+
+<p><strong>Website</strong></p>
+<ul>
+  <li>new layouts (connected vehicles)</li>
+  <li>connected-vehicles &gt; Features</li>
+  <li>components (homepage/connected-vehicles)</li>
+  <li>compressed images</li>
+</ul>
+
+<hr />
+
+<h2 id="580">5.8.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Jan 2021
+    </span>
+</div>
+
+<p><strong>Website</strong></p>
+<ul>
+  <li>Add Data-catalog</li>
+</ul>
+
+<hr />
+
+<h2 id="571">5.7.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      18 Jan 2021
+    </span>
+</div>
+
+<p><strong>Web API B2B v2:</strong></p>
+<ul>
+  <li>Fix <code class="language-plaintext highlighter-rouge">Energies&gt;consumption</code> description.</li>
+</ul>
+
+<hr />
+
+<h2 id="570">5.7.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      11 Jan 2021
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>Update spec v2</li>
+  <li>update spec v3</li>
+</ul>
+
+<hr />
+
+<h2 id="561">5.6.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      4 Jan 2021
+    </span>
+</div>
+
+<p><strong>Web API</strong></p>
+<ul>
+  <li>Fix about monitor by removing unnecessary swagger</li>
+</ul>
+
+<hr />
+
+<h2 id="560">5.6.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      3 Dec 2020
+    </span>
+</div>
+
+<p><strong>Web API</strong></p>
+<ul>
+  <li>Fix curl example (missing “&amp;” and “backslash”)
+<strong>Web API B2B</strong></li>
+  <li>Update webhook spec v2</li>
+</ul>
+
+<p><strong>Website</strong></p>
+<ul>
+  <li>Fix navbar (mobile &amp; safari)</li>
+</ul>
+
+<hr />
+
+<h2 id="550">5.5.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      25 Nov 2020
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>Update: 3.0.4</li>
+  <li>Split webhook reference page v2 &amp; v3</li>
+</ul>
+
+<hr />
+
+<h2 id="540">5.4.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      12 Nov 2020
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>Update: 2.0.4-P5</li>
+</ul>
+
+<hr />
+
+<h2 id="531">5.3.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      23 Oct 2020
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>Fix spec update: 2.0.4-P4 &amp; 3.0.3</li>
+</ul>
+
+<hr />
+
+<h2 id="530">5.3.0</h2>
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      16 Oct 2020
+    </span>
+</div>
+
+<p><strong>Web API</strong></p>
+<ul>
+  <li>URLs update</li>
+</ul>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>spec update: 2.0.4-P4 &amp; 3.0.3</li>
+  <li>webhook spec update</li>
+  <li>security schemes</li>
+  <li>version warning in monitor &amp; remote</li>
+</ul>
+
+<p><strong>Website</strong></p>
+<ul>
+  <li>Fix: breadcrumb sections name &amp; links</li>
+</ul>
+
+<hr />
+
+<h2 id="521">5.2.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      21 Sep 2020
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>Specification update: 2.0.4-P4 &amp; 3.0.3</li>
+</ul>
+
+<p><strong>Website</strong></p>
+<ul>
+  <li>Quick fix in breadcrumb (broken link)</li>
+</ul>
+
+<hr />
+
+<h2 id="512">5.1.2</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      16 Sep 2020
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>Fix version mismatch</li>
+</ul>
+
+<hr />
+
+<h2 id="511">5.1.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      16 Sep 2020
+    </span>
+</div>
+
+<p><strong>WebPortal</strong></p>
+<ul>
+  <li>Fix typos</li>
+</ul>
+
+<hr />
+
+<h2 id="510">5.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      4 Sep 2020
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>Split Web API v2 &amp; v3 depending on subscribption.</li>
+  <li>Add Verison page</li>
+  <li>Add changelog v2 &amp; v3</li>
+</ul>
+
+<hr />
+
+<h2 id="502">5.0.2</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      30 Aug 2020
+    </span>
+</div>
+
+<p><strong>Website</strong></p>
+<ul>
+  <li>Fix fairlytics missing link</li>
+</ul>
+
+<hr />
+
+<h2 id="501">5.0.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Aug 2020
+    </span>
+</div>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>Fix specification pages layout</li>
+  <li>Fix lunr results</li>
+</ul>
+
+<hr />
+
+<h2 id="500">5.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Aug 2020
+    </span>
+</div>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>New page design</li>
+  <li>New navbar design</li>
+  <li>Update jekyll files structure</li>
+</ul>
+
+<hr />
+
+<h2 id="411">4.1.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      29 Jul 2020
+    </span>
+</div>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>Add <a href="https://fairlytics.netlify.app/">Fairlytics</a></li>
+</ul>
+
+<hr />
+
+<h2 id="410">4.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      22 Jul 2020
+    </span>
+</div>
+
+<p><strong>Connected vehicle</strong></p>
+
+<ul>
+  <li>New connected vehicle section for cross-functional information.</li>
+</ul>
+
+<p><strong>WebPortal</strong></p>
+
+<ul>
+  <li>Head unit theme description.</li>
+</ul>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>New home page.</li>
+  <li>SEO optimization (page title, page description, site description &amp; icons)</li>
+  <li>404 page</li>
+  <li>breadcrumb links in tutorials</li>
+</ul>
+
+<hr />
+
+<h2 id="400">4.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      18 May 2020
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+<ul>
+  <li>Update Remote Page.</li>
+  <li>Update Monitor Page.</li>
+  <li>Specification update v3.0.0</li>
+</ul>
+
+<p><strong>Web API B2C</strong></p>
+<ul>
+  <li>Update connection page.</li>
+</ul>
+
+<p><strong>Website</strong></p>
+<ul>
+  <li>Add: new navbar.</li>
+  <li>Open API Specification files are now rendered with <a href="https://github.com/Redocly/redoc">Redoc</a> (previously Swagger UI).</li>
+  <li>Update: readme.</li>
+  <li>Fix homepage layout.</li>
+</ul>
+
+<hr />
+
+<h2 id="340">3.4.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      Mar 23 2020
+    </span>
+</div>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>Remove Yammer community.</li>
+  <li>Fix Navbar lunrsearch icon.</li>
+</ul>
+
+<hr />
+
+<h2 id="330">3.3.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      6 Dec 2019
+    </span>
+</div>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>Update page design.</li>
+</ul>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>Update authentication page &amp; API URLs.</li>
+</ul>
+
+<hr />
+
+<h2 id="320">3.2.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      2 Dec 2019
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>Update authentication page.</li>
+</ul>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>
+    <p>Move content in section directory.</p>
+  </li>
+  <li>
+    <p>Add “Groupe PSA for developers” logo.</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="311">3.1.1</h2>
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      26 Nov 2019
+    </span>
+</div>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>Highlighter font.</li>
+</ul>
+
+<hr />
+
+<h2 id="310">3.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      22 Nov 2019
+    </span>
+</div>
+
+<p><strong>Web API</strong></p>
+
+<ul>
+  <li>Fix demo.</li>
+  <li>Update:
+    <ul>
+      <li>preview</li>
+      <li>quickstart</li>
+      <li>monitor</li>
+      <li>welcome</li>
+      <li>connect B2C</li>
+      <li>authent B2B</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Web API B2C</strong></p>
+
+<ul>
+  <li>Specification update</li>
+</ul>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>Specification update</li>
+</ul>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>Refactor cUrl include.</li>
+</ul>
+
+<hr />
+
+<h2 id="301">3.0.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      18 Nov 2019
+    </span>
+</div>
+
+<p><strong>Web API B2C</strong></p>
+
+<ul>
+  <li>Fix connect page.</li>
+  <li>Update links in demo.</li>
+</ul>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>Update links in demo.</li>
+</ul>
+
+<hr />
+
+<h2 id="300">3.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      15 Nov 2019
+    </span>
+</div>
+
+<p><strong>Web API B2C</strong></p>
+
+<ul>
+  <li>Add Web API B2C section</li>
+</ul>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>Fix URL.</li>
+</ul>
+
+<hr />
+
+<h2 id="241">2.4.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Oct 2019
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>Fix URL.</li>
+</ul>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>Add Readme File.</li>
+</ul>
+
+<hr />
+
+<h2 id="240">2.4.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Oct 2019
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>Specification update</li>
+  <li>Add monitor</li>
+  <li>URL update</li>
+</ul>
+
+<hr />
+
+<h2 id="230">2.3.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      18 Oct 2019
+    </span>
+</div>
+
+<p><strong>WebPortal</strong></p>
+
+<ul>
+  <li>Add APi :
+    <ul>
+      <li>radio text</li>
+      <li>pty</li>
+      <li>rds</li>
+      <li>ta</li>
+      <li>opennativepopup</li>
+    </ul>
+  </li>
+  <li>Delete unecessary apis</li>
+  <li>Doc screen size WebPortal</li>
+  <li>add warning: WebPortal app are single page</li>
+  <li>Add nac wave propertie</li>
+</ul>
+
+<hr />
+
+<h2 id="220">2.2.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      8 Oct 2019
+    </span>
+</div>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>Jekyll architecture update.</li>
+  <li>Fix broken links.</li>
+  <li>Add Yammer</li>
+</ul>
+
+<hr />
+
+<h2 id="213">2.1.3</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Aug 2019
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>Specification update.</li>
+</ul>
+
+<hr />
+
+<h2 id="212">2.1.2</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      23 Aug 2019
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>Specification update: v2.0.3.</li>
+</ul>
+
+<hr />
+
+<h2 id="211">2.1.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      21 Aug 2019
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>
+    <p>Add HAL in preview page.</p>
+  </li>
+  <li>
+    <p>Specification update.</p>
+  </li>
+</ul>
+
+<p><strong>WebPortal</strong></p>
+
+<ul>
+  <li>Minor fix in API reference.</li>
+</ul>
+
+<hr />
+
+<h2 id="210">2.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      9 Aug 2019
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>Add authentication page.</li>
+</ul>
+
+<p><strong>WebPortal</strong></p>
+
+<ul>
+  <li>Minor fix in API reference.</li>
+</ul>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>Fix code in quickguide.</li>
+</ul>
+
+<hr />
+
+<h2 id="200">2.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      2 Aug 2019
+    </span>
+</div>
+
+<p><strong>Web API B2B</strong></p>
+
+<ul>
+  <li>Add section Web API B2B.</li>
+</ul>
+
+<p><strong>WebPortal</strong></p>
+
+<ul>
+  <li>Add <em>Appear in sofware version XX.XX.XX</em></li>
+</ul>
+
+<hr />
+
+<h2 id="122">1.2.2</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      24 May 2019
+    </span>
+</div>
+
+<p><strong>WebPortal</strong></p>
+
+<ul>
+  <li>Fix WebPortal APIs:
+    <ul>
+      <li>Navigation.LaunchGuidance</li>
+      <li>add WebDestinationReached</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="121">1.2.1</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      23 May 2019
+    </span>
+</div>
+
+<p><strong>WebPortal</strong></p>
+
+<ul>
+  <li>Fix WebPortal APIs:
+    <ul>
+      <li>Navigation.LaunchGuidanceWaypoints</li>
+      <li>Device.PopupRequest</li>
+      <li>LaunchGuidance</li>
+      <li>CarTime</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="120">1.2.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      6 May 2019
+    </span>
+</div>
+
+<p><strong>WebPortal</strong></p>
+
+<ul>
+  <li>Update WebPortal:
+    <ul>
+      <li>appwall</li>
+      <li>sending message to your server</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>Add edit with GitHub function.</li>
+</ul>
+
+<hr />
+
+<h2 id="110">1.1.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      15 Apr 2019
+    </span>
+</div>
+
+<p><strong>WebPortal</strong></p>
+
+<ul>
+  <li>Update WebPortal advice.</li>
+</ul>
+
+<p><strong>Website</strong></p>
+
+<ul>
+  <li>Add search fonction <a href="https://lunrjs.com/">Lunr</a>.</li>
+</ul>
+
+<hr />
+
+<h2 id="100">1.0.0</h2>
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      29 Mar 2019
+    </span>
+</div>
+
+<p><strong>Embedded WebPortal</strong></p>
+
+<ul>
+  <li>Add section Embedded WebPortal.</li>
+</ul>
+
+    </div>
+</div>
+
+    </main>
+
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer></body>
+</html>

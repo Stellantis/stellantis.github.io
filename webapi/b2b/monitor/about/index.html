@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About Monitors | Monitor | Webapi B2B</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="About Monitors | Monitor | Webapi B2B">
+    <meta property="og:url" content="https://developer.groupe-psa.io/webapi/b2b/monitor/about/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="B2B API monitors are a way to design events tracking patterns for vehicles. When the even is triggered, we will send a notification to your server.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="About Monitors | Monitor | Webapi B2B">
+    <meta name="twitter:description" content="B2B API monitors are a way to design events tracking patterns for vehicles. When the even is triggered, we will send a notification to your server.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="B2B API monitors are a way to design events tracking patterns for vehicles. When the even is triggered, we will send a notification to your server." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/webapi/b2b/monitor/about/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS --><!-- LIBRARIEs -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/swagger-ui.css">
+    <link href="/assets/css/swagger-ui-overrides.css" rel='stylesheet' type='text/css'>
+    <script src="/assets/js/swagger-ui-bundle.js"> </script>
+    <script src="/assets/js/swagger-ui-standalone-preset.js"> </script>
+    <!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_api">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title is-default is-active" id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-down" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item is-active" href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title">WEB API</h1>
+            <h2 class="title">for fleet owner</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          Web API
+          
+          
+          
+          - Fleet Owner
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/webapi/b2b/overview/" class='menu-label has-list' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/overview/about/#article">
+              About this API 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/overview/api-concepts/#article">
+              API Concepts 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/overview/errors/#article">
+              Errors & Rate Limit 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/overview/data-scope/#article">
+              Data Scope 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/quickstart/" class='menu-label has-list' id="Quickstart">
+          <span>
+            Quickstart
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/quickstart/authentication/#article">
+              Authentication 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/quickstart/examples/#article">
+              Examples 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/monitor/" class='menu-label has-list is-active' id="Monitor">
+          <span>
+            Monitor
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a class="is-active" href="/webapi/b2b/monitor/about/#article">
+              About Monitors 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/monitor/set-up/#article">
+              Set Up 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/monitor/retry-policy/#article">
+              Retry Policy 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/monitor/server-specification/#article">
+              Server Specification 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/remote/" class='menu-label has-list' id="Remote">
+          <span>
+            Remote
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/remote/about/#article">
+              About Remotes 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/set-up/#article">
+              Set Up 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/retry-policy/#article">
+              Retry Policy 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/notifications-errors/#article">
+              Notifications and Errors 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/server-specification/#article">
+              Server Specification 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/api-reference/" class='menu-label has-list' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/api-reference/references/#article">
+              References 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/api-reference/changelog/#article">
+              Changelog 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column content-column">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span >
+              
+              Monitor - 
+              
+                
+    About Monitors
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/about/#article" 
+                                                            >
+                                                                About this API
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/api-concepts/#article" 
+                                                            >
+                                                                API Concepts
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/errors/#article" 
+                                                            >
+                                                                Errors & Rate Limit
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/data-scope/#article" 
+                                                            >
+                                                                Data Scope
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Quickstart">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/quickstart/authentication/#article" 
+                                                            >
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/quickstart/examples/#article" 
+                                                            >
+                                                                Examples
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Monitor">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/about/#article" 
+                                                            selected>
+                                                                About Monitors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/set-up/#article" 
+                                                            >
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Remote">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/about/#article" 
+                                                            >
+                                                                About Remotes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/set-up/#article" 
+                                                            >
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/notifications-errors/#article" 
+                                                            >
+                                                                Notifications and Errors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/api-reference/references/#article" 
+                                                            >
+                                                                References
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/api-reference/changelog/#article" 
+                                                            >
+                                                                Changelog
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/webapi/content/webapi-monitor_about.md"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/webapi/">Web API</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webapi/b2b/">Fleet Owner</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webapi/b2b/monitor/">Monitor</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    About Monitors
+  
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="notification page-disclaimer">
+      <strong>Info:</strong> Stellantis Fleet Owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) is made for organisations owning <strong>fleet of vehicles</strong>.
+    </div>
+    </div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <p>Monitoring is an event-based feature provided with this API, it allows to set up <strong>events patterns</strong> that will be tracked on Stellantis servers.</p>
+      <h2 id="monitors--direct-request">
+        <span class="bd-anchor-name">
+        
+          Monitors &amp; Direct Request
+                  </span>
+ <a href="#monitors--direct-request" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Direct Requesting</strong> is the classic way to use REST APIs. Requesting vehicle data is made using HTTP Request &amp; Response, check out the <a href="/webapi/b2b/api-reference/references/#article">API references</a> for the list of available resources.</p>
+
+<p><strong>Monitoring</strong> offers another way to receive vehicle data by setting-up patterns &amp; receiving events. When the pattern is triggered on Stellantis servers, it will send a notification 
+ to your webhook with an HTTP request.
+For example, a notification can be triggered when the oil level is low.</p>
+    
+      <h2 id="monitor-features">
+        <span class="bd-anchor-name">
+        
+          Monitor features
+                  </span>
+ <a href="#monitor-features" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>Monitors offers 3 different kinds of different patterns that can be combined together:</p>
+<ul>
+  <li><strong>🗺️ Zone Monitor</strong>: The monitor is triggered by a condition based on an area.
+<br /><em>Example: leaving or entering a location.</em></li>
+  <li><strong>⏱️ Time Monitor</strong>: The monitor is triggered by scheduled time condition.
+<br /><em>Example: when the vehicle is used during the night.</em></li>
+  <li><strong>🚗 Data Monitor</strong>: The monitor is triggered based on a rule made of vehicle data.
+<br /><em>Example: opening of the doors, using the AC, oil temperature increasing too much, etc.</em></li>
+</ul>
+    
+      <h1 id="how-does-it-work">
+        <span class="bd-anchor-name">
+        
+          How Does it Work?
+                  </span>
+ <a href="#how-does-it-work" class="bd-anchor-link">#</a>
+        
+        
+      </h1>
+
+<p><img src="/assets/images/monitor-sequence-b2b.svg" alt="monitor-sequence" /></p>
+
+<p>First of all the monitors need to be <a href="/webapi/b2b/monitor/set-up/#article">set up</a> using the appropriate API endpoints. Then, when Stellantis servers are receiving data from your car, the <strong>event engine</strong> will check if the conditions of your monitor are satisfied. If it is the case, it will trigger the notification.</p>
+
+<p>Monitors offers a feature to process large amount of vehicle data. Although
+ able to receive and process these events.</p>
+    
+      <h4 id="set-up-monitors">
+        <span class="bd-anchor-name">
+        
+          Set Up Monitors
+                  </span>
+
+        
+        
+      </h4>
+
+<p>Check out <a href="/webapi/b2b/monitor/set-up/#article">this tutorial</a> in order to configure monitors.</p>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            
+            
+          </ul>
+        </nav>
+
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer></body>
+</html>

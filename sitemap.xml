@@ -1,0 +1,5822 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/overview/about/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/overview/migration-v2-2-to-v2-3/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/overview/get-started/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/connected-vehicles/about/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/security/security-schemes/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/security/authentication/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/security/device-enrollment/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/security/otp/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/security/carkey/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/security/service-activation-steps/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/sdk-features/remote-commands/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/sdk-features/vehicle-status/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/sdk-features/push-notification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/sdk-features/trips/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/sdk-features/send-navigation/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/sdk-features/ami&rocks-e/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/connected-vehicles/privacy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/changelog/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/errors/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/list/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/connected-vehicles/remotes/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/connected-vehicles/monitors/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/monitor/server-specification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/monitor/about/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/monitor/retry-policy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/monitor/set-up/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/overview/about/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/overview/api-concepts/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/overview/data-scope/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/overview/errors/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/quickstart/authentication/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/quickstart/examples/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference/changelog/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference/references/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/remote/about/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/remote/notifications-errors/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/remote/retry-policy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/remote/server-specification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/remote/set-up/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/monitor/about/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/monitor/retry-policy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/monitor/server-specification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/monitor/set-up/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/overview/about/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/overview/api-concepts/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/overview/errors/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/quickstart/about-authentication/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/quickstart/access-user-data/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/quickstart/app-registration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/quickstart/enroll-users/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/quickstart/request_examples/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/quickstart/data-availability-scopes/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/api-reference/changelog/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/api-reference/references/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/remote/about/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/remote/notifications-errors/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/remote/retry-policy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/remote/server-specification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/remote/set-up/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/changelog/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/contact-us/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/credits/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/catalog/data-catalog/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/search/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/overview/about/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/overview/app-validation/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/overview/infotainment-system/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/application/app-lifecycle/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/application/assets/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/application/events/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/application/guidelines/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/application/privacy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/application/quickstart/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/advanced-features/mqtt/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/advanced-features/user-subscription/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/api-reference/list/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/overview/about/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/overview/app-validation/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/overview/infotainment-system/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/application/assets/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/application/guidelines/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/application/privacy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/application/quickstart/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/api-reference/list/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/android/*</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/ios/*</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/connected-vehicles/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/connected-vehicles/overview/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/sdk-features/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/monitor/webhook/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/monitor/webhook-v3/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/monitor/webhook-v2/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/monitor/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/overview/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/overview/standards/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/preview/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/quickstart/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/authentication/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/quickstart/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference-v2/changelog/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference-v3/changelog/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/changelog/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference/specification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference/specification-v3/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference-v3/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference-v3/specification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/reference/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/reference/specification-v2/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/reference/specification-v1/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/reference/changelog-v2/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/reference/changelog-v1/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference/about-versions/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference/specification-v2/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference-v2/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/api-reference-v2/specification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/overview/about-versions/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/remote/webhook/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/remote/webhook-v2/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2b/remote/webhook-v3/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/monitor/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/overview/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/overview/standards/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/preview/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/quickstart/get-started/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/quickstart/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/connect/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/quickstart/connect/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/quickstart/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/quickstart/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/changelog/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/api-reference/specification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/api-reference/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/reference/specification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webapi/b2c/reference/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/connected-vehicles/data-catalog/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/connected-vehicles/use-case/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/overview/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/overview/standards/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/best-practice/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/application/requirements/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/application/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/quickstart/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/connectivity/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/connectivity/mqtt/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/connectivity/message/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/connectivity/notification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/connectivity/user-subscription/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/api-reference/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/reference/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/reference/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/reference/list/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v1/reference/class/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/overview/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/quickstart/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/application/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/api-reference/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/reference/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/v2/reference/list/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/basicauthentication-get-pims-authentication-account-username/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/basicauthentication-get-pims-authentication-token-customerat/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/basicauthentication-get-pims-authentication-token-cvs/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/basicauthentication-get-pims-authentication-token-idtoken/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/basicauthentication-set-pims-authentication-user-createaccount/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/basicauthentication-set-pims-authentication-user-login/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/basicauthentication-set-pims-authentication-user-forcedlogin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/basicauthentication-set-pims-authentication-user-logout/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/basicauthentication-set-pims-authentication-user-updatelogin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/basicauthentication-set-pims-authentication-user-updatepassword/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/carkey-get-pims-vehicle-carkey/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/carkey-set-pims-vehicle-carkey/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/longrangeremoteremote-set-pims-vehicle-command-charge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/longrangeremoteremote-set-pims-vehicle-command-chargedeferredtime/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/longrangeremoteremote-set-pims-vehicle-command-doors/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/longrangeremoteremote-set-pims-vehicle-command-horn/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/longrangeremoteremote-set-pims-vehicle-command-preconditioning/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/longrangeremoteremote-set-pims-vehicle-command-warning/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/longrangeremoteremote-set-pims-vehicle-vin-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/longrangeremoteremote-subscribe-pims-vehicle-signal/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/longrangeremotestatus-get-pims-vehicle-informations-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/longrangeremotestatus-subscribe-pims-vehicle-event-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/o2x-get-pims-vehicle-informations-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/o2x-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/o2x-get-pims-vehicle-vin-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/o2x-set-pims-vehicle-cleardata/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/o2x-set-pims-vehicle-configuration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/o2x-set-pims-vehicle-timeout/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/o2x-subscribe-pims-vehicle-event-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/o2x-subscribe-pims-vehicle-informations-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sdk-get-pims-sdk-device/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sdk-get-pims-sdk-log/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sdk-get-pims-sdk-logs/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sdk-get-pims-sdk-version/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sdk-set-pims-sdk-configuration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sendtonav-get-pims-vehicle-coordinate/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sendtonav-get-pims-vehicle-destinations/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sendtonav-get-pims-vehicle-privacy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sendtonav-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sendtonav-set-pims-vehicle-destination-coordinate/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sendtonav-set-pims-vehicle-destination-extension/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sendtonav-set-pims-vehicle-device/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sendtonav-set-pims-vehicle-service-sendtonav/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/sendtonav-subscribe-pims-vehicle-event-sendtonav/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-get-pims-authentication-account-isaccountblocked/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-get-pims-authentication-account-isdeviceactivated/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-get-pims-authentication-otp-withpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-get-pims-authentication-otp-withoutpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-get-pims-authentication-smscode-enrollment/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-get-pims-authentication-smscode-phonenumbercertification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-get-pims-authentication-smscode-resetpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-get-pims-authentication-trustedphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-set-pims-authentication-enrollment-enroll/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-set-pims-authentication-enrollment-remove/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-set-pims-authentication-pincode-reset/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-set-pims-authentication-pincode-update/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-set-pims-authentication-smscode-addphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-set-pims-authentication-smscode-enrollment/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/strongauthentication-set-pims-authentication-smscode-modifyphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-get-pims-vehicle-connection/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-get-pims-vehicle-price/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-get-pims-vehicle-trip-id/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-get-pims-vehicle-trip-range/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-get-pims-vehicle-trips-count/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-get-pims-vehicle-trips-trips/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-get-pims-vehicle-vins/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-set-pims-vehicle-price/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-set-pims-vehicle-trips-edit/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-set-pims-vehicle-trips-export/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-set-pims-vehicle-trips-import/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-set-pims-vehicle-trips-merge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-set-pims-vehicle-trips-remove/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-set-pims-vehicle-trips-unmerge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-subscribe-pims-vehicle-connection/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-subscribe-pims-vehicle-event-tripndrive/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/tripndrive-subscribe-pims-vehicle-trips/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/uservehiclesteps-get-pims-subscription-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/uservehiclesteps-get-pims-subscription-step/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/uservehiclesteps-get-pims-subscription-steps-carassociationid/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/uservehiclesteps-get-pims-subscription-steps-stepsid/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-0/uservehiclesteps-get-pims-subscription-steps-vin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/basicauthentication-get-pims-authentication-account-username/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/basicauthentication-get-pims-authentication-token-customerat/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/basicauthentication-get-pims-authentication-token-cvs/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/basicauthentication-get-pims-authentication-token-idtoken/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/basicauthentication-set-pims-authentication-user-createaccount/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/basicauthentication-set-pims-authentication-user-login/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/basicauthentication-set-pims-authentication-user-forcedlogin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/basicauthentication-set-pims-authentication-user-logout/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/basicauthentication-set-pims-authentication-user-updatelogin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/basicauthentication-set-pims-authentication-user-updatepassword/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/carkey-get-pims-vehicle-carkey/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/carkey-set-pims-vehicle-carkey/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/longrangeremoteremote-set-pims-vehicle-command-charge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/longrangeremoteremote-set-pims-vehicle-command-chargedeferredtime/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/longrangeremoteremote-set-pims-vehicle-command-doors/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/longrangeremoteremote-set-pims-vehicle-command-horn/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/longrangeremoteremote-set-pims-vehicle-command-preconditioning/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/longrangeremoteremote-set-pims-vehicle-command-warning/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/longrangeremoteremote-set-pims-vehicle-vin-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/longrangeremoteremote-subscribe-pims-vehicle-signal/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/longrangeremotestatus-get-pims-vehicle-informations-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/longrangeremotestatus-subscribe-pims-vehicle-event-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/o2x-get-pims-vehicle-informations-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/o2x-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/o2x-get-pims-vehicle-vin-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/o2x-set-pims-vehicle-cleardata/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/o2x-set-pims-vehicle-configuration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/o2x-set-pims-vehicle-timeout/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/o2x-subscribe-pims-vehicle-event-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/o2x-subscribe-pims-vehicle-informations-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/pushnotification-set-pims-sdk-notification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/pushnotification-get-pims-sdk-event/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/pushnotification-set-pims-sdk-event-disable/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/pushnotification-set-pims-sdk-event-enable/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/pushnotification-set-pims-sdk-event-remove/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/pushnotification-set-pims-sdk-token-registerpushtoken/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/pushnotification-set-pims-sdk-token-unregisterpushtoken/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sdk-get-pims-sdk-device/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sdk-get-pims-sdk-log/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sdk-get-pims-sdk-logs/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sdk-get-pims-sdk-version/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sdk-set-pims-sdk-configuration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sendtonav-get-pims-vehicle-coordinate/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sendtonav-get-pims-vehicle-destinations/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sendtonav-get-pims-vehicle-privacy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sendtonav-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sendtonav-set-pims-vehicle-destination-coordinate/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sendtonav-set-pims-vehicle-destination-extension/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sendtonav-set-pims-vehicle-device/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sendtonav-set-pims-vehicle-service-sendtonav/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/sendtonav-subscribe-pims-vehicle-event-sendtonav/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-get-pims-authentication-account-isaccountblocked/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-get-pims-authentication-account-isdeviceactivated/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-get-pims-authentication-otp-withpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-get-pims-authentication-otp-withoutpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-get-pims-authentication-smscode-enrollment/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-get-pims-authentication-smscode-phonenumbercertification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-get-pims-authentication-smscode-resetpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-get-pims-authentication-trustedphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-set-pims-authentication-enrollment-enroll/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-set-pims-authentication-enrollment-enrollwithphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-set-pims-authentication-enrollment-remove/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-set-pims-authentication-pincode-reset/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-set-pims-authentication-pincode-update/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-set-pims-authentication-smscode-addphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-set-pims-authentication-smscode-enrollment/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/strongauthentication-set-pims-authentication-smscode-modifyphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-get-pims-vehicle-connection/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-get-pims-vehicle-price/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-get-pims-vehicle-statistics-consumption/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-get-pims-vehicle-statistics-distance/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-get-pims-vehicle-statistics-duration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-get-pims-vehicle-trip-id/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-get-pims-vehicle-trip-range/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-get-pims-vehicle-trips-count/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-get-pims-vehicle-trips-trips/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-get-pims-vehicle-vins/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-set-pims-vehicle-price/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-set-pims-vehicle-trips-edit/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-set-pims-vehicle-trips-export/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-set-pims-vehicle-trips-import/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-set-pims-vehicle-trips-merge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-set-pims-vehicle-trips-remove/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-set-pims-vehicle-trips-unmerge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-subscribe-pims-vehicle-connection/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-subscribe-pims-vehicle-event-tripndrive/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/tripndrive-subscribe-pims-vehicle-trips/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/userinformation-set-pims-subscription-vehicle-removeproperty/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/uservehiclesteps-get-pims-subscription-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/uservehiclesteps-get-pims-subscription-step/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/uservehiclesteps-get-pims-subscription-steps-carassociationid/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/uservehiclesteps-get-pims-subscription-steps-stepsid/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-1/uservehiclesteps-get-pims-subscription-steps-vin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/basicauthentication-get-pims-authentication-account-username/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/basicauthentication-get-pims-authentication-token-customerat/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/basicauthentication-get-pims-authentication-token-cvs/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/basicauthentication-get-pims-authentication-token-idtoken/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/basicauthentication-set-pims-authentication-user-createaccount/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/basicauthentication-set-pims-authentication-user-login/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/basicauthentication-set-pims-authentication-user-forcedlogin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/basicauthentication-set-pims-authentication-user-logout/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/basicauthentication-set-pims-authentication-user-updatelogin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/basicauthentication-set-pims-authentication-user-updatepassword/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/carkey-get-pims-vehicle-carkey/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/carkey-set-pims-vehicle-carkey/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/longrangeremoteremote-set-pims-vehicle-command-charge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/longrangeremoteremote-set-pims-vehicle-command-chargedeferredtime/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/longrangeremoteremote-set-pims-vehicle-command-doors/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/longrangeremoteremote-set-pims-vehicle-command-horn/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/longrangeremoteremote-set-pims-vehicle-command-preconditioning/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/longrangeremoteremote-set-pims-vehicle-command-warning/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/longrangeremoteremote-set-pims-vehicle-vin-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/longrangeremoteremote-subscribe-pims-vehicle-signal/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/longrangeremotestatus-get-pims-vehicle-informations-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/longrangeremotestatus-subscribe-pims-vehicle-event-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/o2x-get-pims-vehicle-informations-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/o2x-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/o2x-get-pims-vehicle-vin-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/o2x-set-pims-vehicle-cleardata/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/o2x-set-pims-vehicle-configuration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/o2x-set-pims-vehicle-timeout/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/o2x-subscribe-pims-vehicle-event-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/o2x-subscribe-pims-vehicle-informations-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/pushnotification-set-pims-sdk-notification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/pushnotification-get-pims-sdk-event/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/pushnotification-set-pims-sdk-event-disable/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/pushnotification-set-pims-sdk-event-enable/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/pushnotification-set-pims-sdk-event-remove/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/pushnotification-set-pims-sdk-token-registerpushtoken/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/pushnotification-set-pims-sdk-token-unregisterpushtoken/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sdk-get-pims-sdk-device/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sdk-get-pims-sdk-log/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sdk-get-pims-sdk-logs/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sdk-get-pims-sdk-version/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sdk-set-pims-sdk-configuration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sendtonav-get-pims-vehicle-coordinate/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sendtonav-get-pims-vehicle-destinations/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sendtonav-get-pims-vehicle-privacy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sendtonav-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sendtonav-set-pims-vehicle-destination-coordinate/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sendtonav-set-pims-vehicle-destination-extension/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sendtonav-set-pims-vehicle-device/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sendtonav-set-pims-vehicle-service-sendtonav/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/sendtonav-subscribe-pims-vehicle-event-sendtonav/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-get-pims-authentication-account-isaccountblocked/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-get-pims-authentication-account-isdeviceactivated/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-get-pims-authentication-otp-withpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-get-pims-authentication-otp-withoutpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-get-pims-authentication-smscode-enrollment/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-get-pims-authentication-smscode-phonenumbercertification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-get-pims-authentication-smscode-resetpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-get-pims-authentication-trustedphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-set-pims-authentication-enrollment-enroll/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-set-pims-authentication-enrollment-enrollwithphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-set-pims-authentication-enrollment-remove/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-set-pims-authentication-pincode-reset/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-set-pims-authentication-pincode-update/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-set-pims-authentication-smscode-addphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-set-pims-authentication-smscode-enrollment/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/strongauthentication-set-pims-authentication-smscode-modifyphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-get-pims-vehicle-connection/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-get-pims-vehicle-price/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-get-pims-vehicle-statistics-consumption/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-get-pims-vehicle-statistics-distance/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-get-pims-vehicle-statistics-duration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-get-pims-vehicle-trip-id/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-get-pims-vehicle-trip-range/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-get-pims-vehicle-trips-count/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-get-pims-vehicle-trips-trips/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-get-pims-vehicle-vins/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-set-pims-vehicle-price/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-set-pims-vehicle-trips-edit/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-set-pims-vehicle-trips-export/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-set-pims-vehicle-trips-import/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-set-pims-vehicle-trips-merge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-set-pims-vehicle-trips-remove/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-set-pims-vehicle-trips-unmerge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-subscribe-pims-vehicle-connection/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-subscribe-pims-vehicle-event-tripndrive/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/tripndrive-subscribe-pims-vehicle-trips/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/userinformation-set-pims-subscription-vehicle-removeproperty/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/uservehiclesteps-get-pims-subscription-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/uservehiclesteps-get-pims-subscription-step/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/uservehiclesteps-get-pims-subscription-steps-carassociationid/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/uservehiclesteps-get-pims-subscription-steps-stepsid/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-2/uservehiclesteps-get-pims-subscription-steps-vin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/vehicleinformation-set-pims-vehicle-vin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/btconnectivity-set-pims-vehicle-service/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/btconnectivity-get-pims-vehicle-connection/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/btconnectivity-get-pims-vehicle-privacy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/btconnectivity-subscribe-pims-vehicle-connection/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/basicauthentication-get-pims-authentication-account-username/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/basicauthentication-get-pims-authentication-token-customerat/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/basicauthentication-get-pims-authentication-token-cvs/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/basicauthentication-get-pims-authentication-token-idtoken/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/basicauthentication-set-pims-authentication-user-createaccount/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/basicauthentication-set-pims-authentication-user-login/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/basicauthentication-set-pims-authentication-user-forcedlogin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/basicauthentication-set-pims-authentication-user-logout/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/basicauthentication-set-pims-authentication-user-updatelogin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/basicauthentication-set-pims-authentication-user-updatepassword/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/carkey-get-pims-vehicle-carkey/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/carkey-set-pims-vehicle-carkey/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/longrangeremoteremote-set-pims-vehicle-command-charge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/longrangeremoteremote-set-pims-vehicle-command-chargedeferredtime/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/longrangeremoteremote-set-pims-vehicle-command-doors/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/longrangeremoteremote-set-pims-vehicle-command-horn/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/longrangeremoteremote-set-pims-vehicle-command-preconditioning/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/longrangeremoteremote-set-pims-vehicle-command-warning/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/longrangeremoteremote-set-pims-vehicle-vin-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/longrangeremoteremote-subscribe-pims-vehicle-signal/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/longrangeremotestatus-get-pims-vehicle-informations-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/longrangeremotestatus-subscribe-pims-vehicle-event-remote/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-get-pims-vehicle-media-mediasource/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-get-pims-vehicle-media-presetstation/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-get-pims-vehicle-media-savedscan/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-get-pims-vehicle-settings/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-set-pims-vehicle-media-frequency/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-set-pims-vehicle-media-mediasource/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-set-pims-vehicle-media-nextmedia-previousmedia/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-set-pims-vehicle-media-presetstation-save/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-set-pims-vehicle-media-presetstation-unsave/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-set-pims-vehicle-media-presetstation-start/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-set-pims-vehicle-media-sound-mute/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-set-pims-vehicle-media-sound-volume/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-set-pims-vehicle-media-startscan/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-set-pims-vehicle-media-stopscan/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-set-pims-vehicle-settings/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-subscribe-pims-vehicle-event/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-subscribe-pims-vehicle-media-info/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/media-subscribe-pims-vehicle-media-scan/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/o2x-get-pims-vehicle-informations-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/o2x-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/o2x-get-pims-vehicle-vin-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/o2x-set-pims-vehicle-cleardata/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/o2x-set-pims-vehicle-configuration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/o2x-set-pims-vehicle-timeout/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/o2x-subscribe-pims-vehicle-event-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/o2x-subscribe-pims-vehicle-informations-o2x/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/pushnotification-set-pims-sdk-notification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/pushnotification-get-pims-sdk-event/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/pushnotification-set-pims-sdk-event-disable/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/pushnotification-set-pims-sdk-event-enable/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/pushnotification-set-pims-sdk-event-remove/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/pushnotification-set-pims-sdk-token-registerpushtoken/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/pushnotification-set-pims-sdk-token-unregisterpushtoken/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sdk-get-pims-sdk-device/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sdk-get-pims-sdk-log/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sdk-get-pims-sdk-logs/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sdk-get-pims-sdk-version/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sdk-set-pims-sdk-configuration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sendtonav-get-pims-vehicle-coordinate/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sendtonav-get-pims-vehicle-destinations/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sendtonav-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sendtonav-set-pims-vehicle-destination-coordinate/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sendtonav-set-pims-vehicle-destination-extension/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sendtonav-set-pims-vehicle-device/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/sendtonav-subscribe-pims-vehicle-event-sendtonav/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-account-isaccountblocked/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-account-isdeviceactivated/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-otp-withpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-otp-withoutpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-smscode-enrollment/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-smscode-phonenumbercertification/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-smscode-resetpin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-trustedphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-enrollment-enroll/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-enrollment-enrollwithphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-enrollment-remove/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-pincode-reset/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-pincode-update/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-smscode-addphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-smscode-enrollment/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-smscode-modifyphonenumber/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-price/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-statistics-consumption/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-statistics-distance/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-statistics-duration/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-trip-id/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-trip-range/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-trips-count/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-trips-trips/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-vins/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-set-pims-vehicle-price/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-set-pims-vehicle-trips-edit/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-set-pims-vehicle-trips-export/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-set-pims-vehicle-trips-import/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-set-pims-vehicle-trips-merge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-set-pims-vehicle-trips-remove/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-set-pims-vehicle-trips-unmerge/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-subscribe-pims-vehicle-event-tripndrive/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/tripndrive-subscribe-pims-vehicle-trips/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/userinformation-set-pims-subscription-vehicle-removeproperty/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/uservehiclesteps-get-pims-subscription-services/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/uservehiclesteps-get-pims-subscription-step/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/uservehiclesteps-get-pims-subscription-steps-carassociationid/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/uservehiclesteps-get-pims-subscription-steps-stepsid/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/uservehiclesteps-get-pims-subscription-steps-vin/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcabasicauthentication-get-pims-authentication-account-username/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcabasicauthentication-get-pims-authentication-key/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcabasicauthentication-get-pims-authentication-token/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcabasicauthentication-get-pims-authentication-user-islogged/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcabasicauthentication-get-pims-authentication-user-profile/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcabasicauthentication-set-pims-authentication-user-createaccount-issocial/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcabasicauthentication-set-pims-authentication-user-createaccount/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcabasicauthentication-set-pims-authentication-user-forgotpassword/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcabasicauthentication-set-pims-authentication-user-login-issocial/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcabasicauthentication-set-pims-authentication-user-login/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcabasicauthentication-set-pims-authentication-user-logout/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcastrongauthentication-get-pims-authentication-account-isdeviceactivated/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcastrongauthentication-set-pims-authentication-pincode-create/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcastrongauthentication-set-pims-authentication-pincode-update/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/mobile-sdk/references/v2-3/fcastrongauthentication-set-pims-authentication-session/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/content/about/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/content/app_validation/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/content/assets/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/content/infotainment-system/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/content/privacy/</loc>
+    </url>
+    
+    
+    
+    
+    
+    
+    
+    <url>
+        <loc>https://developer.groupe-psa.io/webportal/content/quickstart/</loc>
+    </url>
+    
+    
+    
+    
+</urlset>

@@ -1,0 +1,2878 @@
+schema_version: "1.2.0"
+info:
+  title: Stellantis Connected Vehicles Data Catalog
+  description: Stellantis Connected Vehicles Data Catalog
+  version: 2.4.1
+data:
+- name: Alert severity
+  domain: alert
+  description: Severity of the alert.
+  type: string
+  enum: 
+    - Information
+    - Warning
+    - Critical
+  scope:
+    - data:alert
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleAlertsById"
+        - "getVehicleAlerts"
+        - "getFleetAlertList"
+        - "getFleetAlertById"
+        - "getFleetTripAlertByVehicle"
+        - "getFleetTripAlertByVehicleById"
+      webapi_b2c_v4:
+        - "getVehicleAlerts"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Alert active state
+  domain: alert
+  description: Describe if the alert is active or inactive.
+  type: boolean
+  scope:
+    - data:alert
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleAlertsById"
+        - "getVehicleAlerts"
+        - "getFleetAlertList"
+        - "getFleetAlertById"
+        - "getFleetTripAlertByVehicle"
+        - "getFleetTripAlertByVehicleById"
+      webapi_b2c_v4:
+        - "getVehicleAlerts"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Alert type
+  domain: alert
+  description: Type of the alert.
+  type: string
+  enum: Cf specification
+  scope:
+    - data:alert
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleAlertsById"
+        - "getVehicleAlerts"
+        - "getFleetAlertList"
+        - "getFleetAlertById"
+        - "getFleetTripAlertByVehicle"
+        - "getFleetTripAlertByVehicleById"
+      webapi_b2c_v4:
+        - "getVehicleAlerts"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Alert start position 
+  domain: alert
+  description: |-
+    Coordinates where the alert occurs. Comes with other position information such as longitude, latitude, altitude, signal Quality, heading, etc.
+  type: object
+  scope:
+    - data:alert
+    - data:position
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleAlertsById"
+        - "getVehicleAlerts"
+        - "getFleetAlertList"
+        - "getFleetAlertById"
+        - "getFleetTripAlertByVehicle"
+        - "getFleetTripAlertByVehicleById"
+      webapi_b2c_v4:
+        - "getVehicleAlerts"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Alert end position 
+  domain: alert
+  description: |- 
+    Coordinates where the alert stopped. Comes with other position information such as longitude, latitude, altitude, signal Quality, heading, etc."
+  type: object
+  scope:
+    - data:alert
+    - data:position
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleAlertsById"
+        - "getVehicleAlerts"
+        - "getFleetAlertList"
+        - "getFleetAlertById"
+        - "getFleetTripAlertByVehicle"
+        - "getFleetTripAlertByVehicleById"
+      webapi_b2c_v4:
+        - "getVehicleAlerts"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Alert start timestamp
+  domain: alert
+  description: Time when the alert occurs.
+  type: string
+  scope:
+    - data:alert
+  unit: Date-time
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleAlertsById"
+        - "getVehicleAlerts"
+        - "getFleetAlertList"
+        - "getFleetAlertById"
+        - "getFleetTripAlertByVehicle"
+        - "getFleetTripAlertByVehicleById"
+      webapi_b2c_v4:
+        - "getVehicleAlerts"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Alert end timestamp
+  domain: alert
+  description: Time when the alert stop.
+  type: string
+  scope:
+    - data:alert
+  unit: Date-time
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleAlertsById"
+        - "getVehicleAlerts"
+        - "getFleetAlertList"
+        - "getFleetAlertById"
+        - "getFleetTripAlertByVehicle"
+        - "getFleetTripAlertByVehicleById"
+      webapi_b2c_v4:
+        - "getVehicleAlerts"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Position coordinates
+  domain: location
+  description: |- 
+    Coordinates of the vehicle as specified in RFC3339. Set of 2 to 3 values: longitude, latitude and altitude."
+  type: array
+  scope:
+    - data:position
+  items: number
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+        - "getPathForTrip"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Position type
+  domain: location
+  description: |- 
+    How the position has been retrieve: GPS or estimate (if GPS is not available ex: in a tunnel)."
+  type: string
+  enum: 
+    - Acquire
+    - Estimated
+  scope:
+    - data:position
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+        - "getPathForTrip"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Position heading
+  domain: location
+  description: Compass direction of the vehicle (From 0 to 360)
+  type: number
+  scope:
+    - data:position
+  unit: Degree
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+        - "getPathForTrip"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Position signal quality
+  domain: location
+  description: Quality of the position signal when acquire through GPS.
+  type: integer
+  scope:
+    - data:position
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+        - "getPathForTrip"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Position signal fix status
+  domain: location
+  description: Horizontal & altitude position can be determined in 3D fix status mode where it is only horizontal position in 2D mode (only returned when position type is set to Acquire)
+  type: string 
+  enum:
+    - 2D
+    - 3D
+  scope:
+    - data:position
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+        - "getPathForTrip"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Days Before Maintenance
+  domain: maintenance
+  description: Number of days before next maintenance.
+  type: integer
+  scope:
+    - data:telemetry
+  unit: day
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getVehicleMaintenance"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleMaintenance"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Mileage Before Maintenance
+  domain: maintenance
+  description: Number of kilometers before next maintenance.
+  type: number
+  scope:
+    - data:telemetry
+  unit: km
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getVehicleMaintenance"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleMaintenance"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Longitudinal speed
+  domain: telemetry
+  description: Vehicle longitudinal speed.
+  type: number
+  scope:
+    - data:telemetry
+  unit: km/h
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Acceleration
+  domain: telemetry
+  description: Vehicle acceleration.
+  type: number
+  scope:
+    - data:telemetry
+  unit: m/s^2
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Moving state
+  domain: telemetry
+  description: Is the vehicle moving?
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Ignition state
+  domain: telemetry
+  description: Ignition state of the vehicle.
+  type: string
+  scope:
+    - data:telemetry
+  enum: 
+    - Stop
+    - StartUp
+    - Start
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Privacy state
+  domain: telemetry
+  description: Privacy state of the vehicle requested by the driver
+  type: string
+  enum: 
+    - None
+    - Geolocation
+    - Full
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Outside temperature
+  domain: telemetry
+  description: Temperature outside of the vehicle.
+  type: number
+  scope:
+    - data:telemetry
+  unit: Celsius
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Ambiant luminosity state
+  domain: telemetry
+  description: Boolean state of ambiant luminosity (day or night)
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Odometer mileage
+  domain: telemetry
+  description: Vehicle mileage.
+  type: number
+  scope:
+    - data:telemetry
+  unit: km
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Collision side
+  domain: collision
+  description: Area of the vehicle affected by the collision
+  type: string
+  enum: 
+    - Front
+    - Rear
+    - Lateral
+  scope:
+    - data:collision
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getVehicleCollision"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Collision severity
+  domain: collision
+  description: Severity associated to the collision.
+  type: string
+  enum: 
+    - Minimal
+    - Minor
+    - Major
+  scope:
+    - data:collision
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getVehicleCollision"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Collision tipped over
+  domain: collision
+  description: Indicates if the car tipped over during the collision.
+  type: boolean
+  scope:
+    - data:collision
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getVehicleCollision"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Collision pedestrian
+  domain: collision
+  description: Collision with a pedestrian.
+  type: boolean
+  scope:
+    - data:collision
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getVehicleCollision"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Belt passenger identifier
+  domain: telemetry
+  description: Seat belt identifier.
+  type: string
+  enum: 
+    - Driver
+    - Passenger 
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Belt status
+  domain: telemetry
+  description: Seat belt status.
+  type: string
+  enum: 
+    - Normal
+    - Omission
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: ECall state
+  domain: telemetry
+  description: State of the eCall emergency system.
+  type: string
+  enum: 
+    - ShockDetectionUnabled 
+    - Detected
+    - NotDetected
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Driving behavior mode
+  domain: telemetry
+  description: Driving mode selected by the driver.
+  type: string
+  enum: 
+    - Normal
+    - Sport
+    - Confort
+    - Eco
+    - Sand
+    - Mud
+    - Snow
+    - ZEV
+    - Hybrid
+    - ZEVEco
+    - HybridEco
+    - EcoPlus
+    - eAWD
+    - 4AWD
+    - ReinforcedLoad
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Wiping blade state
+  domain: telemetry
+  description: Is wiping blade active ?
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Wiping blade speed
+  domain: telemetry
+  description: Wiping speed (available only if wiping blade state is active).
+  type: string
+  enum: 
+    - High
+    - Low
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Park assist front
+  domain: telemetry
+  description: State of the front park assist
+  type: string
+  enum: 
+    - Fault
+    - DriverInhibition
+    - Active
+    - Wait
+    - OutOfService
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Park assist rear
+  domain: telemetry
+  description: Sate of the rear park assist
+  type: string
+  enum: 
+    - Fault
+    - DriverInhibition
+    - Active
+    - Wait
+    - OutOfService
+    - TrailerInhibition
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: ACCR State
+  domain: telemetry
+  description: State of the Adaptive Cruise Control Regulation
+  type: string
+  enum: 
+    - Activated
+    - Fault
+    - Hold
+    - HoldWithOverSpeeding
+    - "Off"
+    - OverSpeedingByPedalPess
+    - StandBy
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: LVV State
+  domain: telemetry
+  description: Speed limiter
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: RVV state
+  domain: telemetry
+  description: State of Cruise control.
+  type: string
+  enum: 
+    - "Off"
+    - NoBestFit
+    - BestFitInProgress
+    - BestFitMax
+    - BestFitMin
+    - BestFitDeactivated
+    - AutoDeactivated
+    - OverflowSpeedConsign
+    - LackOfVisibilityRadar
+    - LearningRadar
+    - Deactivated
+    - LimitSetting 
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: AEBS State
+  domain: telemetry
+  description: State of Advanced Emergency Braking System
+  type: string
+  enum: 
+    - "Off"
+    - Fixed
+    - OnFlashing
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: AFIL State
+  domain: telemetry
+  description: State of Lane Departure Warning System
+  type: string
+  enum: 
+    - FlashingFault
+    - FlashingWarning
+    - "Off"
+    - OnFixed
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: ARTIV State
+  domain: telemetry
+  description: Respect of inter vehicle time assist (ARTIV)
+  type: string
+  enum: 
+    - NotSelected
+    - Selected
+    - Unavailable
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: BSM State
+  domain: telemetry
+  description: Blind Spot Monitoring state
+  type: string
+  enum: 
+    - Active
+    - Inactive
+    - Disabled
+    - Fault
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: ESP State
+  domain: telemetry
+  description: Electronic Stability Program state.
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: ABS State
+  domain: telemetry
+  description: Anti-lock braking system state.
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: FSE State
+  domain: telemetry
+  description: Electric brake service state.
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: SLI State
+  domain: telemetry
+  description: Speed Limit Information value.
+  type: integer
+  scope:
+    - data:telemetry
+  unit: km/h
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: RLKA State
+  domain: telemetry
+  description: Right Lane Keeping Assist state.
+  type: string
+  enum: 
+    - Authorized
+    - CorrectionInProgress
+    - NotAuthorized
+    - NotSelected
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: LLKA State
+  domain: telemetry
+  description: Left Lane Keeping Assist state.
+  type: string
+  enum: 
+    - Authorized
+    - CorrectionInProgress
+    - NotAuthorized
+    - NotSelectedt
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Gear suggestion
+  domain: telemetry
+  description: Recommended gear indicator.
+  type: string
+  enum: 
+    - None
+    - Up
+    - Down
+    - UpDown
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Gearbox automatic mode
+  domain: telemetry
+  description: Is gearbox mode is automatic?
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Gearbox sport mode
+  domain: telemetry
+  description: Is gearbox mode is sport?
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Gearbox snow mode
+  domain: telemetry
+  description: Is gearbox mode is snow?
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Gearbox semiManual mode
+  domain: telemetry
+  description: Is gearbox mode is semiManual?
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Gearbox sequential mode
+  domain: telemetry
+  description: Is gearbox mode is sequential?
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Gearbox ratio
+  domain: telemetry
+  description: Current gearbox ratio engaged.
+  type: string
+  enum: 
+    - Ratio1
+    - Ratio2
+    - Ratio3
+    - Ratio4
+    - Ratio5
+    - Ratio6
+    - Ratio7
+    - Ratio8
+    - Neutral
+    - Reverse
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: false
+      PHEV: true
+      FCEV: false
+- name: Battery voltage
+  domain: telemetry
+  description: Battery voltage for combustion engine.
+  type: number
+  scope:
+    - data:telemetry
+  unit: Percentage
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Doors lock state
+  domain: telemetry
+  description: Describe lock state for all the doors of the vehicle.
+  type: string
+  enum: 
+    - Unlocked
+    - Locked
+    - SuperLocked
+    - DriverDoorUnlocked
+    - CabinDoorsUnlocked
+    - CargoDoorsLocked
+    - CargoDoorsUnlocked
+    - RearDoorsUnlocked
+    - RearDoorsLocked
+    - TrunkLocked
+    - TrunkUnLocked 
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Door opening identifier
+  domain: telemetry
+  description: Describe lock state for each doors of the vehicle.
+  type: string
+  enum: 
+    - Driver
+    - Passenger
+    - RearLeft
+    - RearRight
+    - Trunk
+    - RearWindow
+    - RoofWindow 
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Door opening status
+  domain: telemetry
+  description: Describe lock state for each doors of the vehicle.
+  type: string
+  enum: 
+    - Open
+    - Closed
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Engine type
+  domain: telemetry
+  description: Engine type information.
+  type: string
+  enum: 
+    - Thermic
+    - Electric 
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Engine speed
+  domain: telemetry
+  description: Engine speed value.
+  type: number
+  scope:
+    - data:telemetry
+  unit: RPM
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Engine coolant level
+  domain: telemetry
+  description: Percentage of engine coolant left.
+  type: integer
+  scope:
+    - data:telemetry
+  unit: Percentage (%)
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: false
+      PHEV: true
+      FCEV: false
+- name: Engine coolant temperature
+  domain: telemetry
+  description: Temperature of the coolant liquid.
+  type: number
+  scope:
+    - data:telemetry
+  unit: Celsius
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: false
+      PHEV: true
+      FCEV: false
+- name: Engine oil level
+  domain: telemetry
+  description: Percentage of engine oil left.
+  type: integer
+  scope:
+    - data:telemetry
+  unit: Percentage (%)
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: false
+      PHEV: true
+      FCEV: false
+- name: Engine oil temperature
+  domain: telemetry
+  description: Temperature of the engine oil.
+  type: number
+  scope:
+    - data:telemetry
+  unit: Celsius
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: false
+      PHEV: true
+      FCEV: false
+- name: Engine air temperature
+  domain: telemetry
+  description: Temperature of the engine air.
+  type: number
+  scope:
+    - data:telemetry
+  unit: Celsius
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: false
+      PHEV: true
+      FCEV: false
+- name: Powertrain state
+  domain: telemetry
+  description: State of the powertrain.
+  type: string
+  scope:
+    - data:telemetry
+  enum: 
+    - NotRunning
+    - Starting
+    - Running
+    - Stopping
+    - Stopped
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Preconditioning state
+  domain: telemetry
+  description: The state of the preconditioning feature.
+  type: string
+  enum: 
+    - Enabled
+    - Disabled
+    - Finished
+    - Failure
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Preconditioning error state
+  domain: telemetry
+  description: Cause of failure in case preconditioning has not been started.
+  type: string
+  enum: 
+    - Defect
+    - DoorOpened
+    - LowBattery
+    - LowFuelLevel
+    - TooManyUnusedProg
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Preconditioning program enable
+  domain: telemetry
+  description: Display whether this program is enabled or not.
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Preconditioning program reccurence
+  domain: telemetry
+  description: |- 
+    Recurrence of the program. None: means no recurrence. Daily: repeated over the week.
+  type: string
+  enum: 
+    - None
+    - Daily
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Preconditioning program occurence day 
+  domain: telemetry
+  description: |- 
+    Days of the week affected by recurence.
+  type: string
+  enum: 
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    - Sun
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Preconditioning program start time
+  domain: telemetry
+  description: The program start time formatted using the duration format based on ISO 8601.
+  type: string
+  scope:
+    - data:telemetry
+  unit: "Regex: P[n]Y[n]M[n]DT[n]H[n]M[n]S"
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Preconditionning program slot
+  domain: telemetry
+  description: Program slot number as you can select one between various preconditioningprograms."
+  type: integer
+  scope:
+    - data:telemetry
+  unit: From slot 1 to slot 4.
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Lighting Turn direction
+  domain: telemetry
+  description: Information about turn signals direction
+  type: string
+  enum: 
+    - Left
+    - Right
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Lighting Turn position
+  domain: telemetry
+  description: Information about turn signals position
+  type: string
+  enum: 
+    - Front
+    - Rear
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Lighting Turn status
+  domain: telemetry
+  description: Information about vehicle turn signals state
+  type: string
+  enum: 
+    - "Off"
+    - "On"
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Lighting Fog direction
+  domain: telemetry
+  description: Information about fog signals direction
+  type: string
+  enum: 
+    - Left
+    - Right
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Lighting Fog position
+  domain: telemetry
+  description: Information about fog signals position
+  type: string
+  enum: 
+    - Front
+    - Rear
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Lighting Fog status
+  domain: telemetry
+  description: Information about vehicle fog signals state
+  type: string
+  enum: 
+    - "Off"
+    - "On"
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Energy supply type
+  domain: vehicle_info
+  description: Describe vehicle energy supply type."
+  type: string
+  enum: 
+    - Fuel
+    - Electric
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Energy supply subtype
+  domain: vehicle_info
+  description: Describe vehicle energy supply subtype."
+  type: string
+  enum: 
+    - FossilEnergy
+    - ElectricEnergy
+    - Hydrogen 
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Energy autonomy
+  domain: telemetry
+  description: Vehicle autonomy expressed in km.
+  type: integer
+  scope:
+    - data:telemetry
+  unit: km
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Energy level
+  domain: telemetry
+  description: Vehicle energy level.
+  type: number
+  scope:
+    - data:telemetry
+  unit: Percentage (%)
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Fuel instant consumption
+  domain: telemetry
+  description: Instant consumption for vehicles for thermic vehicle.
+  type: number
+  scope:
+    - data:telemetry
+  unit: From 0 L/100Km
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: false
+      PHEV: true
+      FCEV: false
+- name: Fuel total consumption
+  domain: telemetry
+  description: Total consumption  for thermic vehicle.
+  type: number
+  scope:
+    - data:telemetry
+  unit: cL
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: false
+      PHEV: true
+      FCEV: false
+- name: Battery capacity
+  domain: telemetry
+  description: Electric battery total capacity.
+  type: integer
+  scope:
+    - data:telemetry
+  unit: Wh
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Battery residual energy
+  domain: telemetry
+  description: Residual electric energy.
+  type: integer
+  scope:
+    - data:telemetry
+  unit: Wh
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Battery health capicity
+  domain: telemetry
+  description: Health related to battery capacity.
+  type: integer
+  scope:
+    - data:telemetry
+  unit: Percentage (%)
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Battery health resistance
+  domain: telemetry
+  description: Health related to battery resistance.
+  type: integer
+  scope:
+    - data:telemetry
+  unit: Percentage (%)
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Charging plugged state
+  domain: telemetry
+  description: Return if the electric vehicle is charging or not.
+  type: boolean
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Charging state
+  domain: telemetry
+  description: Status of charging system.
+  type: string
+  enum: 
+    - Disconnected
+    - InProgress
+    - Failure
+    - Stopped
+    - Finished
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Charging mode
+  domain: telemetry
+  description: Charging technology.
+  type: string
+  enum: 
+    - Slow
+    - Quick
+    - "No"
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Charging rate
+  domain: telemetry
+  description: Charging speed expressed in autonomy per hour.
+  type: integer
+  scope:
+    - data:telemetry
+  unit: expressed in gained batteryLife per hour -> KM/H
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Charging remaining time
+  domain: telemetry
+  description: Remaning time before the battery is fully charged.
+  type: string
+  scope:
+    - data:telemetry
+  unit: Duration (ISO8601)
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Charging next delayed time
+  domain: telemetry
+  description: Time at which charging is scheduled.
+  type: string
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Alarm trigger type
+  domain: telemetry
+  description: Vehicle alarm trigger type  
+  type: string
+  enum:
+    - NoBreakIn
+    - FrontRightDoorBreakIn
+    - FrontLeftDoorBreakIn
+    - RearRightFrontDoorBreakIn
+    - RearLeftFrontDoorBreakIn
+    - HoodDoorBreakIn
+    - TrunkDoorBreakIn
+    - BackliteDoorBreakIn
+    - RoofBreakIn
+    - VolumetricBreakIn
+    - VehicleLifting
+    - ElectricalsystemBreakIn
+    - KeyLearning
+    - UnauthenticatedStartup 
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+        - "getVehicleAlarms"
+        - "getVehicleAlarmsById"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Alarm trigger position
+  domain: telemetry
+  description: |-
+    Coordinates where the alarm occurs. Comes with other position information such as longitude, latitude, altitude, signal Quality, heading, etc.
+  type: object
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+        - "getVehicleAlarms"
+        - "getVehicleAlarmsById"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Alarm trigger start timestamp
+  domain: telemetry
+  description: Time when the alarm occurs.
+  type: string
+  scope:
+    - data:telemetry
+  unit: Date-time
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+        - "getVehicleAlarms"
+        - "getVehicleAlarmsById"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Alarm activation state
+  domain: telemetry
+  description: Vehicle alarm activation state  
+  type: string
+  enum:
+    - Inactive
+    - Active 
+  scope:
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetVehicleStatus"
+        - "getFleetStatusList"
+        - "getTelemetry"
+        - "getTelemetryForTripByVehicle"
+        - "getVehicleAlarms"
+        - "getVehicleAlarmsById"
+      webapi_b2c_v4:
+        - "getVehicleStatus"
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: engine class
+  domain: vehicle_info
+  description: Class electric or class thermic vehicle.
+  type: string
+  enum: 
+    - Thermic
+    - Electric
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getVehicleByid"
+      webapi_b2c_v4:
+        - "getVehicleByid"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: vin
+  domain: vehicle_info
+  description: Serial number of a vehicle
+  type: string
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getVehicleByid"
+      webapi_b2c_v4:
+        - "getVehicleByid"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: brand
+  domain: vehicle_info
+  description: Brand of a vehicle
+  type: string
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getVehicleByid"
+      webapi_b2c_v4:
+        - "getVehicleByid"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: UIN
+  domain: vehicle_info
+  description: UIN of the vehcile
+  type: string
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip distance
+  domain: trip
+  description: Distance of the trip
+  type: string
+  scope:
+    - data:trip
+  unit: km
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip duration
+  domain: trip
+  description: Duration of the trip
+  type: string
+  scope:
+    - data:trip
+  unit: Date-time
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip start position
+  domain: trip
+  description: Departure location of the trip. 2 to 3 values, longitude latitude and altitude"
+  type: array
+  scope:
+    - data:trip
+    - data:position
+  items: number
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip end position
+  domain: trip
+  description: |- 
+    Arrival location of the trip. 2 to 3 values: longitude latitude and altitude.
+  type: array
+  scope:
+    - data:trip
+    - data:position
+  items: number
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip completion
+  domain: trip
+  description: Determines whether this trip have is finished.
+  type: boolean
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip faults
+  domain: trip
+  description: The faults of a finished or in progress trip. This means that we lacked datafrom the vehicle to complete the trip description during one of its step (starting, progressing, or finishing)."
+  type: string
+  enum: 
+    - Unstarted
+    - DataLacking
+    - Unfinished
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip start timestamp
+  domain: trip
+  description: Time when the trip started.
+  type: string
+  scope:
+    - data:trip
+  unit: Date-time
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip stop timestamp
+  domain: trip
+  description: Time when the trip stopped.
+  type: string
+  scope:
+    - data:trip
+  unit: Date-time
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip start mileage
+  domain: trip
+  description: Mileage when the trip started.
+  type: number
+  scope:
+    - data:trip
+  unit: kilometers
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip start energy
+  domain: trip
+  description: Informations about vehicle energy (type, level, autonomy) when the trip started.
+  type: object
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip end energy
+  domain: trip
+  description: Informations about vehicle energy (type, level, autonomy) when the trip stopped.
+  type: object
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip energy consumption
+  domain: trip
+  description: Informations about vehicle energy (type, consumption) when the trip stopped.
+  type: object
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip average speed
+  domain: trip
+  description: Vehicle average speed during the trip.
+  type: number
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip max speed
+  domain: trip
+  description: Vehicle max speed during the trip.
+  type: number
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip energy ratio
+  domain: trip
+  description: Proportion and distance of all energy type used during the trip.
+  type: array
+  scope:
+    - data:trip
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripsById"
+        - "getTripsByVehicle"
+      webapi_b2c_v4: 
+        - getTripsByVehicle
+        - getTripByVehicle
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip alerts
+  domain: trip
+  description: Alerts related to a trip. See alerts for more info.
+  type: array
+  scope:
+    - data:trip
+    - data:alert
+  items: number
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTripAlerts"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip telemetry
+  domain: trip
+  description: |-
+    Telemetries for a trip. Available: privacy, engine type, energy type, brakes, transmissions, adas, lightening, ignition, door state, battery, beltWarning, eCall trigering, luminosity, air temperature, odometer, acceleration, speed, pace, moving, location, maintenance. See telemetries categorie for more info.
+  type: object
+  scope:
+    - data:trip
+    - data:telemetry
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleetTelemetryForTrip"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip Collisions
+  domain: trip
+  description: Retrieve collisions of a Trip.
+  type: object
+  scope:
+    - data:trip
+    - data:collision
+  availability:
+    apis:
+      webapi_b2b_v3: 
+        - "getTripCollisionsByTripAndVehicle"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Trip Waypoints
+  domain: trip
+  description: Retrieve waypoints of a Trip.
+  type: object
+  scope:
+    - data:trip
+    - data:position
+  unit: Array of GeoJSON Coordinates
+  availability:
+    apis:
+      webapi_b2b_v3: 
+        - "getPathForTrip"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Fleet Name
+  domain: vehicle_info
+  description: Name of the fleet to which this vehicle belongs.
+  type: string
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleets"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Fleet Description
+  domain: vehicle_info
+  description: Description of the fleet to which this vehicle belongs.
+  type: string
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleets"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Fleet identifier
+  domain: vehicle_info
+  description: Unique identifier of the fleet to which this vehicle belongs.
+  type: string
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getFleets"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: vehicle label
+  domain: vehicle_info
+  description: Version of a vehicle
+  type: string
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getVehicleByid"
+      webapi_b2c_v4:
+        - "getVehicleByid"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: vehicle pictures
+  domain: picture
+  description: Pictures of the vehicle. 1 to 12 values
+  type: array
+  items: string
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "getVehicleByid"
+      webapi_b2c_v4:
+        - "getVehicleByid"
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: remote preconditionning
+  domain: remote
+  description: Send remote preconditionning command.
+  type: object
+  scope:
+    - remote:preconditioning:write
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "sendRemoteToVhl"
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: remote charging
+  domain: remote
+  description: Enable/disable charging remotly.
+  type: object
+  scope:
+    - remote:charging:write
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "sendRemoteToVhl"
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
+    vehicle_types:
+      ICE: false
+      BEV: true
+      PHEV: true
+      FCEV: false
+- name: remote horn
+  domain: remote
+  description: Honk the horn remotly.
+  type: object
+  scope:
+    - remote:horn:write
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "sendRemoteToVhl"
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: remote doors
+  domain: remote
+  description: Lock or unlock the vehicle`s dorr remotly.
+  type: object
+  scope:
+    - remote:door:write
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "sendRemoteToVhl"
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: remote lights
+  domain: remote
+  description: Turn on/off the lights remotly.
+  type: object
+  scope:
+    - remote:lights:write
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "sendRemoteToVhl"
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: remote immobilization
+  domain: remote
+  description: Toggle immobilization on/off throught remote command.
+  type: object
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "sendRemoteToVhl"
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: remote stolen
+  domain: remote
+  description: Declare the vehicle stolen.
+  type: object
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "sendRemoteToVhl"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: remote wake up
+  domain: remote
+  description: Wake up the vehicle remotly.
+  type: object
+  scope:
+    - remote:wakeup:write
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "sendRemoteToVhl"
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: remote navigation
+  domain: remote
+  description: Send a remote navigation to the vehicle infotainment system.
+  type: object
+  scope:
+    - remote:navigation:write
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "sendRemoteToVhl"
+      webapi_b2c_v4: 
+        - sendRemoteToVhl
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Monitor zone
+  domain: monitor
+  description: Receive notifications triggered by a zone rule.
+  type: object
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "createFleetVehicleMonitor"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Monitor time
+  domain: monitor
+  description: Receive notifications triggered by a time rule.
+  type: object
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "createFleetVehicleMonitor"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true
+- name: Monitor data
+  domain: monitor
+  description: Receive notifications triggered by a data rule.
+  type: object
+  availability:
+    apis:
+      webapi_b2b_v3:
+        - "createFleetVehicleMonitor"
+      webapi_b2c_v4: false
+    vehicle_types:
+      ICE: true
+      BEV: true
+      PHEV: true
+      FCEV: true

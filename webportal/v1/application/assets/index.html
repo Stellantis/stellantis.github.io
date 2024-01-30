@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Assets | Application | Webportal V1</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Assets | Application | Webportal V1">
+    <meta property="og:url" content="https://developer.groupe-psa.io/webportal/v1/application/assets/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="Find informations about how you should manage assets (pictures, font, audio ...) in webportal v1 applications.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Assets | Application | Webportal V1">
+    <meta name="twitter:description" content="Find informations about how you should manage assets (pictures, font, audio ...) in webportal v1 applications.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Find informations about how you should manage assets (pictures, font, audio ...) in webportal v1 applications." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/webportal/v1/application/assets/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS --><!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_webportal">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title " id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title is-default is-active" id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-down" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" is-default-subsection  navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" is-default-subsection  navbar-item is-active" href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" is-default-subsection  navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" is-default-subsection  navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title section-title">Webportal v1</h1>
+            <h2 class="title">embedded apps</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          Embedded Webportal
+          
+          
+          
+          - Version 1
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/webportal/v1/overview/" class='menu-label has-list' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webportal/v1/overview/about/#article">
+              About 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/overview/app-validation/#article">
+              App Validation 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/overview/infotainment-system/#article">
+              Infotainment System 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webportal/v1/application/" class='menu-label has-list is-active' id="Application">
+          <span>
+            Application
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webportal/v1/application/quickstart/#article">
+              Quickstart 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/application/guidelines/#article">
+              Guidelines 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/application/events/#article">
+              Handling Events 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/application/app-lifecycle/#article">
+              App Lifecycle 
+            </a>
+          </li>
+          <li>
+            <a class="is-active" href="/webportal/v1/application/assets/#article">
+              Assets 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/application/privacy/#article">
+              Privacy 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webportal/v1/advanced-features/" class='menu-label has-list' id="Advanced Features">
+          <span>
+            Advanced Features
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webportal/v1/advanced-features/mqtt/#article">
+              MQTT 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/advanced-features/user-subscription/#article">
+              User Subscription 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webportal/v1/api-reference/" class='menu-label has-list' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webportal/v1/api-reference/list/#article">
+              References 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column content-column">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span >
+              
+              Application - 
+              
+                
+    Assets
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/overview/about/#article" 
+                                                            >
+                                                                About
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/overview/app-validation/#article" 
+                                                            >
+                                                                App Validation
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/overview/infotainment-system/#article" 
+                                                            >
+                                                                Infotainment System
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Application">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/quickstart/#article" 
+                                                            >
+                                                                Quickstart
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/guidelines/#article" 
+                                                            >
+                                                                Guidelines
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/events/#article" 
+                                                            >
+                                                                Handling Events
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/app-lifecycle/#article" 
+                                                            >
+                                                                App Lifecycle
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/assets/#article" 
+                                                            selected>
+                                                                Assets
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/privacy/#article" 
+                                                            >
+                                                                Privacy
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Advanced Features">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/advanced-features/mqtt/#article" 
+                                                            >
+                                                                MQTT
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/advanced-features/user-subscription/#article" 
+                                                            >
+                                                                User Subscription
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/api-reference/list/#article" 
+                                                            >
+                                                                References
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/webportal/v1-2-application-assets.md"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/webportal/">Embedded Webportal</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webportal/v1/">Version 1</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webportal/v1/application/">Application</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    Assets
+  
+                </a>
+            </li>
+        </ul>
+    </nav></div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <p>WebPortal App allows accessing the following type of media:</p>
+<ul>
+  <li>🖼 <strong><a href="#images">Images</a></strong> can be displayed on the vehicle head unit screen.</li>
+  <li>🔉 <strong><a href="#audio">Audio</a></strong> sounds are played through the vehicle Hi-Fi system.</li>
+  <li>✍️ <strong><a href="#fonts">Fonts</a></strong> are available to customize fonts an App.</li>
+</ul>
+
+<p><strong>Videos</strong> are not authorized on WebPortal, they cannot be played on the head unit.</p>
+      <h2 id="using-assets">
+        <span class="bd-anchor-name">
+        
+          Using Assets
+                  </span>
+ <a href="#using-assets" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>Since WebPortal App runs in the embedded infotainment system of the vehicle, the following rules should be taken into account:</p>
+<ul>
+  <li>The App should signal its ready state only when all the <strong>assets have been loaded</strong>.</li>
+  <li>All assets should be loaded at the launch, then they can be accessed <strong>in the cache</strong> of the browser by URL request.</li>
+  <li>Keep in mind that <strong>RAM &amp; internet access are limited</strong> when you intend to use assets.</li>
+  <li>When accessing assets, you have to keep in mind the <strong>path</strong> is not the same relative one as it will be downloaded by the WebPortal on launch.</li>
+</ul>
+
+<p><strong>Internal Resources:</strong></p>
+
+<p>Your Application has access to multiple resources given by the WebPortal or it can even use its own resources.
+You can access these different resources with <code class="language-plaintext highlighter-rouge">XMLHttpRequest</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre><span class="kd">const</span> <span class="nx">req</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">req</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="dl">'</span><span class="s1">GET</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">/apps/MyApp/fonts/NAC-Icons.ttf</span><span class="dl">'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nx">req</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+<span class="c1">// In order to reuse a cached resource, you need to make a call to the exact same url or it will try to load it again.</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+    
+      <h2 id="images">
+        <span class="bd-anchor-name">
+        
+          Images
+                  </span>
+ <a href="#images" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><em>Compatible image formats: <strong>JPEG</strong>, <strong>SVG Tiny 1.2</strong>, PNG, GIF, BMP.</em></p>
+
+<p>You need to keep in mind the size of the <a href="/webportal/v1/overview/infotainment-system/#screen-size">infotainment system screen</a> where your application is delivered on.</p>
+
+<p>You will also have to consider the <strong>images size</strong> as the network bandwidth of the vehicle can be slow, it should be displayed within a reasonable timeframe:</p>
+<ul>
+  <li>its size should ideally not exceed 150kB</li>
+  <li>its dimensions should respect the maximum size of the infotainment system.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image weight (KB)</th>
+      <th>Download Time (~30KB/s)</th>
+      <th>Download Time (~100KB/s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100</td>
+      <td>3s</td>
+      <td>1s</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>5s</td>
+      <td>1,5s</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>7s</td>
+      <td>2s</td>
+    </tr>
+    <tr>
+      <td>1000</td>
+      <td>35s</td>
+      <td>10s</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Note:</strong></p>
+  <ul>
+    <li>Heavy GIF animations might not be smooth.</li>
+    <li>When targeting an SD NAC, it is advised to encode graphic assets in 8 bits instead of 24/32 bits as the device is only able to display in 8 bits.</li>
+    <li>In order to limit the weight of your pictures, you can use SVG when it reduce the image weight. Otherwise you should prioritize using JPEG.</li>
+  </ul>
+</blockquote>
+    
+      <h2 id="audio">
+        <span class="bd-anchor-name">
+        
+          Audio
+                  </span>
+ <a href="#audio" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><em>Compatible audio format: <strong>MP3</strong>, wav, ogg.</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Audio Duration</th>
+      <th>Audio weight (KB)</th>
+      <th>Download Time (~30KB/s)</th>
+      <th>Download Time (~100KB/s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>26s</td>
+      <td>350</td>
+      <td>12s</td>
+      <td>3s</td>
+    </tr>
+    <tr>
+      <td>1:15</td>
+      <td>1000</td>
+      <td>34s</td>
+      <td>10s</td>
+    </tr>
+    <tr>
+      <td>6:15</td>
+      <td>5000</td>
+      <td>170s</td>
+      <td>50s</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Total file downlaod time is an indication but audio streaming is available on the NAC, you don’t need to wait for the file to be fully loaded before.</p>
+
+<p>WebPortal audios have lower priority than guidance instructions of the vehicle infotainment system.</p>
+
+<p>If the guidance has to play an instruction while your app is already playing a sound in the WebPortal, the infotainment system will use <strong>ducking effect</strong> to play both sounds together.</p>
+
+<p>It means that your audio file will continue playing but with a reduced volume and the instruction will be the main audio canal.</p>
+
+<p><strong>Managing Audio:</strong></p>
+
+<p>When reading audio files, you have to manually implement and handle the html5 events triggered by the  <code class="language-plaintext highlighter-rouge">&lt;audio&gt;</code>player such as play and stop. If you do not handle them, the file will not be read.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="nx">Media</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">audioLost</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">audio are not found</span><span class="dl">"</span><span class="p">);});</span>
+
+<span class="nx">Media</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">audioAvailable</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">audio are available</span><span class="dl">"</span><span class="p">);});</span>
+
+<span class="nx">Media</span><span class="p">.</span><span class="nx">Audio</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="dl">"</span><span class="s2">MEDIA_PLAYER_SOURCE</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Active</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">audio</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Audio</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">sound</span> <span class="nx">file</span><span class="o">&gt;</span><span class="p">);</span>
+
+<span class="nx">audio</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+    
+      <h2 id="fonts">
+        <span class="bd-anchor-name">
+        
+          Fonts
+                  </span>
+ <a href="#fonts" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>Fonts should be handled using <strong>HTML and CSS</strong>. If no font is specified, the WebPortal will use a font with serif, e.g. Times New Roman.</p>
+
+<p>The special keywords: <em>serif, sans-serif, monospace</em> for the font-family property are supported by WebPortal browser which will automatically choose the corresponding font.</p>
+
+<p>Here is a list of fonts available in NAC software version <em>42.01.70.50_NAC-r0</em>:</p>
+
+<ul>
+  <li>Heldustry</li>
+  <li>PAULETTEcondensed</li>
+  <li>PLAQUES gill sans</li>
+  <li>Sansation_Regular</li>
+  <li>Tfont</li>
+  <li>type LCB</li>
+  <li>Vera</li>
+</ul>
+
+<p>What is more, there are brand-specific fonts:</p>
+<ul>
+  <li>GM Sans UI Global Condensed (for Opel / Vauxhall)</li>
+  <li>Peugeot (for Peugeot, Citroen and DS)</li>
+  <li>Peugeot Light (similar to Peugeot but thinner)</li>
+  <li>DSTACHY</li>
+</ul>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            
+            
+          </ul>
+        </nav>
+
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer></body>
+</html>

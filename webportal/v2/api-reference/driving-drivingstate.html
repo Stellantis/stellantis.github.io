@@ -1,0 +1,2398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Driving.drivingstate | Api reference | Webportal V2</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Driving.drivingstate | Api reference | Webportal V2">
+    <meta property="og:url" content="https://developer.groupe-psa.io/webportal/v2/api-reference/driving-drivingstate">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="Stellantis for Developers is the dedicated platform for application developers working with Stellantis's connected vehicles API and SDKs.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Driving.drivingstate | Api reference | Webportal V2">
+    <meta name="twitter:description" content="Stellantis for Developers is the dedicated platform for application developers working with Stellantis's connected vehicles API and SDKs.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Stellantis for Developers is the dedicated platform for application developers working with Stellantis's connected vehicles API and SDKs." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/webportal/v2/api-reference/driving-drivingstate">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS -->
+    <link rel="stylesheet" href="/assets/css/modules/api-reference.css">
+    <!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_webportal">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title " id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title is-default is-active" id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-down" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" is-default-subsection  navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" is-default-subsection  navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" is-default-subsection  navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title section-title">Webportal v2</h1>
+            <h2 class="title">embedded apps</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          Embedded Webportal
+          
+          
+          
+          
+          
+          - Version 2
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/webportal/v2/overview/" class='menu-label has-list' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webportal/v2/overview/about/#article">
+              About 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v2/overview/app-validation/#article">
+              App Validation 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v2/overview/infotainment-system/#article">
+              Infotainment System 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webportal/v2/application/" class='menu-label has-list' id="Application">
+          <span>
+            Application
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webportal/v2/application/quickstart/#article">
+              Quickstart 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v2/application/assets/#article">
+              Assets 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v2/application/privacy/#article">
+              Privacy 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webportal/v2/api-reference/" class='menu-label has-list is-active' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webportal/v2/api-reference/list/#article">
+              References 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column content-column">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span style="font-size: 1.35rem">
+              
+              API Reference - 
+              
+                
+    driving.drivingState
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v2/overview/about/#article" 
+                                                            >
+                                                                About
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v2/overview/app-validation/#article" 
+                                                            >
+                                                                App Validation
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v2/overview/infotainment-system/#article" 
+                                                            >
+                                                                Infotainment System
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Application">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v2/application/quickstart/#article" 
+                                                            >
+                                                                Quickstart
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v2/application/assets/#article" 
+                                                            >
+                                                                Assets
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v2/application/privacy/#article" 
+                                                            >
+                                                                Privacy
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v2/api-reference/list/#article" 
+                                                            >
+                                                                References
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/_webportal-ivi-public-reference/driving.drivingState.md"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/webportal/">Embedded Webportal</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webportal/v2/">Version 2</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webportal/v2/api-reference/">API Reference</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    driving.drivingState
+  
+                </a>
+            </li>
+        </ul>
+    </nav></div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <div class="api">
+
+  <div
+    class="api-header"
+  >
+
+    <div class="api-available">
+      <div class="api-privacy-container api-general-block">
+        <span class="privacy-name">
+          <span class="api-header-title"> Required Privacy:</span>
+        </span>
+        <a class="api-privacy" href="/webportal/v2/application/privacy/#article">
+          
+          <span class="icon is-white">
+            <i class="fas fa-long-arrow-alt-down"></i>
+            <i class="fas fa-long-arrow-alt-up"></i>
+          </span>
+          <span class="privacy-name">
+            Data &
+          </span>
+          <span class="icon is-white">
+            <i class="fas fa-map-marker-alt"></i>
+          </span>
+          <span class="privacy-name">
+            Location
+          </span>
+          
+        </a>
+      </div>
+      <div class="api-component api-general-block">
+        <span class="api-header-title">Plateforme Compatibility: </span>
+      
+      </div>
+      <div class="api-operations api-general-block">
+        <span class="api-header-title"> Operations:</span>
+        <div class="api-types">
+          <ul>
+            
+            
+              
+              <li>
+                <a href="#get">
+                  <span class="icon">
+                    <i class="fas fa-link"></i>
+                  </span>
+                  GET
+                </a>
+              </li>
+              
+            
+              
+            
+              
+              <li>
+                <a href="#subscribe">
+                  <span class="icon">
+                    <i class="fas fa-link"></i>
+                  </span>
+                  SUBSCRIBE
+                </a>
+              </li>
+              
+            
+          </ul>
+        </div>
+      </div>
+      </div>
+  </div><div 
+    class="api-content-container api-content-container-get"
+  >
+    <div class="api-content"><div 
+        class="api-content-header"
+        id="get"
+      >
+        
+        <a 
+          class="api-content-name"
+          href="#get"
+        >
+            <div
+              class="api-content-tag"
+            >
+              GET
+      </div>
+            driving.drivingState
+          </a>
+        
+          <div class="api-type-edit-buttons is-flex is-justify-content-center is-align-items-baseline">
+            
+            <a href="https://github.psa-cloud.com/p4d00/doc/tree/master/_webportal-ivi-public-reference/driving.drivingState.md"
+              class="button edit-page icon-button is-outlined is-pulled-right is-small"
+              target="_blank"
+              title="Edit this page on GitHub">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span class="edit-page-text">
+                Edit
+              </span>
+            </a>
+
+          
+          </div>
+
+        </div><div class="api-text">
+          
+          <div class="api-short"><p>This API allows to work with driver distraction status.</p>
+</div>
+          
+          
+          
+          
+          <div class="api-short"><p>You can retrieve driver distraction disclaimer text with <a href="/webportal/v2/reference/list/#api-HMI-driverDistractionText">this API</a>.</p>
+
+<p><strong>Note:</strong> driverDistraction is set to <code class="language-plaintext highlighter-rouge">true</code> under 5 km/h and to <code class="language-plaintext highlighter-rouge">false</code> upon 5km/h.</p>
+
+<p><strong>Warning:</strong> When driverDistraction is set to <code class="language-plaintext highlighter-rouge">false</code>:</p>
+<ul>
+  <li>the app must not display heavy animated elements.</li>
+  <li>the app must not include games or other features outside the intended app types.</li>
+</ul>
+</div></div><div class="api-table">
+          <table><thead>
+              <tr><th colspan="6" class="api-table-header api-params">Input Parameter</th></tr>
+              
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="6">
+                  <em>No input params</em>
+                </td>
+              </tr>
+              
+              </tbody></table>
+        </div>
+        <div class="api-table">
+            <table><thead>
+                <tr><th colspan="5" class="api-table-header api-data">Output Data</th></tr>
+                
+                <tr class="api-col-title">
+                  <th>
+                    Data name
+                  </th>
+                  <th>
+                    Description
+                  </th>
+                  <th>
+                    Type
+                  </th>
+                  <th>
+                    Unit/Values
+                  </th>
+                  <th>
+                    Example
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                
+
+
+
+<tr 
+    class=""
+    
+    
+    
+    >
+    
+    <td class="api-table-name">
+        
+            <span class="last-object-level">drivingState</span>
+        
+    </td>
+    <td><p>Driver distraction is set to <code class="language-plaintext highlighter-rouge">true</code> when the driver is able to use the infotainment system and to <code class="language-plaintext highlighter-rouge">false</code> otherwise.</p>
+</td>
+    <td><em><p>boolean</p>
+</em></td>
+    
+    <td class="api-table-unit-value-code">
+        
+        
+        <code>
+            <p>n/a</p>
+
+        </code>
+        
+        
+    </td>
+    <td>
+        <code>true</code>
+    </td>
+    
+    
+</tr>
+
+                  
+                  
+                  
+                </tbody></table>
+            </div>
+
+
+<div
+  id="get-driving-drivingstate"
+  class="api-content-code"
+  style="margin-bottom: 1.5rem;"
+>
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <div class="api-code-header-text api-code-header-get">Code Example
+</div>
+    
+    
+  </div>
+    
+  
+  
+  <div class="code-block first-block sdk "
+  ><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab sdk">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request SDK</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab natif">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Natif JS</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-sdk">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="nx">webportal</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span>
+    <span class="cm">/* api name */</span>
+    <span class="dl">"</span><span class="s2">driving.drivingState</span><span class="dl">"</span><span class="p">,</span>
+    <span class="cm">/* parameters */</span>
+     <span class="kc">null</span>
+  <span class="p">)</span>
+  <span class="cm">/* callback for `REPLY` messages */</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">message</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+      <span class="cm">/* handle `REPLY` success */</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span> <span class="cm">/* handle `REPLY` error */</span> <span class="p">}</span>
+  <span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-natif">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7372c16f-5f2f-42c9-84a7-5490e35f1be0</span><span class="dl">"</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">api</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">driving.drivingState</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span>  <span class="kc">null</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block reply "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab reply">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Reply</span>
+            </div>
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-reply">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1">// --- format of the `REPLY` message ---</span>
+
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7372c16f-5f2f-42c9-84a7-5490e35f1be0</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">REPLY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">api</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">driving.drivingState</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">statusText</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-notify">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+  
+  
+  
+  
+
+</div></div>
+  </div>
+
+  <div 
+    class="api-content-container api-content-container-subscribe"
+  >
+    <div class="api-content"><div 
+        class="api-content-header"
+        id="subscribe"
+      >
+        
+        <a 
+          class="api-content-name"
+          href="#subscribe"
+        >
+            <div
+              class="api-content-tag"
+            >
+              SUBSCRIBE
+      </div>
+            driving.drivingState
+          </a>
+        
+          <div class="api-type-edit-buttons is-flex is-justify-content-center is-align-items-baseline">
+            
+            <a href="https://github.psa-cloud.com/p4d00/doc/tree/master/_webportal-ivi-public-reference/driving.drivingState.md"
+              class="button edit-page icon-button is-outlined is-pulled-right is-small"
+              target="_blank"
+              title="Edit this page on GitHub">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span class="edit-page-text">
+                Edit
+              </span>
+            </a>
+
+          
+          </div>
+
+        </div><div class="api-text">
+          
+          <div class="api-short"><p>This API allows to work with driver distraction status.</p>
+</div>
+          
+          
+          
+          
+          <div class="api-short"><p>You can retrieve driver distraction disclaimer text with <a href="/webportal/v2/reference/list/#api-HMI-driverDistractionText">this API</a>.</p>
+
+<p><strong>Note:</strong> driverDistraction is set to <code class="language-plaintext highlighter-rouge">true</code> under 5 km/h and to <code class="language-plaintext highlighter-rouge">false</code> upon 5km/h.</p>
+
+<p><strong>Warning:</strong> When driverDistraction is set to <code class="language-plaintext highlighter-rouge">false</code>:</p>
+<ul>
+  <li>the app must not display heavy animated elements.</li>
+  <li>the app must not include games or other features outside the intended app types.</li>
+</ul>
+</div></div><div class="api-table">
+          <table><thead>
+              <tr><th colspan="6" class="api-table-header api-params">Input Parameter</th></tr>
+              
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="6">
+                  <em>No input params</em>
+                </td>
+              </tr>
+              
+              </tbody></table>
+        </div>
+        <div class="api-table">
+            <table><thead>
+                <tr><th colspan="5" class="api-table-header api-data">Output Data</th></tr>
+                
+                <tr class="api-col-title">
+                  <th>
+                    Data name
+                  </th>
+                  <th>
+                    Description
+                  </th>
+                  <th>
+                    Type
+                  </th>
+                  <th>
+                    Unit/Values
+                  </th>
+                  <th>
+                    Example
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                
+
+
+
+<tr 
+    class=""
+    
+    
+    
+    >
+    
+    <td class="api-table-name">
+        
+            <span class="last-object-level">drivingState</span>
+        
+    </td>
+    <td><p>Driver distraction is set to <code class="language-plaintext highlighter-rouge">true</code> when the driver is able to use the infotainment system and to <code class="language-plaintext highlighter-rouge">false</code> otherwise.</p>
+</td>
+    <td><em><p>boolean</p>
+</em></td>
+    
+    <td class="api-table-unit-value-code">
+        
+        
+        <code>
+            <p>n/a</p>
+
+        </code>
+        
+        
+    </td>
+    <td>
+        <code>true</code>
+    </td>
+    
+    
+</tr>
+
+                  
+                  
+                  
+                </tbody></table>
+            </div>
+
+
+<div
+  id="subscribe-driving-drivingstate"
+  class="api-content-code"
+  style="margin-bottom: 1.5rem;"
+>
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <div class="api-code-header-text api-code-header-subscribe">Code Example
+</div>
+    
+    
+  </div>
+    
+  
+  
+  <div class="code-block first-block sdk "
+  ><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab sdk">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request SDK</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab natif">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Natif JS</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-sdk">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre><span class="nx">webportal</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span>
+    <span class="cm">/* api name */</span>
+    <span class="dl">"</span><span class="s2">driving.drivingState</span><span class="dl">"</span><span class="p">,</span>
+    <span class="cm">/* parameters */</span>
+     <span class="kc">null</span><span class="p">,</span>
+    <span class="cm">/* callback for `NOTIFY` messages */</span>
+    <span class="k">async</span> <span class="p">(</span><span class="nx">notifyMessage</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">notifyMessage</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* handle `NOTIFY` response */</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="p">{</span> <span class="cm">/*  handle `NOTIFY` error  */</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">)</span>
+  <span class="cm">/* callback for `REPLY` messages */</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">message</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+      <span class="cm">/* handle `REPLY` success */</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span> <span class="cm">/* handle `REPLY` error */</span> <span class="p">}</span>
+  <span class="p">})</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-natif">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7372c16f-5f2f-42c9-84a7-5490e35f1be0</span><span class="dl">"</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUBSCRIBE</span><span class="dl">"</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">api</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">driving.drivingState</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span>  <span class="kc">null</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block notify "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab reply">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Reply</span>
+            </div>
+            
+            
+            
+            
+            
+            <div class="api-code-tab notify">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-bell"></i>
+              </span>
+              <span class="api-code-tab-text">Notify</span>
+            </div>
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-reply">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="c1">// --- format of the `REPLY` message ---</span>
+<span class="c1">// type: acknowledge the status of the subscription</span>
+<span class="c1">// reception: only once after the subscription request</span>
+<span class="c1">// contains outputed data: no</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7372c16f-5f2f-42c9-84a7-5490e35f1be0</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">REPLY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">statusText</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span>
+<span class="p">}</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-notify">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre><span class="c1">// --- format of the `NOTIFY` message ---</span>
+<span class="c1">// type: event message about the subscription</span>
+<span class="c1">// reception: each time the conditions of the subscription are met</span>
+<span class="c1">// contains outputed data: yes</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">7372c16f-5f2f-42c9-84a7-5490e35f1be0</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NOTIFY</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">api</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">driving.drivingState</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">statusText</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+  
+  
+  
+  
+
+</div></div>
+  </div>
+
+  <div class="api-related">
+    <p class="bd-anchors-title aside-main-title">
+  <a 
+   class="bd-back-to-ref"
+   href="/webportal/v2/api-reference/list/#article
+   ">
+    <span class="icon is-small">
+      <i class="fas fa-xs fa-arrow-left"></i>
+    </span> Back to Ref List 
+  </a>
+</p>
+<hr>
+<p class="bd-anchors-title">
+  Related References
+</p>
+
+<ul class="bd-anchors-list">
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-jda.html#article"
+        >
+          driving.JDA 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-breakpedal.html#article"
+        >
+          driving.breakPedal 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-controltype.html#article"
+        >
+          driving.controlType 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-controltypestatus.html#article"
+        >
+          driving.controlTypeStatus 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-currentgear.html#article"
+        >
+          driving.currentGear 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-daynightmode.html#article"
+        >
+          driving.dayNightMode 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          style="color: #2689b5;"
+          
+          href="/webportal/v2/api-reference/driving-drivingstate.html#article"
+        >
+          driving.drivingState 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-instantspeed.html#article"
+        >
+          driving.instantSpeed 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-kmbeforenextmaintenance.html#article"
+        >
+          driving.kmBeforeNextMaintenance 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-lampsfrontfogon.html#article"
+        >
+          driving.lampsFrontFogOn 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-lampspositionon.html#article"
+        >
+          driving.lampsPositionOn 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-lampsrearfogon.html#article"
+        >
+          driving.lampsRearFogOn 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-speedvalue.html#article"
+        >
+          driving.speedValue 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-steeringwheelangle.html#article"
+        >
+          driving.steeringWheelAngle 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-throttlepedallevel.html#article"
+        >
+          driving.throttlePedalLevel 
+        </a>
+      </li>
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  
+  </div>
+
+</div>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <nav class="bd-anchors api-types-aside" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+  <a 
+   class="bd-back-to-ref"
+   href="/webportal/v2/api-reference/list/#article
+   ">
+    <span class="icon is-small">
+      <i class="fas fa-xs fa-arrow-left"></i>
+    </span> Back to Ref List 
+  </a>
+</p>
+<hr>
+<p class="bd-anchors-title">
+  Related References
+</p>
+
+<ul class="bd-anchors-list">
+
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-jda.html#article"
+        >
+          driving.JDA 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-breakpedal.html#article"
+        >
+          driving.breakPedal 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-controltype.html#article"
+        >
+          driving.controlType 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-controltypestatus.html#article"
+        >
+          driving.controlTypeStatus 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-currentgear.html#article"
+        >
+          driving.currentGear 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-daynightmode.html#article"
+        >
+          driving.dayNightMode 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          style="color: #2689b5;"
+          
+          href="/webportal/v2/api-reference/driving-drivingstate.html#article"
+        >
+          driving.drivingState 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-instantspeed.html#article"
+        >
+          driving.instantSpeed 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-kmbeforenextmaintenance.html#article"
+        >
+          driving.kmBeforeNextMaintenance 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-lampsfrontfogon.html#article"
+        >
+          driving.lampsFrontFogOn 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-lampspositionon.html#article"
+        >
+          driving.lampsPositionOn 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-lampsrearfogon.html#article"
+        >
+          driving.lampsRearFogOn 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-speedvalue.html#article"
+        >
+          driving.speedValue 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-steeringwheelangle.html#article"
+        >
+          driving.steeringWheelAngle 
+        </a>
+      </li>
+      
+  
+    
+      <li>
+        <a 
+          
+          href="/webportal/v2/api-reference/driving-throttlepedallevel.html#article"
+        >
+          driving.throttlePedalLevel 
+        </a>
+      </li>
+      
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+  
+        </nav>
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer>
+    <script type="text/javascript" src="/assets/js/api-reference.js"></script>
+    </body>
+</html>

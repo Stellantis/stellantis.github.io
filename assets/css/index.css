@@ -1,0 +1,20 @@
+.bd-main {
+    background-color: white;
+}
+
+.bd-link-name {
+    color: #4a4a4a;
+	background-color: #f3f3f3;
+}
+
+.bd-links {
+    text-align: center;
+	color: #363636;
+	font-size: 1rem;
+    text-shadow: 1px 1px 2px #000000;
+}
+
+#lunrsearchresults {
+    padding-top: 0;
+    margin-top: 0;
+}

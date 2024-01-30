@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Authentication | Quickstart | Webapi B2B</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Authentication | Quickstart | Webapi B2B">
+    <meta property="og:url" content="https://developer.groupe-psa.io/webapi/b2b/quickstart/authentication/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="Getting authentication in Stellantis network is required in order to use Stellantis Fleet owner API.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Authentication | Quickstart | Webapi B2B">
+    <meta name="twitter:description" content="Getting authentication in Stellantis network is required in order to use Stellantis Fleet owner API.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Getting authentication in Stellantis network is required in order to use Stellantis Fleet owner API." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/webapi/b2b/quickstart/authentication/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS -->
+    <link rel="stylesheet" href="/assets/css/modules/api-reference.css">
+    <!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_api">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title is-default is-active" id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-down" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item is-active" href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title">WEB API</h1>
+            <h2 class="title">for fleet owner</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          Web API
+          
+          
+          
+          - Fleet Owner
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/webapi/b2b/overview/" class='menu-label has-list' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/overview/about/#article">
+              About this API 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/overview/api-concepts/#article">
+              API Concepts 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/overview/errors/#article">
+              Errors & Rate Limit 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/overview/data-scope/#article">
+              Data Scope 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/quickstart/" class='menu-label has-list is-active' id="Quickstart">
+          <span>
+            Quickstart
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a class="is-active" href="/webapi/b2b/quickstart/authentication/#article">
+              Authentication 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/quickstart/examples/#article">
+              Examples 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/monitor/" class='menu-label has-list' id="Monitor">
+          <span>
+            Monitor
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/monitor/about/#article">
+              About Monitors 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/monitor/set-up/#article">
+              Set Up 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/monitor/retry-policy/#article">
+              Retry Policy 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/monitor/server-specification/#article">
+              Server Specification 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/remote/" class='menu-label has-list' id="Remote">
+          <span>
+            Remote
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/remote/about/#article">
+              About Remotes 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/set-up/#article">
+              Set Up 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/retry-policy/#article">
+              Retry Policy 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/notifications-errors/#article">
+              Notifications and Errors 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/server-specification/#article">
+              Server Specification 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/api-reference/" class='menu-label has-list' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/api-reference/references/#article">
+              References 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/api-reference/changelog/#article">
+              Changelog 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column content-column">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span >
+              
+              Quickstart - 
+              
+                
+    Authentication
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/about/#article" 
+                                                            >
+                                                                About this API
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/api-concepts/#article" 
+                                                            >
+                                                                API Concepts
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/errors/#article" 
+                                                            >
+                                                                Errors & Rate Limit
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/data-scope/#article" 
+                                                            >
+                                                                Data Scope
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Quickstart">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/quickstart/authentication/#article" 
+                                                            selected>
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/quickstart/examples/#article" 
+                                                            >
+                                                                Examples
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Monitor">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/about/#article" 
+                                                            >
+                                                                About Monitors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/set-up/#article" 
+                                                            >
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Remote">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/about/#article" 
+                                                            >
+                                                                About Remotes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/set-up/#article" 
+                                                            >
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/notifications-errors/#article" 
+                                                            >
+                                                                Notifications and Errors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/api-reference/references/#article" 
+                                                            >
+                                                                References
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/api-reference/changelog/#article" 
+                                                            >
+                                                                Changelog
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/webapi/b2b-quickstart_authentication.md"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/webapi/">Web API</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webapi/b2b/">Fleet Owner</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webapi/b2b/quickstart/">Quickstart</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    Authentication
+  
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="notification page-disclaimer">
+      <strong>Info:</strong> Stellantis Fleet Owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) is made for organisations owning <strong>fleet of vehicles</strong>.
+    </div>
+    </div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <h1 id="authentication-b2b">
+        <span class="bd-anchor-name">
+        
+          Authentication B2B
+                  </span>
+ <a href="#authentication-b2b" class="bd-anchor-link">#</a>
+        
+        
+      </h1>
+
+<p>In this tutorial you will find an explanation about <strong>getting your B2B authentication</strong> in Stellantis network. This authentication is required in order to consume Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall).</p>
+
+<p>This page is dedicated to Stellantis’s commercial partners. End-user authentication procedure is different, check this <a href="/webapi/b2c/quickstart/connect">page</a>.</p>
+
+<p>Our API allows access to sensible data about your fleet of vehicles, that’s why we have to perform mutual authentication between our networks. In order to sign your certificate we need you to produce a <strong>Certificate Signing Request (CSR)</strong>.</p>
+
+<p>At the end of this process you will have everything you need to consume our B2B API for connected vehicles!</p>
+
+<p><strong>Login info</strong>:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">MZP</code>: partner login in Stellantis (ex-Groupe PSA) network.</li>
+  <li><code class="language-plaintext highlighter-rouge">Password</code>: partner password in Stellantis (ex-Groupe PSA) network.</li>
+  <li><code class="language-plaintext highlighter-rouge">Client ID</code>: application ID (maybe you will have more than one application).</li>
+  <li><code class="language-plaintext highlighter-rouge">Client Certificate</code>: trusted SSL certificate signed by the dedicated Stellantis (ex-Groupe PSA) authority.</li>
+  <li><code class="language-plaintext highlighter-rouge">Private Key</code>: Your Private Key file.</li>
+  <li><code class="language-plaintext highlighter-rouge">CA Certificate</code>: Stellantis CA Cert for peer verification.</li>
+</ul>
+
+<p><img src="/assets/images/client-authentication.svg" alt="client-authentication" style="width: 580px" /></p>
+    
+      <h2 id="1-partner-login">
+        <span class="bd-anchor-name">
+        
+          1. Partner Login
+                  </span>
+ <a href="#1-partner-login" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>First, you’ll need a Stellantis (ex-Groupe PSA) login (ex: MZP123456). If you already have one, you can go to step 2. If you don’t have one, <a href="/contact-us/">contact us</a> and we will create one for you.</p>
+    
+      <h2 id="2-encryption-keys--csr">
+        <span class="bd-anchor-name">
+        
+          2. Encryption Keys &amp; CSR
+                  </span>
+ <a href="#2-encryption-keys--csr" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>Once you have received MZP login, next step is to produce SSL keys and CSR. These keys will allow encrypted communication between you and Stellantis:</p>
+<ul>
+  <li><strong>Public key</strong> will be used by Stellantis to encrypt messages.</li>
+  <li><strong>Private key</strong> will be used by you to decrypt Stellantis’s messages. Be careful, your private key is secret you need to keep it safe on your network.</li>
+</ul>
+
+<p>In order to ensure your identity we have to perform signing process of your public key and general info about your company. That is why you need to create a <strong>Certificate Signing Request (CSR)</strong>. We will sign your CSR and send you back a proper SSL certificate. Here is info we need in your CSR:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Information</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COUNTRY NAME (C)</td>
+      <td>Country code, two letters (ex: FR)</td>
+    </tr>
+    <tr>
+      <td>STATE OR PROVINCE (S)</td>
+      <td>ex: ‘Kansas’ or ‘Ile de France’</td>
+    </tr>
+    <tr>
+      <td>LOCALITY NAME (L)</td>
+      <td>ex: ‘Paris’</td>
+    </tr>
+    <tr>
+      <td>ORGANIZATION NAME (O)</td>
+      <td>ex: ‘Free2Move’</td>
+    </tr>
+    <tr>
+      <td>ORGANIZATIONAL UNIT (OU)</td>
+      <td>You must type: ‘Programs Partners’</td>
+    </tr>
+    <tr>
+      <td>COMMON NAME (CN)</td>
+      <td>ex: ‘MZP128745’</td>
+    </tr>
+    <tr>
+      <td>EMAIL ADDRESS</td>
+      <td>Email address, will be used in order to download and renew your certificate</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Producing encryption keys and CSR have to be done with a dedicated software. Here is <strong>examples with two of them</strong>:</p>
+    
+      <h3 id="21-with-openssl">
+        <span class="bd-anchor-name">
+        
+          2.1 With OpenSSL
+                  </span>
+
+        
+        
+      </h3>
+<p><strong>OpenSSL</strong> is an open-source software library for encryption purpose. It is widely used in internet security. You can download and install Open SSL using this <a href="https://slproweb.com/products/Win32OpenSSL.html">link</a> (Windows).</p>
+
+<p>With OpenSLL producing key and creating CSR can be performed in one step. Create a directory with text configuration file named like ‘CSRConfig.conf’ and copy/past this text into it:</p>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre>[ <span class="n">req</span> ]
+<span class="n">default_bits</span> = <span class="m">2048</span>
+<span class="n">distinguished_name</span> = <span class="n">req_distinguished_name</span>
+
+[ <span class="n">req_distinguished_name</span> ]
+<span class="n">countryName</span> = <span class="n">COUNTRY</span> <span class="n">NAME</span> (<span class="n">C</span>) <span class="n">two</span> <span class="n">letters</span> <span class="n">ex</span>: <span class="n">FR</span>
+<span class="n">stateOrProvinceName</span> = <span class="n">STATE</span> <span class="n">OR</span> <span class="n">PROVINCE</span> (<span class="n">S</span>) <span class="n">ex</span>: <span class="n">Kansas</span> <span class="n">or</span> <span class="n">Ile</span> <span class="n">de</span> <span class="n">France</span>
+<span class="n">localityName</span> = <span class="n">LOCALITY</span> <span class="n">NAME</span> (<span class="n">L</span>) <span class="n">ex</span>: <span class="n">Paris</span>
+<span class="n">organizationName</span> = <span class="n">ORGANIZATION</span> <span class="n">NAME</span> (<span class="n">O</span>) <span class="n">ex</span>: <span class="n">Free2Move</span>
+<span class="n">organizationalUnitName</span> = <span class="n">ORGANIZATIONAL</span> <span class="n">UNIT</span> (<span class="n">OU</span>) <span class="n">Press</span> <span class="n">enter</span> <span class="n">or</span> <span class="n">Programs</span> <span class="n">Partners</span>
+<span class="n">organizationalUnitName_default</span> = <span class="n">Programs</span> <span class="n">Partners</span>
+<span class="n">commonName</span> = <span class="n">COMMON</span> <span class="n">NAME</span> (<span class="n">CN</span>) <span class="n">ex</span>: <span class="n">MZP128745</span>
+<span class="n">emailAddress</span> = <span class="n">EMAIL</span> <span class="n">ADDRESS</span> <span class="n">will</span> <span class="n">be</span> <span class="n">used</span> <span class="n">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">download</span> <span class="n">and</span> <span class="n">renew</span> <span class="n">your</span> <span class="n">certificate</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Browse this place with your terminal and execute this command:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>openssl req <span class="se">\</span>
+  <span class="nt">-new</span> <span class="se">\</span>
+  <span class="nt">-keyout</span> KeyName.pem <span class="se">\</span>
+  <span class="nt">-out</span> CSRName.csr <span class="se">\</span>
+  <span class="nt">-config</span> CSRConfig.conf
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">KeyName.pem</code> will be your keyfile name</li>
+  <li><code class="language-plaintext highlighter-rouge">CSRName.csr</code> will be your CSR name</li>
+  <li><code class="language-plaintext highlighter-rouge">CSRConfig.conf</code> is configuration file’s name</li>
+</ul>
+
+<p>You will be requested for info incorporated in your CSR. Once you fill it you will get your CSR and Keyfile in your directory.</p>
+    
+      <h3 id="22-with-keytool">
+        <span class="bd-anchor-name">
+        
+          2.2 With Keytool
+                  </span>
+
+        
+        
+      </h3>
+<p>Keytool comes with Java Devlopment Kit. Like OpenSSL, it can be used to produce keys (in a file name keystore) and CSR.</p>
+
+<p>Produce your keys using this command:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>keytool <span class="se">\</span>
+  <span class="nt">-genkey</span> <span class="se">\</span>
+  <span class="nt">-alias</span> KeyName <span class="se">\</span>
+  <span class="nt">-keyalg</span> RSA <span class="se">\</span>
+  <span class="nt">-keysize</span> 2048 <span class="se">\</span>
+  <span class="nt">-dname</span> <span class="s2">"CN=MZPXXXX,OU=Programs Partner,O=PatrnerName,L=&lt;Paris,C=FR,email=it@partner.com"</span> <span class="se">\</span>
+  <span class="nt">-keystore</span> KeyStoreName.jks
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">CN</code> Common Name (ex MZP128745)</li>
+  <li><code class="language-plaintext highlighter-rouge">OU</code> Do not replace Programs Partners is right</li>
+  <li><code class="language-plaintext highlighter-rouge">O</code> Organization Name (ex Free2Move)</li>
+  <li><code class="language-plaintext highlighter-rouge">L</code> Locality Name (ex Paris)</li>
+  <li><code class="language-plaintext highlighter-rouge">C</code> Country Name two letters (ex: FR)</li>
+  <li><code class="language-plaintext highlighter-rouge">email</code> will be used in order to download and renew your certificate</li>
+  <li><code class="language-plaintext highlighter-rouge">Keyname</code> will be the name of the keys in the keystore</li>
+  <li><code class="language-plaintext highlighter-rouge">KeyStoreName.jks</code> will be the name of your keystore</li>
+</ul>
+
+<p>Generate your CSR:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>keytool <span class="se">\</span>
+  <span class="nt">-certreq</span> <span class="se">\</span>
+  <span class="nt">-alias</span> Keyname <span class="se">\</span>
+  <span class="nt">-keystore</span> KeyStoreName.jks <span class="se">\</span>
+  <span class="nt">-file</span> CSRName.csr
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Keyname</code> is the name of the keys in the keystore</li>
+  <li><code class="language-plaintext highlighter-rouge">KeyStoreName.jks</code> is the name of your keystore</li>
+  <li><code class="language-plaintext highlighter-rouge">CSRName.csr</code> will be the name of the CSR</li>
+</ul>
+    
+      <h2 id="3-submit-csr">
+        <span class="bd-anchor-name">
+        
+          3. Submit CSR
+                  </span>
+ <a href="#3-submit-csr" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+<p>Once you have created your brand-new CSR file, send it to your contact in Stellantis.
+At this point we will begin our internal process to sign your certificate.</p>
+    
+      <h2 id="4-certificate--client-id">
+        <span class="bd-anchor-name">
+        
+          4. Certificate &amp; Client ID
+                  </span>
+ <a href="#4-certificate--client-id" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+<p>If everything is ok, our certification authority will accept your Certificate Signing Request. Then you’ll receive an email at the adress you specified. This email contains: <strong>link to download your certificate &amp; Stellantis CA certificate</strong> + <strong>Client ID</strong> (= application id).
+Download your signed certificate and keep carefully your client ID.</p>
+    
+      <h1 id="5-request-example">
+        <span class="bd-anchor-name">
+        
+          5. Request Example
+                  </span>
+ <a href="#5-request-example" class="bd-anchor-link">#</a>
+        
+        
+      </h1>
+<p>In order to use Stellantis Fleet owner API, you must authenticate yourself as a partner in Stellantis’s network! Look further for more info about <a href="#authentication-b2b">B2B authentication</a>.
+Once you get what you need for authentication, you can try to send your first request to Stellantis’s API.</p>
+
+<p>Here is an example of cURL request:</p>
+
+<div id="-" class="api-content-code api-code-content-webapi" style="margin-bottom: 1.5rem;"><div class="api-code-header">
+
+  
+    
+    <a href="/webapi/b2b/api-reference/references/#operation//#/Fleet/getFleets" class="api-code-header-text api-code-header-get">
+      GET |&nbsp;https://api-cert.groupe-psa.com/connectedcar/v3<br />
+        <strong>/fleets</strong></a>
+  </div>
+  <div class="code-block first-block kotlin">
+    <div class="api-code-header">
+      <div class="api-code-tabs-container">
+        <nav class="api-code-tabs">
+          <div class="api-code-tab kotlin">
+            <span class="api-code-tab-icon is-white">
+              <i class="fas fa-long-arrow-alt-up"></i>
+            </span>
+            <span class="api-code-tab-text">HTTP Request</span>
+          </div>
+          
+        </nav>
+      </div>
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>curl <span class="se">\</span>
+  <span class="nt">--request</span> GET <span class="se">\</span>
+  <span class="nt">--url</span> <span class="s1">'https://api-cert.groupe-psa.com/connectedcar/v3/fleets'</span> <span class="se">\</span>
+  <span class="nt">--data-urlencode</span> <span class="s1">'client_id=&lt;client_id&gt;'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ=='</span> <span class="se">\</span>
+  <span class="nt">--key</span> <span class="s1">'path/to/key.pem'</span> <span class="se">\</span>
+  <span class="nt">--cert</span> <span class="s1">'path/to/client_cert.pem[:&lt;cert_password&gt;]'</span> <span class="se">\</span>
+  <span class="nt">--cacert</span> <span class="s1">'path/to/ca_cert.pem'</span> <span class="se">\</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-swift">
+      
+    </div>
+  </div>
+  </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Description</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Query Parameter</td>
+      <td><code class="language-plaintext highlighter-rouge">client_id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">&lt;App_ID&gt;</code></td>
+      <td>Id of the application.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>File</td>
+      <td>Client Certificate</td>
+      <td><code class="language-plaintext highlighter-rouge">path/to/client_certificate.pem</code></td>
+      <td>Your <a href="#authentication-b2b">SSL certificate</a> for authentication in Stelantis network.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>File</td>
+      <td>Private Key</td>
+      <td><code class="language-plaintext highlighter-rouge">path/to/key.pem</code></td>
+      <td>Your Private Key file.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>File</td>
+      <td>CA Certificate</td>
+      <td><code class="language-plaintext highlighter-rouge">path/to/ca_certificate.pem</code></td>
+      <td>Stellantis CA Cert for peer verification.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Header</td>
+      <td><code class="language-plaintext highlighter-rouge">accept</code></td>
+      <td><code class="language-plaintext highlighter-rouge">application/json</code></td>
+      <td>Advertises that you accept JSON content-type.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Header</td>
+      <td><code class="language-plaintext highlighter-rouge">authorization</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Basic &lt;BASIC_AUTH&gt; </code></td>
+      <td>Indicate that authentication is Basic Auth and <em>&lt;BASIC_AUTH&gt;</em> is <em>user:password</em> in Base64.</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+    
+      <h1 id="see-also">
+        <span class="bd-anchor-name">
+        
+          See Also
+                  </span>
+ <a href="#see-also" class="bd-anchor-link">#</a>
+        
+        
+      </h1>
+    
+      <h5 id="tutorial">
+        <span class="bd-anchor-name">
+        
+          Tutorial
+                  </span>
+
+        
+        
+      </h5>
+
+<p>A <a href="/webapi/b2b/quickstart/examples/">Quick Start guide</a> is provided to help you understand the basics and get started.</p>
+    
+      <h5 id="testing-the-api">
+        <span class="bd-anchor-name">
+        
+          Testing the API
+                  </span>
+
+        
+        
+      </h5>
+
+<p>To test the API you can check the <a href="/webapi/b2b/api-reference/references/">API List</a> directly.</p>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            
+            
+          </ul>
+        </nav>
+
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer>
+    <script type="text/javascript" src="/assets/js/api-reference.js"></script>
+    </body>
+</html>

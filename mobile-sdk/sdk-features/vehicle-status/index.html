@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vehicle Status | Sdk features | Mobile-sdk</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Vehicle Status | Sdk features | Mobile-sdk">
+    <meta property="og:url" content="https://developer.groupe-psa.io/mobile-sdk/sdk-features/vehicle-status/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="Retrieve vehicle information with connected vehicle mobile SDK.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Vehicle Status | Sdk features | Mobile-sdk">
+    <meta name="twitter:description" content="Retrieve vehicle information with connected vehicle mobile SDK.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Retrieve vehicle information with connected vehicle mobile SDK." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/mobile-sdk/sdk-features/vehicle-status/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS -->
+    <link rel="stylesheet" href="/assets/css/modules/api-reference.css">
+    <!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_ios">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title " id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" is-default-subsection  navbar-item is-active" href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title">Mobile SDK</h1>
+            <h2 class="title">iOS or Android</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          Mobile SDK
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/mobile-sdk/overview/" class='menu-label has-list' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/overview/about/#article">
+              About 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/overview/get-started/#article">
+              Get Started 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/overview/migration-v2-2-to-v2-3/#article">
+              Migration v2.2 to v2.3 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/security/" class='menu-label has-list' id="Security">
+          <span>
+            Security
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/security/security-schemes/#article">
+              Security Schemes 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/authentication/#article">
+              Authentication 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/service-activation-steps/#article">
+              Service Activation Steps 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/device-enrollment/#article">
+              Device Enrollment & Account Management 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/carkey/#article">
+              CarKey Check 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/otp/#article">
+              OTP 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/sdk-features/" class='menu-label has-list is-active' id="SDK Features">
+          <span>
+            SDK Features
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/sdk-features/trips/#article">
+              Trips 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/send-navigation/#article">
+              Send Navigation 
+            </a>
+          </li>
+          <li>
+            <a class="is-active" href="/mobile-sdk/sdk-features/vehicle-status/#article">
+              Vehicle Status 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/remote-commands/#article">
+              Remote Commands 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/push-notification/#article">
+              Push Notification 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/ami&rocks-e/#article">
+              AMI & Rocks-e 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/references/" class='menu-label has-list' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/references/v2-3/#article">
+              References v2.3 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/references/changelog/#article">
+              Changelog 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/references/errors/#article">
+              Errors 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column content-column">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span >
+              
+              SDK Features - 
+              
+                
+    Vehicle Status
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/about/#article" 
+                                                            >
+                                                                About
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/get-started/#article" 
+                                                            >
+                                                                Get Started
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/migration-v2-2-to-v2-3/#article" 
+                                                            >
+                                                                Migration v2.2 to v2.3
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Security">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/security-schemes/#article" 
+                                                            >
+                                                                Security Schemes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/authentication/#article" 
+                                                            >
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/service-activation-steps/#article" 
+                                                            >
+                                                                Service Activation Steps
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/device-enrollment/#article" 
+                                                            >
+                                                                Device Enrollment & Account Management
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/carkey/#article" 
+                                                            >
+                                                                CarKey Check
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/otp/#article" 
+                                                            >
+                                                                OTP
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="SDK Features">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/trips/#article" 
+                                                            >
+                                                                Trips
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/send-navigation/#article" 
+                                                            >
+                                                                Send Navigation
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/vehicle-status/#article" 
+                                                            selected>
+                                                                Vehicle Status
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/remote-commands/#article" 
+                                                            >
+                                                                Remote Commands
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/push-notification/#article" 
+                                                            >
+                                                                Push Notification
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/ami&rocks-e/#article" 
+                                                            >
+                                                                AMI & Rocks-e
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/v2-3/#article" 
+                                                            >
+                                                                References v2.3
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/changelog/#article" 
+                                                            >
+                                                                Changelog
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/errors/#article" 
+                                                            >
+                                                                Errors
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/mobile-sdk/3-2-sdk_features-vehicle-status.md"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/mobile-sdk/">Mobile SDK</a>
+            </li>
+            
+            
+            
+            <li>
+                <a href="/mobile-sdk/sdk-features/">SDK Features</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    Vehicle Status
+  
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="notification page-disclaimer">
+      <strong>Info:</strong> Stellantis Mobile SDK is <strong>not publicly available</strong>.
+    </div>
+    </div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <div class="notification">
+
+<p><strong>Security:</strong> Vehicle Status require the following <a href="/mobile-sdk/security/security-schemes/#article">security schemes</a> to be valid</p>
+
+<ul>
+  <li>
+    <p>🔓 <a href="/mobile-sdk/security/authentication/#article">Authentication</a></p>
+  </li>
+  <li>
+    <p>📑 <a href="/mobile-sdk/security/service-activation-steps/#article">Activation Steps</a></p>
+  </li>
+</ul>
+
+<p><strong>Connectivity:</strong> this feature is available using 📡 <strong>Cellular</strong> network over-the-air</p>
+<ul>
+  <li>🚗 The vehicle should be able to <strong>access internet</strong>.</li>
+  <li>📱 The device should be able to <strong>access internet</strong>.</li>
+</ul>
+
+<p><strong>References:</strong> check-out 🚗 <a href="/mobile-sdk/references/v2-3/#domain-longrangeremotestatus-psa">Vehicle Status component</a> list of APIs.</p>
+
+
+</div>
+<p>Vehicle Information is a <strong>set of data</strong> including VIN, vehicle brand, precond info, fuel info, electric info and door state. These data are available in Mobile SDK using <strong>internet connection</strong> 📡, no need to be next to the vehicle!</p>
+
+<p>Depending on the vehicle capabilities, some fields of the <em>vehicle informations</em> can be <code class="language-plaintext highlighter-rouge">null</code>.</p>
+
+<p>When the vehicle is awake, it will refresh these data on a <strong>regular basis on Stellantis servers</strong>. This tutorial explains how to access theses informations with <strong>pims.vehicle.informations</strong>.</p>
+
+<p>They are different way to query vehicle information data:</p>
+<ul>
+  <li><strong>⬇️ Get</strong>: a command requesting data from Stellantis server, if there is a connection issue with the server, it will return cache data.</li>
+  <li><strong>🔄 Refresh</strong>: this command will request the latest information available in Stellantis server. It will send a wake-up command only if the charging state is <em>in progress</em> or if the vehicle is plugged and charging state is <em>disconnected</em>.</li>
+</ul>
+      <h2 id="️-get">
+        <span class="bd-anchor-name">
+        
+          ⬇️ Get
+                  </span>
+ <a href="#️-get" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>Using the get parameter you will retrieve the latest information <strong>from the server</strong>, but if the server is not available then you will receive information from the mobile phone <strong>cache</strong>:</p>
+
+<div id="get-pims-vehicle-informations-remote-request-get" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/longrangeremotefcastatus-get-pims-vehicle-informations-remote/#article"> GET | pims.vehicle.informations - remote: Request Get
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"pims.vehicle.informations"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"actionType"</span><span class="p">,</span> <span class="s">"remote"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"action"</span><span class="p">,</span> <span class="s">"get"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.vehicle.informations"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"actionType"</span><span class="p">:</span> <span class="s">"remote"</span><span class="p">,</span>
+  <span class="s">"action"</span><span class="p">:</span> <span class="s">"get"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">resources</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">lastUpdate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-02-14T13':'41':58Z</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">fuelInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">autonomy</span><span class="dl">"</span><span class="p">:</span><span class="mf">145.0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">chargingInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="dl">"</span><span class="s2">chargingMode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> <span class="dl">"</span><span class="s2">chargingRate</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isPlugged</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+              <span class="dl">"</span><span class="s2">chargingState</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> <span class="dl">"</span><span class="s2">remainingTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PT0S</span><span class="dl">"</span> <span class="p">},</span>
+            <span class="dl">"</span><span class="s2">chargingLevel</span><span class="dl">"</span><span class="p">:</span><span class="mf">42.0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lastUpdate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-02-14T13':'41':57Z</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">consumption</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">fuel</span><span class="dl">"</span> <span class="p">},</span>
+          <span class="dl">"</span><span class="s2">doorStateInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">isDriverDoorOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isPassengerDoorOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">isRearLeftDoorOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isRearRightDoorOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">isRearWindowOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isRoofWindowOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isTrunkOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">state</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span> <span class="dl">"</span><span class="s2">Locked</span><span class="dl">"</span> <span class="p">]</span> <span class="p">},</span>
+          <span class="dl">"</span><span class="s2">precondInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">lastUpdate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-02-14T13':'41':57Z</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">disabled</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">precondScheduling</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span> <span class="dl">"</span><span class="s2">hour</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isEnabled</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">occurence</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Mon</span><span class="dl">"</span><span class="p">],</span>
+                <span class="dl">"</span><span class="s2">slot</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="dl">"</span><span class="s2">recurrence</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Daily</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">minute</span><span class="dl">"</span><span class="p">:</span><span class="mi">48</span> <span class="p">},</span>
+              <span class="p">{</span> <span class="dl">"</span><span class="s2">hour</span><span class="dl">"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isEnabled</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">minute</span><span class="dl">"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">occurence</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Wed</span><span class="dl">"</span><span class="p">],</span> <span class="dl">"</span><span class="s2">recurrence</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Daily</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">slot</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span> <span class="p">}</span> <span class="p">]</span> <span class="p">},</span>
+          <span class="dl">"</span><span class="s2">electricInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="dl">"</span><span class="s2">autonomy</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">chargingInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="dl">"</span><span class="s2">chargingMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">no</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">chargingRate</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isPlugged</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+              <span class="dl">"</span><span class="s2">nextDeferredChargingDate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-02-14T18':'00':10.715Z</span><span class="dl">"</span><span class="p">,</span>
+              <span class="dl">"</span><span class="s2">chargingState</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">disconnected</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">remainingTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PT0S</span><span class="dl">"</span> <span class="p">},</span>
+            <span class="dl">"</span><span class="s2">chargingLevel</span><span class="dl">"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lastUpdate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-02-14T13':'41':57Z</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">electric</span><span class="dl">"</span> <span class="p">},</span>
+          <span class="dl">"</span><span class="s2">vehicleType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hybrid</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">vin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">VR3ATTENTKY102274</span><span class="dl">"</span> <span class="p">}</span> <span class="p">},</span>
+      <span class="dl">"</span><span class="s2">attributes</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">engine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PHEV</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">vin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">VR3ATTENTKY102274</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">brand</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">peugeot</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+    
+      <h2 id="-refresh">
+        <span class="bd-anchor-name">
+        
+          🔄 Refresh
+                  </span>
+ <a href="#-refresh" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>Refresh parameter will also retrieve the latest information <strong>from the server</strong> but, if:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ressources.status.electricInformation.ChargingInfo.chargingState == 'DISCONNECTED or INPROGRESS'</code></li>
+  <li><strong>And</strong> <code class="language-plaintext highlighter-rouge">ressources.status.electricInformation.ChargingInfo.isPlugged == true</code>, then the vehicle will also receive a <strong>wake-up command</strong> that will refresh the vehicle information.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Error:</strong> If the connection with the server is not possible the response will be <code class="language-plaintext highlighter-rouge">error 2201: network problem</code>. You can use <a href="#️-get">Get</a> to retrieve cached data.</p>
+</blockquote>
+
+<div id="get-pims-vehicle-informations-remote-request-refresh" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/longrangeremotefcastatus-get-pims-vehicle-informations-remote/#article"> GET | pims.vehicle.informations - remote: Request Refresh
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"pims.vehicle.informations"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"actionType"</span><span class="p">,</span> <span class="s">"remote"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"action"</span><span class="p">,</span> <span class="s">"refresh"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.vehicle.informations"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"actionType"</span><span class="p">:</span> <span class="s">"remote"</span><span class="p">,</span>
+  <span class="s">"action"</span><span class="p">:</span> <span class="s">"refresh"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">resources</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">lastUpdate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-02-14T13':'41':58Z</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">fuelInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">autonomy</span><span class="dl">"</span><span class="p">:</span><span class="mf">145.0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">chargingInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="dl">"</span><span class="s2">chargingMode</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> <span class="dl">"</span><span class="s2">chargingRate</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isPlugged</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+              <span class="dl">"</span><span class="s2">chargingState</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> <span class="dl">"</span><span class="s2">remainingTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PT0S</span><span class="dl">"</span> <span class="p">},</span>
+            <span class="dl">"</span><span class="s2">chargingLevel</span><span class="dl">"</span><span class="p">:</span><span class="mf">42.0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lastUpdate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-02-14T13':'41':57Z</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">consumption</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">fuel</span><span class="dl">"</span> <span class="p">},</span>
+          <span class="dl">"</span><span class="s2">doorStateInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">isDriverDoorOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isPassengerDoorOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">isRearLeftDoorOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isRearRightDoorOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">isRearWindowOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isRoofWindowOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isTrunkOpened</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">state</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span> <span class="dl">"</span><span class="s2">Locked</span><span class="dl">"</span> <span class="p">]</span> <span class="p">},</span>
+          <span class="dl">"</span><span class="s2">precondInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">lastUpdate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-02-14T13':'41':57Z</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">disabled</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">precondScheduling</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span> <span class="dl">"</span><span class="s2">hour</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isEnabled</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">occurence</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Mon</span><span class="dl">"</span><span class="p">],</span>
+                <span class="dl">"</span><span class="s2">slot</span><span class="dl">"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="dl">"</span><span class="s2">recurrence</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Daily</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">minute</span><span class="dl">"</span><span class="p">:</span><span class="mi">48</span> <span class="p">},</span>
+              <span class="p">{</span> <span class="dl">"</span><span class="s2">hour</span><span class="dl">"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isEnabled</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="dl">"</span><span class="s2">minute</span><span class="dl">"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">occurence</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Wed</span><span class="dl">"</span><span class="p">],</span> <span class="dl">"</span><span class="s2">recurrence</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Daily</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">slot</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span> <span class="p">}</span> <span class="p">]</span> <span class="p">},</span>
+          <span class="dl">"</span><span class="s2">electricInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="dl">"</span><span class="s2">autonomy</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">chargingInformation</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="dl">"</span><span class="s2">chargingMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">no</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">chargingRate</span><span class="dl">"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">isPlugged</span><span class="dl">"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+              <span class="dl">"</span><span class="s2">nextDeferredChargingDate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-02-14T18':'00':10.715Z</span><span class="dl">"</span><span class="p">,</span>
+              <span class="dl">"</span><span class="s2">chargingState</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">disconnected</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">remainingTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PT0S</span><span class="dl">"</span> <span class="p">},</span>
+            <span class="dl">"</span><span class="s2">chargingLevel</span><span class="dl">"</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">lastUpdate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-02-14T13':'41':57Z</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">electric</span><span class="dl">"</span> <span class="p">},</span>
+          <span class="dl">"</span><span class="s2">vehicleType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">hybrid</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">vin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">VR3ATTENTKY102274</span><span class="dl">"</span> <span class="p">}</span> <span class="p">},</span>
+      <span class="dl">"</span><span class="s2">attributes</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">engine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PHEV</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">vin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">VR3ATTENTKY102274</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">brand</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">peugeot</span><span class="dl">"</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+    
+      <h2 id="-charge-events">
+        <span class="bd-anchor-name">
+        
+          🔌 Charge Events
+                  </span>
+ <a href="#-charge-events" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>When a vehicle is charging, it’s possible to subscribe to events triggered when the <strong>charge is finished or interrupted</strong>.</p>
+
+<p>This event is triggered when the charge is finished or when the charge is interrupted.</p>
+
+<div id="subscribe-pims-vehicle-event-remote" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-subscribe" href="/mobile-sdk/references/v2-3/longrangeremotefcastatus-subscribe-pims-vehicle-event-remote/#article"> SUBSCRIBE | pims.vehicle.event - remote
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="cm">/* Subscribe, see unsubscribe below */</span>
+<span class="n">pims</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="s">"pims.vehicle.event"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"actionType"</span><span class="p">,</span> <span class="s">"remote"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"type"</span><span class="p">,</span> <span class="nf">mapOf</span><span class="p">(</span><span class="s">"remoteChargeFinished"</span><span class="p">,</span> <span class="s">"remoteChargeInterrupted"</span><span class="p">))</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+
+<span class="cm">/* Unsubscribe */</span>
+<span class="n">pims</span><span class="p">.</span><span class="nf">unsubscribe</span><span class="p">(</span> <span class="s">"pims.vehicle.event"</span> <span class="cm">/* no params */</span> <span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="cm">/* Subscribe, see unsubscribe below */</span>
+<span class="n">pims</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.vehicle.event"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"actionType"</span><span class="p">:</span> <span class="s">"remote"</span><span class="p">,</span>
+  <span class="s">"type"</span><span class="p">:</span> <span class="p">[</span><span class="s">"remoteChargeFinished"</span><span class="p">,</span> <span class="s">"remoteChargeInterrupted"</span><span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+
+<span class="cm">/* Unsubscribe */</span>
+<span class="n">pims</span><span class="o">.</span><span class="nf">unsubscribe</span><span class="p">(</span> <span class="nv">api</span><span class="p">:</span> <span class="s">"pims.vehicle.event"</span> <span class="cm">/* no params */</span> <span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block result "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            <div class="api-code-tab result">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-bell"></i>
+              </span>
+              <span class="api-code-tab-text">Result</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `result` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RESULT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">notification</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">remoteChargeFinished</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            
+            
+          </ul>
+        </nav>
+
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer>
+    <script type="text/javascript" src="/assets/js/api-reference.js"></script>
+    </body>
+</html>

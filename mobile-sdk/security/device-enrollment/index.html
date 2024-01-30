@@ -1,0 +1,3856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Device Enrollment & Account Managment | Security | Mobile-sdk</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Device Enrollment & Account Managment | Security | Mobile-sdk">
+    <meta property="og:url" content="https://developer.groupe-psa.io/mobile-sdk/security/device-enrollment/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="How to enroll device into connected vehicle mobile SDK.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Device Enrollment & Account Managment | Security | Mobile-sdk">
+    <meta name="twitter:description" content="How to enroll device into connected vehicle mobile SDK.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="How to enroll device into connected vehicle mobile SDK." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/mobile-sdk/security/device-enrollment/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS -->
+    <link rel="stylesheet" href="/assets/css/modules/api-reference.css">
+    <!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_ios">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title " id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" is-default-subsection  navbar-item is-active" href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title">Mobile SDK</h1>
+            <h2 class="title">iOS or Android</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          Mobile SDK
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/mobile-sdk/overview/" class='menu-label has-list' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/overview/about/#article">
+              About 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/overview/get-started/#article">
+              Get Started 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/overview/migration-v2-2-to-v2-3/#article">
+              Migration v2.2 to v2.3 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/security/" class='menu-label has-list is-active' id="Security">
+          <span>
+            Security
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/security/security-schemes/#article">
+              Security Schemes 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/authentication/#article">
+              Authentication 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/service-activation-steps/#article">
+              Service Activation Steps 
+            </a>
+          </li>
+          <li>
+            <a class="is-active" href="/mobile-sdk/security/device-enrollment/#article">
+              Device Enrollment & Account Management 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/carkey/#article">
+              CarKey Check 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/otp/#article">
+              OTP 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/sdk-features/" class='menu-label has-list' id="SDK Features">
+          <span>
+            SDK Features
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/sdk-features/trips/#article">
+              Trips 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/send-navigation/#article">
+              Send Navigation 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/vehicle-status/#article">
+              Vehicle Status 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/remote-commands/#article">
+              Remote Commands 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/push-notification/#article">
+              Push Notification 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/ami&rocks-e/#article">
+              AMI & Rocks-e 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/references/" class='menu-label has-list' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/references/v2-3/#article">
+              References v2.3 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/references/changelog/#article">
+              Changelog 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/references/errors/#article">
+              Errors 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column content-column">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span >
+              
+              Security - 
+              
+                
+    Device Enrollment & Account Managment
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/about/#article" 
+                                                            >
+                                                                About
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/get-started/#article" 
+                                                            >
+                                                                Get Started
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/migration-v2-2-to-v2-3/#article" 
+                                                            >
+                                                                Migration v2.2 to v2.3
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Security">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/security-schemes/#article" 
+                                                            >
+                                                                Security Schemes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/authentication/#article" 
+                                                            >
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/service-activation-steps/#article" 
+                                                            >
+                                                                Service Activation Steps
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/device-enrollment/#article" 
+                                                            selected>
+                                                                Device Enrollment & Account Management
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/carkey/#article" 
+                                                            >
+                                                                CarKey Check
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/otp/#article" 
+                                                            >
+                                                                OTP
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="SDK Features">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/trips/#article" 
+                                                            >
+                                                                Trips
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/send-navigation/#article" 
+                                                            >
+                                                                Send Navigation
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/vehicle-status/#article" 
+                                                            >
+                                                                Vehicle Status
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/remote-commands/#article" 
+                                                            >
+                                                                Remote Commands
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/push-notification/#article" 
+                                                            >
+                                                                Push Notification
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/ami&rocks-e/#article" 
+                                                            >
+                                                                AMI & Rocks-e
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/v2-3/#article" 
+                                                            >
+                                                                References v2.3
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/changelog/#article" 
+                                                            >
+                                                                Changelog
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/errors/#article" 
+                                                            >
+                                                                Errors
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/mobile-sdk/2-3-security-device_enrollment.md"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/mobile-sdk/">Mobile SDK</a>
+            </li>
+            
+            
+            
+            <li>
+                <a href="/mobile-sdk/security/">Security</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    Device Enrollment & Account Managment
+  
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="notification page-disclaimer">
+      <strong>Info:</strong> Stellantis Mobile SDK is <strong>not publicly available</strong>.
+    </div>
+    </div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <div class="notification">
+
+<p><strong>Security:</strong> Device Enrollment &amp; Account Managment require the following <a href="/mobile-sdk/security/security-schemes/#article">security schemes</a> to be valid</p>
+
+<ul>
+  <li>🔓 <a href="/mobile-sdk/security/authentication/#article">Authentication</a></li>
+</ul>
+
+<p><strong>References:</strong> check-out 📱 <a href="/mobile-sdk/references/v2-3/#domain-strongauthentication-psa">Enrollment component</a> list of APIs.</p>
+
+
+</div>
+
+<p>Device Enrollement is required in order to use <a href="/mobile-sdk/sdk-features/remote-commands/#article">remote commands</a> &amp; <a href="/mobile-sdk/sdk-features/vehicle-status/#article">vehicle status</a>. Check out <a href="/mobile-sdk/security/service-activation-steps/#article">Service Activation Steps</a> to get assistance accessing remote command.</p>
+
+<p>This page is a tutorial about Enrollment Process &amp; Account Management:</p>
+<ul>
+  <li>First, the steps by steps describes the <strong><a href="#what-is-device-enrollment">enrollment process</a></strong> of a device: <strong>steps with numbers 1️⃣ to 8️⃣</strong>.</li>
+  <li>Then, information about <strong><a href="#account-management">account management</a></strong> are available under <strong>letters <em>A to E</em></strong> and steps with numbers 1️⃣, 2️⃣, 4️⃣-2️⃣, 6️⃣, 7️⃣.</li>
+</ul>
+      <h1 id="what-is-device-enrollment">
+        <span class="bd-anchor-name">
+        
+          What is device enrollment?
+                  </span>
+ <a href="#what-is-device-enrollment" class="bd-anchor-link">#</a>
+        
+        
+      </h1>
+
+<p>Device Enrollment (aka Strong Authentication), provides a <strong>two factors authentication method (2FA)</strong>. In order to perform device enrollment you’ll generate an SMS code that will be the seed for 2FA authentication.</p>
+
+<p>In order to perform device enrollement, you should first go through <a href="/mobile-sdk/security/authentication/#article">authentication</a>. Then, you can start the <a href="#enrollment-process">enrollment process</a>.</p>
+
+<p>At the end of this process, the device will be enrolled.</p>
+    
+      <h1 id="enrollment-process">
+        <span class="bd-anchor-name">
+        
+          Enrollment Process
+                  </span>
+ <a href="#enrollment-process" class="bd-anchor-link">#</a>
+        
+        
+      </h1>
+
+<p>They are <strong>2 different methods to enroll</strong> a new device:</p>
+<ul>
+  <li><strong>🏎 Shortcut method</strong>: Starting from SDK version 2.1.0, the easiest way is to use <em>enrollWithPhoneNumber</em>. In this case, you only need to perform <a href="#1️⃣-check-enrollment-status">step 1️</a> to <strong><a href="#4️⃣1️⃣-enrollment-with-phone-number">step 4️·1</a></strong> to enroll a new device. This method is not available if a phone number is already register.</li>
+  <li><strong>🐢 Full method</strong>: This enrollment process is longer since you need to go through all the steps from <a href="#1️⃣-check-enrollment-status">step 1</a> to <a href="#8️⃣-request-device-enrollment--perform-pin-code-validation">step 8</a> going through <strong><a href="#4️⃣2️⃣-register-trusted-phone-number">step 4·2</a></strong> (avoid step 4·1 in this case). Use this method in case:
+    <ul>
+      <li>You are using an SDK <strong>before version 2.1.0</strong>.</li>
+      <li>Some <strong>steps</strong> of the enrollment process have <strong>already been performed</strong>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The following schema details the steps to perform in order to enroll the device:</p>
+
+<p><img src="/assets/images/mobile-sdk-enrollment-step1-2-3-5-6-8-main-workflow.svg" style="width: 550px" /></p>
+    
+      <h2 id="1️⃣-check-enrollment-status">
+        <span class="bd-anchor-name">
+        
+          1️⃣ Check enrollment status
+                  </span>
+ <a href="#1️⃣-check-enrollment-status" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>First, you should check enrollment status, the device could be already enrolled.</p>
+
+<div id="get-pims-authentication-account-isDeviceActivated" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-account-isdeviceactivated/#article"> GET | pims.authentication.account - isDeviceActivated
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"pims.authentication.account"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"actionType"</span><span class="p">,</span> <span class="s">"strong"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"type"</span><span class="p">,</span> <span class="s">"isDeviceActivated"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.account"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"actionType"</span><span class="p">:</span> <span class="s">"strong"</span><span class="p">,</span>
+  <span class="s">"type"</span><span class="p">:</span> <span class="s">"isDeviceActivated"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">isDeviceActivated</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>If the response result is <code class="language-plaintext highlighter-rouge">true</code> then the device is already enrolled!</p>
+
+<p>Otherwise, you should perform the enrollment process by going to <a href="#2️⃣-check-account-status">step 2</a>.</p>
+    
+      <h2 id="2️⃣-check-account-status">
+        <span class="bd-anchor-name">
+        
+          2️⃣ Check account status
+                  </span>
+ <a href="#2️⃣-check-account-status" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>Before initiating the enrollment process, let’s check that the account is not blocked.</p>
+
+<div id="get-pims-authentication-account-isAccountBlocked" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-account-isaccountblocked/#article"> GET | pims.authentication.account - isAccountBlocked
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"pims.authentication.account"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"actionType"</span><span class="p">,</span> <span class="s">"strong"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"type"</span><span class="p">,</span> <span class="s">"isAccountBlocked"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.account"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"actionType"</span><span class="p">:</span> <span class="s">"strong"</span><span class="p">,</span>
+  <span class="s">"type"</span><span class="p">:</span> <span class="s">"isAccountBlocked"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">isAccountBlocked</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>In case the response is <code class="language-plaintext highlighter-rouge">isAccountBlocked: 'AccountBlocked'/'PINBlocked'</code>, you need to <strong>remove all enrollments</strong> by going to <a href="#a---remove-all-enrollments">step A</a>.</p>
+
+<blockquote>
+  <p><strong>Info:</strong> the account could get blocked if the limit of enrolled device for an account is reached.</p>
+</blockquote>
+
+<p>If the account is not blocked (<code class="language-plaintext highlighter-rouge">isAccountBlocked: 'NotBlocked'</code>) we can continue to <a href="#3️⃣-check-phone-number">step 3</a>.</p>
+    
+      <h2 id="3️⃣-check-phone-number">
+        <span class="bd-anchor-name">
+        
+          3️⃣ Check phone number
+                  </span>
+ <a href="#3️⃣-check-phone-number" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>To perform device enrollment, the account must have a <strong>registered trusted phone number</strong>.</p>
+
+<p>If it’s not the case, it should be added to the account because the phone number is used in order to receive an SMS Code.</p>
+
+<div id="get-pims-authentication-trustedphonenumber" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-trustedphonenumber/#article"> GET | pims.authentication.trustedphonenumber
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"pims.authentication.trustedphonenumber"</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.trustedphonenumber"</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">phoneNumber</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0612345678</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>If the response result value is <code class="language-plaintext highlighter-rouge">trustedphoneNumber: null</code>, then the account doesn’t have a <strong>trusted phone number</strong>.</p>
+
+<p>You should register a phone number (check out <a href="#enrollment-process">enrollment methods</a>):</p>
+<ul>
+  <li><a href="#4️⃣1️⃣-enrollment-with-phone-number">🏎 Step 4·1️</a> for <strong>Shortcut method</strong>.</li>
+  <li><a href="#4️⃣2️⃣-register-trusted-phone-number">🐢 Step 4·2</a> for <strong>Full method</strong>.</li>
+</ul>
+
+<p>If it does have a <strong>phone number value</strong>, then it’s possible to ask for an SMS Code, see <a href="#5️⃣-request-enrollment-smscode">step 5</a>.</p>
+    
+      <h2 id="4️⃣1️⃣-enrollment-with-phone-number">
+        <span class="bd-anchor-name">
+        
+          4️⃣·1️⃣ Enrollment With Phone Number
+                  </span>
+ <a href="#4️⃣1️⃣-enrollment-with-phone-number" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><em>This step is required only if you are following the shortcut method. It’s not part of the full method. Refer to <a href="#enrollment-process">enrollment methods description</a>. This method is not available if a phone number is already register.</em></p>
+
+<p><img src="/assets/images/mobile-sdk-enrollment-step4-1-enrollWithPhoneNumber.svg" style="max-width:270px" /></p>
+
+<p>In order to enroll the device and add a new phone number to the user account, an <strong>SMS code</strong> is required for verification.</p>
+
+<p>First, we should request to send an SMS code to the user <strong>phone number</strong>:</p>
+
+<div id="get-pims-authentication-smscode-phoneNumberCertification-for-enrollwithphonenumber" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-smscode-phonenumbercertification/#article"> GET | pims.authentication.smscode - phoneNumberCertification: for enrollWithPhoneNumber
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"pims.authentication.smscode"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"type"</span><span class="p">,</span> <span class="s">"phoneNumberCertification"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"phoneNumber"</span><span class="p">,</span> <span class="s">"0123456789"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.smscode"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"type"</span><span class="p">:</span> <span class="s">"phoneNumberCertification"</span><span class="p">,</span>
+  <span class="s">"phoneNumber"</span><span class="p">:</span> <span class="s">"0123456789"</span><span class="p">,</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>The user should receive the SMS code on their phone. Let’s imagine the code is <code class="language-plaintext highlighter-rouge">2424</code> for the following request.</p>
+
+<p>Then we should perform the verification of the <strong>smsCode</strong>, <strong>phone number</strong> &amp; <strong>pinCode</strong>. If the values are matching, the pinCode &amp; phoneNumber are register for this account and the device is <strong>enrolled</strong>!</p>
+
+<div id="set-pims-authentication-enrollment-enrollWithPhoneNumber" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-set" href="/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-enrollment-enrollwithphonenumber/#article"> SET | pims.authentication.enrollment - enrollWithPhoneNumber
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s">"pims.authentication.enrollment"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"action"</span><span class="p">,</span> <span class="s">"enrollWithPhoneNumber"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"pinCode"</span><span class="p">,</span> <span class="s">"424242"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"smsCode"</span><span class="p">,</span> <span class="s">"2424"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"phoneNumber"</span><span class="p">,</span> <span class="s">"0123456789"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.enrollment"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"action"</span><span class="p">:</span> <span class="s">"enrollWithPhoneNumber"</span><span class="p">,</span>
+  <span class="s">"pinCode"</span><span class="p">:</span> <span class="s">"424242"</span><span class="p">,</span>
+  <span class="s">"smsCode"</span><span class="p">:</span> <span class="s">"2424"</span><span class="p">,</span>
+  <span class="s">"phoneNumber"</span><span class="p">:</span> <span class="s">"0123456789"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>If the response is <code class="language-plaintext highlighter-rouge">SUCCEEDED</code>, the device is successfully <strong>enrolled!</strong></p>
+    
+      <h2 id="4️⃣2️⃣-register-trusted-phone-number">
+        <span class="bd-anchor-name">
+        
+          4️⃣·2️⃣ Register Trusted Phone Number
+                  </span>
+ <a href="#4️⃣2️⃣-register-trusted-phone-number" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><em>This step is required only if you are following the full method. It’s not part of the shortcut method. Refer to <a href="#enrollment-process">enrollment methods description</a></em>.</p>
+
+<p><em>If the user doesn’t have a phone number, and you are using an SDK version after 2.1.0, you can use <a href="#4️⃣1️⃣-enrollment-with-phone-number">enrollment with phone number</a>, it’s the easiest way to enroll a new device.</em></p>
+
+<p><img src="/assets/images/mobile-sdk-enrollment-step4-2-register-phone.svg" style="max-width:270px" /></p>
+
+<p>In order to add a trusted phone number to the user account, an <strong>SMS code verification</strong> is required.</p>
+
+<p>First, we should request to send an SMS code to the user <strong>phone number</strong>:</p>
+
+<div id="get-pims-authentication-smscode-phoneNumberCertification-for-addphonenumber" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-smscode-phonenumbercertification/#article"> GET | pims.authentication.smscode - phoneNumberCertification: for addPhoneNumber
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"pims.authentication.smscode"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"type"</span><span class="p">,</span> <span class="s">"phoneNumberCertification"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"phoneNumber"</span><span class="p">,</span> <span class="s">"0123456789"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.smscode"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"type"</span><span class="p">:</span> <span class="s">"phoneNumberCertification"</span><span class="p">,</span>
+  <span class="s">"phoneNumber"</span><span class="p">:</span> <span class="s">"0123456789"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>The user will receive an SMS Code on their phone, let’s imagine the code is <code class="language-plaintext highlighter-rouge">24242424</code> for the following request.</p>
+
+<p>Then we should perform SMS code verification &amp; validate <strong>phone number</strong>:</p>
+
+<div id="set-pims-authentication-smscode-addPhoneNumber" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-set" href="/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-smscode-addphonenumber/#article"> SET | pims.authentication.smscode - addPhoneNumber
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s">"pims.authentication.smscode"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"type"</span><span class="p">,</span> <span class="s">"addPhoneNumber"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"smsCode"</span><span class="p">,</span> <span class="s">"2424"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"phoneNumber"</span><span class="p">,</span> <span class="s">"0123456789"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.smscode"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"type"</span><span class="p">:</span> <span class="s">"addPhoneNumber"</span><span class="p">,</span>
+  <span class="s">"smsCode"</span><span class="p">:</span> <span class="s">"2424"</span><span class="p">,</span>
+  <span class="s">"phoneNumber"</span><span class="p">:</span> <span class="s">"0123456789"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>If the response is <code class="language-plaintext highlighter-rouge">SUCCEEDED</code>, the phone number is <strong>registered!</strong></p>
+
+<p>You can continue the enrollment process with <a href="#5️⃣-request-enrollment-smscode">step 5</a>.</p>
+    
+      <h2 id="5️⃣-request-enrollment-smscode">
+        <span class="bd-anchor-name">
+        
+          5️⃣ Request enrollment SMScode
+                  </span>
+ <a href="#5️⃣-request-enrollment-smscode" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><em>This step is required only if you are following the full method. It’s not part of the shortcut method. Refer to <a href="#enrollment-process">enrollment methods description</a></em>.</p>
+
+<p>Once the user has a registered phone number, it’s possible to request an SMS code dedicated to device enrollment:</p>
+
+<div id="get-pims-authentication-smscode-enrollment-request-enrollment" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-smscode-enrollment/#article"> GET | pims.authentication.smscode - enrollment: Request Enrollment
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"pims.authentication.smscode"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"type"</span><span class="p">,</span> <span class="s">"enrollment"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"phoneNumber"</span><span class="p">,</span> <span class="s">"0123456789"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.smscode"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"type"</span><span class="p">:</span> <span class="s">"enrollment"</span>
+  <span class="s">"phoneNumber"</span><span class="p">:</span> <span class="s">"0123456789"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>The user should receive the SMS Code on his registered phone number, see <a href="#4️⃣1️⃣-enrollment-with-phone-number">step 4·1</a>.</p>
+
+<p>In order to check the user enrollment, go to <a href="#6️⃣-check-pin-code">step 6</a>.</p>
+    
+      <h2 id="6️⃣-check-pin-code">
+        <span class="bd-anchor-name">
+        
+          6️⃣ Check PIN Code
+                  </span>
+ <a href="#6️⃣-check-pin-code" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><em>This step is required only if you are following the full method. It’s not part of the shortcut method. Refer to <a href="#enrollment-process">enrollment methods description</a></em>.</p>
+
+<p>In addition to SMS code, enrollment require a <strong>PIN code</strong>. This PIN code is a short digit password.</p>
+
+<p>We should check if the account already have a registered PIN Code, to trigger this check, we need to pass the SMS Code requested in the previous step:</p>
+
+<div id="set-pims-authentication-smscode-enrollment-check-pin-code" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-set" href="/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-smscode-enrollment/#article"> SET | pims.authentication.smscode - enrollment: Check PIN Code
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s">"pims.authentication.smscode"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"action"</span><span class="p">,</span> <span class="s">"enrollment"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"smsCode"</span><span class="p">,</span> <span class="s">"2424"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.smscode"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"action"</span><span class="p">:</span> <span class="s">"enrollment"</span><span class="p">,</span>
+  <span class="s">"smsCode"</span><span class="p">:</span> <span class="s">"2424"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">AlreadyEnrolled</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>If it has been previously enrolled (<code class="language-plaintext highlighter-rouge">"status": "AlreadyEnrolled"</code>), there is no need to add a new PIN code, the user should use the <strong>previous PIN code</strong> for <a href="#8️⃣-request-device-enrollment--perform-pin-code-validation">step 8</a>.</p>
+
+<blockquote>
+  <p><strong>Reset PIN Code:</strong> In case the user doesn’t remember the PIN Code, see <a href="#b---reset-pin-code">step B</a> for reset.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Change PIN Code:</strong> In case the user needs to change the PIN Code, see <a href="#c---update-pin-code">step C</a> for update.</p>
+</blockquote>
+
+<p>If the account <strong>doesn’t have a PIN Code</strong>, we should register a new PIN code, see <a href="#7️⃣-register-new-pin-code">step 7</a>.</p>
+    
+      <h2 id="7️⃣-register-new-pin-code">
+        <span class="bd-anchor-name">
+        
+          7️⃣ Register new PIN code
+                  </span>
+ <a href="#7️⃣-register-new-pin-code" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><em>This step is required only if you are following the full method. It’s not part of the shortcut method. Refer to <a href="#enrollment-process">enrollment methods description</a></em>.</p>
+
+<p><img src="/assets/images/mobile-sdk-enrollment-step7-register-new-pin-code.svg" style="max-width:270px" /></p>
+
+<p>In case this device has not been enrolled before for this account, we have to make the user register a new one:</p>
+
+<div id="set-pims-authentication-enrollment-enroll-register-pin-code" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-set" href="/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-enrollment-enroll/#article"> SET | pims.authentication.enrollment - enroll: Register PIN Code
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s">"pims.authentication.enrollment"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"action"</span><span class="p">,</span> <span class="s">"enroll"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"pinCode"</span><span class="p">,</span> <span class="s">"1234"</span><span class="p">),</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.enrollment"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"action"</span><span class="p">:</span> <span class="s">"enroll"</span><span class="p">,</span>
+  <span class="s">"pinCode"</span><span class="p">:</span> <span class="s">"1234"</span>
+  <span class="s">"smsCode"</span><span class="p">:</span> <span class="s">"2424"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">AlreadyEnrolled</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>In this API, the parameter <strong>smsCode</strong> is only for iOS.</p>
+
+<p>Then, go to <a href="#8️⃣-request-device-enrollment--perform-pin-code-validation">step 8</a>.</p>
+    
+      <h2 id="8️⃣-request-device-enrollment--perform-pin-code-validation">
+        <span class="bd-anchor-name">
+        
+          8️⃣ Request device enrollment &amp; perform PIN Code validation
+                  </span>
+ <a href="#8️⃣-request-device-enrollment--perform-pin-code-validation" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><em>This step is required only if you are following the full method. It’s not part of the shortcut method. Refer to <a href="#enrollment-process">enrollment methods description</a></em>.</p>
+
+<p>Once the user/device has a PIN code, it should be checked using the following command:</p>
+
+<div id="set-pims-authentication-enrollment-Enroll-enroll-device" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-set" href="/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-enrollment-enroll/#article"> SET | pims.authentication.enrollment - Enroll: Enroll Device
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s">"pims.authentication.enrollment"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"action"</span><span class="p">,</span> <span class="s">"enroll"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"pinCode"</span><span class="p">,</span> <span class="s">"1234"</span><span class="p">),</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.enrollment"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"action"</span><span class="p">:</span> <span class="s">"enroll"</span><span class="p">,</span>
+  <span class="s">"pinCode"</span><span class="p">:</span> <span class="s">"1234"</span>
+  <span class="s">"smsCode"</span><span class="p">:</span> <span class="s">"2424"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">AlreadyEnrolled</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>In this API, the parameter <strong>smsCode</strong> is only for iOS.</p>
+
+<p>If the response result is <code class="language-plaintext highlighter-rouge">SUCCEEDED</code>, the device is <strong>successfully enrolled!</strong></p>
+
+<p>Otherwise, if the response is <code class="language-plaintext highlighter-rouge">FAILED</code> and the error code is NOT <code class="language-plaintext highlighter-rouge">2317</code>, we should retry PIN code verification by repeating this <a href="#8️⃣-request-device-enrollment--perform-pin-code-validation">step 8</a>.</p>
+
+<p>Finally, if the response is <code class="language-plaintext highlighter-rouge">FAILED</code> and the error code is <code class="language-plaintext highlighter-rouge">2317</code> the account is blocked, you should restart the enrollment process from start, <a href="#a---remove-all-enrollments">step A</a>.</p>
+    
+      <h1 id="account-management">
+        <span class="bd-anchor-name">
+        
+          Account Management
+                  </span>
+ <a href="#account-management" class="bd-anchor-link">#</a>
+        
+        
+      </h1>
+
+<p>Account management is a list of features that allows to interact with the user account. These features are APIs, they are <strong>part</strong> of the enrollment process (<strong>steps with numbers</strong>) or are <strong>not part</strong> of the regular enrollment process (<strong>steps with letters</strong>):</p>
+<ul>
+  <li><a href="#a---remove-all-enrollments">Step <strong>A</strong></a> - Remove all enrollments.</li>
+  <li><a href="#b---reset-pin-code">Step <strong>B</strong></a> - Reset PIN Code.</li>
+  <li><a href="#c---update-pin-code">Step <strong>C</strong></a> - Update PIN Code.</li>
+  <li><a href="#d---modify-phone-number">Step <strong>D</strong></a> - Modify Phone Number.</li>
+  <li><a href="#1️⃣-check-enrollment-status">Step 1️⃣</a> - Check enrollment status.</li>
+  <li><a href="#2️⃣-check-account-status">Step 2️⃣</a> - Check account status.</li>
+  <li><a href="#3️⃣-check-phone-number">Step 3️⃣</a> - Check phone number.</li>
+  <li><a href="#4️⃣2️⃣-register-trusted-phone-number">Step 4️⃣·2️⃣</a> - Register Trusted Phone Number.</li>
+  <li><a href="#6️⃣-check-pin-code">Step 6️⃣</a> - Check PIN Code.</li>
+  <li><a href="#7️⃣-register-new-pin-code">Step 7️⃣</a> - Register new PIN code.</li>
+</ul>
+    
+      <h2 id="a---remove-all-enrollments">
+        <span class="bd-anchor-name">
+        
+          <strong>A</strong> - Remove all enrollments
+                  </span>
+ <a href="#a---remove-all-enrollments" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>In some cases, you could need to reset all enrollments. In particular, this could happen if enrollment <code class="language-plaintext highlighter-rouge">FAILED</code> with error code <code class="language-plaintext highlighter-rouge">2317</code>.</p>
+
+<p><img src="/assets/images/mobile-sdk-enrollment-stepA-remove-enrollments.svg" style="max-width:270px" /></p>
+
+<p>In order to remove all enrollments, you need to request the following API:</p>
+
+<div id="set-pims-authentication-enrollment-remove" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-set" href="/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-enrollment-remove/#article"> SET | pims.authentication.enrollment - remove
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s">"pims.authentication.enrollment"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"action"</span><span class="p">,</span> <span class="s">"remove"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.enrollment"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"action"</span><span class="p">:</span> <span class="s">"remove"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>If it <code class="language-plaintext highlighter-rouge">SUCCEEDED</code>, then you can restart enrollment process from <a href="#3️⃣-check-phone-number">step 3</a>.</p>
+    
+      <h2 id="b---reset-pin-code">
+        <span class="bd-anchor-name">
+        
+          <strong>B</strong> - Reset PIN Code
+                  </span>
+ <a href="#b---reset-pin-code" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>In case the user doesn’t remember the PIN Code, you should suggest <strong>resetting the PIN Code</strong>.</p>
+
+<blockquote>
+  <p><strong>Enrollment Required:</strong> Reset PIN needs an active enrollment, you can check enrollment in <a href="#1️⃣-check-enrollment-status">step 1</a>. If no enrollments are active, you need first to <a href="#a---remove-all-enrollments">remove all enrollments (step A)</a>.</p>
+</blockquote>
+
+<div id="set-pims-authentication-pincode-reset" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-set" href="/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-pincode-reset/#article"> SET | pims.authentication.pincode - reset
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s">"pims.authentication.pincode"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"action"</span><span class="p">,</span> <span class="s">"reset"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"pinCode"</span><span class="p">,</span> <span class="s">"4321"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"smsCode"</span><span class="p">,</span> <span class="s">"2424"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.pincode"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"action"</span><span class="p">:</span> <span class="s">"reset"</span><span class="p">,</span>
+  <span class="s">"pinCode"</span><span class="p">:</span> <span class="s">"4321"</span><span class="p">,</span>
+  <span class="s">"smsCode"</span><span class="p">:</span> <span class="s">"2424"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>If the <strong>PIN Code reset</strong> is successful (response is <code class="language-plaintext highlighter-rouge">SUCCEEDED</code>), then you can continue the enrollment process from <a href="#8️⃣-request-device-enrollment--perform-pin-code-validation">step 8</a>.</p>
+    
+      <h2 id="c---update-pin-code">
+        <span class="bd-anchor-name">
+        
+          <strong>C</strong> - Update PIN Code
+                  </span>
+ <a href="#c---update-pin-code" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>You can implement a feature allowing <strong>PIN Code updating</strong>.</p>
+
+<blockquote>
+  <p><strong>Enrollment Required:</strong> Reset PIN needs an active enrollment, you can check enrollment in <a href="#1️⃣-check-enrollment-status">step 1</a>.</p>
+</blockquote>
+
+<div id="set-pims-authentication-pincode-update" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-set" href="/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-pincode-update/#article"> SET | pims.authentication.pincode - update
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s">"pims.authentication.pincode"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"action"</span><span class="p">,</span> <span class="s">"update"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"oldPIN"</span><span class="p">,</span> <span class="s">"7654"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"newPIN"</span><span class="p">,</span> <span class="s">"0987"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.pincode"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"action"</span><span class="p">:</span> <span class="s">"update"</span><span class="p">,</span>
+  <span class="s">"oldPIN"</span><span class="p">:</span> <span class="s">"7654"</span><span class="p">,</span>
+  <span class="s">"newPIN"</span><span class="p">:</span> <span class="s">"0987"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>In case the user can not remember the old PIN Code, you can <a href="#b---reset-pin-code">reset the PIN Code</a>.</p>
+    
+      <h2 id="d---modify-phone-number">
+        <span class="bd-anchor-name">
+        
+          <strong>D</strong> - Modify Phone Number
+                  </span>
+ <a href="#d---modify-phone-number" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>You can implement a feature allowing <strong>Phone Code modification</strong>.</p>
+
+<blockquote>
+  <p><strong>Check PIN Code first:</strong> Before trying to update the Phone Number, please follow <a href="#3️⃣-check-phone-number">step 3</a> in order to make sure the device has already a phone number.<br />
+<strong>Enrollment Required:</strong> Reset PIN needs an active enrollment, you can check enrollment in <a href="#1️⃣-check-enrollment-status">step 1</a>.</p>
+</blockquote>
+
+<div id="get-pims-authentication-smscode-phoneNumberCertification" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-smscode-phonenumbercertification/#article"> GET | pims.authentication.smscode - phoneNumberCertification
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"pims.authentication.smscode"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"type"</span><span class="p">,</span> <span class="s">"phoneNumberCertification"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"phoneNumber"</span><span class="p">,</span> <span class="s">"0123456789"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.smscode"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"type"</span><span class="p">:</span> <span class="s">"phoneNumberCertification"</span><span class="p">,</span>
+  <span class="s">"phoneNumber"</span><span class="p">:</span> <span class="s">"0123456789"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>The user will receive an SMS Code on their phone, then, you should use the following API to register the new phone number:</p>
+
+<div id="set-pims-authentication-smscode-modifyPhoneNumber" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-set" href="/mobile-sdk/references/v2-3/strongauthentication-set-pims-authentication-smscode-modifyphonenumber/#article"> SET | pims.authentication.smscode - modifyPhoneNumber
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s">"pims.authentication.smscode"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"type"</span><span class="p">,</span> <span class="s">"modifyPhoneNumber"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"smsCode"</span><span class="p">,</span> <span class="s">"2424"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"phoneNumber"</span><span class="p">,</span> <span class="s">"0123456789"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.smscode"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"type"</span><span class="p">:</span> <span class="s">"modifyPhoneNumber"</span><span class="p">,</span>
+  <span class="s">"smsCode"</span><span class="p">:</span> <span class="s">"2424"</span><span class="p">,</span>
+  <span class="s">"phoneNumber"</span><span class="p">:</span> <span class="s">"0123456789"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+    
+      <h2 id="e---remove-vehicle-association">
+        <span class="bd-anchor-name">
+        
+          <strong>E</strong> - Remove Vehicle Association
+                  </span>
+ <a href="#e---remove-vehicle-association" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>In case you need to remove the association between the vehicle and the user account, you should use the following API. This could be useful when the vehicle is being sold.</p>
+
+<div id="set-pims-subscription-vehicle-removeProperty" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-set" href="/mobile-sdk/references/v2-3/userinformation-set-pims-subscription-vehicle-removeproperty/#article"> SET | pims.subscription.vehicle - removeProperty
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s">"pims.subscription.vehicle"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"action"</span><span class="p">,</span> <span class="s">"removeProperty"</span><span class="p">),</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"vin"</span><span class="p">,</span> <span class="s">"VR1AB12C3D4567890"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.subscription.vehicle"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"action"</span><span class="p">:</span> <span class="s">"removeProperty"</span><span class="p">,</span>
+  <span class="s">"vin"</span><span class="p">:</span> <span class="s">"VR1AB12C3D4567890"</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            
+            
+          </ul>
+        </nav>
+
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer>
+    <script type="text/javascript" src="/assets/js/api-reference.js"></script>
+    </body>
+</html>

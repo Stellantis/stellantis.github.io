@@ -1,0 +1,7830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>References | Api reference | Webportal V1</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="References | Api reference | Webportal V1">
+    <meta property="og:url" content="https://developer.groupe-psa.io/webportal/v1/api-reference/list/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall), Webportal v1 API Reference: list of API available functions & events.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="References | Api reference | Webportal V1">
+    <meta name="twitter:description" content="Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall), Webportal v1 API Reference: list of API available functions & events.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Stellantis API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall), Webportal v1 API Reference: list of API available functions & events." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/webportal/v1/api-reference/list/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS -->
+    <link rel="stylesheet" href="/assets/css/modules/reference-list.css">
+    <!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_webportal">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title " id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title is-default is-active" id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-down" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" is-default-subsection  navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" is-default-subsection  navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" is-default-subsection  navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" is-default-subsection  navbar-item is-active" href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title section-title">Webportal v1</h1>
+            <h2 class="title">embedded apps</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          Embedded Webportal
+          
+          
+          
+          - Version 1
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/webportal/v1/overview/" class='menu-label has-list' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webportal/v1/overview/about/#article">
+              About 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/overview/app-validation/#article">
+              App Validation 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/overview/infotainment-system/#article">
+              Infotainment System 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webportal/v1/application/" class='menu-label has-list' id="Application">
+          <span>
+            Application
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webportal/v1/application/quickstart/#article">
+              Quickstart 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/application/guidelines/#article">
+              Guidelines 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/application/events/#article">
+              Handling Events 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/application/app-lifecycle/#article">
+              App Lifecycle 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/application/assets/#article">
+              Assets 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/application/privacy/#article">
+              Privacy 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webportal/v1/advanced-features/" class='menu-label has-list' id="Advanced Features">
+          <span>
+            Advanced Features
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webportal/v1/advanced-features/mqtt/#article">
+              MQTT 
+            </a>
+          </li>
+          <li>
+            <a  href="/webportal/v1/advanced-features/user-subscription/#article">
+              User Subscription 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webportal/v1/api-reference/" class='menu-label has-list is-active' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a class="is-active" href="/webportal/v1/api-reference/list/#article">
+              References 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column ">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span >
+              
+              API Reference - 
+              
+                
+    References
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/overview/about/#article" 
+                                                            >
+                                                                About
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/overview/app-validation/#article" 
+                                                            >
+                                                                App Validation
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/overview/infotainment-system/#article" 
+                                                            >
+                                                                Infotainment System
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Application">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/quickstart/#article" 
+                                                            >
+                                                                Quickstart
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/guidelines/#article" 
+                                                            >
+                                                                Guidelines
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/events/#article" 
+                                                            >
+                                                                Handling Events
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/app-lifecycle/#article" 
+                                                            >
+                                                                App Lifecycle
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/assets/#article" 
+                                                            >
+                                                                Assets
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/application/privacy/#article" 
+                                                            >
+                                                                Privacy
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Advanced Features">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/advanced-features/mqtt/#article" 
+                                                            >
+                                                                MQTT
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/advanced-features/user-subscription/#article" 
+                                                            >
+                                                                User Subscription
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webportal/v1/api-reference/list/#article" 
+                                                            selected>
+                                                                References
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/_webportal-nac-reference/"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/webportal/">Embedded Webportal</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webportal/v1/">Version 1</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webportal/v1/api-reference/">API Reference</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    References
+  
+                </a>
+            </li>
+        </ul>
+    </nav></div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <div class="notification page-disclaimer">
+    This list of references allows browsing Stellantis for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall): <strong>Webportal v1 API</strong>. These references exists as <strong>API</strong> or <strong>Event</strong>:
+   <ul>
+     <li>
+       <strong>Method</strong> 
+       retrieve or modify vehicle data using a javascript function.
+     </li>
+     <li>
+       <strong>Event</strong> 
+       use <em>eventListener</em> to react to the modification of a vehicle data.
+     </li>
+   </ul>
+   Depending of the current <a href="/webportal/v1/application/privacy/#article">
+privacy</a> choosen by the vehicle driver int the HMI, API can be available or not:
+<ul>
+  <li>
+    <em>
+      <span class="icon is-white">
+        <i class="fas fa-long-arrow-alt-down" style="font-size: .9rem;"></i>
+        <i class="fas fa-long-arrow-alt-up" style="font-size: .9rem;"></i>
+        <i class="fas fa-map-marker-alt" style="padding-left: .2rem; font-size: .9rem;"></i>
+      </span>
+      <span>
+         Data &amp; Location:
+      </span>
+    </em>  
+    &nbsp; this API require all access to be granted.
+  </li>
+  <li>
+    <em>
+      <span class="icon is-white" style="font-size: .9rem;">
+        <i class="fas fa-map-marker-alt"></i>
+      </span>
+      <span>
+        Location:
+      </span>
+    </em>  
+    &nbsp; this API require at least location to be activated.
+  </li>
+  <li>
+    <span class="icon is-white" style="font-size: .9rem;">
+      <i class="fas fa-lock-open"></i>
+    </span>
+    <em>
+      None:
+    </em>
+    &nbsp; this API is always available even in plane mode.
+  </li>
+</ul>
+  
+ </div>
+
+ 
+<div class="reference-domain">
+
+
+
+<div
+  class="apis"
+>
+
+  
+
+
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-Car"
+      href="#domain-Car"
+      >
+      Car.*</a>
+    </div>
+  </div><div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getautonomy.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getautonomy.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetAutonomy()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getbatteryautonomy.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getbatteryautonomy.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetBatteryAutonomy()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getbatterylevel.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getbatterylevel.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetBatteryLevel()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getdaynightstatus.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getdaynightstatus.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetDayNightStatus()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getdrivingstate.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getdrivingstate.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetDrivingState()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getfuelautonomy.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getfuelautonomy.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetFuelAutonomy()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getfuellevel.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getfuellevel.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetFuelLevel()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getfueltype.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getfueltype.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetFuelType()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getfuelunit.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getfuelunit.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetFuelUnit()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getmileage.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getmileage.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetMileage()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getspeed.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getspeed.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetSpeed()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation is required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-gettime.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-gettime.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetTime()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-getvincode.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-getvincode.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.GetVINCode()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation is required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-time-hours.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-time-hours.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.Time.Hours()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-time-minutes.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-time-minutes.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.Time.Minutes()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-time-offsetutc.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-time-offsetutc.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.Time.OffsetUTC()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-distanceunit.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-distanceunit.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.distanceUnit
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-driverdistractionoff.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-driverdistractionoff.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.driverDistractionOff
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-driverdistractionon.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-driverdistractionon.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.driverDistractionOn
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-fuelunit.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-fuelunit.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.fuelUnit
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/car-speedunit.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/car-speedunit.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Car.speedUnit
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-Connectivity"
+      href="#domain-Connectivity"
+      >
+      Connectivity.*</a>
+    </div>
+  </div><div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/connectivity-connectivityoff.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/connectivity-connectivityoff.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Connectivity.connectivityOff
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/connectivity-connectivityon.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/connectivity-connectivityon.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Connectivity.connectivityOn
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-Device"
+      href="#domain-Device"
+      >
+      Device.*</a>
+    </div>
+  </div><div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/device-getcarbrand.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/device-getcarbrand.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Device.GetCarBrand()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/device-getdistanceunit.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/device-getdistanceunit.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Device.GetDistanceUnit()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/device-gethmifocus.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/device-gethmifocus.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Device.GetHMIFocus()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/device-gethmitheme.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/device-gethmitheme.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Device.GetHMITheme()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/device-getinternetstatus.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/device-getinternetstatus.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Device.GetInternetStatus()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/device-getsoftwarerelease.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/device-getsoftwarerelease.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Device.GetSoftwareRelease()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/device-getspeedunit.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/device-getspeedunit.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Device.GetSpeedUnit()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/device-getuin.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/device-getuin.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Device.GetUIN()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-HMI"
+      href="#domain-HMI"
+      >
+      HMI.*</a>
+    </div>
+  </div><div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/hmi-settings-languageset.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/hmi-settings-languageset.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            HMI.Settings.languageSet
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/hmi-settings-themeset.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/hmi-settings-themeset.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            HMI.Settings.themeSet
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/hmi-webbrowser-hide.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/hmi-webbrowser-hide.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            HMI.WebBrowser.hide
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/hmi-webbrowser-show.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/hmi-webbrowser-show.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            HMI.WebBrowser.show
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/hmi-homebtnclick.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/hmi-homebtnclick.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            HMI.homeBtnClick
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-Media"
+      href="#domain-Media"
+      >
+      Media.*</a>
+    </div>
+  </div><div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/media-audio-audioavailable.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/media-audio-audioavailable.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Media.Audio.audioAvailable
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/media-audio-audiolost.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/media-audio-audiolost.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Media.Audio.audioLost
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/media-audio-configure.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/media-audio-configure.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Media.Audio.configure()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/media-getalbumname.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/media-getalbumname.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Media.GetAlbumName()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/media-getartistname.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/media-getartistname.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Media.GetArtistName()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/media-getcurrenttrack.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/media-getcurrenttrack.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Media.GetCurrentTrack()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/media-getfoldername.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/media-getfoldername.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Media.GetFolderName()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/media-getmediastate.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/media-getmediastate.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Media.GetMediaState()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/media-gettotaltracks.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/media-gettotaltracks.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Media.GetTotalTracks()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/media-gettrackname.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/media-gettrackname.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Media.GetTrackName()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/media-gettypename.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/media-gettypename.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Media.GetTypeName()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-Navigation"
+      href="#domain-Navigation"
+      >
+      Navigation.*</a>
+    </div>
+  </div><div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-getcurrentposition.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-getcurrentposition.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.GetCurrentPosition()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="No requirements!" class="icon is-white">
+          <i class="fas fa-lock-open"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-getcurrentpositionlatitude.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-getcurrentpositionlatitude.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.GetCurrentPositionLatitude()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="No requirements!" class="icon is-white">
+          <i class="fas fa-lock-open"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-getcurrentpositionlongitude.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-getcurrentpositionlongitude.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.GetCurrentPositionLongitude()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="No requirements!" class="icon is-white">
+          <i class="fas fa-lock-open"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-getdestination.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-getdestination.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.GetDestination()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="No requirements!" class="icon is-white">
+          <i class="fas fa-lock-open"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-getjourneyinfo.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-getjourneyinfo.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.GetJourneyInfo()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="No requirements!" class="icon is-white">
+          <i class="fas fa-lock-open"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-getmaneuverinfo.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-getmaneuverinfo.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.GetManeuverInfo()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="No requirements!" class="icon is-white">
+          <i class="fas fa-lock-open"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-getnextwaypointeta-hours.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-getnextwaypointeta-hours.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.GetNextWaypoint.ETAHours()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="No requirements!" class="icon is-white">
+          <i class="fas fa-lock-open"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-getnextwaypointeta-minutes.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-getnextwaypointeta-minutes.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.GetNextWaypoint.ETAMinutes()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="No requirements!" class="icon is-white">
+          <i class="fas fa-lock-open"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-invalidcoordinates.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-invalidcoordinates.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.InvalidCoordinates
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-launchguidance.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-launchguidance.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.LaunchGuidance()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="No requirements!" class="icon is-white">
+          <i class="fas fa-lock-open"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-launchguidancewaypoints.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-launchguidancewaypoints.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.LaunchGuidanceWaypoints()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="No requirements!" class="icon is-white">
+          <i class="fas fa-lock-open"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-routecalculationcancelled.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-routecalculationcancelled.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.RouteCalculationCancelled
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-routecalculationfailed.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-routecalculationfailed.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.RouteCalculationFailed
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-routecalculationsuccessful.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-routecalculationsuccessful.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.RouteCalculationSuccessful
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/navigation-webdestinationreached.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/navigation-webdestinationreached.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Navigation.WebDestinationReached
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-Phone"
+      href="#domain-Phone"
+      >
+      Phone.*</a>
+    </div>
+  </div><div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/phone-launchphonecall.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/phone-launchphonecall.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Phone.LaunchPhoneCall()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-Privacy"
+      href="#domain-Privacy"
+      >
+      Privacy.*</a>
+    </div>
+  </div><div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/privacy-mode.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/privacy-mode.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Privacy.Mode()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/privacy-modefull.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/privacy-modefull.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Privacy.ModeFull
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/privacy-modegeoloc.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/privacy-modegeoloc.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Privacy.ModeGeoloc
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/privacy-modepublic.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/privacy-modepublic.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Privacy.ModePublic
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-Radio"
+      href="#domain-Radio"
+      >
+      Radio.*</a>
+    </div>
+  </div><div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/radio-getband.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/radio-getband.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Radio.GetBand()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/radio-getfrequency.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/radio-getfrequency.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Radio.GetFrequency()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/radio-getpreset.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/radio-getpreset.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Radio.GetPreset()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/radio-psname.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/radio-psname.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Radio.PSName()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/radio-pty.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/radio-pty.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Radio.PTY()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/radio-rds.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/radio-rds.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Radio.RDS()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/radio-ta.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/radio-ta.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Radio.TA()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/radio-text.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/radio-text.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            Radio.Text()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-System"
+      href="#domain-System"
+      >
+      System.*</a>
+    </div>
+  </div><div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/system-onshutdown.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/system-onshutdown.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            System.OnShutDown
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  
+  <div class="api api-title">
+    <div class="api-header">
+      <a 
+      class="api-name" 
+      id="domain-WebPortal"
+      href="#domain-WebPortal"
+      >
+      WebPortal.*</a>
+    </div>
+  </div><div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-mqtt-evt-messagedelivered.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-mqtt-evt-messagedelivered.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.MQTT.evt.messageDelivered
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-mqtt-evt-messagenotdelivered.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-mqtt-evt-messagenotdelivered.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.MQTT.evt.messageNotDelivered
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-mqtt-evt-messagereceived.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-mqtt-evt-messagereceived.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.MQTT.evt.messageReceived
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-mqtt-publish.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-mqtt-publish.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.MQTT.publish
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-overflowpopup.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-overflowpopup.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.OverflowPopup
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-app-open.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-app-open.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.app.open
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-cancelbtnpopuprequestclicked.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-cancelbtnpopuprequestclicked.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.cancelBtnPopupRequestClicked
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-closetimeoutpopuprequest.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-closetimeoutpopuprequest.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.closeTimeoutPopupRequest
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-getcountry.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-getcountry.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.getCountry()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-getlanguage.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-getlanguage.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.getLanguage()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-getpendingnotifications.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-getpendingnotifications.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.getPendingNotifications()
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-nativepopup-evt-cancel.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-nativepopup-evt-cancel.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.nativePopup.evt.cancel
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-nativepopup-evt-ok.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-nativepopup-evt-ok.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.nativePopup.evt.ok
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-nativepopup-evt-timeout.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-nativepopup-evt-timeout.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.nativePopup.evt.timeout
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-nativepopup-open.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-nativepopup-open.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.nativePopup.open
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-notification-evt-click.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-notification-evt-click.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.notification.evt.click
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-notification-evt-close.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-notification-evt-close.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.notification.evt.close
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-notification-evt-created.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-notification-evt-created.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.notification.evt.created
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-notification-evt-error.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-notification-evt-error.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.notification.evt.error
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-notification-evt-show.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-notification-evt-show.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.notification.evt.show
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-notification-new.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-notification-new.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.notification.new
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-okbtnpopuprequestclicked.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-okbtnpopuprequestclicked.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.okBtnPopupRequestClicked
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-onapplicationhide.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-onapplicationhide.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.onApplicationHide
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-onapplicationloaded.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-onapplicationloaded.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.onApplicationLoaded
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-onapplicationshow.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-onapplicationshow.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.onApplicationShow
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-onapplicationunloaded.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-onapplicationunloaded.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.onApplicationUnloaded
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-onapplicationupdated.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-onapplicationupdated.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.onApplicationUpdated
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-oncurrentnotificationreceived.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-oncurrentnotificationreceived.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.onCurrentNotificationReceived
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+      <div
+        class="api-requirement"
+        title="Deprecated"
+      >
+        <em>Deprecated</em>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-popup-evt-cancel.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-popup-evt-cancel.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.popup.evt.cancel
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-popup-evt-ok.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-popup-evt-ok.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.popup.evt.ok
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-popup-evt-timeout.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-popup-evt-timeout.html#event"
+        
+        class="
+          api-type api-verb-event"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.popup.evt.timeout
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-popup-open.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-popup-open.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.popup.open
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="api">
+
+    <div 
+      class="api-header "
+    >
+    
+      <a
+        class="api-name " 
+        href="/webportal/v1/api-reference/webportal-postmessage.html#article"
+      >
+          
+    <div class="api-types api-types-min">
+      
+      <div
+        
+        href="/webportal/v1/api-reference/webportal-postmessage.html#api"
+        
+        class="
+          api-type api-verb-api"
+      >
+        <span class="api-type-text">
+          
+          Method
+          
+        </span>
+      </div>
+      
+      <div
+        
+        class="
+          api-type api-verb-unavailable"
+      >
+        <span class="api-type-text">
+          
+          Event
+          
+        </span>
+      </div>
+      
+    </div>
+    
+          <div class="api-name-subname">
+            WebPortal.postMessage
+            <div class="api-subname">
+              
+            </div>
+          </div>
+      </a>
+
+
+    <div class="api-available">
+        
+        <div
+        class="api-requirement"
+        >
+        
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-long-arrow-alt-down"></i>
+          <i class="fas fa-long-arrow-alt-up"></i>
+        </span>
+        <span title="Geolocation & Data are required" class="icon is-white">
+          <i class="fas fa-map-marker-alt"></i>
+        </span>
+        
+      </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            
+            
+            
+            
+            
+            <li><a href="#domain-Car">Car.*</a></li>
+            
+            <li><a href="#domain-Connectivity">Connectivity.*</a></li>
+            
+            <li><a href="#domain-Device">Device.*</a></li>
+            
+            <li><a href="#domain-HMI">HMI.*</a></li>
+            
+            <li><a href="#domain-Media">Media.*</a></li>
+            
+            <li><a href="#domain-Navigation">Navigation.*</a></li>
+            
+            <li><a href="#domain-Phone">Phone.*</a></li>
+            
+            <li><a href="#domain-Privacy">Privacy.*</a></li>
+            
+            <li><a href="#domain-Radio">Radio.*</a></li>
+            
+            <li><a href="#domain-System">System.*</a></li>
+            
+            <li><a href="#domain-WebPortal">WebPortal.*</a></li>
+            
+            
+            <li style="padding-bottom: 10px; margin-top:1rem; list-style-type: none;"><a href="#article">Back to top</a></li>
+            
+            
+          </ul>
+        </nav>
+
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer>
+    <script src="https://developer.groupe-psa.io/assets/js/reference-list.js"> </script>
+    </body>
+</html>

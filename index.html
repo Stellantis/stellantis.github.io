@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Stellantis for Developers</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Stellantis for Developers">
+    <meta property="og:url" content="https://developer.groupe-psa.io/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="Stellantis Developers is the dedicated platform for application developers working with Stellantis connected vehicles API and SDKs.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Stellantis for Developers">
+    <meta name="twitter:description" content="Stellantis Developers is the dedicated platform for application developers working with Stellantis connected vehicles API and SDKs.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Stellantis Developers is the dedicated platform for application developers working with Stellantis connected vehicles API and SDKs." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS -->
+    <link rel="stylesheet" href="/assets/css/modules/card.css">
+    
+    <link rel="stylesheet" href="/assets/css/modules/cta.css">
+    
+    <link rel="stylesheet" href="/assets/css/modules/homepage.css">
+    
+    <link rel="stylesheet" href="/assets/css/modules/thumbnail.css">
+    <!-- LIBRARIEs -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-fullheight hero_main home-page">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar " id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title " id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+document.querySelector("#navbarpsa .navbar-menu .navbar-start .navbar-item:first-child > a").classList.add("is-active");
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <div class="landing-title">
+                <h1 id="typed-header-1" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
+            </div>
+            <div class="landing-title">
+                <h1 id="typed-header-2" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
+            </div>
+            <div class="landing-title">
+                <h1 id="typed-header-3" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
+            </div>
+            <div class="landing-title">
+                <h1 id="typed-header-4" class="title section-title"></h1>
+                <h1 class="title section-title">&nbsp;</h1>
+            </div>
+        
+            </div>
+        </div>
+        
+    </section><main>
+    <div class="black-gradient landing-page" style="margin-bottom: 3rem;">
+    <!-- INTRO -->
+    <section class="section">
+        <div class="container">
+            <h2 class="has-text-centered">
+                Stellantis for Developers
+            </h2>
+            <p class="has-text-centered is-6 is-light text-compact">
+                Stellantis for Developers is the dedicated platform for application developers working with
+                Stellantis's connected vehicles.
+                Join us and build the future of connected car together!
+            </p>
+            <div class="separator is-centered"></div>
+        </div>
+    </section>
+    <!-- / INTRO -->
+    <!-- RETRIEVE YOUR VEHCILES DATA -->
+    <section class="section section-feature">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-half description">
+                    <a href="/connected-vehicles/data-catalog/" data-aos="fade-right" class="landing-text-bloc">
+                        <h3 class="">Browse our <br>  data catalog.</h3>
+                        <div class="separator"></div>
+                        <p class="is-6 is-light  text-compact"> Access our data catalog and retrieving everything about
+                            your vehicles. You'll be able to retrieve in which API each data is available! &nbsp;
+                            <svg class="link-arrow" viewBox="0 0 25 12">
+                                <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
+                            </svg>
+                        </p>
+                    </a>
+                </div>
+                <!-- CODE HIGHLIGHTER -->
+                <div class="column is-half">
+                    <div class="landing-feature">
+                        <div class="language-json highlighter-rouge">
+                            <!-- <div class="highlight"> -->
+                                <pre class="highlight"><code><span class="mf">HTTP/1.1 200 OK<br/>Content-Type: application/hal+json<br/>Date: Tue, 09 Jun 2020 02:43:42 GMT</span>      
+  <span class="p">    </span><span class="w">
+  <span class="p">    {</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14167304a6753316b774e7b45774"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VR1AB12C3D4567890"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"engine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thermic"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"energy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Petrol"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DC 7 Crossback"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"http://ds-picture.com/pic-front"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"http://ds-picture.com/pic-back"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"http://ds-picture.com/pic-inside"</span><span class="p">,</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-08T07:59:19Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-08T07:59:19Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"trips"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"lastPosition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"telemetry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"maintenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">    }</span>
+  <span class="w"></span></code>
+                                </pre>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- / CODE HIGHLIGHTER -->
+            </div>
+        </div>
+    </section>
+    <!-- / RETRIEVE YOUR VEHCILES DATA -->
+    <!--  BUILD EMBEDDED APPS -->
+    <section class="section section-feature">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <!-- PIC WP -->
+                <div class="column is-half">
+                    <img class="rounded landing-feature"
+                        src="/assets/images/apps-nac.jpg" style="filter: brightness(85%);">
+                </div>
+                <!-- / PIC WP -->
+                <div class="column is-half description">
+                    <a href="/webportal/" class="landing-text-bloc" data-aos="fade-left">
+                        <h3 class="">Build embedded <br> web APPs.</h3>
+                        <div class="separator"></div>
+                        <p class="is-6 is-light  text-compact">Try our webportal framework and build wonderful
+                            APPs for your vehicle embedded screen using HTML CSS & JavaScript. &nbsp;
+                            <svg class="link-arrow" viewBox="0 0 25 12">
+                                <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
+                            </svg>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / BUILD EMBEDDED APPS -->
+    <!--  WEB API -->
+    <section class="section section-feature">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-half description">
+                    <a href="/webapi/#article"  class="landing-text-bloc" data-aos="fade-right">
+                        <h3 class="">Access vehicles <br>data online.</h3>
+                        <div class="separator"></div>
+                        <p class="is-6 is-light  text-compact"> Our REST API allows accessing data, set HTTP callbacks & remote control your vehicles online: speed, maintenance, honk the horn and much more...
+                            &nbsp;
+                            <svg class="link-arrow" viewBox="0 0 25 12">
+                                <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
+                            </svg>
+                        </p>
+                    </a>
+                </div>
+                <!-- PHONE APP PIC -->
+                <div class="column is-half">
+                    <img class="rounded landing-feature"
+                        src="/assets/images/myds.jpg" style="filter: brightness(85%);">
+                </div>
+                <!-- / PHONE APP PIC -->
+            </div>
+            <!-- / WEBAPI -->
+        </div>
+    </section>
+    <!--  / REMOTE CONTROL -->
+    <!-- APIs -->
+    <section class="section">
+        <div class="container our-apis">
+            <!--  Our APIs-->
+            <div class="separator is-centered" style="margin-bottom: 3rem;">
+            </div>
+            <h2 class="has-text-centered">
+                Our API
+            </h2>
+            <p class="has-text-centered  is-6 is-light  text-compact" style="margin-bottom: 8rem;">
+                Choose which API from Stellantis's that you want to explore.
+            </p>
+            <!--  / OUR APIs -->
+
+            <div class="unboxed-content">
+                <div class="cards"> 
+
+                    <div data-aos="zoom-in" data-aos-delay="0" data-aos-easing="ease-out-quart">
+                        <div class="card card-transparent">
+    <a class="card-body" 
+        
+        href="/webapi/"
+        
+        >
+        
+        <div class="card-content">
+            <div class="card-header">
+                
+                <h4 class="card-title">Web API</h4>
+                <span class="icon card-icon">
+                    <i class="fas  fa-cloud"></i>
+                </span>
+                
+            </div>
+            <div class="card-text">
+                    <p>Retrieve data and remote control using open web standards: REST</p>
+
+            </div>
+            
+            
+            <svg class="card-arrow" viewBox="0 0 25 12" 
+                style="fill: #ff4238 !important" 
+            >
+                <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
+            </svg>
+            
+        </div>
+    </a>
+</div>
+                    </div>
+
+                    <div data-aos="zoom-in" data-aos-delay="250" data-aos-easing="ease-out-quart">
+                        <div class="card card-transparent">
+    <a class="card-body" 
+        
+        href="/webportal/"
+        
+        >
+        
+        <div class="card-content">
+            <div class="card-header">
+                
+                <h4 class="card-title">WebPortal</h4>
+                <span class="icon card-icon">
+                    <i class="fas  fa-car-side"></i>
+                </span>
+                
+            </div>
+            <div class="card-text">
+                    <p>An embedded framework to develop Web Applications in the media system your vehicle.</p>
+
+            </div>
+            
+            
+            <svg class="card-arrow" viewBox="0 0 25 12" 
+                style="fill: #ff4238 !important" 
+            >
+                <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
+            </svg>
+            
+        </div>
+    </a>
+</div>
+                    </div>  
+
+                    <div data-aos="zoom-in" data-aos-delay="400" data-aos-easing="ease-out-quart">
+                        <div class="card card-transparent">
+    <a class="card-body" 
+        
+        href="/mobile-sdk/"
+        
+        >
+        
+        <div class="card-content">
+            <div class="card-header">
+                
+                <h4 class="card-title">SDK Mobile</h4>
+                <span class="icon card-icon">
+                    <i class="fas  fa-mobile"></i>
+                </span>
+                
+            </div>
+            <div class="card-text">
+                    <p>An iOS and Android SDK for accessing data and remote control over Bluetooth.</p>
+
+            </div>
+            
+            
+            <svg class="card-arrow" viewBox="0 0 25 12" 
+                style="fill: #ff4238 !important" 
+            >
+                <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
+            </svg>
+            
+        </div>
+    </a>
+</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /APIs -->
+    <!-- PROJECTS LIST -->
+    <section class="section landing-page container">
+        <div class="separator is-centered" style="margin: 1rem auto; margin-top: 100px;" >
+        </div>
+        <h2 class="has-text-centered">
+            Projects
+        </h2>
+        <p class="has-text-centered  is-6 is-light  text-compact"  style="margin-bottom: 3rem;">
+            See what you can do with Stellantis's APIs.
+        </p>
+        <!-- PROJECTS LIST -->
+        <div class="projects" data-aos="fade-up">
+            
+
+                <article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url(/assets/images/projects/my-opel-ios.jpg);">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">sdk &sdot; web api</p>
+            <p class="project-title">MyOpel Mobile</p>
+        </div>
+        
+        <div class="project-links">
+            
+            <a href="https://apps.apple.com/gb/app/myopel/id1439342035" class="icon is-medium">
+                <i class="fab fa-lg fa-apple"></i>
+            </a>
+            
+            
+            <a href="https://play.google.com/store/apps/details?id=com.psa.mym.myopel" class="icon is-medium">
+                <i class="fab fa-lg fa-android"></i>
+            </a>
+            
+        </div>
+        
+    </div>
+</article>
+                 
+            
+
+                <article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url(/assets/images/projects/my-vauxhall-android.jpg);">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">sdk &sdot; web api</p>
+            <p class="project-title">MyVauxhall Mobile</p>
+        </div>
+        
+        <div class="project-links">
+            
+            <a href="https://apps.apple.com/gb/app/myvauxhall/id1439341466" class="icon is-medium">
+                <i class="fab fa-lg fa-apple"></i>
+            </a>
+            
+            
+            <a href="https://play.google.com/store/apps/details?id=com.psa.mym.myvauxhall" class="icon is-medium">
+                <i class="fab fa-lg fa-android"></i>
+            </a>
+            
+        </div>
+        
+    </div>
+</article>
+                 
+            
+
+                <article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url(/assets/images/projects/my-ds-android.jpg);">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">sdk &sdot; web api</p>
+            <p class="project-title">MyDS Mobile</p>
+        </div>
+        
+        <div class="project-links">
+            
+            <a href="https://apps.apple.com/gb/app/myds-app/id1021590964" class="icon is-medium">
+                <i class="fab fa-lg fa-apple"></i>
+            </a>
+            
+            
+            <a href="https://play.google.com/store/apps/details?id=com.psa.mym.myds" class="icon is-medium">
+                <i class="fab fa-lg fa-android"></i>
+            </a>
+            
+        </div>
+        
+    </div>
+</article>
+                 
+            
+
+                <article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url(/assets/images/projects/my-citroen-android.jpg);">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">sdk &sdot; web api</p>
+            <p class="project-title">MyCitroen Mobile</p>
+        </div>
+        
+        <div class="project-links">
+            
+            <a href="https://apps.apple.com/gb/app/my-citro%C3%ABn/id1019563307" class="icon is-medium">
+                <i class="fab fa-lg fa-apple"></i>
+            </a>
+            
+            
+            <a href="https://play.google.com/store/apps/details?id=com.psa.mym.mycitroen" class="icon is-medium">
+                <i class="fab fa-lg fa-android"></i>
+            </a>
+            
+        </div>
+        
+    </div>
+</article>
+                 
+            
+
+                <article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url(/assets/images/projects/my-peugeot-ios.jpg);">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">sdk &sdot; web api</p>
+            <p class="project-title">MyPeugeot Mobile</p>
+        </div>
+        
+        <div class="project-links">
+            
+            <a href="https://apps.apple.com/gb/app/mypeugeot-app/id1021587274" class="icon is-medium">
+                <i class="fab fa-lg fa-apple"></i>
+            </a>
+            
+            
+            <a href="https://play.google.com/store/apps/details?id=com.psa.mym.mypeugeot" class="icon is-medium">
+                <i class="fab fa-lg fa-android"></i>
+            </a>
+            
+        </div>
+        
+    </div>
+</article>
+                 
+            
+
+                <article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url(/assets/images/projects/f2m-ios.jpg);">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">web api</p>
+            <p class="project-title">Free 2 Move Services</p>
+        </div>
+        
+        <div class="project-links">
+            
+            <a href="https://apps.apple.com/gb/app/free2move-services/id1221956513" class="icon is-medium">
+                <i class="fab fa-lg fa-apple"></i>
+            </a>
+            
+            
+            <a href="https://play.google.com/store/apps/details?id=services.free2move.smse" class="icon is-medium">
+                <i class="fab fa-lg fa-android"></i>
+            </a>
+            
+        </div>
+        
+    </div>
+</article>
+                 
+            
+
+                <article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url(/assets/images/projects/f2m-onboard.jpg);">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">webportal</p>
+            <p class="project-title">Free 2 Move</p>
+        </div>
+        
+    </div>
+</article>
+                 
+            
+
+                <article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url(/assets/images/projects/louvre-onboard.jpg);">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">webportal</p>
+            <p class="project-title">A Day at the Louvre</p>
+        </div>
+        
+    </div>
+</article>
+                 
+            
+
+                <article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url(/assets/images/projects/my-peugeot-onboard.jpg);">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">webportal</p>
+            <p class="project-title">MyPeugeot Onboard</p>
+        </div>
+        
+    </div>
+</article>
+                 
+            
+
+                <article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url(/assets/images/projects/my-citroen-onboard.jpg);">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">webportal</p>
+            <p class="project-title">MyCitroen Onboard</p>
+        </div>
+        
+    </div>
+</article>
+                 
+            
+
+                <article class="project-preview">
+    <div class="project-img" style="
+                    background-image: url(/assets/images/projects/my-ds-onboard.jpg);">
+    </div>
+    <div class="project-description">
+        <div>
+            <p class="project-categories">webportal</p>
+            <p class="project-title">MyDS Onboard</p>
+        </div>
+        
+    </div>
+</article>
+                 
+            
+            <article class="project-preview project-cta">
+                <a class="project-img" href="/connected-vehicles/about/" >
+                    <p>Why not your App?</p>
+                </a>
+            </article>
+            <!-- FIX Project -->
+            <!-- <article id="preview-fix" class="project-preview">
+            </article> -->
+        </div>
+
+    </section>
+<!-- / PROJECTS LIST -->
+
+<!-- CONTACT US CTA -->
+    <section class="section landing-page container">
+        <div>
+            <div class="cta-container">
+    <a class="cta" href="/contact-us/">
+        <span>CONTACT US</span>
+        <svg class="cta-arrow link-arrow" viewBox="0 0 25 12">
+            <path d="M21.2127412,5 L0,5 L0,6.99750943 L21.215115,6.99750943 L17.8642713,10.5132079 L19.2813462,12 L24.2914625,6.74339606 L25,6 L24.2914625,5.25660394 L19.2813462,0 L17.8642713,1.48679212 L21.2127412,5 Z"></path>
+        </svg>
+    </a>
+</div>
+        </div>
+    </section>
+<!-- /CONTACT US CTA -->
+
+<script>
+    /*----------- TYPED ---------*/
+
+    var typedHeader1 = new Typed('#typed-header-1', {
+        strings: ['Build'], typeSpeed: 50, cursorChar: '_', onComplete: (self) => {
+            document.getElementById("typed-header-1").nextElementSibling.style.display = "none";
+            var typedHeader2 = new Typed('#typed-header-2', {
+                strings: ['The future'], typeSpeed: 50, cursorChar: '_', onComplete: (self) => {
+                    document.getElementById("typed-header-2").nextElementSibling.style.display = "none";
+                    var typedHeader3 = new Typed('#typed-header-3', {
+                        strings: ['Of'], typeSpeed: 50, cursorChar: '_', onComplete: (self) => {
+                            document.getElementById("typed-header-3").nextElementSibling.style.display = "none";
+                            var typedHeader4 = new Typed('#typed-header-4', { strings: ['Connected Cars'], typeSpeed: 50, cursorChar: '_', });
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+</script>
+</main><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer>
+    <script src="https://developer.groupe-psa.io/assets/js/aos.js"></script>
+    </body>
+</html>

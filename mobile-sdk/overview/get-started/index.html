@@ -1,0 +1,2647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Get Started | Overview | Mobile-sdk</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Get Started | Overview | Mobile-sdk">
+    <meta property="og:url" content="https://developer.groupe-psa.io/mobile-sdk/overview/get-started/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="Get Started with connected vehicle mobile SDK.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Get Started | Overview | Mobile-sdk">
+    <meta name="twitter:description" content="Get Started with connected vehicle mobile SDK.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Get Started with connected vehicle mobile SDK." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/mobile-sdk/overview/get-started/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS -->
+    <link rel="stylesheet" href="/assets/css/modules/api-reference.css">
+    <!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_ios">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title " id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" is-default-subsection  navbar-item is-active" href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title">Mobile SDK</h1>
+            <h2 class="title">iOS or Android</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          Mobile SDK
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/mobile-sdk/overview/" class='menu-label has-list is-active' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/overview/about/#article">
+              About 
+            </a>
+          </li>
+          <li>
+            <a class="is-active" href="/mobile-sdk/overview/get-started/#article">
+              Get Started 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/overview/migration-v2-2-to-v2-3/#article">
+              Migration v2.2 to v2.3 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/security/" class='menu-label has-list' id="Security">
+          <span>
+            Security
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/security/security-schemes/#article">
+              Security Schemes 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/authentication/#article">
+              Authentication 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/service-activation-steps/#article">
+              Service Activation Steps 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/device-enrollment/#article">
+              Device Enrollment & Account Management 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/carkey/#article">
+              CarKey Check 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/otp/#article">
+              OTP 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/sdk-features/" class='menu-label has-list' id="SDK Features">
+          <span>
+            SDK Features
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/sdk-features/trips/#article">
+              Trips 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/send-navigation/#article">
+              Send Navigation 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/vehicle-status/#article">
+              Vehicle Status 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/remote-commands/#article">
+              Remote Commands 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/push-notification/#article">
+              Push Notification 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/ami&rocks-e/#article">
+              AMI & Rocks-e 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/references/" class='menu-label has-list' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/references/v2-3/#article">
+              References v2.3 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/references/changelog/#article">
+              Changelog 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/references/errors/#article">
+              Errors 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column content-column">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span >
+              
+              Overview - 
+              
+                
+    Get Started
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/about/#article" 
+                                                            >
+                                                                About
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/get-started/#article" 
+                                                            selected>
+                                                                Get Started
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/migration-v2-2-to-v2-3/#article" 
+                                                            >
+                                                                Migration v2.2 to v2.3
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Security">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/security-schemes/#article" 
+                                                            >
+                                                                Security Schemes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/authentication/#article" 
+                                                            >
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/service-activation-steps/#article" 
+                                                            >
+                                                                Service Activation Steps
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/device-enrollment/#article" 
+                                                            >
+                                                                Device Enrollment & Account Management
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/carkey/#article" 
+                                                            >
+                                                                CarKey Check
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/otp/#article" 
+                                                            >
+                                                                OTP
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="SDK Features">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/trips/#article" 
+                                                            >
+                                                                Trips
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/send-navigation/#article" 
+                                                            >
+                                                                Send Navigation
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/vehicle-status/#article" 
+                                                            >
+                                                                Vehicle Status
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/remote-commands/#article" 
+                                                            >
+                                                                Remote Commands
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/push-notification/#article" 
+                                                            >
+                                                                Push Notification
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/ami&rocks-e/#article" 
+                                                            >
+                                                                AMI & Rocks-e
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/v2-3/#article" 
+                                                            >
+                                                                References v2.3
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/changelog/#article" 
+                                                            >
+                                                                Changelog
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/errors/#article" 
+                                                            >
+                                                                Errors
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/mobile-sdk/1-4-overview-get-started.md"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/mobile-sdk/">Mobile SDK</a>
+            </li>
+            
+            
+            
+            <li>
+                <a href="/mobile-sdk/overview/">Overview</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    Get Started
+  
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="notification page-disclaimer">
+      <strong>Info:</strong> Stellantis Mobile SDK is <strong>not publicly available</strong>.
+    </div>
+    </div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <p>*Stellantis Connected Vehicles SDK runs on <strong>iOS 12+</strong> (and 13+ for some features) and  <strong>Android 7+</strong>.</p>
+
+<p>Bluetooth, GPS &amp; internet connection might be required on the device, depending on the API.</p>
+      <h2 id="initialize--release">
+        <span class="bd-anchor-name">
+        
+          Initialize &amp; Release
+                  </span>
+ <a href="#initialize--release" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>First of all, before being able to request any <a href="/mobile-sdk/references/">API</a>, you should initialize the SDK.</p>
+
+<p>Initializing the SDK require configuration params details in the following table:</p>
+
+<div class="apis" style="box-shadow: none; margin: 0">
+  <div class="api is-open" style="box-shadow: none; border: none">
+    <div class="api-content" style="margin: 0; border: none; padding-top:0 ;">
+      <div class="api-table">
+        <table>
+          <thead>
+            <tr>
+              <th colspan="6" class="api-table-header api-params" style="background: rgb(147, 147, 147)"> Initialize
+                SDK: Parameters</th>
+            </tr>
+            <tr class="api-col-title">
+              <th>
+                Param name
+              </th>
+              <th>
+                Description
+              </th>
+              <th>
+                Type
+              </th>
+              <th>
+                Unit/Values
+              </th>
+              <th>
+                Example
+              </th>
+              <th>
+                Required
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+
+
+
+            <tr class="">
+
+              <td class="api-table-name">
+
+                <span class="last-object-level">environnement</span>
+
+              </td>
+              <td>
+                <p>Environnement value.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            -&nbsp;Production<br />
+        </code>
+    <hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;Preproduction<br />
+        </code><hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;development
+        </code>
+
+
+
+              </td>
+              <td>
+                <code>Preproduction</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="">
+
+              <td class="api-table-name">
+
+                <span class="last-object-level">mode</span>
+
+              </td>
+              <td>
+                <p>Mode value.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            -&nbsp;B2C<br />
+        </code><hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;B2B
+        </code>
+
+
+
+              </td>
+              <td>
+                <code>B2C</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="parent" parent="monitoring">
+
+              <td class="api-table-name">
+
+                <span class="last-object-level">monitoring</span>
+
+              </td>
+              <td>
+                <p>Monitoring informations.</p>
+              </td>
+              <td><em>
+                  <p>Object</p>
+                </em></td>
+
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td>
+                <div class="api-table-parent-dropdown">
+                  <span class="icon arrow">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </div>
+              </td>
+
+            </tr>
+
+            <tr class="nested" nested="monitoring" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">monitoring</span>
+
+
+
+                <br />&nbsp;<span class="last-object-level">.logLevel</span>
+
+
+              </td>
+              <td>
+                <p>Log level value.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            -&nbsp;none<br />
+        </code><hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;low<br />
+        </code><hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;medium<br />
+        </code><hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;high
+        </code>
+
+
+
+              </td>
+              <td>
+                <code>medium</code>
+              </td>
+              <td><code>false</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="monitoring" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">monitoring</span>
+
+
+
+                <br />&nbsp;<span class="last-object-level">.newLogFile</span>
+
+
+              </td>
+              <td>
+                <p>New log file mode.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            -&nbsp;appLaunch: creates new log file for every app launch<br />
+        </code><hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;day: creates new log file every day<br />
+        </code><hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;duration: creates new log file every newLogTimeDuration
+        </code>
+
+
+
+              </td>
+              <td>
+                <code>duration</code>
+              </td>
+              <td><code>false</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="monitoring" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">monitoring</span>
+
+
+
+                <br />&nbsp;<span class="last-object-level">.newLogTimeDuration</span>
+
+
+              </td>
+              <td>
+                <p>Duration before 2 log file creation. Manadatory only if <code class="language-plaintext highlighter-rouge">newLogFile==duration</code></p>
+              </td>
+              <td><em>
+                  <p>Integer</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>Between 5 and 1440.</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>42</code>
+              </td>
+              <td><code>false</code></td>
+
+            </tr>
+
+            <tr class="parent" parent="credential">
+
+              <td class="api-table-name">
+
+                <span class="last-object-level">credential</span>
+
+              </td>
+              <td>
+                <p>Credential informations.</p>
+              </td>
+              <td><em>
+                  <p>Object</p>
+                </em></td>
+
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td>
+                <div class="api-table-parent-dropdown">
+                  <span class="icon arrow">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </div>
+              </td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br />&nbsp;<span class="last-object-level">.clientID</span>
+
+
+              </td>
+              <td>
+                <p>Client ID CVS Server.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>&lt;ClientID&gt;</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br />&nbsp;<span class="last-object-level">.clientSecret</span>
+
+
+              </td>
+              <td>
+                <p>Client Secret CVS Server.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>&lt;ClientSecret&gt;</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br />&nbsp;<span class="last-object-level">.macID</span>
+
+
+              </td>
+              <td>
+                <p>MAC id value of inwebo SDK.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code> </code>
+              </td>
+              <td><code>false</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br />&nbsp;<span class="last-object-level">.inWeboURL</span>
+
+
+              </td>
+              <td>
+                <p>Server url of inwebo SDK.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>https://address.tld</code>
+              </td>
+              <td><code>false</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br />&nbsp;<span class="last-object-level">.webviewsRedirectURI</span>
+
+
+              </td>
+              <td>
+                <p>Webviews redirecURI.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>https://address.tld</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="nested" nested="credential" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">credential</span>
+
+
+
+                <br />&nbsp;<span class="last-object-level">.loginRedirectURI</span>
+
+
+              </td>
+              <td>
+                <p>Login redirect URI.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            <p>n/a</p>
+
+        </code>
+
+
+              </td>
+              <td>
+                <code>https://address.tld</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+            <tr class="parent" parent="profile">
+
+              <td class="api-table-name">
+
+                <span class="last-object-level">profile</span>
+
+              </td>
+              <td>
+                <p>Profile informations.</p>
+              </td>
+              <td><em>
+                  <p>Object</p>
+                </em></td>
+
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td class="has-text-centered" style="color: rgb(184, 184, 184)">/</td>
+              <td>
+                <div class="api-table-parent-dropdown">
+                  <span class="icon arrow">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </div>
+              </td>
+
+            </tr>
+
+            <tr class="nested" nested="profile" style="border-left: 25px solid white; display: none;">
+
+              <td class="api-table-name">
+
+
+
+
+                <span class="not-last-object-level">profile</span>
+
+
+
+                <br />&nbsp;<span class="last-object-level">.brand</span>
+
+
+              </td>
+              <td>
+                <p>Brand value.</p>
+              </td>
+              <td><em>
+                  <p>String</p>
+                </em></td>
+
+              <td class="api-table-unit-value-code">
+
+
+                <code>
+            -&nbsp;Peugeot<br />
+        </code><hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;Citroen<br />
+        </code><hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;Ds<br />
+        </code><hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;Opel<br />
+        </code><hr style="margin: .25rem; height: 1px; background: #dfdfdf" />
+
+
+
+                <code>
+            -&nbsp;Vauxhall
+        </code>
+
+
+
+              </td>
+              <td>
+                <code>opel</code>
+              </td>
+              <td><code>true</code></td>
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="-initialize-sdk-request-example" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <div class="api-code-header-text ">Initialize SDK: Request Example
+  
+</div>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="rouge-code"><pre><span class="n">pims</span><span class="p">.</span><span class="nf">initialize</span><span class="p">(</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>  
+    <span class="nc">Pair</span><span class="p">(</span><span class="s">"environnement"</span><span class="p">,</span> <span class="s">"Production"</span><span class="p">),</span>
+    <span class="nc">Pair</span><span class="p">(</span><span class="s">"mode"</span><span class="p">,</span> <span class="s">"B2B"</span><span class="p">),</span>
+    <span class="nc">Pair</span><span class="p">(</span><span class="s">"monitoring"</span><span class="p">,</span> <span class="nf">map0f</span><span class="p">(</span>
+      <span class="nc">Pair</span><span class="p">(</span><span class="s">"logLevel"</span><span class="p">,</span> <span class="s">"low"</span><span class="p">),</span>
+      <span class="nc">Pair</span><span class="p">(</span><span class="s">"newLogFile"</span><span class="p">,</span> <span class="s">"appLaunch"</span><span class="p">),</span>
+      <span class="nc">Pair</span><span class="p">(</span><span class="s">"newLogTimeDuration"</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="nc">Pair</span><span class="p">(</span><span class="s">"credential"</span><span class="p">,</span> <span class="nf">map0f</span><span class="p">(</span>
+      <span class="nc">Pair</span><span class="p">(</span><span class="s">"clientID"</span><span class="p">,</span> <span class="s">"&lt;clientID&gt;"</span><span class="p">),</span>
+      <span class="nc">Pair</span><span class="p">(</span><span class="s">"clientSecret"</span><span class="p">,</span> <span class="s">"&lt;clientSecret&gt;"</span><span class="p">),</span>
+      <span class="nc">Pair</span><span class="p">(</span><span class="s">"macID"</span><span class="p">,</span> <span class="s">"macIDValue"</span><span class="p">),</span>
+      <span class="nc">Pair</span><span class="p">(</span><span class="s">"inWeboURL"</span><span class="p">,</span> <span class="s">"https://address.tld"</span><span class="p">),</span>
+      <span class="nc">Pair</span><span class="p">(</span><span class="s">"webviewsRedirectURI"</span><span class="p">,</span> <span class="s">"https://address.tld"</span><span class="p">),</span>
+      <span class="nc">Pair</span><span class="p">(</span><span class="s">"loginRedirectURI"</span><span class="p">,</span> <span class="s">"https://address.tld"</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="nc">Pair</span><span class="p">(</span><span class="s">"profile"</span><span class="p">,</span> <span class="nf">map0f</span><span class="p">(</span>
+      <span class="nc">Pair</span><span class="p">(</span><span class="s">"brand"</span><span class="p">,</span> <span class="s">"opel"</span><span class="p">)</span>
+    <span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="cm">/* Callback */</span>
+  <span class="n">message</span> <span class="p">-&gt;</span> <span class="k">when</span> <span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s">"SUCCEEDED"</span> <span class="p">-&gt;</span> <span class="p">{</span> <span class="p">}</span>                          <span class="c1">// handle succeeded initialization</span>
+    <span class="s">"FAILED"</span> <span class="p">-&gt;</span>    <span class="p">{</span> <span class="p">}</span>                          <span class="c1">// handle failed initialization</span>
+<span class="p">}</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="rouge-code"><pre><span class="n">pims</span><span class="o">.</span><span class="nf">initialize</span><span class="p">(</span>
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>  
+    <span class="s">"environnement"</span><span class="p">:</span> <span class="s">"Production"</span><span class="p">,</span>
+    <span class="s">"mode"</span><span class="p">:</span> <span class="s">"B2C"</span><span class="p">,</span>
+    <span class="s">"monitoring"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s">"logLevel"</span><span class="p">:</span> <span class="s">"low"</span><span class="p">,</span>
+      <span class="s">"newLogFile"</span><span class="p">:</span> <span class="s">"appLaunch"</span><span class="p">,</span>
+      <span class="s">"newLogTimeDuration"</span><span class="p">:</span> <span class="mi">42</span>
+    <span class="p">],</span>
+    <span class="s">"credential"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s">"clientID"</span><span class="p">:</span> <span class="s">"&lt;clientID&gt;"</span><span class="p">,</span>
+      <span class="s">"clientSecret"</span><span class="p">:</span> <span class="s">"&lt;clientSecret&gt;"</span><span class="p">,</span>
+      <span class="s">"macID"</span><span class="p">:</span> <span class="s">"macIDValue"</span><span class="p">,</span>
+      <span class="s">"inWeboURL"</span><span class="p">:</span> <span class="s">"https://addres.tlhttps://address.tld"</span><span class="p">,</span>
+      <span class="s">"webviewsRedirectURI"</span><span class="p">:</span> <span class="s">"https://address.tld"</span><span class="p">,</span>
+      <span class="s">"loginRedirectURI"</span><span class="p">:</span> <span class="s">"https://address.tld"</span>
+    <span class="p">],</span>
+    <span class="s">"profile"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s">"brand"</span><span class="p">:</span> <span class="s">"opel"</span>
+    <span class="p">]</span> 
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="cm">/* Callback */</span>
+  <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> 
+    <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"SUCCEEDED"</span>    <span class="p">{</span> <span class="p">}</span>    <span class="c1">// handle succeeded initialization</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"FAILED"</span> <span class="p">{</span> <span class="p">}</span>    <span class="c1">// handle failed initialization</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+
+
+  
+  
+
+</div>
+
+<p>If you don’t need to use this SDK anymore, you can call the release method for performance reasons:</p>
+
+<div id="-release-sdk-request-example" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <div class="api-code-header-text ">Release SDK: Request Example
+  
+</div>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="n">pims</span><span class="p">.</span><span class="nf">release</span><span class="p">(</span> <span class="cm">/* No Parameters */</span> <span class="p">)</span>
+  <span class="p">{</span> <span class="cm">/* Callback */</span>
+  <span class="n">message</span> <span class="p">-&gt;</span> <span class="k">when</span> <span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="s">"SUCCEEDED"</span> <span class="p">-&gt;</span> <span class="p">{</span> <span class="p">}</span>                          <span class="c1">// handle succeeded release</span>
+    <span class="s">"FAILED"</span> <span class="p">-&gt;</span>    <span class="p">{</span> <span class="p">}</span>                          <span class="c1">// handle failed release</span>
+  <span class="p">}</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="n">pims</span><span class="o">.</span><span class="nf">release</span><span class="p">(</span> <span class="cm">/* No Parameters */</span> <span class="p">)</span> 
+  <span class="p">{</span> <span class="cm">/* Callback */</span>
+  <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> 
+    <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"SUCCEEDED"</span>    <span class="p">{</span> <span class="p">}</span>    <span class="c1">// handle succeeded release</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"FAILED"</span> <span class="p">{</span> <span class="p">}</span>    <span class="c1">// handle failed release</span>
+  <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+
+
+  
+  
+
+</div>
+
+<p>Once the SDK is set up, either for Android or iOS, it’s possible to perform your first API request!</p>
+
+<p>Depending on the API, you need first to perform the appropriate security steps. Read <a href="/mobile-sdk/security/security-schemes/#article">security</a> for more information about these security schemes.</p>
+      <h2 id="api-methods">
+        <span class="bd-anchor-name">
+        
+          API Methods
+                  </span>
+ <a href="#api-methods" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>Four methods are available depending on the API:</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="cm">/* request data*/</span>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">()</span>
+
+<span class="cm">/* change data */</span>
+<span class="n">pims</span><span class="p">.</span><span class="k">set</span><span class="p">()</span>
+
+<span class="cm">/* subscribe (or unsubscribe) to events */</span>
+<span class="n">pims</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">()</span> <span class="cm">/* and */</span> <span class="n">pims</span><span class="p">.</span><span class="nf">unsubscribe</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+      <th>Callback</th>
+      <th>Outputted Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="tag is-small" style="background: #61affe; color: white; font-weight: bold">GET</span></td>
+      <td>Allows <strong>requesting</strong> single time data.</td>
+      <td><strong>Only one callback</strong>, when the request has been resolved successfully or is in error.</td>
+      <td>The message includes outputted data or info about the error.</td>
+    </tr>
+    <tr>
+      <td><span class="tag is-small" style="background: #4aad81; color: white; font-weight: bold">SET</span></td>
+      <td>Allows <strong>changing</strong> a value or set up an action.</td>
+      <td><strong>Only one callback</strong>, when the request has been resolved or is in error.</td>
+      <td>The message might be empty or includes outputted data or info about the error.</td>
+    </tr>
+    <tr>
+      <td><span class="tag is-small" style="background: #be9046; color: white; font-weight: bold">SUBSCRIBE</span></td>
+      <td>Allows receiving <strong>events</strong> when a data changes.</td>
+      <td><strong>An acknowledgment callback</strong>, when the request has been taken in account or is in error.  <br /> Then, <strong>an event callback each time</strong> the event is triggered.</td>
+      <td>The acknowledgment message does not include outputted data, but can include info in case of error. <br /> The event message include outputted data or info about error.</td>
+    </tr>
+    <tr>
+      <td><span class="tag is-small" style="background: #be9046; color: white; font-weight: bold">UNSUBSCRIBE</span></td>
+      <td>Whenever an api is available under the subscribe method, <strong>unsubscribe</strong> is also available to stop receiving events.</td>
+      <td><strong>Only one callback</strong>, when the request has been resolved or is in error.</td>
+      <td>The message does not include outputted data, but can include info in case of error.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Each API can exist under these 4 types. See <a href="/mobile-sdk/references/">References</a> for the list of all APIs and their types.</p>
+    
+      <h2 id="method-get--set">
+        <span class="bd-anchor-name">
+        
+          Method Get &amp; Set
+                  </span>
+ <a href="#method-get--set" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+    
+      <h4 id="get--set-request">
+        <span class="bd-anchor-name">
+        
+          Get &amp; Set Request
+                  </span>
+
+        
+        
+      </h4>
+
+<p>This is an example of a <strong>Get</strong> request, but a <strong>Set</strong> is the same format. Once requested, this API will return <strong>only one return message</strong>.</p>
+
+<ul>
+  <li><span class="tag is-small" style="background: #61affe; color: white; font-weight: bold">GET</span> method of an API will return the requested data, just after the method is requested.</li>
+  <li><span class="tag is-small" style="background: #4aad81; color: white; font-weight: bold">SET</span> method of an API will change the data in the system and return an acknowledgment message, this message might also include data.</li>
+</ul>
+
+<div id="get-pims-vehicle-price-request" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-price/#article"> GET | pims.vehicle.price - Request
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="cm">/* Method Get */</span>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">(</span>
+  <span class="cm">/* -- API Name -- */</span>
+  <span class="s">"pims.vehicle.price"</span><span class="p">,</span>
+  <span class="cm">/* -- API Parameters -- */</span>
+  <span class="nf">mapOf</span><span class="p">(</span> 
+    <span class="nc">Pair</span><span class="p">(</span><span class="s">"vin"</span><span class="p">,</span> <span class="s">"VR1AB12C3D4567890"</span><span class="p">)</span>
+  <span class="p">)</span> 
+<span class="p">)</span> <span class="p">{</span> <span class="cm">/* -- API Callback -- */</span>
+    <span class="n">message</span> <span class="p">-&gt;</span> <span class="k">when</span> <span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span>
+      <span class="s">"SUCCEEDED"</span> <span class="p">-&gt;</span> <span class="p">{</span> <span class="p">}</span>                          <span class="c1">// handle succeeded status</span>
+      <span class="s">"FAILED"</span> <span class="p">-&gt;</span>    <span class="p">{</span> <span class="p">}</span>                          <span class="c1">// handle failed status</span>
+  <span class="p">}</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="cm">/* Method Get */</span>
+<span class="n">pims</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span>
+  <span class="cm">/* -- API Name -- */</span>
+  <span class="nv">api</span><span class="p">:</span> <span class="s">"pims.vehicle.price"</span><span class="p">,</span>
+  <span class="cm">/* -- API Parameter -- */</span>
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>  
+    <span class="s">"vin"</span><span class="p">:</span> <span class="s">"VR1AB12C3D4567890"</span>
+  <span class="p">]</span>
+  <span class="p">)</span> <span class="p">{</span> <span class="cm">/* -- API Callback -- */</span>
+      <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> 
+        <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"SUCCEEDED"</span>    <span class="p">{</span> <span class="p">}</span>    <span class="c1">// handle succeeded status</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"FAILED"</span> <span class="p">{</span> <span class="p">}</span>    <span class="c1">// handle failed status</span>
+    <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+
+
+  
+  
+
+</div>
+
+<p>Let’s explain this request example:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">API Name</code> - <em>String</em> - The name of the API to request.</li>
+  <li><code class="language-plaintext highlighter-rouge">API Parameters</code> - <em>Object</em> - Parameters specific to this API. Parameters and outputs are available in <a href="/mobile-sdk/references/">references</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">API Callback</code> - <em>Function</em> - Code to execute when a message is received.</li>
+</ul>
+    
+      <h4 id="get--set-callback">
+        <span class="bd-anchor-name">
+        
+          Get &amp; Set Callback
+                  </span>
+
+        
+        
+      </h4>
+
+<p>After requesting an API of the <strong>Get &amp; Set</strong> type, you should except one return between 2 kinds of messages. That’s why your <strong>callback</strong> should be able to handle both these possibilities:</p>
+<ul>
+  <li><span class="tag is-dark"><i class="fas fa-long-arrow-alt-down"></i>  <span style="font-weight: 500">Succeeded</span></span> This message is returned when the operation has been executed successfully.</li>
+  <li><span class="tag is-dark"><i class="fas fa-exclamation"></i>  <span style="font-weight: 500">Failed</span></span> This message is received when the operation failed.</li>
+</ul>
+
+<div id="get-pims-vehicle-price-succeeded-failed" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/tripndrive-get-pims-vehicle-price/#article"> GET | pims.vehicle.price - Succeeded &amp; Failed
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            <div class="api-code-tab failed">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-exclamation"></i>
+              </span>
+              <span class="api-code-tab-text">Failed</span>
+            </div>
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="c1">// SUCCEEDED: representation of the natif dictionary object message as JSON</span>
+<span class="c1">// This message is the response to a get/set method in case of success</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span>
+  <span class="cm">/* Set APIs might not include a result field */</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span> 
+    <span class="dl">"</span><span class="s2">priceFuel</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.27</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">priceElectric</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.85</span><span class="dl">"</span>
+  <span class="p">}</span> 
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="c1">// FAILED: representation of the natif dictionary object message as JSON</span>
+<span class="c1">// This message is the response to a get/set method in case of failure</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FAILED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2000</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">label</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Unknown error</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>The previous example is the JSON representation of the returned message object. This table details the message structure:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong><em>transactionId</em></strong></td>
+      <td><em>String</em></td>
+      <td>Id of the request.</td>
+    </tr>
+    <tr>
+      <td><strong><em>status</em></strong></td>
+      <td><em>Enum of Strings</em></td>
+      <td>Status of the message: <br />   • <strong>status:</strong> <span class="tag is-dark"><i class="fas fa-long-arrow-alt-down"></i>  <span style="font-weight: 500">Succeeded</span></span> the operation has been executed successfully.<br />   • <strong>status:</strong> <span class="tag is-dark"><i class="fas fa-exclamation"></i>  <span style="font-weight: 500">Failed</span></span> the operation is in error.</td>
+    </tr>
+    <tr>
+      <td><strong><em>result</em></strong></td>
+      <td><em>dictionary Object</em></td>
+      <td>Contains the outputted data, see <a href="/mobile-sdk/references/">reference page</a> for the output of each API. <br />   • <span class="tag is-dark"><i class="fas fa-long-arrow-alt-down"></i>  <span style="font-weight: 500">Succeeded</span></span> <strong>Get</strong> operations always includes <em>result</em>, <strong>Set</strong> operations might include the <em>result</em> or not if no outputted data.<br />   • <span class="tag is-dark"><i class="fas fa-exclamation"></i>  <span style="font-weight: 500">Failed</span></span> In <strong>Failed</strong> messages, this field is never returned.</td>
+    </tr>
+    <tr>
+      <td><strong><em>error</em></strong></td>
+      <td><em>dictionary Object</em></td>
+      <td>Code and Label of the error, check-out <a href="/mobile-sdk/references/">reference page</a> or <a href="/mobile-sdk/references/errors/#article">error page</a> for the list of errors. <br />   • Always returned in <span class="tag is-dark"><i class="fas fa-exclamation"></i>  <span style="font-weight: 500">Failed</span></span> messages. <br />   • Never returned in <span class="tag is-dark"><i class="fas fa-long-arrow-alt-down"></i>  <span style="font-weight: 500">Succeeded</span></span> messages.</td>
+    </tr>
+  </tbody>
+</table>
+    
+      <h2 id="method-subscribe">
+        <span class="bd-anchor-name">
+        
+          Method Subscribe
+                  </span>
+ <a href="#method-subscribe" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+    
+      <h4 id="subscribe-request">
+        <span class="bd-anchor-name">
+        
+          Subscribe Request
+                  </span>
+
+        
+        
+      </h4>
+
+<p>Here is the example of a <strong>Subscribe</strong> request. Once subscribed, this example API will return events each time the vehicle stop charging. Subscribe APIs are <strong>returning multiple messages</strong>.</p>
+
+<ul>
+  <li><span class="tag is-small" style="background: #be9046; color: white; font-weight: bold">SUBSCRIBE</span> method of an API will return the requested data <strong>each time</strong> the value change in the system.</li>
+  <li><span class="tag is-small" style="background: #be9046; color: white; font-weight: bold">UNSUBSCRIBE</span> method of an API will <strong>stops messages</strong> from triggering callbacks.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Re-Subscribe:</strong> If you try to subscribe twice to the same API, you’ll receive error <code class="language-plaintext highlighter-rouge">2005: Duplicate command</code>.</p>
+</blockquote>
+
+<div id="subscribe-pims-vehicle-event-remote-request" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-subscribe" href="/mobile-sdk/references/v2-3/longrangeremotestatus-subscribe-pims-vehicle-event-remote/#article"> SUBSCRIBE | pims.vehicle.event - remote: Request
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="cm">/* Method Subscribe */</span>
+<span class="n">pims</span><span class="p">.</span><span class="nf">subscribe</span><span class="p">(</span>
+  <span class="cm">/* -- API Name -- */</span>
+  <span class="s">"pims.vehicle.event"</span><span class="p">,</span>
+  <span class="cm">/* -- API Parameters -- */</span>
+  <span class="nf">mapOf</span><span class="p">(</span> 
+    <span class="nc">Pair</span><span class="p">(</span><span class="s">"actionType"</span><span class="p">,</span> <span class="s">"remote"</span><span class="p">),</span>
+    <span class="nc">Pair</span><span class="p">(</span><span class="s">"type"</span><span class="p">,</span> <span class="nf">mapOf</span><span class="p">(</span><span class="s">"remoteChargeFinished"</span><span class="p">,</span> <span class="s">"remoteChargeInterrupted"</span><span class="p">))</span>
+  <span class="p">)</span> 
+<span class="p">)</span> <span class="p">{</span> <span class="cm">/* -- API Callback -- */</span>
+    <span class="n">message</span> <span class="p">-&gt;</span> <span class="k">when</span> <span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="nc">String</span><span class="p">)</span> <span class="p">{</span>
+      <span class="s">"SUCCEEDED"</span> <span class="p">-&gt;</span> <span class="p">{</span> <span class="p">}</span>                          <span class="c1">// handle succeeded status</span>
+      <span class="s">"FAILED"</span> <span class="p">-&gt;</span>    <span class="p">{</span> <span class="p">}</span>                          <span class="c1">// handle failed status</span>
+      <span class="s">"RESULT"</span> <span class="p">-&gt;</span>    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s">"error"</span><span class="p">]</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>            <span class="c1">// handle error event code</span>
+        <span class="k">else</span> <span class="p">{</span> <span class="p">}</span>                                 <span class="c1">// handle result event code</span>
+      <span class="p">}</span>
+  <span class="p">}</span> <span class="p">}</span>
+
+<span class="cm">/* Method Unsubscribe */</span>
+<span class="n">pims</span><span class="p">.</span><span class="nf">unsubscribe</span><span class="p">(</span> <span class="s">"pims.vehicle.event"</span> <span class="cm">/* no params */ ) { /* API Callback */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="cm">/* Method Subscribe */</span>
+<span class="n">pims</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span>
+  <span class="cm">/* -- API Name -- */</span>
+  <span class="nv">api</span><span class="p">:</span> <span class="s">"pims.vehicle.event"</span><span class="p">,</span>
+  <span class="cm">/* -- API Parameter -- */</span>
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>  
+    <span class="s">"actionType"</span><span class="p">:</span> <span class="s">"remote"</span><span class="p">,</span>
+    <span class="s">"type"</span><span class="p">:</span> <span class="p">[</span><span class="s">"remoteChargeFinished"</span><span class="p">,</span> <span class="s">"remoteChargeInterrupted"</span><span class="p">]</span>
+  <span class="p">]</span>
+  <span class="p">)</span> <span class="p">{</span> <span class="cm">/* -- API Callback -- */</span>
+      <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> 
+        <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"SUCCEEDED"</span>    <span class="p">{</span> <span class="p">}</span>    <span class="c1">// handle succeeded status</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="n">message</span><span class="p">[</span><span class="s">"status"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"FAILED"</span> <span class="p">{</span> <span class="p">}</span>    <span class="c1">// handle failed status</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s">"RESULT"</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="o">!</span><span class="n">message</span><span class="p">[</span><span class="s">"error"</span><span class="p">]</span><span class="o">.</span><span class="n">isEmpty</span> <span class="p">{</span> <span class="p">}</span>            <span class="c1">// handle error event code</span>
+          <span class="k">else</span> <span class="p">{</span> <span class="p">}</span>                                    <span class="c1">// handle result event code</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="cm">/* Method Unsubscribe */</span>
+<span class="n">pims</span><span class="o">.</span><span class="nf">unsubscribe</span><span class="p">(</span> <span class="nv">api</span><span class="p">:</span> <span class="s">"pims.vehicle.event"</span> <span class="cm">/* no params */</span> <span class="p">)</span> <span class="p">{</span> <span class="cm">/* API Callback */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+
+
+  
+  
+
+</div>
+
+<p>Let’s explain this request example:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">API Name</code> - <em>String</em> - The name of the API to request.</li>
+  <li><code class="language-plaintext highlighter-rouge">API Parameters</code> - <em>Object</em> - Parameters specific to this API. Parameters and outputs are available in <a href="/mobile-sdk/references/">references</a>.</li>
+  <li><code class="language-plaintext highlighter-rouge">API Callback</code> - <em>Function</em> - Code to execute when a message is received.</li>
+</ul>
+    
+      <h4 id="subscribe-callback">
+        <span class="bd-anchor-name">
+        
+          Subscribe Callback
+                  </span>
+
+        
+        
+      </h4>
+
+<p>After requesting an API of the <strong>subscribe</strong> type, you should except 3 kind of messages. That’s why your <strong>callback</strong> should be able to handle all these possibilities:</p>
+<ul>
+  <li><span class="tag is-dark"><i class="fas fa-long-arrow-alt-down"></i>  <span style="font-weight: 500">Succeeded</span></span> This message is received <strong>only once</strong>, it acknowledge that the subscription is <strong>successful</strong>.</li>
+  <li><span class="tag is-dark"><i class="fas fa-exclamation"></i>  <span style="font-weight: 500">Failed</span></span> This message is received <strong>only once</strong>, it acknowledge that the subscription <strong>failed</strong>.</li>
+  <li><span class="tag is-dark"><i class="fas fa-bell"></i>  <span style="font-weight: 500">Result</span></span> This message is received <strong>each time the event is triggered</strong> for this subscribe. It includes <strong>response data</strong> of the subscribed API.</li>
+</ul>
+
+<p>when the subscribe is in error, the subscription has not been taken in account, no event will follow. In this case the message include the error field with error info.</p>
+
+<div id="subscribe-pims-vehicle-event-remote-succeeded-failed-result" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-subscribe" href="/mobile-sdk/references/v2-3/longrangeremotestatus-subscribe-pims-vehicle-event-remote/#article"> SUBSCRIBE | pims.vehicle.event - remote: Succeeded - Failed &amp; Result
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+    <div class="code-block second-block result "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            <div class="api-code-tab result">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-bell"></i>
+              </span>
+              <span class="api-code-tab-text">Result</span>
+            </div>
+            
+            
+            
+            
+            
+            <div class="api-code-tab failed">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-exclamation"></i>
+              </span>
+              <span class="api-code-tab-text">Failed</span>
+            </div>
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="c1">// SUCCEEDED: representation of the natif dictionary object message as JSON</span>
+<span class="c1">// This message aknowledge that the subscribe has been taken in account</span>
+<span class="c1">// 'result' messages will follow</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="rouge-code"><pre><span class="c1">// RESULT: representation of the natif dictionary object message as JSON</span>
+<span class="c1">// these messages are returned each time an normal event or error is triggered</span>
+
+<span class="c1">//       -- Event message of a normal result -- </span>
+<span class="c1">// subscription doesn't stop and other messages will follow</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RESULT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">event</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">migrationBegin</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//          -- Event message of an error -- </span>
+<span class="c1">// subscription doesn't stop and other messages will follow</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">RESULT</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2000</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">label</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Unknown error</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre><span class="c1">// FAILED: representation of the natif dictionary object message as JSON</span>
+<span class="c1">// This message is returned when an error occurred, the subscription failed,</span>
+<span class="c1">// no other messages will follow.</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FAILED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2000</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">label</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Unknown error</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>The previous example is the JSON representation of the returned message object. This table details the message structure:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong><em>transactionId</em></strong></td>
+      <td><em>String</em></td>
+      <td>Id of the request, this is the same id for the <strong>Succeeded</strong>, <strong>Result</strong> and <strong>Failed</strong>, it’s useful to make sure of the origin of the message.</td>
+    </tr>
+    <tr>
+      <td><strong><em>status</em></strong></td>
+      <td><em>Enum of Strings</em></td>
+      <td>Status of the message: <br />   • <strong>status:</strong> <span class="tag is-dark"><i class="fas fa-long-arrow-alt-down"></i>  <span style="font-weight: 500">Succeeded</span></span> the subscription has been taken in account. Event messages with status result will be triggered.<br />   • <strong>status:</strong> <span class="tag is-dark"><i class="fas fa-bell"></i>  <span style="font-weight: 500">Result</span></span> when a subscribe <strong>event</strong> is triggered (result or error). In this case the message include the <em>result</em> field with the outputted data or an <em>error</em> field error info. <br />   • <strong>status:</strong> <span class="tag is-dark"><i class="fas fa-exclamation"></i>  <span style="font-weight: 500">Failed</span></span> the subscribe is in error, the subscription <strong>has not been taken in account</strong>, no event will follow.</td>
+    </tr>
+    <tr>
+      <td><strong><em>result</em></strong></td>
+      <td><em>dictionary Object</em></td>
+      <td>Contains the outputted data, see <a href="/mobile-sdk/references/">reference page</a> for the output of each API. <br />   • <span class="tag is-dark"><i class="fas fa-long-arrow-alt-down"></i>  <span style="font-weight: 500">Succeeded</span></span> In <strong>Succeeded</strong> messages, this field is never returned <br />   • <span class="tag is-dark"><i class="fas fa-bell"></i>  <span style="font-weight: 500">Result</span></span> In <strong>Result</strong> messages, this field is returned only when the field <code class="language-plaintext highlighter-rouge">error</code> is not returned.<br />   • <span class="tag is-dark"><i class="fas fa-exclamation"></i>  <span style="font-weight: 500">Failed</span></span> In <strong>Failed</strong> messages, this field is never returned.</td>
+    </tr>
+    <tr>
+      <td><strong><em>error</em></strong></td>
+      <td><em>dictionary Object</em></td>
+      <td>Code and Label of the error, check-out <a href="/mobile-sdk/references/">reference page</a> or <a href="/mobile-sdk/references/errors/#article">error page</a> for the list of errors.  <br />   • <span class="tag is-dark"><i class="fas fa-long-arrow-alt-down"></i>  <span style="font-weight: 500">Succeeded</span></span> In <strong>Succeeded</strong> messages, this field is never returned <br />   • <span class="tag is-dark"><i class="fas fa-bell"></i>  <span style="font-weight: 500">Result</span></span> In <strong>Result</strong> messages, this field is returned only when the field <code class="language-plaintext highlighter-rouge">result</code> is not returned.<br />   • <span class="tag is-dark"><i class="fas fa-exclamation"></i>  <span style="font-weight: 500">Failed</span></span> In <strong>Failed</strong> messages, this field always returned.</td>
+    </tr>
+  </tbody>
+</table>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            
+            
+          </ul>
+        </nav>
+
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer>
+    <script type="text/javascript" src="/assets/js/api-reference.js"></script>
+    </body>
+</html>

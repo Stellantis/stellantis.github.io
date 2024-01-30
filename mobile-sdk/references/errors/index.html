@@ -1,0 +1,2489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Errors | Api reference | Mobile-sdk</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Errors | Api reference | Mobile-sdk">
+    <meta property="og:url" content="https://developer.groupe-psa.io/mobile-sdk/references/errors/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="List of error codes in Mobile SDK.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Errors | Api reference | Mobile-sdk">
+    <meta name="twitter:description" content="List of error codes in Mobile SDK.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="List of error codes in Mobile SDK." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/mobile-sdk/references/errors/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS -->
+    <link rel="stylesheet" href="/assets/css/modules/reference-list.css">
+    <!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_ios">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title " id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" is-default-subsection  navbar-item is-active" href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title">Mobile SDK</h1>
+            <h2 class="title">iOS or Android</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          Mobile SDK
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/mobile-sdk/overview/" class='menu-label has-list' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/overview/about/#article">
+              About 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/overview/get-started/#article">
+              Get Started 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/overview/migration-v2-2-to-v2-3/#article">
+              Migration v2.2 to v2.3 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/security/" class='menu-label has-list' id="Security">
+          <span>
+            Security
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/security/security-schemes/#article">
+              Security Schemes 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/authentication/#article">
+              Authentication 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/service-activation-steps/#article">
+              Service Activation Steps 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/device-enrollment/#article">
+              Device Enrollment & Account Management 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/carkey/#article">
+              CarKey Check 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/otp/#article">
+              OTP 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/sdk-features/" class='menu-label has-list' id="SDK Features">
+          <span>
+            SDK Features
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/sdk-features/trips/#article">
+              Trips 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/send-navigation/#article">
+              Send Navigation 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/vehicle-status/#article">
+              Vehicle Status 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/remote-commands/#article">
+              Remote Commands 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/push-notification/#article">
+              Push Notification 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/ami&rocks-e/#article">
+              AMI & Rocks-e 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/references/" class='menu-label has-list is-active' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/references/v2-3/#article">
+              References v2.3 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/references/changelog/#article">
+              Changelog 
+            </a>
+          </li>
+          <li>
+            <a class="is-active" href="/mobile-sdk/references/errors/#article">
+              Errors 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column content-column">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span >
+              
+              API Reference - 
+              
+                
+    Errors
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/about/#article" 
+                                                            >
+                                                                About
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/get-started/#article" 
+                                                            >
+                                                                Get Started
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/migration-v2-2-to-v2-3/#article" 
+                                                            >
+                                                                Migration v2.2 to v2.3
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Security">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/security-schemes/#article" 
+                                                            >
+                                                                Security Schemes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/authentication/#article" 
+                                                            >
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/service-activation-steps/#article" 
+                                                            >
+                                                                Service Activation Steps
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/device-enrollment/#article" 
+                                                            >
+                                                                Device Enrollment & Account Management
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/carkey/#article" 
+                                                            >
+                                                                CarKey Check
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/otp/#article" 
+                                                            >
+                                                                OTP
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="SDK Features">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/trips/#article" 
+                                                            >
+                                                                Trips
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/send-navigation/#article" 
+                                                            >
+                                                                Send Navigation
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/vehicle-status/#article" 
+                                                            >
+                                                                Vehicle Status
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/remote-commands/#article" 
+                                                            >
+                                                                Remote Commands
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/push-notification/#article" 
+                                                            >
+                                                                Push Notification
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/ami&rocks-e/#article" 
+                                                            >
+                                                                AMI & Rocks-e
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/v2-3/#article" 
+                                                            >
+                                                                References v2.3
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/changelog/#article" 
+                                                            >
+                                                                Changelog
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/errors/#article" 
+                                                            selected>
+                                                                Errors
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/mobile-sdk/4-2-references-errors.md"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/mobile-sdk/">Mobile SDK</a>
+            </li>
+            
+            
+            
+            <li>
+                <a href="/mobile-sdk/references/">API Reference</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    Errors
+  
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="notification page-disclaimer">
+      <strong>Info:</strong> Stellantis Mobile SDK is <strong>not publicly available</strong>.
+    </div>
+    </div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <p>This page is a list of error code you can encounter using PIMS.</p>
+
+<p>These errors code are shared between iOS and Android SDKs.</p>
+
+<style>
+    .api-col-title th{
+        font-style: normal !important;
+    }
+    .api-table td:first-of-type, .api-table td:nth {
+        text-align: center;
+    }
+    .na-value {
+        color: darkgrey
+    }
+    .api-table-header-title {
+       line-height: 1 !important;
+       padding-top: 6rem !important;
+        margin-top: -5.90rem !important;
+        margin-bottom: .25rem !important;
+    }
+
+    .api-table-header-title .bd-anchor-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: white;
+    }
+
+    .api-table-header-title .bd-anchor-link {
+        color: transparent !important;
+        font-size: 1rem;
+    }
+</style>
+
+<div class="dropdown-api-get">
+    <div class="api-content" style="border-top: none">
+        <div class="api-table">
+            <table>
+                
+                
+                    <thead>
+                        <tr>
+                            <th class="api-table-header api-params" colspan="4">
+      <h2 class="api-table-header-title" id="gigya-error">
+        <span class="bd-anchor-name">
+        
+          
+                                    Gigya error
+                                
+                  </span>
+ <a href="#gigya-error" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+                            </th>
+                        </tr>
+                        <tr class="api-col-title">
+                            <th>Error Code</th>
+                            <th>Error Label</th>
+                            <th>SubErrors</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            
+                            <td><strong>2383</strong></td>
+                            <td><code>error.accountTemporarilyLockedOut</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2210</strong></td>
+                            <td><code>error.gigyaSessionError</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2387</strong></td>
+                            <td><code>error.gigya.social.login.need.social.link</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2388</strong></td>
+                            <td><code>error.gigya.social.login.account.already.exists</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2384</strong></td>
+                            <td><code>error.gigya.social.login.account.pending.verification</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2389</strong></td>
+                            <td><code>error.gigya.social.login.incomplete.userProfile</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr></tbody>
+                
+                    <thead>
+                        <tr>
+                            <th class="api-table-header api-params" colspan="4">
+    
+      <h2 class="api-table-header-title" id="generic-error">
+        <span class="bd-anchor-name">
+        
+          
+                                    Generic error
+                                
+                  </span>
+ <a href="#generic-error" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+                            </th>
+                        </tr>
+                        <tr class="api-col-title">
+                            <th>Error Code</th>
+                            <th>Error Label</th>
+                            <th>SubErrors</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2000</strong></td>
+                            <td><code>Unknown error</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2001</strong></td>
+                            <td><code>Facade not initialized</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2002</strong></td>
+                            <td><code>API not supported</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2003</strong></td>
+                            <td><code>[Component] not loaded</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2004</strong></td>
+                            <td><code>Configuration file invalid</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2005</strong></td>
+                            <td><code>Duplicate command</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2006</strong></td>
+                            <td><code>Core not well configured</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2007</strong></td>
+                            <td><code>Facade already initialized</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr></tbody>
+                
+                    <thead>
+                        <tr>
+                            <th class="api-table-header api-params" colspan="4">
+    
+      <h2 class="api-table-header-title" id="input-error">
+        <span class="bd-anchor-name">
+        
+          
+                                    Input error
+                                
+                  </span>
+ <a href="#input-error" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+                            </th>
+                        </tr>
+                        <tr class="api-col-title">
+                            <th>Error Code</th>
+                            <th>Error Label</th>
+                            <th>SubErrors</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2010</strong></td>
+                            <td><code>[PARAMETER] not set</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2101</strong></td>
+                            <td><code>Missing [PARAMETER] parameter</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2102</strong></td>
+                            <td><code>Invalid [PARAMETER] parameter</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr></tbody>
+                
+                    <thead>
+                        <tr>
+                            <th class="api-table-header api-params" colspan="4">
+    
+      <h2 class="api-table-header-title" id="output-error">
+        <span class="bd-anchor-name">
+        
+          
+                                    Output Error
+                                
+                  </span>
+ <a href="#output-error" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+                            </th>
+                        </tr>
+                        <tr class="api-col-title">
+                            <th>Error Code</th>
+                            <th>Error Label</th>
+                            <th>SubErrors</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2201</strong></td>
+                            <td><code>Timeout</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2202</strong></td>
+                            <td><code>Network problem : No internet</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2203</strong></td>
+                            <td><code>Invalid return [Parsing error] ou [No data] ou [invalid Data]</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2204</strong></td>
+                            <td><code>Server Error</code></td>
+                            <td>Yes</td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2205</strong></td>
+                            <td><code>CEA Error</code></td>
+                            <td>Yes</td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2208</strong></td>
+                            <td><code>Certificat pinning failed</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2209</strong></td>
+                            <td><code>Altran Error</code></td>
+                            <td>Yes</td>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr></tbody>
+                
+                    <thead>
+                        <tr>
+                            <th class="api-table-header api-params" colspan="4">
+    
+      <h2 class="api-table-header-title" id="pims-specific-error">
+        <span class="bd-anchor-name">
+        
+          
+                                    PIMS specific error
+                                
+                  </span>
+ <a href="#pims-specific-error" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+                            </th>
+                        </tr>
+                        <tr class="api-col-title">
+                            <th>Error Code</th>
+                            <th>Error Label</th>
+                            <th>SubErrors</th>
+                        </tr>
+                    </thead>
+                    <tbody><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2301</strong></td>
+                            <td><code>Need Basic Authentication (to get CVS token)</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2302</strong></td>
+                            <td><code>Need Strong Authentication </code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2303</strong></td>
+                            <td><code>Failed to logout</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2305</strong></td>
+                            <td><code>The sms code is invalid</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2306</strong></td>
+                            <td><code>The sms code is expired</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2307</strong></td>
+                            <td><code>User dont have a phone number</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2308</strong></td>
+                            <td><code>inwebo: access refused</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2309</strong></td>
+                            <td><code>inwebo: version error</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2310</strong></td>
+                            <td><code>inwebo: account is blocked </code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2311</strong></td>
+                            <td><code>inwebo: internal state not correct</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2312</strong></td>
+                            <td><code>inwebo: device is disabled or unknown</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2313</strong></td>
+                            <td><code>inwebo: User must activate inWebo helium or inWebo Desktop Token before achieving this operation</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2314</strong></td>
+                            <td><code>inwebo: No service is available</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2315</strong></td>
+                            <td><code>inwebo: the new password equals the previous one</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2316</strong></td>
+                            <td><code>inwebo: the operation succeeded but it required a post-synchronization which failed</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2317</strong></td>
+                            <td><code>inwebo: forbidden operation (due to activated state/blocked state/upgradable state)</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2318</strong></td>
+                            <td><code>IdToken not valid</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2319</strong></td>
+                            <td><code>IdToken bad format</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2320</strong></td>
+                            <td><code>Not enought Answered Questions</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2321</strong></td>
+                            <td><code>Invalid ID searched</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2323</strong></td>
+                            <td><code>You aren't the owner of this vehicle</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2325</strong></td>
+                            <td><code>Immediate charging request discarded, defered hour has been change</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2326</strong></td>
+                            <td><code>Defered hour request discarded, immediate charging has been launch</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2327</strong></td>
+                            <td><code>Invalid image</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2328</strong></td>
+                            <td><code>Invalid cropping area</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2329</strong></td>
+                            <td><code>Immediate [ACTION] request discarded due to SEV different than STOP.</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2330</strong></td>
+                            <td><code>Immediate charging request discarded due to charging system is standby</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2331</strong></td>
+                            <td><code>Immediate charging request discarded due to charging already ongoing.</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2332</strong></td>
+                            <td><code>Immediate charging request discarded due to communication problem with charging system.</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2333</strong></td>
+                            <td><code>Immediate preconditioning request discarded due to preconditioning already ongoing.</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2334</strong></td>
+                            <td><code>Immediate preconditioning request discarded due to communication problem with preconditioning system.</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2335</strong></td>
+                            <td><code>Stop preconditioning request discarded due to SEV different than STOP. </code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2336</strong></td>
+                            <td><code>Stop preconditioning request discarded due to precondtioning not running.</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2337</strong></td>
+                            <td><code>Charging Defered Hours need to be update</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2338</strong></td>
+                            <td><code>Preconditioning program need to be update</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2339</strong></td>
+                            <td><code>Service already started</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2340</strong></td>
+                            <td><code>[Permition] need to be granted</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2341</strong></td>
+                            <td><code>[Location or Bluetooth] need to be activated on the phone</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2342</strong></td>
+                            <td><code>Smartphone not paired with the vehicle</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2343</strong></td>
+                            <td><code>Failed to clear data</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2344</strong></td>
+                            <td><code>[Component] not configured</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2345</strong></td>
+                            <td><code>No data saved</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2346</strong></td>
+                            <td><code>No Step for this stepsID [stepsID]</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2347</strong></td>
+                            <td><code>[Component] not supported on simulator</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2348</strong></td>
+                            <td><code>StrongID document quoata reached </code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2349</strong></td>
+                            <td><code>StrongID enrollment already exists </code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2350</strong></td>
+                            <td><code>[Method] is deprecated since [version]</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2351</strong></td>
+                            <td><code>Immediate refresh request discarded due to refresh already ongoing.</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2353</strong></td>
+                            <td><code>Command can't be execute another command are ongoing</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2354</strong></td>
+                            <td><code>Invalid Key Car Position </code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2355</strong></td>
+                            <td><code>Invalid Signature</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2356</strong></td>
+                            <td><code>Invalid Timestamp</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2357</strong></td>
+                            <td><code>Doors state need to be update</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2358</strong></td>
+                            <td><code>Horn request have been execute with succes earlier wait to send new one</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2359</strong></td>
+                            <td><code>Light request have been execute with succes earlier wait to send new one</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2360</strong></td>
+                            <td><code>All vehicle's doors are unlocked</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2361</strong></td>
+                            <td><code>All vehicle's doors are locked</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2362</strong></td>
+                            <td><code>Lock/Unlock request discarded due to door open</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2363</strong></td>
+                            <td><code>Lost connection with MQTT brocker</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2364</strong></td>
+                            <td><code>Command can't be execute because same command are ongoing</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2365</strong></td>
+                            <td><code>Command can't be execute because no subscribe are running</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2366</strong></td>
+                            <td><code>VIN not valid for this request</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2367</strong></td>
+                            <td><code>Service not started</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2368</strong></td>
+                            <td><code>WebView canceled</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2369</strong></td>
+                            <td><code>Webview permission denied</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2370</strong></td>
+                            <td><code>Can't remove trip with identifier: [IDENTIFIER]</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2371</strong></td>
+                            <td><code>Can't merge trips with identifiers: [IDENTIFIERS LIST]</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2372</strong></td>
+                            <td><code>Can't unmerge trip with identifier: [IDENTIFIER]</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2373</strong></td>
+                            <td><code>Can't import [Table name] from file</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2374</strong></td>
+                            <td><code>Can't export [Table name]</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2375</strong></td>
+                            <td><code>Can't retrieve trip with ID: [IDENTIFIER]</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2376</strong></td>
+                            <td><code>Can' Edit trip with ID: [IDENTIFIER]</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2377</strong></td>
+                            <td><code>Broker connexion failed</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2378</strong></td>
+                            <td><code>Can't store fuel price</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2379</strong></td>
+                            <td><code>Can't retrieve trips from old database</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr><tr>
+                            
+                            <td><strong>2390</strong></td>
+                            <td><code>Phone number allready registered</code></td>
+                            <td><em class="na-value">no</em></td>
+                            
+                        </tr></tbody>
+                
+            </table>
+        </div>
+    </div>
+</div>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            
+            
+          </ul>
+        </nav>
+
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer>
+    <script src="https://developer.groupe-psa.io/assets/js/reference-list.js"> </script>
+    </body>
+</html>

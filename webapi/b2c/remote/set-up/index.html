@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Set Up | Remote | Webapi B2C</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Set Up | Remote | Webapi B2C">
+    <meta property="og:url" content="https://developer.groupe-psa.io/webapi/b2c/remote/set-up/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="Learn how to set-up remotes in Fleet Owner API.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Set Up | Remote | Webapi B2C">
+    <meta name="twitter:description" content="Learn how to set-up remotes in Fleet Owner API.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Learn how to set-up remotes in Fleet Owner API." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/webapi/b2c/remote/set-up/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS -->
+    <link rel="stylesheet" href="/assets/css/modules/api-reference.css">
+    <!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_api">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title " id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title is-default is-active" id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-down" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" is-default-subsection  navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" is-default-subsection  navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" is-default-subsection  navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" is-default-subsection  navbar-item is-active" href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" is-default-subsection  navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title">WEB API</h1>
+            <h2 class="title">accessing party for end-users</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          Web API
+          
+          
+          
+          
+          
+          - Accessing Party for end-users
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/webapi/b2c/overview/" class='menu-label has-list' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2c/overview/about/#article">
+              About this API 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/overview/api-concepts/#article">
+              API Concepts 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/overview/errors/#article">
+              Errors & Rate Limit 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2c/quickstart/" class='menu-label has-list' id="Quickstart">
+          <span>
+            Quickstart
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2c/quickstart/about-authentication/#article">
+              About Authentication 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/quickstart/data-availability-scopes/#article">
+              Data Availability & Scopes 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/quickstart/app-registration/#article">
+              App Registration 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/quickstart/enroll-users/#article">
+              Enroll End-Users 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/quickstart/access-user-data/#article">
+              Access End-User Data 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/quickstart/request_examples/#article">
+              Request Examples 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2c/monitor/" class='menu-label has-list' id="Monitor">
+          <span>
+            Monitor
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2c/monitor/about/#article">
+              About Monitors 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/monitor/set-up/#article">
+              Set Up 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/monitor/retry-policy/#article">
+              Retry Policy 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/monitor/server-specification/#article">
+              Server Specification 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2c/remote/" class='menu-label has-list is-active' id="Remote">
+          <span>
+            Remote
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2c/remote/about/#article">
+              About Remotes 
+            </a>
+          </li>
+          <li>
+            <a class="is-active" href="/webapi/b2c/remote/set-up/#article">
+              Set Up 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/remote/retry-policy/#article">
+              Retry Policy 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/remote/notifications-errors/#article">
+              Notifications and Errors 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/remote/server-specification/#article">
+              Server Specification 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2c/api-reference/" class='menu-label has-list' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2c/api-reference/references/#article">
+              References 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2c/api-reference/changelog/#article">
+              Changelog 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column content-column">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span >
+              
+              Remote - 
+              
+                
+    Set Up
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/overview/about/#article" 
+                                                            >
+                                                                About this API
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/overview/api-concepts/#article" 
+                                                            >
+                                                                API Concepts
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/overview/errors/#article" 
+                                                            >
+                                                                Errors & Rate Limit
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Quickstart">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/quickstart/about-authentication/#article" 
+                                                            >
+                                                                About Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/quickstart/data-availability-scopes/#article" 
+                                                            >
+                                                                Data Availability & Scopes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/quickstart/app-registration/#article" 
+                                                            >
+                                                                App Registration
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/quickstart/enroll-users/#article" 
+                                                            >
+                                                                Enroll End-Users
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/quickstart/access-user-data/#article" 
+                                                            >
+                                                                Access End-User Data
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/quickstart/request_examples/#article" 
+                                                            >
+                                                                Request Examples
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Monitor">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/monitor/about/#article" 
+                                                            >
+                                                                About Monitors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/monitor/set-up/#article" 
+                                                            >
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/monitor/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/monitor/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Remote">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/remote/about/#article" 
+                                                            >
+                                                                About Remotes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/remote/set-up/#article" 
+                                                            selected>
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/remote/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/remote/notifications-errors/#article" 
+                                                            >
+                                                                Notifications and Errors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/remote/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/api-reference/references/#article" 
+                                                            >
+                                                                References
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2c/api-reference/changelog/#article" 
+                                                            >
+                                                                Changelog
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/webapi/content/webapi-remote_setup.md"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/webapi/">Web API</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webapi/b2c/">Accessing Party for end-users</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webapi/b2c/remote/">Remote</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    Set Up
+  
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="notification page-disclaimer">
+      <strong>Info:</strong> Stellantis Accessing Party for End-Users API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) is <strong>available only on request</strong>.
+    </div>
+    </div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <p>This tutorial explains how to set up remotes using the REST API. In order to do so, we will need to understand how to configure the <strong>callback</strong> and send a <strong>remote command</strong>.</p>
+
+<p>HTTP request headers used in this tutorial require to use <a href="/webapi/b2c/quickstart/access-user-data/#manufacturers-brands--realms">realms</a>.</p>
+      <h2 id="post-callback">
+        <span class="bd-anchor-name">
+        
+          Post Callback
+                  </span>
+ <a href="#post-callback" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>The first step is to configure a reusable configuration settings named <em>callback</em>. The same callback can be used for <a href="/webapi/b2c/monitor/about/#article">monitors</a> and/or <a href="/webapi/b2c/remote/about/#article">remote</a> features of this API.</p>
+
+<p>Registering a callback can be done using the following API. They are 3 types of callback notifications: <strong>WebHook, Push Notification, WebSocket</strong>.</p>
+
+<div id="-" class="api-content-code api-code-content-webapi" style="margin-bottom: 1.5rem;"><div class="api-code-header">
+
+  
+    
+    <a href="/webapi/b2c/api-reference/references/#operation/setUsertVehicleRemote" class="api-code-header-text api-code-header-subscribe">
+      POST |&nbsp;https://api-cert.groupe-psa.com/connectedcar/v4<br />
+        <strong>/user/callbacks</strong></a>
+  </div>
+  <div class="code-block first-block kotlin">
+    <div class="api-code-header">
+      <div class="api-code-tabs-container">
+        <nav class="api-code-tabs">
+          <div class="api-code-tab kotlin">
+            <span class="api-code-tab-icon is-white">
+              <i class="fas fa-long-arrow-alt-up"></i>
+            </span>
+            <span class="api-code-tab-text">HTTP Request</span>
+          </div>
+          
+        </nav>
+      </div>
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>curl <span class="se">\</span>
+  <span class="nt">--request</span> POST <span class="se">\</span>
+  <span class="nt">--url</span> <span class="s1">'https://api-cert.groupe-psa.com/connectedcar/v4/user/callbacks'</span> <span class="se">\</span>
+  <span class="nt">--data-urlencode</span> <span class="s1">'client_id=&lt;client_id&gt;'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'x-introspect-realm: &lt;realm&gt;'</span> <span class="se">\</span>
+  <span class="nt">--key</span> <span class="s1">'path/to/key.pem'</span> <span class="se">\</span>
+  <span class="nt">--cert</span> <span class="s1">'path/to/client_cert.pem[:&lt;cert_password&gt;]'</span> <span class="se">\</span>
+  <span class="nt">--cacert</span> <span class="s1">'path/to/ca_cert.pem'</span> <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s1">'&lt;check out HTTP body&gt;'</span> <span class="se">\</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-swift">
+      
+    </div>
+  </div>
+  </div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;callback-name&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Monitor"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Remote"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"callback"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhook"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://my.post.callback"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;webhook-name&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"batch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Header"</span><span class="p">,</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X-Vehicle_Id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$vin"</span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"pushnotif"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"devices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;device_name&gt;"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Header"</span><span class="p">,</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X-Vehicle_Id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$vin"</span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"websocket"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheme://host[:port][/Path]"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"batch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nl">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Header"</span><span class="p">,</span><span class="w"> </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X-Vehicle_Id"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$vin"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Below is a description of the JSON body to configure the callback.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">label</code> is the name of the callback. </li>
+  <li><code class="language-plaintext highlighter-rouge">type</code> to declare a callback for <em>Monitor, Remote or both</em>.</li>
+  <li><code class="language-plaintext highlighter-rouge">callback</code> allows to configure notifications, they can be of 3 different types:
+    <ul>
+      <li><em>webhook</em>: for HTTP notification.</li>
+      <li><em>websocket</em>: for websocket callbacks.</li>
+      <li><em>pushnotif</em>: using Firebase Cloud Messaging in order to trigger push notification on iOS (APNs) or Android (GCM).</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">callback.&lt;notification_type&gt;</code> allow to configure:
+    <ul>
+      <li><em>attributes:</em> to setup additional attributes of the notification (<em>headers, query params, body</em>). These attributes are usually used for routing.</li>
+      <li><em>batch:</em> webhook &amp; websocket notifications can be send in batch, it’s recommended to use batch over single time notification.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>If the callback is properly created the HTTP <strong>response body</strong> will look like:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"callbackId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;id&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Running"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This message indicates that the callback has been sucessfully created with a unique identifier. This identifier, called <em>{cbid}</em> is required to <a href="#post-remote-request">create a remote</a>.</p>
+    
+      <h2 id="post-remote-request">
+        <span class="bd-anchor-name">
+        
+          Post Remote Request
+                  </span>
+ <a href="#post-remote-request" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>The following example is the structure of the HTTP request intended to send a remote command.</p>
+
+<p>The following <strong>path parameters are required</strong>, they need to be replaced by the appropriate value:</p>
+
+<ul>
+  <li><strong>{id}</strong> is the id of the vehicle to send a remote to.</li>
+  <li><strong>{cbid}</strong> is the id of a callback, this id is received when a <a href="#post-callback">callback is created</a>.</li>
+</ul>
+
+<div id="-" class="api-content-code api-code-content-webapi" style="margin-bottom: 1.5rem;"><div class="api-code-header">
+
+  
+    
+    <a href="/webapi/b2c/api-reference/references/#operation/sendRemoteToVhl" class="api-code-header-text api-code-header-subscribe">
+      POST |&nbsp;https://api-cert.groupe-psa.com/connectedcar/v4<br />
+        <strong>/user/vehicles/{id}/callbacks/{cbid}/remotes</strong></a>
+  </div>
+  <div class="code-block first-block kotlin">
+    <div class="api-code-header">
+      <div class="api-code-tabs-container">
+        <nav class="api-code-tabs">
+          <div class="api-code-tab kotlin">
+            <span class="api-code-tab-icon is-white">
+              <i class="fas fa-long-arrow-alt-up"></i>
+            </span>
+            <span class="api-code-tab-text">HTTP Request</span>
+          </div>
+          
+        </nav>
+      </div>
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>curl <span class="se">\</span>
+  <span class="nt">--request</span> POST <span class="se">\</span>
+  <span class="nt">--url</span> <span class="s1">'https://api-cert.groupe-psa.com/connectedcar/v4/user/vehicles/{id}/callbacks/{cbid}/remotes'</span> <span class="se">\</span>
+  <span class="nt">--data-urlencode</span> <span class="s1">'client_id=&lt;client_id&gt;'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Authorization: Bearer &lt;access_token&gt;'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'x-introspect-realm: &lt;realm&gt;'</span> <span class="se">\</span>
+  <span class="nt">--key</span> <span class="s1">'path/to/key.pem'</span> <span class="se">\</span>
+  <span class="nt">--cert</span> <span class="s1">'path/to/client_cert.pem[:&lt;cert_password&gt;]'</span> <span class="se">\</span>
+  <span class="nt">--cacert</span> <span class="s1">'path/to/ca_cert.pem'</span> <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s1">'&lt;check out HTTP body&gt;'</span> <span class="se">\</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+
+    </div>
+    <div class="api-content-code-example api-content-code-example-req-swift">
+      
+    </div>
+  </div>
+  </div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">label</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">remote_name</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">attributes</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>  <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">callbackAttributes</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">door</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">state</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Unlocked</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Below is a description of the JSON body to configure the remote, refers to <a href="/webapi/b2c/api-reference/references/#operation/sendRemoteToVhl">API Reference</a> for the specification of this endpoint.</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">label</code> is the name of the remote.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">attributes</code> &amp; <code class="language-plaintext highlighter-rouge">callbackAttributes</code>: allows adding or to overwrite key/value attributes declared in the <a href="#post-callback">callback creation</a>, it will be available in the notification as query parameters, headers or body. Attributes (<em>vin, CallbackID &amp; CallbackLabel</em>) are useful to perform the routing of the notification.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">&lt;remote-type&gt;</code> objects allow configuring the remote action to send, checkout <a href="#remote-actions">remote actions</a>. Only one remote can be sent at once.</p>
+  </li>
+</ul>
+    
+      <h2 id="post-remote-response">
+        <span class="bd-anchor-name">
+        
+          Post Remote Response
+                  </span>
+ <a href="#post-remote-response" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>This is an example of HTTP response when sending a remote action:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="p">{</span><span class="w">
+  </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"remoteActionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"909bkqacjb3bfhdhjanahbc244jj2lixfbe2e52u5y"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ThermalPreconditioning"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This message indicates that the remote has been successfully created with a unique identifier. This identifier is sent with every notification; therefore, it allows tracking this remote.</p>
+    
+      <h2 id="remote-actions">
+        <span class="bd-anchor-name">
+        
+          Remote Actions
+                  </span>
+ <a href="#remote-actions" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Object Name</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RemotePreconditioning</td>
+      <td>Choose between <code class="language-plaintext highlighter-rouge">immediate</code> preconditioning or not, and set a <code class="language-plaintext highlighter-rouge">program</code> with <code class="language-plaintext highlighter-rouge">recurrence</code> or not, <code class="language-plaintext highlighter-rouge">start</code> time,  <code class="language-plaintext highlighter-rouge">occurence</code> during the week then, choose to <code class="language-plaintext highlighter-rouge">enable</code> or not this program. <strong>Note:</strong> Using the key/value <code class="language-plaintext highlighter-rouge">Slot</code> it’s possible to register up to 4 PreconditionPrograms.</td>
+      <td><code class="language-plaintext highlighter-rouge">{  "label": "string",  "preonditionning": {    "airConditioning": {      "immediate": false,      "programs": [        {          "recurrence": "Daily",          "start": "PT14H30M",          "occurence": {            "day": [              "Mon"            ]          },          "slot": 0,          "enabled": true        }      ]    }  } }</code></td>
+    </tr>
+    <tr>
+      <td>RemoteSetImmobilization</td>
+      <td>Set <code class="language-plaintext highlighter-rouge">activate</code> to true to immobilize a vehicle. This feature can be used in addition to “RemoteSetStolen”.</td>
+      <td><code class="language-plaintext highlighter-rouge">{   "immobilization": {    "activate": true  } }</code></td>
+    </tr>
+    <tr>
+      <td>RemoteDoorsState</td>
+      <td>Set <code class="language-plaintext highlighter-rouge">state</code> to <code class="language-plaintext highlighter-rouge">Locked</code> or <code class="language-plaintext highlighter-rouge">Unlocked</code>.</td>
+      <td><code class="language-plaintext highlighter-rouge">{  "door": {    "state": "Unlocked"  } }</code></td>
+    </tr>
+    <tr>
+      <td>RemoteHorn</td>
+      <td>Honk the vehicle horn.</td>
+      <td><code class="language-plaintext highlighter-rouge">{  "horn": {   "state": "Activated"  } }</code></td>
+    </tr>
+    <tr>
+      <td>RemoteCharging</td>
+      <td>It’s possible to choose between <code class="language-plaintext highlighter-rouge">immediate</code> recharge or <code class="language-plaintext highlighter-rouge">nextDelayedTime</code> with a timestamp <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> before the charge activation. To <strong>stop</strong> a charge use set <code class="language-plaintext highlighter-rouge">immediate</code> to <code class="language-plaintext highlighter-rouge">false</code>.</td>
+      <td><code class="language-plaintext highlighter-rouge">{  "charging": {    "nextDelayedTime": "string",    "immediate": false  } }</code><br /> <strong>Stop: </strong><code class="language-plaintext highlighter-rouge">{  "charging": {"immediate": false} }</code></td>
+    </tr>
+    <tr>
+      <td>RemoteSetStolen</td>
+      <td>Set <code class="language-plaintext highlighter-rouge">stolen</code> to true to put the vehicle in stolen state. It’s mean that it will stay awake and refresh its position status on a regular basis.</td>
+      <td><code class="language-plaintext highlighter-rouge">{  "stolen": {    "stolen": true  } }</code></td>
+    </tr>
+    <tr>
+      <td>RemoteLights</td>
+      <td>Set a light blinking.</td>
+      <td><code class="language-plaintext highlighter-rouge">{  "ligths": {    "on": true  } }</code></td>
+    </tr>
+    <tr>
+      <td>RemoteState</td>
+      <td>Set <code class="language-plaintext highlighter-rouge">action: state</code> to retrieve an updated status of the vehicle.</td>
+      <td><code class="language-plaintext highlighter-rouge">{  "state": {    "action": "state"  } }</code></td>
+    </tr>
+    <tr>
+      <td>RemoteNavigation</td>
+      <td>Set <code class="language-plaintext highlighter-rouge">action: navigation</code> to send a remote navigation on the guidance system of the vehicle. It’s possible to send a notification to the driver through the HMI, before launching the navigation with <code class="language-plaintext highlighter-rouge">"driverApproval": true</code>. The field <code class="language-plaintext highlighter-rouge">"positions": [...]</code> is an array of <a href="https://geojson.org/">GeoJSON</a> points where the last point is the final destination and the other points are waypoints, maximum 10 points.</td>
+      <td><code class="language-plaintext highlighter-rouge">{"navigation": {  "driverApproval": true,  "positions": [    {      "type": "Point",      "coordinates": [        5.970338,        -62.536239      ]   }  ]}}</code></td>
+    </tr>
+  </tbody>
+</table>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            
+            
+          </ul>
+        </nav>
+
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer>
+    <script type="text/javascript" src="/assets/js/api-reference.js"></script>
+    </body>
+</html>

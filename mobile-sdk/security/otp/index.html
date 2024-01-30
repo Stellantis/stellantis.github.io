@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OTP | Security | Mobile-sdk</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="OTP | Security | Mobile-sdk">
+    <meta property="og:url" content="https://developer.groupe-psa.io/mobile-sdk/security/otp/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="Get OTP code.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="OTP | Security | Mobile-sdk">
+    <meta name="twitter:description" content="Get OTP code.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Get OTP code." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/mobile-sdk/security/otp/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS -->
+    <link rel="stylesheet" href="/assets/css/modules/api-reference.css">
+    <!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_ios">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title " id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" navbar-item " href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" is-default-subsection  navbar-item is-active" href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" is-default-subsection  navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title">Mobile SDK</h1>
+            <h2 class="title">iOS or Android</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          Mobile SDK
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/mobile-sdk/overview/" class='menu-label has-list' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/overview/about/#article">
+              About 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/overview/get-started/#article">
+              Get Started 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/overview/migration-v2-2-to-v2-3/#article">
+              Migration v2.2 to v2.3 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/security/" class='menu-label has-list is-active' id="Security">
+          <span>
+            Security
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/security/security-schemes/#article">
+              Security Schemes 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/authentication/#article">
+              Authentication 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/service-activation-steps/#article">
+              Service Activation Steps 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/device-enrollment/#article">
+              Device Enrollment & Account Management 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/security/carkey/#article">
+              CarKey Check 
+            </a>
+          </li>
+          <li>
+            <a class="is-active" href="/mobile-sdk/security/otp/#article">
+              OTP 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/sdk-features/" class='menu-label has-list' id="SDK Features">
+          <span>
+            SDK Features
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/sdk-features/trips/#article">
+              Trips 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/send-navigation/#article">
+              Send Navigation 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/vehicle-status/#article">
+              Vehicle Status 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/remote-commands/#article">
+              Remote Commands 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/push-notification/#article">
+              Push Notification 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/sdk-features/ami&rocks-e/#article">
+              AMI & Rocks-e 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/mobile-sdk/references/" class='menu-label has-list' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/mobile-sdk/references/v2-3/#article">
+              References v2.3 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/references/changelog/#article">
+              Changelog 
+            </a>
+          </li>
+          <li>
+            <a  href="/mobile-sdk/references/errors/#article">
+              Errors 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column content-column">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span >
+              
+              Security - 
+              
+                
+    OTP
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/about/#article" 
+                                                            >
+                                                                About
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/get-started/#article" 
+                                                            >
+                                                                Get Started
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/overview/migration-v2-2-to-v2-3/#article" 
+                                                            >
+                                                                Migration v2.2 to v2.3
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Security">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/security-schemes/#article" 
+                                                            >
+                                                                Security Schemes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/authentication/#article" 
+                                                            >
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/service-activation-steps/#article" 
+                                                            >
+                                                                Service Activation Steps
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/device-enrollment/#article" 
+                                                            >
+                                                                Device Enrollment & Account Management
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/carkey/#article" 
+                                                            >
+                                                                CarKey Check
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/security/otp/#article" 
+                                                            selected>
+                                                                OTP
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="SDK Features">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/trips/#article" 
+                                                            >
+                                                                Trips
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/send-navigation/#article" 
+                                                            >
+                                                                Send Navigation
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/vehicle-status/#article" 
+                                                            >
+                                                                Vehicle Status
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/remote-commands/#article" 
+                                                            >
+                                                                Remote Commands
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/push-notification/#article" 
+                                                            >
+                                                                Push Notification
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/sdk-features/ami&rocks-e/#article" 
+                                                            >
+                                                                AMI & Rocks-e
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/v2-3/#article" 
+                                                            >
+                                                                References v2.3
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/changelog/#article" 
+                                                            >
+                                                                Changelog
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/mobile-sdk/references/errors/#article" 
+                                                            >
+                                                                Errors
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/mobile-sdk/2-4-security-otp.md"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/mobile-sdk/">Mobile SDK</a>
+            </li>
+            
+            
+            
+            <li>
+                <a href="/mobile-sdk/security/">Security</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    OTP
+  
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="notification page-disclaimer">
+      <strong>Info:</strong> Stellantis Mobile SDK is <strong>not publicly available</strong>.
+    </div>
+    </div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <div class="notification">
+
+<p><strong>Security:</strong> OTP require the following <a href="/mobile-sdk/security/security-schemes/#article">security schemes</a> to be valid</p>
+
+<ul>
+  <li>🔓 <a href="/mobile-sdk/security/authentication/#article">Authentication</a></li>
+</ul>
+
+<p><strong>References:</strong> check-out 📱 <a href="/mobile-sdk/references/v2-3/#domain-strongauthentication-psa">Enrollment component</a> list of APIs.</p>
+
+
+</div>
+
+<p>When it’s requested by this Mobile SDK, you should be able to request an OTP code.</p>
+      <h2 id="when-should-i-request-an-otp">
+        <span class="bd-anchor-name">
+        
+          When should I request an OTP?
+                  </span>
+ <a href="#when-should-i-request-an-otp" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>Most of the time, you don’t have to deal with OTP. However, in some cases, it’s possible that you receive the following error:</p>
+
+<div id="-need-strong-auth-response" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <div class="api-code-header-text ">Need Strong Auth Response
+  
+</div>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="c1">// ERROR: 'response' object as json</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FAILED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2302</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">label</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Need Strong Authentication</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+
+<p>In order to use Mobile SDK API you should first <a href="/mobile-sdk/security/authentication/#article">perform authentication</a>.</p>
+
+<p>Depending on the API, basic or device enrollment can be required.</p>
+    
+      <h2 id="receive-otp-code">
+        <span class="bd-anchor-name">
+        
+          Receive OTP code
+                  </span>
+ <a href="#receive-otp-code" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>When you receive 2302 error, you should request an OTP code <code class="language-plaintext highlighter-rouge">withPIN</code>. Once is done, it will be possible to request the API that trigger the 2302 error code again.</p>
+
+<div id="get-pims-authentication-otp-withPIN" class="api-content-code" style="margin-bottom: 1.5rem;">
+  <div class="api-code-header" style="background: #939393; font-weight: 500 ">
+  
+    
+    <a class="api-code-header-text api-code-header-get" href="/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-otp-withpin/#article"> GET | pims.authentication.otp - withPIN
+  
+</a>
+    
+    
+  </div>
+    
+  
+  
+  
+  
+  
+  
+  <div class="code-block first-block kotlin "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            <div class="api-code-tab kotlin">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Kotlin</span>
+            </div>
+            
+            
+            
+            <div class="api-code-tab swift">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-up"></i>
+              </span>
+              <span class="api-code-tab-text">Request Swift</span>
+            </div>
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-kotlin">
+        
+          
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s">"pims.authentication.otp"</span><span class="p">,</span>
+  <span class="nf">mapOf</span><span class="p">(</span> <span class="cm">/* parameters */</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"action"</span><span class="p">,</span> <span class="s">"withPIN"</span><span class="p">,)</span>
+  <span class="nc">Pair</span><span class="p">(</span><span class="s">"pinCode"</span><span class="p">,</span> <span class="s">"123456"</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">{</span> <span class="n">message</span> <span class="p">-&gt;</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-swift">
+        
+          
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre>
+<span class="n">pims</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="nv">api</span><span class="p">:</span> <span class="s">"pims.authentication.otp"</span><span class="p">,</span> 
+  <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s">"action"</span><span class="p">:</span> <span class="s">"withPIN"</span><span class="p">,</span>
+  <span class="s">"pinCode"</span><span class="p">:</span> <span class="s">"123456"</span><span class="p">,</span>
+  <span class="p">]</span>
+<span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="k">in</span> <span class="cm">/* handle message */</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      </div>
+    
+    <div class="code-block second-block succeeded "><div class="api-code-header" style="background: #939393; font-weight: 500 ">
+        <div class="api-code-tabs-container">
+          <nav class="api-code-tabs">
+            
+            
+            
+            <div class="api-code-tab succeeded">
+              <span class="api-code-tab-icon is-white">
+                <i class="fas fa-long-arrow-alt-down"></i>
+              </span>
+              <span class="api-code-tab-text">Succeeded</span>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </nav>
+        </div>
+      </div>
+      <div class="api-content-code-example api-content-code-example-req-succeeded">
+        
+          
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c1">// representation of the `succeeded` dictionary object message as JSON</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">953cfefb-bc72</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCEEDED</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">otp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">otp_code</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-result">
+        
+      </div>
+      
+      <div class="api-content-code-example api-content-code-example-req-failed">
+        
+          <p>false</p>
+
+        
+      </div>
+      </div>
+
+
+  
+  
+
+</div>
+    
+      <h2 id="error-2317--2312">
+        <span class="bd-anchor-name">
+        
+          Error 2317 &amp; 2312
+                  </span>
+ <a href="#error-2317--2312" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>In case of error <em>2317</em> or <em>2312</em> when using <a href="/mobile-sdk/references/v2-3/strongauthentication-get-pims-authentication-otp-withpin/#article">pims.authentication.otp - withPIN</a>, you should use <code class="language-plaintext highlighter-rouge">"resetStep": true</code> in the query. This action will refresh the cache and remove these errors.</p>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            
+            
+          </ul>
+        </nav>
+
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer>
+    <script type="text/javascript" src="/assets/js/api-reference.js"></script>
+    </body>
+</html>

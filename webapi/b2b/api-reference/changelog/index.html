@@ -1,0 +1,2666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Changelog | Api reference | Webapi B2B</title>
+    <!-- OPEN GRAPH -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Changelog | Api reference | Webapi B2B">
+    <meta property="og:url" content="https://developer.groupe-psa.io/webapi/b2b/api-reference/changelog/">
+    <meta property="og:image" content="https://developer.groupe-psa.io/assets/images/logo-groupe-psa.jpg" />
+    <meta property="og:site_name" content="Stellantis for Developers">
+    <meta property="og:description" content="Stellantis for Developers is the dedicated platform for application developers working with Stellantis's connected vehicles API and SDKs.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Changelog | Api reference | Webapi B2B">
+    <meta name="twitter:description" content="Stellantis for Developers is the dedicated platform for application developers working with Stellantis's connected vehicles API and SDKs.">
+    <meta name="twitter:card" content="summary">
+    <meta itemprop="description" name="description" content="Stellantis for Developers is the dedicated platform for application developers working with Stellantis's connected vehicles API and SDKs." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel="canonical" href="https://developer.groupe-psa.io/webapi/b2b/api-reference/changelog/">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- FONTs -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- COMPONENTs CSS --><!-- LIBRARIEs --><!-- SCRIPTs-->
+    <script src="/assets/js/dropdown.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Matomo-->
+    <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
+    <!-- End Matomo Code -->
+
+<body>
+    <section class="hero hero-header is-medium hero_api">
+        <div class="hero-head">
+            <nav aria-label="main navigation" class="navbar is-fixed-top" id="navbarpsa" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <div id="logoPG4D">
+                <img alt="logo-pg4d" src="/assets/images/logo-pg4d.svg">
+            </div>
+        </a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger" data-target="navMenu" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/connected-vehicles/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-wifi"></i>
+                        </span>
+                        <span class="section-name">
+                            Connected&nbsp;<br class='is-hidden-touch'>Vehicles
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/connected-vehicles/#article" class="navbar-item dropdown-title " id="overview" onclick="navClick(document.getElementById('overview'), 'overview');">
+                                <span>
+                                    OVERVIEW
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="overview" class=" navbar-item " href="/connected-vehicles/about/#article">
+                                            About
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/privacy/#article">
+                                            Privacy Settings
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/remotes/#article">
+                                            Remotes Control
+                                        </a>
+                                    <a id="overview" class=" navbar-item " href="/connected-vehicles/monitors/#article">
+                                            Monitoring & Notification
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link is-active" href="/webapi/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-cloud"></i>
+                        </span>
+                        <span class="section-name">
+                            Web&nbsp;<br class='is-hidden-touch'>API
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webapi/b2b/#article" class="navbar-item dropdown-title is-default is-active" id="b2b" onclick="navClick(document.getElementById('b2b'), 'b2b');">
+                                <span>
+                                    FLEET OWNER
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-down" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/quickstart/authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item " href="/webapi/b2b/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2b" class=" is-default-subsection  navbar-item is-active" href="/webapi/b2b/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/b2c/#article" class="navbar-item dropdown-title " id="b2c" onclick="navClick(document.getElementById('b2c'), 'b2c');">
+                                <span>
+                                    ACCESSING PARTY FOR END USERS
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="b2c" class=" navbar-item " href="/webapi/b2c/overview/about/#article">
+                                        Overview
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/quickstart/about-authentication/#article">
+                                        Quickstart
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/monitor/about/#article">
+                                        Monitor
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/remote/about/#article">
+                                        Remote
+                                    </a><a id="b2c" class=" navbar-item " href="/webapi/b2c/api-reference/references/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webapi/catalog/#article" class="navbar-item dropdown-title " id="catalog" onclick="navClick(document.getElementById('catalog'), 'catalog');">
+                                <span>
+                                    CATALOG
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="catalog" class=" navbar-item " href="/webapi/catalog/data-catalog/#article">
+                                            Data Catalog
+                                        </a>
+                                    </div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/webportal/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-car-side"></i>
+                        </span>
+                        <span class="section-name">
+                            Embedded&nbsp;<br class='is-hidden-touch'>Webportal
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        <p href="/webportal/v1/#article" class="navbar-item dropdown-title " id="v1" onclick="navClick(document.getElementById('v1'), 'v1');">
+                                <span>
+                                    VERSION 1
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v1" class=" navbar-item " href="/webportal/v1/overview/about/#article">
+                                        Overview
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/advanced-features/mqtt/#article">
+                                        Advanced Features
+                                    </a><a id="v1" class=" navbar-item " href="/webportal/v1/api-reference/list/#article">
+                                        API Reference
+                                    </a><hr class="navbar-divider"><p href="/webportal/v2/#article" class="navbar-item dropdown-title " id="v2" onclick="navClick(document.getElementById('v2'), 'v2');">
+                                <span>
+                                    VERSION 2
+                                </span>
+                                <span>
+                                    <svg class="arrow arrow-right" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true"><polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                                    </svg>
+                                </span>
+                            </p>
+                            
+                            <a id="v2" class=" navbar-item " href="/webportal/v2/overview/about/#article">
+                                        Overview
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/application/quickstart/#article">
+                                        Application
+                                    </a><a id="v2" class=" navbar-item " href="/webportal/v2/api-reference/list/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+                <div class="navbar-item menu has-dropdown is-hoverable">
+                    <a class="textnavbar navbar-link " href="/mobile-sdk/">
+                        <span class="icon is-large is-white">
+                            <i class="fas fa-mobile"></i>
+                        </span>
+                        <span class="section-name">
+                            Mobile&nbsp;<br class='is-hidden-touch'>SDK
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown" id="dropdownAPI">
+                        
+                            <a id="" class=" navbar-item " href="/mobile-sdk/overview/about/#article">
+                                        Overview
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/security/security-schemes/#article">
+                                        Security
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/sdk-features/trips/#article">
+                                        SDK Features
+                                    </a><a id="" class=" navbar-item " href="/mobile-sdk/references/v2-3/#article">
+                                        API Reference
+                                    </a></div>
+                </div>
+                
+            
+                
+            
+        </div>
+        <!-- SEARCH -->
+        <div class="navbar-end">
+            <div class="textnavbar navbar-item menu">
+                <form  action="/search/" method="get">
+                    <div class="field" id="search-input">
+                        <p class="control has-icons-left">
+                            <input type="text" class="input" id="lunrsearch_redirect" name="q" maxlength="255" value="" placeholder="Search" />
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search" ></i>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+
+// MENU FIX
+
+
+var mq = window.matchMedia( "(max-width: 1088px)" );
+
+var currentNavMenu = document.querySelector("#navbarpsa #dropdownAPI  > .dropdown-title.is-default.is-active");
+
+var currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item.is-default-subsection");
+
+function navClick (clickedNavMenu, id) {
+    if (mq.matches) {
+        if (currentNavMenu == clickedNavMenu) {
+            currentNavMenu.classList.remove("is-active");
+            currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "none";
+            });
+            currentNavSubMenu = null;
+            currentNavMenu = null;
+        }
+        else {
+            if (currentNavMenu){
+                currentNavMenu.querySelector("svg").classList.replace("arrow-down", "arrow-right");
+                currentNavMenu.classList.remove("is-active");
+                currentNavSubMenu.forEach(element => {
+                    element.style.display = "none";
+                });
+            }
+            clickedNavMenu.querySelector("svg").classList.replace("arrow-right", "arrow-down");
+            clickedNavMenu.classList.add("is-active");
+            currentNavSubMenu = document.querySelectorAll("#navbarpsa #dropdownAPI  > .navbar-item#"+id+":not(.dropdown-title)");
+            currentNavSubMenu.forEach(element => {
+                element.style.display = "block";
+            });
+            currentNavMenu = clickedNavMenu;
+        }
+    }
+}
+
+// Display navbar is-fixed-top navbar
+
+if (mq.matches) {
+    document.getElementById("navbarpsa").classList.add("bluenavbar");
+}
+else {
+    
+    window.onscroll = function() {scrollFunction()};
+    
+    
+    function scrollFunction() {
+        if (document.body.scrollTop > 96 || document.documentElement.scrollTop > 96) {
+            document.getElementById("navbarpsa").classList.add("bluenavbar");
+        } else {
+            document.getElementById("navbarpsa").classList.remove("bluenavbar");
+        }
+    } 
+}
+
+</script>
+
+        </div>
+        
+        <div class="hero-body">
+            <div class="container">
+            
+            <h1 class="title section-title">WEB API</h1>
+            <h2 class="title">for fleet owner</h2>
+            
+            </div>
+        </div>
+        
+    </section><section id="article">
+  <div class="columns is-gapless">
+    <div class="column is-narrow is-hidden-mobile"> 
+      
+      <aside class="menu">
+        <span class="menu-title">
+          
+          
+          
+          
+          
+          
+          
+          Web API
+          
+          
+          
+          - Fleet Owner
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </span>
+        <p href="/webapi/b2b/overview/" class='menu-label has-list' id="Overview">
+          <span>
+            Overview
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/overview/about/#article">
+              About this API 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/overview/api-concepts/#article">
+              API Concepts 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/overview/errors/#article">
+              Errors & Rate Limit 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/overview/data-scope/#article">
+              Data Scope 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/quickstart/" class='menu-label has-list' id="Quickstart">
+          <span>
+            Quickstart
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/quickstart/authentication/#article">
+              Authentication 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/quickstart/examples/#article">
+              Examples 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/monitor/" class='menu-label has-list' id="Monitor">
+          <span>
+            Monitor
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/monitor/about/#article">
+              About Monitors 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/monitor/set-up/#article">
+              Set Up 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/monitor/retry-policy/#article">
+              Retry Policy 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/monitor/server-specification/#article">
+              Server Specification 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/remote/" class='menu-label has-list' id="Remote">
+          <span>
+            Remote
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/remote/about/#article">
+              About Remotes 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/set-up/#article">
+              Set Up 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/retry-policy/#article">
+              Retry Policy 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/notifications-errors/#article">
+              Notifications and Errors 
+            </a>
+          </li>
+          <li>
+            <a  href="/webapi/b2b/remote/server-specification/#article">
+              Server Specification 
+            </a>
+          </li>
+          
+        </ul>
+        
+        <p href="/webapi/b2b/api-reference/" class='menu-label has-list is-active' id="API Reference">
+          <span>
+            API Reference
+          </span>
+        </p>
+        <ul class="menu-list">
+          <li>
+            <a  href="/webapi/b2b/api-reference/references/#article">
+              References 
+            </a>
+          </li>
+          <li>
+            <a class="is-active" href="/webapi/b2b/api-reference/changelog/#article">
+              Changelog 
+            </a>
+          </li>
+          
+        </ul>
+        </aside>
+      
+    </div>
+    <main class="column content-column">
+      <div class="content">
+        <div class="content-header" >
+    <div class="page-title-container"><h1 id="page-title">
+          <span >
+              
+              API Reference - 
+              
+                
+    Changelog
+  
+            </span>
+        </h1>
+        <div class="menu-select"> 
+            <div class="select page-select">
+                <select>
+                            
+                                    
+
+                                        
+                                            
+
+                                                <optgroup label="Overview">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/about/#article" 
+                                                            >
+                                                                About this API
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/api-concepts/#article" 
+                                                            >
+                                                                API Concepts
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/errors/#article" 
+                                                            >
+                                                                Errors & Rate Limit
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/overview/data-scope/#article" 
+                                                            >
+                                                                Data Scope
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Quickstart">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/quickstart/authentication/#article" 
+                                                            >
+                                                                Authentication
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/quickstart/examples/#article" 
+                                                            >
+                                                                Examples
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Monitor">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/about/#article" 
+                                                            >
+                                                                About Monitors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/set-up/#article" 
+                                                            >
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/monitor/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="Remote">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/about/#article" 
+                                                            >
+                                                                About Remotes
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/set-up/#article" 
+                                                            >
+                                                                Set Up
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/retry-policy/#article" 
+                                                            >
+                                                                Retry Policy
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/notifications-errors/#article" 
+                                                            >
+                                                                Notifications and Errors
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/remote/server-specification/#article" 
+                                                            >
+                                                                Server Specification
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        
+                                            
+
+                                                <optgroup label="API Reference">
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/api-reference/references/#article" 
+                                                            >
+                                                                References
+                                                        </option>
+
+                                                    
+
+                                                        
+
+                                                        <option 
+                                                            value="/webapi/b2b/api-reference/changelog/#article" 
+                                                            selected>
+                                                                Changelog
+                                                        </option>
+
+                                                    
+                                                </optgroup>
+                                            
+                                        </select>
+            </div>
+        </div><div class="is-flex is-justify-content-center is-align-items-baseline">
+        
+
+<a 
+    
+    href="https://github.psa-cloud.com/p4d00/doc/tree/master/webapi/b2b-reference-changelog.md"
+     
+    class="button is-small edit-page icon-button is-outlined is-pulled-right" 
+    target="_blank" 
+    title="Edit this page on GitHub">
+        <span class="icon">
+            <i  class="fab fa-github"></i> 
+        </span>
+        <span class="edit-page-text">
+            Edit
+        </span>
+</a>
+
+    
+    </div></div><nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            
+            <li>
+                <a href="/webapi/">Web API</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webapi/b2b/">Fleet Owner</a>
+            </li>
+            
+            
+            <li>
+                <a href="/webapi/b2b/api-reference/">API Reference</a>
+            </li>
+            
+            <li>
+                <a href="#article" aria-current="page">
+                    
+    Changelog
+  
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="notification page-disclaimer">
+      <strong>Info:</strong> Stellantis Fleet Owner API for ex Groupe PSA brands (Citroën, DS, Peugeot, Opel and Vauxhall) is made for organisations owning <strong>fleet of vehicles</strong>.
+    </div>
+    </div>
+
+<script>
+
+    function selectPage(e){
+        
+    }
+
+    document.querySelector(".page-select").addEventListener("change", (e) => {
+        window.location.href = ""+e.target.value;
+    });
+
+
+</script>
+        
+        <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      25 Jan 2024
+    </span>
+</div>
+      <h2 id="v3180">
+        <span class="bd-anchor-name">
+        
+          v3.18.0
+                  </span>
+ <a href="#v3180" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Monitors API</strong></p>
+<ul>
+  <li>Add vehicle.stolen in monitor extension</li>
+  <li>Add stolen.state in data trigger list</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      25 Jan 2024
+    </span>
+</div>
+      <h2 id="v3172">
+        <span class="bd-anchor-name">
+        
+          v3.17.2
+                  </span>
+ <a href="#v3172" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Remote API</strong></p>
+<ul>
+  <li>Add remote stolen tracking period</li>
+  <li>Add remote stolen immobilization</li>
+</ul>
+
+<p><strong>Others</strong></p>
+<ul>
+  <li>Complete missing examples</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Nov 2023
+    </span>
+</div>
+      <h2 id="v3171">
+        <span class="bd-anchor-name">
+        
+          v3.17.1
+                  </span>
+ <a href="#v3171" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Status API</strong></p>
+<ul>
+  <li>Remove deprecated extension in status object</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Nov 2023
+    </span>
+</div>
+      <h2 id="v3170">
+        <span class="bd-anchor-name">
+        
+          v3.17.0
+                  </span>
+ <a href="#v3170" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Telemetry API</strong></p>
+<ul>
+  <li>Remove deprecated adas.lrka</li>
+</ul>
+
+<p><strong>Trip API</strong></p>
+<ul>
+  <li>Update trip object (add energyConsumption, kinetic, segments, etc).</li>
+  <li>Add new query parameter in trip API : distance, duration, states</li>
+  <li>Remove deprecated trip API : GET /fleets/{fid}/trips/{tid}/collisions</li>
+  <li>Remove deprecated trip API : GET /fleets/{fid}/trips/{tid}</li>
+  <li>Remove deprecated trip API : GET /fleets/{fid}/trips/{tid}/alerts</li>
+  <li>Remove deprecated trip API : GET /fleets/{fid}/trips/{tid}/alerts/{aid}</li>
+  <li>Remove deprecated trip API : GET /fleets/{fid}/trips/{tid}/wayPoints</li>
+  <li>Remove deprecated trip API : GET /fleets/{fid}/trips/{tid}/telemetry</li>
+</ul>
+
+<p><strong>Monitor API</strong></p>
+<ul>
+  <li>Add new data triggers capabilities : vehicle.trip.duration, vehicle.trip.distance, vehicle.trip.state</li>
+  <li>Add new extendedEventParam capability : vehicle.trip</li>
+</ul>
+
+<p><strong>Vehicles API</strong></p>
+<ul>
+  <li>Update data scope name (description and onboardCapabilities section)</li>
+  <li>Fix wording issue for remote wakeup scope name (description and onboardCapabilities section)</li>
+</ul>
+
+<p><strong>Fleet API</strong></p>
+<ul>
+  <li>Deprecate GET /fleets/{fid}/status</li>
+  <li>Deprecate GET /fleets/{fid}/maintenances</li>
+  <li>Deprecate GET /fleets/{fid}/alerts</li>
+  <li>Deprecate GET /fleets/{fid}/alerts/{aid}</li>
+  <li>Deprecate GET /fleets/{fid}/trips</li>
+  <li>Deprecate GET /fleets/{fid}/collisions</li>
+  <li>Deprecate GET /fleets/{fid}/collisions/{cid}</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Nov 2023
+    </span>
+</div>
+      <h2 id="v3161">
+        <span class="bd-anchor-name">
+        
+          v3.16.1
+                  </span>
+ <a href="#v3161" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Vehicles API</strong></p>
+<ul>
+  <li>Remove createdAt date in /vehicles/vin</li>
+  <li>Add missing collection result in /fleets/{fid}/vehicles</li>
+</ul>
+
+<p><strong>Others</strong></p>
+<ul>
+  <li>Update description and fix wording issues</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Nov 2023
+    </span>
+</div>
+      <h2 id="v3160">
+        <span class="bd-anchor-name">
+        
+          v3.16.0
+                  </span>
+ <a href="#v3160" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Monitors API</strong></p>
+<ul>
+  <li>Add vehicle.alarm.trigger.type &amp; vehicle.alarm.status.activation as datatriggers</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Nov 2023
+    </span>
+</div>
+      <h2 id="v3150">
+        <span class="bd-anchor-name">
+        
+          v3.15.0
+                  </span>
+ <a href="#v3150" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Vehicles API</strong></p>
+<ul>
+  <li>Update remote section in onboardCapabilities object</li>
+</ul>
+
+<p><strong>Vehicles API</strong></p>
+<ul>
+  <li>Add /vehicles/{vin} endpoint in B2B API</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Nov 2023
+    </span>
+</div>
+      <h2 id="v3140">
+        <span class="bd-anchor-name">
+        
+          v3.14.0
+                  </span>
+ <a href="#v3140" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Vehicles API</strong></p>
+<ul>
+  <li>Update onboardCapabilities object</li>
+</ul>
+
+<p><strong>Status &amp; Telemetry API</strong></p>
+<ul>
+  <li>Update energies objects</li>
+</ul>
+
+<p><strong>Status API</strong></p>
+<ul>
+  <li>Update failureCause enum in preconditioning object</li>
+  <li>Add startingCause data in preconditioning object</li>
+</ul>
+
+<p><strong>Monitors API</strong></p>
+<ul>
+  <li>Add charging type data trigger.</li>
+</ul>
+
+<p><strong>Remote API</strong></p>
+<ul>
+  <li>Update charging remote operation</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Nov 2023
+    </span>
+</div>
+      <h2 id="v3131">
+        <span class="bd-anchor-name">
+        
+          v3.13.1
+                  </span>
+ <a href="#v3131" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Vehicles API</strong></p>
+<ul>
+  <li>Add alarms information in link section</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      20 Jul 2023
+    </span>
+</div>
+      <h2 id="v3130">
+        <span class="bd-anchor-name">
+        
+          v3.13.0
+                  </span>
+ <a href="#v3130" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Alarms API</strong></p>
+<ul>
+  <li>Add of 2 news API : GET /fleets/{fid}/vehicles/{vid}/alarms &amp; GET /fleets/{fid}/vehicles/{vid}/alarms/{aid}</li>
+</ul>
+
+<p><strong>Telemetry API</strong></p>
+<ul>
+  <li>Update TelemetryEnum list to include alarm values for type query parameter</li>
+</ul>
+
+<p><strong>Telemetry &amp; Status API</strong></p>
+<ul>
+  <li>Update enum list ofrvv in adas object (LeakOfVisibilityRadar by LackOfVisibilityRadar)</li>
+</ul>
+
+<p><strong>Others</strong></p>
+<ul>
+  <li>Deprecate API /fleets/{fid}/vehicles/{vid}/lastPosition</li>
+  <li>Remove several deprecated features</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      20 Jul 2023
+    </span>
+</div>
+      <h2 id="v3120">
+        <span class="bd-anchor-name">
+        
+          v3.12.0
+                  </span>
+ <a href="#v3120" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Vehicle API</strong></p>
+<ul>
+  <li>Add motorization in vehicle object</li>
+</ul>
+
+<p><strong>Telemetry &amp; Status API</strong></p>
+<ul>
+  <li>Update enum list in speed for wipingBlades object (replace Hight by High)</li>
+  <li>Update enum list in mode for drivingBehavior object (replace Confort by Comfort)</li>
+</ul>
+
+<p><strong>Trips API</strong></p>
+<ul>
+  <li>Deprecate the following endpoints : /fleets/{fid}/trips/{tid}/telemetry &amp; /fleets/{fid}/trips/{tid}/wayPoints &amp; /fleets/{fid}/trips/{tid}/alerts/{aid} &amp; /fleets/{fid}/trips/{tid}/alerts &amp; /fleets/{fid}/trips/{tid} &amp; /fleets/{fid}/trips/{tid}/collisions</li>
+</ul>
+
+<p><strong>Others</strong></p>
+<ul>
+  <li>Add fixStatus in position object</li>
+  <li>Update description and fix wording issues</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      26 Apr 2023
+    </span>
+</div>
+      <h2 id="v3110">
+        <span class="bd-anchor-name">
+        
+          v3.11.0
+                  </span>
+ <a href="#v3110" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Telemetry &amp; Status API</strong></p>
+<ul>
+  <li>Add alarm object</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      26 Apr 2023
+    </span>
+</div>
+      <h2 id="v3100">
+        <span class="bd-anchor-name">
+        
+          v3.10.0
+                  </span>
+ <a href="#v3100" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Telemetry &amp; Status API</strong></p>
+<ul>
+  <li>Add powertrain object</li>
+</ul>
+
+<p><strong>Others</strong></p>
+<ul>
+  <li>Update description &amp; fix wording issue</li>
+  <li>Update format/type mileageBeforeMaintenance data</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      26 Apr 2023
+    </span>
+</div>
+      <h2 id="v390">
+        <span class="bd-anchor-name">
+        
+          v3.9.0
+                  </span>
+ <a href="#v390" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Telemetry &amp; Status API</strong></p>
+<ul>
+  <li>Update enum list of ignition (delete unnecessary “free” value)</li>
+  <li>Add semiManual in transmission.gearbox.mode</li>
+  <li>Replace adas.lrka by adas.llka (set adas.lrka in deprecated mode)</li>
+</ul>
+
+<p><strong>Others</strong></p>
+<ul>
+  <li>Aligne date behavior</li>
+  <li>Update description &amp; fix missing format/type</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      20 feb 2023
+    </span>
+</div>
+      <h2 id="v380">
+        <span class="bd-anchor-name">
+        
+          v3.8.0
+                  </span>
+ <a href="#v380" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Telemetry &amp; Status API</strong></p>
+<ul>
+  <li>Update enum list of autoECallTriggering</li>
+  <li>Fix wording issue in one item of adas accr data</li>
+  <li>Add sequential value in transmission.gearbox.mode</li>
+</ul>
+
+<p><strong>Others</strong></p>
+<ul>
+  <li>Align date behavior (set createdAt in mandatory, etc)</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      20 feb 2023
+    </span>
+</div>
+      <h2 id="v371">
+        <span class="bd-anchor-name">
+        
+          v3.7.1
+                  </span>
+ <a href="#v371" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Collisions API</strong></p>
+<ul>
+  <li>Add mandatory state for side in collision object</li>
+</ul>
+
+<p><strong>Others API</strong></p>
+<ul>
+  <li>Aligne date behavior</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      29 nov 2022
+    </span>
+</div>
+      <h2 id="v370">
+        <span class="bd-anchor-name">
+        
+          v3.7.0
+                  </span>
+ <a href="#v370" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Telemetry API</strong></p>
+<ul>
+  <li>Add vehicle.lightingSystem in telemetry.type enum parameter</li>
+  <li>Update energies object</li>
+</ul>
+
+<p><strong>Status API</strong></p>
+<ul>
+  <li>Update energies object</li>
+</ul>
+
+<p><strong>Others</strong></p>
+<ul>
+  <li>Align date (createdAt/UpdateAt) behavior</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      29 nov 2022
+    </span>
+</div>
+      <h2 id="v360">
+        <span class="bd-anchor-name">
+        
+          v3.6.0
+                  </span>
+ <a href="#v360" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Telemetry &amp; Status API</strong></p>
+<ul>
+  <li>Update Lights object to add position information</li>
+</ul>
+
+<p><strong>Telemetry API</strong></p>
+<ul>
+  <li>Update rvv enum list</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      14 Oct 2022
+    </span>
+</div>
+      <h2 id="v350">
+        <span class="bd-anchor-name">
+        
+          v3.5.0
+                  </span>
+ <a href="#v350" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Status &amp; Telemetry API</strong></p>
+<ul>
+  <li>Update energies object to include hydrogen motorization</li>
+</ul>
+
+<p><strong>Telemetry API</strong></p>
+<ul>
+  <li>Add rgi (recommend gear indicator) in adas object</li>
+</ul>
+
+<p><strong>Monitor API</strong></p>
+<ul>
+  <li>Update TimeTrigger structure definition</li>
+</ul>
+
+<p><strong>Others</strong></p>
+<ul>
+  <li>Specification bugfixing/optimization (add missing unit, swagger improvements)</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      14 Oct 2022
+    </span>
+</div>
+      <h2 id="v341">
+        <span class="bd-anchor-name">
+        
+          v3.4.1
+                  </span>
+ <a href="#v341" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Alerts API</strong></p>
+<ul>
+  <li>Update description for startPosition &amp; endPosition</li>
+</ul>
+
+<p><strong>Telemetry API</strong></p>
+<ul>
+  <li>Update maxItem for telemetry type parameter</li>
+</ul>
+
+<p><strong>Monitor API</strong></p>
+<ul>
+  <li>Set AirConditioning in required state for remote preconditioning</li>
+</ul>
+
+<p><strong>Others</strong></p>
+<ul>
+  <li>Add a new enum in adas.parkAssist.rear</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      14 Oct 2022
+    </span>
+</div>
+      <h2 id="v340">
+        <span class="bd-anchor-name">
+        
+          v3.4.0
+                  </span>
+ <a href="#v340" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>Status API</strong></p>
+<ul>
+  <li>Delete deprecated extensions : odometer &amp; kinetic</li>
+  <li>Delete deprecated data : engines.oil</li>
+  <li>Add vin &amp; createdAt in required state</li>
+</ul>
+
+<p><strong>Telemetry API</strong></p>
+<ul>
+  <li>Delete deprecated extensions : odometer &amp; kinetic</li>
+  <li>Delete deprecated data : engines.oil</li>
+  <li>Add vehicle.wipingBlades enum in type parameter</li>
+</ul>
+
+<p><strong>Webhook &amp; Monitor</strong></p>
+<ul>
+  <li>Add vehicle.trip in extendedEventParam list enum</li>
+</ul>
+
+<p><strong>Maintenance API</strong></p>
+<ul>
+  <li>Add vin in maintenance response and put it in required state</li>
+  <li>Delete required state for daysBeforeMaintenance &amp; mileageBeforeMaintenance</li>
+  <li>Change updatedAt by createdAt in required state</li>
+</ul>
+
+<p><strong>Others API</strong></p>
+<ul>
+  <li>Add mapping for the following data/objects : lightingSystem.fog, drivingBehavior, transmission.gearbox.ratio, engines.thermic.extension.thermic.air, wipingBlades, energy.thermic.extension.comsumptions.instant</li>
+  <li>Deprecated energy.thermic.extension.comsumption which is replaced by energy.thermic.extension.comsumptions</li>
+  <li>Add vin &amp; createdAt in required state</li>
+  <li>Update summary description</li>
+  <li>Add vin &amp; createdAt in required state in Alerts API</li>
+  <li>Delete deprecated reduced in Waypoints API</li>
+  <li>Add id data in required state in Fleet API</li>
+  <li>Add vin &amp; createdAt in required state in Collisions API</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      02 Jun 2022
+    </span>
+</div>
+      <h2 id="v330">
+        <span class="bd-anchor-name">
+        
+          v3.3.0
+                  </span>
+ <a href="#v330" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p><strong>API Maintenance</strong></p>
+<ul>
+  <li>Fix spelling error on data daysBeforeMaintenance</li>
+</ul>
+
+<p><strong>API Monitor</strong></p>
+<ul>
+  <li>Add new data trigger monitor : vehicle.trip.start &amp; vehicle.trip.stop</li>
+</ul>
+
+<p><strong>Fleets API</strong></p>
+<ul>
+  <li>Add remote/callback link</li>
+</ul>
+
+<p><strong>Webhook API</strong></p>
+<ul>
+  <li>Add missing fleetID in monitor event notification</li>
+</ul>
+
+<p><strong>Others</strong></p>
+<ul>
+  <li>Add missing link telemetry for vehicles APIs</li>
+  <li>Update swagger structure &amp; commentary</li>
+  <li>Change unit of fuel consumption</li>
+  <li>Add energy type hydrogen</li>
+  <li>Change unit of energy.extension.electric.residual</li>
+  <li>Update energy.type description</li>
+  <li>Delete unused battery.current, lightingSystem.position, engines.extension.thermic.scr data &amp; brakingSystem object</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      27 Jan 2022
+    </span>
+</div>
+      <h2 id="v320">
+        <span class="bd-anchor-name">
+        
+          v3.2.0
+                  </span>
+ <a href="#v320" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<ul>
+  <li>Add monitor airConditioning</li>
+  <li>Add remote failureCause : CanceledByDriver</li>
+  <li>driver approval deprecated</li>
+  <li>Add remote precond prog delete features</li>
+  <li>Remote doors: Forced field deprecedated</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      18 Oct 2021
+    </span>
+</div>
+      <h2 id="v311">
+        <span class="bd-anchor-name">
+        
+          v3.1.1
+                  </span>
+ <a href="#v311" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<ul>
+  <li>Update typo for “depricated”</li>
+  <li>Remove unused deprecated structure in vehicle.energy</li>
+  <li>Add unit for engine.speed and environment.air.temp</li>
+  <li>Update description for all pageSize parameters</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      28 Jul 2021
+    </span>
+</div>
+      <h2 id="v310">
+        <span class="bd-anchor-name">
+        
+          v3.1.0
+                  </span>
+ <a href="#v310" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<ul>
+  <li>Update remote navigation command (SENDTONAV)</li>
+  <li>Refactoring of odometer &amp; kinetic in telemetry &amp; status</li>
+  <li>Update pageSize &amp; pageToken for telemtry &amp; waypoints</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      25 Jun 2021
+    </span>
+</div>
+      <h2 id="v309">
+        <span class="bd-anchor-name">
+        
+          v3.0.9
+                  </span>
+ <a href="#v309" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<ul>
+  <li>Update Trigger name creation for monitor</li>
+  <li>Refactoring of the vehicle structure (Removing unused embedded)</li>
+  <li>Update charging &amp; preconditionning remote command</li>
+  <li>Update alertEnum</li>
+  <li>Add remote navigation command</li>
+  <li>Update Kinetic bloc</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      19 Apr 2021
+    </span>
+</div>
+      <h2 id="v308">
+        <span class="bd-anchor-name">
+        
+          v3.0.8
+                  </span>
+ <a href="#v308" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<ul>
+  <li>Update FailureCause for remote callbacks</li>
+  <li>Add “forced” parameter for doors remotes</li>
+  <li>Update lockedStates format for remotes</li>
+  <li>Update pattern for trigger names</li>
+  <li>Remove telemetry Links for fleets</li>
+  <li>Correct wakeUp for remote actions</li>
+  <li>Remove label for GET /Vehicles</li>
+  <li>Update alert vehicle list</li>
+  <li>Add slot parameter as mandatory for remote preconditionning command</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      24 Feb 2021
+    </span>
+</div>
+      <h2 id="v307">
+        <span class="bd-anchor-name">
+        
+          v3.0.7
+                  </span>
+ <a href="#v307" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<ul>
+  <li>Remove fleet/{fid}/telemetries API</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      9 Feb 2021
+    </span>
+</div>
+      <h2 id="v306">
+        <span class="bd-anchor-name">
+        
+          v3.0.6
+                  </span>
+ <a href="#v306" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<ul>
+  <li>Update Typo (Description, Patterns…)</li>
+  <li>Update DoorState &amp; mileage object</li>
+  <li>Remove collisions API</li>
+  <li>Add NextDelayedTime as mandatory for remote Charging</li>
+  <li>Add RemoteType WakeUp</li>
+  <li>Add 2 new enum for lockedState</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      6 Jan 2021
+    </span>
+</div>
+      <h2 id="v305">
+        <span class="bd-anchor-name">
+        
+          v3.0.5
+                  </span>
+ <a href="#v305" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<ul>
+  <li>Fix door.states enum by vehicle.doorsStates in extendedEventParam object</li>
+  <li>Fix alerts enum by vehicle.alerts in extendedEventParam object</li>
+  <li>Replacement OnChange by onChange in monitors descriptions</li>
+  <li>Replacement Estimate enum to Estimated in lastPosition object</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      24 Nov 2020
+    </span>
+</div>
+      <h2 id="v304">
+        <span class="bd-anchor-name">
+        
+          v3.0.4
+                  </span>
+ <a href="#v304" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+    
+      <h4 id="mph-addonschanges">
+        <span class="bd-anchor-name">
+        
+          MPH Addons&amp;Changes:
+                  </span>
+
+        
+        
+      </h4>
+
+<ul>
+  <li>Remove duration from remote ligth</li>
+  <li>Fix includedIn keyword</li>
+  <li>Replacement of energy by energies in API Status &amp; Telemetries</li>
+  <li>Fix missing type for brand field in vehicles object</li>
+  <li>Add missing format for type: number</li>
+  <li>Add description for triggerParam&gt;boolExp field in API Monitors</li>
+  <li>fix startd for startedAt</li>
+</ul>
+    
+      <h4 id="webhook-monitor-template-change">
+        <span class="bd-anchor-name">
+        
+          Webhook Monitor Template change:
+                  </span>
+
+        
+        
+      </h4>
+<ul>
+  <li>Change extension body type from array to object</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      14 Oct 2020
+    </span>
+</div>
+      <h2 id="v303">
+        <span class="bd-anchor-name">
+        
+          v3.0.3
+                  </span>
+ <a href="#v303" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<ul>
+  <li>Add Open API SPEC (V3) security schemes support.</li>
+  <li>Add TimeStamps (query parameter) extension to support period.</li>
+  <li>Reduce extension enum list for Telemetry API.</li>
+  <li>Add Telemetry Type filtering query parameter to all telemetry getter API.</li>
+  <li>Add wakeup remote.</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      24 Mar 2020
+    </span>
+</div>
+      <h2 id="v300">
+        <span class="bd-anchor-name">
+        
+          v3.0.0
+                  </span>
+ <a href="#v300" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+    
+      <h4 id="b2b-300-remote">
+        <span class="bd-anchor-name">
+        
+          <code class="language-plaintext highlighter-rouge">B2B-3.0.0 Remote</code>
+                  </span>
+
+        
+        
+      </h4>
+
+<p>Based on: 
+<a href="https://github.psa-cloud.com/mph00/Spec/releases/edit/b2b_v2.1.0">B2B-2.1.0-Monitor-NG</a> (tag b2b_v2.1.0) 
+With major changes :</p>
+<ul>
+  <li>Support of Car remote for B2B fleet management.</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      Wed Nov 20 2019
+    </span>
+</div>
+      <h2 id="v205">
+        <span class="bd-anchor-name">
+        
+          v2.0.5
+                  </span>
+ <a href="#v205" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+    
+      <h4 id="b2b-spec-for-piv-rlev-11">
+        <span class="bd-anchor-name">
+        
+          <code class="language-plaintext highlighter-rouge">B2B Spec For PIV-RLEV 1.1</code>
+                  </span>
+
+        
+        
+      </h4>
+<p>Based on: <a href="https://github.psa-cloud.com/mph00/Spec/releases/tag/b2b_v2.0.4">B2B Multi-Fleets support</a> (tag b2b_v2.0.4)</p>
+
+<p><em>With:</em></p>
+    
+      <h4 id="api-b2b">
+        <span class="bd-anchor-name">
+        
+          API B2B
+                  </span>
+
+        
+        
+      </h4>
+    
+      <h5 id="api-status">
+        <span class="bd-anchor-name">
+        
+          API Status
+                  </span>
+
+        
+        
+      </h5>
+<ul>
+  <li>Add RoofWindow to <code class="language-plaintext highlighter-rouge">DoorsState#opening#identifier</code> enum.</li>
+  <li>Rename door state enum <code class="language-plaintext highlighter-rouge">DoorsState#opening#state.Close</code> to <code class="language-plaintext highlighter-rouge">Closed</code></li>
+  <li>Add  <code class="language-plaintext highlighter-rouge">CargoDoorsLocked , RearDoorsUnlocked, RearDoorsLocked</code> consts to <code class="language-plaintext highlighter-rouge">DoorsState#lockedState</code> enum.</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">Safety</code> struc to Status object</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">ServiceType</code> struct to Status object</li>
+  <li>date-time review (align with stadar RFC 3339</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">OverallAutonomy</code> (with its own date) to status</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">VehicleOdometer</code> (with its own date)  to status</li>
+  <li>Change <code class="language-plaintext highlighter-rouge">Status.createdAt</code> to <code class="language-plaintext highlighter-rouge">updatedAt</code></li>
+  <li>API vehicuel Status: add lockedStates array of state (compliant with new DC RLEV Spec)  and make lockedState depricated.</li>
+  <li>Change odometer field from type number to objet (VehicleOdometer).</li>
+  <li>Remove  autonomy field from status struct.</li>
+</ul>
+    
+      <h5 id="api-monitor">
+        <span class="bd-anchor-name">
+        
+          API Monitor
+                  </span>
+
+        
+        
+      </h5>
+<ul>
+  <li>Add <code class="language-plaintext highlighter-rouge">PUT /monitors/{mid}</code>: update an existing monitor</li>
+  <li>Add fields literalValue &amp; objectValues to body#values struct (To monitor callback template)</li>
+</ul>
+    
+      <h5 id="alert-enum">
+        <span class="bd-anchor-name">
+        
+          Alert-ENUM
+                  </span>
+
+        
+        
+      </h5>
+<p>Fix enum spelling (*Collant -&gt; *Coolant)</p>
+    
+      <h4 id="huawei-interface-changes">
+        <span class="bd-anchor-name">
+        
+          Huawei interface changes:
+                  </span>
+
+        
+        
+      </h4>
+<ul>
+  <li>Add tid to alert</li>
+  <li>Add tid to collision</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">Safety</code>  to Status object</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">ServiceType</code>  to Status object</li>
+  <li>Add done status to Trip object</li>
+  <li>Add faults list to Trip object</li>
+  <li>ADD timed.odometer to Status</li>
+  <li>ADD <code class="language-plaintext highlighter-rouge">overall.autonomy</code> to Status</li>
+  <li>Statusodometer &amp; autonomy are now pricated</li>
+  <li>Remove ResourceHeader from position to be compliant with GeoJSON</li>
+  <li>Rename the field Position.point  to geometry –&gt;compliante GeoJSON</li>
+  <li>Rename in <code class="language-plaintext highlighter-rouge">Monitor.data.trigget</code>: privacy.status to privacy.state</li>
+  <li><code class="language-plaintext highlighter-rouge">DoorsState.opening</code>: enum Close renamed to Closed</li>
+  <li><code class="language-plaintext highlighter-rouge">DoorsState.opening</code>: Add RoofWindow to idenfier enum</li>
+  <li><code class="language-plaintext highlighter-rouge">DoorsState.lockedState</code>: Add conts CargoDoorsUnlocked, RearDoorsUnlocked, RearDoorsLocked to lockedState</li>
+  <li>API vehicule Status: add lockedStates array of state (compliant with new DC RLEV Spec)  and make lockedState depricated</li>
+  <li>Struct Status: <code class="language-plaintext highlighter-rouge">odometer &amp; autonomy</code> are , from now, depricated.</li>
+  <li>A new filed named <code class="language-plaintext highlighter-rouge">vehicleOdometer</code> (time stamped type) has been added to status</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      Mon Sep 23 2019
+    </span>
+</div>
+      <h2 id="v204">
+        <span class="bd-anchor-name">
+        
+          v2.0.4
+                  </span>
+ <a href="#v204" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+    
+      <h4 id="b2b-multi-fleets-support">
+        <span class="bd-anchor-name">
+        
+          <code class="language-plaintext highlighter-rouge">B2B Multi-Fleets support</code>
+                  </span>
+
+        
+        
+      </h4>
+<p>compound with: b2b_v2.0.3 + “Multi-Fleets” support .</p>
+    
+      <h5 id="api-new">
+        <span class="bd-anchor-name">
+        
+          API new:
+                  </span>
+
+        
+        
+      </h5>
+<p>-Now prefixed by
+<code class="language-plaintext highlighter-rouge">/fleets/{fid}</code></p>
+<ul>
+  <li>add Monitor <code class="language-plaintext highlighter-rouge">label</code> field when creating monitor (POST)</li>
+  <li>add vehicle autonomy value entry to monitor#data-trogger parameter.</li>
+</ul>
+    
+      <h5 id="note">
+        <span class="bd-anchor-name">
+        
+          Note:
+                  </span>
+
+        
+        
+      </h5>
+<p>Mapping Fleets(s) will be done on APIC side.</p>
+    <hr />
+      <h2 id="v203">
+        <span class="bd-anchor-name">
+        
+          v2.0.3
+                  </span>
+ <a href="#v203" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+    
+      <h4 id="candiate-version-lot1version2">
+        <span class="bd-anchor-name">
+        
+          <code class="language-plaintext highlighter-rouge">Candiate version (Lot1/Version2)</code>
+                  </span>
+
+        
+        
+      </h4>
+<p>Spec version : b2b_v2.0.3</p>
+    
+      <h4 id="release-note">
+        <span class="bd-anchor-name">
+        
+          Release note:
+                  </span>
+
+        
+        
+      </h4>
+<p>Iso <code class="language-plaintext highlighter-rouge">b2b_v2.0.2</code>  <em>1st candiate version (lot1)</em> by adding:</p>
+    
+      <h5 id="b2b-psa-public-api">
+        <span class="bd-anchor-name">
+        
+          B2B PSA Public API
+                  </span>
+
+        
+        
+      </h5>
+<ul>
+  <li>Add <code class="language-plaintext highlighter-rouge">/fleet/collisins</code>
+release_date: {tid}/wayPoint</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Status monitor enum changedescription:</td>
+          <td>-d : <code class="language-plaintext highlighter-rouge">[Running, Paused, Failed]</code> -&gt;  <code class="language-plaintext highlighter-rouge">[Running, Paused]</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Ignition: rename const Contact -&gt; SrartUp</li>
+  <li>Add Battery struct to Telemetry</li>
+  <li>Refactoring list of results: using CollectionResult struct header</li>
+  <li>Add MD doc : array of supported data trigger (value, description and operations)</li>
+  <li>AlertMsgEnum: add mising anums</li>
+  <li>TelemetryEnum: replace both <code class="language-plaintext highlighter-rouge">vehicle.lightingSystem.signal</code> and <code class="language-plaintext highlighter-rouge">vehicle.lightingSystem.foglight</code> by a uniq <code class="language-plaintext highlighter-rouge">vehicle.lighting</code></li>
+  <li>Review Monitor#DataTrigger.data value enum (doc on allowed OP for Door Opening and Lock states))</li>
+</ul>
+    
+      <h5 id="huawei-interface">
+        <span class="bd-anchor-name">
+        
+          Huawei interface
+                  </span>
+
+        
+        
+      </h5>
+<ul>
+  <li>Add Battery struct to Telemetry</li>
+  <li>Make waypoints API pageable</li>
+  <li>Fix spelling “Maintenace” -&gt; “Maintenance”</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">reduced</code> to waypoints result to determines whether this result set has been reduced or not.</li>
+  <li>Review Monitor#DataTrigger.data value enum (doc on allowed OP for Door Opening and Lock states))</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      Fri Jun 14 2019
+    </span>
+</div>
+      <h2 id="v202">
+        <span class="bd-anchor-name">
+        
+          v2.0.2
+                  </span>
+ <a href="#v202" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+    
+      <h4 id="1st-candiate-version-lot1">
+        <span class="bd-anchor-name">
+        
+          <code class="language-plaintext highlighter-rouge">1st candiate version (lot1)</code>
+                  </span>
+
+        
+        
+      </h4>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      Wed Jun 12 2019
+    </span>
+</div>
+      <h2 id="v201">
+        <span class="bd-anchor-name">
+        
+          v2.0.1
+                  </span>
+ <a href="#v201" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+
+<p>Content : b2b_v2.0.0 with  supported object in extensions</p>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      Wed Jun 12 2019
+    </span>
+</div>
+      <h2 id="v200">
+        <span class="bd-anchor-name">
+        
+          v2.0.0
+                  </span>
+ <a href="#v200" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+    
+      <h4 id="b2b---partners-release---">
+        <span class="bd-anchor-name">
+        
+          <code class="language-plaintext highlighter-rouge">B2B - Partners Release - </code>
+                  </span>
+
+        
+        
+      </h4>
+    
+      <h4 id="psahuawei-interfacing-review">
+        <span class="bd-anchor-name">
+        
+          PSA/Huawei interfacing review:
+                  </span>
+
+        
+        
+      </h4>
+    
+      <h5 id="monitor-">
+        <span class="bd-anchor-name">
+        
+          Monitor :
+                  </span>
+
+        
+        
+      </h5>
+<ul>
+  <li>add the extension and refresh-event support</li>
+  <li>remove callback</li>
+  <li>add compound trigger support</li>
+</ul>
+    
+      <h5 id="pull">
+        <span class="bd-anchor-name">
+        
+          Pull:
+                  </span>
+
+        
+        
+      </h5>
+<ul>
+  <li>add Telemetry</li>
+  <li>add vin to batch resources</li>
+  <li>add update-date to batch resources</li>
+  <li>add an extension to telemetry API (resource:  location, alerts, collision, maintenance)</li>
+</ul>
+    
+      <h4 id="psa-public-interface">
+        <span class="bd-anchor-name">
+        
+          PSA Public interface:
+                  </span>
+
+        
+        
+      </h4>
+    
+      <h5 id="monitor">
+        <span class="bd-anchor-name">
+        
+          Monitor:
+                  </span>
+
+        
+        
+      </h5>
+<ul>
+  <li>add extension</li>
+  <li>add compound trigger support</li>
+</ul>
+    
+      <h5 id="pull-1">
+        <span class="bd-anchor-name">
+        
+          Pull:
+                  </span>
+
+        
+        
+      </h5>
+<ul>
+  <li>add Telemetry</li>
+  <li>add vin to batch resources</li>
+  <li>add update-date to batch resources</li>
+  <li>add an extension to telemetry API (resource: location, alerts, collision, maintenance).</li>
+</ul>
+    <hr />
+
+<div class="tags has-addons is-pulled-right">
+    
+    <span class="tag is-dark">Published On</span>
+    
+
+    <span class="
+        tag
+        
+          is-info
+        ">
+      Tue May 07 2019
+    </span>
+</div>
+      <h2 id="v100">
+        <span class="bd-anchor-name">
+        
+          v1.0.0
+                  </span>
+ <a href="#v100" class="bd-anchor-link">#</a>
+        
+        
+      </h2>
+    
+      <h4 id="1st-release-b2b">
+        <span class="bd-anchor-name">
+        
+          <code class="language-plaintext highlighter-rouge">1st release (B2B)</code>
+                  </span>
+
+        
+        
+      </h4>
+<ul>
+  <li>As delivered to Huawei regarding interfacing API</li>
+  <li>As delivered to MPH/API team regarding public B2B API</li>
+</ul>
+        
+      <div>
+    </main>
+        
+    
+    <div class="column is-hidden-touch" id="on-this-page-container">
+      <aside id="on-this-page">
+      
+
+        
+        <div class="bd-anchors-reference" id="anchorsReference"></div>
+        <nav class="bd-anchors" id="anchors">
+          <p class="bd-anchors-title aside-main-title">
+            On this page
+          </p>
+          <ul class="bd-anchors-list">
+            
+            
+            
+          </ul>
+        </nav>
+
+        
+      
+      </aside>
+    </div>
+  
+  </div>
+</section><footer class="footer">
+    <div class="footer-items">
+        <!-- THIS WEBSITE -->
+        <div class="footer-item">
+        <p class="footer-heading">THIS WEBSITE</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/changelog/#page-title">
+            <span class="icon is-white">
+                <i class="fas fa-code-branch"></i>
+            </span>
+            Website v12.4.1
+            </a>
+            <a class="footer-link" href="/credits/">
+            <span class="icon is-white">
+                <i class="fas fa-paperclip"></i>
+            </span>
+                Credits</a>
+            <a class="footer-link" href="/contact-us/">
+            <span class="icon is-white">
+                <i class="far fa-envelope"></i>
+            </span>
+            <span>
+                Contact Us!
+            </span>
+            </a>
+            <span class="footer-link">
+            <span class="icon is-white">
+                <i class="far fa-copyright"></i>
+            </span>
+            Stellantis 2024
+            </span>
+        </div>
+        </div>
+        <!-- /THIS WEBSITE -->
+        <!-- APIs -->
+        <div class="footer-item">
+        <p class="footer-heading">API</p>
+        <div class="footer-links">
+            <a class="footer-link" href="/webapi/b2b/">API Fleet Owner</a>
+            <a class="footer-link" href="/webapi/b2c/">API Accessing party for End User</a>
+            <a class="footer-link" href="/webportal/v1/">Webportal v1</a>
+            <a class="footer-link" href="/webportal/v2/">Webportal v2</a>
+            <a class="footer-link" href="/mobile-sdk/">Mobile SDK</a>
+        </div>
+        </div>
+        <!-- /APIs -->
+        <!-- OTHER WEBSITES -->
+        <div class="footer-item">
+        <p class="footer-heading">OUR WEBSITES</p>
+        <div class="footer-links">
+            <a class="footer-link" href="https://www.stellantis.com/">Stellantis</a>
+            <a class="footer-link" href="https://www.mobilisights.com/">Mobilisights </a>
+            <a class="footer-link" href="https://www.free2move.com/">Free 2 Move</a>
+        </div>
+        </div>
+        <!-- /OTHER WEBSITES -->
+        <!-- SOCIAL -->
+        <div class="footer-item">
+        <p class="footer-heading">SOCIAL</p>
+        <div class="footer-links">
+            <a class="footer-link is-flex" href="https://twitter.com/stellantis" target="_blank">
+            <span class="icon is-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+            </span>
+            <span>
+              X - Twitter 
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-linkedin "></i>
+            </span>
+            <span>
+                LinkedIn
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.facebook.com/Stellantis/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-facebook "></i>
+            </span>
+            <span>
+                Facebook
+            </span>
+            </a>
+            <a class="footer-link" href="https://www.youtube.com/c/Stellantis_official/" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-youtube  is-white"></i>
+            </span>
+            <span>
+                YouTube
+            </span>
+            </a>
+            <a class="footer-link" href="https://github.com/stellantis" target="_blank">
+            <span class="icon is-white">
+                <i class="fab fa-github  is-white"></i>
+            </span>
+            <span>
+                GitHub
+            </span>
+            </a>            
+        </div>
+        </div>
+        <!-- /SOCIAL -->
+    </div>
+    </footer></body>
+</html>
