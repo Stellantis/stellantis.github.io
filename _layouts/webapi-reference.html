@@ -4,8 +4,6 @@ layout: empty-content
 
 {% assign changelogFile = "webapi-" | append: page.subsection | append: "-changelog" %}
 
-{% assign urlReference = "/assets/openapi/api-" | append: page.subsection | append: ".yaml" %}
-
 <div class="content">
     {% include content-header.html %}
     <a class="notification-link" href="{{site.baseurl}}/webapi/{{page.subsection}}/api-reference/changelog/#article">
@@ -45,7 +43,7 @@ layout: empty-content
 </div>
 
 <script>
-    Redoc.init('{{ urlReference | prepend: site.baseurl }}', {
+    Redoc.init('{% if page.gitHubURL %}{{page.gitHubURL}}{% elsif page.urlReference %}{{page.urlReference | prepend: site.baseurl }}{% endif %}', {
     scrollYOffset: 67,
     disableSearch: true,
     expandResponses: "200,201,202",

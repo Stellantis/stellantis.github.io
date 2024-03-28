@@ -37,7 +37,9 @@ If an application requires info about a vehicle, appropriate data are **collecte
 
 Data are then **unified & processed**, these steps ensure that the data provided within this API share the same format in spite of the different types of vehicles and generation,
 
+{% if subsection == "b2c" %}
 > **Data Scope:** Only required data are available within this API, check out [data scope]({{site.baseurl}}/webapi/b2c/overview/data-scope/#article).
+{% endif %}
 
 > **Data Refreshment:** data are refreshed from the vehicle to Stellantis on a **regular basis** (every 1 min before 2019, more frequently after) and also on **vehicle events** *(ex: turning on the vehicle)*.
 

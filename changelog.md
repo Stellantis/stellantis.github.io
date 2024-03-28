@@ -8,14 +8,16 @@ description: "Stellantis developer portal's version changelog."
 ---
 
 <div class="notification page-disclaimer">
-<p>
+  <p>
     <strong>Changelogs:</strong> This changelog details the history of modifications of this website. 
-    You might also be interested in the changelog of <a href="{{site.baseurl}}/webapi/b2b/api-reference/changelog/#article"> Web API B2B v3</a> and <a href="{{site.baseurl}}/mobile-sdk/references/changelog/#article">Mobile SDK</a>.</p>
+    You might also be interested in the changelog of <a href="{{site.baseurl}}/webapi/b2b/api-reference/changelog/#article"> Web API B2B</a> and <a href="{{site.baseurl}}/webapi/b2c/api-reference/changelog/#article"> Web API B2C</a>.
+  </p>
 </div>
 
 
 Version|Name
 -|-
+[13.0.0](#1300) | Remove Mobile SDK and unecessary Jekyll files
 [12.4.1](#1241) | Data catalog: update trip data
 [12.4.0](#1240) | Web API: v3.18.0 & 4.16.0
 [12.3.1](#1231) | Web API: fix references 4.15.1
@@ -109,6 +111,19 @@ Version|Name
 
 <hr>
 
+## 13.0.0
+
+{% include published_on.html date='29 Mar 2024' %}
+
+**Website:**
+- Remove Mobile SDK documentation
+- Remove unecessary layout & includes
+- Fix browser console errors
+- Update bulma
+- Remove jekyll-datapage_gen & build w/ GitHub Action
+
+<hr>
+
 ## 12.4.1
 
 {% include published_on.html date='30 Jan 2024' %}
@@ -162,15 +177,6 @@ Version|Name
 
 **Website:**
 - Updated Footer Links
-
-<hr>
-
-## 12.2.0
-
-{% include published_on.html date='15 Noc 2023' %}
-
-**Web API:**
-- Remote & Monitors updated tutorials
 
 <hr>
 

@@ -6,6 +6,7 @@ subsection: v2
 categorie: Overview
 title: Infotainment System
 description: "IVI is the current vehicle infotainment system in Stellantis, ex Groupe PSA, vehicles (Citroën, DS, Peugeot, Opel and Vauxhall)."
+gitHubPath: webportal/content/infotainment-system.md
 ---
 
 {% include_relative content/infotainment-system.md %}

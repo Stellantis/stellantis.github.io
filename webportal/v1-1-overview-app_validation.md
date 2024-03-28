@@ -6,6 +6,7 @@ subsection: v1
 categorie: Overview
 title: App Validation
 description: "In order to allow your app in the WebPortal your app needs to be validated by Stellantis."
+gitHubPath: webportal/content/app_validation.md
 ---
 
 {% include_relative content/app_validation.md %}

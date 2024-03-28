@@ -32,9 +32,53 @@ data:
         unit-value: n/a
         description: Next exit number.
         example: Exit A42
-  - ref: roadShield
-    name: instructionRoadShield
+  - name: instructionRoadShield
     description: Current road information.
+    type: Object
+    fields:
+        - name: status
+          type: String
+          unit-value:
+            - INVALID
+            - VALID
+          description: Current road information status.
+          example: VALID
+        - name: roadNumber
+          type: String
+          unit-value: n/a
+          description: Number of the road.
+          example: "D394"
+        - name: iconSetId
+          type: String
+          unit-value: n/a
+          description: Current road shield icon id.
+          example:
+        - name: affixList
+          type: Array of objects
+          fields:
+            - name: type
+              type: String
+              description:
+              unit-value:
+                - NONE
+                - NORTH
+                - EAST
+                - SOUTH
+                - WEST
+                - ALTERNATE
+                - BYPASS
+                - BUSINESS_LOOP
+                - BUSINESS_ROUTE
+                - BUSINESS_SPUR
+                - EXTENDED
+                - COLLECTOR
+                - EXPRESS
+              example: 
+            - name: content
+              type: String
+              unit-value: n/a
+              description:
+              example: 
   - name: instructionRoadName
     type: String
     unit-value: n/a
@@ -99,9 +143,53 @@ data:
       - RIGHT
     description: Current driving side on the road.
     example: RIGHT
-  - ref: roadShield
-    name: secondaryRoadShield
+  - name: secondaryRoadShield
     description: Secondary road information.
+    type: Object
+    fields:
+        - name: status
+          type: String
+          unit-value:
+            - INVALID
+            - VALID
+          description: Current road information status.
+          example: VALID
+        - name: roadNumber
+          type: String
+          unit-value: n/a
+          description: Number of the road.
+          example: "D394"
+        - name: iconSetId
+          type: String
+          unit-value: n/a
+          description: Current road shield icon id.
+          example:
+        - name: affixList
+          type: Array of objects
+          fields:
+            - name: type
+              type: String
+              description:
+              unit-value:
+                - NONE
+                - NORTH
+                - EAST
+                - SOUTH
+                - WEST
+                - ALTERNATE
+                - BYPASS
+                - BUSINESS_LOOP
+                - BUSINESS_ROUTE
+                - BUSINESS_SPUR
+                - EXTENDED
+                - COLLECTOR
+                - EXPRESS
+              example: 
+            - name: content
+              type: String
+              unit-value: n/a
+              description:
+              example: 
   - name: instructionTowardsName
     type: String
     unit-value: n/a

@@ -3,7 +3,6 @@
    class="bd-back-to-ref"
    href="{{site.baseurl}}/{{page.section}}{% if page.subsection %}/{{page.subsection}}{% endif %}
    {%- if page.section == "webportal" %}/api-reference/list/
-   {%- elsif page.section == "mobile-sdk" %}/references/list/
    {%- endif -%}#article
    ">
     <span class="icon is-small">
@@ -46,17 +45,6 @@
         >
           {{api.name}} 
         </a>
-      </li>
-      {% elsif  page.section == "mobile-sdk" and api.component == page.component %}
-      <li>
-          <a 
-            {% if page.url == api.url %}
-            style="color: #2689b5;"
-            {% endif %}
-            href="{{site.baseurl}}{{api.url}}.html#article"
-          >
-            {%for type in api.type%}{{type|upcase}}&nbsp;|&nbsp;{%endfor%}{{api.name}}{% if api.subname %}-<em>{{api.subname}}</em>{% endif %}
-          </a>
       </li>
       {% endif %}
   {% endfor %}

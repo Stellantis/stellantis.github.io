@@ -9,6 +9,7 @@ description: "WebPortal v2 is the browser allowing users to launch authorized We
 redirect_from:
   - /webportal/v2/
   - /webportal/v2/overview/
+gitHubPath: webportal/content/about.md
 ---
 
 {% include_relative content/about.md %}

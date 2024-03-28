@@ -100,107 +100,24 @@ layout: default
     <div class="column is-hidden-touch" id="on-this-page-container">
       <aside id="on-this-page">
       
-
-        {% if page.layout contains "api-reference-list-v2" %}
-          <div class="bd-anchors-reference" id="anchorsReference"></div>
-          <nav class="bd-anchors" id="anchors">
-            <p class="bd-anchors-title aside-main-title">
-              On this page
-            </p>
-            <ul class="bd-anchors-list">
-
-              {%- capture spec_source_file -%}
-              {{page.section}}-v{{page.version|slugify}}
-              {%- endcapture -%}
-
-              {% assign spec_source = site.data[spec_source_file] %}
-              {% assign components = spec_source.components %}
-              {% assign domains = components | map: 'domain' | join: ','  | split: ',' | uniq | sort %}
-
-              {% for domain in domains %}
-                <li style="{% unless forloop.first %}margin-top: .75rem{% endunless %}" ><a href="#{{domain|slugify}}" style="font-weight: 500;">{{domain}}</a></li>
-
-                {% assign domainFilteredComponents = components | where: 'domain', domain %}
-                {% for component in domainFilteredComponents %}
-                <li>
-                  <a 
-                    style="padding-left: 1rem; display: block;"
-                    href="#
-                      {%- include api-reference-toolkit-v2.html
-                        type="componentAnchor"
-                        component=component
-                      -%}"
-                  >
-                  {% include api-reference-toolkit-v2.html
-                    type="componentName"
-                    component=component
-                  %}
-                  </a>
-                </li>
-                {% endfor %}
-
-              {% endfor %}
-              
-            </ul>
-          </nav>
-
-
-
-        {% elsif page.apiName %}
-        <nav class="bd-anchors api-types-aside" id="anchors">
-          {% include api-reference-related-apis-v2.html %}
-        </nav>
-
-
-
-        {% elsif page.layout == "doc-article" %}
+        {% if page.layout == "doc-article" %}
         <div class="bd-anchors-reference" id="anchorsReference"></div>
         <nav class="bd-anchors" id="anchors">
           <p class="bd-anchors-title aside-main-title">
             On this page
           </p>
           <ul class="bd-anchors-list">
-            
-            {% if page.section == "mobile-sdk" and page.title == "References" %}
-            
-            {% for domain in site.data.mobile-sdk-domains %}
-            <li style="{% unless forloop.first %}margin-top: .75rem{% endunless %}" ><a href="#{{domain.name}}" style="font-weight: 500;">{{domain.name}}.*</a></li>
-            {% for component in site.data.mobile-sdk-components %}
-            {% if component.domain == domain.tag %}
-            <li>
-              <a 
-              style="padding-left: 1rem; display: block;"
-              href="#domain-{{component.tag}}{%for compa in component.compatibility%}{{compa}}{% endfor %}">
-              {{component.name}}
-              <sup class="text-note">
-                {%-for compa in component.compatibility-%}
-                {{compa}}
-                {%- unless forloop.last -%}&nbsp;{%- endunless -%}
-                {%-endfor-%}
-              </sup>
-              </a>
-            </li>
-            {% endif %}
-            {% endfor %}
-            {% endfor %}
-            
-            <li style="padding-bottom: 10px; margin-top:1rem; list-style-type: none"><a href="#article" style="">Back to top</a></li>
-            
-            {% elsif page.section == "webportal" and page.title contains "References" %}
+            {% if page.section == "webportal" and page.title contains "References" %}
             {% if page.subsection == "v1" %}
             {% assign domains = site.webportal-nac-reference | where: "type", "class" %}
             {% elsif page.subsection == "v2" %}
             {% assign domains = site.webportal-ivi-public-reference | where: "type", "domain" %}
             {% endif %}
-            
-            
             {% for domain in domains %}
             <li><a href="#domain-{{domain.name}}">{{domain.name}}.*</a></li>
             {% endfor %}
-            
             <li style="padding-bottom: 10px; margin-top:1rem; list-style-type: none;"><a href="#article">Back to top</a></li>
             {% endif %}
-            
           </ul>
         </nav>
 

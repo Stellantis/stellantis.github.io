@@ -9,18 +9,19 @@ url: "https://developer.groupe-psa.io" # the base hostname & protocol for the si
 gitHubURL: "https://github.psa-cloud.com/p4d00/doc/tree/master/"
 gitHubSpecB2B: "https://github.psa-cloud.com/mph00/Spec/blob/master/spec/api/b2b/api-b2b.yaml"
 gitHubSpecB2C: "https://github.psa-cloud.com/mph00/Spec/blob/master/spec/api/b2c/psacc.yaml"
-gitHubSpecMobileSdk: "https://github.psa-cloud.com/mmx00/PIMSSpecification"
-gitHubSpecWebSdk: "https://github.psa-cloud.com/p4d00/web-sdk-spec"
 gitHubMasterPath: "/blob/master/"
 
 # doc versionning
-doc-version: "12.4.1"
+doc-version: "13.0.0"
 
 # WEB API BaseURI - theses var have to be renamed without prod/preprod (because we display only one at once)
 webapiB2C: "https://api-cert.groupe-psa.com/connectedcar/v4"
 webapiB2B: "https://api-cert.groupe-psa.com/connectedcar/v3"
 cvsOAuth2: "https://idpcvs.{brand.tld}/am/oauth2"
 virtualKeyToken: "https://api.groupe-psa.com/connectedcar/v3"
+
+plugins:
+  - jekyll-redirect-from
 
 collections:
   webportal-nac-reference:
@@ -32,7 +33,6 @@ collections:
 
 exclude:
  - webapi/content/
- - mobile-sdk/content/
  - "node_modules/"
  - "*.gemspec"
  - "*.gem"
@@ -47,51 +47,6 @@ exclude:
  - "bin/"
  - "README.md"
  - "Rakefile"
- - "vendor"
- 
-plugins:
-  - jekyll-redirect-from
-  - jekyll-datapage-generator
-
-page_gen-dirs: true
-
-page_gen:
-# ----------------------------------------------
-# ----------------------------------------------
-# ------------------MOBILE SDK------------------
-# ----------------------------------------------
-# ----------------------------------------------
-- data: mobile-sdk-changelog
-  template: api-reference-list-v2-mobile_sdk
-  dir: /mobile-sdk/references/
-  name_expr: + "v" + record['version'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title_expr: + "References v" + record['version']
-  filter_condition: "record['tag'] == 'in_use'"
-- data: mobile-sdk-v2-0.apis
-  template: api-reference-mobile-sdk
-  dir: /mobile-sdk/references/v2-0/
-  name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title_expr: + "2.0"
-- data: mobile-sdk-v2-1.apis
-  template: api-reference-mobile-sdk
-  dir: /mobile-sdk/references/v2-1/
-  name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title_expr: + "2.1"
-- data: mobile-sdk-v2-2.apis
-  template: api-reference-mobile-sdk
-  dir: /mobile-sdk/references/v2-2/
-  name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title_expr: + "2.2"
-- data: mobile-sdk-v2-3.apis
-  template: api-reference-mobile-sdk
-  dir: /mobile-sdk/references/v2-3/
-  name_expr: record['component']['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-  title_expr: + "2.3"
-
-# name_expr: record['component'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-" + record['type'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-') + "-"  + record['tag'].downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '-')
-# .downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
-# downcase makes it lowercase. The strip makes sure there is no leading or trailing whitespace. The first gsub replaces spaces with hyphens. The second gsub removes all non-alpha non-dash non-underscore characters (note that this set is very close to \W but includes the dash as well, which is why it's spelled out here).
-
 
 kramdown:
   syntax_highlighter_opts:

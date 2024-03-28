@@ -7,45 +7,6 @@
 <div
   class="apis"
 >
-
-  {% if 
-      include.type == "feature-title" 
-      and include.sdk_name == "mobile-sdk" 
-  %}
-  <div class="api api-title">
-    <div class="api-header">
-      <a 
-        class="api-name"
-        id="domain-{{ component.tag | replace: '.', '-' | remove: '()'}}{%for compa in component.compatibility%}{{compa}}{% endfor %}"
-        href="#domain-{{ component.tag | replace: '.', '-' | remove: '()'}}{%for compa in component.compatibility%}{{compa}}{% endfor %}"
-      >
-
-        <div class="domain-component-name">
-          {{component.name}}
-          <sup class="text-note">
-            {%-for compa in component.compatibility-%}
-            {{compa}}
-            {%- unless forloop.last -%}&nbsp;{%- endunless -%}
-            {%-endfor-%}
-          </sup>
-          &nbsp;{{component.icon}}
-        </div>
-        
-      </a>
-      {% if component.tutorial %}
-      <a 
-        href="{{site.baseurl}}{{component.tutorial}}#article"
-        class="domain-component-tutorial">
-        Tutorial
-        <span class="icon">
-          <i class="fas fa-external-link-alt"></i>
-        </span>
-      </a>
-      {% endif %}
-    </div>
-  </div>
-  {% endif %}
-
 {% for api in include.apis | where: include.whereKey, include.whereValue %}
 
   {%- comment -%} DOMAIN {%- endcomment -%}
@@ -96,21 +57,12 @@
     {% endcapture %}
     
     {%- comment -%} API HEADER {%- endcomment -%}
-    <div 
-      class="api-header {% if include.sdk_name == "mobile-sdk" %}api-header-min{% endif %}"
-    >
+    <div class="api-header">
     
       <a
-        class="api-name {% if include.sdk_name == "mobile-sdk" %}api-name-min{% endif %}" 
+        class="api-name" 
         href="{{site.baseurl}}{{api.url}}.html#article"
       >
-      
-          {%- comment -%} VERBS {%- endcomment -%}
-          {% if include.sdk_name == "mobile-sdk" or include.sdk_name == "webportalv1" %}
-          {{apiVerbs}}
-          {% endif %}
-          {%- comment -%} END VERBS {%- endcomment -%}
-
           <div class="api-name-subname">
             {{api.name}}
             <div class="api-subname">

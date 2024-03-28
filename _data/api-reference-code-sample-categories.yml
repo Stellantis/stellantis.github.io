@@ -26,7 +26,7 @@
       - tag: reply
         name: Reply
         icon: fas fa-long-arrow-alt-down
-- tag: mobile-sdk
+- tag: mobile-sdk # works with webapi-curl ...
   request:
     examples:
       - tag: kotlin

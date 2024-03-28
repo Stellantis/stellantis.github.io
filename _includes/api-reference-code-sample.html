@@ -3,235 +3,8 @@
 
 {%- comment -%} Capture Code Blocks {%- endcomment -%}
 
-{% if include.sdk_name=="web-sdk" %}
+{% if include.sdk_name == "webportalv2" %}
 
-{% capture request %}
-{% unless include.type == "function" %}
-```js
-space.{{include.type}}(
-"{{include.name}}",  // API Name{% if include.params and include.params != 'none' %}
-// Parameters
-{% 
-  include api-reference-code-sample-json.html 
-  datas=include.params
-  indent=""
-  indentLevel=0
-%}{%else%}
-{} // No Parameters, empty object required {% endif %}
-)
-```
-{% else %}
-```js
-{{include.requestExample}}
-```
-{% endunless %}
-{% endcapture %}
-
-{% capture reply %}
-```js
-{%- if include.datas == "none" or include.datas == null %}
-null
-{%- else %}
-{% if page.title contains "0.0." or page.title == "0.1.1" %}
-{% 
-  include api-reference-code-sample-json.html 
-  datas=include.datas
-  indent=""
-  indentLevel=0
-%}
-{% else %}
-{
-  "response": {
-    "namespace": "{{include.name}}",
-    "status": 200,
-    "data": // specific output for this API 
-    {% 
-      include api-reference-code-sample-json.html 
-      datas=include.datas
-      indent="    "
-      indentLevel=0
-    %},
-    "errors": null
-  }
-}{%- endif %}{%- endif %}
-```
-{% endcapture %}
-
-{% if include.errors and include.errors[0] != null %}
-{% capture failed %}
-```js
-{
-  "response": {
-    "namespace": "{{<include.name>}}",
-    "status": <HTTP_code>,
-    "data": {},
-    "errors": [ 
-      // List of possible errors for this API{% for error in include.errors %}
-      {
-        "namespace": "{{include.name}}",
-        "status": {{error.code}},
-        "message": "{{error.message}}"
-      }
-      {%- endfor %}
-    ]
-  }
-}
-```
-{% endcapture %}
-{% endif %}
-
-{% elsif include.sdk_name=="mobile-sdk" %}
-
-{%- comment -%} KOTLIN {%- endcomment -%}
-{% if include.custom_code_sample %}
-{% assign kotlin = include.request_params_kotlin %}
-{% else %}
-{% capture kotlin %}
-```kotlin
-{% if include.type == "subscribe" %}/* Subscribe, see unsubscribe below */{% endif %}
-pims.{{include.type}}( 
-{%- if include.sample_type != "ref" -%}
-  "{{include.name}}"{% if include.request_params_kotlin != "no_params" %},
-  mapOf( /* parameters */
-  {{ include.request_params_kotlin }}
-  )
-{% else %}
-{% endif %}) { message -> /* handle message */ }
-{%- else -%} 
-  "{{include.name}}"{% if include.params == "none" or include.params == null %}
-  /* no params */
-  {%- else -%},
-  mapOf( /* parameters */ {% if include.requestExample.kotlin %} 
-    {{include.requestExample.kotlin}} {% else %} {% for p in include.params %}
-    Pair("{{p.name}}", {% if p.type == "String" or p.type == "Enum of Strings"  %}"{{p.example}}"{% elsif p.type contains "rray" %}mapOf({% for e in p.example %}{% if p.type contains "tring" %}"{{e}}"{% else %}{{e}}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}){% else %}{{p.example}}{% endif %}){% if forloop.last == false %},{% else %}{% endif %}{% endfor %}{% endif %}
-  ) {% endif %}
-) { message -> when (message["status"] as? String) {
-      "SUCCEEDED" -> { }                          // handle succeeded status
-      "FAILED" ->    { }                          // handle failed status{% if include.type == "subscribe" %}
-      "RESULT" ->    {
-        if(message["error"] != null) { }            // handle error event code
-        else { }                                 // handle result event code
-      }{% endif %}
-  } }{% endif %} 
-{%- if include.type == "subscribe" %}
-
-/* Unsubscribe */
-pims.unsubscribe( "{{include.name}}" /* no params */ ){% endif %}
-```
-{% endcapture %}
-{% endif %}
-
-{%- comment -%} SWIFT {%- endcomment -%}
-{% if include.custom_code_sample %}
-{% assign swift = include.request_params_swift %}
-{% else %}
-{% capture swift %}
-```swift
-{% if include.type == "subscribe" %}/* Subscribe, see unsubscribe below */{% endif %}
-pims.{{include.type}}(
-{%- if include.sample_type != "ref" -%}
-  api: "{{include.name}}"{% if include.request_params_swift != "no_params" %}, 
-  parameters: [
-  {{ include.request_params_swift }}
-  ]
-{%else%}
-{% endif %}) { (message) in /* handle message */ }
-{%- else -%}
-  api: "{{include.name}}"{% if include.params == "none" or include.params == null %}
-  /* no params */
-  {%- else -%},
-  parameters: [ {% if include.requestExample.swift %} 
-    {{include.requestExample.swift}} {% else %} {% for p in include.params %}
-    "{{p.name}}": {% if p.type == "String" or p.type == "Enum of Strings" %}"{{p.example}}"{% elsif p.type contains "rray" %}mapOf({% for e in p.example %}{% if p.type contains "tring" %}"{{e}}"{% else %}{{e}}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}){% else %}{{p.example}}{% endif %}{% if forloop.last == false %},{% else %}{% endif %}{% endfor %}
-  {% endif %}]{% endif %}
-  ) { (message) in 
-    if message["status"] == "SUCCEEDED"    { }    // handle succeeded status
-    else if message["status"] == "FAILED" { }    // handle failed status{% if include.type == "subscribe" %}
-    else if status == "RESULT" {
-      if !message["error"].isEmpty { }            // handle error event code
-      else { }                                    // handle result event code
-    }{% endif %}
-  } {% endif %}
-{%- if include.type == "subscribe" %}
-
-/* Unsubscribe */
-pims.unsubscribe( api: "{{include.name}}" /* no params */ ){% endif %}
-```
-{%- endcapture -%}
-{% endif %}
-
-{%- comment -%} SUCCEEDED Mobile SDK {%- endcomment -%}
-{% if include.custom_code_sample %}
-{% assign succeeded = include.response %}
-{% else %}
-{% capture succeeded %}
-```js
-// representation of the `succeeded` dictionary object message as JSON
-{
-  "transactionId": "953cfefb-bc72",
-  "status": "SUCCEEDED",
-  "result": {% if include.type == "subscribe" %}{ }{% else %}{% if include.sample_type == "ref" %}{% if include.datas == "none" or include.datas == null %}{ }{% else %}{% 
-    include api-reference-code-sample-json.html 
-    datas=include.datas
-    indent="  "
-    indentLevel=0
-  %}{% endif %}{% elsif include.response %}{% if include.response == "null" %}{ }{% else %}{{include.response}}{% endif %}{% else %}{ }{% endif %}{% endif %}
-}
-```
-{% endcapture %}
-{% endif %}
-
-{%- comment -%} RESULT SDK {%- endcomment -%}
-{% if include.type == "subscribe" %}
-{% if include.custom_code_sample %}
-{% assign result = include.notification %}
-{% else %}
-{% capture result %}
-```js
-// representation of the `result` dictionary object message as JSON
-{
-  "transactionId": "953cfefb-bc72",
-  "status": "RESULT",
-  "result": {% if include.sample_type == "ref" %}{% if include.datas == "none" or include.datas == null %}{ }{% else%}{% endif %}{% 
-    include api-reference-code-sample-json.html 
-    datas=include.datas
-    indent="  "
-    indentLevel=0
-  %}{% else %}{{include.notification}}{% endif %}
-}
-```
-{% endcapture %}
-{% endif %}
-{% else %} {% assign result = false %}
-{% endif %}
-
-
-{%- comment -%} FAILED Mobile SDK {%- endcomment -%}
-{% if include.custom_code_sample %}
-{% assign failed = include.failed %}
-{% else %}
-{% if include.errors and include.errors[0] != null %}
-{% capture failed %}
-```js
-// representation of the `failed` dictionary objects messages as JSON
-
-{% for error in include.errors %}/* -------- STATUS FAILED: {{error.code}} -------- */
-{
-  "transactionId": "953cfefb-bc72",
-  "status": "FAILED",
-  "error": {
-    "code": {{error.code}},
-    "label": "{{error.message}}"{% if error.subcode %},
-    "subCode": [...]{% endif %}
-  }
-}
-{% endfor -%}
-```
-{% endcapture %}
-{% else %}{% assign failed = false %}{% endif %}
-{% endif %}
-
-{% elsif include.sdk_name == "webportalv2" %}
 
 {%- comment -%} Request Webportal v2 {%- endcomment -%}
 {% if include.custom_code_sample %}
@@ -385,26 +158,13 @@ webportal.{{include.type}}(
     <a 
       class="{{header_class}}"
       href="
-        {%- if include.sdk_name == "mobile-sdk" -%}
-          {%- if include.sdk_version -%}{%- assign refVersion = include.sdk_version -%}
-          {%- else -%}{%- capture refVersion-%}{%- include api-reference-toolkit-v2.html type="lastSpecVersionDashed" -%}{%- endcapture -%}{%- endif -%}
-          {{- site.baseurl -}}/mobile-sdk/references/v{{ refVersion | replace: ".", "-"}}/
-          {{- include.component | slugify -}}-
-          {{- include.type | slugify -}}-
-          {{- include.name | slugify -}}
-          {%- if include.subname -%}-{{- include.subname | slugify -}}{%- endif -%}
-          /#article
-        {%- elsif include.sdk_name == "webportalv2" -%}
+        {%- if include.sdk_name == "webportalv2" -%}
           {{- site.baseurl -}}/webportal/v2/api-reference/
           {{- include.name | "slugify" -}}
           .html#{{include.type}}
         {%- elsif include.sdk_name == "webportalv1" -%}
           {{- site.baseurl -}}/webportal/v1/api-reference/
           {{- include.name | "slugify" -}}
-          .html#article
-        {%- elsif include.sdk_name == "web-sdk" -%}
-          {{- site.baseurl -}}/web-sdk/references/
-          {{- include.name -}}
           .html#article
         {%- endif -%}"
     >{{header_text}}</a>
@@ -421,10 +181,6 @@ webportal.{{include.type}}(
     {%- if include.sdk_name == "webportalv2" -%}
     {{" sdk "}}
     {%- elsif include.sdk_name == "webportalv1" -%}
-    {{" request "}}
-    {%- elsif include.sdk_name == "mobile-sdk" -%}
-    {{" kotlin "}}
-    {%- elsif include.sdk_name == "web-sdk" -%}
     {{" request "}}
     {%- endif -%}"
   >
@@ -455,12 +211,6 @@ webportal.{{include.type}}(
           {{natif | markdownify}}
         {% elsif include.sdk_name == "webportalv1" %}
           {{include.request | markdownify}}
-        {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "swift" %}
-          {{swift | markdownify}}
-        {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "kotlin" %}
-          {{kotlin | markdownify}}
-        {% elsif include.sdk_name == "web-sdk" and code_example.tag == "request" %}
-          {{request | markdownify}}
         {% endif %}
       </div>
       {% endfor %}
@@ -478,14 +228,6 @@ webportal.{{include.type}}(
       {{" notify " }}
       {%- elsif include.sdk_name == "webportalv1" -%}
       {{ " reply " }}
-      {%- elsif include.sdk_name == "mobile-sdk" and include.type != "subscribe" -%}
-      {{" succeeded " }}
-      {%- elsif include.sdk_name == "mobile-sdk" and include.type == "subscribe" -%}
-      {{" result " }}
-      {%- elsif include.sdk_name == "web-sdk" and include.type == "subscribe" -%}
-      {{" notify " }}
-      {%- elsif include.sdk_name == "web-sdk" and include.type != "subscribe" -%}
-      {{" reply " }}
       {%- endif -%}
     ">
       {%- comment -%} Second Block Buttons {%- endcomment -%}
@@ -517,16 +259,6 @@ webportal.{{include.type}}(
           {{notify | markdownify}}
         {% elsif include.sdk_name == "webportalv1" %}
           {{include.reply | markdownify}}
-        {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "succeeded" %}
-          {{succeeded | markdownify}}
-        {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "result" and include.type == "subscribe" %}
-          {{result | markdownify}}
-        {% elsif include.sdk_name == "mobile-sdk" and code_example.tag == "failed" %}
-          {{failed | markdownify}}
-        {% elsif include.sdk_name == "web-sdk" and code_example.tag == "reply" %}
-          {{reply | markdownify}}
-        {% elsif include.sdk_name == "web-sdk" and code_example.tag == "failed" %}
-          {{failed | markdownify}}
         {% endif %}
       </div>
       {% endfor %}
