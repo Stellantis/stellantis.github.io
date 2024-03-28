@@ -1299,6 +1299,9 @@ background-color: inherit;
     border: 0;
 }
 
+.navbar-link:not(.is-arrowless)::after {
+display: none}
+
 #navbarpsa.bluenavbar .fa-search, #navbarpsa .control.has-icons-left .input:focus ~ .icon, #navbarpsa .navbar-item:hover .fa-search {
     transition: all 0.3s ease;
 

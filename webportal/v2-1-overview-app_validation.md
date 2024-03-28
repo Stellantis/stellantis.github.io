@@ -5,7 +5,8 @@ section: webportal
 subsection: v2
 categorie: Overview
 title: App Validation
-description: ""
+description: "Webportal application validation process."
+gitHubPath: webportal/content/app_validation.md
 ---
 
 {% include_relative content/app_validation.md %}

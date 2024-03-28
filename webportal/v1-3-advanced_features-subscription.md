@@ -22,10 +22,10 @@ This article introduce the eligibility features in order to give or remove acces
 ##### Example 
 
 ```
-(GET) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/eligibility?client_id=12ab345c-6789-01d2-e345-6f78ghijk901&vin=VF000000000000001 
+(GET) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/eligibility?client_id=<client_id>&vin=VF000000000000001 
 
 var req = new XMLHttpRequest();
-req.open('GET', 'https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/eligibility?client_id=12ab345c-6789-01d2-e345-6f78ghijk901&vin=VF000000000000001', true);
+req.open('GET', 'https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/eligibility?client_id=<client_id>&vin=VF000000000000001', true);
 req.send(null);
 ```
 
@@ -95,10 +95,10 @@ This service enables to add a list of VIN as subscribers to the given service(s)
 #### Example
 
 ```
-(POST) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=12ab345c-6789-01d2-e345-6f78ghijk901
+(POST) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=<client_id>
 
 var req = new XMLHttpRequest();
-req.open('POST', 'https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=12ab345c-6789-01d2-e345-6f78ghijk901', true);
+req.open('POST', 'https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=<client_id>', true);
 req.onload = function () {
     // do something to response
     console.log(this.responseText);
@@ -153,10 +153,10 @@ HTTP 401 | Not authorized
 ##### Example 
 
 ```
-(DELETE) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=12ab345c-6789-01d2-e345-6f78ghijk901
+(DELETE) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=<client_id>
 
 var req = new XMLHttpRequest();
-req.open('DELETE', 'https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=12ab345c-6789-01d2-e345-6f78ghijk901', true);
+req.open('DELETE', 'https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=<client_id>', true);
 req.send(data);
 ```
 
@@ -185,10 +185,10 @@ HTTP 401 | Not authorized
 ##### Example 
 
 ```
-(GET) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=12ab345c-6789-01d2-e345-6f78ghijk901&service=SERVICE_TEST
+(GET) https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=<client_id>&service=SERVICE_TEST
 
 var req = new XMLHttpRequest();
-req.open('GET', 'https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=12ab345c-6789-01d2-e345-6f78ghijk901&service=SERVICE_TEST', true);
+req.open('GET', 'https://api-cert-preprod.groupe-psa.com/applications/portail-ovip/v2/subscriptions?client_id=<client_id>&service=SERVICE_TEST', true);
 req.send(data);
 ```
 

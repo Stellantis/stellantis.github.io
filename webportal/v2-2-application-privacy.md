@@ -6,6 +6,7 @@ subsection: v2
 categorie: Application
 title: Privacy
 description: "The infotainment system of the vehicle (IVI) allows user to select privacy mode. This page explains how privacy affects webportal features in an APP."
+gitHubPath: webportal/content/privacy.md
 ---
 
 {% include_relative content/privacy.md %}

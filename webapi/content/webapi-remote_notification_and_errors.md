@@ -3,7 +3,7 @@ As seen in the [about page]({{site.baseurl}}/webapi/{{page.subsection}}/about/#a
 
 ## Being Notified
 
-When a remote is sent, the callback server will receive one or several **notifications** in order to inform about the progress of the action. These notifications are also available through the REST API using the [GET Remotes]({{site.baseurl}}/webapi/{{page.subsection}}/api-reference/references/{% if page.subsection == "b2c" %}#operation/getRemoteRequestsForVhl{% elsif page.subsection == "b2b" %}#operation/getRemoteRequestsForVhl{% endif %}) endpoint.
+When a remote is sent, the callback server will receive one or several **notifications** in order to inform about the progress of the action. These notifications are also available through the REST API using the [GET Remotes]({{site.baseurl}}/webapi/{{page.subsection}}/api-reference/references/{% if page.subsection == "b2c" %}latest/#operation/getRemoteRequestsForVhl{% elsif page.subsection == "b2b" %}latest/#operation/getRemoteRequestsForVhl{% endif %}) endpoint.
 
 ## Notifications Details
 

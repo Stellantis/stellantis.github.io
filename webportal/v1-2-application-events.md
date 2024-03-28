@@ -82,7 +82,7 @@ Connectivity.addEventListener("connectivityOff", function(){
 
 For every app it is also mandatory to handle the privacy mode of the user.
 
-Check out [this page]({{site.baseurl}}/webportal/{{page.subsection}}/application/privacy#article) for more information about privacy managment.
+Check out [this page]({{site.baseurl}}/webportal/{{page.subsection}}/application/privacy#article) for more information about privacy management.
 
 Some functionnalities will be unavailable in Geoloc or Full privacy mode.
 

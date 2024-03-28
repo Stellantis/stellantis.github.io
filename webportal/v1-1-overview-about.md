@@ -10,6 +10,7 @@ redirect_from:
   - /webportal/v1/
   - /webportal/v1/overview/
   - /webportal/v1/overview/standards/
+gitHubPath: webportal/content/about.md
 ---
 
 {% include_relative content/about.md %}

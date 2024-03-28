@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
     <!-- FONTs -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    
     {%- comment -%} REQUIRE HEAD {%- endcomment -%}
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     {%- comment -%} ---------------------------- {%- endcomment -%}
@@ -63,18 +62,6 @@
     {%- comment -%} HIGHLIGHTED-LINK {%- endcomment -%}
     {% if page.require contains "highlighted-link" or page.layout == "use-case" or page.layout == "package" or page.layout == "compare-packages" %}
     <link rel="stylesheet" href="{{ 'highlighted-link.css' | prepend: modules_path| prepend: site.baseurl }}">
-    {% endif %}
-    {%- comment -%} TAB-CONTENT {%- endcomment -%}
-    {% if page.require contains "tab-content"%}
-    <link rel="stylesheet" href="{{ 'tab-content.css' | prepend: modules_path| prepend: site.baseurl }}">
-    {% endif %}
-    {%- comment -%} DROPDOWN-CONTENT {%- endcomment -%}
-    {% if page.require contains "dropdown-content" or page.layout == "api-data" %}
-    <link rel="stylesheet" href="{{ 'dropdown-content.css' | prepend: modules_path| prepend: site.baseurl }}">
-    {% endif %}
-    {%- comment -%} API-VERBS {%- endcomment -%}
-    {% if page.require contains "api-verbs" or page.layout == "use-case" or page.layout == "package" %}
-    <link rel="stylesheet" href="{{ 'api-verbs.css' | prepend: modules_path| prepend: site.baseurl }}">
     {% endif %}
     {%- comment -%} THUMBNAIL {%- endcomment -%}
     {% if page.require contains "thumbnail" %}
@@ -123,7 +110,7 @@
     <!-- Matomo-->
     <script type="text/javascript" language="Javascript" src="/assets/js/tag_piwik_PG4D_DOC_id_550.js"></script>
     <!-- End Matomo Code -->
-
+  </head>
 <body>
 
     {%- comment -%} HEADER {%- endcomment -%}
@@ -167,28 +154,6 @@
             <h2 class="title">embedded apps</h2>
             {% endcapture %}
         {% endif %}
-    {% elsif page.section == "mobile-sdk" %}
-        {% if page.subsection == "ios" %}
-            {% assign hero_classes = "is-medium hero_ios" %}
-            {% capture hero_content %}
-            <h1 class="title section-title">Mobile SDK</h1>
-            <h2 class="title">for iOS</h2>
-            {% endcapture %}
-        {% elsif page.subsection == "android" %}
-            {% assign hero_classes = "is-medium hero_android" %}
-            {% capture hero_content %}
-            <h1 class="title section-title">Mobile SDK</h1>
-            <h2 class="title">for android</h2>
-            {% endcapture %}
-        {% else %}
-            {% assign hero_classes = "is-medium hero_ios" %}
-            {% capture hero_content %}
-            <h1 class="title section-title">Mobile SDK</h1>
-            <h2 class="title">iOS or Android</h2>
-            {% endcapture %}
-        {% endif %}
-    {% elsif page.section == "web-sdk" %}
-        {% assign hero_classes = "no-hero" %}
     {% elsif page.title == "404" %}
         {% assign hero_classes = "is-fullheight hero_404" %}
         {% capture hero_content %}
@@ -200,7 +165,7 @@
                 <h1 class="title section-title">Found</h1>
             </div>
             <div class="column" style="display: flex; flex-direction: column; justify-content: space-evenly;">
-                <p class="hero-para is-size-4" style="text-shadow: 2px 2px 4px #000000">It seems that we are unable to find this page. <br> We apologise for the inconvenience.
+                <p class="hero-para is-size-4" style="text-shadow: 2px 2px 4px #000000">It seems that we are unable to find this page. <br> We apologize for the inconvenience.
                 </p>
                 <a href="{{site.baseurl}}/" class="button is-psablue is-medium">
                     <span>
@@ -236,7 +201,7 @@
     {% endif %}
     <section class="hero hero-header {{hero_classes}}">
         <div class="hero-head">
-            <nav aria-label="main navigation" class="navbar {% unless page.permalink == "/" or page.name == "404.md" %}is-fixed-top{% endunless %}{% if page.section == "web-sdk" %} bluenavbar{%endif%}" id="navbarpsa" role="navigation">
+            <nav aria-label="main navigation" class="navbar {% unless page.permalink == "/" or page.name == "404.md" %}is-fixed-top{% endunless %}" id="navbarpsa" role="navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="{{site.baseurl}}/">
             <div id="logoPG4D">
@@ -262,11 +227,12 @@
                             {{ section.name | replace: " ", "&nbsp;<br class='is-hidden-touch'>" }}
                         </span>
                     </a>
+                    {% if section.subsections[0].categories[0].pages[0] %}
                     <div class="navbar-dropdown" id="dropdownAPI">
                         {% for subsection in section.subsections %}
                             {%- if subsection.tag -%}
                             <p href="{{site.baseurl}}{{section.path}}{{subsection.path}}#article" class="navbar-item dropdown-title {% if subsection.tag == page.subsection %}is-default is-active{% endif %}" id="{{subsection.tag}}" onclick="navClick(document.getElementById('{{subsection.tag}}'), '{{subsection.tag}}');">
-                                <span>
+                              <span>
                                     {% if subsection.tag == "ios" %}iOS{% else %}{{subsection.nameUpcase}}{% endif %}
                                 </span>
                                 <span>
@@ -295,6 +261,7 @@
                             {%- endif -%}
                         {%- endfor -%}
                     </div>
+                    {% endif %}
                 </div>
                 {% endunless %}
             {% endfor %}
@@ -360,7 +327,6 @@ function navClick (clickedNavMenu, id) {
 }
 
 // Display navbar is-fixed-top navbar
-{% unless page.section == "web-sdk" %}
 if (mq.matches) {
     document.getElementById("navbarpsa").classList.add("bluenavbar");
 }
@@ -377,7 +343,6 @@ else {
         }
     } 
 }
-{% endunless %}
 </script>
 
         </div>
@@ -397,7 +362,7 @@ else {
     <footer class="footer">
     <div class="footer-items">
         <!-- THIS WEBSITE -->
-        <div class="footer-item">
+        <div class="footer-item" id="typo">
         <p class="footer-heading">THIS WEBSITE</p>
         <div class="footer-links">
             <a class="footer-link" href="{{site.baseurl}}/changelog/#page-title">
@@ -436,7 +401,6 @@ else {
             <a class="footer-link" href="{{site.baseurl}}/webapi/b2c/">API Accessing party for End User</a>
             <a class="footer-link" href="{{site.baseurl}}/webportal/v1/">Webportal v1</a>
             <a class="footer-link" href="{{site.baseurl}}/webportal/v2/">Webportal v2</a>
-            <a class="footer-link" href="{{site.baseurl}}/mobile-sdk/">Mobile SDK</a>
         </div>
         </div>
         <!-- /APIs -->
@@ -459,7 +423,7 @@ else {
               <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
             </span>
             <span>
-              X - Twitter 
+                X - Twitter
             </span>
             </a>
             <a class="footer-link" href="https://www.linkedin.com/company/stellantis" target="_blank">
