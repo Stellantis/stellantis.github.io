@@ -2,7 +2,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://api.mpsa.com/api/connectedcar/v2'
 info:
-  version: '1.17.2'
+  version: '4.17.2'
   title: Groupe PSA Connected Car B2C API
   license:
     name: Groupe PSA Licence
