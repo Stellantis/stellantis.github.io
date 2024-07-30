@@ -1,3 +1,23 @@
+- version: "4.17.2"
+  availability: in_use
+  release_date: 30 Jul 2024
+  description: |-
+    **Stolen API**
+    - Updated country code from three characters to two characters for stolen call center number as MyM cannot support three character codes
+- version: "4.17.1"
+  availability: in_use
+  release_date: 30 Jul 2024
+  description: |-
+    **Trips API**
+    - Added average consumption in energy consumption blocks on trips resource.
+    - Consumption will be available for Eletric vehicle
+- version: "4.17.0"
+  availability: in_use
+  release_date: 30 Jul 2024
+  description: |-
+    **Vehicle API**
+    - optional parameter of country added to the API to be able to get call center number to support stolen vehicle feature
+    - Call center object added to the response containing information about country code and call center phone number
 - version: "4.16.0"
   availability: in_use
   release_date: 25 Jan 2024

@@ -5,7 +5,7 @@ security:
   - BasicAuth: []
     ClientId: []
 info:
-  version: '3.18.0'
+  version: '3.19.2'
   title: Groupe PSA Connected Car B2B API
   description: |
     *Business Partner Connected Fleet API*  
@@ -368,7 +368,6 @@ paths:
       summary: Fleet Vehicles alerts.
       operationId: getFleetAlertList
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/timestamps'
@@ -390,7 +389,6 @@ paths:
       summary: Fleet single alert.
       operationId: getFleetAlertById
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/alertId'        
@@ -408,7 +406,6 @@ paths:
       summary: Vehicle status.
       operationId: getFleetVehicleStatus
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/profile'
         - $ref: '#/components/parameters/vehicleId'
@@ -430,7 +427,6 @@ paths:
       description: Returns the latest alert messages for a Vehicle.
       operationId: getVehicleAlerts
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
@@ -452,7 +448,6 @@ paths:
       description: Returns information about a specific alert messages for a Vehicle.
       operationId: getFleetVehicleAlertsById
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
@@ -472,7 +467,6 @@ paths:
         Returns the latest Telemetry messages that occurred during a selective timestamp-ranges and bounded by an index range.
       operationId: getTelemetry
       parameters:
-        
         - $ref: '#/components/parameters/fleetId'
         - $ref: '#/components/parameters/vehicleId'
         - $ref: '#/components/parameters/profile'
@@ -511,11 +505,12 @@ paths:
         default:
           $ref: '#/components/responses/AlarmFailedResponse'
   
+  
   '/fleets/{fid}/vehicles/{vid}/alarms/{aid}':
     get:
       tags:
         - Vehicles
-      description: Returns information about a specific alarm for a Vehicle.
+      description: Returns information about a specific alarm for a vehicle.
       summary: Vehicle's Alarm
       operationId: getVehicleAlarmsById
       parameters:
@@ -527,6 +522,65 @@ paths:
           $ref: '#/components/responses/AlarmSucessResponse'
         default:
           $ref: '#/components/responses/AlarmFailedResponse'
+          
+
+  '/fleets/{fid}/vehicles/{vid}/stolen':
+    get:
+      tags:
+        - Vehicles
+      description: Returns  list of stolen state for a vehicle.
+      summary: Vehicle's stolen history.
+      operationId: getVehicleStolenHistory
+      parameters:
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/timestamps'
+        - $ref: '#/components/parameters/indexRange'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          $ref: '#/components/responses/StolenSuccessResponses'
+        default:
+          $ref: '#/components/responses/StolenFailedResponse'
+          
+  '/fleets/{fid}/vehicles/{vid}/stolen/{sid}':
+    get:
+      tags:
+        - Vehicles
+      description: Returns information about a specific stolen context for a vehicle.
+      summary: Vehicle's stolen state.
+      operationId: getVehicleStolenById
+      parameters:
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/stolenId'
+      responses:
+        '200':
+          $ref: '#/components/responses/StolenSucessResponse'
+        default:
+          $ref: '#/components/responses/StolenFailedResponse'
+  
+  '/fleets/{fid}/vehicles/{vid}/stolen/{sid}/waypoints':
+    get:
+      tags:
+        - Vehicles
+      description: Returns position information about a specific stolen context for a vehicle.
+      summary: Vehicle's stolen position.
+      operationId: getVehicleStolenIdPosition
+      parameters:
+        - $ref: '#/components/parameters/fleetId'
+        - $ref: '#/components/parameters/vehicleId'
+        - $ref: '#/components/parameters/stolenId'
+      responses:
+        200:
+          description: Stolen position response.
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/WayPoints'
+        default:
+          description: wayPoints not found
   
   '/fleets/{fid}/monitors':
     get:
@@ -1150,7 +1204,7 @@ components:
                             |:---|:---|
                             |Information|Better to fix but it is operating accurately.|
                             |Warning|Should fix it asap.|
-                            |Critical|Starting prohibited without repair.|                           
+                            |Critical|Starting prohibited without repair.|
               type: string
               enum: [Information, Warning, Critical]
             startedAt:
@@ -1168,6 +1222,65 @@ components:
                 - $ref: '#/components/schemas/Position'
                 - description: The position (last vehicle known one) where the alert disappears. 
           required: [ id,active,type,createdAt,startedAt, _links,vin]
+    
+    StolenCollection:
+      allOf:
+        - $ref: '#/components/schemas/CollectionResult'
+        - properties:
+            _embedded:
+              type: object
+              properties:
+                stolen:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Stolen'
+    StolenBase:
+      type: object
+      properties:
+        _links:
+          type: object
+          properties:
+            self:
+              $ref: '#/components/schemas/Link'
+            vehicle:
+              $ref: '#/components/schemas/Link'
+          required : [self]
+        id:
+          type: string
+          example : 0a9de72cc3803b12a74418acd20dcd66634fa82e44b2ec7060bca91462dc5772199559905caefe168812918d47f67253f33d477b645bb59afdd1268b81e382999
+        state:
+          description : Stolen state of the vehicle (True means the vhicle is reported stolen).
+          type: boolean
+          example : true
+        startedAt:
+          description : Stolen vehicle start time.
+          type: string
+          format: date-time
+        endAt:
+          description : Stolen vehicle stop time.
+          type: string
+          format: date-time
+        startPosition:
+          allOf:
+            - $ref: '#/components/schemas/Position'
+            - description: The position (last vehicle known one) where the vehicle is reported stolen.
+        endPosition:
+          allOf:
+            - $ref: '#/components/schemas/Position'
+            - description: The position (last vehicle known one) where the stolen state is not active anymore. 
+      required: [ id,state,createdAt,startedAt, _links] 
+    Stolen:
+      allOf: 
+        - title: Vehicle stolen status
+        - $ref: '#/components/schemas/CreatedAtField'
+        - $ref: '#/components/schemas/UpdatedAtField'
+        - $ref: '#/components/schemas/StolenBase'
+    StolenObj:
+      allOf: 
+        - title: StolenStatus
+        - description: Vehicle Stolen active status (only returns when vehicle is reported stolen).
+        - $ref: '#/components/schemas/CreatedAtField'
+        - $ref: '#/components/schemas/StolenBase'
         
     MonitorStatus:
       type: string
@@ -1229,7 +1342,6 @@ components:
                 type : array
                 items : 
                   $ref: '#/components/schemas/CollisionDetails'
-           
     
     Collision:
      allOf:
@@ -1366,13 +1478,13 @@ components:
                 format : float
                 minimum : 0.0
       required: [createdAt]
-    Battery:  
+    Battery:
             allOf:
               - $ref: '#/components/schemas/CreatedAtField'
               - $ref: '#/components/schemas/BatteryBase'
             required: [createdAt]
               
-    BatteryBase:  
+    BatteryBase:
                 description: Describe the car (with combustion engine)  battery status.
                 type: object
                 properties:
@@ -1381,7 +1493,7 @@ components:
                     description: Auxiliary battery (12V) state of health in %
                     format: float
 
-    BeltStatus:  
+    BeltStatus:
                 type: object
                 description: Seat belt condition.
                 properties:
@@ -1396,7 +1508,7 @@ components:
                     enum: [Driver, Passenger]
                     example: Passenger
               
-    BaseSafety:  
+    BaseSafety:
                 type: object
                 properties:
                   beltStatus:
@@ -1489,13 +1601,13 @@ components:
                   $ref: '#/components/schemas/Link'
               required : [self]
             vin:  
-                 $ref: '#/components/schemas/Vin'
+              $ref: '#/components/schemas/Vin'
             ignition:
-                  $ref: '#/components/schemas/Ignition'
+              $ref: '#/components/schemas/Ignition'
             lastPosition:
-                  $ref: '#/components/schemas/Position'
+              $ref: '#/components/schemas/Position'
             preconditioning:
-                  $ref: '#/components/schemas/Preconditioning'
+              $ref: '#/components/schemas/Preconditioning'
             energies:
               type: array
               items:
@@ -1504,30 +1616,43 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/Engine'
+            transmission:
+              $ref: '#/components/schemas/Transmission'
             powertrain:
-                  $ref: '#/components/schemas/Powertrain'
+              $ref: '#/components/schemas/Powertrain'
+            adas : 
+              $ref: '#/components/schemas/Adas'
             doorsState:
-                  $ref: '#/components/schemas/DoorsState'
+              $ref: '#/components/schemas/DoorsState'
             privacy:
-                  $ref: '#/components/schemas/Privacy'
+              $ref: '#/components/schemas/Privacy'
             battery:
-                  $ref: '#/components/schemas/Battery'
+              $ref: '#/components/schemas/Battery'
             service:
-                  $ref: '#/components/schemas/ServiceType'
+              $ref: '#/components/schemas/ServiceType'
             safety:  
-                  $ref: '#/components/schemas/Safety'
+              $ref: '#/components/schemas/Safety'
             odometer: 
-                  $ref: '#/components/schemas/VehicleOdometer'
+              $ref: '#/components/schemas/VehicleOdometer'
             kinetic :
-                  $ref: '#/components/schemas/Kinetic'
+              $ref: '#/components/schemas/Kinetic'
             environment: 
-                  $ref: '#/components/schemas/Environment'
+              $ref: '#/components/schemas/Environment'
             drivingBehavior:
-                  $ref: '#/components/schemas/DrivingBehavior'
+              $ref: '#/components/schemas/DrivingBehavior'
+            wipingBlades:  
+              $ref: '#/components/schemas/WipingBladesState'
             lightingSystem:
-                      $ref: '#/components/schemas/LightingSystem'
+              $ref: '#/components/schemas/LightingSystem'
             alarm:
-                  $ref: '#/components/schemas/VehicleStatusAlarm'
+              $ref: '#/components/schemas/VehicleStatusAlarm'
+            stolen:
+              $ref: '#/components/schemas/StolenObj'
+            _embedded:
+              type: object
+              properties:
+                extension:
+                  $ref: '#/components/schemas/Extension'
           required: [_links, createdAt, vin] 
         
     Privacy:
@@ -1780,9 +1905,11 @@ components:
           description: Vehicle autonomy expressed in km for this energy class.
           type: integer
     Consumption:
+          description: Vehicle consumption related to a specific type of energy. Expressed in cl for fuel energy type or in Wh for eletric one.
           type: object
           properties:
               consumption:
+                description: Consumption value
                 type: number
                 format: float
                 minimum: 0
@@ -1790,8 +1917,12 @@ components:
     EnergyConsumption:
         allOf:
               - $ref: '#/components/schemas/Consumption'
-              - description: Vehicle total consumption related to a specific type of energy. Expressed in L for fuel energy type or in KWh for eletric one.
+              - description: Vehicle consumption related to a specific type of energy. Expressed in cl for fuel energy type or in Wh for eletric one.
               - properties:
+                  avgConsumption:
+                    description: Vehicle Average consumption per 100kms for specific enery type. For eletric  in terms of Wh/100km or for fuel in terms of cl/100km respectively
+                    type: number
+                    format: float
                   type:
                     $ref: '#/components/schemas/EnergyType'
                   subType:
@@ -1913,6 +2044,9 @@ components:
                 enabled:
                   type: boolean
                   description:  Determines whether this program is enabled or not.
+                slot:
+                    type: integer
+                    description: This program number. Can only be used ONE time in the same charging program list. 
                 end:
                   type: string
                   description: |
@@ -2133,7 +2267,35 @@ components:
                         items:
                           $ref: '#/components/schemas/PreconditioningProgram'
                 required: [createdAt]
-        
+   
+    PreconditioningBase:
+      allOf:
+          - type: object
+            description: Preconditioning the vehicle for driver and passenger.
+            properties:
+              airConditioning:
+                allOf:
+                  - type : object
+                  - properties:
+                      status:
+                        description: > 
+                          The status of the preconditioning feature.
+                        type: string
+                        enum: [Enabled, Disabled, Finished, Failure]
+                      startingCause:
+                        description : starting cause
+                        type: string
+                        enum: [Immediate, Scheduled]
+                      failureCause:
+                        description: failure cause
+                        type: string
+                        enum: [ Defect, DoorOpened, LowBattery, LowFuelLevel, TooManyUnusedProg, WindowsRoofOpened, HoodOpened, NotParked, OtherFailures]
+                      programs:
+                        type: array
+                        minItems: 1
+                        maxItems: 4
+                        items:
+                          $ref: '#/components/schemas/PreconditioningProgram'
     Trip:
       allOf :
           - $ref: '#/components/schemas/CreatedAtField'
@@ -2831,7 +2993,7 @@ components:
                 oneOf:
                   - type: string
                   - type: string
-                    enum: [vin,monitorID,fleetID]
+                    enum: [vin,monitorID,fleetID,vid]
                     description: |
                       A value  that will be associated with the provided key as is if expressed as literal value or  contextually valued if prefixed with the dollar sign ($).  
                       
@@ -3360,6 +3522,12 @@ components:
                         type: boolean
                         description: true if the progrm is enables, foalse otherwise.
                         example : true
+                        
+                      slot:
+                                      type: integer
+                                      description: This program number. Can only be used ONE time in the same charging program list.
+                                      minimum: 1
+                                      maximum: 4
                       end:
                           type: string
                           description: |
@@ -4465,7 +4633,7 @@ components:
             type: string
             enum: [Off, On]
     LightingSystemBase:
-                description: Expresses the Directional, Fog and the Position vehicle lights.
+                description: Expresses the Directional, Fog and Position vehicle lights.
                 type: object
                 properties:
                   turn:
@@ -4479,7 +4647,7 @@ components:
                       - $ref: '#/components/schemas/LightingSystemBase'
                     required: [createdAt]
                     
-    LightingBase:  
+    LightingBase:
                 type: object
                 description: Depricated lighting system model. Use LightingSystem instead.
                 deprecated: true
@@ -4499,7 +4667,7 @@ components:
                     items:
                       type: string
                       enum: [On, Off]
-    Environment: 
+    Environment:
               type: object
               properties:
                   luminosity:
@@ -4611,7 +4779,15 @@ components:
     alarmId:
       name: aid
       in: path
-      description: id of the alamr.
+      description: id of the alarm.
+      required: true
+      schema:
+        type: string
+    
+    stolenId:
+      name: sid
+      in: path
+      description: id of the stolen state.
       required: true
       schema:
         type: string
@@ -4938,6 +5114,24 @@ components:
             
     AlarmFailedResponse:
       description: Alarm request error
+      $ref: '#/x-fragment/general_error_fragment'
+    
+    StolenSucessResponse:
+      description: Stolen response
+      content:
+        application/hal+json:
+          schema:
+            $ref: '#/components/schemas/Stolen'
+    
+    StolenSuccessResponses:
+      description: A list of stolen context.
+      content:
+        application/hal+json:
+          schema:
+            $ref: '#/components/schemas/StolenCollection'
+
+    StolenFailedResponse:
+      description: Stolen request error
       $ref: '#/x-fragment/general_error_fragment'
     
     AlertsuccessResponses:

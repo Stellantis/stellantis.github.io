@@ -1,3 +1,27 @@
+- version: "3.19.2"
+  availability: in_use
+  release_date: 30 Jul 2024
+  description: |-
+    **Monitors API**
+      - Added vid to the attribute list. While creating monitor, vid now can be requested to be part of either header/body while sending the data.
+- version: "3.19.1"
+  availability: in_use
+  release_date: 30 Jul 2024
+  description: |-
+    **Trips API**
+      - Added average Consumption field to energy consumption block on trips.
+- version: "3.18.1"
+  availability: in_use
+  release_date: 30 Jul 2024
+  description: |-
+    **Waypoints, Status and Stolen API**
+      - Add endpoint /fleets/{fid}/vehicles/{vid}/stolen/{sid}/waypoints
+      - Add stolen object in :
+        - GET /fleets/{fid}/status
+        - GET /fleets/{fid}/vehicles/{vid}/status
+      - Expose stolen object on B2B API
+        - GET /fleets/{fid}/vehicles/{vid}/stolen/{sid}
+        - GET /fleets/{fid}/vehicles/{vid}/stolen/
 - version: "3.18.0"
   availability: in_use
   release_date: 25 Jan 2024
