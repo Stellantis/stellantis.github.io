@@ -1,3 +1,9 @@
+- version: "3.19.3"
+  availability: in_use
+  release_date: 20 July 2025
+  description: |-
+    **Remote API**
+      - Added Stop charge status and Charge end time 
 - version: "3.19.2"
   availability: in_use
   release_date: 30 Jul 2024
@@ -566,4 +572,5 @@
   description: |-
     #### `1st release (B2B)`
     * As delivered to Huawei regarding interfacing API
+
     * As delivered to MPH/API team regarding public B2B API

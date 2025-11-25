@@ -1982,6 +1982,27 @@ components:
                     nextDelayedTime:
                       description:  Duration (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) until the next battery charging.
                       type: string
+                    chargingEndTime:
+                      description:  Timestamp (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) of when the charging should end  
+                      type: string                        
+                    stopChargeStatus:
+                       type: string
+                       description: | 
+                                   Status of delayed stop charge.
+                                   one of following enums status will be set:
+                                      | Enum | Description |
+                                      |----------|:-------------:|
+                                      | Deactivated | Function is deactivated |
+                                      | Activated | The function is activated, and the conditions to execute it are met. |
+                                      | Successful | The most recent stop charge was successful. |
+                                      | StopChargeFailed | Failed to stop charging. |
+                                      | ChargeEndTimeScheduleFailed| The programming of the end of charge failed; the charging should not stop at the requested time. |
+                       enum:
+                          - Deactivated
+                          - Activated
+                          - Successful
+                          - StopChargeFailed
+                          - ChargeEndTimeScheduleFailed  
                     schedule:
                         properties:
                           programs:
@@ -3506,11 +3527,39 @@ components:
           type: string
         schedule:
           type: object
-          description: Charge scheduling. Only one of the two modes, programs or nexDelayedTime, should be provided.
+          description: | 
+                          Charge scheduling: only one of the three modes, ```programs```, ```nextDelayedTime/immediate```, or ```chargingEndTime/chargingEndTimeEnabled```, should be provided.
+                          * ```chargingEndTimeEnabled ```and ```chargingEndTime``` Can be used together to set the end time.
+                          * ```nextDelayedTime``` and ```immediate``` cannot be used together and are mutually exclusive. Mixing them will result in an error (HTTP 400).
+                          Here are the possible combinations of start and end times with their respective settings: immediate start and end time enable toggle.
+                          * ```nextDelayedTime``` and ```immediate```
+                              | <b>nextDelayedTime</b> | <b> immediate</b> |<b> allowed</b> |
+                              | :------------------: | :-------------------: | :-------------------: |
+                              | set |not set|yes | 
+                              | set |set to true/false|no |                               
+                              | not set |set to true/false |yes |                               
+                         
+                          * ```chargingEndTime``` and ```chargingEndTimeEnabled```
+                              | <b>chargingEndTime</b> | <b> chargingEndTimeEnabled</b> |<b> allowed</b> |
+                              | :------------------: | :-------------------: | :-------------------: |
+                              | set |not set|yes | 
+                              | set |set to true / false|yes |                               
+                              | not set |set to true/false  |Yes, if the chargingEndTime has been set before; otherwise, it will raise an error (HTTP 400)|   
+                          * General rule: An empty schedule object will result in an error (HTTP 400).
           properties:
             nextDelayedTime:
               type: string                        
               description:  Timestamp (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) of the next battery charging time.
+            immediate:
+              type: boolean
+              description :  Determines if the charging will start immediately(```True```) or not.
+              example : true
+            chargingEndTime:
+              type: string                        
+              description:  Timestamp (as defined in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)) of when the charging should end
+            chargingEndTimeEnabled:
+              type: boolean
+              description: Enable or disable the programmed charge end time.
             programs:
               description: Scheduled charging programs list.
               type: array
@@ -3539,7 +3588,7 @@ components:
                           example : PT14H30M                              
         immediate:
           type: boolean
-          description :  Determines if the charging will start immediately(```True```) or not.
+          description :  Determines if the charging will start immediately(```true```) or not.
           example : true
         preferences: 
           description: Set the charging preferences.
