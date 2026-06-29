@@ -22,7 +22,7 @@
 		_paq.push(["setCustomVariable", 2, "Etablissement", get_pwk_cookie ('pwk_psa_etb'), "visit"]);
 		_paq.push(["setCustomVariable", 3, "Pays", get_pwk_cookie ('pwk_psa_pays'), "visit"]);
 	//_paq.push(["setCustomVariable", 4, "TypeUser", cvTypeUser, "visit"]);
-	// _paq.push(["setCustomVariable", 5, "Age", cvAge", "visit"]);
+	// _paq.push(["setCustomVariable", 5, "Age", cvAge, "visit"]);
 
 // you can set up to 5 custom variables for each action (page view, download, click, site search)
 
